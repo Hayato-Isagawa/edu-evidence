@@ -1,0 +1,185 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const strategies = await getCollection("strategies");
+  return strategies.map((s) => ({ params: { slug: s.id }, props: { entry: s } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const stars = "★".repeat(d.evidenceStrength) + "☆".repeat(5 - d.evidenceStrength);
+const yen = "¥".repeat(d.cost) + "·".repeat(5 - d.cost);
+const sourceLabel = d.source === "japan" ? "日本研究" : "EEF";
+const sourceColor =
+  d.source === "japan"
+    ? "text-rose-600 border-rose-600/40"
+    : "text-sky-700 border-sky-700/40";
+const effectSign = d.monthsGained > 0 ? "+" : d.monthsGained === 0 ? "±" : "";
+const effectColor =
+  d.monthsGained > 0
+    ? "text-[var(--color-accent)]"
+    : d.monthsGained === 0
+      ? "text-[var(--color-sub)]"
+      : "text-red-600";
+const effectNote =
+  d.monthsGained > 0
+    ? `3月時点で、通常より約${d.monthsGained}ヶ月先の学力水準に到達`
+    : d.monthsGained === 0
+      ? "学力への効果は確認されていない"
+      : `3月時点で、通常より約${Math.abs(d.monthsGained)}ヶ月分学力が低下する傾向`;
+---
+
+<Layout title={`${d.title} — EduEvidence JP`} description={d.summary}>
+  <div class="pt-10 pb-6">
+    <a
+      href="/"
+      class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] hover:text-[var(--color-ink)]"
+    >
+      ← Index
+    </a>
+  </div>
+
+  <header class="grid grid-cols-12 gap-6 pb-12 border-b border-[var(--color-line)]">
+    <div class="col-span-12 md:col-span-8">
+      <div class="flex items-center gap-3 mb-6">
+        <p
+          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] leading-none"
+        >
+          Strategy
+        </p>
+        <span
+          class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${sourceColor}`}
+        >
+          {sourceLabel}
+        </span>
+      </div>
+      <h1
+        class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight mb-6"
+      >
+        {d.title}
+      </h1>
+      <p
+        class="text-[var(--color-sub)] text-base md:text-lg leading-loose max-w-xl"
+      >
+        {d.summary}
+      </p>
+    </div>
+
+    <div
+      class="col-span-12 md:col-span-4 md:pt-2 grid grid-cols-2 md:grid-cols-1 gap-y-6 gap-x-4 font-mono text-xs"
+    >
+      <div>
+        <div class="uppercase tracking-widest text-[var(--color-sub)] mb-1">
+          学習効果
+        </div>
+        <div
+          class={`text-4xl font-black tabular-nums ${effectColor}`}
+        >
+          {effectSign}{d.monthsGained}<span class="text-base ml-1">ヶ月</span>
+        </div>
+        <div class="mt-1 normal-case tracking-normal text-[var(--color-sub)] leading-snug">
+          {effectNote}
+        </div>
+      </div>
+      <div>
+        <div class="uppercase tracking-widest text-[var(--color-sub)] mb-1">
+          エビデンス
+        </div>
+        <div class="text-amber-600 text-base">{stars}</div>
+      </div>
+      <div>
+        <div class="uppercase tracking-widest text-[var(--color-sub)] mb-1">
+          コスト
+        </div>
+        <div class="text-[var(--color-accent)] text-base tracking-widest">
+          {yen}
+        </div>
+      </div>
+      <div>
+        <div class="uppercase tracking-widest text-[var(--color-sub)] mb-1">
+          対象
+        </div>
+        <div class="text-[var(--color-ink)] leading-relaxed">
+          {d.subjects.join(" · ")}<br />{d.grades.join(" · ")}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <article class="prose-article py-16 max-w-2xl">
+    <Content />
+  </article>
+
+  {
+    d.sourceUrl && (
+      <section class="mt-4 mb-24 pt-8 border-t border-[var(--color-line)] max-w-2xl">
+        <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-2">
+          Source
+        </div>
+        <a
+          class="underline text-[var(--color-ink)] hover:text-[var(--color-accent)]"
+          href={d.sourceUrl}
+          target="_blank"
+          rel="noopener"
+        >
+          {d.sourceTitle ?? d.sourceUrl}
+        </a>
+      </section>
+    )
+  }
+</Layout>
+
+<style is:global>
+  .prose-article {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+  .prose-article h2 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .prose-article h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-article p {
+    margin-bottom: 1.25rem;
+  }
+  .prose-article ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .prose-article ul li {
+    margin-bottom: 0.4rem;
+  }
+  .prose-article blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+    color: var(--color-sub);
+    margin: 1.5rem 0;
+  }
+  .prose-article a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose-article a:hover {
+    text-decoration-thickness: 2px;
+  }
+  .prose-article em {
+    font-style: italic;
+  }
+  .prose-article strong {
+    font-weight: 700;
+  }
+</style>

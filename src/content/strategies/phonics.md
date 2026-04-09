@@ -1,0 +1,53 @@
+---
+title: フォニックス指導
+summary: 文字と音の対応関係を体系的に教える指導法。読みの初期段階で特に効果が高い。日本語ではローマ字や英語学習で参照される。
+monthsGained: 5
+evidenceStrength: 5
+cost: 1
+subjects: ["国語", "外国語"]
+grades: ["低学年"]
+tags: ["読み", "言語"]
+sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/phonics
+sourceTitle: "EEF Teaching and Learning Toolkit — Phonics"
+---
+
+## 一言でいうと
+
+文字と音の対応を、明示的かつ体系的に教える指導法です。
+英語圏では読みの基礎として確立した方法で、日本でも外国語活動・英語科やローマ字指導の文脈で参照されます。
+
+## なぜ効果があるのか
+
+読みの第一段階は「文字を音に変換する」処理です。
+この変換が自動化されないと、子どもは1文字ずつ解読することにエネルギーを使い、内容を理解する余裕がなくなります。
+フォニックスは、この変換プロセスを段階的に身につけさせます。
+
+## 日本の小学校で取り入れるヒント
+
+- 外国語活動・英語科で、アルファベットの「名前」と「音」を区別して教える
+- 単語をいきなり丸暗記させず、音の組み合わせとして示す
+- ローマ字指導でも、子音と母音の組み合わせを意識させる
+- 短い単語を繰り返し声に出させ、音と文字をつなぐ
+- 国語の読みでも、ひらがな・カタカナの音節構造を意識的に扱う
+
+## 研究からわかっていること
+
+- 平均的に、学習は約5ヶ月分前進します。エビデンスの強度は最も高い領域の一つです。
+- 効果は読みの初期段階(就学前〜低学年)で最大になります。
+- すでに読める子には効果が小さくなります。
+
+## 注意したいこと
+
+- フォニックスは「読みの土台」であって、それだけで読解力が育つわけではありません。
+- 機械的な暗唱に陥ると、子どもの学習意欲を下げます。短時間・楽しい形で取り入れます。
+- 日本語(かな)と英語(アルファベット)では文字体系が異なるため、そのまま翻訳できる指導法ではありません。
+
+## 主な参考研究
+
+- National Reading Panel (2000). [*Teaching children to read*](https://www.nichd.nih.gov/publications/pubs/nrp/smallbook). NICHD. — 体系的なフォニックス指導が、幼稚園から6年生の子どもの読みの力を有意に向上させることを示した大規模レビュー。
+- Ehri, L. C., Nunes, S. R., Stahl, S. A., & Willows, D. M. (2001). [Systematic phonics instruction helps students learn to read](https://doi.org/10.3102/00346543071003393). *Review of Educational Research*, 71(3), 393–447. — 66研究のメタ分析。体系的フォニックスの効果量d=0.44。特に低学年・読みに困難を持つ子で効果大。
+- Torgerson, C., Brooks, G., & Hall, J. (2006). [*A systematic review of the research literature on the use of phonics*](https://dera.ioe.ac.uk/id/eprint/14791). DfES. — 英国教育省のレビュー。フォニックスの効果は確認されるが、それ単独では十分でないことも指摘。
+
+## 関連する学習指導要領
+
+- [小学校学習指導要領解説 外国語活動・外国語編](https://www.mext.go.jp/content/20220614-mxt_kyoiku02-100002607_11.pdf) — 外国語科の「読むこと」の目標で、文字と音の関係への気付きが示されています。フォニックス的なアプローチとの接続が見られます。

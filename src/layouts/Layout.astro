@@ -1,0 +1,133 @@
+---
+import "../styles/global.css";
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "EduEvidence JP — 小学校エビデンスポータル",
+  description = "日本の小学校教員のための教育エビデンスまとめサイト。国内外の研究から得られた知見を「効果」「信頼性」「コスト」の3指標で整理し、現場で使える形に翻案して公開。",
+} = Astro.props;
+const siteUrl = "https://edu-evidence.jp";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = `${siteUrl}/og-image.png`;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- OGP -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="EduEvidence JP" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "EduEvidence JP",
+      "url": siteUrl,
+      "description": description,
+      "inLanguage": "ja",
+    })} />
+  </head>
+  <body class="bg-[var(--color-bg)] text-[var(--color-ink)]">
+    <header class="border-b border-[var(--color-line)]">
+      <div
+        class="mx-auto max-w-6xl px-6 md:px-10 py-5 flex items-baseline justify-between"
+      >
+        <a href="/" class="font-black text-xl tracking-tight">
+          EduEvidence <span class="text-[var(--color-accent)]">JP</span>
+        </a>
+        <nav class="font-mono text-[11px] tracking-widest uppercase flex gap-4 md:gap-6 text-[var(--color-sub)]">
+          <a href="/" class="hover:text-[var(--color-ink)] transition">Index</a>
+          <a href="/columns" class="hover:text-[var(--color-ink)] transition">Columns</a>
+          <a href="/policy-evidence" class="hidden sm:inline hover:text-[var(--color-ink)] transition">Policy</a>
+          <a href="/guide" class="hover:text-[var(--color-ink)] transition">Guide</a>
+          <a href="/about" class="hidden sm:inline hover:text-[var(--color-ink)] transition">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 md:px-10">
+      <slot />
+    </main>
+
+    <footer class="border-t border-[var(--color-line)] mt-32">
+      <div
+        class="mx-auto max-w-6xl px-6 md:px-10 py-12 grid md:grid-cols-4 gap-8 text-xs text-[var(--color-sub)] leading-relaxed"
+      >
+        <div>
+          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
+            EduEvidence JP
+          </div>
+          <p>日本の小学校教員のための、研究エビデンスに基づく指導法ポータル。</p>
+        </div>
+        <div>
+          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
+            Guide
+          </div>
+          <ul class="space-y-1.5">
+            <li><a href="/guide/indicators" class="hover:underline">指標の読み方</a></li>
+            <li><a href="/guide/evidence" class="hover:underline">エビデンス入門</a></li>
+            <li><a href="/guide/glossary" class="hover:underline">用語集</a></li>
+            <li><a href="/subjects" class="hover:underline">教科から探す</a></li>
+            <li><a href="/grades" class="hover:underline">学年から探す</a></li>
+            <li><a href="/cost" class="hover:underline">コストから探す</a></li>
+            <li><a href="/tags" class="hover:underline">タグから探す</a></li>
+            <li><a href="/faq" class="hover:underline">よくある質問</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
+            Explore
+          </div>
+          <ul class="space-y-1.5">
+            <li><a href="/columns" class="hover:underline">エビデンスで考える</a></li>
+            <li><a href="/policy-evidence" class="hover:underline">政策とエビデンス</a></li>
+            <li><a href="/voices" class="hover:underline">現場の声</a></li>
+            <li><a href="/changelog" class="hover:underline">更新履歴</a></li>
+            <li><a href="/about" class="hover:underline">このサイトについて</a></li>
+            <li><a href="/support" class="hover:underline">運営を支援する</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
+            License
+          </div>
+          <p>
+            英国 EEF の
+            <a
+              class="underline"
+              href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit"
+              target="_blank"
+              rel="noopener">Toolkit</a
+            > を翻案。CC BY-SA 4.0 で公開。
+          </p>
+        </div>
+      </div>
+      <div class="mx-auto max-w-6xl px-6 md:px-10 pb-8 text-[10px] text-[var(--color-sub)]">
+        © 2026 EduEvidence JP. CC BY-SA 4.0.
+      </div>
+    </footer>
+  </body>
+</html>

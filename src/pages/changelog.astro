@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const entries = [
+  {
+    date: "2026-04-09",
+    items: [
+      { type: "add", text: "サイト公開。指導法30項目を掲載" },
+      { type: "add", text: "ガイド: 指標の読み方 / エビデンス入門 / 用語集(25語)" },
+      { type: "add", text: "FAQ(10問)、Aboutページ(編集方針・監修者欄)" },
+      { type: "add", text: "現場の声コーナー、更新履歴ページ、サポートページ" },
+      {
+        type: "add",
+        text: "全30項目に参考研究(メタ分析・RCT・国内研究)を2〜3本ずつ掲載",
+      },
+    ],
+  },
+];
+
+const typeLabel: Record<string, { label: string; color: string }> = {
+  add: { label: "追加", color: "text-emerald-700" },
+  update: { label: "更新", color: "text-amber-600" },
+  fix: { label: "修正", color: "text-rose-600" },
+  remove: { label: "削除", color: "text-[var(--color-sub)]" },
+};
+---
+
+<Layout title="更新履歴 — EduEvidence JP">
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+      >
+        Changelog
+      </p>
+      <h1
+        class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
+      >
+        更新履歴
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
+      <p>
+        記事の追加・修正・改訂を<br />
+        時系列で記録しています。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    {
+      entries.map((entry) => (
+        <div class="border-t border-[var(--color-line)] py-10">
+          <div class="font-mono text-sm text-[var(--color-accent)] mb-4">
+            {entry.date}
+          </div>
+          <ul class="space-y-3">
+            {entry.items.map((item) => {
+              const t = typeLabel[item.type] ?? typeLabel.add;
+              return (
+                <li class="flex gap-3 items-start text-sm leading-relaxed">
+                  <span
+                    class={`font-mono text-[11px] uppercase tracking-widest shrink-0 mt-0.5 ${t.color}`}
+                  >
+                    {t.label}
+                  </span>
+                  <span>{item.text}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))
+    }
+    <div class="border-t border-[var(--color-line)]"></div>
+  </section>
+</Layout>

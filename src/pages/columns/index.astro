@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const columns = await getCollection("columns");
+columns.sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+
+<Layout title="エビデンスで考える — EduEvidence JP">
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+      >
+        Columns — Think with evidence
+      </p>
+      <h1
+        class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
+      >
+        <span class="text-[var(--color-accent)]">エビデンス</span>で考える
+      </h1>
+    </div>
+    <div
+      class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm"
+    >
+      <p>
+        教育界で話題のテーマを、<br />
+        研究のエビデンスに照らして考える<br />
+        コラムシリーズです。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="border-b border-[var(--color-line)]">
+      {
+        columns.map((c, i) => (
+          <a
+            href={`/columns/${c.id}`}
+            class="group block border-t border-[var(--color-line)] py-10 transition hover:bg-[var(--color-card)]"
+          >
+            <div class="grid grid-cols-12 gap-4 items-baseline px-2">
+              <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <div class="col-span-10 md:col-span-8">
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition">
+                  {c.data.title}
+                </h3>
+                <p class="mt-2 text-sm text-[var(--color-sub)] leading-relaxed line-clamp-2">
+                  {c.data.summary}
+                </p>
+              </div>
+              <div class="col-span-12 md:col-span-3 md:text-right">
+                <span class="font-mono text-xs text-[var(--color-sub)]">
+                  {c.data.date}
+                </span>
+                <span class="inline-block ml-3 transition group-hover:translate-x-1 text-[var(--color-sub)]">
+                  →
+                </span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

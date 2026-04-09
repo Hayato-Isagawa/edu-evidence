@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import StrategyRow from "../../components/StrategyRow.astro";
+
+const allStrategies = await getCollection("strategies");
+
+const costGroups = [
+  {
+    level: 1,
+    label: "明日から始められる",
+    desc: "教師の工夫だけで可能。特別な予算不要。",
+    yen: "¥",
+  },
+  {
+    level: 2,
+    label: "少しの準備で始められる",
+    desc: "少額の教材費、または短時間の研修が必要。",
+    yen: "¥¥",
+  },
+  {
+    level: 3,
+    label: "まとまった準備が必要",
+    desc: "教材費、定期的な研修、一部人員の確保が必要。",
+    yen: "¥¥¥",
+  },
+  {
+    level: 4,
+    label: "相当な投資が必要",
+    desc: "専門スタッフの配置、大規模な研修が必要。",
+    yen: "¥¥¥¥",
+  },
+  {
+    level: 5,
+    label: "組織的な投資が必要",
+    desc: "人員増や施設変更など、制度レベルの投資。",
+    yen: "¥¥¥¥¥",
+  },
+];
+---
+
+<Layout title="コストから探す — EduEvidence JP">
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6">
+        Browse by cost
+      </p>
+      <h1 class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight">
+        コストから探す
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
+      <p>「お金をかけずに明日から」<br />始められるものから探せます。</p>
+    </div>
+  </section>
+
+  <section class="pb-24 space-y-16">
+    {
+      costGroups.map((group) => {
+        const strategies = allStrategies
+          .filter((s) => s.data.cost === group.level)
+          .sort((a, b) => b.data.monthsGained - a.data.monthsGained);
+        if (strategies.length === 0) return null;
+        return (
+          <div>
+            <div class="flex items-baseline gap-4 mb-2 px-2">
+              <span class="text-xl font-black text-emerald-700 tracking-widest">{group.yen}</span>
+              <h2 class="text-xl font-black tracking-tight">{group.label}</h2>
+              <span class="font-mono text-xs text-[var(--color-sub)]">{strategies.length} entries</span>
+            </div>
+            <p class="text-sm text-[var(--color-sub)] mb-4 px-2">{group.desc}</p>
+            <div class="border-b border-[var(--color-line)]">
+              {strategies.map((s, i) => (
+                <StrategyRow
+                  index={i + 1}
+                  href={`/strategies/${s.id}`}
+                  title={s.data.title}
+                  monthsGained={s.data.monthsGained}
+                  evidenceStrength={s.data.evidenceStrength}
+                  source={s.data.source}
+                  subjects={s.data.subjects}
+                  grades={s.data.grades}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })
+    }
+  </section>
+</Layout>

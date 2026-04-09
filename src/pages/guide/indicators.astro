@@ -1,0 +1,191 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="指標の読み方 — EduEvidence JP">
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+      >
+        Guide — How to read
+      </p>
+      <h1
+        class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
+      >
+        3つの指標の<br /><span class="text-[var(--color-accent)]">読み方</span>
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
+      <p>
+        本サイトの各指導法には3つの指標が付いています。<br />
+        ここでは、それぞれの意味と読み取り方を解説します。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24 space-y-20">
+
+    <!-- 学習効果 -->
+    <div>
+      <div class="border-t border-[var(--color-line)] pt-10">
+        <div class="flex items-baseline gap-6 mb-6">
+          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">01</span>
+          <h2 class="text-3xl font-black tracking-tight">学習効果（+◯ヶ月）</h2>
+        </div>
+        <div class="text-5xl font-black text-[var(--color-accent)] mb-6">
+          +6<span class="text-lg ml-1">ヶ月</span>
+        </div>
+        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
+          <p>
+            その指導法を1年間取り入れた学級の子どもが、4月スタートで3月に測定した時、
+            <strong>取り入れなかった場合と比べて、約◯ヶ月先の学力水準に到達した</strong>ことを示します。
+          </p>
+          <h3 class="font-bold mt-6 mb-2">具体的なイメージ</h3>
+          <p>
+            通常、子どもは1学年(12ヶ月)で12ヶ月分の学力が伸びます。
+            「+6ヶ月」の指導法を取り入れた場合、同じ1年間で18ヶ月分の学力が伸びた——
+            つまり、3月の時点で<strong>通常より約半年先の学力水準に到達した</strong>ということです。
+          </p>
+          <h3 class="font-bold mt-6 mb-2">この数値はどうやって計算されるのか</h3>
+          <p>
+            元になるのは「効果量（effect size）」と呼ばれる統計指標です。
+            多くの研究結果を統合したメタ分析から得られる効果量を、
+            学校生活1年分の学習進捗を基準に「月数」に変換しています。
+          </p>
+          <h3 class="font-bold mt-6 mb-2">注意すべきこと</h3>
+          <ul class="space-y-2 pl-1">
+            <li>・この数値は<strong>平均値</strong>です。すべての子に同じ効果が出るわけではありません</li>
+            <li>・複数の指導法の月数を足し算することはできません（「+6と+5で+11」にはなりません）</li>
+            <li>・同じ指導法でも、実施の質によって効果は大きく変動します</li>
+            <li>・月数が小さい指導法が「意味がない」のではなく、効果が小さめだということです</li>
+          </ul>
+          <h3 class="font-bold mt-6 mb-2">目安としての読み方</h3>
+          <div class="grid grid-cols-3 gap-4 text-sm text-center mt-4">
+            <div class="border border-[var(--color-line)] rounded-lg p-4">
+              <div class="text-2xl font-black text-[var(--color-accent)] mb-1">+1〜3</div>
+              <div class="text-[var(--color-sub)]">小さいが<br />確認できる効果</div>
+            </div>
+            <div class="border border-[var(--color-line)] rounded-lg p-4">
+              <div class="text-2xl font-black text-[var(--color-accent)] mb-1">+4〜6</div>
+              <div class="text-[var(--color-sub)]">中程度〜<br />大きな効果</div>
+            </div>
+            <div class="border border-[var(--color-line)] rounded-lg p-4">
+              <div class="text-2xl font-black text-[var(--color-accent)] mb-1">+7〜</div>
+              <div class="text-[var(--color-sub)]">非常に<br />大きな効果</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- エビデンスの強さ -->
+    <div>
+      <div class="border-t border-[var(--color-line)] pt-10">
+        <div class="flex items-baseline gap-6 mb-6">
+          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02</span>
+          <h2 class="text-3xl font-black tracking-tight">エビデンスの強さ（★）</h2>
+        </div>
+        <div class="text-4xl text-amber-500 mb-6">★★★★☆</div>
+        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
+          <p>
+            その効果が<strong>どれだけ信頼できる研究で確かめられているか</strong>を示します。
+            「効果が大きい」ことと「証拠が確か」であることは別の話です。
+          </p>
+          <h3 class="font-bold mt-6 mb-2">★の基準</h3>
+          <div class="space-y-3">
+            <div class="flex gap-4 items-start">
+              <span class="text-amber-500 shrink-0">★☆☆☆☆</span>
+              <span>研究の数が少ない、または研究の質が低い。参考程度</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-amber-500 shrink-0">★★☆☆☆</span>
+              <span>いくつかの研究はあるが、結果にばらつきがある</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-amber-500 shrink-0">★★★☆☆</span>
+              <span>一定数の質の良い研究があり、概ね一致した結果が出ている</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-amber-500 shrink-0">★★★★☆</span>
+              <span>多数の質の高い研究で繰り返し確認されている</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-amber-500 shrink-0">★★★★★</span>
+              <span>大規模で堅牢な研究が蓄積しており、結果の信頼性が非常に高い</span>
+            </div>
+          </div>
+          <h3 class="font-bold mt-6 mb-2">考慮される要素</h3>
+          <ul class="space-y-2 pl-1">
+            <li>・研究の数（何本の研究に基づいているか）</li>
+            <li>・研究デザイン（ランダム化比較試験か、観察研究か）</li>
+            <li>・対象者の規模（何人を対象にした研究か）</li>
+            <li>・結果の一貫性（異なる研究で同じ結論が出ているか）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 導入コスト -->
+    <div>
+      <div class="border-t border-[var(--color-line)] pt-10">
+        <div class="flex items-baseline gap-6 mb-6">
+          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">03</span>
+          <h2 class="text-3xl font-black tracking-tight">導入コスト（¥）</h2>
+        </div>
+        <div class="text-4xl text-emerald-700 tracking-widest mb-6">¥¥···</div>
+        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
+          <p>
+            その指導法を導入するのにかかる<strong>金銭的・時間的コスト</strong>の概算です。
+          </p>
+          <h3 class="font-bold mt-6 mb-2">¥の基準</h3>
+          <div class="space-y-3">
+            <div class="flex gap-4 items-start">
+              <span class="text-emerald-700 shrink-0">¥····</span>
+              <span>教師の工夫だけで始められる。特別な予算不要</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-emerald-700 shrink-0">¥¥···</span>
+              <span>少額の教材費、または短時間の研修が必要</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-emerald-700 shrink-0">¥¥¥··</span>
+              <span>まとまった教材費、定期的な研修、一部人員の確保が必要</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-emerald-700 shrink-0">¥¥¥¥·</span>
+              <span>相当な予算、専門スタッフの配置、または大規模な研修が必要</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="text-emerald-700 shrink-0">¥¥¥¥¥</span>
+              <span>人員増や施設変更など、組織的な投資が必要</span>
+            </div>
+          </div>
+          <h3 class="font-bold mt-6 mb-2">費用対効果の考え方</h3>
+          <p>
+            「+◯ヶ月」の効果が大きくても、コストが見合わない場合があります。
+            逆に、効果がやや小さくても、¥1つで明日から始められる指導法は、
+            費用対効果が非常に高いと言えます。
+            本サイトでは3指標を総合的に見ることをおすすめしています。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- まとめ -->
+    <div class="border-t border-[var(--color-line)] pt-10 text-center">
+      <p class="text-[var(--color-sub)] leading-loose">
+        3つの指標は、いずれも「絶対的な答え」ではありません。<br />
+        目の前の子どもと教室の状況を踏まえて、<br />
+        <strong class="text-[var(--color-ink)]">判断の参考</strong>としてお使いください。
+      </p>
+      <a
+        href="/"
+        class="inline-block mt-8 font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] hover:underline"
+      >
+        ← 指導法一覧へ
+      </a>
+    </div>
+
+  </section>
+</Layout>

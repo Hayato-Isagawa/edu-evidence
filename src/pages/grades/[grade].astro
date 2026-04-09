@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import StrategyRow from "../../components/StrategyRow.astro";
+
+export async function getStaticPaths() {
+  const strategies = await getCollection("strategies");
+  const gradeSet = new Set<string>();
+  for (const s of strategies) {
+    for (const g of s.data.grades) gradeSet.add(g);
+  }
+  return [...gradeSet].map((grade) => ({
+    params: { grade },
+    props: { grade },
+  }));
+}
+
+const { grade } = Astro.props;
+const allStrategies = await getCollection("strategies");
+const strategies = allStrategies
+  .filter((s) => s.data.grades.includes(grade))
+  .sort((a, b) => b.data.monthsGained - a.data.monthsGained);
+---
+
+<Layout title={`${grade} — EduEvidence JP`}>
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-6">
+        <a href="/grades" class="hover:text-[var(--color-ink)]">Grades</a> /
+      </p>
+      <h1 class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight">
+        <span class="text-[var(--color-accent)]">{grade}</span>
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
+      <p>「{grade}」で活用できる指導法<br /><span class="font-mono text-xs">{strategies.length} entries</span></p>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="border-b border-[var(--color-line)]">
+      {strategies.map((s, i) => (
+        <StrategyRow
+          index={i + 1}
+          href={`/strategies/${s.id}`}
+          title={s.data.title}
+          monthsGained={s.data.monthsGained}
+          evidenceStrength={s.data.evidenceStrength}
+          source={s.data.source}
+          subjects={s.data.subjects}
+          grades={s.data.grades}
+        />
+      ))}
+    </div>
+    <div class="mt-8">
+      <a href="/grades" class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] hover:underline">← 学年一覧へ</a>
+    </div>
+  </section>
+</Layout>

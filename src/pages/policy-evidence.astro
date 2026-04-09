@@ -1,0 +1,218 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const comparisons = [
+  {
+    policy: "家庭学習の充実(宿題の量の増加)",
+    assumption: "宿題の量を増やせば学力が向上する",
+    evidence:
+      "小学校段階では量と学力の関係は弱い。量よりも質(授業との連動・フィードバック付き)が効果を決める。",
+    strategies: [{ name: "宿題(小学校)", href: "/strategies/homework" }],
+    column: { name: "宿題は本当に学力を上げるのか？", href: "/columns/homework-quantity-myth" },
+    alignment: "partial",
+  },
+  {
+    policy: "35人学級(学級規模の縮小)",
+    assumption: "学級の人数を減らせば学力が向上する",
+    evidence:
+      "効果はあるが+2ヶ月と控えめで、コストが最も高い。同じ予算でフィードバック改善やメタ認知指導に投資した方が費用対効果は高い。",
+    strategies: [
+      { name: "学級規模の縮小", href: "/strategies/reducing-class-size" },
+      { name: "少人数指導", href: "/strategies/small-group-tuition" },
+    ],
+    column: { name: "少人数学級にどれだけの効果があるか？", href: "/columns/class-size-cost-effectiveness" },
+    alignment: "partial",
+  },
+  {
+    policy: "GIGAスクール構想(1人1台端末)",
+    assumption: "ICT機器を導入すれば学力が向上する",
+    evidence:
+      "機器の導入だけでは効果がない。教師の指導設計の中に組み込まれ、「補完」として使われたときに+4ヶ月の効果。",
+    strategies: [
+      { name: "ICT活用", href: "/strategies/digital-technology" },
+      { name: "反転授業", href: "/strategies/flipped-classroom" },
+    ],
+    column: { name: "GIGAスクール端末で何が変わったか？", href: "/columns/giga-school-evidence" },
+    alignment: "partial",
+  },
+  {
+    policy: "小学校高学年への教科担任制の導入",
+    assumption: "専門の教員が教えれば学力が向上する",
+    evidence:
+      "日本初のRCT(RIETI, 2025)で理科の学力向上を確認。ただし算数では効果が限定的。教科による差がある。",
+    strategies: [{ name: "教科担任制", href: "/strategies/subject-specialist-teaching" }],
+    alignment: "mostly",
+  },
+  {
+    policy: "プログラミング教育の必修化",
+    assumption: "プログラミングを学べば論理的思考力が育つ",
+    evidence:
+      "計算論的思考への正の効果は報告されているが、学力への直接的な因果効果を示すメタ分析はまだ限られている。エビデンスは蓄積中。",
+    strategies: [{ name: "プログラミング教育", href: "/strategies/programming-education" }],
+    alignment: "limited",
+  },
+  {
+    policy: "「主体的・対話的で深い学び」の推進",
+    assumption: "授業改善を通じて資質・能力を育成する",
+    evidence:
+      "メタ認知(+7ヶ月)、協同学習(+5ヶ月)、探究学習(+7ヶ月)など、構成要素にはそれぞれ強いエビデンスがある。ただし「主体的・対話的で深い学び」全体としてのメタ分析は存在しない。",
+    strategies: [
+      { name: "メタ認知と自己調整学習", href: "/strategies/metacognition" },
+      { name: "協同学習", href: "/strategies/cooperative-learning" },
+      { name: "探究学習", href: "/strategies/inquiry-based-learning" },
+    ],
+    alignment: "mostly",
+  },
+  {
+    policy: "「特別の教科 道徳」の実施",
+    assumption: "道徳教育が子どもの道徳性を育てる",
+    evidence:
+      "「考え、議論する道徳」の方向性はSEL研究と整合する。ただし道徳教育そのものの効果を定量的に示すRCTやメタ分析は限られている。",
+    strategies: [
+      { name: "道徳教育", href: "/strategies/moral-education" },
+      { name: "社会性と情動の学習(SEL)", href: "/strategies/social-emotional-learning" },
+    ],
+    alignment: "limited",
+  },
+  {
+    policy: "学力向上のための補助スタッフの配置",
+    assumption: "人手を増やせば学力が向上する",
+    evidence:
+      "ただ配置するだけでは+1ヶ月。役割設計と訓練を伴う構造化された活用では+4ヶ月。「いるだけ」では効果がなく、むしろ逆効果の報告もある。",
+    strategies: [{ name: "補助スタッフの活用", href: "/strategies/teaching-assistants" }],
+    alignment: "partial",
+  },
+  {
+    policy: "「個別最適な学び」の推進",
+    assumption: "一人ひとりに合わせた学習で学力が向上する",
+    evidence:
+      "個別化学習の効果は+3ヶ月。教師の関与を伴う個別化で効果が大きい。AI任せの完全自習では効果が出にくい。協同学習(+5ヶ月)との組み合わせが研究の示す方向。",
+    strategies: [
+      { name: "個別化学習", href: "/strategies/individualised-instruction" },
+      { name: "ICT活用", href: "/strategies/digital-technology" },
+      { name: "協同学習", href: "/strategies/cooperative-learning" },
+    ],
+    alignment: "partial",
+  },
+  {
+    policy: "習熟度別指導(算数等)",
+    assumption: "レベルに合わせた指導で効率よく学力が向上する",
+    evidence:
+      "効果は+1ヶ月と非常に小さい。上位は伸びるが下位は停滞し、格差が拡大する構造。固定化を避け流動的に運用することが重要。",
+    strategies: [{ name: "習熟度別グループ編成", href: "/strategies/setting-streaming" }],
+    alignment: "partial",
+  },
+];
+
+const alignmentLabel: Record<string, { text: string; color: string }> = {
+  mostly: { text: "概ね整合", color: "text-[var(--color-accent)]" },
+  partial: { text: "部分的に整合", color: "text-amber-600" },
+  limited: { text: "エビデンス不足", color: "text-[var(--color-sub)]" },
+};
+---
+
+<Layout title="政策とエビデンス — EduEvidence JP">
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+      >
+        Policy × Evidence
+      </p>
+      <h1
+        class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
+      >
+        政策と<span class="text-[var(--color-accent)]">エビデンス</span>
+      </h1>
+    </div>
+    <div
+      class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm"
+    >
+      <p>
+        教育委員会や文部科学省から<br />
+        推進される主な政策を、<br />
+        研究のエビデンスと照らし合わせます。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-12">
+    <div
+      class="border border-[var(--color-accent)] rounded-xl p-6 md:p-8 bg-[var(--color-accent)]/[0.03] max-w-3xl"
+    >
+      <p class="text-sm leading-loose">
+        <strong>このページの読み方</strong> ——
+        ここでは政策の「正しさ」を判断しているのではありません。
+        政策が前提としている仮説と、研究が示している知見を並べて示しています。
+        政策には研究以外の要因（予算・政治・社会的要請）も関係するため、
+        エビデンスとの整合性だけで評価すべきものではありません。
+        あくまで、指導の判断材料としてご活用ください。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    {
+      comparisons.map((c, i) => {
+        const al = alignmentLabel[c.alignment] ?? alignmentLabel.limited;
+        return (
+          <div class="border-t border-[var(--color-line)] py-10 md:py-12">
+            <div class="grid grid-cols-12 gap-6 px-2">
+              <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+
+              <div class="col-span-10 md:col-span-11">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                  <h3 class="text-xl md:text-2xl font-black tracking-tight">
+                    {c.policy}
+                  </h3>
+                  <span
+                    class={`font-mono text-[11px] uppercase tracking-widest ${al.color} border border-current rounded-full px-3 py-0.5`}
+                  >
+                    {al.text}
+                  </span>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mt-4">
+                  <div>
+                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] mb-2">
+                      政策の前提
+                    </div>
+                    <p class="text-sm leading-relaxed">{c.assumption}</p>
+                  </div>
+                  <div>
+                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)] mb-2">
+                      エビデンスが示すこと
+                    </div>
+                    <p class="text-sm leading-relaxed">{c.evidence}</p>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-3 text-xs">
+                  {c.strategies.map((s) => (
+                    <a
+                      href={s.href}
+                      class="text-[var(--color-accent)] hover:underline"
+                    >
+                      {s.name} →
+                    </a>
+                  ))}
+                  {c.column && (
+                    <a
+                      href={c.column.href}
+                      class="text-[var(--color-ink)] hover:underline"
+                    >
+                      コラム: {c.column.name} →
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+    <div class="border-t border-[var(--color-line)]"></div>
+  </section>
+</Layout>

@@ -1,0 +1,194 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import StrategyRow from "../components/StrategyRow.astro";
+const strategies = await getCollection("strategies");
+strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
+---
+
+<Layout>
+  <section class="py-20 md:py-32 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+      >
+        Evidence-based teaching for elementary schools
+      </p>
+      <h1
+        class="font-black text-5xl md:text-7xl leading-[1.15] tracking-tight"
+      >
+        <span class="text-[var(--color-accent)]">エビデンス</span>を、<br />
+        現場の指導へ。
+      </h1>
+    </div>
+    <div
+      class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm md:text-base"
+    >
+      <p>
+        このサイトは、国内外の教育研究から<br />
+        得られた知見を「効果」「信頼性」<br />
+        「コスト」の3指標で整理し、<br />
+        日本の小学校の現場で使える形に<br />
+        翻案して公開しています。
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--color-line)] py-10">
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12 md:col-span-3">
+        <div
+          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+        >
+          How to read
+        </div>
+        <div class="mt-3 flex items-baseline gap-4">
+          <span class="text-3xl font-black text-[var(--color-accent)]">+6<span class="text-base ml-1">ヶ月</span></span>
+          <span class="text-3xl font-black text-red-600">(<span class="text-base mr-0.5">-</span>4<span class="text-base ml-1">ヶ月</span>)</span>
+        </div>
+        <div class="mt-2 text-xl text-amber-500">★★★★☆</div>
+      </div>
+      <div
+        class="col-span-12 md:col-span-9 text-sm md:text-base text-[var(--color-sub)] leading-loose"
+      >
+        <p>
+          <strong class="text-[var(--color-accent)]">+◯ヶ月(緑)</strong> =
+          この指導法を取り入れた学級は、1年後に<strong class="text-[var(--color-ink)]">通常より◯ヶ月分先</strong>に進んだ。<br />
+          <strong class="text-red-600">(-◯ヶ月)(赤)</strong> =
+          逆に、<strong class="text-[var(--color-ink)]">◯ヶ月分遅れた</strong>。やらない方がよかった指導法。
+        </p>
+        <p class="mt-3">
+          <span class="text-amber-500">★</span> は<strong class="text-[var(--color-ink)]">「その数字をどこまで信じていいか」</strong>を表します。<br />
+          ★が多い = 多くの質の高い研究で繰り返し確かめられている。<br />
+          ★が少ない = 研究がまだ少なく、数字が変わる可能性がある。
+        </p>
+        <p class="mt-2 text-[var(--color-ink)] font-bold">
+          月数と★をセットで見ることで、より確かな判断ができます。
+        </p>
+        <div class="grid grid-cols-2 gap-3 mt-3 text-sm">
+          <div class="border border-[var(--color-line)] rounded-lg p-3">
+            <div class="font-bold text-[var(--color-ink)]">+12ヶ月 ★★★</div>
+            <div class="text-[var(--color-sub)]">効果は大きいが研究が少ない。<br />過大評価の可能性あり</div>
+          </div>
+          <div class="border border-[var(--color-accent)]/30 rounded-lg p-3">
+            <div class="font-bold text-[var(--color-ink)]">+5ヶ月 ★★★★★</div>
+            <div class="text-[var(--color-sub)]">効果はやや小さいが<br /><strong class="text-[var(--color-ink)]">信頼性が非常に高い</strong></div>
+          </div>
+        </div>
+        <p class="mt-3 text-xs">
+          ※ 月数は集団の平均値であり、個々の教室への効果を保証しません。
+          <a href="/guide/indicators" class="text-[var(--color-accent)] underline">指標の読み方 →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-12 pb-20">
+    <div class="flex flex-wrap gap-3 mb-8">
+      <a
+        href="/subjects"
+        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+      >
+        <span class="font-bold">教科</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+      </a>
+      <a
+        href="/grades"
+        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+      >
+        <span class="font-bold">学年</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+      </a>
+      <a
+        href="/cost"
+        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+      >
+        <span class="font-bold">コスト</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+      </a>
+      <a
+        href="/tags"
+        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+      >
+        <span class="font-bold">タグ</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+      </a>
+    </div>
+    <div
+      class="flex items-baseline justify-between mb-4 px-2 font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]"
+    >
+      <span>Index — 指導法</span>
+      <span>{strategies.length} entries</span>
+    </div>
+
+    <div class="flex items-center gap-3 mb-4 px-2">
+      <span class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)]">Sort by</span>
+      <button
+        id="sort-effect"
+        class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5 transition cursor-pointer"
+      >
+        効果量順
+      </button>
+      <button
+        id="sort-evidence"
+        class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer"
+      >
+        エビデンス強さ順
+      </button>
+    </div>
+
+    <div id="strategy-list" class="border-b border-[var(--color-line)]">
+      {
+        strategies.map((s, i) => (
+          <StrategyRow
+            index={i + 1}
+            href={`/strategies/${s.id}`}
+            title={s.data.title}
+            monthsGained={s.data.monthsGained}
+            evidenceStrength={s.data.evidenceStrength}
+            source={s.data.source}
+            subjects={s.data.subjects}
+            grades={s.data.grades}
+          />
+        ))
+      }
+    </div>
+
+    <script>
+      const list = document.getElementById("strategy-list");
+      const btnEffect = document.getElementById("sort-effect");
+      const btnEvidence = document.getElementById("sort-evidence");
+      const active = "border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5";
+      const inactive = "border-[var(--color-line)] text-[var(--color-sub)]";
+
+      function sortList(key: string) {
+        if (!list) return;
+        const rows = [...list.querySelectorAll<HTMLElement>(":scope > a")];
+        rows.sort((a, b) => {
+          if (key === "evidence") {
+            const ae = Number(a.dataset.evidence ?? 0);
+            const be = Number(b.dataset.evidence ?? 0);
+            if (be !== ae) return be - ae;
+          }
+          return Number(b.dataset.months ?? 0) - Number(a.dataset.months ?? 0);
+        });
+        rows.forEach((row, i) => {
+          list.appendChild(row);
+          const num = row.querySelector("[data-num]");
+          if (num) num.textContent = String(i + 1).padStart(2, "0");
+        });
+      }
+
+      function setActive(btn: HTMLElement | null, other: HTMLElement | null) {
+        if (!btn || !other) return;
+        btn.className = btn.className.replace(inactive, active);
+        other.className = other.className.replace(active, inactive);
+      }
+
+      btnEffect?.addEventListener("click", () => {
+        sortList("effect");
+        setActive(btnEffect, btnEvidence);
+      });
+      btnEvidence?.addEventListener("click", () => {
+        sortList("evidence");
+        setActive(btnEvidence, btnEffect);
+      });
+    </script>
+  </section>
+</Layout>

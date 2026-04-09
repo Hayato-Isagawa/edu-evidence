@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About — EduEvidence JP">
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+      >
+        About
+      </p>
+      <h1
+        class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
+      >
+        勘と経験に、<br /><span class="text-[var(--color-accent)]">エビデンス</span>を。
+      </h1>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="space-y-16 leading-loose">
+
+      <!-- イントロ -->
+      <div class="space-y-4">
+        <p>
+          <strong>EduEvidence JP</strong> は、日本の小学校教員が「研究で確かめられた知見」にいつでもアクセスできるよう作られた、教育エビデンスのまとめサイトです。
+        </p>
+        <p>
+          日々の授業や指導の判断を、勘や経験だけでなく「研究で確かめられた知見」に支えられたものにしたい。
+          そのために、国内外の教育研究を、現場で読みやすい形に翻案して公開しています。
+        </p>
+      </div>
+
+      <!-- ① 監修者・執筆者クレジット -->
+      <div>
+        <h2 class="text-2xl font-black tracking-tight mb-6">運営・執筆</h2>
+        <div
+          class="border border-[var(--color-line)] rounded-xl p-6 md:p-8 space-y-4"
+        >
+          <div>
+            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-1">
+              企画・執筆
+            </div>
+            <div class="font-bold text-lg">
+              ぷーたろう
+            </div>
+            <p class="text-sm text-[var(--color-sub)] mt-1">
+              元小学校教諭。現場経験12年。学級担任・非常勤講師・理科専科・特別支援学級担任を経験。<br />
+              小学校一種免許・中学校一種免許(理科)・高等学校一種免許(理科)取得。
+            </p>
+          </div>
+          <div>
+            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-1">
+              監修
+            </div>
+            <div class="text-sm text-[var(--color-sub)]">
+              （今後、教育研究の専門家による監修体制を構築予定です）
+            </div>
+          </div>
+          <div>
+            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-1">
+              協力
+            </div>
+            <div class="text-sm text-[var(--color-sub)]">
+              本サイトの改善にご協力いただける教員・研究者の方を募集しています。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ② 編集方針(エディトリアル・ポリシー) -->
+      <div>
+        <h2 class="text-2xl font-black tracking-tight mb-6">編集方針</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-bold text-lg mb-2">記事はどう書かれているか</h3>
+            <p>
+              各指導法の記事は、以下の手順で作成されています。
+            </p>
+            <ol class="list-decimal pl-6 space-y-2 mt-3">
+              <li>
+                英国 EEF Teaching and Learning Toolkit の該当項目を主要な参照元として読解し、効果量・エビデンスの強さ・コストの3指標を確認する
+              </li>
+              <li>
+                背後にあるメタ分析やシステマティックレビューの要点を把握する
+              </li>
+              <li>
+                日本の小学校の制度・文化・実態に合わせて、内容を翻案・再構成する。直訳ではなく、日本の教員が読んで「明日の教室で使える」と感じる表現を目指す
+              </li>
+              <li>
+                「注意したいこと」として、エビデンスの限界や現場での導入上の課題を必ず併記する
+              </li>
+            </ol>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">情報の信頼性について</h3>
+            <ul class="space-y-2">
+              <li>
+                本サイトの内容は研究の要約であり、個々の教室・子どもへの効果を保証するものではありません
+              </li>
+              <li>
+                エビデンスの強さ(★)は、EEF の評価を基準にしています。日本独自の研究による検証は今後の課題です
+              </li>
+              <li>
+                各記事の末尾に参照した原典(EEF Toolkit)へのリンクを掲載しています
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">誤りの修正</h3>
+            <ul class="space-y-2">
+              <li>
+                内容に誤りや不正確な記述を発見された場合は、ご連絡ください。速やかに確認・修正します
+              </li>
+              <li>
+                修正を行った場合、該当記事に修正日と変更内容を追記します
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 参考元 -->
+      <div>
+        <h2 class="text-2xl font-black tracking-tight mb-4">参考にしているもの</h2>
+        <p>
+          本サイトは英国の Education Endowment Foundation (EEF) が公開する
+          <a
+            class="underline"
+            href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit"
+            target="_blank"
+            rel="noopener">Teaching and Learning Toolkit</a
+          > をベースに、日本の小学校文脈へ翻案しています。
+          原典は CC BY-SA 4.0 で公開されており、本サイトのコンテンツも同じライセンスのもとで公開します。
+        </p>
+      </div>
+
+      <!-- 免責 -->
+      <div>
+        <h2 class="text-2xl font-black tracking-tight mb-4">免責</h2>
+        <p>
+          本サイトの内容は研究の要約であり、個々の教室・子どもへの効果を保証するものではありません。
+          実際の指導判断は、目の前の子どもの状況と専門家としての判断のもとで行ってください。
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>

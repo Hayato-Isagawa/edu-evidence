@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const strategies = await getCollection("strategies");
+
+const gradeOrder = ["全学年", "低学年", "中学年", "高学年"];
+const gradeMap = new Map<string, number>();
+for (const s of strategies) {
+  for (const g of s.data.grades) {
+    gradeMap.set(g, (gradeMap.get(g) ?? 0) + 1);
+  }
+}
+
+const grades = [...gradeMap.entries()].sort(
+  (a, b) => gradeOrder.indexOf(a[0]) - gradeOrder.indexOf(b[0])
+);
+---
+
+<Layout title="学年から探す — EduEvidence JP">
+  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8">
+      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6">
+        Browse by grade
+      </p>
+      <h1 class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight">
+        学年から探す
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
+      <p>担当する学年で<br />使える指導法を見つけられます。</p>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {
+        grades.map(([grade, count]) => (
+          <a
+            href={`/grades/${encodeURIComponent(grade)}`}
+            class="group block border border-[var(--color-line)] rounded-xl p-6 hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition text-center"
+          >
+            <div class="text-3xl font-black group-hover:text-[var(--color-accent)] transition">
+              {grade}
+            </div>
+            <div class="font-mono text-xs text-[var(--color-sub)] mt-2">
+              {count} entries →
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const columns = await getCollection("columns");
+  return columns.map((c) => ({ params: { slug: c.id }, props: { entry: c } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+
+<Layout title={`${d.title} — EduEvidence JP`} description={d.summary}>
+  <div class="pt-10 pb-6">
+    <a
+      href="/columns"
+      class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] hover:text-[var(--color-ink)]"
+    >
+      ← Columns
+    </a>
+  </div>
+
+  <header class="grid grid-cols-12 gap-6 pb-12 border-b border-[var(--color-line)]">
+    <div class="col-span-12 md:col-span-8">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+      >
+        Column — {d.date}
+      </p>
+      <h1
+        class="font-black text-4xl md:text-5xl leading-[1.15] tracking-tight mb-6"
+      >
+        {d.title}
+      </h1>
+      <p
+        class="text-[var(--color-sub)] text-base md:text-lg leading-loose max-w-xl"
+      >
+        {d.summary}
+      </p>
+    </div>
+    <div class="col-span-12 md:col-span-4 md:pt-12">
+      {
+        d.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {d.tags.map((tag) => (
+              <span class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] border border-[var(--color-line)] rounded-full px-3 py-1">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </header>
+
+  <article class="prose-article py-16 max-w-2xl">
+    <Content />
+  </article>
+
+  <div class="mt-4 mb-24 pt-8 border-t border-[var(--color-line)] max-w-2xl">
+    <a
+      href="/columns"
+      class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] hover:underline"
+    >
+      ← コラム一覧へ
+    </a>
+  </div>
+</Layout>
