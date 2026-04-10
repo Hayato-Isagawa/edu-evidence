@@ -1,0 +1,2 @@
+# www付きからwwwなしへリダイレクト(カスタムドメイン取得後に有効)
+# https://www.edu-evidence.jp/* https://edu-evidence.jp/:splat 301
