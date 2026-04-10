@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://edu-evidence-portal.pages.dev",
+  site: "https://edu-evidence.org",
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
