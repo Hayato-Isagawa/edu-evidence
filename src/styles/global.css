@@ -49,7 +49,7 @@ a {
 .link-underline {
   text-decoration: none;
   background-image: linear-gradient(var(--color-accent), var(--color-accent));
-  background-size: 0% 2px;
+  background-size: 0% 1px;
   background-position: left bottom;
   background-repeat: no-repeat;
   transition: background-size 0.3s ease;
@@ -58,5 +58,5 @@ a {
 
 .link-underline:hover,
 .link-underline:active {
-  background-size: 100% 2px;
+  background-size: 100% 1px;
 }
