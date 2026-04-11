@@ -22,11 +22,11 @@ relatedStrategies: ["growth-mindset", "social-emotional-learning"]
 
 しかし、2010年代後半以降、複数のメタ分析がグリットの効果を再検証しました。
 
-- Credé et al.(2017)の88研究のメタ分析では、グリットと学業成績の相関は **比較的小さい**(r ≈ 0.18)とされ、しかも **誠実性(Conscientiousness)** という既存の性格特性とほぼ同じものを測っていることが示されました
-- Lam & Zhou(2019)のメタ分析でも同様の結論。社会経済的地位(SES)などの背景要因を統制すると、グリットの独自の効果はさらに小さくなります
-- 介入によってグリットを育てたという研究の効果も、再現性が低い
+- Credé, Tynan & Harms(2017)の88研究・約66,000人を対象としたメタ分析では、グリットと学業成績の相関は **r ≈ 0.18 と比較的弱い** ことが示されました。さらに同研究では、グリットは **誠実性(Conscientiousness)という既存の性格特性とほぼ同じもの**(ρ = .84)を測っていることが指摘されています
+- Lam & Zhou(2019)の44研究・約60,000人のシステマティックレビューでは、グリット全体と学業成績の関連は確認されたものの、効果の大半は「努力の継続(perseverance of effort)」に由来し、もう一つの構成要素「興味の持続(consistency of interest)」の効果は弱いことが明らかになりました
+- 介入によってグリットを育てたという研究の効果も、再現性が低いことが指摘されています
 
-つまり「グリットは新しい万能薬ではなく、誠実性に新しい名前を付けたもの」だった可能性が高いのです。
+つまり「グリットは新しい万能薬ではなく、誠実性に新しい名前を付けたもの」、あるいは「努力の継続という古くから知られた要素のみが有効」だった可能性が高いのです。
 
 ## 何が問題だったのか
 
@@ -57,5 +57,6 @@ relatedStrategies: ["growth-mindset", "social-emotional-learning"]
 
 - [成長マインドセット](/strategies/growth-mindset) — 関連する概念のエビデンス
 - [SEL(社会性と情動の学習)](/strategies/social-emotional-learning) — 非認知能力の育成
-- Credé, M., Tynan, M. C., & Harms, P. D. (2017). Much ado about grit: A meta-analytic synthesis of the grit literature. *Journal of Personality and Social Psychology*, 113(3), 492–511. — グリットの効果を再検証した代表的なメタ分析。
+- Credé, M., Tynan, M. C., & Harms, P. D. (2017). Much ado about grit: A meta-analytic synthesis of the grit literature. *Journal of Personality and Social Psychology*, 113(3), 492–511. — グリットの効果を再検証した代表的なメタ分析(88研究、約66,000人)。
+- Lam, K. K. L., & Zhou, M. (2019). Examining the relationship between grit and academic achievement within K-12 and higher education: A systematic review. *Psychology in the Schools*, 56(10), 1654–1686. — 44研究のシステマティックレビュー。
 - 中室牧子(2015). 『「学力」の経済学』ディスカヴァー・トゥエンティワン. — 非認知能力の議論の入門書。

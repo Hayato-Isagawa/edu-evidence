@@ -46,7 +46,7 @@ sourceTitle: "文部科学省 — 教員勤務実態調査"
 ### 海外の研究
 
 - OECD TALIS 2018 Results. — 加盟国の教員の労働時間・職務満足度を比較。日本の教員労働時間は最長レベル。
-- Skaalvik, E. M., & Skaalvik, S. (2017). Motivated for teaching? Associations with school goal structure, teacher self-efficacy, job satisfaction and emotional exhaustion. *Teaching and Teacher Education*, 67, 152–160. — 教員の燃え尽きと学級経営の関連を実証。
+- Skaalvik, E. M., & Skaalvik, S. (2017). Motivated for teaching? Associations with school goal structure, teacher self-efficacy, job satisfaction and emotional exhaustion. *Teaching and Teacher Education*, 65, 152–160. — 学校の目標構造と教員の自己効力感・感情的疲弊・離職意図の関連をノルウェーの教員 760 名で実証。
 
 ### 日本の研究・公式資料
 
