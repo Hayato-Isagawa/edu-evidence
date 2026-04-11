@@ -1,14 +1,27 @@
 ---
 title: 宿題(小学校)
-summary: 小学校段階での宿題の効果は、量よりも質と目的の明確さに左右される。家庭での学習負担とのバランスが重要。
-monthsGained: 3
-evidenceStrength: 3
+summary: 小学校段階での宿題の効果は限定的(EEF で +2ヶ月、エビデンスの強さは低い)。日本は既に家庭学習時間が多いため、量より質と目的の明確さが鍵。
+monthsGained: 2
+evidenceStrength: 2
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["家庭学習"]
+source: mixed
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/homework
 sourceTitle: "EEF Teaching and Learning Toolkit — Homework"
+evidence:
+  eef:
+    monthsGained: 2
+    strength: 2
+    note: "小学校段階では +2ヶ月でエビデンスの強度は低い。中学校以上(+5ヶ月)より効果は小さい。量よりも授業との連動と短く集中した課題が効果的。"
+  japan:
+    monthsGained: 1
+    strength: 2
+    note: "日本の子どもは家庭学習時間が既に国際的に長い水準(OECD PISA 等)。『家庭学習の充実』として宿題量をさらに増やしても、EEF が示す効果はそのまま期待できない。"
+    researcher: "中室牧子・教育経済学"
+culturalContext: |
+  日本の小学生の家庭学習時間は、国際比較で既に長い水準にある。EEF の +2ヶ月(小学校)をそのまま適用すると過大評価になりやすい。研究は「量を増やす」ことより「授業との連動」「質の高いフィードバック」「取り組みやすい設計」を強調している。中室牧子氏の『「学力」の経済学』でも、宿題量と学力の単純な関係は日本では小さいことが示唆されている。
 ---
 
 ## 一言でいうと

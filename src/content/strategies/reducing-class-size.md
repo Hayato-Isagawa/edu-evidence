@@ -1,14 +1,27 @@
 ---
 title: 学級規模の縮小
-summary: 学級の人数を減らす取り組み。効果は確認されるが、コストに対する効率は限定的とされる。
-monthsGained: 2
+summary: 学級の人数を減らす取り組み。EEF は +1ヶ月と控えめだが、日本の赤林英夫らの研究では国語で正効果を確認。ただし格差縮小には繋がらないことも示唆。
+monthsGained: 1
 evidenceStrength: 3
 cost: 5
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["学級経営", "制度"]
+source: mixed
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size
 sourceTitle: "EEF Teaching and Learning Toolkit — Reducing class size"
+evidence:
+  eef:
+    monthsGained: 1
+    strength: 3
+    note: "全体平均 +1ヶ月(算数 +2、読解 +1)。20人以下、特に15人以下まで減らさないと明確な効果は出にくい。教師が指導方法を変えられる場合に効果がある。"
+  japan:
+    monthsGained: 2
+    strength: 3
+    note: "小学6年生の国語で正の効果を確認。ただし効果は裕福な地域の学校で大きく、学力格差の縮小にはつながらないことが示された。"
+    researcher: "赤林英夫・中村亮介(2014, 慶應義塾大学)"
+culturalContext: |
+  日本の学級規模は国際的に大きめで、「35人学級」など縮小政策が進められている。赤林・中村(2014)の分析では、日本でも国語で正の効果が確認されたが、**効果は裕福な地域ほど大きく、格差縮小の政策目標とは整合しない** ことが示された。また、教師が指導方法を変えられるかどうかが効果の分かれ目であり、「人数を減らすこと」自体より「減った人数でどう指導するか」の設計が重要。
 ---
 
 ## 一言でいうと

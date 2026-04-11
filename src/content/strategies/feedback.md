@@ -1,14 +1,22 @@
 ---
 title: フィードバック
-summary: 子どもの学びや取り組みに対して、具体的で前向きな情報を返すこと。最も効果が大きい指導法の一つで、日本の小学校でも明日から取り入れやすい。
+summary: 子どもの学びや取り組みに対して、具体的で前向きな情報を返すこと。EEF で最もエビデンスが堅牢な指導法の一つ(+6ヶ月、★5)。
 monthsGained: 6
-evidenceStrength: 4
+evidenceStrength: 5
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["形成的評価", "振り返り"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback
 sourceTitle: "EEF Teaching and Learning Toolkit — Feedback"
+evidence:
+  eef:
+    monthsGained: 6
+    strength: 5
+    note: "EEF Toolkit で最もエビデンスが堅牢(★5)。小学校 +7ヶ月、中学校 +5ヶ月。算数・理科で効果が大きい。『課題や学び方へのフィードバック』が『個人や称賛へのフィードバック』より効果的。"
+culturalContext: |
+  日本の教室文化では「みんなの前で個別に褒める」方式が有効でない場合があるが、フィードバックそのものの効果は高い。書面での個別コメント、小集団での振り返り、ノート上のコメントなど、日本文化に合わせた形式で実施することで効果が期待できる。「褒めることが目的」ではなく「次の一歩を示す具体的な情報」であることが鍵。
 ---
 
 ## 一言でいうと

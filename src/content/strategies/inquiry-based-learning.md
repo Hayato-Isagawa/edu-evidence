@@ -1,15 +1,26 @@
 ---
 title: 探究学習
-summary: 子どもが自ら問いを持ち、調べ、考え、まとめ、表現する学習。「総合的な学習の時間」の核であり、教科横断的な力を育てる。
-monthsGained: 7
+summary: 子どもが自ら問いを持ち、調べ、考え、まとめ、表現する学習。教師の適切なガイダンスがある場合 +5ヶ月(Lazonder & Harmsen 2016, d=0.50)。ただし EEF の PBL 試験では放任型は正効果を示さず、低所得層には負効果の報告もある。
+monthsGained: 5
 evidenceStrength: 3
 cost: 2
 subjects: ["総合", "理科", "社会", "全教科"]
 grades: ["中学年", "高学年"]
-source: japan
+source: mixed
 tags: ["探究", "主体的な学び", "問い"]
 sourceUrl: https://journals.sagepub.com/doi/abs/10.3102/0034654315627366
 sourceTitle: "Meta-Analysis of Inquiry-Based Learning — Lazonder & Harmsen, 2016"
+evidence:
+  eef:
+    monthsGained: 0
+    strength: 2
+    note: "EEF が実施した Project-Based Learning 試験では学力への正の効果は確認されず、低所得層には負の影響も報告された。EEF Toolkit に Inquiry-Based Learning の独立したエントリは無く、関連手法として Metacognition(+8) が推奨されている。"
+  japan:
+    monthsGained: 5
+    strength: 3
+    note: "日本の『総合的な学習の時間』は探究学習の一形態。Lazonder & Harmsen の国際メタ分析(72研究、d=0.50)は、ガイダンス付きの探究が学力に正の効果を持つことを示している。「放任」ではなく「足場かけ」が鍵。"
+culturalContext: |
+  日本の「総合的な学習の時間」は世界的にも先進的な探究学習の枠組みだが、『放任』と『ガイダンス付きの探究』の区別が曖昧な実践も多い。Lazonder & Harmsen のメタ分析が示すように、**教師のガイダンス(問いの立て方、調査方法、結果のまとめ方)の質が効果を決める**。EEF の PBL 試験が示す負の効果も、構造化されていない自由探究に起因する。「子どもに任せる」のではなく「探究の方法を明示的に教える」姿勢が必要。
 ---
 
 ## 一言でいうと

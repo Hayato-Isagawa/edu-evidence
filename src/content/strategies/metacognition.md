@@ -1,14 +1,22 @@
 ---
 title: メタ認知と自己調整学習
-summary: 子どもが「自分はどう学んでいるか」を意識し、自分で計画・実行・振り返りをできるようにすること。学習効果が最も高い領域の一つ。
-monthsGained: 7
-evidenceStrength: 4
+summary: 子どもが「自分はどう学んでいるか」を意識し、自分で計画・実行・振り返りをできるようにすること。EEF Toolkit の 2025 年更新で +7 → +8ヶ月に引き上げられた最も効果の大きい領域の一つ。
+monthsGained: 8
+evidenceStrength: 5
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["メタ認知", "振り返り", "学び方"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation
 sourceTitle: "EEF Teaching and Learning Toolkit — Metacognition and Self-regulation"
+evidence:
+  eef:
+    monthsGained: 8
+    strength: 5
+    note: "2025年のEEF Toolkit 更新で +7 → +8ヶ月に引き上げ(107の新しい研究を追加)。小学校で特に大きな効果。『思考について考える』を明示的に教えることが鍵。"
+culturalContext: |
+  日本の小学校では「振り返り(リフレクション)」として既に実践されている部分がある。ただし、EEF が指す「メタ認知」は単なる『今日の授業どうだった?』ではなく、『この問題を解くとき、自分はどの方略を使ったか』『次は何を変えるか』を明示的に指導することを意味する。「めあて」→「活動」→「振り返り」の『振り返り』段階を、子どもの内部プロセスに焦点を当てて深める余地がある。
 ---
 
 ## 一言でいうと

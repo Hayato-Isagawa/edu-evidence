@@ -1,14 +1,25 @@
 ---
 title: 直接教授法(明示的指導)
-summary: 学習目標を明確にし、教師がモデルを示し、段階的に子どもへ任せていく構造化された指導法。「一方的な講義」とは異なる。
-monthsGained: 6
+summary: 学習目標を明確にし、教師がモデルを示し、段階的に子どもへ任せていく構造化された指導法。EEF で +5ヶ月、Hattie は d=0.59 と報告。
+monthsGained: 5
 evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["一斉指導", "構造化"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking"
+source: eef
+sourceUrl: https://educationendowmentfoundation.org.uk/news/eef-blog-what-exactly-is-explicit-instruction
+sourceTitle: "EEF — What exactly is explicit instruction?"
+evidence:
+  eef:
+    monthsGained: 5
+    strength: 4
+    note: "EEF では 'Explicit instruction' として +5ヶ月。小さなステップで教え、具体例と反例を用い、明確な言葉で説明し、よくある誤概念を想定し、重要な内容を強調する手法。SENDのある子どもにも効果的と報告。"
+  hattie:
+    cohensD: 0.59
+    note: "Hattie の Visible Learning ではより高い d=0.59 を報告しているが、EEF の +5ヶ月がより最近かつ保守的な推定値。"
+culturalContext: |
+  日本の一斉授業は「明示的指導」の要素を多く含んでいるが、EEF が定義する「モデル提示 → 段階的な移行(I do, We do, You do)」の明確な構造とは必ずしも一致しない。特に「よくある誤概念の想定」や「小さなステップへの分解」の意識が弱い場合がある。現在の一斉指導に EEF の原則を統合することで、追加の効果が期待できる可能性がある。
 ---
 
 ## 一言でいうと

@@ -1,15 +1,27 @@
 ---
 title: 研究授業(Lesson Study)
-summary: 教師が協働で授業を計画・観察・検討する日本発の研修手法。教師の指導力向上を通じて、間接的に子どもの学力を高める。世界に輸出された日本の教育文化。
-monthsGained: 5
+summary: 教師が協働で授業を計画・観察・検討する日本発の研修手法。Lewis & Perry (2017) の米国 RCT では、分数学習で教師と児童双方の学力に正の効果を確認(What Works Clearinghouse 基準を満たした数少ない研究の一つ)。
+monthsGained: 3
 evidenceStrength: 3
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 source: japan
 tags: ["教師の学び", "校内研修", "日本発"]
-sourceUrl: https://en.wikipedia.org/wiki/Lesson_study
-sourceTitle: "Lesson Study — Wikipedia"
+sourceUrl: https://pubs.nctm.org/view/journals/jrme/48/3/article-p261.xml
+sourceTitle: "Lewis & Perry (2017) — Lesson Study RCT, Journal for Research in Mathematics Education"
+evidence:
+  japan:
+    monthsGained: 3
+    strength: 3
+    note: "日本発の実践で、日本の小学校の約 99% で実施されている。秋田喜代美らによる理論化と国際展開。ただし日本国内で効果量を検証した RCT は極めて限定的。"
+    researcher: "秋田喜代美(東京大学)ほか"
+  eef:
+    monthsGained: 0
+    strength: 2
+    note: "EEF Toolkit に Lesson Study の独立したエントリは無い(プロフェッショナル・ディベロップメントの一環として扱われる)。"
+culturalContext: |
+  Lesson Study は **日本から世界に輸出された数少ない教育実践** で、シンガポール・米国・英国などでも研修手法として採用されている。Lewis & Perry (2017) の米国 RCT(39 教育者チーム)は、分数指導に特化した形で Lesson Study の効果を検証し、教師と児童双方の学力向上を確認した。What Works Clearinghouse の厳格な基準を満たした数少ない研究の一つ。ただし、日本国内では「校内研究」として広く実施されているにもかかわらず、その効果を RCT で検証した研究は極めて限定的で、「当然の実践」として効果量の定量化が遅れている状況にある。「+3ヶ月」は Lewis & Perry の分数指導研究からの暫定換算値で、全教科全般の効果ではない。
 ---
 
 ## 一言でいうと

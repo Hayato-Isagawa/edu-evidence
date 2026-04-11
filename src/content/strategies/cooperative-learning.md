@@ -1,14 +1,22 @@
 ---
 title: 協同学習
-summary: 子ども同士が小グループで協力して学び合う指導法。役割分担と相互依存を意識的に設計することで、学習効果と社会性の両方が育つ。
+summary: 子ども同士が小グループで協力して学び合う指導法。EEF で +5ヶ月と強いエビデンスがあるが、日本では既に班活動が広く実施されており「新しい介入」としての効果はそのまま出ない可能性がある。
 monthsGained: 5
-evidenceStrength: 3
+evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["グループ学習", "対話"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches
 sourceTitle: "EEF Teaching and Learning Toolkit — Collaborative learning approaches"
+evidence:
+  eef:
+    monthsGained: 5
+    strength: 4
+    note: "小学校 +5ヶ月、中学校 +6ヶ月。算数 +5、理科 +10、国語 +3(教科差あり)。3〜5人の小グループで『共通の目標』があるときに効果が大きい。"
+culturalContext: |
+  日本の小学校では班活動・グループ学習が既に広く行われており、EEF の研究(英語圏)で「協同学習を初めて導入した学級」の効果がそのまま日本に当てはまるとは限らない。ただし、日本の班活動が「役割分担はあるが個々の責任が曖昧」な場合、EEF が強調する『個別の説明責任(individual accountability)』と『積極的な相互依存(positive interdependence)』を明確に設計することで、更なる効果が期待できる可能性がある。
 ---
 
 ## 一言でいうと
