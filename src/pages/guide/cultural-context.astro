@@ -1,0 +1,240 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="エビデンスと文化的文脈 — EduEvidence JP">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
+      <p
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+      >
+        Guide — Evidence in cultural context
+      </p>
+      <h1
+        class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
+      >
+        エビデンスと<br /><span class="text-[var(--color-accent)]">文化的文脈</span>
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
+      <p>
+        海外の教育研究は、そのまま日本に当てはまりません。<br />
+        本サイトがどう「出典と文化」を扱うかを説明します。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24 space-y-20">
+
+    <!-- 1. 前提 -->
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">01</span>
+        <h2 class="text-3xl font-black tracking-tight">エビデンスは文化依存である</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+        <p>
+          教育研究の多くは、英語圏(米国・英国・豪州・ニュージーランドなど)で行われています。これらの研究を <strong>日本の小学校にそのまま当てはめても、同じ効果が出るとは限りません</strong>。
+        </p>
+        <p>
+          中室牧子氏の『「学力」の経済学』でも繰り返し指摘されているように、教育の効果は制度・文化・子どもの背景に強く依存します。同じ指導法でも、日本の学校文化では効果が大きく出たり、逆に小さく出たりすることがあります。
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. 具体例 -->
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02</span>
+        <h2 class="text-3xl font-black tracking-tight">文化で効果が変わる例</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+        <p>
+          海外で大きな効果が報告されていても、日本では効果が小さくなる(あるいはその逆の)代表例:
+        </p>
+        <div class="space-y-4">
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+            <h3 class="font-bold">宿題</h3>
+            <p class="text-sm leading-relaxed">
+              EEF では宿題に +5ヶ月の効果が報告されていますが、日本は既に家庭学習の時間が長い国です。宿題を <strong>さらに増やす</strong> ことで同じ効果が得られるとは限りません。量より質(授業との連動・フィードバック)が鍵。
+            </p>
+          </div>
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+            <h3 class="font-bold">協同学習・ペア学習</h3>
+            <p class="text-sm leading-relaxed">
+              日本の小学校では班活動・グループ学習が既に広く行われており、海外の「新しい介入」としての効果はそのまま出ない可能性があります。逆に、日本式の <strong>Lesson Study(研究授業)</strong> は海外に輸出されて高い評価を得ています。
+            </p>
+          </div>
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+            <h3 class="font-bold">学級規模の縮小</h3>
+            <p class="text-sm leading-relaxed">
+              欧米の研究で学級規模縮小の効果は限定的(+2ヶ月程度)ですが、日本の学級はもともと規模が大きく、縮小の効果は文化的期待とも絡んで異なる結果になる可能性があります。田中隆一氏らの日本の研究が参考になります。
+            </p>
+          </div>
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+            <h3 class="font-bold">教師への公の褒め・フィードバック</h3>
+            <p class="text-sm leading-relaxed">
+              「みんなの前で個別に褒める」方式は、集団主義的な日本の教室では必ずしも有効でないことがあります。フィードバックの形式は文化に合わせて調整が必要です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 本サイトの出典階層 -->
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">03</span>
+        <h2 class="text-3xl font-black tracking-tight">本サイトの出典階層</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+        <p>
+          本サイトでは、各指導法のページに「代表値(月数)」を表示しています。この値は次の優先順位で決めています。
+        </p>
+        <ol class="list-decimal pl-6 space-y-3">
+          <li>
+            <strong>日本研究(信頼度 ★★★ 以上)がある場合</strong> → 日本研究の値を採用。日本の文脈に最も近いため
+          </li>
+          <li>
+            <strong>EEF Toolkit に該当項目がある場合</strong> → EEF の値を採用。最も厳格な方法論と継続更新
+          </li>
+          <li>
+            <strong>Hattie の Visible Learning しかない場合</strong> → Hattie の値を使うが「楽観値の可能性」注記付き
+          </li>
+          <li>
+            <strong>いずれも該当しない場合</strong> → 0(未証明)と明示
+          </li>
+        </ol>
+        <p>
+          可能な限り、各指導法ページには「出典別のエビデンス」セクションで **EEF / 日本研究 / Hattie の併記** を行い、読者が比較できるようにしています。両者で値が大きく異なる場合は、その理由を「文化的注記」で補足しています。
+        </p>
+      </div>
+    </div>
+
+    <!-- 4. なぜ日本の教育研究が限定的か -->
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">04</span>
+        <h2 class="text-3xl font-black tracking-tight">日本の教育研究が限定的な理由</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+        <p>
+          「日本では効果を検証した研究があるはずだ」と思うかもしれませんが、実は日本発の大規模 RCT やメタ分析は非常に限られています。その理由は構造的なものです。
+        </p>
+        <div class="space-y-3 pt-2">
+          <div class="space-y-1">
+            <h3 class="font-bold">① 倫理的制約</h3>
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+              「一部の学級にだけ効果のある指導を与え、別の学級には与えない」という RCT の基本設計が、日本の公教育では「不公平」と捉えられ実施が難しい。
+            </p>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-bold">② 制度的制約</h3>
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+              学校制度が均質で、学級編成・教科書・時数が全国で似通っているため、十分に異なる対照群を作りにくい。公立学校の比率が高く、介入の自由度も限定的。
+            </p>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-bold">③ 研究文化の違い</h3>
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+              日本の教育学は質的研究・実践報告が中心で、量的 RCT の基盤が弱い。「研究紀要」による実践報告が多く、因果推論を前提とした設計は少数派。
+            </p>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-bold">④ 研究資金</h3>
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+              教育研究への公的投資は、臨床医学・経済学に比べて規模が小さい。大規模な介入研究を実施するための継続的な資金源が限定的。
+            </p>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-bold">⑤ 言語の壁</h3>
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+              日本発の研究の多くは日本語で発表されるため、国際的な英語査読誌に載る数が限定的。結果として海外メタ分析に含まれにくい。
+            </p>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-bold">⑥ 倫理審査の仕組み</h3>
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+              医学研究の IRB に相当する倫理審査の仕組みが、教育研究では発達途上。大規模 RCT の実施ハードルになっている。
+            </p>
+          </div>
+        </div>
+        <p class="pt-4">
+          これらの結果、日本の教育現場で「何が効くか」を検証したエビデンスは、実は <strong>海外研究の翻案に頼らざるを得ない</strong> のが現状です。本サイトの多くの数値が EEF・Hattie 由来なのはそのためです。
+        </p>
+      </div>
+    </div>
+
+    <!-- 5. 近年の前進 -->
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">05</span>
+        <h2 class="text-3xl font-black tracking-tight">それでも前進している</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+        <p>
+          近年、日本発のエビデンスベース教育研究は着実に増えています。代表的な研究者と研究領域:
+        </p>
+        <ul class="space-y-3 pl-1">
+          <li>
+            <strong>中室牧子(慶應義塾大学)</strong> — 教育経済学の立場から、学習塾・ご褒美・少人数学級の効果を日本のデータで分析。
+          </li>
+          <li>
+            <strong>松岡亮二(龍谷大学)</strong> — 教育格差と家庭背景、保護者関与と学力の関連を大規模縦断データで実証。
+          </li>
+          <li>
+            <strong>耳塚寛明(お茶の水女子大学)</strong> — 学力格差の社会階層要因を日本のデータで長期的に分析。
+          </li>
+          <li>
+            <strong>赤林英夫(慶應義塾大学)</strong> — 幼児教育・家庭環境・学力の経済分析。
+          </li>
+          <li>
+            <strong>田中隆一(東京大学)</strong> — 学級規模・教員配置の効果を計量経済学の手法で検証。
+          </li>
+          <li>
+            <strong>秋田喜代美(東京大学)</strong> — Lesson Study と教員の専門性開発の研究。世界に輸出される日本式研究授業の理論化。
+          </li>
+          <li>
+            <strong>経済産業研究所(RIETI)</strong> — 教科担任制(2025 年初の日本国内 RCT)など、政策志向の教育経済学研究。
+          </li>
+        </ul>
+        <p>
+          本サイトでは、これらの研究で得られた知見があれば、**EEF と併記または優先** する形で反映しています。
+        </p>
+      </div>
+    </div>
+
+    <!-- 6. 読者へのお願い -->
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">06</span>
+        <h2 class="text-3xl font-black tracking-tight">読者の先生方へ</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+        <p>
+          本サイトの数値は、**目の前の子どもたちに対する保証ではありません**。研究で確かめられた「平均的な傾向」と「日本の文脈で想定される注意点」を提示しているに過ぎません。
+        </p>
+        <p>
+          最終的には、<strong>(1) 研究のエビデンス</strong>、<strong>(2) 先生自身の専門的判断</strong>、<strong>(3) 学校・地域の文脈</strong>の3つを組み合わせて、「うちの教室では、今、何が最も良い選択か」を考える材料として使ってください。
+        </p>
+        <p>
+          また、日本の文脈で実践された経験がありましたら、ぜひ <a href="/voices" class="link-underline text-[var(--color-accent)]">現場の声</a> からお寄せください。読者の実践が、次の世代のエビデンスベースを作ります。
+        </p>
+      </div>
+    </div>
+
+    <!-- 導線 -->
+    <div class="border-t border-[var(--color-line)] pt-10 text-center space-y-6">
+      <p class="text-[var(--color-sub)] leading-loose">
+        エビデンスの限界を知った上で、具体的な指導法を見てみましょう。
+      </p>
+      <a
+        href="/"
+        class="link-underline inline-block font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+      >
+        ← 指導法一覧へ戻る
+      </a>
+    </div>
+
+  </section>
+</Layout>

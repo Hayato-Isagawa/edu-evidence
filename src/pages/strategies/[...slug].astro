@@ -113,6 +113,103 @@ const effectNote =
     </div>
   </header>
 
+  {
+    (d.evidence?.eef || d.evidence?.japan || d.evidence?.hattie || d.culturalContext) && (
+      <section class="pt-12 max-w-2xl space-y-6">
+        <div class="space-y-1">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+            Evidence Breakdown
+          </div>
+          <h2 class="text-2xl font-black tracking-tight">出典別のエビデンス</h2>
+        </div>
+
+        <div class="space-y-4">
+          {d.evidence?.eef && (
+            <div class="border border-sky-700/30 rounded-xl p-5 space-y-2">
+              <div class="flex items-baseline gap-3">
+                <span class="font-mono text-xs uppercase tracking-widest text-sky-700">EEF Toolkit</span>
+                {d.evidence.eef.monthsGained !== undefined && (
+                  <span class="font-black text-xl text-sky-700 tabular-nums">
+                    {d.evidence.eef.monthsGained > 0 ? "+" : ""}
+                    {d.evidence.eef.monthsGained}
+                    <span class="text-xs font-sans ml-1">ヶ月</span>
+                  </span>
+                )}
+                {d.evidence.eef.strength !== undefined && (
+                  <span class="text-amber-600 text-sm">
+                    {"★".repeat(d.evidence.eef.strength)}
+                    {"☆".repeat(5 - d.evidence.eef.strength)}
+                  </span>
+                )}
+              </div>
+              {d.evidence.eef.note && (
+                <p class="text-sm text-[var(--color-sub)] leading-relaxed">{d.evidence.eef.note}</p>
+              )}
+            </div>
+          )}
+
+          {d.evidence?.japan && (
+            <div class="border border-rose-600/30 rounded-xl p-5 space-y-2">
+              <div class="flex items-baseline gap-3 flex-wrap">
+                <span class="font-mono text-xs uppercase tracking-widest text-rose-600">日本研究</span>
+                {d.evidence.japan.monthsGained !== undefined && (
+                  <span class="font-black text-xl text-rose-600 tabular-nums">
+                    {d.evidence.japan.monthsGained > 0 ? "+" : ""}
+                    {d.evidence.japan.monthsGained}
+                    <span class="text-xs font-sans ml-1">ヶ月</span>
+                  </span>
+                )}
+                {d.evidence.japan.strength !== undefined && (
+                  <span class="text-amber-600 text-sm">
+                    {"★".repeat(d.evidence.japan.strength)}
+                    {"☆".repeat(5 - d.evidence.japan.strength)}
+                  </span>
+                )}
+                {d.evidence.japan.researcher && (
+                  <span class="text-xs text-[var(--color-sub)]">{d.evidence.japan.researcher}</span>
+                )}
+              </div>
+              {d.evidence.japan.note && (
+                <p class="text-sm text-[var(--color-sub)] leading-relaxed">{d.evidence.japan.note}</p>
+              )}
+            </div>
+          )}
+
+          {d.evidence?.hattie && (
+            <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2 bg-amber-50/30">
+              <div class="flex items-baseline gap-3 flex-wrap">
+                <span class="font-mono text-xs uppercase tracking-widest text-amber-700">Hattie (Visible Learning)</span>
+                {d.evidence.hattie.cohensD !== undefined && (
+                  <span class="font-black text-xl text-amber-700 tabular-nums">
+                    d = {d.evidence.hattie.cohensD.toFixed(2)}
+                  </span>
+                )}
+              </div>
+              <p class="text-xs text-[var(--color-sub)] leading-relaxed">
+                Hattie の効果量は他のメタ分析と比べて楽観的な傾向があり、再現性に疑問が示されている場合があります。参考値としてお読みください。詳しくは <a href="/guide/cultural-context" class="link-underline text-[var(--color-accent)]">エビデンスの文脈</a> を参照。
+              </p>
+              {d.evidence.hattie.note && (
+                <p class="text-sm text-[var(--color-sub)] leading-relaxed">{d.evidence.hattie.note}</p>
+              )}
+            </div>
+          )}
+        </div>
+
+        {d.culturalContext && (
+          <div class="border-l-4 border-[var(--color-accent)] pl-5 py-1 space-y-2">
+            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+              日本の文脈で考慮したいこと
+            </div>
+            <p class="text-sm leading-loose">{d.culturalContext}</p>
+            <p class="text-xs text-[var(--color-sub)]">
+              なぜこの注記があるか:<a href="/guide/cultural-context" class="link-underline text-[var(--color-accent)] ml-1">エビデンスと文化的文脈</a>
+            </p>
+          </div>
+        )}
+      </section>
+    )
+  }
+
   <article class="prose-article py-16 max-w-2xl">
     <Content />
   </article>

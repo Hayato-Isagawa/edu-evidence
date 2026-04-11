@@ -25,6 +25,38 @@
 | 学力への効果を測った研究が存在しない | **0**(未証明) + 注記で「学力 RCT は存在しない」と明示 |
 | 効果が負(逆効果)の研究が報告されている | 負の値(例: -2) + 注記 |
 
+### Rule 1.1a — 出典階層(2026-04-12 以降の新方針)
+
+`monthsGained` の **代表値** は次の優先順位で決める:
+
+1. **日本研究(信頼度 ★★★ 以上)** があればそれを採用(文化的妥当性が最も高い)
+2. **EEF Toolkit** に該当項目があれば EEF を採用(方法論が最も厳格、継続更新)
+3. **Hattie の Visible Learning** しか無ければ参考値として使うが、**必ず `evidence.hattie` フィールドに記録し、注記で「楽観値の傾向」を明示**
+4. いずれも無ければ **0(未証明)**
+
+### Rule 1.1b — 併記と文化的注記
+
+可能な限り、`evidence.eef` / `evidence.japan` / `evidence.hattie` を併記し、読者が比較できるようにする。両者で値が大きく異なる場合は `culturalContext` フィールドに **なぜ差があるか(文化的・制度的要因)** を説明する。
+
+frontmatter 例:
+```yaml
+monthsGained: 2  # 代表値 = 日本研究優先(EEF は +5 だが日本文脈では +2)
+evidenceStrength: 3
+source: mixed    # eef / japan / hattie / mixed の 4 値
+evidence:
+  eef:
+    monthsGained: 5
+    strength: 4
+    note: "英国での効果。宿題と学力の関係をメタ分析で検証"
+  japan:
+    monthsGained: 2
+    strength: 3
+    note: "日本では既に宿題量が多いため追加効果は限定的"
+    researcher: "中室牧子"
+culturalContext: |
+  日本の家庭学習時間は既に国際的に長い水準にあるため、EEF の +5 ヶ月をそのまま期待できない可能性がある。量を増やすより質(授業との連動・フィードバック)に投資する方が効果的。
+```
+
 ### Rule 1.2 — 引用論文の citation は必ず一次情報で確認する
 
 WebSearch / WebFetch で **論文の存在・著者・年・タイトル・ジャーナル・巻号・ページ** を検証してから掲載する。

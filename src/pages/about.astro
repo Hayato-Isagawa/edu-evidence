@@ -105,16 +105,39 @@ import Layout from "../layouts/Layout.astro";
             </ol>
           </div>
           <div class="space-y-2">
+            <h3 class="font-bold text-lg">出典の階層</h3>
+            <p>
+              各指導法の「代表値(月数)」は、次の優先順位で決めています。
+            </p>
+            <ol class="list-decimal pl-6 space-y-2">
+              <li>
+                <strong>日本研究(信頼度 ★★★ 以上)</strong> — 日本の文脈に最も近いため最優先
+              </li>
+              <li>
+                <strong>EEF Toolkit</strong> — 最も厳格な方法論と継続更新を持つため、日本研究が無ければこれを採用
+              </li>
+              <li>
+                <strong>Hattie の Visible Learning</strong> — 他に代替が無い場合のみ参考値として使用。「楽観値の傾向」を注記
+              </li>
+              <li>
+                <strong>いずれも該当しない場合</strong> — 0(未証明)と明示
+              </li>
+            </ol>
+            <p>
+              可能な限り、EEF・日本研究・Hattie の値を併記し、読者が比較できるようにしています。両者で値が異なる場合は「文化的注記」で補足しています。詳しくは <a href="/guide/cultural-context" class="link-underline text-[var(--color-accent)]">エビデンスと文化的文脈</a> を参照してください。
+            </p>
+          </div>
+          <div class="space-y-2">
             <h3 class="font-bold text-lg">情報の信頼性について</h3>
             <ul class="space-y-2">
               <li>
                 本サイトの内容は研究の要約であり、個々の教室・子どもへの効果を保証するものではありません
               </li>
               <li>
-                エビデンスの強さ(★)は、EEF の評価を基準にしています。日本独自の研究による検証は今後の課題です
+                海外の研究はそのまま日本に当てはまらないため、文化的文脈を考慮した注記を付けています
               </li>
               <li>
-                各記事の末尾に参照した原典(EEF Toolkit)へのリンクを掲載しています
+                各記事の末尾に参照した原典(EEF Toolkit や日本の研究)へのリンクを掲載しています
               </li>
             </ul>
           </div>

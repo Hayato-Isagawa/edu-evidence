@@ -6,15 +6,47 @@ const strategies = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
+    // プライマリ値: 読者に見せる代表値
+    // 決定順序: 日本研究(★3以上) > EEF > Hattie(注記付き) > 0(未証明)
     monthsGained: z.number().min(-12).max(12),
     evidenceStrength: z.number().min(1).max(5),
     cost: z.number().min(1).max(5),
     subjects: z.array(z.string()).default(["全教科"]),
     grades: z.array(z.string()).default(["全学年"]),
     tags: z.array(z.string()).default([]),
-    source: z.enum(["eef", "japan"]).default("eef"),
+    source: z.enum(["eef", "japan", "hattie", "mixed"]).default("eef"),
     sourceUrl: z.string().url().optional(),
     sourceTitle: z.string().optional(),
+
+    // 出典別の詳細データ(併記用)
+    evidence: z
+      .object({
+        eef: z
+          .object({
+            monthsGained: z.number().optional(),
+            strength: z.number().min(1).max(5).optional(),
+            note: z.string().optional(),
+          })
+          .optional(),
+        japan: z
+          .object({
+            monthsGained: z.number().optional(),
+            strength: z.number().min(1).max(5).optional(),
+            note: z.string().optional(),
+            researcher: z.string().optional(),
+          })
+          .optional(),
+        hattie: z
+          .object({
+            cohensD: z.number().optional(),
+            note: z.string().optional(),
+          })
+          .optional(),
+      })
+      .optional(),
+
+    // 文化的注記: 日本文脈での効果の差異や注意点
+    culturalContext: z.string().optional(),
   }),
 });
 
