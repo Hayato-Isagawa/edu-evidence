@@ -6,7 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "check:links": "linkinator dist --recurse --skip 'mailto:|^#'",
+    "check:links:live": "linkinator https://edu-evidence.org --recurse --skip 'mailto:|^#'",
+    "check:text": "textlint 'src/content/**/*.md'",
+    "check:text:fix": "textlint --fix 'src/content/**/*.md'",
+    "check:all": "npm run check && npm run check:text && npm run check:links"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.3",
@@ -20,6 +26,13 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "linkinator": "^7.6.1",
+    "textlint": "^15.5.4",
+    "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",
+    "textlint-rule-preset-ja-spacing": "^2.4.3",
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2",
+    "textlint-rule-prh": "^6.1.0",
     "typescript": "^5.0.0"
   }
 }
