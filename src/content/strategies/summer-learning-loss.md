@@ -49,7 +49,7 @@ sourceTitle: "Visible Learning — Hattie Ranking"
 ## 主な参考研究
 
 - Cooper, H., Nye, B., Charlton, K., Lindsay, J., & Greathouse, S. (1996). [The effects of summer vacation on achievement test scores](https://doi.org/10.3102/00346543066003227). *Review of Educational Research*, 66(3), 227–268. — 39研究のメタ分析。夏休み中の学力低下を体系的に検証した先駆的研究。
-- Alexander, K. L., Entwisle, D. R., & Olson, L. S. (2007). [Lasting consequences of the summer learning gap](https://doi.org/10.1177/000312240707200308). *American Sociological Review*, 72(2), 167–180. — 夏休みの学力低下が長期的に累積し、格差を拡大させることを20年間の追跡で実証。
+- Alexander, K. L., Entwisle, D. R., & Olson, L. S. (2007). Lasting consequences of the summer learning gap. *American Sociological Review*, 72(2), 167–180. — 夏休みの学力低下が長期的に累積し、格差を拡大させることを20年間の追跡で実証。
 - Atteberry, A., & McEachin, A. (2021). [School's out: The role of summers in understanding achievement disparities](https://doi.org/10.3102/0002831220937285). *American Educational Research Journal*, 58(2), 239–282. — 夏休みの学力変動のパターンを大規模データで分析。
 
 ## 日本の研究者による関連知見

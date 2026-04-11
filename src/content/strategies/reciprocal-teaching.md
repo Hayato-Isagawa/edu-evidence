@@ -45,7 +45,7 @@ sourceTitle: "Visible Learning — Hattie Ranking"
 
 ## 主な参考研究
 
-- Palincsar, A. S., & Brown, A. L. (1984). [Reciprocal teaching of comprehension-fostering and comprehension-monitoring activities](https://doi.org/10.1016/0010-0285(84)90011-0). *Cognition and Instruction*, 1(2), 117–175. — 相互教授法の原典。4つの読解方略を教師と生徒が交代で実践する手法を提案し、劇的な読解力向上を実証。
+- Palincsar, A. S., & Brown, A. L. (1984). Reciprocal teaching of comprehension-fostering and comprehension-monitoring activities. *Cognition and Instruction*, 1(2), 117–175. — 相互教授法の原典。4つの読解方略を教師と生徒が交代で実践する手法を提案し、劇的な読解力向上を実証。
 - Rosenshine, B., & Meister, C. (1994). [Reciprocal teaching: A review of the research](https://doi.org/10.3102/00346543064004479). *Review of Educational Research*, 64(4), 479–530. — 16研究のメタ分析。標準化テストと研究者作成テストの両方で有意な効果を確認。
 
 ## 関連する学習指導要領

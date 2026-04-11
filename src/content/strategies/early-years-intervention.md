@@ -44,7 +44,7 @@ sourceTitle: "EEF Early Years Toolkit"
 
 ## 主な参考研究
 
-- Schweinhart, L. J., et al. (2005). [*Lifetime effects: The High/Scope Perry Preschool Study through age 40*](https://highscope.org/perry-preschool-project/). High/Scope Press. — 就学前教育の長期効果を実証した歴史的研究。40歳時点での収入・学歴・社会適応に有意差。
+- Schweinhart, L. J., et al. (2005). *Lifetime effects: The High/Scope Perry Preschool Study through age 40*. High/Scope Press. — 就学前教育の長期効果を実証した歴史的研究。40歳時点での収入・学歴・社会適応に有意差。
 - Heckman, J. J. (2006). [Skill formation and the economics of investing in disadvantaged children](https://doi.org/10.1126/science.1128898). *Science*, 312(5782), 1900–1902. — 幼児期の投資のリターンが最も高いことを経済学的に示したノーベル賞受賞者の論文。
 - 文部科学省 (2024). [幼児教育に関する大規模縦断調査](https://www.mext.go.jp/a_menu/shotou/youchien/1412261_00001.htm). — 日本で初めての大規模追跡調査。5歳児を対象に5年間の追跡を実施中。
 

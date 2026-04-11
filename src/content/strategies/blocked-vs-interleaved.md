@@ -7,7 +7,6 @@ cost: 1
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
-sourceUrl: https://doi.org/10.1007/s10648-012-9197-x
 sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among similar concepts"
 ---
 
@@ -47,7 +46,7 @@ sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among si
 ## 主な参考研究
 
 - Rohrer, D., & Taylor, K. (2007). [The shuffling of mathematics problems improves learning](https://doi.org/10.1007/s11251-007-9015-8). *Instructional Science*, 35(6), 481–498. — 交互練習の効果を算数で実証したRCT。1週間後のテストで3倍の差。
-- Rohrer, D. (2012). [Interleaving helps students distinguish among similar concepts](https://doi.org/10.1007/s10648-012-9197-x). *Educational Psychology Review*, 24, 355–367. — 交互練習が「概念の区別力」を育てることを理論的に説明。
+- Rohrer, D. (2012). Interleaving helps students distinguish among similar concepts. *Educational Psychology Review*, 24, 355–367. — 交互練習が「概念の区別力」を育てることを理論的に説明。
 - Dunlosky, J., et al. (2013). [Improving students' learning with effective learning techniques](https://doi.org/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. — 10の学習法を評価。交互練習を「中〜高い有用性」と評価。
 
 ## 関連する学習指導要領

@@ -46,7 +46,7 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Phonics"
 
 - National Reading Panel (2000). [*Teaching children to read*](https://www.nichd.nih.gov/publications/pubs/nrp/smallbook). NICHD. — 体系的なフォニックス指導が、幼稚園から6年生の子どもの読みの力を有意に向上させることを示した大規模レビュー。
 - Ehri, L. C., Nunes, S. R., Stahl, S. A., & Willows, D. M. (2001). [Systematic phonics instruction helps students learn to read](https://doi.org/10.3102/00346543071003393). *Review of Educational Research*, 71(3), 393–447. — 66研究のメタ分析。体系的フォニックスの効果量d=0.44。特に低学年・読みに困難を持つ子で効果大。
-- Torgerson, C., Brooks, G., & Hall, J. (2006). [*A systematic review of the research literature on the use of phonics*](https://dera.ioe.ac.uk/id/eprint/14791). DfES. — 英国教育省のレビュー。フォニックスの効果は確認されるが、それ単独では十分でないことも指摘。
+- Torgerson, C., Brooks, G., & Hall, J. (2006). *A systematic review of the research literature on the use of phonics*. DfES. — 英国教育省のレビュー。フォニックスの効果は確認されるが、それ単独では十分でないことも指摘。
 
 ## 関連する学習指導要領
 

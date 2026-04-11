@@ -43,7 +43,7 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Individualised instruction"
 
 ## 主な参考研究
 
-- Connor, C. M., Morrison, F. J., & Katch, L. E. (2004). [Beyond the reading wars](https://doi.org/10.1037/0022-0663.96.2.305). *Journal of Educational Psychology*, 96(2), 305–317. — 個別化された読みの指導が学力向上に効果的であることを示した研究。
+- Connor, C. M., Morrison, F. J., & Katch, L. E. (2004). Beyond the reading wars. *Journal of Educational Psychology*, 96(2), 305–317. — 個別化された読みの指導が学力向上に効果的であることを示した研究。
 - Pane, J. F., Steiner, E. D., Baird, M. D., & Hamilton, L. S. (2015). *Continued progress: Promising evidence on personalized learning*. RAND Corporation. — 個別化学習を実施している学校の生徒は、そうでない学校より学力が高い傾向を報告。
 - EEF (2021). Individualised instruction: Evidence review. — 効果量+3ヶ月。教師の関与が伴う個別化で効果が大きいことを指摘。
 

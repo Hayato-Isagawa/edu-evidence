@@ -44,7 +44,7 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Parental engagement"
 
 ## 主な参考研究
 
-- Jeynes, W. H. (2005). [A meta-analysis of the relation of parental involvement](https://doi.org/10.1177/0042085904270008). *Urban Education*, 40(3), 237–269. — 41研究のメタ分析。保護者の関与は学力と有意に正の関連。
+- Jeynes, W. H. (2005). A meta-analysis of the relation of parental involvement. *Urban Education*, 40(3), 237–269. — 41研究のメタ分析。保護者の関与は学力と有意に正の関連。
 - Jeynes, W. H. (2012). [A meta-analysis of the efficacy of different types of parental involvement programs](https://doi.org/10.1177/0042085912445643). *Urban Education*, 47(4), 706–742. — 51研究のメタ分析。親子の対話型プログラムが最も効果が大きいことを示した。
 - EEF (2021). Parental engagement: Evidence review. — 効果量+4ヶ月。一般的な情報提供より、具体的な関わり方を伝える介入の方が効果的。
 

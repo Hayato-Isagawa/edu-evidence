@@ -43,7 +43,7 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Teaching assistants"
 
 ## 主な参考研究
 
-- Blatchford, P., Russell, A., & Webster, R. (2012). [*Reassessing the impact of teaching assistants*](https://books.google.com/books?id=JiUjMQEACAAJ). Routledge. — 英国の大規模研究(DISS Project)。補助スタッフの配置だけでは学力に負の効果が出る場合があることを示し、「役割設計」の重要性を明らかにした。
+- Blatchford, P., Russell, A., & Webster, R. (2012). *Reassessing the impact of teaching assistants*. Routledge. — 英国の大規模研究(DISS Project)。補助スタッフの配置だけでは学力に負の効果が出る場合があることを示し、「役割設計」の重要性を明らかにした。
 - Sharples, J., Webster, R., & Blatchford, P. (2015). *Making best use of teaching assistants*. EEF. — 補助スタッフの効果的な活用のための7つの推奨事項を提示したガイダンスレポート。
 - EEF (2021). Teaching assistants: Evidence review. — 構造化された介入を行った場合、正の効果(+4ヶ月)が出ることを報告。配置だけでは+1ヶ月。
 

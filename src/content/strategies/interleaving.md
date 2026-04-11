@@ -7,7 +7,6 @@ cost: 1
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
-sourceUrl: https://doi.org/10.1007/s10648-012-9197-x
 sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among similar concepts"
 ---
 
@@ -45,8 +44,8 @@ sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among si
 
 ## 主な参考研究
 
-- Rohrer, D. (2012). [Interleaving helps students distinguish among similar concepts](https://doi.org/10.1007/s10648-012-9197-x). *Educational Psychology Review*, 24(3), 355–367. — 交互練習の理論と実証をまとめたレビュー。「識別力」の向上が効果の鍵であることを指摘。
-- Pan, S. C., Tajran, J., Lovelett, J., Osuna, J., & Rickard, T. C. (2019). [Does interleaved practice enhance foreign language learning?](https://doi.org/10.1007/s10648-018-9457-9). *Educational Psychology Review*, 31, 988–994. — 交互練習の効果を外国語学習にも拡張し、領域を超えた有効性を示した。
+- Rohrer, D. (2012). Interleaving helps students distinguish among similar concepts. *Educational Psychology Review*, 24(3), 355–367. — 交互練習の理論と実証をまとめたレビュー。「識別力」の向上が効果の鍵であることを指摘。
+- Pan, S. C., Tajran, J., Lovelett, J., Osuna, J., & Rickard, T. C. (2019). Does interleaved practice enhance foreign language learning?. *Educational Psychology Review*, 31, 988–994. — 交互練習の効果を外国語学習にも拡張し、領域を超えた有効性を示した。
 
 ## 関連する学習指導要領
 

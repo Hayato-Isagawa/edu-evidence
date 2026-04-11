@@ -44,7 +44,7 @@ sourceTitle: "Visible Learning — Hattie Ranking: Scaffolding"
 ## 主な参考研究
 
 - van de Pol, J., Volman, M., & Beishuizen, J. (2010). [Scaffolding in teacher–student interaction](https://doi.org/10.1007/s10648-010-9127-6). *Educational Psychology Review*, 22(3), 271–296. — 足場かけの3要素を整理したレビュー。
-- Wood, D., Bruner, J. S., & Ross, G. (1976). [The role of tutoring in problem solving](https://doi.org/10.1017/S0021963000001297). *Journal of Child Psychology and Psychiatry*, 17(2), 89–100. — 「足場かけ」の概念を提唱した原典。
+- Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem solving. *Journal of Child Psychology and Psychiatry*, 17(2), 89–100. — 「足場かけ」の概念を提唱した原典。
 
 ## 関連する学習指導要領
 

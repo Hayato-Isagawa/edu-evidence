@@ -45,12 +45,12 @@ sourceTitle: "Lesson Study — Wikipedia"
 
 ### 海外の研究(効果量の根拠)
 
-- Lewis, C., & Perry, R. (2017). [Lesson study to scale up research-based knowledge](https://doi.org/10.5951/jresematheduc.48.3.0270). *Journal for Research in Mathematics Education*, 48(3), 261–299. — 分数の学習におけるLesson Studyの効果をRCTで検証。What Works Clearinghouseの厳格な基準を満たした数少ない研究の一つ。
+- Lewis, C., & Perry, R. (2017). Lesson study to scale up research-based knowledge. *Journal for Research in Mathematics Education*, 48(3), 261–299. — 分数の学習におけるLesson Studyの効果をRCTで検証。What Works Clearinghouseの厳格な基準を満たした数少ない研究の一つ。
 - Gersten, R., Taylor, M. J., Keys, T. D., Rolfhus, E., & Newman-Gonchar, R. (2014). Summary of research on the effectiveness of math professional development approaches. IES. — 643件の数学授業改善研究のレビュー。正の効果が確認されたのは2手法のみで、その1つがLesson Study。
 
 ### 日本の研究・公式資料
 
-- 秋田喜代美 (2008). [「研究授業の新たな動向」](https://doi.org/10.5926/arepj1962.47.0_155)『教育心理学年報』47, 155–163. — 日本の研究授業の歴史と理論的枠組みを整理した国内の基礎文献。
+- 秋田喜代美 (2008). 「研究授業の新たな動向」『教育心理学年報』47, 155–163. — 日本の研究授業の歴史と理論的枠組みを整理した国内の基礎文献。
 
 ### 注記
 

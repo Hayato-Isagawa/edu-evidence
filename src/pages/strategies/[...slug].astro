@@ -118,19 +118,23 @@ const effectNote =
   </article>
 
   {
-    d.sourceUrl && (
+    (d.sourceUrl || d.sourceTitle) && (
       <section class="pt-8 border-t border-[var(--color-line)] max-w-2xl space-y-2">
         <div class="text-xs text-[var(--color-sub)]">
           参考にしている情報源
         </div>
-        <a
-          class="link-underline text-[var(--color-ink)] hover:text-[var(--color-accent)]"
-          href={d.sourceUrl}
-          target="_blank"
-          rel="noopener"
-        >
-          {d.sourceTitle ?? d.sourceUrl}
-        </a>
+        {d.sourceUrl ? (
+          <a
+            class="link-underline text-[var(--color-ink)] hover:text-[var(--color-accent)]"
+            href={d.sourceUrl}
+            target="_blank"
+            rel="noopener"
+          >
+            {d.sourceTitle ?? d.sourceUrl}
+          </a>
+        ) : (
+          <p class="text-[var(--color-ink)]">{d.sourceTitle}</p>
+        )}
       </section>
     )
   }

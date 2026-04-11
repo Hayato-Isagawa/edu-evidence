@@ -43,7 +43,7 @@ sourceTitle: "Visible Learning — Hattie Ranking: Jigsaw method"
 
 ## 主な参考研究
 
-- Aronson, E., & Patnoe, S. (2011). [*Cooperation in the classroom: The jigsaw method*](https://books.google.com/books?id=l4HaBwAAQBAJ) (3rd ed.). Pinter & Martin. — ジグソー法の開発者による解説書。
+- Aronson, E., & Patnoe, S. (2011). *Cooperation in the classroom: The jigsaw method* (3rd ed.). Pinter & Martin. — ジグソー法の開発者による解説書。
 - Hattie, J. (2023). *Visible Learning: The Sequel*. Routledge. — 効果量d=1.20と報告。ただし研究数の限界も指摘。
 
 ## 関連する学習指導要領

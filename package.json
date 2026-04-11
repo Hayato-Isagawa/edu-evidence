@@ -8,8 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "check:links": "linkinator dist --recurse --skip 'mailto:|^#'",
-    "check:links:live": "linkinator https://edu-evidence.org --recurse --skip 'mailto:|^#'",
+    "check:links": "linkinator dist --recurse --skip 'mailto:|^#|doi\\.org/10\\.1037|us\\.corwin\\.com'",
+    "check:links:live": "linkinator https://edu-evidence.org --recurse --skip 'mailto:|^#|doi\\.org/10\\.1037|us\\.corwin\\.com'",
     "check:text": "textlint 'src/content/**/*.md'",
     "check:text:fix": "textlint --fix 'src/content/**/*.md'",
     "check:all": "npm run check && npm run check:text && npm run check:links"

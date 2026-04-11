@@ -7,7 +7,6 @@ cost: 1
 subjects: ["全教科"]
 grades: ["高学年"]
 tags: ["デジタル", "健康", "負の効果"]
-sourceUrl: https://doi.org/10.1001/jamapediatrics.2019.4517
 sourceTitle: "Viner et al. (2019) — Social media and adolescent mental health"
 ---
 

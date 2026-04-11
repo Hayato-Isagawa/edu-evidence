@@ -47,6 +47,6 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Repeating a year"
 
 ## 主な参考研究
 
-- Jimerson, S. R. (2001). [Meta-analysis of grade retention research](https://doi.org/10.1037/0022-0663.93.2.274). *Journal of Educational Psychology*, 93(2), 274–286. — 20研究のメタ分析。留年は学力・社会性・自己肯定感のいずれにも負の効果。
-- Allen, C. S., Chen, Q., Willson, V. L., & Hughes, J. N. (2009). [Quality of research design moderates effects of grade retention](https://doi.org/10.3102/0013189X09352239). *Educational Researcher*, 38(6), 403–412. — 研究の質が高いほど、留年の負の効果が大きく出ることを示した。
+- Jimerson, S. R. (2001). Meta-analysis of grade retention research. *Journal of Educational Psychology*, 93(2), 274–286. — 20研究のメタ分析。留年は学力・社会性・自己肯定感のいずれにも負の効果。
+- Allen, C. S., Chen, Q., Willson, V. L., & Hughes, J. N. (2009). Quality of research design moderates effects of grade retention. *Educational Researcher*, 38(6), 403–412. — 研究の質が高いほど、留年の負の効果が大きく出ることを示した。
 - EEF (2021). Repeating a year: Evidence review. — 効果量-4ヶ月。エビデンスの強度★★★★。代替的な支援策を推奨。

@@ -46,7 +46,7 @@ sourceTitle: "Dunlosky et al. (2013) — Improving students' learning with effec
 ## 主な参考研究
 
 - Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). [Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology](https://doi.org/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. — 10の学習法を評価した包括的レビュー。精緻的質問法(elaborative interrogation)を「中程度の有用性」と評価し、条件と限界を整理。
-- Pressley, M., McDaniel, M. A., Turnure, J. E., Wood, E., & Ahmad, M. (1987). [Generation and precision of elaboration](https://doi.org/10.1037/0022-0663.79.1.26). *Journal of Educational Psychology*, 79(1), 26–34. — 精緻化の質(正確さ)が記憶に与える影響を実験的に検証。正確な精緻化がより効果的であることを示した。
+- Pressley, M., McDaniel, M. A., Turnure, J. E., Wood, E., & Ahmad, M. (1987). Generation and precision of elaboration. *Journal of Educational Psychology*, 79(1), 26–34. — 精緻化の質(正確さ)が記憶に与える影響を実験的に検証。正確な精緻化がより効果的であることを示した。
 
 ## 関連する学習指導要領
 

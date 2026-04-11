@@ -43,8 +43,8 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Summer schools"
 
 ## 主な参考研究
 
-- Cooper, H., Charlton, K., Valentine, J. C., & Muhlenbruck, L. (2000). [Making the most of summer school](https://doi.org/10.1111/1540-5826.00013). *Monographs of the Society for Research in Child Development*, 65(1). — サマースクールの効果を包括的にレビュー。読みの領域で効果が大きい。
-- Kim, J. S., & Quinn, D. M. (2013). [The effects of summer reading on low-income children's literacy achievement](https://doi.org/10.1177/0895904813486748). *Educational Evaluation and Policy Analysis*, 35(2), 126–148. — 低所得層向けサマーリーディングプログラムの効果を検証。
+- Cooper, H., Charlton, K., Valentine, J. C., & Muhlenbruck, L. (2000). Making the most of summer school. *Monographs of the Society for Research in Child Development*, 65(1). — サマースクールの効果を包括的にレビュー。読みの領域で効果が大きい。
+- Kim, J. S., & Quinn, D. M. (2013). The effects of summer reading on low-income children's literacy achievement. *Educational Evaluation and Policy Analysis*, 35(2), 126–148. — 低所得層向けサマーリーディングプログラムの効果を検証。
 - EEF (2021). Summer schools: Evidence review. — 効果量+3ヶ月。低所得層で効果が大きい。
 
 ## 関連する学習指導要領

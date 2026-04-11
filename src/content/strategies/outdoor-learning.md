@@ -44,7 +44,7 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Outdoor adventure learning"
 
 ## 主な参考研究
 
-- Rickinson, M., et al. (2004). [*A review of research on outdoor learning*](https://www.nfer.ac.uk/publications/out01). NFER & King's College London. — 屋外学習の効果を包括的にレビュー。認知・情意・社会性の各領域で正の効果を報告。
+- Rickinson, M., et al. (2004). *A review of research on outdoor learning*. NFER & King's College London. — 屋外学習の効果を包括的にレビュー。認知・情意・社会性の各領域で正の効果を報告。
 - Becker, C., Lauterbach, G., Spengler, S., Dettweiler, U., & Mess, F. (2017). Effects of regular classes in outdoor education settings: A systematic review. *International Journal of Environmental Research and Public Health*, 14(10), 1078. — 屋外での定期的な授業が学力と非認知能力に与える効果を系統的にレビュー。
 - EEF (2021). Outdoor adventure learning: Evidence review. — 効果量+3ヶ月。自己肯定感への効果が特に注目される。
 

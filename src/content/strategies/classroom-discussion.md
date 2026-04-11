@@ -44,7 +44,7 @@ sourceTitle: "Visible Learning — Hattie Ranking: Classroom discussion"
 ## 主な参考研究
 
 - Alexander, R. (2020). [A dialogic teaching companion](https://doi.org/10.4324/9781351040143). Routledge. — 対話型教授法の理論と実践を体系化。英国の大規模実験で効果を実証。
-- Mercer, N., & Dawes, L. (2008). [The value of exploratory talk](https://doi.org/10.1007/978-0-387-74339-3_4). In N. Mercer & S. Hodgkinson (Eds.), *Exploring Talk in School*. — 「探索的対話」の概念を提唱し、その学力への効果を示した。
+- Mercer, N., & Dawes, L. (2008). The value of exploratory talk. In N. Mercer & S. Hodgkinson (Eds.), *Exploring Talk in School*. — 「探索的対話」の概念を提唱し、その学力への効果を示した。
 
 ## 関連する学習指導要領
 
