@@ -32,9 +32,9 @@ const effectColor =
   href={href}
   data-months={monthsGained}
   data-evidence={evidenceStrength}
-  class="group block border-t border-[var(--color-line)] py-8 md:py-10 transition hover:bg-[var(--color-card)]"
+  class="group block border-t border-[var(--color-line)] py-4 sm:py-8 md:py-10 transition hover:bg-[var(--color-card)]"
 >
-  <div class="grid grid-cols-12 gap-4 md:gap-6 items-center px-2">
+  <div class="grid grid-cols-12 gap-4 md:gap-6 items-center px-4 sm:px-2">
     <div
       class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]"
       data-num
@@ -42,8 +42,8 @@ const effectColor =
       {num}
     </div>
 
-    <div class="col-span-10 md:col-span-7">
-      <div class="flex flex-wrap items-center gap-3 mb-1">
+    <div class="col-span-10 md:col-span-7 space-y-2">
+      <div class="flex flex-wrap items-center gap-3">
         <h3
           class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition"
         >
@@ -56,7 +56,7 @@ const effectColor =
         </span>
       </div>
       <div
-        class="mt-2 font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] flex flex-wrap gap-x-4 gap-y-1"
+        class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] flex flex-wrap gap-x-4 gap-y-1"
       >
         <span>{subjects.join(" · ")}</span>
         <span>{grades.join(" · ")}</span>

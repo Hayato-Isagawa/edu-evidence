@@ -18,9 +18,9 @@ const grades = [...gradeMap.entries()].sort(
 ---
 
 <Layout title="学年から探す — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
-      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
         Browse by grade
       </p>
       <h1 class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight">
@@ -38,13 +38,13 @@ const grades = [...gradeMap.entries()].sort(
         grades.map(([grade, count]) => (
           <a
             href={`/grades/${encodeURIComponent(grade)}`}
-            class="group block border border-[var(--color-line)] rounded-xl p-6 hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition text-center"
+            class="group block border border-[var(--color-line)] rounded-xl p-6 hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition text-center space-y-2"
           >
             <div class="text-3xl font-black group-hover:text-[var(--color-accent)] transition">
               {grade}
             </div>
-            <div class="font-mono text-xs text-[var(--color-sub)] mt-2">
-              {count} entries →
+            <div class="text-xs text-[var(--color-sub)]">
+              {count}件の指導法 →
             </div>
           </a>
         ))

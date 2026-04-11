@@ -7,13 +7,18 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
 ---
 
 <Layout>
-  <section class="py-20 md:py-32 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
-      <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
-      >
-        Evidence-based teaching for elementary schools
-      </p>
+  <section class="py-10 xs:py-14 sm:py-20 md:py-32 grid grid-cols-12 gap-6">
+    <div class="col-span-12 min-[900px]:col-span-8 space-y-6">
+      <div class="space-y-1">
+        <p
+          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+        >
+          Evidence-based teaching for elementary schools
+        </p>
+        <p class="text-xs text-[var(--color-sub)]">
+          小学校教員のための教育エビデンス・ポータル
+        </p>
+      </div>
       <h1
         class="font-black text-5xl md:text-7xl leading-[1.15] tracking-tight"
       >
@@ -22,34 +27,39 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
       </h1>
     </div>
     <div
-      class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm md:text-base"
+      class="col-span-12 min-[900px]:col-span-4 min-[900px]:pt-6 text-[var(--color-sub)] leading-loose text-sm md:text-base space-y-4"
     >
+      <p class="text-[var(--color-ink)] font-bold text-base md:text-lg leading-snug">
+        経験と勘に、もうひとつの視点を。
+      </p>
       <p>
-        このサイトは、国内外の教育研究から<br />
-        得られた知見を「効果」「信頼性」<br />
-        「コスト」の3指標で整理し、<br />
-        日本の小学校の現場で使える形に<br />
-        翻案して公開しています。
+        日々の指導や教育施策を「研究で確かめられた知見」から見つめ直すための場所です。
+      </p>
+      <p>
+        国内外の教育研究を「効果」「信頼性」「コスト」の3指標で整理し、日本の小学校の現場で使える形に翻案して公開しています。
       </p>
     </div>
   </section>
 
-  <section class="border-t border-[var(--color-line)] py-10">
+  <section class="border-t border-[var(--color-line)] py-5 xs:py-7 sm:py-10">
     <div class="grid grid-cols-12 gap-6">
-      <div class="col-span-12 md:col-span-3">
-        <div
-          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
-        >
-          How to read
+      <div class="col-span-12 min-[900px]:col-span-3 space-y-3">
+        <div class="space-y-1">
+          <div
+            class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+          >
+            How to read
+          </div>
+          <div class="text-xs text-[var(--color-sub)]">指標の読み方</div>
         </div>
-        <div class="mt-3 flex items-baseline gap-4">
+        <div class="flex items-baseline gap-4">
           <span class="text-3xl font-black text-[var(--color-accent)]">+6<span class="text-base ml-1">ヶ月</span></span>
           <span class="text-3xl font-black text-red-600">(<span class="text-base mr-0.5">-</span>4<span class="text-base ml-1">ヶ月</span>)</span>
         </div>
-        <div class="mt-2 text-xl text-amber-500">★★★★☆</div>
+        <div class="text-xl text-amber-500">★★★★☆</div>
       </div>
       <div
-        class="col-span-12 md:col-span-9 text-sm md:text-base text-[var(--color-sub)] leading-loose"
+        class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-[var(--color-sub)] leading-loose space-y-3"
       >
         <p>
           <strong class="text-[var(--color-accent)]">+◯ヶ月(緑)</strong> =
@@ -57,15 +67,15 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
           <strong class="text-red-600">(-◯ヶ月)(赤)</strong> =
           逆に、<strong class="text-[var(--color-ink)]">◯ヶ月分遅れた</strong>。やらない方がよかった指導法。
         </p>
-        <p class="mt-3">
+        <p>
           <span class="text-amber-500">★</span> は<strong class="text-[var(--color-ink)]">「その数字をどこまで信じていいか」</strong>を表します。<br />
           ★が多い = 多くの質の高い研究で繰り返し確かめられている。<br />
           ★が少ない = 研究がまだ少なく、数字が変わる可能性がある。
         </p>
-        <p class="mt-2 text-[var(--color-ink)] font-bold">
+        <p class="text-[var(--color-ink)] font-bold">
           月数と★をセットで見ることで、より確かな判断ができます。
         </p>
-        <div class="grid grid-cols-2 gap-3 mt-3 text-sm">
+        <div class="grid grid-cols-2 gap-3 text-sm">
           <div class="border border-[var(--color-line)] rounded-lg p-3">
             <div class="font-bold text-[var(--color-ink)]">+12ヶ月 ★★★</div>
             <div class="text-[var(--color-sub)]">効果は大きいが研究が少ない。<br />過大評価の可能性あり</div>
@@ -75,16 +85,16 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
             <div class="text-[var(--color-sub)]">効果はやや小さいが<br /><strong class="text-[var(--color-ink)]">信頼性が非常に高い</strong></div>
           </div>
         </div>
-        <p class="mt-3 text-xs">
+        <p class="text-xs">
           ※ 月数は集団の平均値であり、個々の教室への効果を保証しません。
-          <a href="/guide/indicators" class="text-[var(--color-accent)] underline">指標の読み方 →</a>
+          <a href="/guide/indicators" class="link-underline text-[var(--color-accent)]">指標の読み方 →</a>
         </p>
       </div>
     </div>
   </section>
 
-  <section class="pt-12 pb-20">
-    <div class="flex flex-wrap gap-3 mb-8">
+  <section class="pt-6 xs:pt-8 sm:pt-12 pb-10 xs:pb-14 sm:pb-20 space-y-8">
+    <div class="flex flex-wrap gap-3">
       <a
         href="/subjects"
         class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
@@ -110,27 +120,30 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
         <span class="font-bold">タグ</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
       </a>
     </div>
-    <div
-      class="flex items-baseline justify-between mb-4 px-2 font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]"
-    >
-      <span>Index — 指導法</span>
-      <span>{strategies.length} entries</span>
-    </div>
 
-    <div class="flex items-center gap-3 mb-4 px-2">
-      <span class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)]">Sort by</span>
-      <button
-        id="sort-effect"
-        class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5 transition cursor-pointer"
+    <div class="space-y-4">
+      <div
+        class="flex items-baseline justify-between px-2 text-xs text-[var(--color-sub)]"
       >
-        効果量順
-      </button>
-      <button
-        id="sort-evidence"
-        class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer"
-      >
-        エビデンス強さ順
-      </button>
+        <span class="font-bold text-sm text-[var(--color-ink)]">指導法一覧</span>
+        <span>{strategies.length}件</span>
+      </div>
+
+      <div class="flex items-center gap-3 px-2">
+        <span class="text-xs text-[var(--color-sub)]">並び替え</span>
+        <button
+          id="sort-effect"
+          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5 transition cursor-pointer"
+        >
+          効果量順
+        </button>
+        <button
+          id="sort-evidence"
+          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer"
+        >
+          エビデンス強さ順
+        </button>
+      </div>
     </div>
 
     <div id="strategy-list" class="border-b border-[var(--color-line)]">

@@ -25,13 +25,16 @@ const strategies = allStrategies
 ---
 
 <Layout title={`${tag} — EduEvidence JP`}>
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
-      <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-6"
-      >
-        <a href="/tags" class="hover:text-[var(--color-ink)]">Tags</a> /
-      </p>
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
+      <div class="space-y-1">
+        <p
+          class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]"
+        >
+          <a href="/tags" class="hover:text-[var(--color-ink)]">Tags</a> /
+        </p>
+        <p class="text-xs text-[var(--color-sub)]">タグから絞り込み</p>
+      </div>
       <h1
         class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
       >
@@ -41,12 +44,12 @@ const strategies = allStrategies
     <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
       <p>
         「{tag}」に関連する指導法<br />
-        <span class="font-mono text-xs">{strategies.length} entries</span>
+        <span class="text-xs">{strategies.length}件</span>
       </p>
     </div>
   </section>
 
-  <section class="pb-24">
+  <section class="pb-24 space-y-8">
     <div class="border-b border-[var(--color-line)]">
       {
         strategies.map((s, i) => (
@@ -63,12 +66,12 @@ const strategies = allStrategies
         ))
       }
     </div>
-    <div class="mt-8">
+    <div>
       <a
         href="/tags"
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] hover:underline"
+        class="link-underline font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
-        ← タグ一覧へ
+        ← タグ一覧へ戻る
       </a>
     </div>
   </section>

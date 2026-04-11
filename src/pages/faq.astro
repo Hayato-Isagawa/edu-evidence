@@ -46,10 +46,10 @@ const faqs = [
 ---
 
 <Layout title="FAQ — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
       <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
         Frequently asked questions
       </p>
@@ -69,8 +69,8 @@ const faqs = [
             <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
               Q{String(i + 1).padStart(2, "0")}
             </div>
-            <div class="col-span-10 md:col-span-11">
-              <h3 class="font-bold text-lg mb-3">{faq.q}</h3>
+            <div class="col-span-10 md:col-span-11 space-y-3">
+              <h3 class="font-bold text-lg">{faq.q}</h3>
               <p class="text-[var(--color-sub)] leading-loose text-sm md:text-base">
                 {faq.a}
               </p>

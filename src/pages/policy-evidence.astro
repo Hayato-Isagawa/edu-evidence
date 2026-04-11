@@ -112,10 +112,10 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
 ---
 
 <Layout title="政策とエビデンス — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
       <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
         Policy × Evidence
       </p>
@@ -162,8 +162,8 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
                 {String(i + 1).padStart(2, "0")}
               </div>
 
-              <div class="col-span-10 md:col-span-11">
-                <div class="flex flex-wrap items-center gap-3 mb-4">
+              <div class="col-span-10 md:col-span-11 space-y-4">
+                <div class="flex flex-wrap items-center gap-3">
                   <h3 class="text-xl md:text-2xl font-black tracking-tight">
                     {c.policy}
                   </h3>
@@ -174,26 +174,26 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
                   </span>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6 mt-4">
-                  <div>
-                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] mb-2">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)]">
                       政策の前提
                     </div>
                     <p class="text-sm leading-relaxed">{c.assumption}</p>
                   </div>
-                  <div>
-                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)] mb-2">
+                  <div class="space-y-2">
+                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)]">
                       エビデンスが示すこと
                     </div>
                     <p class="text-sm leading-relaxed">{c.evidence}</p>
                   </div>
                 </div>
 
-                <div class="mt-4 flex flex-wrap gap-3 text-xs">
+                <div class="flex flex-wrap gap-3 text-xs">
                   {c.strategies.map((s) => (
                     <a
                       href={s.href}
-                      class="text-[var(--color-accent)] hover:underline"
+                      class="link-underline text-[var(--color-accent)]"
                     >
                       {s.name} →
                     </a>
@@ -201,7 +201,7 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
                   {c.column && (
                     <a
                       href={c.column.href}
-                      class="text-[var(--color-ink)] hover:underline"
+                      class="link-underline text-[var(--color-ink)]"
                     >
                       コラム: {c.column.name} →
                     </a>

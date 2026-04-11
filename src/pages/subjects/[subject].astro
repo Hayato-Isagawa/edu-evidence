@@ -23,21 +23,24 @@ const strategies = allStrategies
 ---
 
 <Layout title={`${subject} — EduEvidence JP`}>
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
-      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-6">
-        <a href="/subjects" class="hover:text-[var(--color-ink)]">Subjects</a> /
-      </p>
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
+      <div class="space-y-1">
+        <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">
+          <a href="/subjects" class="hover:text-[var(--color-ink)]">Subjects</a> /
+        </p>
+        <p class="text-xs text-[var(--color-sub)]">教科で絞り込み</p>
+      </div>
       <h1 class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight">
         <span class="text-[var(--color-accent)]">{subject}</span>
       </h1>
     </div>
     <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
-      <p>「{subject}」に関連する指導法<br /><span class="font-mono text-xs">{strategies.length} entries</span></p>
+      <p>「{subject}」に関連する指導法<br /><span class="text-xs">{strategies.length}件</span></p>
     </div>
   </section>
 
-  <section class="pb-24">
+  <section class="pb-24 space-y-8">
     <div class="border-b border-[var(--color-line)]">
       {strategies.map((s, i) => (
         <StrategyRow
@@ -52,8 +55,8 @@ const strategies = allStrategies
         />
       ))}
     </div>
-    <div class="mt-8">
-      <a href="/subjects" class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] hover:underline">← 教科一覧へ</a>
+    <div>
+      <a href="/subjects" class="link-underline font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">← 教科一覧へ戻る</a>
     </div>
   </section>
 </Layout>

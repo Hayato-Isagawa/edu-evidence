@@ -3,17 +3,20 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
-      <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
-      >
-        About
-      </p>
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
+      <div class="space-y-1">
+        <p
+          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+        >
+          About
+        </p>
+        <p class="text-xs text-[var(--color-sub)]">サイトについて</p>
+      </div>
       <h1
         class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
       >
-        勘と経験に、<br /><span class="text-[var(--color-accent)]">エビデンス</span>を。
+        経験と勘に、<br /><span class="text-[var(--color-accent)]">エビデンス</span>を。
       </h1>
     </div>
   </section>
@@ -33,23 +36,23 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <!-- ① 監修者・執筆者クレジット -->
-      <div>
-        <h2 class="text-2xl font-black tracking-tight mb-6">運営・執筆</h2>
+      <div class="space-y-6">
+        <h2 class="text-2xl font-black tracking-tight">運営・執筆</h2>
         <div
           class="border border-[var(--color-line)] rounded-xl p-6 md:p-8 space-y-4"
         >
-          <div>
-            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-1">
+          <div class="space-y-1">
+            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">
               企画・執筆
             </div>
             <div class="font-bold text-lg">
               Isagawa Hayato
             </div>
-            <p class="text-sm text-[var(--color-sub)] mt-1 leading-relaxed">
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed">
               元小学校教諭。現場経験12年。学級担任の他、非常勤講師・理科専科・特別支援学級担任を経験。<br />
               小学校一種免許・中学校一種免許(理科)・高等学校一種免許(理科)保持。
             </p>
-            <p class="text-sm text-[var(--color-sub)] mt-3 leading-relaxed">
+            <p class="text-sm text-[var(--color-sub)] leading-relaxed pt-2">
               教員時代に中室牧子氏の『「学力」の経済学』に出会い、エビデンスに基づく教育に興味を持つ。
               現在は退職し、フリーランスのウェブエンジニアとして活動。
               フィンランド教育の失敗に関する動画をきっかけに、改めてエビデンスを伴った教育について学び始める。
@@ -57,16 +60,16 @@ import Layout from "../layouts/Layout.astro";
               本サイトは、現場で得た実感と研究の知見をつなぎたいという思いから立ち上げた。
             </p>
           </div>
-          <div>
-            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-1">
+          <div class="space-y-1">
+            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">
               監修
             </div>
             <div class="text-sm text-[var(--color-sub)]">
               （今後、教育研究の専門家による監修体制を構築予定です）
             </div>
           </div>
-          <div>
-            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-1">
+          <div class="space-y-1">
+            <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">
               協力
             </div>
             <div class="text-sm text-[var(--color-sub)]">
@@ -78,15 +81,15 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <!-- ② 編集方針(エディトリアル・ポリシー) -->
-      <div>
-        <h2 class="text-2xl font-black tracking-tight mb-6">編集方針</h2>
+      <div class="space-y-6">
+        <h2 class="text-2xl font-black tracking-tight">編集方針</h2>
         <div class="space-y-6">
-          <div>
-            <h3 class="font-bold text-lg mb-2">記事はどう書かれているか</h3>
+          <div class="space-y-2">
+            <h3 class="font-bold text-lg">記事はどう書かれているか</h3>
             <p>
               各指導法の記事は、以下の手順で作成されています。
             </p>
-            <ol class="list-decimal pl-6 space-y-2 mt-3">
+            <ol class="list-decimal pl-6 space-y-2">
               <li>
                 英国 EEF Teaching and Learning Toolkit の該当項目を主要な参照元として読解し、効果量・エビデンスの強さ・コストの3指標を確認する
               </li>
@@ -101,8 +104,8 @@ import Layout from "../layouts/Layout.astro";
               </li>
             </ol>
           </div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">情報の信頼性について</h3>
+          <div class="space-y-2">
+            <h3 class="font-bold text-lg">情報の信頼性について</h3>
             <ul class="space-y-2">
               <li>
                 本サイトの内容は研究の要約であり、個々の教室・子どもへの効果を保証するものではありません
@@ -115,8 +118,8 @@ import Layout from "../layouts/Layout.astro";
               </li>
             </ul>
           </div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">誤りの修正</h3>
+          <div class="space-y-2">
+            <h3 class="font-bold text-lg">誤りの修正</h3>
             <ul class="space-y-2">
               <li>
                 内容に誤りや不正確な記述を発見された場合は、ご連絡ください。速やかに確認・修正します
@@ -126,16 +129,23 @@ import Layout from "../layouts/Layout.astro";
               </li>
             </ul>
           </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-lg">サイトの公開性</h3>
+            <p>
+              本サイトのソースコードはオープンに公開しています(現在は個人リポジトリ、将来的には組織アカウントへの移行を予定)。
+              記述内容・指標の根拠・改訂履歴をすべて第三者が検証できる状態を目指しています。
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- 参考元 -->
-      <div>
-        <h2 class="text-2xl font-black tracking-tight mb-4">参考にしているもの</h2>
+      <div class="space-y-4">
+        <h2 class="text-2xl font-black tracking-tight">参考にしているもの</h2>
         <p>
           本サイトは英国の Education Endowment Foundation (EEF) が公開する
           <a
-            class="underline"
+            class="link-underline text-[var(--color-accent)]"
             href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit"
             target="_blank"
             rel="noopener">Teaching and Learning Toolkit</a
@@ -145,8 +155,8 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <!-- 免責 -->
-      <div>
-        <h2 class="text-2xl font-black tracking-tight mb-4">免責</h2>
+      <div class="space-y-4">
+        <h2 class="text-2xl font-black tracking-tight">免責</h2>
         <p>
           本サイトの内容は研究の要約であり、個々の教室・子どもへの効果を保証するものではありません。
           実際の指導判断は、目の前の子どもの状況と専門家としての判断のもとで行ってください。

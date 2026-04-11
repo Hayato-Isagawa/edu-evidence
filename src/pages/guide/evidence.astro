@@ -3,10 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="エビデンス入門 — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
       <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
         Guide — What is evidence?
       </p>
@@ -28,101 +28,97 @@ import Layout from "../../layouts/Layout.astro";
   <section class="pb-24 space-y-20">
 
     <!-- 1. エビデンスとは -->
-    <div>
-      <div class="border-t border-[var(--color-line)] pt-10">
-        <div class="flex items-baseline gap-6 mb-6">
-          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">01</span>
-          <h2 class="text-3xl font-black tracking-tight">エビデンスとは何か</h2>
-        </div>
-        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
-          <p>
-            教育における「エビデンス」とは、<strong>研究で確かめられた知見</strong>のことです。
-          </p>
-          <p>
-            現場教員は日々、自分の経験と直感で判断を下しています。
-            これは極めて重要であり、エビデンスがそれに取って代わるものではありません。
-            エビデンスは、<strong>「経験と直感に、もう一つの判断材料を加える」</strong>ためのものです。
-          </p>
-          <p>
-            たとえば医療では、医師の経験と患者の状態に加えて、研究で確かめられた治療法の効果を参考にする
-            「エビデンスに基づく医療（EBM）」が確立しています。
-            教育でも同じ考え方を取り入れたのが「エビデンスに基づく教育（EBE）」です。
-          </p>
-        </div>
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">01</span>
+        <h2 class="text-3xl font-black tracking-tight">エビデンスとは何か</h2>
+      </div>
+      <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
+        <p>
+          教育における「エビデンス」とは、<strong>研究で確かめられた知見</strong>のことです。
+        </p>
+        <p>
+          現場教員は日々、自分の経験と直感で判断を下しています。
+          これは極めて重要であり、エビデンスがそれに取って代わるものではありません。
+          エビデンスは、<strong>「経験と直感に、もう一つの判断材料を加える」</strong>ためのものです。
+        </p>
+        <p>
+          たとえば医療では、医師の経験と患者の状態に加えて、研究で確かめられた治療法の効果を参考にする
+          「エビデンスに基づく医療（EBM）」が確立しています。
+          教育でも同じ考え方を取り入れたのが「エビデンスに基づく教育（EBE）」です。
+        </p>
       </div>
     </div>
 
     <!-- 2. 研究の種類 -->
-    <div>
-      <div class="border-t border-[var(--color-line)] pt-10">
-        <div class="flex items-baseline gap-6 mb-6">
-          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02</span>
-          <h2 class="text-3xl font-black tracking-tight">研究にはレベルがある</h2>
-        </div>
-        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
-          <p>
-            「研究で確かめた」と一口に言っても、研究の質はさまざまです。
-            以下のように、エビデンスの信頼性には段階があります。
-          </p>
-          <div class="mt-6 space-y-1">
-            <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-xl p-5">
-              <div class="col-span-3 md:col-span-2">
-                <div class="font-mono text-xs text-[var(--color-sub)] uppercase">最も強い</div>
-                <div class="font-black text-lg text-[var(--color-accent)]">Level 5</div>
-              </div>
-              <div class="col-span-9 md:col-span-10">
-                <div class="font-bold">メタ分析・システマティックレビュー</div>
-                <div class="text-sm text-[var(--color-sub)] mt-1">
-                  複数の研究を統合し、全体的な傾向を分析したもの。本サイトのデータは主にここから来ています。
-                </div>
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02</span>
+        <h2 class="text-3xl font-black tracking-tight">研究にはレベルがある</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+        <p>
+          「研究で確かめた」と一口に言っても、研究の質はさまざまです。
+          以下のように、エビデンスの信頼性には段階があります。
+        </p>
+        <div class="space-y-1">
+          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-xl p-5">
+            <div class="col-span-3 md:col-span-2">
+              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">最も強い</div>
+              <div class="font-black text-lg text-[var(--color-accent)]">Level 5</div>
+            </div>
+            <div class="col-span-9 md:col-span-10 space-y-1">
+              <div class="font-bold">メタ分析・システマティックレビュー</div>
+              <div class="text-sm text-[var(--color-sub)]">
+                複数の研究を統合し、全体的な傾向を分析したもの。本サイトのデータは主にここから来ています。
               </div>
             </div>
-            <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
-              <div class="col-span-3 md:col-span-2">
-                <div class="font-mono text-xs text-[var(--color-sub)] uppercase">強い</div>
-                <div class="font-black text-lg">Level 4</div>
-              </div>
-              <div class="col-span-9 md:col-span-10">
-                <div class="font-bold">ランダム化比較試験(RCT)</div>
-                <div class="text-sm text-[var(--color-sub)] mt-1">
-                  対象者をランダムに2グループに分け、介入あり・なしの結果を比較する研究。因果関係を最も厳密に示せる。
-                </div>
+          </div>
+          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+            <div class="col-span-3 md:col-span-2">
+              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">強い</div>
+              <div class="font-black text-lg">Level 4</div>
+            </div>
+            <div class="col-span-9 md:col-span-10 space-y-1">
+              <div class="font-bold">ランダム化比較試験(RCT)</div>
+              <div class="text-sm text-[var(--color-sub)]">
+                対象者をランダムに2グループに分け、介入あり・なしの結果を比較する研究。因果関係を最も厳密に示せる。
               </div>
             </div>
-            <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
-              <div class="col-span-3 md:col-span-2">
-                <div class="font-mono text-xs text-[var(--color-sub)] uppercase">中程度</div>
-                <div class="font-black text-lg">Level 3</div>
-              </div>
-              <div class="col-span-9 md:col-span-10">
-                <div class="font-bold">準実験研究</div>
-                <div class="text-sm text-[var(--color-sub)] mt-1">
-                  RCTほど厳密ではないが、介入群と比較群を設けた研究。現実的な制約の中で行われることが多い。
-                </div>
+          </div>
+          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+            <div class="col-span-3 md:col-span-2">
+              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">中程度</div>
+              <div class="font-black text-lg">Level 3</div>
+            </div>
+            <div class="col-span-9 md:col-span-10 space-y-1">
+              <div class="font-bold">準実験研究</div>
+              <div class="text-sm text-[var(--color-sub)]">
+                RCTほど厳密ではないが、介入群と比較群を設けた研究。現実的な制約の中で行われることが多い。
               </div>
             </div>
-            <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
-              <div class="col-span-3 md:col-span-2">
-                <div class="font-mono text-xs text-[var(--color-sub)] uppercase">弱い</div>
-                <div class="font-black text-lg">Level 2</div>
-              </div>
-              <div class="col-span-9 md:col-span-10">
-                <div class="font-bold">観察研究・相関研究</div>
-                <div class="text-sm text-[var(--color-sub)] mt-1">
-                  介入は行わず、既存のデータの関連を分析する。因果関係の主張は難しい。
-                </div>
+          </div>
+          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+            <div class="col-span-3 md:col-span-2">
+              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">弱い</div>
+              <div class="font-black text-lg">Level 2</div>
+            </div>
+            <div class="col-span-9 md:col-span-10 space-y-1">
+              <div class="font-bold">観察研究・相関研究</div>
+              <div class="text-sm text-[var(--color-sub)]">
+                介入は行わず、既存のデータの関連を分析する。因果関係の主張は難しい。
               </div>
             </div>
-            <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
-              <div class="col-span-3 md:col-span-2">
-                <div class="font-mono text-xs text-[var(--color-sub)] uppercase">最も弱い</div>
-                <div class="font-black text-lg">Level 1</div>
-              </div>
-              <div class="col-span-9 md:col-span-10">
-                <div class="font-bold">個人の経験・事例報告・専門家の意見</div>
-                <div class="text-sm text-[var(--color-sub)] mt-1">
-                  参考にはなるが、一般化はできない。多くの「教育実践報告」はここに位置する。
-                </div>
+          </div>
+          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+            <div class="col-span-3 md:col-span-2">
+              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">最も弱い</div>
+              <div class="font-black text-lg">Level 1</div>
+            </div>
+            <div class="col-span-9 md:col-span-10 space-y-1">
+              <div class="font-bold">個人の経験・事例報告・専門家の意見</div>
+              <div class="text-sm text-[var(--color-sub)]">
+                参考にはなるが、一般化はできない。多くの「教育実践報告」はここに位置する。
               </div>
             </div>
           </div>
@@ -131,49 +127,61 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 2.5 研究の質を決めるもの -->
-    <div>
-      <div class="border-t border-[var(--color-line)] pt-10">
-        <div class="flex items-baseline gap-6 mb-6">
-          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02-b</span>
-          <h2 class="text-3xl font-black tracking-tight">研究の質を決める3つの要素</h2>
-        </div>
-        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
-          <p>
-            では、上のレベルを分けているのは何でしょうか。研究の質を決めるのは、主に以下の3つです。
-          </p>
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02-b</span>
+        <h2 class="text-3xl font-black tracking-tight">研究の質を決める3つの要素</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+        <p>
+          では、上のレベルを分けているのは何でしょうか。研究の質を決めるのは、主に以下の3つです。
+        </p>
 
-          <h3 class="font-bold mt-6 mb-2">① 比較対象があるか</h3>
+        <div class="space-y-2">
+          <h3 class="font-bold">① 比較対象があるか</h3>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="border border-[var(--color-line)] rounded-lg p-4">
-              <div class="text-red-600 font-bold mb-1">質が低い</div>
-              「フィードバックをやったら成績が上がった」<br />
-              <span class="text-[var(--color-sub)]">→ 他の要因(季節・成長・別の指導)かもしれない</span>
+            <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+              <div class="text-red-600 font-bold">質が低い</div>
+              <div>
+                「フィードバックをやったら成績が上がった」<br />
+                <span class="text-[var(--color-sub)]">→ 他の要因(季節・成長・別の指導)かもしれない</span>
+              </div>
             </div>
-            <div class="border border-[var(--color-accent)]/30 rounded-lg p-4">
-              <div class="text-[var(--color-accent)] font-bold mb-1">質が高い</div>
-              「やった学級と、やらなかった学級を比べた」<br />
-              <span class="text-[var(--color-sub)]">→ 差があれば、介入が原因だと言いやすい</span>
+            <div class="border border-[var(--color-accent)]/30 rounded-lg p-4 space-y-1">
+              <div class="text-[var(--color-accent)] font-bold">質が高い</div>
+              <div>
+                「やった学級と、やらなかった学級を比べた」<br />
+                <span class="text-[var(--color-sub)]">→ 差があれば、介入が原因だと言いやすい</span>
+              </div>
             </div>
           </div>
+        </div>
 
-          <h3 class="font-bold mt-6 mb-2">② グループの分け方が公平か</h3>
+        <div class="space-y-2">
+          <h3 class="font-bold">② グループの分け方が公平か</h3>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="border border-[var(--color-line)] rounded-lg p-4">
-              <div class="text-red-600 font-bold mb-1">質が低い</div>
-              教師が「やりたい学級」を選んで介入<br />
-              <span class="text-[var(--color-sub)]">→ やる気のある学級だけが選ばれ、結果が歪む</span>
+            <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+              <div class="text-red-600 font-bold">質が低い</div>
+              <div>
+                教師が「やりたい学級」を選んで介入<br />
+                <span class="text-[var(--color-sub)]">→ やる気のある学級だけが選ばれ、結果が歪む</span>
+              </div>
             </div>
-            <div class="border border-[var(--color-accent)]/30 rounded-lg p-4">
-              <div class="text-[var(--color-accent)] font-bold mb-1">質が高い(RCT)</div>
-              コイン投げやくじ引きでランダムに分ける<br />
-              <span class="text-[var(--color-sub)]">→ 両グループの条件がほぼ同じになる</span>
+            <div class="border border-[var(--color-accent)]/30 rounded-lg p-4 space-y-1">
+              <div class="text-[var(--color-accent)] font-bold">質が高い(RCT)</div>
+              <div>
+                コイン投げやくじ引きでランダムに分ける<br />
+                <span class="text-[var(--color-sub)]">→ 両グループの条件がほぼ同じになる</span>
+              </div>
             </div>
           </div>
           <p class="text-sm text-[var(--color-sub)]">
             これがRCT(ランダム化比較試験)が「最も強い研究デザイン」とされる理由です。
           </p>
+        </div>
 
-          <h3 class="font-bold mt-6 mb-2">③ 結果が繰り返されているか</h3>
+        <div class="space-y-2">
+          <h3 class="font-bold">③ 結果が繰り返されているか</h3>
           <div class="space-y-2 text-sm">
             <div class="flex gap-3 items-start">
               <span class="text-[var(--color-sub)] shrink-0">1本の研究</span>
@@ -188,15 +196,17 @@ import Layout from "../../layouts/Layout.astro";
               <span>「効果あり」→ 強い確信が持てる</span>
             </div>
           </div>
+        </div>
 
-          <h3 class="font-bold mt-8 mb-2">日本の教育現場でよくある例</h3>
-          <div class="border border-amber-600/30 rounded-xl p-5 bg-amber-50/30">
+        <div class="space-y-2 pt-2">
+          <h3 class="font-bold">日本の教育現場でよくある例</h3>
+          <div class="border border-amber-600/30 rounded-xl p-5 bg-amber-50/30 space-y-3">
             <p class="text-sm leading-loose">
               校内研究や研究紀要で発表される「本校で◯◯を実践したら、子どもの◯◯が向上した」は、
               上のピラミッドでは<strong>最下層(Level 1)</strong>に位置します。
               比較対象がなく、ランダム化もされておらず、サンプルが1校だけだからです。
             </p>
-            <p class="text-sm leading-loose mt-3">
+            <p class="text-sm leading-loose">
               これが貴重な<strong>実践報告</strong>であることは間違いありません。
               しかし、それだけでは「この方法が効く」とは言えません。
               「うまくいった感覚」と「研究で確かめられた知見」を区別すること——
@@ -208,163 +218,155 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 3. 効果量 -->
-    <div>
-      <div class="border-t border-[var(--color-line)] pt-10">
-        <div class="flex items-baseline gap-6 mb-6">
-          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">03</span>
-          <h2 class="text-3xl font-black tracking-tight">効果量とは</h2>
-        </div>
-        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
-          <p>
-            「効果があった」だけでは、どのくらい効いたのかが分かりません。
-            <strong>効果量（effect size）</strong>は、その「どのくらい」を数値化した指標です。
-          </p>
-          <p>
-            研究の世界では「コーエンのd」という指標がよく使われ、おおよそ以下のように解釈されます。
-          </p>
-          <div class="grid grid-cols-3 gap-4 text-sm text-center mt-6">
-            <div class="border border-[var(--color-line)] rounded-lg p-4">
-              <div class="font-mono font-bold text-lg mb-1">d = 0.2</div>
-              <div class="text-[var(--color-sub)]">小さい効果</div>
-            </div>
-            <div class="border border-[var(--color-line)] rounded-lg p-4">
-              <div class="font-mono font-bold text-lg mb-1">d = 0.5</div>
-              <div class="text-[var(--color-sub)]">中程度の効果</div>
-            </div>
-            <div class="border border-[var(--color-line)] rounded-lg p-4">
-              <div class="font-mono font-bold text-lg mb-1">d = 0.8</div>
-              <div class="text-[var(--color-sub)]">大きい効果</div>
-            </div>
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">03</span>
+        <h2 class="text-3xl font-black tracking-tight">効果量とは</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+        <p>
+          「効果があった」だけでは、どのくらい効いたのかが分かりません。
+          <strong>効果量（effect size）</strong>は、その「どのくらい」を数値化した指標です。
+        </p>
+        <p>
+          研究の世界では「コーエンのd」という指標がよく使われ、おおよそ以下のように解釈されます。
+        </p>
+        <div class="grid grid-cols-3 gap-4 text-sm text-center pt-2">
+          <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+            <div class="font-mono font-bold text-lg">d = 0.2</div>
+            <div class="text-[var(--color-sub)]">小さい効果</div>
           </div>
-          <p class="mt-4">
-            本サイトでは、効果量を「学習月数」に変換して表示しています。
-            おおよそ d = 0.1 が 1ヶ月に相当します（学年や教科によってやや異なります）。
-          </p>
+          <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+            <div class="font-mono font-bold text-lg">d = 0.5</div>
+            <div class="text-[var(--color-sub)]">中程度の効果</div>
+          </div>
+          <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+            <div class="font-mono font-bold text-lg">d = 0.8</div>
+            <div class="text-[var(--color-sub)]">大きい効果</div>
+          </div>
         </div>
+        <p>
+          本サイトでは、効果量を「学習月数」に変換して表示しています。
+          おおよそ d = 0.1 が 1ヶ月に相当します（学年や教科によってやや異なります）。
+        </p>
       </div>
     </div>
 
     <!-- 4. メタ分析 -->
-    <div>
-      <div class="border-t border-[var(--color-line)] pt-10">
-        <div class="flex items-baseline gap-6 mb-6">
-          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">04</span>
-          <h2 class="text-3xl font-black tracking-tight">メタ分析とは</h2>
-        </div>
-        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
-          <p>
-            本サイトの数値の多くは「メタ分析」と呼ばれる研究手法から得られています。
-          </p>
-          <p>
-            メタ分析とは、<strong>同じテーマについて行われた多数の研究を統合し、
-            全体的な傾向を統計的に分析する</strong>手法です。
-          </p>
-          <p>
-            1本の研究だけでは「たまたま」の可能性が排除できません。
-            しかし、数十〜数百本の研究を統合すれば、個別の偏りが薄れ、
-            より信頼できる全体像が浮かび上がります。
-          </p>
-          <p>
-            EEF Toolkitの数値は、こうしたメタ分析の結果を元にしています。
-            たとえば「フィードバックは+6ヶ月」という数値の背後には、
-            世界中で行われたフィードバック研究の集合知があります。
-          </p>
-        </div>
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">04</span>
+        <h2 class="text-3xl font-black tracking-tight">メタ分析とは</h2>
+      </div>
+      <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
+        <p>
+          本サイトの数値の多くは「メタ分析」と呼ばれる研究手法から得られています。
+        </p>
+        <p>
+          メタ分析とは、<strong>同じテーマについて行われた多数の研究を統合し、
+          全体的な傾向を統計的に分析する</strong>手法です。
+        </p>
+        <p>
+          1本の研究だけでは「たまたま」の可能性が排除できません。
+          しかし、数十〜数百本の研究を統合すれば、個別の偏りが薄れ、
+          より信頼できる全体像が浮かび上がります。
+        </p>
+        <p>
+          EEF Toolkitの数値は、こうしたメタ分析の結果を元にしています。
+          たとえば「フィードバックは+6ヶ月」という数値の背後には、
+          世界中で行われたフィードバック研究の集合知があります。
+        </p>
       </div>
     </div>
 
     <!-- 5. エビデンスの限界 -->
-    <div>
-      <div class="border-t border-[var(--color-line)] pt-10">
-        <div class="flex items-baseline gap-6 mb-6">
-          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">05</span>
-          <h2 class="text-3xl font-black tracking-tight">エビデンスの限界</h2>
-        </div>
-        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
-          <p>
-            エビデンスは万能ではありません。以下の限界を知った上で活用することが大切です。
-          </p>
-          <ul class="space-y-4 mt-4">
-            <li>
-              <strong>平均は個人ではない</strong> ——
-              メタ分析の数値は多くの子どもの平均です。目の前のこの子に同じ効果が出るとは限りません。
-            </li>
-            <li>
-              <strong>文脈が違えば結果も変わる</strong> ——
-              多くの研究は英語圏で行われています。日本の学校・学級の文化に直接当てはまらない場合があります。
-            </li>
-            <li>
-              <strong>「何を」は分かるが「どうやって」は足りない</strong> ——
-              「フィードバックは効く」は分かっても、「明日の算数で具体的にどう声をかけるか」まではエビデンスだけでは決められません。そこは教師の専門性と判断の領域です。
-            </li>
-            <li>
-              <strong>測れないものは見えにくい</strong> ——
-              エビデンスはテストの点数で測れる学力に偏りがちです。子どもの意欲、創造性、幸福感など、数値化しにくい価値は見えにくくなります。
-            </li>
-            <li>
-              <strong>研究にもバイアスがある</strong> ——
-              「効果がなかった」研究は発表されにくいという出版バイアスが知られています。ポジティブな結果が過大評価されている可能性があります。
-            </li>
-          </ul>
-        </div>
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">05</span>
+        <h2 class="text-3xl font-black tracking-tight">エビデンスの限界</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+        <p>
+          エビデンスは万能ではありません。以下の限界を知った上で活用することが大切です。
+        </p>
+        <ul class="space-y-4">
+          <li>
+            <strong>平均は個人ではない</strong> ——
+            メタ分析の数値は多くの子どもの平均です。目の前のこの子に同じ効果が出るとは限りません。
+          </li>
+          <li>
+            <strong>文脈が違えば結果も変わる</strong> ——
+            多くの研究は英語圏で行われています。日本の学校・学級の文化に直接当てはまらない場合があります。
+          </li>
+          <li>
+            <strong>「何を」は分かるが「どうやって」は足りない</strong> ——
+            「フィードバックは効く」は分かっても、「明日の算数で具体的にどう声をかけるか」まではエビデンスだけでは決められません。そこは教師の専門性と判断の領域です。
+          </li>
+          <li>
+            <strong>測れないものは見えにくい</strong> ——
+            エビデンスはテストの点数で測れる学力に偏りがちです。子どもの意欲、創造性、幸福感など、数値化しにくい価値は見えにくくなります。
+          </li>
+          <li>
+            <strong>研究にもバイアスがある</strong> ——
+            「効果がなかった」研究は発表されにくいという出版バイアスが知られています。ポジティブな結果が過大評価されている可能性があります。
+          </li>
+        </ul>
       </div>
     </div>
 
     <!-- 6. エビデンスとの付き合い方 -->
-    <div>
-      <div class="border-t border-[var(--color-line)] pt-10">
-        <div class="flex items-baseline gap-6 mb-6">
-          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">06</span>
-          <h2 class="text-3xl font-black tracking-tight">エビデンスとの付き合い方</h2>
-        </div>
-        <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
-          <p>
-            エビデンスに基づく教育は「数字に従え」ということではありません。
-          </p>
-          <p>
-            より正確には、<strong>3つの要素を組み合わせて判断する</strong>という考え方です。
-          </p>
-          <div class="grid md:grid-cols-3 gap-4 mt-6">
-            <div class="border border-[var(--color-line)] rounded-xl p-5">
-              <div class="font-bold mb-2">① 研究のエビデンス</div>
-              <p class="text-sm text-[var(--color-sub)]">
-                このサイトが提供する「研究ではこう言われている」という情報
-              </p>
-            </div>
-            <div class="border border-[var(--color-line)] rounded-xl p-5">
-              <div class="font-bold mb-2">② 教師の専門的判断</div>
-              <p class="text-sm text-[var(--color-sub)]">
-                目の前の子ども・教室の状況を踏まえた、教師としての経験と直感
-              </p>
-            </div>
-            <div class="border border-[var(--color-line)] rounded-xl p-5">
-              <div class="font-bold mb-2">③ 学校・地域の文脈</div>
-              <p class="text-sm text-[var(--color-sub)]">
-                自校の子どもの特性、地域の教育課題、学校の方針やリソース
-              </p>
-            </div>
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">06</span>
+        <h2 class="text-3xl font-black tracking-tight">エビデンスとの付き合い方</h2>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+        <p>
+          エビデンスに基づく教育は「数字に従え」ということではありません。
+        </p>
+        <p>
+          より正確には、<strong>3つの要素を組み合わせて判断する</strong>という考え方です。
+        </p>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+            <div class="font-bold">① 研究のエビデンス</div>
+            <p class="text-sm text-[var(--color-sub)]">
+              このサイトが提供する「研究ではこう言われている」という情報
+            </p>
           </div>
-          <p class="mt-6">
-            この3つを重ね合わせて、<strong>「うちの教室では、今、何が最も良い選択か」</strong>を
-            考えるための材料がエビデンスです。
-          </p>
-          <p>
-            最終的な判断の主体は、常に<strong>教師自身</strong>です。
-          </p>
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+            <div class="font-bold">② 教師の専門的判断</div>
+            <p class="text-sm text-[var(--color-sub)]">
+              目の前の子ども・教室の状況を踏まえた、教師としての経験と直感
+            </p>
+          </div>
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+            <div class="font-bold">③ 学校・地域の文脈</div>
+            <p class="text-sm text-[var(--color-sub)]">
+              自校の子どもの特性、地域の教育課題、学校の方針やリソース
+            </p>
+          </div>
         </div>
+        <p>
+          この3つを重ね合わせて、<strong>「うちの教室では、今、何が最も良い選択か」</strong>を
+          考えるための材料がエビデンスです。
+        </p>
+        <p>
+          最終的な判断の主体は、常に<strong>教師自身</strong>です。
+        </p>
       </div>
     </div>
 
     <!-- 導線 -->
-    <div class="border-t border-[var(--color-line)] pt-10 text-center">
+    <div class="border-t border-[var(--color-line)] pt-10 text-center space-y-6">
       <p class="text-[var(--color-sub)] leading-loose">
         準備ができたら、具体的な指導法を見てみましょう。
       </p>
       <a
         href="/"
-        class="inline-block mt-6 font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] hover:underline"
+        class="link-underline inline-block font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
-        ← 指導法一覧へ
+        ← 指導法一覧へ戻る
       </a>
     </div>
 

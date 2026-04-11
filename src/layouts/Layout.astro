@@ -51,83 +51,156 @@ const ogImage = `${siteUrl}/og-image.png`;
     })} />
   </head>
   <body class="bg-[var(--color-bg)] text-[var(--color-ink)]">
-    <header class="border-b border-[var(--color-line)]">
+    <header class="relative border-b border-[var(--color-line)]">
       <div
-        class="mx-auto max-w-6xl px-6 md:px-10 py-5 flex items-baseline justify-between"
+        class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between gap-4"
       >
-        <a href="/" class="font-black text-xl tracking-tight flex items-center gap-2">
-          <img src="/logo.svg" alt="" class="w-7 h-7" />
+        <a href="/" class="font-black text-lg sm:text-xl tracking-tight flex items-center gap-2 whitespace-nowrap shrink-0">
+          <img src="/logo.svg" alt="" class="w-7 h-7 shrink-0" />
           EduEvidence <span class="text-[var(--color-accent)]">JP</span>
         </a>
-        <nav class="font-mono text-[11px] tracking-widest uppercase flex gap-4 md:gap-6 text-[var(--color-sub)]">
-          <a href="/" class="hover:text-[var(--color-ink)] transition">Index</a>
-          <a href="/columns" class="hover:text-[var(--color-ink)] transition">Columns</a>
-          <a href="/policy-evidence" class="hidden sm:inline hover:text-[var(--color-ink)] transition">Policy</a>
-          <a href="/guide" class="hover:text-[var(--color-ink)] transition">Guide</a>
-          <a href="/about" class="hidden sm:inline hover:text-[var(--color-ink)] transition">About</a>
+        <nav class="hidden sm:flex text-xs gap-4 md:gap-6 text-[var(--color-sub)]" aria-label="メインナビゲーション">
+          <a href="/" class="link-underline hover:text-[var(--color-ink)] transition">ホーム</a>
+          <a href="/#strategy-list" class="link-underline hover:text-[var(--color-ink)] transition">指導法から探す</a>
+          <a href="/columns" class="link-underline hover:text-[var(--color-ink)] transition">コラム</a>
+          <a href="/guide" class="link-underline hover:text-[var(--color-ink)] transition">ガイド</a>
+          <a href="/about" class="link-underline hover:text-[var(--color-ink)] transition">サイトについて</a>
         </nav>
+        <button
+          id="menu-toggle"
+          type="button"
+          class="sm:hidden relative flex flex-col justify-center items-center gap-1.5 w-10 h-10 -mr-2 shrink-0"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="block w-6 h-[2px] bg-[var(--color-ink)] transition-transform duration-200 origin-center"></span>
+          <span class="block w-6 h-[2px] bg-[var(--color-ink)] transition-opacity duration-200"></span>
+          <span class="block w-6 h-[2px] bg-[var(--color-ink)] transition-transform duration-200 origin-center"></span>
+        </button>
       </div>
+      <nav
+        id="mobile-menu"
+        data-state="closed"
+        class="sm:hidden absolute left-0 right-0 top-full z-50 border-t border-b border-[var(--color-line)] bg-[var(--color-bg)] shadow-lg transition duration-200 ease-out motion-reduce:transition-none opacity-0 -translate-y-2 pointer-events-none data-[state=open]:opacity-100 data-[state=open]:translate-y-0 data-[state=open]:pointer-events-auto"
+        aria-label="モバイルナビゲーション"
+        aria-hidden="true"
+      >
+        <ul class="mx-auto max-w-6xl px-6 py-2 flex flex-col text-sm text-[var(--color-sub)]">
+          <li><a href="/" class="block py-3 hover:text-[var(--color-ink)] transition">ホーム</a></li>
+          <li><a href="/#strategy-list" class="block py-3 hover:text-[var(--color-ink)] transition">指導法から探す</a></li>
+          <li><a href="/columns" class="block py-3 hover:text-[var(--color-ink)] transition">コラム</a></li>
+          <li><a href="/guide" class="block py-3 hover:text-[var(--color-ink)] transition">ガイド</a></li>
+          <li><a href="/about" class="block py-3 hover:text-[var(--color-ink)] transition">サイトについて</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main class="mx-auto max-w-6xl px-6 md:px-10">
+    <script is:inline>
+      (function () {
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("mobile-menu");
+        if (!toggle || !menu) return;
+        const bars = toggle.querySelectorAll("span");
+        let isOpen = false;
+        const setOpen = (open) => {
+          isOpen = open;
+          menu.dataset.state = open ? "open" : "closed";
+          menu.setAttribute("aria-hidden", String(!open));
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+          if (bars.length === 3) {
+            bars[0].style.transform = open ? "translateY(8px) rotate(45deg)" : "";
+            bars[1].style.opacity = open ? "0" : "";
+            bars[2].style.transform = open ? "translateY(-8px) rotate(-45deg)" : "";
+          }
+        };
+        toggle.addEventListener("click", () => setOpen(!isOpen));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && isOpen) setOpen(false);
+        });
+        window.addEventListener("resize", () => {
+          if (window.innerWidth >= 640 && isOpen) setOpen(false);
+        });
+      })();
+    </script>
+
+    <main class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 pb-16 xs:pb-24 sm:pb-32">
       <slot />
     </main>
 
-    <footer class="border-t border-[var(--color-line)] mt-32">
+    <footer class="border-t border-[var(--color-line)]">
       <div
-        class="mx-auto max-w-6xl px-6 md:px-10 py-12 grid md:grid-cols-4 gap-8 text-xs text-[var(--color-sub)] leading-relaxed"
+        class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 py-6 xs:py-8 sm:py-12 grid md:grid-cols-4 gap-8 text-xs text-[var(--color-sub)] leading-relaxed"
       >
-        <div>
-          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
-            EduEvidence JP
+        <!-- Column 1: ブランド -->
+        <div class="space-y-4">
+          <div class="font-black text-base text-[var(--color-ink)] flex items-center gap-2">
+            <img src="/logo.svg" alt="" class="w-5 h-5" />
+            EduEvidence <span class="text-[var(--color-accent)]">JP</span>
           </div>
-          <p>日本の小学校教員のための、研究エビデンスに基づく指導法ポータル。</p>
-        </div>
-        <div>
-          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
-            Guide
-          </div>
-          <ul class="space-y-1.5">
-            <li><a href="/guide/indicators" class="hover:underline">指標の読み方</a></li>
-            <li><a href="/guide/evidence" class="hover:underline">エビデンス入門</a></li>
-            <li><a href="/guide/glossary" class="hover:underline">用語集</a></li>
-            <li><a href="/subjects" class="hover:underline">教科から探す</a></li>
-            <li><a href="/grades" class="hover:underline">学年から探す</a></li>
-            <li><a href="/cost" class="hover:underline">コストから探す</a></li>
-            <li><a href="/tags" class="hover:underline">タグから探す</a></li>
-            <li><a href="/faq" class="hover:underline">よくある質問</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
-            Explore
-          </div>
-          <ul class="space-y-1.5">
-            <li><a href="/columns" class="hover:underline">エビデンスで考える</a></li>
-            <li><a href="/policy-evidence" class="hover:underline">政策とエビデンス</a></li>
-            <li><a href="/voices" class="hover:underline">現場の声</a></li>
-            <li><a href="/changelog" class="hover:underline">更新履歴</a></li>
-            <li><a href="/about" class="hover:underline">このサイトについて</a></li>
-            <li><a href="/support" class="hover:underline">運営を支援する</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="font-mono uppercase tracking-widest mb-3 text-[var(--color-ink)]">
-            License
-          </div>
-          <p>
-            英国 EEF の
-            <a
-              class="underline"
-              href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit"
-              target="_blank"
-              rel="noopener">Toolkit</a
-            > を翻案。CC BY-SA 4.0 で公開。
+          <p class="leading-relaxed">
+            教員一人ひとりが「研究で確かめられた知見」にアクセスできるように。<br />
+            英国 EEF Toolkit を起点に、66の指導法を「効果」「信頼性」「コスト」の3指標で整理し、日本の小学校現場に合わせて翻案・公開しています。
           </p>
+          <div class="space-y-1.5 pt-2">
+            <div class="font-mono uppercase tracking-widest text-[10px] text-[var(--color-ink)]">お問い合わせ</div>
+            <div>
+              <a href="mailto:info@edu-evidence.org" class="link-underline">info@edu-evidence.org</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: 指導法を探す -->
+        <div class="space-y-3">
+          <div class="font-mono uppercase tracking-widest text-[var(--color-ink)]">
+            指導法を探す
+          </div>
+          <ul class="space-y-1.5">
+            <li><a href="/#strategy-list" class="link-underline">指導法一覧</a></li>
+            <li><a href="/subjects" class="link-underline">教科から探す</a></li>
+            <li><a href="/grades" class="link-underline">学年から探す</a></li>
+            <li><a href="/cost" class="link-underline">コストから探す</a></li>
+            <li><a href="/tags" class="link-underline">タグから探す</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: 学ぶ・読む -->
+        <div class="space-y-3">
+          <div class="font-mono uppercase tracking-widest text-[var(--color-ink)]">
+            学ぶ・読む
+          </div>
+          <ul class="space-y-1.5">
+            <li><a href="/columns" class="link-underline">コラム</a></li>
+            <li><a href="/policy-evidence" class="link-underline">政策とエビデンス</a></li>
+            <li><a href="/voices" class="link-underline">現場の声</a></li>
+            <li><a href="/guide/indicators" class="link-underline">指標の読み方</a></li>
+            <li><a href="/guide/evidence" class="link-underline">エビデンス入門</a></li>
+            <li><a href="/guide/glossary" class="link-underline">用語集</a></li>
+            <li><a href="/faq" class="link-underline">よくある質問</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: サイトについて -->
+        <div class="space-y-3">
+          <div class="font-mono uppercase tracking-widest text-[var(--color-ink)]">
+            サイトについて
+          </div>
+          <ul class="space-y-1.5">
+            <li><a href="/about" class="link-underline">このサイトについて</a></li>
+            <li><a href="/support" class="link-underline">運営を支援する</a></li>
+            <li><a href="/changelog" class="link-underline">更新履歴</a></li>
+          </ul>
         </div>
       </div>
-      <div class="mx-auto max-w-6xl px-6 md:px-10 pb-8 text-[10px] text-[var(--color-sub)]">
-        © 2026 EduEvidence JP. CC BY-SA 4.0.
+      <div class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 pb-4 xs:pb-6 sm:pb-8 text-[10px] text-[var(--color-sub)] leading-relaxed">
+        © 2026 EduEvidence JP. CC BY-SA 4.0. 英国 EEF
+        <a
+          class="link-underline"
+          href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit"
+          target="_blank"
+          rel="noopener">Teaching and Learning Toolkit</a
+        > を翻案。
       </div>
     </footer>
   </body>

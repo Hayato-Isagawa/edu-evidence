@@ -15,10 +15,10 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
 ---
 
 <Layout title="タグ一覧 — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
       <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
         Tags
       </p>
@@ -32,7 +32,7 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
       <p>
         指導法を関心のあるテーマから<br />
         探すことができます。<br />
-        <span class="text-xs">{tags.length} タグ / {strategies.length} 項目</span>
+        <span class="text-xs">{tags.length}タグ / {strategies.length}件の指導法</span>
       </p>
     </div>
   </section>

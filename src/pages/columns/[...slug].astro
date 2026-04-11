@@ -18,19 +18,22 @@ const d = entry.data;
       href="/columns"
       class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] hover:text-[var(--color-ink)]"
     >
-      ← Columns
+      ← コラム一覧へ戻る
     </a>
   </div>
 
   <header class="grid grid-cols-12 gap-6 pb-12 border-b border-[var(--color-line)]">
-    <div class="col-span-12 md:col-span-8">
-      <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
-      >
-        Column — {d.date}
-      </p>
+    <div class="col-span-12 md:col-span-8 space-y-6">
+      <div class="space-y-1">
+        <p
+          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+        >
+          Column — {d.date}
+        </p>
+        <p class="text-xs text-[var(--color-sub)]">コラム</p>
+      </div>
       <h1
-        class="font-black text-4xl md:text-5xl leading-[1.15] tracking-tight mb-6"
+        class="font-black text-4xl md:text-5xl leading-[1.15] tracking-tight"
       >
         {d.title}
       </h1>
@@ -59,12 +62,12 @@ const d = entry.data;
     <Content />
   </article>
 
-  <div class="mt-4 mb-24 pt-8 border-t border-[var(--color-line)] max-w-2xl">
+  <div class="pt-8 border-t border-[var(--color-line)] max-w-2xl">
     <a
       href="/columns"
-      class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] hover:underline"
+      class="link-underline font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
     >
-      ← コラム一覧へ
+      ← コラム一覧へ戻る
     </a>
   </div>
 </Layout>

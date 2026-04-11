@@ -3,6 +3,64 @@ import Layout from "../layouts/Layout.astro";
 
 const entries = [
   {
+    date: "2026-04-11",
+    items: [
+      {
+        type: "update",
+        text: "スマートフォンでの表示を全面的に最適化(余白・行間・カード配置を改善)",
+      },
+      {
+        type: "update",
+        text: "スマートフォンでのナビゲーションをハンバーガーメニューに変更",
+      },
+      {
+        type: "update",
+        text: "グローバルナビを日本語に統一(ホーム / 指導法から探す / コラム / ガイド / サイトについて)。コンテンツファーストの導線に再編",
+      },
+      {
+        type: "update",
+        text: "フッターを4カラムに再構成(ブランド / 指導法を探す / 学ぶ・読む / サイトについて)。お問い合わせ先(info@edu-evidence.org)を明示",
+      },
+      {
+        type: "update",
+        text: "機能を表すラベルを日本語化(並び替え / 参考にしている情報源 / 件数表記 など)。戻るボタンを「← ◯◯一覧へ戻る」に統一",
+      },
+      {
+        type: "add",
+        text: "About ページに「サイトの公開性」サブセクションを追加。ソースコードの公開姿勢を明示",
+      },
+    ],
+  },
+  {
+    date: "2026-04-10",
+    items: [
+      {
+        type: "add",
+        text: "指導法を 30 項目から 66 項目に拡充。Hattie ランキング / 認知科学 / 日本の教育研究 / デジタル学習 / 負の効果カテゴリを新設",
+      },
+      {
+        type: "add",
+        text: "政策とエビデンス(政策対照10項目)ページを新設。教育施策と研究知見を並列で確認できる",
+      },
+      {
+        type: "add",
+        text: "教科別 / 学年別 / コスト別 / タグ別の絞り込みページを実装",
+      },
+      {
+        type: "add",
+        text: "コラム「エビデンスで考える」シリーズを4本追加",
+      },
+      {
+        type: "add",
+        text: "用語集を 25 語から 28 語に拡充",
+      },
+      {
+        type: "add",
+        text: "ロゴ・favicon・OG 画像(葉っぱモチーフ)を実装",
+      },
+    ],
+  },
+  {
     date: "2026-04-09",
     items: [
       { type: "add", text: "サイト公開。指導法30項目を掲載" },
@@ -26,10 +84,10 @@ const typeLabel: Record<string, { label: string; color: string }> = {
 ---
 
 <Layout title="更新履歴 — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
       <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
         Changelog
       </p>
@@ -50,17 +108,17 @@ const typeLabel: Record<string, { label: string; color: string }> = {
   <section class="pb-24">
     {
       entries.map((entry) => (
-        <div class="border-t border-[var(--color-line)] py-10">
-          <div class="font-mono text-sm text-[var(--color-accent)] mb-4">
+        <div class="border-t border-[var(--color-line)] py-10 space-y-4">
+          <div class="font-mono text-sm text-[var(--color-accent)]">
             {entry.date}
           </div>
           <ul class="space-y-3">
             {entry.items.map((item) => {
               const t = typeLabel[item.type] ?? typeLabel.add;
               return (
-                <li class="flex gap-3 items-start text-sm leading-relaxed">
+                <li class="flex gap-3 items-baseline text-sm leading-relaxed">
                   <span
-                    class={`font-mono text-[11px] uppercase tracking-widest shrink-0 mt-0.5 ${t.color}`}
+                    class={`font-mono text-xs uppercase tracking-widest shrink-0 ${t.color}`}
                   >
                     {t.label}
                   </span>

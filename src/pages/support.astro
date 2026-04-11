@@ -3,10 +3,10 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="運営を支援する — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
       <p
-        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6"
+        class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
       >
         Support
       </p>
@@ -28,49 +28,49 @@ import Layout from "../layouts/Layout.astro";
   <section class="pb-24 space-y-16">
 
     <!-- 運営費の透明化 -->
-    <div class="border border-[var(--color-line)] rounded-xl p-6 md:p-8">
-      <h2 class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)] mb-4">
-        Monthly costs
+    <div class="border border-[var(--color-line)] rounded-xl p-6 md:p-8 space-y-4">
+      <h2 class="text-sm font-bold tracking-tight text-[var(--color-ink)]">
+        毎月の運営費
       </h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <div class="text-sm text-[var(--color-sub)] mb-1">サーバー・ホスティング</div>
+        <div class="space-y-1">
+          <div class="text-sm text-[var(--color-sub)]">サーバー・ホスティング</div>
           <div class="font-black text-xl">¥0〜3,000<span class="text-sm font-normal text-[var(--color-sub)]"> /月</span></div>
         </div>
-        <div>
-          <div class="text-sm text-[var(--color-sub)] mb-1">ドメイン</div>
+        <div class="space-y-1">
+          <div class="text-sm text-[var(--color-sub)]">ドメイン</div>
           <div class="font-black text-xl">¥100〜200<span class="text-sm font-normal text-[var(--color-sub)]"> /月</span></div>
         </div>
-        <div>
-          <div class="text-sm text-[var(--color-sub)] mb-1">合計(現在)</div>
+        <div class="space-y-1">
+          <div class="text-sm text-[var(--color-sub)]">合計(現在)</div>
           <div class="font-black text-2xl text-[var(--color-accent)]">約 ¥3,000<span class="text-sm font-normal text-[var(--color-sub)]"> /月</span></div>
         </div>
-        <div>
-          <div class="text-sm text-[var(--color-sub)] mb-1">目標(監修体制構築後)</div>
+        <div class="space-y-1">
+          <div class="text-sm text-[var(--color-sub)]">目標(監修体制構築後)</div>
           <div class="font-black text-2xl">約 ¥50,000<span class="text-sm font-normal text-[var(--color-sub)]"> /月</span></div>
         </div>
       </div>
     </div>
 
     <!-- 支援方法 -->
-    <div>
-      <h2 class="text-2xl font-black tracking-tight mb-6">支援の方法</h2>
+    <div class="space-y-6">
+      <h2 class="text-2xl font-black tracking-tight">支援の方法</h2>
       <div class="space-y-6">
-        <div class="border-t border-[var(--color-line)] pt-6">
-          <div class="flex items-baseline gap-4 mb-2">
+        <div class="border-t border-[var(--color-line)] pt-6 space-y-2">
+          <div class="flex items-baseline gap-4">
             <span class="font-mono text-xs text-[var(--color-sub)]">01</span>
             <h3 class="font-bold text-lg">寄付で支える</h3>
           </div>
           <p class="text-sm text-[var(--color-sub)] leading-loose ml-8">
             月額・単発の寄付を受け付けています。いただいた寄付はサーバー運営費・監修者への謝礼・コンテンツ拡充に充てます。
           </p>
-          <p class="font-mono text-xs text-[var(--color-sub)] ml-8 mt-3">
+          <p class="font-mono text-xs text-[var(--color-sub)] ml-8">
             （寄付受付のセットアップは準備中です）
           </p>
         </div>
 
-        <div class="border-t border-[var(--color-line)] pt-6">
-          <div class="flex items-baseline gap-4 mb-2">
+        <div class="border-t border-[var(--color-line)] pt-6 space-y-2">
+          <div class="flex items-baseline gap-4">
             <span class="font-mono text-xs text-[var(--color-sub)]">02</span>
             <h3 class="font-bold text-lg">知識で支える</h3>
           </div>
@@ -81,8 +81,8 @@ import Layout from "../layouts/Layout.astro";
           </p>
         </div>
 
-        <div class="border-t border-[var(--color-line)] pt-6">
-          <div class="flex items-baseline gap-4 mb-2">
+        <div class="border-t border-[var(--color-line)] pt-6 space-y-2">
+          <div class="flex items-baseline gap-4">
             <span class="font-mono text-xs text-[var(--color-sub)]">03</span>
             <h3 class="font-bold text-lg">広めて支える</h3>
           </div>
@@ -92,8 +92,8 @@ import Layout from "../layouts/Layout.astro";
           </p>
         </div>
 
-        <div class="border-t border-[var(--color-line)] pt-6">
-          <div class="flex items-baseline gap-4 mb-2">
+        <div class="border-t border-[var(--color-line)] pt-6 space-y-2">
+          <div class="flex items-baseline gap-4">
             <span class="font-mono text-xs text-[var(--color-sub)]">04</span>
             <h3 class="font-bold text-lg">監修に参加する</h3>
           </div>
@@ -105,8 +105,8 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- 使途報告 -->
-    <div>
-      <h2 class="text-2xl font-black tracking-tight mb-4">使途の透明化</h2>
+    <div class="space-y-4">
+      <h2 class="text-2xl font-black tracking-tight">使途の透明化</h2>
       <p class="text-sm text-[var(--color-sub)] leading-loose">
         いただいた寄付の使途は、本ページで定期的に公開します。
         教員の皆さんから預かったお金が、どのように使われているかを常に見えるようにします。
@@ -114,12 +114,14 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- ニュースレター -->
-    <div id="newsletter" class="border border-[var(--color-line)] rounded-xl p-6 md:p-8">
-      <h2 class="text-2xl font-black tracking-tight mb-3">ニュースレター</h2>
-      <p class="text-sm text-[var(--color-sub)] leading-loose mb-6">
-        新しい指導法ページの公開、既存記事の改訂、教育研究の注目ニュースをお届けします。<br />
-        月1〜2回、短く、現場に役立つ情報だけ。
-      </p>
+    <div id="newsletter" class="border border-[var(--color-line)] rounded-xl p-6 md:p-8 space-y-6">
+      <div class="space-y-3">
+        <h2 class="text-2xl font-black tracking-tight">ニュースレター</h2>
+        <p class="text-sm text-[var(--color-sub)] leading-loose">
+          新しい指導法ページの公開、既存記事の改訂、教育研究の注目ニュースをお届けします。<br />
+          月1〜2回、短く、現場に役立つ情報だけ。
+        </p>
+      </div>
       <p class="font-mono text-xs text-[var(--color-sub)]">
         （メール配信のセットアップは準備中です）
       </p>

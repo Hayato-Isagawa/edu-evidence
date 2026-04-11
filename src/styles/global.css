@@ -2,6 +2,10 @@
 
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
 :root {
   --color-bg: #faf9f5;
   --color-ink: #1a1a1a;
@@ -57,6 +61,74 @@ a {
 }
 
 .link-underline:hover,
-.link-underline:active {
+.link-underline:active,
+.link-underline:focus-visible {
   background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-underline {
+    transition: none;
+  }
+}
+
+/* Article body shared by /strategies and /columns */
+.prose-article {
+  font-size: 16px;
+  line-height: 1.95;
+}
+.prose-article h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+.prose-article h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.prose-article p {
+  margin-bottom: 1.25rem;
+}
+.prose-article ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.prose-article ul li {
+  margin-bottom: 0.4rem;
+}
+.prose-article blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+  color: var(--color-sub);
+  margin: 1.5rem 0;
+}
+.prose-article a {
+  color: var(--color-accent);
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-size: 0% 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+  padding-bottom: 2px;
+}
+.prose-article a:hover,
+.prose-article a:focus-visible {
+  background-size: 100% 1px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .prose-article a {
+    transition: none;
+  }
+}
+.prose-article em {
+  font-style: italic;
+}
+.prose-article strong {
+  font-weight: 700;
 }

@@ -40,9 +40,9 @@ const costGroups = [
 ---
 
 <Layout title="コストから探す — EduEvidence JP">
-  <section class="py-20 md:py-28 grid grid-cols-12 gap-6">
-    <div class="col-span-12 md:col-span-8">
-      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] mb-6">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 grid grid-cols-12 gap-6">
+    <div class="col-span-12 md:col-span-8 space-y-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
         Browse by cost
       </p>
       <h1 class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight">
@@ -62,13 +62,15 @@ const costGroups = [
           .sort((a, b) => b.data.monthsGained - a.data.monthsGained);
         if (strategies.length === 0) return null;
         return (
-          <div>
-            <div class="flex items-baseline gap-4 mb-2 px-2">
-              <span class="text-xl font-black text-emerald-700 tracking-widest">{group.yen}</span>
-              <h2 class="text-xl font-black tracking-tight">{group.label}</h2>
-              <span class="font-mono text-xs text-[var(--color-sub)]">{strategies.length} entries</span>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <div class="flex items-baseline gap-4 px-2">
+                <span class="text-xl font-black text-emerald-700 tracking-widest">{group.yen}</span>
+                <h2 class="text-xl font-black tracking-tight">{group.label}</h2>
+                <span class="text-xs text-[var(--color-sub)]">{strategies.length}件</span>
+              </div>
+              <p class="text-sm text-[var(--color-sub)] px-2">{group.desc}</p>
             </div>
-            <p class="text-sm text-[var(--color-sub)] mb-4 px-2">{group.desc}</p>
             <div class="border-b border-[var(--color-line)]">
               {strategies.map((s, i) => (
                 <StrategyRow
