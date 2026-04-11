@@ -71,7 +71,7 @@ jobs:
 
       - name: Create issue if links failed
         if: env.lychee_exit_code != '0'
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: "リンク切れ検出: ${{ github.run_id }}"
           content-filepath: lychee-report.md
