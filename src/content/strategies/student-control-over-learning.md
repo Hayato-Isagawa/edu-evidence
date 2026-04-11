@@ -32,7 +32,7 @@ sourceTitle: "Visible Learning — Hattie Ranking: Student control over learning
 「自由進度学習」を導入する際も同様で:
 - 子どもが選べる範囲を設計するのは教師
 - 進度は自由でも、目標と到達点は教師が明示する
-- 定期的に教師が介入し、方向修正やフィードバックを行う
+- 定期的に教師が介入し、方向修正やフィードバックを返す
 
 ## 研究からわかっていること
 

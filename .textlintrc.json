@@ -2,36 +2,32 @@
   "rules": {
     "preset-ja-technical-writing": {
       "sentence-length": {
-        "max": 120
+        "max": 200
       },
       "max-comma": {
-        "max": 6
+        "max": 12
       },
       "max-ten": {
-        "max": 6
+        "max": 8
       },
       "max-kanji-continuous-len": {
-        "max": 8
+        "max": 10
       },
       "arabic-kanji-numbers": false,
       "no-mix-dearu-desumasu": false,
-      "ja-no-mixed-period": {
-        "periodMark": "。"
-      },
+      "ja-no-mixed-period": false,
       "no-double-negative-ja": true,
       "no-dropping-the-ra": true,
       "no-doubled-conjunctive-particle-ga": true,
       "no-doubled-conjunction": true,
-      "no-doubled-joshi": {
-        "min_interval": 1
-      },
+      "no-doubled-joshi": false,
       "no-nfd": true,
       "no-invalid-control-character": true,
       "no-zero-width-spaces": true,
       "no-exclamation-question-mark": false,
       "no-hankaku-kana": true,
       "ja-no-weak-phrase": false,
-      "ja-no-successive-word": true,
+      "ja-no-successive-word": false,
       "ja-no-abusage": true,
       "ja-no-redundant-expression": true,
       "ja-unnatural-alphabet": true,

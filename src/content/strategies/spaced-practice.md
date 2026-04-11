@@ -51,4 +51,4 @@ sourceTitle: "Cepeda et al. (2006) — Distributed practice in verbal recall tas
 
 ## 関連する学習指導要領
 
-- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 基礎的・基本的な知識及び技能を確実に習得させるために、繰り返し学習の重要性が示されています。分散学習は、この繰り返しを科学的に最適化する手法です。
+- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 基礎的・基本的な知識および技能を確実に習得させるために、繰り返し学習の重要性が示されています。分散学習は、この繰り返しを科学的に最適化する手法です。

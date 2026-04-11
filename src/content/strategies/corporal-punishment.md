@@ -49,4 +49,4 @@ sourceTitle: "Visible Learning — Hattie Ranking: Corporal punishment"
 
 - Gershoff, E. T. (2002). [Corporal punishment by parents and associated child behaviors and experiences](https://doi.org/10.1037/0033-2909.128.4.539). *Psychological Bulletin*, 128(4), 539–579. — 88研究のメタ分析。体罰は短期的服従以外の全ての指標で負の効果を示した。
 - Gershoff, E. T., & Grogan-Kaylor, A. (2016). [Spanking and child outcomes: Old controversies and new meta-analyses](https://doi.org/10.1037/fam0000191). *Journal of Family Psychology*, 30(4), 453–469. — 75研究のメタ分析。体罰のあらゆる結果指標で負の関連を確認。
-- 文部科学省 (2013). 「体罰の禁止及び児童生徒理解に基づく指導の徹底について」(通知). — 体罰の禁止を改めて徹底した通知。
+- 文部科学省 (2013). 「体罰の禁止および児童生徒理解に基づく指導の徹底について」(通知). — 体罰の禁止を改めて徹底した通知。

@@ -50,7 +50,7 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Parental engagement"
 
 ## 関連する学習指導要領
 
-- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 「家庭や地域社会との連携及び協働」の節で、学校と家庭が連携して子どもの学びを支えることの重要性が示されています。
+- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 「家庭や地域社会との連携および協働」の節で、学校と家庭が連携して子どもの学びを支えることの重要性が示されています。
 
 ## 日本の研究者による関連知見
 

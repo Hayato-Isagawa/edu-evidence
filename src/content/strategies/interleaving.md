@@ -49,6 +49,6 @@ sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among si
 
 ## 関連する学習指導要領
 
-- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 知識及び技能が「活用できる」レベルに至ることが繰り返し求められています。交互練習は、学んだことを適切な場面で使い分ける力を育てる手法として、この目標に直結します。
+- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 知識および技能が「活用できる」レベルに至ることが繰り返し求められています。交互練習は、学んだことを適切な場面で使い分ける力を育てる手法として、この目標に直結します。
 
 > 関連項目: [ブロック学習 vs 交互練習](/strategies/blocked-vs-interleaved) — ブロック学習がなぜ定着しにくいかを詳しく解説
