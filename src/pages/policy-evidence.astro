@@ -102,6 +102,63 @@ const comparisons = [
     strategies: [{ name: "習熟度別グループ編成", href: "/strategies/setting-streaming" }],
     alignment: "partial",
   },
+  {
+    policy: "「特別の教科 道徳」の記述評価化",
+    assumption: "数値評価ではなく記述で評価することで、子どもの内面の成長を捉えられる",
+    evidence:
+      "記述評価そのものの効果を検証したRCTやメタ分析はほぼ存在しない。形成的評価(+8ヶ月)の枠組みでは「学習プロセスへのフィードバック」として記述が有効とされる一方、評価の信頼性・妥当性の確保は今後の課題。",
+    strategies: [
+      { name: "道徳教育", href: "/strategies/moral-education" },
+      { name: "形成的評価とフィードバック", href: "/strategies/feedback" },
+    ],
+    alignment: "limited",
+  },
+  {
+    policy: "不登校児童生徒への教育機会確保(教育機会確保法)",
+    assumption: "学校以外の場でも学習機会を保障することで、不登校児の学びと成長を支える",
+    evidence:
+      "フリースクール・オルタナティブ教育の学力効果を検証したRCTは国際的にも限定的。一方、メンタリング(+2ヶ月)・SEL(+4ヶ月)・保護者との連携(+4ヶ月)といった構成要素には一定のエビデンスがある。学力よりも自己肯定感・社会的孤立の予防への効果が報告されている。",
+    strategies: [
+      { name: "メンタリング", href: "/strategies/mentoring" },
+      { name: "SEL(社会性と情動の学習)", href: "/strategies/social-emotional-learning" },
+      { name: "保護者との連携", href: "/strategies/parental-engagement" },
+    ],
+    alignment: "limited",
+  },
+  {
+    policy: "AIドリル・アダプティブ学習による個別最適化",
+    assumption: "AIが一人ひとりの理解度に合わせた問題を出題すれば学力が向上する",
+    evidence:
+      "個別化学習の効果は+3ヶ月。ただし「AIに任せきりの完全自習」よりも「教師の関与を伴うAI活用」の方が効果が大きい。デジタル技術単体の効果は+4ヶ月だが、教師の指導設計に組み込まれた場合に限られる。協同学習(+5ヶ月)との組み合わせが研究の示す方向。",
+    strategies: [
+      { name: "個別化学習", href: "/strategies/individualised-instruction" },
+      { name: "ICT活用", href: "/strategies/digital-technology" },
+      { name: "AIを活用した教育", href: "/strategies/ai-in-education" },
+    ],
+    alignment: "partial",
+  },
+  {
+    policy: "コミュニティ・スクール(学校運営協議会)制度",
+    assumption: "地域住民・保護者が学校運営に参画することで、子どもの学びと成長が豊かになる",
+    evidence:
+      "保護者の関与は+4ヶ月、地域連携を含む包括的支援は学力と社会性の双方に正の効果が報告されている。形式的な参画ではなく、具体的な役割設計と情報共有が効果の鍵。",
+    strategies: [
+      { name: "保護者との連携", href: "/strategies/parental-engagement" },
+      { name: "メンタリング", href: "/strategies/mentoring" },
+    ],
+    alignment: "mostly",
+  },
+  {
+    policy: "教員の働き方改革(時間外勤務削減・業務効率化)",
+    assumption: "教員の負担を減らせば授業の質が上がり、子どもの学びも向上する",
+    evidence:
+      "教員の燃え尽き・離職率の改善には明確な効果。一方、子どもの学力への直接的な因果関係を示すエビデンスは限定的。「時間を減らす」だけでなく「何に時間を使うか」(授業準備・フィードバックの質)が学力に直結する。",
+    strategies: [
+      { name: "補助スタッフの活用", href: "/strategies/teaching-assistants" },
+      { name: "形成的評価とフィードバック", href: "/strategies/feedback" },
+    ],
+    alignment: "partial",
+  },
 ];
 
 const alignmentLabel: Record<string, { text: string; color: string }> = {
