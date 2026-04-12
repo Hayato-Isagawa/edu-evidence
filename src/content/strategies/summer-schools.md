@@ -7,8 +7,16 @@ cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["長期休暇", "格差", "補習"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/summer-schools
 sourceTitle: "EEF Teaching and Learning Toolkit — Summer schools"
+evidence:
+  eef:
+    monthsGained: 3
+    strength: 3
+    note: "EEF Toolkit で +3ヶ月・エビデンス★3。集中的な学業プログラム(小集団・専門性の高い指導)のみ効果。娯楽中心のサマースクールには学力効果は見られない。社会経済的に不利な子どもでより大きな効果が見られ、夏休みの学力低下(summer slide)対策として位置づけられる。"
+culturalContext: |
+  日本の小学校には欧米型の『夏休み中の学校主催学習プログラム』は一般的ではなく、**夏休みの学習は家庭と学習塾が担う構造**。これが SES による学力格差の拡大要因となっている可能性がある(cram-school-effect も参照)。公教育としてのサマースクール導入は、教員の労働環境・外部人材との連携が鍵。
 ---
 
 ## 一言でいうと

@@ -7,8 +7,15 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["生徒指導", "負の効果", "禁止"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking: Corporal punishment"
+source: mixed
+sourceUrl: https://doi.org/10.1037/fam0000191
+sourceTitle: "Gershoff & Grogan-Kaylor (2016) Spanking and Child Outcomes: Old Controversies and New Meta-Analyses"
+evidence:
+  hattie:
+    cohensD: -0.33
+    note: "Hattie の Visible Learning では学業・行動面で負の効果。Gershoff & Grogan-Kaylor(2016)の 75 研究メタ分析で、体罰は攻撃性・反社会的行動・メンタルヘルス問題を増加させ、道徳的内面化を阻害。学業成果への効果は無いか負。"
+culturalContext: |
+  **日本では学校教育法第 11 条で体罰が明確に禁止** されている(2013 年の大阪市立桜宮高校事件を契機に指導強化)。家庭内でも 2020 年の児童虐待防止法改正で体罰が禁止された。**『体罰禁止』はエビデンスと一致する制度設計**。『しつけのための軽い体罰は有効』という言説は日本でも根強いが、Gershoff 2016 はそれも否定している。
 ---
 
 ## 一言でいうと

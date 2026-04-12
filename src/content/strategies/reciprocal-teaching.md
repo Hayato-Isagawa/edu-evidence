@@ -8,8 +8,8 @@ subjects: ["国語", "全教科"]
 grades: ["中学年", "高学年"]
 tags: ["読解", "対話"]
 source: mixed
-sourceUrl: https://www.nctm.org/Publications/Journal-for-Research-in-Mathematics-Education/2017/
-sourceTitle: "Rosenshine & Meister (1994) メタ分析、What Works Clearinghouse(2010)"
+sourceUrl: https://doi.org/10.3102/00346543064004479
+sourceTitle: "Rosenshine & Meister (1994) Reciprocal teaching: A review of the research. Review of Educational Research, 64(4)"
 evidence:
   eef:
     monthsGained: 0

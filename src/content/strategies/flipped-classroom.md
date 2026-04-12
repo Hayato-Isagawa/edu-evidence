@@ -6,10 +6,18 @@ evidenceStrength: 4
 cost: 3
 subjects: ["全教科"]
 grades: ["中学年", "高学年"]
-source: japan
+source: mixed
 tags: ["GIGA", "デジタル", "家庭学習"]
-sourceUrl: https://www.visiblelearningmetax.com/Influences/View/flipped_classrooms
-sourceTitle: "Visible Learning MetaX — Flipped Classrooms"
+sourceUrl: https://doi.org/10.3102/00346543251323787
+sourceTitle: "Li et al. (2025) Effectiveness of Flipped Classrooms for K-12 Students: A Three-Level Meta-Analysis"
+evidence:
+  eef:
+    note: "EEF Toolkit には反転授業の独立したエントリは無い。関連する『Digital technology』(+4)の一部として扱われる可能性がある。"
+  hattie:
+    cohensD: 0.53
+    note: "Li et al.(2025)の K-12 129研究のメタ分析で g=0.53。Shi et al.(2020)等でも d=0.5 前後が報告されている。d=0.53 は『月数換算 +5』に対応。"
+culturalContext: |
+  **日本国内での反転授業の効果を検証した RCT は存在しない**。GIGA スクール構想により 1 人 1 台端末が整備され、実践環境は整ってきたが、定量的な効果検証は今後の課題。海外メタ分析の効果量がそのまま日本の小学校文脈で成立するかは未検証である点に注意。特に、日本の家庭学習文化・保護者の関与・就寝時刻などは海外 K-12 と条件が異なる。
 ---
 
 ## 一言でいうと

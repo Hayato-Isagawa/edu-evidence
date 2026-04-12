@@ -7,8 +7,16 @@ cost: 2
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["学級経営", "生徒指導"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/behaviour-interventions
 sourceTitle: "EEF Teaching and Learning Toolkit — Behaviour interventions"
+evidence:
+  eef:
+    monthsGained: 4
+    strength: 3
+    note: "EEF Toolkit で +4ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。対象を絞った介入(困難の大きい子への個別計画)で効果が大きい。"
+culturalContext: |
+  日本の生徒指導は『全体指導+個別指導』の構造で、学級全体への一律的な叱責・注意が多い傾向がある。EEF の知見は、**困難の大きい子への個別計画**の方が全体介入より効率的であることを示しており、この発想の転換が日本の文脈で意義を持つ。報酬(シール・スタンプ)運用は広く行われているが、Fryer(2011)が示すように『行動(インプット)への報酬は効果があるが結果(アウトプット)への報酬は効果がない』点に注意。
 ---
 
 ## 一言でいうと

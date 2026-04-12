@@ -7,8 +7,16 @@ cost: 2
 subjects: ["音楽", "図工", "全教科"]
 grades: ["全学年"]
 tags: ["表現", "芸術"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/arts-participation
 sourceTitle: "EEF Teaching and Learning Toolkit — Arts participation"
+evidence:
+  eef:
+    monthsGained: 3
+    strength: 2
+    note: "EEF Toolkit で +3ヶ月・エビデンス★2(低)。学力への効果は小さいが、非認知スキル(創造性・自己表現・動機づけ)への正の効果がより大きい。Winner, Goldstein & Vincent-Lancrin(2013 OECD)も芸術教育の領域横断的効果を限定的と評価。"
+culturalContext: |
+  日本の小学校は音楽・図画工作・体育という教科枠で芸術活動を必修化しており、EEF の『芸術活動への参加』の大部分は既にカリキュラムに組み込まれている。欧米の『課外活動としての音楽・演劇』とは位置づけが異なるため、EEF の +3 をそのまま追加効果として読むのは誤り。教科としての質と、特別活動・クラブ活動の芸術機会を合わせて考える必要がある。
 ---
 
 ## 一言でいうと

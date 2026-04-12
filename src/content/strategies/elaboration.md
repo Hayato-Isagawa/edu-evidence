@@ -7,8 +7,17 @@ cost: 1
 subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 tags: ["認知科学", "思考"]
+source: mixed
 sourceUrl: https://doi.org/10.1177/1529100612453266
 sourceTitle: "Dunlosky et al. (2013) — Improving students' learning with effective learning techniques"
+evidence:
+  eef:
+    note: "EEF Toolkit に精緻化の独立したエントリは無いが、Metacognition and self-regulation(+8)の構成要素として位置づく。"
+  hattie:
+    cohensD: 0.42
+    note: "Dunlosky et al.(2013)が elaborative interrogation を『中程度の有用性』に分類。既有知識が豊富な学習者ほど効果が大きい(d≒0.3-0.6)。事実暗記より概念的理解・因果関係の学習に有効。正確さが伴わないと効果が出ない点に注意。"
+culturalContext: |
+  日本の授業で『なぜ?』を問う発問は日常的に行われているが、認知科学の精緻的質問法は **学習者自身が自分の既有知識から説明を引き出す** ことに主眼がある点で、教師主導の発問とは異なる。ペアで『なぜ?クイズ』を出し合う、ノートに『学んだこと』と『なぜそうなるのか(自分の考え)』を並置する等、学習者主体の設計が鍵。低学年では抽象的『なぜ』より『どこが似ている?』等の具体的比較から始めると効果的。
 ---
 
 ## 一言でいうと

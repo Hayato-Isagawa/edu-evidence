@@ -1,7 +1,7 @@
 ---
 title: 道徳教育
 summary: 2018年に「特別の教科」となった道徳。「考え、議論する道徳」への転換が進む。効果の実証研究は発展途上。
-monthsGained: 2
+monthsGained: 0
 evidenceStrength: 1
 cost: 1
 subjects: ["道徳"]
@@ -10,6 +10,16 @@ source: japan
 tags: ["道徳", "議論", "日本固有"]
 sourceUrl: https://doutoku.mext.go.jp/
 sourceTitle: "道徳教育アーカイブ — 文部科学省"
+evidence:
+  japan:
+    monthsGained: 0
+    strength: 1
+    note: "2018 年に『特別の教科 道徳』として必修化。『考え、議論する道徳』への転換が図られるが、**学力・行動・道徳性の定量的な効果を測定した大規模研究はまだ無い**。評価方法(記述式)自体が数値化を避ける設計で、『効果量 +X ヶ月』という指標と整合しない。"
+    researcher: "文部科学省"
+  hattie:
+    note: "国際的には Character Education の効果量は d=0.1-0.3 程度と報告されるが、内容・目的・評価方法が日本の道徳科と異なるため直接比較は困難。"
+culturalContext: |
+  **道徳教育は学力向上を主目的とする領域ではない**ため、『効果量 +X ヶ月』の枠組みで論じること自体が不適切な側面がある。SEL(social-emotional-learning)・philosophy-for-children との関連項目で参照するのが適切。フロントマター +2 は根拠が薄いため **0 に調整** — 『学力効果を主張できる根拠が現時点で無い』という意味で、道徳教育そのものの価値を否定するものではない。『考え、議論する道徳』の実現は p4c(philosophy-for-children)のエビデンスが参考になる。
 ---
 
 ## 一言でいうと

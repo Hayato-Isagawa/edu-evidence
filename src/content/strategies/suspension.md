@@ -7,8 +7,15 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["生徒指導", "負の効果", "排除"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking"
+source: mixed
+sourceUrl: https://doi.org/10.3102/0034654319853545
+sourceTitle: "Valdebenito, Eisner, Farrington et al. (2019) What can we do to reduce disciplinary school exclusion? A Campbell systematic review"
+evidence:
+  hattie:
+    cohensD: -0.20
+    note: "Hattie の Visible Learning で負の効果。Valdebenito et al.(2019)の 37 研究系統的レビューでは、排除的措置は対象児の学業・行動・中退リスクを悪化させ、**学校全体の行動風土も改善しない**。Noltemeyer, Ward & Mcloughlin(2015)のメタ分析でも、停学率が高い学校の方が学力が低い相関が一貫して見られる。"
+culturalContext: |
+  日本の学校教育法では**小中学校の子どもへの停学は原則認められていない**(公立小中の義務教育段階、学校教育法施行規則第 26 条)。ただし出席停止は可能(26 条 3 項:児童の行動の問題のあるときなど)だが極めて稀。本項目は日本の小学校では『**参照しない選択肢**』。不登校支援・別室指導・外部連携等の代替が国際エビデンスと整合する。
 ---
 
 ## 一言でいうと

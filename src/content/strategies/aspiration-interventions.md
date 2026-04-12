@@ -7,8 +7,16 @@ cost: 2
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["動機づけ", "キャリア教育", "負の効果"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/aspiration-interventions
 sourceTitle: "EEF Teaching and Learning Toolkit — Aspiration interventions"
+evidence:
+  eef:
+    monthsGained: 0
+    strength: 2
+    note: "EEF Toolkit で 0 ヶ月・エビデンス★2。志向性への働きかけ単独では学力への効果が検出されない。ただし、志向性介入と具体的な学習スキル(ノートの取り方、時間管理、勉強法)を組み合わせた場合には効果が見られる研究もある。"
+culturalContext: |
+  日本のキャリア教育・総合的な学習の時間でも『夢を持とう』『将来の職業を考えよう』といった活動が広く行われている。EEF のエビデンスが示唆するのは、**単に『夢』や『憧れ』を喚起するだけでは学力・行動は変わらない** という点。『志向性 × 具体的行動(計画・スキル・実行)』の設計がなければ効果は出ない。キャリア教育を『夢を語らせる時間』に終わらせない工夫が鍵。
 ---
 
 ## 一言でいうと

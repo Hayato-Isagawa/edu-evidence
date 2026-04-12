@@ -7,8 +7,15 @@ cost: 1
 subjects: ["国語", "全教科"]
 grades: ["全学年"]
 tags: ["デジタル", "読解", "GIGA", "負の効果"]
+source: mixed
 sourceUrl: https://doi.org/10.1016/j.edurev.2018.09.003
-sourceTitle: "Delgado et al. (2018) — Don't throw away your printed books"
+sourceTitle: "Delgado, Vargas, Ackerman & Salmerón (2018) — Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension"
+evidence:
+  hattie:
+    cohensD: -0.21
+    note: "Delgado et al.(2018)の 54 研究メタ分析で、**紙>デジタル**の優位性を確認(Hedges g=-0.21)。この差は 2000 年以降さらに大きくなっており、画面の性能向上では解消しない。効果は特に**説明文**(narrative より)、**時間制約あり**の場面で大きい。原因候補:浅い処理、スキミング傾向、気を散らす要素、空間的手がかりの欠如(shallowing hypothesis)。"
+culturalContext: |
+  **GIGA スクール構想下で『デジタル教科書推進』が進む日本で、最も慎重な検討が必要な研究知見**。長文読解・思考を要する読みでは紙が優位という Delgado 2018 の結論は、デジタル教科書導入の是非そのものを問うものではなく、**紙とデジタルの使い分け**を示唆する。速読・検索はデジタル、深い読解は紙、というハイブリッド運用が現実的。文部科学省のデジタル教科書実証研究も参照。
 ---
 
 ## 一言でいうと

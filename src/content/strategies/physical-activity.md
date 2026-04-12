@@ -7,8 +7,16 @@ cost: 2
 subjects: ["体育", "全教科"]
 grades: ["全学年"]
 tags: ["健康", "運動"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/physical-activity
 sourceTitle: "EEF Teaching and Learning Toolkit — Physical activity"
+evidence:
+  eef:
+    monthsGained: 1
+    strength: 2
+    note: "EEF Toolkit で +1ヶ月・エビデンス★2。学力への直接効果は小さい。一方で、身体活動は健康・集中力・ストレス耐性に確かな効果があり、学習の土台として重要。Donnelly et al.(2016)の系統的レビューでも学業成果への効果は限定的で、身体的・心理的効果が主。"
+culturalContext: |
+  日本の小学校は体育が週 2-3 時間必修で、休み時間・昼休みの自由遊びも含めると国際的に見て身体活動時間は確保されている方。EEF の +1 を『追加で取り組むべき』と読むより、**既存の体育・休み時間の質を維持**する観点で参照するのが適切。学力への効果を期待するより、健康・生活リズム・メンタルヘルスへの効果を目的とすべき領域。
 ---
 
 ## 一言でいうと

@@ -1,15 +1,25 @@
 ---
 title: 手書き vs タイピング
 summary: ノートを手書きで取る方が、タイピングより記憶定着に有利という研究が増えている。脳の活性化パターンが異なる。
-monthsGained: 3
-evidenceStrength: 3
+monthsGained: 2
+evidenceStrength: 2
 cost: 1
-source: japan
+source: mixed
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "GIGA", "記憶"]
 sourceUrl: https://doi.org/10.3389/fpsyg.2023.1219945
-sourceTitle: "van der Meer & van der Weel (2023) — Handwriting leads to widespread brain connectivity"
+sourceTitle: "van der Meer & van der Weel (2023) — Handwriting but not typewriting leads to widespread brain connectivity"
+evidence:
+  hattie:
+    cohensD: 0.30
+    note: "van der Meer & van der Weel(2023)の EEG 研究で、手書き時は脳の広範なネットワーク(視覚・運動・感覚)が活性化するが、タイピングでは限定的。Mueller & Oppenheimer(2014)の『ペンはキーボードより強し』は有名だが、**Morehead et al.(2019)の追試で効果が再現されず**、効果の大きさには議論がある。**幼児の文字習得・図形学習**では手書きの優位性が一貫して報告されている(James & Engelhardt 2012 等)。"
+  japan:
+    strength: 2
+    note: "文部科学省は GIGA スクール端末導入後も『手書きの指導を維持』する方針を示し、特に低学年の文字習得・漢字学習では手書きを重視している。国内の学術的な効果量研究は限定的。"
+    researcher: "文部科学省"
+culturalContext: |
+  **日本では漢字学習という手書き特有の領域があり、欧米のアルファベット圏とは前提が異なる**。漢字の形を覚える過程で運動記憶(筆順・運動パターン)が重要な役割を果たすため、GIGA 端末でも『書く』操作をデジタルペンで代替する運用が増えている。フロントマター +3 は Mueller 2014 の初期研究に依拠しており **再現性の議論を踏まえ +2 に調整**。strength も 2 に引き下げ。
 ---
 
 ## 一言でいうと

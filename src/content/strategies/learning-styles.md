@@ -7,8 +7,17 @@ cost: 2
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["神経神話", "負の効果"]
+source: mixed
 sourceUrl: https://journals.sagepub.com/doi/full/10.1111/j.1539-6053.2009.01038.x
 sourceTitle: "Pashler et al. (2008) Learning Styles: Concepts and Evidence"
+evidence:
+  eef:
+    note: "EEF Toolkit に独立したエントリは無いが、EEF は学習スタイル理論を『エビデンスで支持されない実践』として一貫して警告している。"
+  hattie:
+    cohensD: 0.23
+    note: "Pashler et al.(2008)の大規模レビューは、学習スタイル理論を支持する質の高いエビデンスは**ほぼ存在しない**と結論。VARK 等の学習スタイル分類は神経神話(neuromyth)の代表例。教師の 90% 以上が信じているが、科学的裏付けは無い(Dekker et al. 2012)。"
+culturalContext: |
+  **日本の教員研修・教職課程でも『視覚型・聴覚型・運動型』といった学習スタイル理論が今も紹介されることがある** が、国際的にはこれは神経神話と位置づけられている。教師が『この子は視覚型だから図で教えよう』と決めつけることは、固定観念の強化・指導の偏向につながる危険性がある。代わりに **二重符号化(dual-coding)** — 全員に言葉+図の両方を提示する — が認知科学的に支持される。
 ---
 
 ## 一言でいうと

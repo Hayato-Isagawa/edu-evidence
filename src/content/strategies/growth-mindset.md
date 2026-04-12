@@ -1,15 +1,23 @@
 ---
 title: 成長マインドセット
 summary: 「能力は努力で伸びる」という信念を育てる介入。効果は小さいがコストも低い。過大な期待は禁物。
-monthsGained: 2
+monthsGained: 1
 evidenceStrength: 3
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
-source: japan
+source: mixed
 tags: ["非認知能力", "動機づけ"]
-sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit
-sourceTitle: "EEF Teaching and Learning Toolkit（成長マインドセットは独立項目なし。Hattie Visible Learningに基づく）"
+sourceUrl: https://doi.org/10.1177/0956797617739704
+sourceTitle: "Sisk, Burgoyne, Sun, Butler & Macnamara (2018) To What Extent and Under Which Circumstances Are Growth Mind-Sets Important to Academic Achievement?"
+evidence:
+  eef:
+    note: "EEF Toolkit に独立エントリは無いが、EEF はオンライン介入の大規模 RCT(Changing Mindsets 2015-19)で効果を確認できず、慎重な評価を示している。"
+  hattie:
+    cohensD: 0.10
+    note: "**Sisk et al.(2018)の 129 研究メタ分析で、成長マインドセットと学力の関連は r=0.10(d≒0.19)と非常に小さい**。Burnette et al.(2023)の追試メタでも類似。Yeager et al.(2019)の米国全国 RCT では全体効果は d=0.03 と微小で、**低学力層にのみ** d=0.1 程度の効果。『信念を変えれば学力が上がる』という素朴な解釈は支持されない。"
+culturalContext: |
+  『やればできる』の言説は日本で馴染み深く、道徳・特別活動でも広く使われているが、**『信念を変えれば学力が上がる』という過大な期待はエビデンスに反する**。中室牧子(2015)も成長マインドセットの効果は限定的と述べている。『努力を具体的にどう行うか』『つまずいたときの戦略』といった **具体的な学習戦略**(メタ認知・検索練習等)と組み合わせない限り、信念操作単独の効果はほぼ無い。旧フロントマター +2 は Hattie の上限値由来で過大。Sisk 2018 等の独立メタ分析に基づき **+1 に引き下げ**。
 ---
 
 ## 一言でいうと

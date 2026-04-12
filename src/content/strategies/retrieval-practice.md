@@ -7,8 +7,17 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+source: mixed
 sourceUrl: https://doi.org/10.1016/j.tics.2010.09.003
 sourceTitle: "Roediger & Butler (2011) — The critical role of retrieval practice in long-term retention"
+evidence:
+  eef:
+    note: "EEF Toolkit に検索練習の独立したエントリは無いが、Metacognition and self-regulation(+8)の中核的手法として位置づく。分散学習と並び、認知科学領域で最も頑健な知見の一つ。"
+  hattie:
+    cohensD: 0.58
+    note: "Roediger & Butler(2011)のレビューで再読に対する優位性が一貫して報告されている。Adesope, Trevisan & Sundararajan(2017)の 118 研究メタ分析で g=0.51。Dunlosky et al.(2013)が『高い有用性』に分類。効果量は d=0.5-0.8 程度が一般的。"
+culturalContext: |
+  日本の教室では『テスト = 評価・成績』という文化が強く、**『学ぶためのテスト』**という位置づけの転換が必要。小テストを点数化せず、「何を覚えていたか自分で確認するための道具」として運用する工夫が鍵。ただし、既に日本の小学校で広く行われている「漢字ドリル」「計算プリント」「百マス計算」は検索練習の性質を持っており、認知科学的な裏付けがある実践と言える。
 ---
 
 ## 一言でいうと

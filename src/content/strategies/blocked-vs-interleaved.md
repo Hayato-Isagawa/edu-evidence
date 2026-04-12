@@ -7,7 +7,15 @@ cost: 1
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+source: mixed
+sourceUrl: https://doi.org/10.1007/s10648-012-9201-3
 sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among similar concepts"
+evidence:
+  hattie:
+    cohensD: -0.10
+    note: "ブロック練習は短期(練習直後)では正答率が高く『できている感覚』を生むが、遅延テストでは交互練習群に劣る(Rohrer & Taylor 2007、Rohrer 2012)。練習中の正答率の低下は『望ましい難しさ(desirable difficulty, Bjork 1994)』と呼ばれ、長期学習の指標ではないことが示されている。"
+culturalContext: |
+  日本の算数ドリル・漢字練習帳は典型的なブロック練習型で、**見かけの成績(練習時の正答率)は上がるが長期定着は劣る** ことに注意。保護者や管理職に『練習中の正答率の低さ=失敗ではない』と説明するには、**望ましい難しさ(desirable difficulty)** の概念の共有が必要。
 ---
 
 ## 一言でいうと

@@ -7,8 +7,20 @@ cost: 3
 subjects: ["全教科"]
 grades: ["低学年", "中学年"]
 tags: ["家庭", "連携"]
+source: mixed
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/parental-engagement
 sourceTitle: "EEF Teaching and Learning Toolkit — Parental engagement"
+evidence:
+  eef:
+    monthsGained: 4
+    strength: 4
+    note: "EEF Toolkit で +4ヶ月・エビデンス★4。Jeynes(2012)の 51 研究メタ分析で親子の対話型プログラムが最も効果的。単なる『学校だよりの送付』より、具体的な関わり方(家庭での読み聞かせ、対話など)を伝える介入が有効。"
+  japan:
+    strength: 3
+    note: "松岡亮二(2015, 2019)は日本の縦断データで、保護者の教育的関与(学習時間管理・読み聞かせ・文化資本)が SES により大きく異なり、それが学力格差につながることを実証。耳塚寛明(2007)も小学校段階で既に文化的・経済的資本が学力と関連することを示した。"
+    researcher: "松岡亮二(早稲田大学)、耳塚寛明(お茶の水女子大学)"
+culturalContext: |
+  **『保護者との連携』が全ての家庭に等しく機能するわけではない**。松岡亮二(2015, 2019)・耳塚寛明(2007)が示すように、日本では SES(社会経済的地位)により保護者の教育的関与に構造的な差があり、学校からの一律の呼びかけだけでは格差は縮まらない可能性がある。EEF の +4 ヶ月は『連携できた場合』の効果量であり、**学校側からの積極的・非対称的な働きかけ**(連携できない家庭の子へのフォロー)が併せて必要。
 ---
 
 ## 一言でいうと

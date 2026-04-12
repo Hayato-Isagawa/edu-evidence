@@ -7,8 +7,16 @@ cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["支援", "関係性"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mentoring
 sourceTitle: "EEF Teaching and Learning Toolkit — Mentoring"
+evidence:
+  eef:
+    monthsGained: 2
+    strength: 3
+    note: "EEF Toolkit で +2ヶ月・エビデンス★3。学力への効果は小さいが、非認知スキル(自信・動機づけ・登校継続)への効果が報告される。Dubois et al.(2011)の 73 プログラムメタ分析でも学力効果は限定的だが、行動・情動面への効果は明確。"
+culturalContext: |
+  日本では担任教師が学習・生活・進路の全面的な支援を担う構造で、欧米型の外部メンター制度は馴染みが薄い。近年は**不登校支援の『校内別室指導員』『スクールサポートスタッフ』**など、メンタリング的な役割が制度化されつつある。学力への直接効果は期待せず、**関係性・自己肯定感・登校継続**といった非認知目標に焦点を当てる使い方が適切。
 ---
 
 ## 一言でいうと

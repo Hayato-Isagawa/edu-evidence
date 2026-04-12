@@ -1,14 +1,26 @@
 ---
 title: 小学校英語教育(外国語活動)
 summary: 小学校3〜6年生で実施される英語教育。中学英語の前倒しや早期化の効果は、研究的にはまだ確定的ではない。
-monthsGained: 2
+monthsGained: 1
 evidenceStrength: 2
 cost: 4
 subjects: ["外国語"]
 grades: ["中学年", "高学年"]
 source: japan
 tags: ["英語", "外国語活動", "政策"]
-sourceTitle: "文部科学省 — 小学校英語教育の現状と課題"
+sourceUrl: https://www.mext.go.jp/a_menu/shotou/gaikokugo/index.htm
+sourceTitle: "文部科学省 — 小学校の外国語教育"
+evidence:
+  japan:
+    monthsGained: 1
+    strength: 2
+    note: "2020 年度から小学校 3-4 年『外国語活動』、5-6 年『外国語科』が必修化。ベネッセ・文科省の追跡調査では、小学校英語の早期化が中学英語の成績に与える効果は **限定的**。中学入学時の英語力格差はむしろ拡大傾向とする報告もある(Butler 2017、Butler & Iino 2005 等)。"
+    researcher: "Yuko Goto Butler(ペンシルベニア大学)、文部科学省"
+  hattie:
+    cohensD: 0.15
+    note: "国際的には第二言語習得の『critical period hypothesis』(Lenneberg 1967)の支持は限定的で、小学校での早期外国語教育の長期効果は認知的優位性よりも**動機づけ・文化理解・発音知覚**で現れることが多い(Muñoz 2006、DeKeyser 2013)。"
+culturalContext: |
+  **小学校英語教育は日本の 2020 年度教育改革の目玉だが、効果の実証はまだ不十分**。英語専科教員の配置が進まず、担任が持ち時間で指導する構造が多いため、**指導の質に大きなばらつき**がある。Butler(2017)は日本の小学校英語の研究を包括的にレビューし、『早期開始』そのものよりも『指導の質』『時間数』『継続性』が効果を左右すると指摘。効果量を **+1 に保守的設定**(+2 は過大評価の恐れ)。
 ---
 
 ## 一言でいうと

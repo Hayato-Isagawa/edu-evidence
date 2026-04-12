@@ -7,8 +7,16 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["対話", "教え合い"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/peer-tutoring
 sourceTitle: "EEF Teaching and Learning Toolkit — Peer tutoring"
+evidence:
+  eef:
+    monthsGained: 5
+    strength: 4
+    note: "EEF Toolkit で +5ヶ月・エビデンス★4。Rohrbeck et al.(2003)の小学生対象メタ分析で加重 d=0.33、Bowman-Perrott et al.(2013)で d=0.75(ただし対象・手法に幅あり)。構造化(役割・手順明確)されたプログラムほど効果が大きい。"
+culturalContext: |
+  日本の小学校では「教え合い」「学び合い」の活動が一般的だが、**EEF のピア・チュータリングは『固定ペア』『明示的な役割(tutor/tutee)』『構造化された手順』を前提とする手法**であり、日本の自由な班活動とは異なる。EEF の効果量は構造化された介入での値であり、「隣の子と相談」レベルの活動には当てはまらない点に注意。Classwide Peer Tutoring (CWPT) や Reciprocal Peer Tutoring (RPT) など、具体的なプログラムを参照するとよい。
 ---
 
 ## 一言でいうと

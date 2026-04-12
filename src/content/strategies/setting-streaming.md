@@ -7,8 +7,16 @@ cost: 2
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
 tags: ["個別最適化", "グループ編成"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/setting-and-streaming
 sourceTitle: "EEF Teaching and Learning Toolkit — Setting and streaming"
+evidence:
+  eef:
+    monthsGained: 1
+    strength: 3
+    note: "EEF Toolkit で +1ヶ月・エビデンス★3。全体平均では小さな正の効果だが、**下位グループの子どもに対しては負の効果**(自己肯定感低下・ラベリング・期待の低下)が報告される。上位層には若干の正、下位層には明確な負で、相殺されて全体では+1。Francis et al.(2017)の英国の縦断研究でも同様の不均衡が確認されている。"
+culturalContext: |
+  **日本の算数で広く実施される『習熟度別少人数指導』は EEF の setting-streaming に近い** 側面を持ち、効果が限定的であることを認識する必要がある。下位グループに固定される子どもの自己肯定感低下という負の効果は日本でも報告されている(松尾 2013 等)。EEF は **small-group-tuition(+4)** の方を推奨しており、**固定的な習熟度別編成ではなく、一時的・targeted・流動的な少人数指導**が効果的。日本の現場でグループ編成を検討する際の重要な論点。
 ---
 
 ## 一言でいうと

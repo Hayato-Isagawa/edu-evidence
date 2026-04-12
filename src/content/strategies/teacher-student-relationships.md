@@ -1,14 +1,23 @@
 ---
 title: 教師と子どもの関係性
 summary: 教師と子どもの間に温かさ・信頼・高い期待がある関係が築かれると、学習成果が向上する。学級経営の土台となるエビデンス。
-monthsGained: 5
+monthsGained: 4
 evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["学級経営", "関係性"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking"
+source: mixed
+sourceUrl: https://doi.org/10.3102/0034654311421793
+sourceTitle: "Roorda et al. (2011) The Influence of Affective Teacher–Student Relationships on Students' School Engagement and Achievement"
+evidence:
+  eef:
+    note: "EEF Toolkit に教師-子ども関係性の独立したエントリは無い。Behaviour interventions(+4)や Metacognition(+8)の基盤として位置づく。"
+  hattie:
+    cohensD: 0.72
+    note: "Hattie の Visible Learning では d=0.72(上限寄り)。独立メタ分析では Roorda et al.(2011, 99研究)が学業成績との関連 r≒0.16-0.19(d≒0.32-0.39)、Cornelius-White(2007, 119研究)が r=0.31(d≒0.65)と報告。Hattie 値は上端、実態は中程度で **+4 ヶ月程度** が妥当と判断。"
+culturalContext: |
+  関係性の重要性は日本の学級経営でも広く認識されているが、効果量を厳密に推定した研究は多くない。日本の学級担任制は 1 人の教師が長時間子どもと関わる構造で、海外(教科担任制)より関係性の影響が大きい可能性があるが、検証は進んでいない。また、30 人以上の学級で全員と質の高い関係を築くには教師の余裕が必要で、業務負荷との関連を無視できない。
 ---
 
 ## 一言でいうと
@@ -32,7 +41,7 @@ sourceTitle: "Visible Learning — Hattie Ranking"
 
 ## 研究からわかっていること
 
-- 教師との良好な関係性は約5ヶ月分の学習効果に相当し、エビデンスの蓄積が厚い領域です。
+- 独立したメタ分析(Roorda et al. 2011、Cornelius-White 2007)では学業成績との関連は r=0.16-0.31(d≒0.32-0.65)の範囲で報告されており、中央値で約4ヶ月分の学習効果に相当します。Hattie の d=0.72 は上端寄りの値です。
 - 特に低学年・学習困難を抱える子ども・社会経済的に不利な環境の子どもに対して効果が大きいことが示されています。
 - 温かさと高い期待の「両方」が重要です。温かいだけ(甘やかし)、厳しいだけ(管理的)では効果が弱まります。
 - 関係性の質は、学力だけでなく学校適応・出席率・行動面にも正の影響を与えます。

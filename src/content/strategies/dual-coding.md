@@ -7,8 +7,17 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "視覚化"]
+source: mixed
 sourceUrl: https://doi.org/10.1007/BF02461477
 sourceTitle: "Clark & Paivio (1991) — Dual coding theory and education"
+evidence:
+  eef:
+    note: "EEF Toolkit に二重符号化の独立したエントリは無いが、Metacognition and self-regulation(+8)・Digital technology(+4)の認知基盤として位置づく。"
+  hattie:
+    cohensD: 0.45
+    note: "Mayer(2009)のマルチメディア学習研究では『言葉+関連図』vs『言葉のみ』で一貫して正の効果。ただし『装飾的な図(内容と無関係)』はむしろ注意を散らす。初学者で効果が大きく、既有知識のある学習者では効果が減衰(expertise reversal effect)。"
+culturalContext: |
+  日本の授業は板書文化が強く、色チョーク・図解・絵カードといった二重符号化的な実践が伝統的に定着している。線分図・関係図・ウェビングなどの『思考ツール』も広く使われており、**既に二重符号化の原則は日本の教室に埋め込まれている**側面がある。ただし、GIGA スクール端末でのアニメーション・動画の活用で**情報過多**になると冗長性効果で逆効果になる点に注意(特に小学校低学年で学習者が自分のペースで処理できない場合)。
 ---
 
 ## 一言でいうと

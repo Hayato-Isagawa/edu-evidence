@@ -8,7 +8,18 @@ subjects: ["全教科"]
 grades: ["全学年"]
 source: japan
 tags: ["教員", "労働環境", "政策"]
-sourceTitle: "文部科学省 — 教員勤務実態調査"
+sourceUrl: https://www.mext.go.jp/a_menu/shotou/hatarakikata/index.htm
+sourceTitle: "文部科学省 — 学校における働き方改革"
+evidence:
+  japan:
+    monthsGained: 0
+    strength: 1
+    note: "文部科学省の 2022 年教員勤務実態調査では、小学校教諭の時間外労働時間は月平均 41 時間(2016 年の 59 時間から減少)だが、依然として過労死ラインを超える水準。OECD TALIS 2018 でも日本の教員の勤務時間は参加国中最長。**働き方改革と子どもの学力の因果関係を示した日本の大規模研究は存在しない**。"
+    researcher: "文部科学省、OECD TALIS"
+  hattie:
+    note: "国際的には teacher burnout と学力の関連を示す研究(Madigan & Kim 2021 メタ分析)があり、教員のエンゲージメントが下がると子どもの学業成果も低下する傾向が示唆される。ただし因果方向は双方向的で、効果量の特定は難しい。"
+culturalContext: |
+  **働き方改革は学力向上を直接の目的とする施策ではなく、教員の持続可能性と離職率改善、そして結果として教員の質の維持** を通じて間接的に子どもの学びに影響する領域。『効果量 +X ヶ月』という枠組みと整合しないため **0 に設定**。一方、教員の労働環境悪化は、feedback・teacher-student-relationships・small-group-tuition など多くの高効果戦略の実施可能性を左右する『上流要因』として重要。
 ---
 
 ## 一言でいうと

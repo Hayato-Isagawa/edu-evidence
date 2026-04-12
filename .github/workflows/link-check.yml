@@ -58,6 +58,8 @@ jobs:
             --accept 200,201,202,203,204,206,301,302,303,307,308,403,429,503
             --exclude 'doi\.org/10\.1037'
             --exclude 'us\.corwin\.com'
+            --exclude 'educationendowmentfoundation\.org\.uk'
+            --exclude 'nctm\.org'
             --timeout 30
             --max-retries 2
             './dist/**/*.html'

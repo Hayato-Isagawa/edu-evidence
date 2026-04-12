@@ -7,8 +7,16 @@ cost: 2
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["個別最適化", "GIGA"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/individualised-instruction
 sourceTitle: "EEF Teaching and Learning Toolkit — Individualised instruction"
+evidence:
+  eef:
+    monthsGained: 3
+    strength: 3
+    note: "EEF Toolkit で +3ヶ月・エビデンス★3。効果量はプログラムの質により大きく幅があり、十分な指導・評価のサイクルが成立しているときにのみ効果が出る。単に『違う教材をやらせる』のでは効果が限定的。Deunk et al.(2018)のメタ分析でも効果量は d≒0.11 と小さい。"
+culturalContext: |
+  **日本の文脈で最も誤解されている EEF 項目の一つ**。文部科学省が掲げる『**個別最適な学び**』は EEF の Individualised instruction(+3)と AI ドリル(digital-technology +4)の両方を含む概念で、しばしば『GIGA 端末を配れば個別最適が実現する』と誤認される。EEF の知見は『個別化すれば効果が出る』ではなく『高品質の個別介入(診断・課題・フィードバック・再評価のサイクル)がある場合に限る』という条件付き。ドリル学習の自動化だけでは +3 は達成できない可能性が高い。
 ---
 
 ## 一言でいうと

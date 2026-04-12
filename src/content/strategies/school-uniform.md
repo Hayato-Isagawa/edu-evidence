@@ -7,8 +7,16 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["制度", "負の効果"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/school-uniform
 sourceTitle: "EEF Teaching and Learning Toolkit — School uniform"
+evidence:
+  eef:
+    monthsGained: 0
+    strength: 2
+    note: "EEF Toolkit で 0 ヶ月・エビデンス★2。制服の着用自体には学力への効果は確認されない。Bodine(2003)・Brunsma & Rockquemore(1998)等の研究でも学力・出席率・行動への効果は見られないか、わずか。『制服で学校文化を作る』という直感的な信念はエビデンスに裏付けられない。"
+culturalContext: |
+  日本の小学校の多くは私服制または指定服(簡易制服)で、**欧米の『制服の有無』論争とはやや文脈が異なる**。ただし、『制服があれば落ち着く』『帰属意識が高まる』といった言説は日本でも聞かれる。経済的負担・選択の自由・ジェンダー表現といった観点と合わせて議論すべき領域で、学力向上の手段として制服を正当化する根拠はない。
 ---
 
 ## 一言でいうと

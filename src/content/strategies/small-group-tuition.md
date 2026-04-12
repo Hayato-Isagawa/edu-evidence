@@ -7,8 +7,16 @@ cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["個別最適化"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition
 sourceTitle: "EEF Teaching and Learning Toolkit — Small group tuition"
+evidence:
+  eef:
+    monthsGained: 4
+    strength: 4
+    note: "EEF Toolkit で +4ヶ月・エビデンス★4。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析で、2-5 人のグループでも 1 対 1 に近い効果が得られる。6 人を超えると効果が薄れる。"
+culturalContext: |
+  日本では『少人数学級』と『少人数指導』が混同されがちだが、EEF のエビデンスは **学級規模の縮小(reducing class size)ではなく、小集団での補充・発展指導** に関するもの。文部科学省が進める 35 人学級化は学級規模縮小であり、EEF では別項目(効果は限定的)として扱われる。**習熟度別少人数指導・TT・支援員との連携**などが EEF の少人数指導に対応する。ラベリング回避とグループ流動化が日本でも有効。
 ---
 
 ## 一言でいうと

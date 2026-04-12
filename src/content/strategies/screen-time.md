@@ -7,8 +7,19 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["デジタル", "健康", "負の効果", "GIGA"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking: Television"
+source: mixed
+sourceUrl: https://doi.org/10.1001/jamapediatrics.2018.5056
+sourceTitle: "Madigan, Browne, Racine, Mori & Tough (2019) Association Between Screen Time and Children's Performance on a Developmental Screening Test"
+evidence:
+  hattie:
+    cohensD: -0.18
+    note: "Hattie の Television 項目で負の効果。Madigan et al.(2019)の縦断研究で、2-5 歳児のスクリーンタイムが発達スクリーニングテストの成績と負の関連。Oswald et al.(2020)の系統的レビューでは学力との関連は相関レベルで因果推論は難しいが、1 日 2 時間超で一貫した負の関連。"
+  japan:
+    strength: 3
+    note: "川島隆太(2016-2018)の東北大学チームが仙台市の学習状況調査で、スマートフォン使用時間と学力の負の相関を報告(ただし横断調査のため因果は未確定)。"
+    researcher: "川島隆太(東北大学)"
+culturalContext: |
+  **GIGA スクール構想で 1 人 1 台端末が配布された日本では、『学習用の画面時間』と『娯楽の画面時間』を区別する必要**がある。学校用途の目的的な使用は学習効果(digital-technology +4)を持つ一方、家庭での無目的な長時間使用は学力・睡眠・メンタルヘルスに負の影響。両者を同じ『スクリーンタイム』として論じると混乱する。川島隆太のデータは日本の子どもを対象とした数少ない知見だが、交絡変数の統制は限定的。
 ---
 
 ## 一言でいうと

@@ -1,7 +1,7 @@
 ---
 title: 授業のユニバーサルデザイン
 summary: 特別な支援がなくても、すべての子が「分かる・できる」授業を設計する手法。視覚化・焦点化・共有化の3つの視点が核。日本の教育現場で広がる実践。
-monthsGained: 3
+monthsGained: 2
 evidenceStrength: 2
 cost: 1
 subjects: ["全教科"]
@@ -10,6 +10,17 @@ source: japan
 tags: ["インクルーシブ", "特別支援", "授業設計"]
 sourceUrl: https://kyoiku.sho.jp/194884/
 sourceTitle: "授業のユニバーサルデザインを実現する４ステップ — みんなの教育技術"
+evidence:
+  japan:
+    monthsGained: 2
+    strength: 2
+    note: "授業 UD(桂聖・阿部利彦・小貫悟ら)は **日本で独自に発展した授業設計論** で、視覚化・焦点化・共有化の 3 視点が核。LD・ADHD・ASD 等の特性を持つ子を含む通常学級で全員の『分かる・できる』を目指す。国内での質の高い効果検証研究はまだ限定的。"
+    researcher: "桂聖(筑波大学附属小学校)、阿部利彦(星槎大学)、小貫悟(明星大学)"
+  hattie:
+    cohensD: 0.30
+    note: "国際的には CAST が提唱する Universal Design for Learning(UDL)フレームが近い概念で、Capp(2017)の 18 研究メタ分析では学業成果への中程度の効果を報告(ただし研究設計の質は幅がある)。scaffolding(足場かけ)との重なりが大きい。"
+culturalContext: |
+  **授業 UD は日本の特別支援教育の文脈から発展した独自概念**で、CAST の UDL とは起源が異なる。発達障害等の診断が無くても困難を感じる子への配慮を授業設計に組み込む『**インクルーシブな授業設計**』として広く浸透。scaffolding(+5)・direct-instruction(+5)・dual-coding(+4)と重なる要素を持ち、**個別要素の足し算ではなく総合的な授業設計思想**として捉えるべき。効果量 +3 はやや楽観的で **+2 に調整**。
 ---
 
 ## 一言でいうと

@@ -7,7 +7,15 @@ cost: 1
 subjects: ["全教科"]
 grades: ["高学年"]
 tags: ["デジタル", "健康", "負の効果"]
-sourceTitle: "Viner et al. (2019) — Social media and adolescent mental health"
+source: mixed
+sourceUrl: https://doi.org/10.1016/S2352-4642(19)30186-5
+sourceTitle: "Viner, Gireesh, Stiglic, Hudson, Goddings et al. (2019) — Roles of cyberbullying, sleep, and physical activity in mediating the effects of social media use"
+evidence:
+  hattie:
+    cohensD: -0.15
+    note: "Viner et al.(2019)の英国 Our Futures Study(12,866 人)では、1 日 3 時間以上の SNS 使用は精神健康と負の相関。ただし因果関係はサイバーいじめ・睡眠不足・身体活動低下などを媒介する間接的効果が大きい。Orben & Przybylski(2019)は効果量の小ささ(r=0.05 前後)を強調し、議論は続いている。"
+culturalContext: |
+  日本の小学校高学年でも LINE・YouTube・TikTok の利用率が高く、トラブル(悪口・仲間外れ・画像の無断共有)が学級経営の課題。**学力への直接効果より、精神的健康・睡眠時間・学級風土を経由した間接効果** に注目すべき。デジタルシティズンシップ教育との組み合わせが現実的。
 ---
 
 ## 一言でいうと

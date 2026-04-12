@@ -1,15 +1,24 @@
 ---
 title: AI(人工知能)の教育利用
 summary: ChatGPT等のAIツールの教育活用。即時フィードバックや個別最適化に可能性があるが、エビデンスの蓄積はまだ初期段階。
-monthsGained: 3
+monthsGained: 0
 evidenceStrength: 1
 cost: 2
-source: japan
+source: mixed
 subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 tags: ["デジタル", "GIGA"]
 sourceUrl: https://www.mext.go.jp/a_menu/other/mext_02412.html
 sourceTitle: "文部科学省 — 初等中等教育段階における生成AIの利用に関する暫定的なガイドライン"
+evidence:
+  eef:
+    note: "EEF Toolkit に独立エントリは無い。EEF は AI 活用についても『evidence is emerging』段階と位置づけており、現時点での体系的効果量推定は控えている。"
+  japan:
+    strength: 1
+    note: "文部科学省は 2023 年 7 月『初等中等教育段階における生成 AI の利用に関する暫定的なガイドライン』を発表、2024 年 12 月に改訂版を公表。リーディング DX スクール等でのパイロット実施段階。**小学校での効果を測定した日本の研究はまだ無い**。"
+    researcher: "文部科学省、リーディングDX スクール事業"
+culturalContext: |
+  **AI の教育利用は『効果量 +X ヶ月』で議論できる段階ではない**。Wang & Fan(2025)のメタ分析は ChatGPT の教育効果について予備的な正の傾向を報告しているが、**小学校**を対象とした質の高い研究はほぼ皆無。文部科学省のガイドラインも『情報活用能力の育成』を主目的に据え、学力向上は明示的な目標に入っていない。効果量を**保守的に 0 に設定** — 『可能性は大きいが、エビデンスはまだ薄い』という立場を明示。
 ---
 
 ## 一言でいうと

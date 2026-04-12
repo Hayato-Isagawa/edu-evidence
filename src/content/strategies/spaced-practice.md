@@ -7,8 +7,17 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+source: mixed
 sourceUrl: https://doi.org/10.1037/0033-2909.132.3.354
 sourceTitle: "Cepeda et al. (2006) — Distributed practice in verbal recall tasks"
+evidence:
+  eef:
+    note: "EEF Toolkit に分散学習の独立したエントリは無いが、Metacognition and self-regulation(+8)の構成要素として推奨される。認知科学領域の最も頑健な知見の一つ。"
+  hattie:
+    cohensD: 0.60
+    note: "Cepeda et al.(2006)の 254 研究メタ分析で、分散学習は集中学習より有意に優れる(長期保持で大きな効果)。Dunlosky et al.(2013)が 10 の学習法を評価し、分散学習を『高い有用性』に分類。効果量は実験設計により幅があるが、d=0.4-0.8 程度が一般的で『月数換算 +5』に対応。"
+culturalContext: |
+  分散学習は日本の『復習の大切さ』という一般的な助言と整合する一方、**カリキュラムの単元完結型構造**により実践が難しい。漢字練習・計算練習など反復学習の領域では取り入れやすいが、「今日学んだ範囲だけテストする」習慣を崩す必要がある。認知科学の知見は言語・文化を問わない普遍性が高いため、日本語教育でもそのまま適用可能。
 ---
 
 ## 一言でいうと

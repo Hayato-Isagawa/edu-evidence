@@ -7,7 +7,17 @@ cost: 1
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+source: mixed
+sourceUrl: https://doi.org/10.1007/s10648-012-9201-3
 sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among similar concepts"
+evidence:
+  eef:
+    note: "EEF Toolkit に交互練習の独立したエントリは無いが、Metacognition and self-regulation(+8)の構成要素として推奨される。"
+  hattie:
+    cohensD: 0.45
+    note: "Rohrer(2012)の算数領域の実験では交互練習群が遅延テストで約 43% vs ブロック練習群約 20% の正答率。Dunlosky et al.(2013)は交互練習を『中程度の有用性』と評価。分野・熟達度により効果量は幅がある(d=0.2-0.6 程度)。"
+culturalContext: |
+  日本の算数ドリル・漢字ドリルは基本的に『単元完結・ブロック練習型』で構成されており、交互練習を取り入れるには **教師が意図的に問題を組み替える** 必要がある。練習中の正答率が下がるため、子ども・保護者・管理職に『これは望ましい難しさ(desirable difficulty)である』と説明する必要がある。一方、日本の『百マス計算』や『復習テスト』は既に交互性を含む実践で、認知科学的な裏付けを持つ。
 ---
 
 ## 一言でいうと

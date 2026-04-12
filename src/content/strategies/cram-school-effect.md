@@ -8,7 +8,16 @@ subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 source: japan
 tags: ["格差", "家庭", "学習機会"]
-sourceTitle: "中室牧子・松岡亮二らの教育経済学・教育社会学研究"
+sourceUrl: https://doi.org/10.2307/2673258
+sourceTitle: "Stevenson & Baker (1992) Shadow education and allocation in formal schooling: Transition to university in Japan"
+evidence:
+  japan:
+    monthsGained: 3
+    strength: 3
+    note: "松岡亮二(2019)・中室牧子(2015)らは日本の学習塾通いと学力・進学の関連を分析し、通塾は学力向上に寄与する一方、SES により通塾率に大きな差があり、**公教育では縮まらない格差を学習塾が拡大している** と指摘。国際的には Byun, Chung & Baker(2018)のメタ分析で shadow education の効果量が d=0.42-0.67 と報告。"
+    researcher: "中室牧子(慶應義塾大学)、松岡亮二(早稲田大学)"
+culturalContext: |
+  **『学習塾は公教育の補完ではなく学力格差の主要因の一つ』** という日本特有の論点。OECD 国で見ても日本・韓国・台湾等の東アジア諸国は shadow education の比率が突出して高い。公教育の教員が知っておくべきは、**学級内の学力差の背後に通塾の有無がある可能性**と、その差が SES に強く規定されていること。『家で勉強しないから学力が低い』という解釈は、構造を見誤らせる。
 ---
 
 ## 一言でいうと

@@ -7,8 +7,16 @@ cost: 4
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["人員配置", "学級経営"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistants
 sourceTitle: "EEF Teaching and Learning Toolkit — Teaching assistants"
+evidence:
+  eef:
+    monthsGained: 1
+    strength: 3
+    note: "EEF Toolkit で +1ヶ月・エビデンス★3。単に補助員を配置するだけでは効果が出ないか、**負の効果すら報告される**(Blatchford et al. 2009 DISS プロジェクト)。役割を明確に定義し、訓練を受けた補助員が具体的な介入プログラムを実施したときにのみ +4〜+6 の効果に跳ね上がる。"
+culturalContext: |
+  日本の『スクールサポートスタッフ』『学習支援員』『特別支援教育支援員』の配置拡大が進むが、EEF の知見が示すのは **配置=効果ではない** という点。**役割定義・研修・教師との連携プロトコル**が整わないと配置は形骸化する。『担任が手が回らないから補助員に任せる』という運用は逆効果の危険性がある。コスト(+4)が高いため、費用対効果の観点からも設計が重要。
 ---
 
 ## 一言でいうと

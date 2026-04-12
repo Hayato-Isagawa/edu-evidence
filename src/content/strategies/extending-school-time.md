@@ -7,8 +7,16 @@ cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["補習", "放課後"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/extending-school-time
 sourceTitle: "EEF Teaching and Learning Toolkit — Extending school time"
+evidence:
+  eef:
+    monthsGained: 3
+    strength: 3
+    note: "EEF Toolkit で +3ヶ月・エビデンス★3。単に時間を延長するだけでは効果は限定的で、延長時間の『質』(少人数・targeted・構造化)が効果を決める。社会経済的に不利な子どもでより大きな効果が見られる傾向。コスト(+3)も大きな負担。"
+culturalContext: |
+  日本では放課後児童クラブ(学童保育)・放課後子供教室が広く整備されているが、これらは **保育・居場所機能が主で学習支援機能は副次的**。EEF の知見が示すのは『時間を増やせば学力が上がる』のではなく『質の高い追加介入が必要』という点。教員の働き方改革と逆行するため、導入には**外部人材(学習支援員・地域ボランティア)**との組み合わせが現実的。
 ---
 
 ## 一言でいうと
