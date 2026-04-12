@@ -107,7 +107,7 @@ a {
   color: var(--color-sub);
   margin: 1.5rem 0;
 }
-.prose-article a {
+.prose-article a:not(.glossary-tip) {
   color: var(--color-accent);
   text-decoration: none;
   background-image: linear-gradient(var(--color-accent), var(--color-accent));
@@ -117,12 +117,12 @@ a {
   transition: background-size 0.3s ease;
   padding-bottom: 2px;
 }
-.prose-article a:hover,
-.prose-article a:focus-visible {
+.prose-article a:not(.glossary-tip):hover,
+.prose-article a:not(.glossary-tip):focus-visible {
   background-size: 100% 1px;
 }
 @media (prefers-reduced-motion: reduce) {
-  .prose-article a {
+  .prose-article a:not(.glossary-tip) {
     transition: none;
   }
 }
@@ -133,12 +133,52 @@ a {
   font-weight: 700;
 }
 
+/* Table */
+.prose-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.prose-article thead {
+  background: var(--color-card);
+  border-bottom: 2px solid var(--color-line);
+}
+.prose-article th {
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--color-sub);
+}
+.prose-article td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-line);
+  vertical-align: top;
+}
+.prose-article tbody tr:hover {
+  background: var(--color-card);
+}
+@media (max-width: 640px) {
+  .prose-article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* Glossary tooltip */
-.glossary-tip {
+.glossary-tip,
+.prose-article .glossary-tip {
   position: relative;
   color: var(--color-accent);
   text-decoration: none;
-  border-bottom: 1px dotted var(--color-accent);
+  border-bottom: 1.5px dashed var(--color-accent);
+  background-image: none;
+  background-size: 0;
+  padding-bottom: 1px;
   cursor: help;
 }
 .glossary-tip::after {
