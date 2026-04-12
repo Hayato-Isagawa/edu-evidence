@@ -1,14 +1,25 @@
 ---
 title: 教室での対話・議論
-summary: 教師と子ども、子ども同士が考えを言葉で交わし合う活動。「対話的な学び」の直接的なエビデンス。質の高い対話は学力を大きく押し上げる。
-monthsGained: 8
-evidenceStrength: 3
+summary: 教師と子ども、子ども同士が考えを言葉で交わし合う活動。EEF の口頭言語介入は +6ヶ月、Alexander らの dialogic teaching RCT(英国)は英語・理科で +2ヶ月の正効果。「対話的な学び」の直接的なエビデンス。
+monthsGained: 6
+evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["対話", "議論", "主体的な学び"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking: Classroom discussion"
+source: eef
+sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions
+sourceTitle: "EEF Teaching and Learning Toolkit — Oral language interventions"
+evidence:
+  eef:
+    monthsGained: 6
+    strength: 4
+    note: "EEF Oral Language Interventions は全体 +6ヶ月(幼児期 +7、小学校 +6、中学校 +5)。EEF が実施した Dialogic Teaching RCT(Alexander ら、小5対象、20週間)では、英語・理科で +2ヶ月、算数で +1ヶ月の効果を確認。"
+  hattie:
+    cohensD: 0.82
+    note: "Hattie の Visible Learning では d=0.82(classroom discussion)と報告されているが、これは上端寄り。EEF の +6ヶ月の方が近年の大規模研究に基づく保守的な推定値。"
+culturalContext: |
+  日本の小学校では『めあて → 考えを発表 → まとめ』の流れの中で対話は広く行われているが、EEF が強調する『**構造化された対話(dialogic teaching)**』とは必ずしも一致しない。Alexander の dialogic teaching は「教師の問いの質」「子ども同士の応答の連鎖」「理由付けを求める」ことを意図的に設計する手法で、単なる『話し合いの時間』とは異なる。日本の授業研究で「発問の質」「子どもの発言をどう繋ぐか」が議論されるのと同じ方向。EEF の +6 ヶ月と Dialogic Teaching RCT の +2 ヶ月の差は、『一般的な対話』と『厳密に構造化された対話』の差でもある。
 ---
 
 ## 一言でいうと

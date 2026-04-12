@@ -1,14 +1,25 @@
 ---
 title: ジグソー法
-summary: 子ども一人ひとりが異なる部分を担当し、全員の知識を合わせないと課題が完成しない協同学習の手法。効果量は極めて高い。
-monthsGained: 12
+summary: 子ども一人ひとりが異なる部分を担当し、全員の知識を合わせないと課題が完成しない協同学習の手法。研究によって効果量が大きく異なり、慎重な解釈が必要。
+monthsGained: 5
 evidenceStrength: 3
 cost: 1
 subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 tags: ["協同学習", "対話"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking: Jigsaw method"
+source: mixed
+sourceUrl: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1216437/full
+sourceTitle: "Cochon Drouet et al. (2023) — Effects of the Jigsaw method on student educational outcomes"
+evidence:
+  eef:
+    monthsGained: 5
+    strength: 4
+    note: "EEF Toolkit にジグソー法の独立したエントリは無い。協同学習(Collaborative learning)の一種として扱われ、協同学習の効果量(+5ヶ月、小学校)が参考値となる。"
+  hattie:
+    cohensD: 1.20
+    note: "Hattie の Visible Learning では d=1.20 と報告されているが、これは教育介入の典型値(d=0.33)を大きく超える異常値。最新のメタ分析(Cochon Drouet et al. 2023, 43研究)では g=0.88 と依然として大きいが、95% 信頼区間 [0.51, 1.25] は広く、異質性が極めて高い(I² = 92.85%)。内部メタ分析(Bratt 2021, 5実験)では効果ほぼゼロ(ES=0.00)。"
+culturalContext: |
+  ジグソー法は Aronson et al. (1978) が米国でグループ間の偏見を減らす目的で開発した手法で、日本の学級文化でも実践可能。ただし **研究間の結果が極めて一貫性を欠いている**(I² = 92.85%) ため、「必ず大きな効果が出る」とは言えない。実施の質(相互依存の明確な設計、個別責任、グループ構成、教材の準備)が結果を大きく左右する。Hattie の d=1.20 は優れた実施条件の研究を含む上端の推定で、代表値としては協同学習一般の +5ヶ月を使う方が保守的で誠実。日本では班活動が既に広く実施されているため、「個別の説明責任」「積極的な相互依存」というジグソーの設計原則を意識することで効果が期待できる。
 ---
 
 ## 一言でいうと

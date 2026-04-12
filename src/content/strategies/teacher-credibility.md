@@ -1,14 +1,25 @@
 ---
 title: 教師の信頼性
-summary: 子どもが「この先生は信頼できる」と感じるかどうか。専門性・温かさ・公正さ・情熱の4要素で構成される。学力に極めて大きな影響。
-monthsGained: 9
-evidenceStrength: 3
+summary: 子どもが「この先生は信頼できる」と感じるかどうか。Hattie は d=0.90 と極めて高い値を報告しているが、独立したメタ分析での再現確認は限定的。あらゆる指導法の「土台」として機能する概念。
+monthsGained: 4
+evidenceStrength: 2
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["教師の力量", "関係性"]
+source: hattie
 sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
 sourceTitle: "Visible Learning — Hattie Ranking: Teacher credibility"
+evidence:
+  eef:
+    monthsGained: 0
+    strength: 2
+    note: "EEF Toolkit に『教師の信頼性』の独立したエントリは無い。関連する概念として behaviour interventions(+4)や teacher self-efficacy(r=0.06-0.19、2025年メタ分析)がある。"
+  hattie:
+    cohensD: 0.90
+    note: "Hattie の Visible Learning で d=0.90 と報告。Hattie の順位表でも上位だが、独立した大規模メタ分析での再現は限定的。教師の自己効力感(teacher self-efficacy)に関する 2025年の大規模メタ分析(71研究・25万人)では r=0.06-0.19 とかなり控えめな値が報告されている。"
+culturalContext: |
+  「教師の信頼性」という概念自体は日本の教室でも重要で、子どもが教師を信頼することで指導が届くという直感は正しい。ただし、**Hattie の d=0.90 をそのまま月数換算した「+9ヶ月」は過大評価の可能性** が高い。独立した大規模メタ分析での再現が限定的であり、概念の操作的定義も曖昧。本サイトでは控えめな「+4ヶ月」を代表値とし、Hattie の値を参考として併記している。教師の信頼性は『学力を直接上げる指導法』というより、『他の指導法が機能するための前提』として捉える方が研究的に整合する。
 ---
 
 ## 一言でいうと

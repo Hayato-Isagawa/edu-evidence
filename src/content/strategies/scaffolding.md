@@ -1,14 +1,25 @@
 ---
 title: 足場かけ(スキャフォールディング)
-summary: 子どもが一人ではできないことを、段階的に支援し、次第に支援を減らしていく指導法。「教えすぎない、でも放置しない」の技術。
-monthsGained: 8
-evidenceStrength: 3
+summary: 子どもが一人ではできないことを、段階的に支援し、次第に支援を減らしていく指導法。複数のメタ分析で中程度〜大きな効果(d ≈ 0.4-0.8)。ヴィゴツキーのZPD概念が理論的基盤。
+monthsGained: 5
+evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["授業設計", "支援"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking: Scaffolding"
+source: mixed
+sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation
+sourceTitle: "EEF — Metacognition and self-regulation (scaffolding は関連手法として扱われる)"
+evidence:
+  eef:
+    monthsGained: 5
+    strength: 4
+    note: "EEF Toolkit に独立したエントリは無いが、Metacognition and self-regulation(+8)の中核的手法として位置づけられ、SEND 対応の推奨アプローチにも含まれる。ここでは中程度〜高の効果量を控えめに換算。"
+  hattie:
+    cohensD: 0.82
+    note: "Hattie の Visible Learning では d=0.82 と報告。複数の独立メタ分析(Belland et al. 2017 computer-based scaffolding g=0.46、online learning d=0.53 等)では d=0.4-0.6 程度が一般的。Hattie の値は上端寄り。"
+culturalContext: |
+  足場かけは日本の授業研究(授業デザイン、ヒントカード、段階的な発問など)の中で広く実践されている概念で、文化差は小さい。EEF にも独立したエントリは無いため厳密な +◯ヶ月 値は存在しないが、メタ分析全体から見ると **中程度〜やや大きな効果(d=0.4-0.8)** が報告されている。日本では「ヒントを出しすぎる」傾向があり、足場かけの真髄である「段階的に支援を外す(fading)」の実践が不十分な場合がある。支援の『質』と『引き算のタイミング』が効果を決める。
 ---
 
 ## 一言でいうと
