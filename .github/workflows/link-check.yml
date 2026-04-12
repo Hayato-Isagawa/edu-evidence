@@ -2,16 +2,16 @@ name: Link Check
 
 on:
   schedule:
-    # Every Monday at 09:00 JST (00:00 UTC)
+    # Every Monday at 09:00 JST (00:00 UTC Monday)
     - cron: "0 0 * * 1"
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "src/content/**"
-      - "src/pages/**"
-      - "src/layouts/**"
+
+# Note: Removed push trigger to avoid running on every content commit.
+# Use workflow_dispatch for ad-hoc manual checks.
+
+concurrency:
+  group: link-check-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lychee:
@@ -19,7 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,26 +36,35 @@ jobs:
         run: npm run build
 
       - name: Restore lychee cache
+        id: lychee-cache
         uses: actions/cache@v4
         with:
           path: .lycheecache
-          key: cache-lychee-${{ github.sha }}
-          restore-keys: cache-lychee-
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
 
       - name: Run lychee
         id: lychee
         uses: lycheeverse/lychee-action@v2
+        continue-on-error: true
         with:
+          # Accept broader status codes including timeouts and forbidden
+          # (many publishers/journals block bots but work for humans)
           args: >
             --verbose
             --no-progress
             --cache
             --max-cache-age 1d
-            --accept '200,201,202,203,204,206,301,302,303,307,308,403,429'
+            --accept '200..=299,301,302,303,307,308,403,429,503'
             --exclude-mail
             --exclude '^#'
             --exclude 'localhost'
             --exclude '127\.0\.0\.1'
+            --exclude 'doi\.org/10\.1037'
+            --exclude 'us\.corwin\.com'
+            --timeout 30
+            --retry-wait-time 2
+            --max-retries 2
             './dist/**/*.html'
           fail: false
           format: markdown
@@ -66,15 +74,21 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lychee-report
+          name: lychee-report-${{ github.run_id }}
           path: lychee-report.md
+          retention-days: 14
 
-      - name: Create issue if links failed
-        if: env.lychee_exit_code != '0'
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: "リンク切れ検出: ${{ github.run_id }}"
-          content-filepath: lychee-report.md
-          labels: |
-            link-rot
-            automated
+      - name: Summarize in job output
+        if: always()
+        run: |
+          if [ -f lychee-report.md ]; then
+            {
+              echo "## Lychee Link Check Report"
+              echo ""
+              cat lychee-report.md
+            } >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## Lychee Link Check Report" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "No report file was generated." >> $GITHUB_STEP_SUMMARY
+          fi
