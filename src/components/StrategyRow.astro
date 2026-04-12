@@ -1,34 +1,42 @@
 ---
+interface EvidenceSource {
+  monthsGained?: number;
+  strength?: number;
+  note?: string;
+  researcher?: string;
+  cohensD?: number;
+}
 interface Props {
   index: number;
   href: string;
   title: string;
   monthsGained: number;
   evidenceStrength: number;
-  source: "eef" | "japan" | "hattie" | "mixed";
+  evidence?: {
+    eef?: EvidenceSource;
+    japan?: EvidenceSource;
+    hattie?: EvidenceSource;
+  };
   subjects: string[];
   grades: string[];
 }
-const { index, href, title, monthsGained, evidenceStrength, source, subjects, grades } =
+const { index, href, title, monthsGained, evidenceStrength, evidence, subjects, grades } =
   Astro.props;
 const num = String(index).padStart(2, "0");
 const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
-const sourceLabel =
-  source === "japan"
-    ? "日本研究"
-    : source === "mixed"
-      ? "混合"
-      : source === "hattie"
-        ? "Hattie"
-        : "EEF";
-const sourceColor =
-  source === "japan"
-    ? "text-rose-700 border-rose-700/40 bg-rose-50"
-    : source === "mixed"
-      ? "text-purple-800 border-purple-800/40 bg-purple-50"
-      : source === "hattie"
-        ? "text-amber-800 border-amber-800/40 bg-amber-50"
-        : "text-sky-800 border-sky-800/40 bg-sky-50";
+
+const badgeConfig = {
+  eef: { label: "EEF", color: "text-sky-800 border-sky-800/40 bg-sky-50" },
+  japan: { label: "日本", color: "text-rose-700 border-rose-700/40 bg-rose-50" },
+  hattie: { label: "Hattie", color: "text-amber-800 border-amber-800/40 bg-amber-50" },
+} as const;
+
+type BadgeKey = keyof typeof badgeConfig;
+const badges: BadgeKey[] = [];
+if (evidence?.eef) badges.push("eef");
+if (evidence?.japan) badges.push("japan");
+if (evidence?.hattie) badges.push("hattie");
+if (badges.length === 0) badges.push("eef");
 
 const effectSign = monthsGained > 0 ? "+" : monthsGained === 0 ? "±" : "";
 const effectColor =
@@ -54,17 +62,19 @@ const effectColor =
     </div>
 
     <div class="col-span-10 md:col-span-7 space-y-2">
-      <div class="flex flex-wrap items-center gap-3">
+      <div class="flex flex-wrap items-center gap-2">
         <h2
           class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition"
         >
           {title}
         </h2>
-        <span
-          class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${sourceColor}`}
-        >
-          {sourceLabel}
-        </span>
+        {badges.map((key) => (
+          <span
+            class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${badgeConfig[key].color}`}
+          >
+            {badgeConfig[key].label}
+          </span>
+        ))}
       </div>
       <div
         class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] flex flex-wrap gap-x-4 gap-y-1"

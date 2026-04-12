@@ -132,3 +132,72 @@ a {
 .prose-article strong {
   font-weight: 700;
 }
+
+/* Glossary tooltip */
+.glossary-tip {
+  position: relative;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-accent);
+  cursor: help;
+}
+.glossary-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  max-width: 280px;
+  width: max-content;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #fff;
+  background: var(--color-ink);
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 100;
+  white-space: normal;
+}
+.glossary-tip:hover::after,
+.glossary-tip:focus-visible::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Arrow */
+.glossary-tip::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0px);
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--color-ink);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 101;
+}
+.glossary-tip:hover::before,
+.glossary-tip:focus-visible::before {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glossary-tip::after,
+  .glossary-tip::before {
+    transition: none;
+  }
+}
+/* モバイルではツールチップが見切れる可能性があるので左寄せ */
+@media (max-width: 480px) {
+  .glossary-tip::after {
+    left: 0;
+    transform: none;
+  }
+  .glossary-tip::before {
+    left: 16px;
+    transform: none;
+  }
+}

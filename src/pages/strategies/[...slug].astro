@@ -13,22 +13,18 @@ const d = entry.data;
 
 const stars = "★".repeat(d.evidenceStrength) + "☆".repeat(5 - d.evidenceStrength);
 const yen = "¥".repeat(d.cost) + "·".repeat(5 - d.cost);
-const sourceLabel =
-  d.source === "japan"
-    ? "日本研究"
-    : d.source === "mixed"
-      ? "混合(国際+日本)"
-      : d.source === "hattie"
-        ? "Hattie 系"
-        : "EEF";
-const sourceColor =
-  d.source === "japan"
-    ? "text-rose-700 border-rose-700/40 bg-rose-50"
-    : d.source === "mixed"
-      ? "text-purple-800 border-purple-800/40 bg-purple-50"
-      : d.source === "hattie"
-        ? "text-amber-800 border-amber-800/40 bg-amber-50"
-        : "text-sky-800 border-sky-800/40 bg-sky-50";
+
+const badgeConfig = {
+  eef: { label: "EEF", color: "text-sky-800 border-sky-800/40 bg-sky-50" },
+  japan: { label: "日本研究", color: "text-rose-700 border-rose-700/40 bg-rose-50" },
+  hattie: { label: "Hattie", color: "text-amber-800 border-amber-800/40 bg-amber-50" },
+} as const;
+type BadgeKey = keyof typeof badgeConfig;
+const badges: BadgeKey[] = [];
+if (d.evidence?.eef) badges.push("eef");
+if (d.evidence?.japan) badges.push("japan");
+if (d.evidence?.hattie) badges.push("hattie");
+if (badges.length === 0) badges.push("eef");
 const effectSign = d.monthsGained > 0 ? "+" : d.monthsGained === 0 ? "±" : "";
 const effectColor =
   d.monthsGained > 0
@@ -63,11 +59,13 @@ const effectNote =
           >
             Strategy
           </p>
-          <span
-            class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${sourceColor}`}
-          >
-            {sourceLabel}
-          </span>
+          {badges.map((key) => (
+            <span
+              class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${badgeConfig[key].color}`}
+            >
+              {badgeConfig[key].label}
+            </span>
+          ))}
         </div>
         <p class="text-xs text-[var(--color-sub)]">指導法</p>
       </div>
