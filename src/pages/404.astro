@@ -19,15 +19,17 @@ import Layout from "../layouts/Layout.astro";
     <div class="flex flex-wrap justify-center gap-4 text-sm">
       <a
         href="/"
-        class="border border-[var(--color-accent)] text-[var(--color-accent)] rounded-full px-6 py-2.5 hover:bg-[var(--color-accent)] hover:text-white transition"
+        class="group inline-flex items-center gap-2 border border-[var(--color-accent)] text-[var(--color-accent)] rounded-full px-6 py-2.5 transition"
       >
         トップページへ
+        <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
       </a>
       <a
         href="/#strategy-list"
-        class="border border-[var(--color-line)] rounded-full px-6 py-2.5 hover:border-[var(--color-accent)] transition"
+        class="group inline-flex items-center gap-2 border border-[var(--color-line)] text-[var(--color-sub)] rounded-full px-6 py-2.5 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition"
       >
         指導法一覧へ
+        <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
       </a>
     </div>
   </section>
