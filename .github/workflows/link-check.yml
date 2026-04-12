@@ -51,10 +51,10 @@ jobs:
           # Accept broader status codes (many publishers/journals block
           # bots but work for humans)
           args: >-
-            --verbose
             --no-progress
             --cache
             --max-cache-age 1d
+            --base ./dist
             --accept 200,201,202,203,204,206,301,302,303,307,308,403,429,503
             --exclude 'doi\.org/10\.1037'
             --exclude 'us\.corwin\.com'
@@ -72,18 +72,3 @@ jobs:
           name: lychee-report-${{ github.run_id }}
           path: lychee-report.md
           retention-days: 14
-
-      - name: Summarize in job output
-        if: always()
-        run: |
-          if [ -f lychee-report.md ]; then
-            {
-              echo "## Lychee Link Check Report"
-              echo ""
-              cat lychee-report.md
-            } >> $GITHUB_STEP_SUMMARY
-          else
-            echo "## Lychee Link Check Report" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "No report file was generated." >> $GITHUB_STEP_SUMMARY
-          fi
