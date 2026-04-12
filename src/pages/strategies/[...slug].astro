@@ -13,11 +13,22 @@ const d = entry.data;
 
 const stars = "★".repeat(d.evidenceStrength) + "☆".repeat(5 - d.evidenceStrength);
 const yen = "¥".repeat(d.cost) + "·".repeat(5 - d.cost);
-const sourceLabel = d.source === "japan" ? "日本研究" : "EEF";
+const sourceLabel =
+  d.source === "japan"
+    ? "日本研究"
+    : d.source === "mixed"
+      ? "混合(国際+日本)"
+      : d.source === "hattie"
+        ? "Hattie 系"
+        : "EEF";
 const sourceColor =
   d.source === "japan"
     ? "text-rose-600 border-rose-600/40"
-    : "text-sky-700 border-sky-700/40";
+    : d.source === "mixed"
+      ? "text-purple-700 border-purple-700/40"
+      : d.source === "hattie"
+        ? "text-amber-700 border-amber-700/40"
+        : "text-sky-700 border-sky-700/40";
 const effectSign = d.monthsGained > 0 ? "+" : d.monthsGained === 0 ? "±" : "";
 const effectColor =
   d.monthsGained > 0

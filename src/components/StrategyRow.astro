@@ -5,7 +5,7 @@ interface Props {
   title: string;
   monthsGained: number;
   evidenceStrength: number;
-  source: "eef" | "japan";
+  source: "eef" | "japan" | "hattie" | "mixed";
   subjects: string[];
   grades: string[];
 }
@@ -13,11 +13,22 @@ const { index, href, title, monthsGained, evidenceStrength, source, subjects, gr
   Astro.props;
 const num = String(index).padStart(2, "0");
 const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
-const sourceLabel = source === "japan" ? "日本研究" : "EEF";
+const sourceLabel =
+  source === "japan"
+    ? "日本研究"
+    : source === "mixed"
+      ? "混合"
+      : source === "hattie"
+        ? "Hattie"
+        : "EEF";
 const sourceColor =
   source === "japan"
     ? "text-rose-600 border-rose-600/40"
-    : "text-sky-700 border-sky-700/40";
+    : source === "mixed"
+      ? "text-purple-700 border-purple-700/40"
+      : source === "hattie"
+        ? "text-amber-700 border-amber-700/40"
+        : "text-sky-700 border-sky-700/40";
 
 const effectSign = monthsGained > 0 ? "+" : monthsGained === 0 ? "±" : "";
 const effectColor =
