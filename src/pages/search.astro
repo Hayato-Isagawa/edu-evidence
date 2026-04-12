@@ -16,8 +16,10 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script src="/pagefind/pagefind-ui.js" is:inline></script>
   <script is:inline>
-    window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("load", function () {
+      if (typeof PagefindUI === "undefined") return;
       new PagefindUI({
         element: "#search",
         showSubResults: true,
@@ -31,7 +33,6 @@ import Layout from "../layouts/Layout.astro";
       });
     });
   </script>
-  <script src="/pagefind/pagefind-ui.js" is:inline></script>
 
   <style>
     :root {
