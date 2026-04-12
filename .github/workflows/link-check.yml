@@ -48,22 +48,18 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         continue-on-error: true
         with:
-          # Accept broader status codes including timeouts and forbidden
-          # (many publishers/journals block bots but work for humans)
-          args: >
+          # Accept broader status codes (many publishers/journals block
+          # bots but work for humans)
+          args: >-
             --verbose
             --no-progress
             --cache
             --max-cache-age 1d
-            --accept '200..=299,301,302,303,307,308,403,429,503'
+            --accept 200,201,202,203,204,206,301,302,303,307,308,403,429,503
             --exclude-mail
-            --exclude '^#'
-            --exclude 'localhost'
-            --exclude '127\.0\.0\.1'
             --exclude 'doi\.org/10\.1037'
             --exclude 'us\.corwin\.com'
             --timeout 30
-            --retry-wait-time 2
             --max-retries 2
             './dist/**/*.html'
           fail: false
