@@ -18,8 +18,16 @@ import Layout from "../layouts/Layout.astro";
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <script src="/pagefind/pagefind-ui.js" is:inline></script>
   <script is:inline>
-    window.addEventListener("load", function () {
-      if (typeof PagefindUI === "undefined") return;
+    (function initPagefind() {
+      if (typeof PagefindUI === "undefined") {
+        // pagefind-ui.js がまだ読み込まれていない場合はリトライ
+        setTimeout(initPagefind, 100);
+        return;
+      }
+      var el = document.getElementById("search");
+      if (!el) return;
+      // 既に初期化済みならスキップ
+      if (el.querySelector(".pagefind-ui")) return;
       new PagefindUI({
         element: "#search",
         showSubResults: true,
@@ -31,7 +39,7 @@ import Layout from "../layouts/Layout.astro";
           clear_search: "クリア",
         },
       });
-    });
+    })();
   </script>
 
   <style>
