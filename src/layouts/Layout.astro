@@ -130,6 +130,58 @@ const ogImage = `${siteUrl}/og-image.png`;
       <slot />
     </main>
 
+    <!-- Glossary tooltip bubble (JS creates one shared element) -->
+    <script is:inline>
+      (function () {
+        var bubble = document.createElement("div");
+        bubble.className = "glossary-bubble";
+        bubble.setAttribute("role", "tooltip");
+        document.body.appendChild(bubble);
+        var hideTimer;
+
+        function show(el) {
+          clearTimeout(hideTimer);
+          var tip = el.getAttribute("data-tip");
+          if (!tip) return;
+          bubble.textContent = tip;
+          bubble.classList.add("is-visible");
+          var rect = el.getBoundingClientRect();
+          var bw = bubble.offsetWidth;
+          var left = rect.left + rect.width / 2 - bw / 2;
+          if (left < 8) left = 8;
+          if (left + bw > window.innerWidth - 8) left = window.innerWidth - 8 - bw;
+          bubble.style.left = left + "px";
+          bubble.style.top = (rect.top - bubble.offsetHeight - 8 + window.scrollY) + "px";
+          bubble.style.position = "absolute";
+        }
+
+        function hide() {
+          hideTimer = setTimeout(function () {
+            bubble.classList.remove("is-visible");
+          }, 100);
+        }
+
+        document.addEventListener("mouseover", function (e) {
+          var el = e.target.closest(".glossary-tip");
+          if (el) show(el);
+        });
+        document.addEventListener("mouseout", function (e) {
+          var el = e.target.closest(".glossary-tip");
+          if (el) hide();
+        });
+        // タッチ対応: タップで表示、もう一度タップで用語集へ
+        document.addEventListener("click", function (e) {
+          var el = e.target.closest(".glossary-tip");
+          if (!el) return;
+          if (bubble.classList.contains("is-visible") && bubble.textContent === el.getAttribute("data-tip")) {
+            return; // 2回目のタップ: リンク先へ遷移を許可
+          }
+          e.preventDefault();
+          show(el);
+        });
+      })();
+    </script>
+
     <footer class="border-t border-[var(--color-line)]">
       <div
         class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 py-6 xs:py-8 sm:py-12 grid md:grid-cols-4 gap-8 text-xs text-[var(--color-sub)] leading-relaxed"

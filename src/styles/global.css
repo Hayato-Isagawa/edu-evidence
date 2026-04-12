@@ -169,75 +169,51 @@ a {
   }
 }
 
-/* Glossary tooltip */
+/* Glossary tooltip — JS で DOM 要素を生成する方式 */
 .glossary-tip,
 .prose-article .glossary-tip {
-  position: relative;
-  color: var(--color-accent);
-  text-decoration: none;
-  border-bottom: 1.5px dashed var(--color-accent);
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #2b5d3a;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
   background-image: none;
   background-size: 0;
-  padding-bottom: 1px;
   cursor: help;
 }
-.glossary-tip::after {
-  content: attr(data-tip);
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 6px);
-  transform: translateX(-50%);
-  padding: 8px 12px;
-  max-width: 280px;
-  width: max-content;
-  font-size: 12px;
-  line-height: 1.5;
+.glossary-tip:hover,
+.prose-article .glossary-tip:hover {
+  color: #2b5d3a;
+}
+.glossary-bubble {
+  position: fixed;
+  z-index: 9999;
+  max-width: 300px;
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.6;
   color: #fff;
-  background: var(--color-ink);
-  border-radius: 6px;
-  opacity: 0;
+  background: #222;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   pointer-events: none;
+  opacity: 0;
   transition: opacity 0.15s ease;
-  z-index: 100;
-  white-space: normal;
 }
-.glossary-tip:hover::after,
-.glossary-tip:focus-visible::after {
+.glossary-bubble.is-visible {
   opacity: 1;
-  pointer-events: auto;
 }
-/* Arrow */
-.glossary-tip::before {
+.glossary-bubble::after {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: calc(100% + 0px);
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: var(--color-ink);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-  z-index: 101;
-}
-.glossary-tip:hover::before,
-.glossary-tip:focus-visible::before {
-  opacity: 1;
+  left: 20px;
+  bottom: -6px;
+  border: 6px solid transparent;
+  border-top-color: #222;
 }
 @media (prefers-reduced-motion: reduce) {
-  .glossary-tip::after,
-  .glossary-tip::before {
+  .glossary-bubble {
     transition: none;
-  }
-}
-/* モバイルではツールチップが見切れる可能性があるので左寄せ */
-@media (max-width: 480px) {
-  .glossary-tip::after {
-    left: 0;
-    transform: none;
-  }
-  .glossary-tip::before {
-    left: 16px;
-    transform: none;
   }
 }
