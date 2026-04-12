@@ -3,14 +3,16 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  ogImagePath?: string;
 }
 const {
   title = "EduEvidence JP — 小学校エビデンスポータル",
   description = "日本の小学校教員のための教育エビデンスまとめサイト。国内外の研究から得られた知見を「効果」「信頼性」「コスト」の3指標で整理し、現場で使える形に翻案して公開。",
+  ogImagePath,
 } = Astro.props;
 const siteUrl = "https://edu-evidence.org";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
-const ogImage = `${siteUrl}/og-image.png`;
+const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.png`;
 ---
 
 <!doctype html>
@@ -65,6 +67,9 @@ const ogImage = `${siteUrl}/og-image.png`;
           <a href="/columns" class="link-underline hover:text-[var(--color-ink)] transition">コラム</a>
           <a href="/guide" class="link-underline hover:text-[var(--color-ink)] transition">ガイド</a>
           <a href="/about" class="link-underline hover:text-[var(--color-ink)] transition">サイトについて</a>
+          <a href="/search" class="link-underline hover:text-[var(--color-ink)] transition" aria-label="検索">
+            <svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </a>
         </nav>
         <button
           id="menu-toggle"
@@ -92,6 +97,7 @@ const ogImage = `${siteUrl}/og-image.png`;
           <li><a href="/columns" class="block py-3 hover:text-[var(--color-ink)] transition">コラム</a></li>
           <li><a href="/guide" class="block py-3 hover:text-[var(--color-ink)] transition">ガイド</a></li>
           <li><a href="/about" class="block py-3 hover:text-[var(--color-ink)] transition">サイトについて</a></li>
+          <li><a href="/search" class="block py-3 hover:text-[var(--color-ink)] transition">検索</a></li>
         </ul>
       </nav>
     </header>

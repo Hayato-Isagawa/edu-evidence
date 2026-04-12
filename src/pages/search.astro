@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="検索 — EduEvidence JP" description="指導法・コラム・用語を検索">
+  <section class="py-10 xs:py-14 sm:py-20 md:py-28 space-y-8">
+    <div class="space-y-2">
+      <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+        Search
+      </p>
+      <h1 class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight">
+        検索
+      </h1>
+    </div>
+    <div id="search" class="max-w-2xl"></div>
+  </section>
+
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script is:inline>
+    window.addEventListener("DOMContentLoaded", () => {
+      new PagefindUI({
+        element: "#search",
+        showSubResults: true,
+        translations: {
+          placeholder: "指導法・コラム・用語を検索...",
+          zero_results: "「[SEARCH_TERM]」に一致する結果は見つかりませんでした",
+          many_results: "[COUNT]件の結果が見つかりました",
+          filters_label: "フィルター",
+          clear_search: "クリア",
+        },
+      });
+    });
+  </script>
+  <script src="/pagefind/pagefind-ui.js" is:inline></script>
+
+  <style>
+    :root {
+      --pagefind-ui-scale: 0.9;
+      --pagefind-ui-primary: #2b5d3a;
+      --pagefind-ui-text: #1a1a1a;
+      --pagefind-ui-background: #faf9f5;
+      --pagefind-ui-border: #e5e3da;
+      --pagefind-ui-tag: #2b5d3a;
+      --pagefind-ui-border-width: 1px;
+      --pagefind-ui-border-radius: 8px;
+      --pagefind-ui-font: "Noto Sans JP", sans-serif;
+    }
+  </style>
+</Layout>

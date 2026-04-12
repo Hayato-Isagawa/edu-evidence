@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
@@ -25,12 +25,15 @@
     "astro": "^6.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "satori": "^0.26.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@playwright/test": "^1.59.1",
     "linkinator": "^7.6.1",
+    "pagefind": "^1.5.0",
     "textlint": "^15.5.4",
     "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",
     "textlint-rule-preset-ja-spacing": "^2.4.3",

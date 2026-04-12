@@ -40,7 +40,7 @@ const effectNote =
       : `3月時点で、通常より約${Math.abs(d.monthsGained)}ヶ月分学力が低下する傾向`;
 ---
 
-<Layout title={`${d.title} — EduEvidence JP`} description={d.summary}>
+<Layout title={`${d.title} — EduEvidence JP`} description={d.summary} ogImagePath={`/og/${entry.id}.png`}>
   <div class="pt-10 pb-6">
     <a
       href="/"
