@@ -23,12 +23,12 @@ const sourceLabel =
         : "EEF";
 const sourceColor =
   d.source === "japan"
-    ? "text-rose-600 border-rose-600/40"
+    ? "text-rose-700 border-rose-700/40 bg-rose-50"
     : d.source === "mixed"
-      ? "text-purple-700 border-purple-700/40"
+      ? "text-purple-800 border-purple-800/40 bg-purple-50"
       : d.source === "hattie"
-        ? "text-amber-700 border-amber-700/40"
-        : "text-sky-700 border-sky-700/40";
+        ? "text-amber-800 border-amber-800/40 bg-amber-50"
+        : "text-sky-800 border-sky-800/40 bg-sky-50";
 const effectSign = d.monthsGained > 0 ? "+" : d.monthsGained === 0 ? "±" : "";
 const effectColor =
   d.monthsGained > 0

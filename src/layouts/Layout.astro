@@ -84,7 +84,7 @@ const ogImage = `${siteUrl}/og-image.png`;
         data-state="closed"
         class="sm:hidden absolute left-0 right-0 top-full z-50 border-t border-b border-[var(--color-line)] bg-[var(--color-bg)] shadow-lg transition duration-200 ease-out motion-reduce:transition-none opacity-0 -translate-y-2 pointer-events-none data-[state=open]:opacity-100 data-[state=open]:translate-y-0 data-[state=open]:pointer-events-auto"
         aria-label="モバイルナビゲーション"
-        aria-hidden="true"
+        inert
       >
         <ul class="mx-auto max-w-6xl px-6 py-2 flex flex-col text-sm text-[var(--color-sub)]">
           <li><a href="/" class="block py-3 hover:text-[var(--color-ink)] transition">ホーム</a></li>
@@ -106,7 +106,8 @@ const ogImage = `${siteUrl}/og-image.png`;
         const setOpen = (open) => {
           isOpen = open;
           menu.dataset.state = open ? "open" : "closed";
-          menu.setAttribute("aria-hidden", String(!open));
+          if (open) menu.removeAttribute("inert");
+          else menu.setAttribute("inert", "");
           toggle.setAttribute("aria-expanded", String(open));
           toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
           if (bars.length === 3) {

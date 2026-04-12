@@ -23,12 +23,12 @@ const sourceLabel =
         : "EEF";
 const sourceColor =
   source === "japan"
-    ? "text-rose-600 border-rose-600/40"
+    ? "text-rose-700 border-rose-700/40 bg-rose-50"
     : source === "mixed"
-      ? "text-purple-700 border-purple-700/40"
+      ? "text-purple-800 border-purple-800/40 bg-purple-50"
       : source === "hattie"
-        ? "text-amber-700 border-amber-700/40"
-        : "text-sky-700 border-sky-700/40";
+        ? "text-amber-800 border-amber-800/40 bg-amber-50"
+        : "text-sky-800 border-sky-800/40 bg-sky-50";
 
 const effectSign = monthsGained > 0 ? "+" : monthsGained === 0 ? "±" : "";
 const effectColor =
@@ -55,11 +55,11 @@ const effectColor =
 
     <div class="col-span-10 md:col-span-7 space-y-2">
       <div class="flex flex-wrap items-center gap-3">
-        <h3
+        <h2
           class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition"
         >
           {title}
-        </h3>
+        </h2>
         <span
           class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${sourceColor}`}
         >
