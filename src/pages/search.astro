@@ -13,15 +13,23 @@ import Layout from "../layouts/Layout.astro";
       </h1>
     </div>
     <div id="search" class="max-w-2xl"></div>
+    <p id="search-fallback" class="text-sm text-[var(--color-sub)] hidden">
+      検索機能はビルド後の環境で動作します。<code class="font-mono text-xs bg-[var(--color-card)] px-1.5 py-0.5 rounded">npm run build && npm run preview</code> で確認できます。
+    </p>
   </section>
 
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <script src="/pagefind/pagefind-ui.js" is:inline></script>
   <script is:inline>
-    (function initPagefind() {
+    (function initPagefind(retries) {
       if (typeof PagefindUI === "undefined") {
-        // pagefind-ui.js がまだ読み込まれていない場合はリトライ
-        setTimeout(initPagefind, 100);
+        if (retries > 10) {
+          // pagefind-ui.js が読み込めない(dev環境等)
+          var fb = document.getElementById("search-fallback");
+          if (fb) fb.classList.remove("hidden");
+          return;
+        }
+        setTimeout(function() { initPagefind((retries || 0) + 1); }, 200);
         return;
       }
       var el = document.getElementById("search");
