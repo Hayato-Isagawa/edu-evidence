@@ -54,7 +54,7 @@ jobs:
             --no-progress
             --cache
             --max-cache-age 1d
-            --base ./dist
+            --root-dir ${{ github.workspace }}/dist
             --accept 200,201,202,203,204,206,301,302,303,307,308,403,429,503
             --exclude 'doi\.org/10\.1037'
             --exclude 'us\.corwin\.com'
