@@ -1,14 +1,22 @@
 ---
 title: 読解戦略の指導
-summary: 「予測する」「要約する」「質問する」など、読み方そのものを意識的に指導すること。国語に限らず、全教科の文章理解に効く。
-monthsGained: 6
-evidenceStrength: 4
+summary: 「予測する」「要約する」「質問する」など、読み方そのものを意識的に指導すること。EEF で +7ヶ月と高い効果が報告される。国語に限らず、全教科の文章理解に効く。
+monthsGained: 7
+evidenceStrength: 5
 cost: 1
 subjects: ["国語", "全教科"]
 grades: ["中学年", "高学年"]
 tags: ["読解", "言語"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reading-comprehension-strategies
 sourceTitle: "EEF Teaching and Learning Toolkit — Reading comprehension strategies"
+evidence:
+  eef:
+    monthsGained: 7
+    strength: 5
+    note: "EEF Toolkit で +7ヶ月・エビデンス★5(最高ランク)。言語理解と意味構築を明示的に教える手法。『予測・質問・要約・関連付け』などの戦略を段階的に指導することが効果的。"
+culturalContext: |
+  日本の国語授業では「段落要約」「問いを立てる」「要点を見つける」などの読解戦略指導が既に広く行われている。EEF の +7ヶ月は英語圏での効果だが、同様の枠組みは日本でも機能すると考えられる。ただし、EEF が強調する『戦略を明示的に教える(メタ認知的に学習者が意識する)』ことと、日本の『漫然と読む → 教師が解釈を示す』パターンには差がある。「どう読むか」を子ども自身が言語化できる指導が、日本での追加の効果に繋がる可能性。
 ---
 
 ## 一言でいうと

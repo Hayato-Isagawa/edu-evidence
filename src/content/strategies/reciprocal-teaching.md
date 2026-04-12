@@ -1,14 +1,25 @@
 ---
 title: 相互教授法
-summary: 子ども同士が「先生役」を交代しながら、予測・質問・明確化・要約の4つの読解方略を使って文章を読み深める指導法。
-monthsGained: 7
+summary: 子ども同士が「先生役」を交代しながら、予測・質問・明確化・要約の4つの読解方略を使って文章を読み深める指導法。読解テストで特に大きな効果。
+monthsGained: 5
 evidenceStrength: 4
 cost: 1
 subjects: ["国語", "全教科"]
 grades: ["中学年", "高学年"]
 tags: ["読解", "対話"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking"
+source: mixed
+sourceUrl: https://www.nctm.org/Publications/Journal-for-Research-in-Mathematics-Education/2017/
+sourceTitle: "Rosenshine & Meister (1994) メタ分析、What Works Clearinghouse(2010)"
+evidence:
+  eef:
+    monthsGained: 0
+    strength: 3
+    note: "EEF Toolkit に相互教授法の独立したエントリは無い。関連する読解戦略指導(+7)の中核的手法として位置づけられる。"
+  hattie:
+    cohensD: 0.74
+    note: "Hattie の Visible Learning で d=0.74。Rosenshine & Meister(1994)の16研究メタ分析では、読解全般で d=0.32、読解理解テストで d=0.88 と幅がある。What Works Clearinghouse(2010)も一定の効果を確認。"
+culturalContext: |
+  日本の国語授業でも「音読」「質問」「要約」の活動は広く行われているが、**Palincsar & Brown(1984)の相互教授法の核心は『先生役を交代する』『4つの方略を明示的に教える』こと**。日本でよく行われる「順番に読む」「感想を言い合う」とは異なる構造化された手法。日本の班活動に相互教授法の枠組みを意識的に組み込むことで、読解戦略の内面化が促進される可能性。
 ---
 
 ## 一言でいうと

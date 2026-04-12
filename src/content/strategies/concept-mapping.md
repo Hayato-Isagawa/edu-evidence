@@ -1,14 +1,25 @@
 ---
 title: コンセプトマップ
-summary: 概念同士の関係を線でつないで視覚化することで、知識の構造を整理し理解を深めるツール。
+summary: 概念同士の関係を線でつないで視覚化することで、知識の構造を整理し理解を深めるツール。複数のメタ分析で d=0.58-0.72 と中程度〜大きな効果。作るほうが読むより効果的。
 monthsGained: 6
-evidenceStrength: 3
+evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 tags: ["思考の可視化", "整理"]
-sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking"
+source: mixed
+sourceUrl: https://link.springer.com/article/10.1007/s10648-017-9403-9
+sourceTitle: "Studying and Constructing Concept Maps: a Meta-Analysis (Schroeder et al., 2018)"
+evidence:
+  eef:
+    monthsGained: 0
+    strength: 3
+    note: "EEF Toolkit にコンセプトマップの独立したエントリは無いが、複数の独立した教育心理学メタ分析で効果が確認されている。"
+  hattie:
+    cohensD: 0.64
+    note: "Hattie の Visible Learning で d=0.64。Schroeder et al.(2018)のメタ分析では、『作る(g=0.72)』方が『読む(g=0.43)』より効果的。STEM 教科では d=0.63 程度。L2 学習では g=1.05 と特に大きな効果。"
+culturalContext: |
+  日本の授業で「思考ツール」として Y字チャート・ベン図・マトリクス等が広く使われており、コンセプトマップも同じ系譜に位置づく。ただし、メタ分析が示すように **子ども自身が作ること** が鍵。教師が提示したマップを写すだけでは効果が限定的。日本の思考ツール指導で「作成のプロセス」と「振り返り」を強化することで、追加の効果が期待できる。
 ---
 
 ## 一言でいうと

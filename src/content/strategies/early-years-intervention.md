@@ -1,14 +1,27 @@
 ---
 title: 就学前教育への介入
-summary: 幼児期に質の高い教育・保育を提供することで、就学後の学力と社会性に長期的な好影響を与える。効果が最も大きい領域の一つ。
+summary: 幼児期に質の高い教育・保育を提供すること。EEF で +6ヶ月。Heckman 等の経済学研究が長期的なリターン(就学・学歴・収入)を実証した代表領域。
 monthsGained: 6
 evidenceStrength: 4
 cost: 4
 subjects: ["全教科"]
 grades: ["低学年"]
 tags: ["幼小接続", "就学前"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/early-years-toolkit
 sourceTitle: "EEF Early Years Toolkit"
+evidence:
+  eef:
+    monthsGained: 6
+    strength: 4
+    note: "EEF Early Years Toolkit で +6ヶ月。質の高い就学前教育は社会経済的に不利な子どもに特に大きな効果。構成要素ごとでは、コミュニケーションと言語が +7、親の関与が +5、追加の時間提供 +3、早期リテラシー +4。"
+  japan:
+    monthsGained: 0
+    strength: 2
+    note: "赤林英夫(慶應義塾大学)らが日本の幼児教育の経済分析を行っているが、EEF のような体系的な効果量推定は限定的。文部科学省の幼児教育に関する大規模縦断調査が進行中(2024〜)。"
+    researcher: "赤林英夫(慶應義塾大学)、文部科学省"
+culturalContext: |
+  日本の就学前教育(幼稚園・保育園)は国際的に質が高いと評価される一方、**家庭背景による質の差** は存在する。Heckman の経済学研究(ノーベル賞受賞者)は、「幼児期の投資が最もリターンが大きい」ことを実証した。日本でも文部科学省が大規模縦断調査を進行中で、今後日本独自のエビデンスが蓄積される見込み。幼保一元化・幼小接続・家庭支援などの政策議論の文脈でも、EEF の +6ヶ月は重要な参照値となる。
 ---
 
 ## 一言でいうと

@@ -1,14 +1,25 @@
 ---
 title: 問題解決型学習
-summary: 教えてから問題を解かせるのではなく、問題から出発して子ども自身が解き方を考える指導法。日本の算数教育が世界的に評価されている理由の一つ。
-monthsGained: 7
+summary: 教えてから問題を解かせるのではなく、問題から出発して子ども自身が解き方を考える指導法。日本の算数教育(Japanese Problem Solving)として世界的に輸出された実践。
+monthsGained: 4
 evidenceStrength: 3
 cost: 1
 subjects: ["算数", "理科", "全教科"]
 grades: ["全学年"]
 tags: ["問題解決", "思考力"]
+source: mixed
 sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
-sourceTitle: "Visible Learning — Hattie Ranking"
+sourceTitle: "Visible Learning — Problem solving teaching"
+evidence:
+  eef:
+    monthsGained: 0
+    strength: 2
+    note: "EEF Toolkit に『Problem-solving teaching』の独立したエントリは無い。関連する Project-Based Learning の EEF 試験では正の効果が確認されなかった。探究学習(+5、ガイダンス付き)や直接教授(+5)の方が堅牢なエビデンス。"
+  hattie:
+    cohensD: 0.68
+    note: "Hattie の Visible Learning で d=0.68。ただし『問題解決型学習』の操作的定義は幅広く、純粋な放任型と構造化された指導型の両方が含まれる。後者の方が効果的。"
+culturalContext: |
+  日本の算数教育で広く実践される「問題提示 → 自力解決 → 練り上げ → まとめ」の授業構造は、**世界的に『Japanese Problem Solving』として評価** され、シンガポールや TIMSS でも参照されている。ただし日本国内では、この枠組みの効果を RCT で検証した研究は極めて限定的。『問題解決型学習』の効果は『構造化の質』に強く依存する(放任型は逆効果の可能性)。日本の算数の授業構造そのものが、この構造化を体現している面がある。
 ---
 
 ## 一言でいうと

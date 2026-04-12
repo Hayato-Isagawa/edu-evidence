@@ -1,14 +1,22 @@
 ---
 title: 口頭言語の指導
-summary: 話す・聞く力を意識的に育てる指導。語彙や談話スキルが、その後の読み書きや学習全般を支える。
+summary: 話す・聞く力を意識的に育てる指導。EEF で +6ヶ月(幼児期 +7、小学校 +6、中学校 +5)。語彙や談話スキルが、その後の読み書きや学習全般を支える。
 monthsGained: 6
 evidenceStrength: 5
 cost: 1
 subjects: ["国語", "全教科"]
 grades: ["低学年", "中学年"]
 tags: ["言語", "対話"]
+source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions
 sourceTitle: "EEF Teaching and Learning Toolkit — Oral language interventions"
+evidence:
+  eef:
+    monthsGained: 6
+    strength: 5
+    note: "EEF Toolkit で +6ヶ月・エビデンス★5。幼児期 +7、小学校 +6、中学校 +5。週3回以上の頻繁なセッションが効果的。話すことと聞くことの両方に焦点を当てる。"
+culturalContext: |
+  日本の「話す・聞くこと」の指導は、低学年国語・生活科・道徳など複数の場面で実践されているが、EEF が示す『会話を通じた明示的な語彙指導』『談話スキルの構造化された練習』までは踏み込まない場合がある。低学年の語彙基盤の差は後の読解・学力に直結するため、話す・聞くの指導は **早期・頻繁・意図的** であることが鍵。
 ---
 
 ## 一言でいうと
