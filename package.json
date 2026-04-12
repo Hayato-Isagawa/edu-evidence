@@ -12,7 +12,9 @@
     "check:links:live": "linkinator https://edu-evidence.org --recurse --skip 'mailto:|^#|doi\\.org/10\\.1037|us\\.corwin\\.com'",
     "check:text": "textlint 'src/content/**/*.md'",
     "check:text:fix": "textlint --fix 'src/content/**/*.md'",
-    "check:all": "npm run check && npm run check:text && npm run check:links"
+    "check:all": "npm run check && npm run check:text && npm run check:links",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.3",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
+    "@playwright/test": "^1.59.1",
     "linkinator": "^7.6.1",
     "textlint": "^15.5.4",
     "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",

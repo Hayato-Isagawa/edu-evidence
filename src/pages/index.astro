@@ -93,6 +93,46 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
     </div>
   </section>
 
+  <section class="border-t border-[var(--color-line)] py-5 xs:py-7 sm:py-10">
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12 min-[900px]:col-span-3 space-y-3">
+        <div class="space-y-1">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+            Data source
+          </div>
+          <div class="text-xs text-[var(--color-sub)]">データの出典</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-sky-800 border-sky-800/40 bg-sky-50">EEF</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-rose-700 border-rose-700/40 bg-rose-50">日本</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-amber-800 border-amber-800/40 bg-amber-50">Hattie</span>
+        </div>
+      </div>
+      <div class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-[var(--color-sub)] leading-loose space-y-3">
+        <p>
+          このサイトの「+◯ヶ月」は主に
+          <strong class="text-[var(--color-ink)]">英国 Education Endowment Foundation（EEF）</strong>
+          の <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener" class="link-underline text-[var(--color-accent)]">Teaching and Learning Toolkit</a> に基づいています。
+        </p>
+        <p>
+          EEF は英国政府が設立した教育研究財団で、<strong class="text-[var(--color-ink)]">数百〜数千本の研究を統合したメタ分析</strong>をもとに、30以上の指導法を「効果」「信頼性」「コスト」の3指標で評価・公開しています。世界中の教育政策で参照される、最も体系的な教育エビデンスの一つです。
+        </p>
+        <p>
+          本サイトでは EEF のデータに加え、<strong class="text-[var(--color-ink)]">日本の研究者によるエビデンス</strong>（中室牧子・松岡亮二・赤林英夫 他）と、
+          <strong class="text-[var(--color-ink)]">Hattie の Visible Learning</strong> のデータを併記しています。
+          各指導法に <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-sky-800 border-sky-800/40 bg-sky-50">EEF</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-rose-700 border-rose-700/40 bg-rose-50">日本</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-amber-800 border-amber-800/40 bg-amber-50">Hattie</span>
+          のバッジがついており、どの出典に基づくかが一目でわかります。
+        </p>
+        <p class="text-xs">
+          ※ EEF の数値は英国の学校を対象としたものです。日本の教室にそのまま当てはまるとは限りません。各指導法ページに「日本の文脈で考慮したいこと」を記載しています。
+          <a href="/guide/cultural-context" class="link-underline text-[var(--color-accent)]">エビデンスと文化的文脈 →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="pt-6 xs:pt-8 sm:pt-12 pb-10 xs:pb-14 sm:pb-20 space-y-8">
     <div class="flex flex-wrap gap-3">
       <a
