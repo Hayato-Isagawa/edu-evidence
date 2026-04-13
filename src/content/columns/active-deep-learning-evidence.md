@@ -72,7 +72,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "inquiry-based-lear
 
 ## 参考
 
-- [メタ認知と自己調整学習](/strategies/metacognition) — 「主体的」の中核的要素
+- [メタ認知の指導](/strategies/metacognition) — 「主体的」の中核的要素
 - [協同学習](/strategies/cooperative-learning) — 「対話的」の中核的要素
 - [探究学習](/strategies/inquiry-based-learning) — 「深い学び」の中核的要素
 - [学級全体での対話](/strategies/classroom-discussion) — dialogic teaching の研究

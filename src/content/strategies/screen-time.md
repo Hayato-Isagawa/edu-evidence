@@ -1,5 +1,5 @@
 ---
-title: スクリーンタイムと学力・健康
+title: スクリーンタイムの影響
 summary: 長時間の画面使用は学力低下・睡眠障害・視力低下・メンタルヘルスに負の関連。1日2時間超で影響が顕著になる。
 monthsGained: -2
 evidenceStrength: 3

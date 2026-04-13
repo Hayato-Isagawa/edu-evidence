@@ -1,5 +1,5 @@
 ---
-title: メタ認知と自己調整学習
+title: メタ認知の指導
 summary: 子どもが「自分はどう学んでいるか」を意識し、自分で計画・実行・振り返りをできるようにすること。EEF Toolkit の 2025 年更新で +7 → +8ヶ月に引き上げられた最も効果の大きい領域の一つ。
 monthsGained: 8
 evidenceStrength: 5

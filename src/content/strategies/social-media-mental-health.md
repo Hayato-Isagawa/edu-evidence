@@ -1,5 +1,5 @@
 ---
-title: SNSと子どもの精神健康
+title: SNS利用と精神健康への影響
 summary: SNS利用と子どもの精神健康(不安・抑うつ・自己肯定感)に小さいが有意な負の関連。因果関係の確立は今後の課題。
 monthsGained: -1
 evidenceStrength: 3
