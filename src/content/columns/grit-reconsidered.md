@@ -1,7 +1,7 @@
 ---
 title: 「グリット」は本当に大事なのか？
 summary: 一時期もてはやされた「やり抜く力」が、最新の研究では効果が限定的であることが指摘されている。教育現場での向き合い方を考える。
-date: "2026-04-11"
+date: "2026-04-12"
 tags: ["非認知能力", "グリット", "心理学"]
 relatedStrategies: ["growth-mindset", "social-emotional-learning"]
 ---

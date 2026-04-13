@@ -1,7 +1,7 @@
 ---
 title: 教員不足と授業の質 — エビデンスが示す「悪循環」
 summary: 採用倍率2.2倍、欠員3,600人超。教員不足は授業の質にどう影響するのか？ エビデンスと政策の接点を考える。
-date: "2026-04-13"
+date: "2026-04-12"
 tags: ["教員", "働き方改革", "政策"]
 relatedStrategies: ["teacher-workload-reform", "teacher-student-relationships", "teacher-credibility"]
 ---

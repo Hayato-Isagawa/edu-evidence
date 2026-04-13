@@ -1,7 +1,7 @@
 ---
 title: 教育格差はエビデンスでどこまで見えるのか？
 summary: 「うちの学校は頑張っている」だけでは格差は見えない。中室牧子氏・松岡亮二氏の研究から、日本の教育格差の実態をデータで考える。
-date: "2026-04-09"
+date: "2026-04-10"
 tags: ["格差", "SES", "日本研究", "政策"]
 relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-learning-loss", "reducing-class-size"]
 ---
