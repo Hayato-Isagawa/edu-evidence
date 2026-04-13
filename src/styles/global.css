@@ -76,6 +76,7 @@ a {
 .prose-article {
   font-size: 16px;
   line-height: 1.95;
+  text-wrap: pretty;
 }
 .prose-article h2 {
   font-size: 1.6rem;
@@ -200,6 +201,7 @@ a {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
+  text-wrap: pretty;
 }
 .glossary-bubble.is-visible {
   opacity: 1;
