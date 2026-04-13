@@ -54,11 +54,11 @@ culturalContext: |
 
 - Dignath, C., & Büttner, G. (2008). [Components of fostering self-regulated learning among students](https://doi.org/10.1007/s11409-008-9029-x). *Metacognition and Learning*, 3, 231–264. — 小学生49研究・中学生35研究のメタ分析。自己調整学習介入の平均効果量d=0.69。小学校段階でも十分に効果があることを示した。
 - EEF (2020). Metacognition and self-regulation: Evidence review. — メタ認知指導を7つの推奨事項に整理したガイダンスレポート。教科の文脈に組み込むことの重要性を強調。
-- Muijs, D., & Bokhove, C. (2020). Metacognition and self-regulation: Evidence review. Education Endowment Foundation. — EEF Toolkitの背後にあるエビデンスレビュー。74研究を分析し、平均効果量+7ヶ月を算出。
+- Muijs, D., & Bokhove, C. (2020). Metacognition and self-regulation: Evidence review. Education Endowment Foundation. — EEF Toolkitの背後にあるエビデンスレビュー。74研究を分析し、平均効果量+7ヶ月を算出(2025年の更新で+8ヶ月に引き上げ)。
 
 ## 関連する政策動向
 
-学習指導要領が掲げる「主体的・対話的で深い学び」の中核には、メタ認知的な学習者像があります。メタ認知指導は+7ヶ月と最も効果が高い領域の一つであり、この政策の方向性はエビデンスと整合しています。ただし、具体的な指導方法の研修が現場に行き届いているかが課題です。
+学習指導要領が掲げる「主体的・対話的で深い学び」の中核には、メタ認知的な学習者像があります。メタ認知指導は+8ヶ月と最も効果が高い領域であり、この政策の方向性はエビデンスと整合しています。ただし、具体的な指導方法の研修が現場に行き届いているかが課題です。
 
 → [政策とエビデンスの対照表](/policy-evidence)
 
