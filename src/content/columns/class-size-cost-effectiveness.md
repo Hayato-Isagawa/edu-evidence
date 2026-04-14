@@ -18,7 +18,7 @@ relatedStrategies: ["reducing-class-size", "small-group-tuition", "feedback"]
 
 しかし、EEF Toolkit の評価はやや冷静です。
 
-- 効果量: **+2ヶ月**（30項目中、下から5番目）
+- 効果量: **+1ヶ月**（Toolkit の中でも低い部類）
 - コスト: **¥¥¥¥¥**（最も高い）
 - 費用対効果: **低い**
 
@@ -30,7 +30,7 @@ relatedStrategies: ["reducing-class-size", "small-group-tuition", "feedback"]
 
 | 介入 | 効果 | コスト | 費用対効果 |
 |---|---|---|---|
-| 学級規模の縮小 | +2ヶ月 | ¥¥¥¥¥ | 低い |
+| 学級規模の縮小 | +1ヶ月 | ¥¥¥¥¥ | 低い |
 | フィードバックの改善 | +6ヶ月 | ¥ | 非常に高い |
 | 少人数指導(一時的) | +4ヶ月 | ¥¥¥ | 中程度 |
 | メタ認知の指導 | +8ヶ月 | ¥ | 非常に高い |
