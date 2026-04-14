@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["制度", "負の効果"]
+category: "制度・環境"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/school-uniform
 sourceTitle: "EEF Teaching and Learning Toolkit — School uniform"

@@ -6,6 +6,7 @@ evidenceStrength: 3
 cost: 4
 subjects: ["理科", "算数", "外国語", "全教科"]
 grades: ["高学年"]
+category: "制度・環境"
 source: japan
 tags: ["制度", "専科", "日本"]
 sourceUrl: https://reseed.resemom.jp/article/2025/12/22/12346.html

@@ -7,6 +7,7 @@ cost: 4
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["人員配置", "学級経営"]
+category: "制度・環境"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistants
 sourceTitle: "EEF Teaching and Learning Toolkit — Teaching assistants"

@@ -170,8 +170,30 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
       <div
         class="flex items-baseline justify-between px-2 text-xs text-[var(--color-sub)]"
       >
-        <span class="font-bold text-sm text-[var(--color-ink)]">指導法一覧</span>
-        <span>{strategies.length}件</span>
+        <span class="font-bold text-sm text-[var(--color-ink)]">エビデンス一覧</span>
+        <span id="count-display">{strategies.length}件</span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 px-2">
+        <span class="text-xs text-[var(--color-sub)]">カテゴリ</span>
+        <button data-category="all" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5 transition cursor-pointer">
+          すべて
+        </button>
+        <button data-category="指導法" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+          指導法
+        </button>
+        <button data-category="認知科学" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+          認知科学
+        </button>
+        <button data-category="制度・環境" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+          制度・環境
+        </button>
+        <button data-category="知っておくべき知見" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+          知っておくべき知見
+        </button>
+        <button data-category="家庭・外部" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+          家庭・外部
+        </button>
       </div>
 
       <div class="flex items-center gap-3 px-2">
@@ -201,6 +223,7 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
             monthsGained={s.data.monthsGained}
             evidenceStrength={s.data.evidenceStrength}
             evidence={s.data.evidence}
+            category={s.data.category}
             subjects={s.data.subjects}
             grades={s.data.grades}
           />
@@ -246,6 +269,39 @@ strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
       btnEvidence?.addEventListener("click", () => {
         sortList("evidence");
         setActive(btnEvidence, btnEffect);
+      });
+
+      // Category filter
+      const catBtns = document.querySelectorAll<HTMLElement>(".cat-btn");
+      const countDisplay = document.getElementById("count-display");
+
+      function filterCategory(cat: string) {
+        if (!list) return;
+        const rows = list.querySelectorAll<HTMLElement>(":scope > a");
+        let visible = 0;
+        rows.forEach((row, i) => {
+          const match = cat === "all" || row.dataset.category === cat;
+          row.style.display = match ? "" : "none";
+          if (match) {
+            visible++;
+            const num = row.querySelector("[data-num]");
+            if (num) num.textContent = String(visible).padStart(2, "0");
+          }
+        });
+        if (countDisplay) countDisplay.textContent = visible + "件";
+
+        catBtns.forEach((btn) => {
+          const isActive = btn.dataset.category === cat;
+          btn.className = btn.className
+            .replace(active, inactive)
+            .replace(inactive, isActive ? active : inactive);
+        });
+      }
+
+      catBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterCategory(btn.dataset.category ?? "all");
+        });
       });
     </script>
   </section>

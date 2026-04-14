@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["メタ認知", "振り返り", "学び方"]
+category: "認知科学"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation
 sourceTitle: "EEF Teaching and Learning Toolkit — Metacognition and Self-regulation"

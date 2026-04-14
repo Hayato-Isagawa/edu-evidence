@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+category: "認知科学"
 source: mixed
 sourceUrl: https://doi.org/10.1037/0033-2909.132.3.354
 sourceTitle: "Cepeda et al. (2006) — Distributed practice in verbal recall tasks"

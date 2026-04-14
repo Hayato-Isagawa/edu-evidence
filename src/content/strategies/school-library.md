@@ -6,6 +6,7 @@ evidenceStrength: 2
 cost: 3
 subjects: ["国語", "全教科"]
 grades: ["全学年"]
+category: "制度・環境"
 source: japan
 tags: ["読書", "図書館", "習慣"]
 sourceUrl: https://www.mext.go.jp/a_menu/shotou/dokusho/link/1360933.htm

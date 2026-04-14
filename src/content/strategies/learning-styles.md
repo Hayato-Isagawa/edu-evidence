@@ -7,6 +7,7 @@ cost: 2
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["神経神話", "負の効果"]
+category: "知っておくべき知見"
 source: mixed
 sourceUrl: https://journals.sagepub.com/doi/full/10.1111/j.1539-6053.2009.01038.x
 sourceTitle: "Pashler et al. (2008) Learning Styles: Concepts and Evidence"

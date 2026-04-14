@@ -6,6 +6,7 @@ evidenceStrength: 3
 cost: 5
 subjects: ["全教科"]
 grades: ["中学年", "高学年"]
+category: "知っておくべき知見"
 source: japan
 tags: ["格差", "家庭", "学習機会"]
 sourceUrl: https://doi.org/10.2307/2673258

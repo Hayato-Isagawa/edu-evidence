@@ -7,6 +7,7 @@ cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["長期休暇", "格差", "補習"]
+category: "制度・環境"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/summer-schools
 sourceTitle: "EEF Teaching and Learning Toolkit — Summer schools"

@@ -6,6 +6,7 @@ evidenceStrength: 2
 cost: 4
 subjects: ["全教科"]
 grades: ["全学年"]
+category: "知っておくべき知見"
 source: japan
 tags: ["デジタル", "GIGA", "教科書"]
 sourceUrl: https://www.mext.go.jp/a_menu/shotou/kyoukasho/seido/1407731.htm

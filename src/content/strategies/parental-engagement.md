@@ -7,6 +7,7 @@ cost: 3
 subjects: ["全教科"]
 grades: ["低学年", "中学年"]
 tags: ["家庭", "連携"]
+category: "家庭・外部"
 source: mixed
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/parental-engagement
 sourceTitle: "EEF Teaching and Learning Toolkit — Parental engagement"

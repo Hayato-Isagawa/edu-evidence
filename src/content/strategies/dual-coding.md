@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "視覚化"]
+category: "認知科学"
 source: mixed
 sourceUrl: https://doi.org/10.1007/BF02461477
 sourceTitle: "Clark & Paivio (1991) — Dual coding theory and education"

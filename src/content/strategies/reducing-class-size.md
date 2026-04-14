@@ -7,6 +7,7 @@ cost: 5
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["学級経営", "制度"]
+category: "制度・環境"
 source: mixed
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size
 sourceTitle: "EEF Teaching and Learning Toolkit — Reducing class size"

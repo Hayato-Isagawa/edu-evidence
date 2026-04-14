@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["デジタル", "制度", "GIGA"]
+category: "制度・環境"
 source: mixed
 sourceUrl: https://www.unesco.org/gem-report/en/technology
 sourceTitle: "UNESCO Global Education Monitoring Report 2023 — Technology in education"

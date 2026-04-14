@@ -6,6 +6,7 @@ evidenceStrength: 3
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
+category: "知っておくべき知見"
 source: mixed
 tags: ["非認知能力", "動機づけ"]
 sourceUrl: https://doi.org/10.1177/0956797617739704

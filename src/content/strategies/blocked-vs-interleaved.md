@@ -7,6 +7,7 @@ cost: 1
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+category: "知っておくべき知見"
 source: mixed
 sourceUrl: https://doi.org/10.1007/s10648-012-9201-3
 sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among similar concepts"

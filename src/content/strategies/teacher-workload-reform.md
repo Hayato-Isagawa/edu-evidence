@@ -6,6 +6,7 @@ evidenceStrength: 1
 cost: 4
 subjects: ["全教科"]
 grades: ["全学年"]
+category: "制度・環境"
 source: japan
 tags: ["教員", "労働環境", "政策"]
 sourceUrl: https://www.mext.go.jp/a_menu/shotou/hatarakikata/index.htm

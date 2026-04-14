@@ -6,6 +6,7 @@ evidenceStrength: 1
 cost: 4
 subjects: ["全教科"]
 grades: ["全学年"]
+category: "家庭・外部"
 source: japan
 tags: ["不登校", "支援", "格差"]
 sourceUrl: https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm

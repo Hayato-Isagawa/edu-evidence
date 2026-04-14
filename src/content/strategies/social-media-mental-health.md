@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["高学年"]
 tags: ["デジタル", "健康", "負の効果"]
+category: "知っておくべき知見"
 source: mixed
 sourceUrl: https://doi.org/10.1016/S2352-4642(19)30186-5
 sourceTitle: "Viner, Gireesh, Stiglic, Hudson, Goddings et al. (2019) — Roles of cyberbullying, sleep, and physical activity in mediating the effects of social media use"

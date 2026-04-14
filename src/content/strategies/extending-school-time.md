@@ -7,6 +7,7 @@ cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["補習", "放課後"]
+category: "制度・環境"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/extending-school-time
 sourceTitle: "EEF Teaching and Learning Toolkit — Extending school time"

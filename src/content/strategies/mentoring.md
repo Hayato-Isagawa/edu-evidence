@@ -7,6 +7,7 @@ cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["支援", "関係性"]
+category: "家庭・外部"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mentoring
 sourceTitle: "EEF Teaching and Learning Toolkit — Mentoring"

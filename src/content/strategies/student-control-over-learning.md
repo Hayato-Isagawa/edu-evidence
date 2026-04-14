@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["主体性", "自由進度", "負の効果"]
+category: "知っておくべき知見"
 source: mixed
 sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
 sourceTitle: "Visible Learning — Hattie Ranking: Student control over learning"

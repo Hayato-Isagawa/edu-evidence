@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["生徒指導", "負の効果", "排除"]
+category: "制度・環境"
 source: mixed
 sourceUrl: https://doi.org/10.3102/0034654319853545
 sourceTitle: "Valdebenito, Eisner, Farrington et al. (2019) What can we do to reduce disciplinary school exclusion? A Campbell systematic review"

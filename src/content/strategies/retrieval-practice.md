@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+category: "認知科学"
 source: mixed
 sourceUrl: https://doi.org/10.1016/j.tics.2010.09.003
 sourceTitle: "Roediger & Butler (2011) — The critical role of retrieval practice in long-term retention"

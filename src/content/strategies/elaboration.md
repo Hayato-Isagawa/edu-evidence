@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 tags: ["認知科学", "思考"]
+category: "認知科学"
 source: mixed
 sourceUrl: https://doi.org/10.1177/1529100612453266
 sourceTitle: "Dunlosky et al. (2013) — Improving students' learning with effective learning techniques"

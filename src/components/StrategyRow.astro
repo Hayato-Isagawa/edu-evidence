@@ -17,10 +17,11 @@ interface Props {
     japan?: EvidenceSource;
     hattie?: EvidenceSource;
   };
+  category?: string;
   subjects: string[];
   grades: string[];
 }
-const { index, href, title, monthsGained, evidenceStrength, evidence, subjects, grades } =
+const { index, href, title, monthsGained, evidenceStrength, evidence, category, subjects, grades } =
   Astro.props;
 const num = String(index).padStart(2, "0");
 const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
@@ -49,6 +50,7 @@ const effectColor =
 
 <a
   href={href}
+  data-category={category ?? "指導法"}
   data-months={monthsGained}
   data-evidence={evidenceStrength}
   class="group block border-t border-[var(--color-line)] py-4 sm:py-8 md:py-10 transition hover:bg-[var(--color-card)]"

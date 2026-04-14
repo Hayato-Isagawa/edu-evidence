@@ -6,6 +6,7 @@ evidenceStrength: 2
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
+category: "知っておくべき知見"
 source: japan
 tags: ["生活習慣", "格差", "食育"]
 sourceUrl: https://www.mext.go.jp/b_menu/shingi/chousa/shotou/045/shiryo/__icsFiles/afieldfile/2012/02/07/1314819_1.pdf

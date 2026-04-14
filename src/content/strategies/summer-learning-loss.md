@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["長期休暇", "格差", "負の効果"]
+category: "知っておくべき知見"
 source: mixed
 sourceUrl: https://doi.org/10.3102/00346543066003227
 sourceTitle: "Cooper, Nye, Charlton, Lindsay & Greathouse (1996) The Effects of Summer Vacation on Achievement Test Scores: A Narrative and Meta-Analytic Review"

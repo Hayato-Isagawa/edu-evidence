@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["デジタル", "健康", "負の効果", "GIGA"]
+category: "知っておくべき知見"
 source: mixed
 sourceUrl: https://doi.org/10.1001/jamapediatrics.2018.5056
 sourceTitle: "Madigan, Browne, Racine, Mori & Tough (2019) Association Between Screen Time and Children's Performance on a Developmental Screening Test"

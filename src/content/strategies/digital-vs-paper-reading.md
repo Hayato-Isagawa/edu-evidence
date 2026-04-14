@@ -7,6 +7,7 @@ cost: 1
 subjects: ["国語", "全教科"]
 grades: ["全学年"]
 tags: ["デジタル", "読解", "GIGA", "負の効果"]
+category: "知っておくべき知見"
 source: mixed
 sourceUrl: https://doi.org/10.1016/j.edurev.2018.09.003
 sourceTitle: "Delgado, Vargas, Ackerman & Salmerón (2018) — Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension"

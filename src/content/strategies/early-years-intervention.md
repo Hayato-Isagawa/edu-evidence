@@ -7,6 +7,7 @@ cost: 4
 subjects: ["全教科"]
 grades: ["低学年"]
 tags: ["幼小接続", "就学前"]
+category: "家庭・外部"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/early-years-toolkit
 sourceTitle: "EEF Early Years Toolkit"

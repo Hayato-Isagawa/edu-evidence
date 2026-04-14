@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["生徒指導", "負の効果", "禁止"]
+category: "制度・環境"
 source: mixed
 sourceUrl: https://doi.org/10.1037/fam0000191
 sourceTitle: "Gershoff & Grogan-Kaylor (2016) Spanking and Child Outcomes: Old Controversies and New Meta-Analyses"
