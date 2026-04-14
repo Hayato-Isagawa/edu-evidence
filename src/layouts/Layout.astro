@@ -50,7 +50,7 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
       "url": siteUrl,
       "description": description,
       "inLanguage": "ja",
-    })} />
+    }).replace(/</g, "\\u003c")} />
   </head>
   <body class="bg-[var(--color-bg)] text-[var(--color-ink)]">
     <header class="relative border-b border-[var(--color-line)]">

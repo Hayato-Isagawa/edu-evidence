@@ -21,7 +21,11 @@ export function annotateGlossaryTerms(text: string): string {
       .replace(/&/g, "&amp;")
       .replace(/"/g, "&quot;")
       .replace(/</g, "&lt;");
-    const link = `<a class="glossary-tip" href="/guide/glossary#${encodeURIComponent(anchor)}" data-tip="${escapedShort}">${entry.term}</a>`;
+    const escapedTerm = entry.term
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    const link = `<a class="glossary-tip" href="/guide/glossary#${encodeURIComponent(anchor)}" data-tip="${escapedShort}">${escapedTerm}</a>`;
     result = result.substring(0, idx) + link + result.substring(idx + entry.term.length);
   }
 
