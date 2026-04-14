@@ -18,6 +18,7 @@ evidence:
   hattie:
     cohensD: 0.82
     note: "Hattie の Visible Learning では d=0.82(classroom discussion)と報告されているが、これは上端寄り。EEF の +6ヶ月の方が近年の大規模研究に基づく保守的な推定値。"
+lastVerified: "2026-04-14"
 culturalContext: |
   日本の小学校では『めあて → 考えを発表 → まとめ』の流れの中で対話は広く行われているが、EEF が強調する『**構造化された対話(dialogic teaching)**』とは必ずしも一致しない。Alexander の dialogic teaching は「教師の問いの質」「子ども同士の応答の連鎖」「理由付けを求める」ことを意図的に設計する手法で、単なる『話し合いの時間』とは異なる。日本の授業研究で「発問の質」「子どもの発言をどう繋ぐか」が議論されるのと同じ方向。EEF の +6 ヶ月と Dialogic Teaching RCT の +2 ヶ月の差は、『一般的な対話』と『厳密に構造化された対話』の差でもある。
 ---

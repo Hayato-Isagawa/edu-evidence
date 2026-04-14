@@ -18,6 +18,7 @@ evidence:
   hattie:
     cohensD: 0.82
     note: "Hattie の Visible Learning では d=0.82 と報告。複数の独立メタ分析(Belland et al. 2017 computer-based scaffolding g=0.46、online learning d=0.53 等)では d=0.4-0.6 程度が一般的。Hattie の値は上端寄り。"
+lastVerified: "2026-04-14"
 culturalContext: |
   足場かけは日本の授業研究(授業デザイン、ヒントカード、段階的な発問など)の中で広く実践されている概念で、文化差は小さい。EEF にも独立したエントリは無いため厳密な +◯ヶ月 値は存在しないが、メタ分析全体から見ると **中程度〜やや大きな効果(d=0.4-0.8)** が報告されている。日本では「ヒントを出しすぎる」傾向があり、足場かけの真髄である「段階的に支援を外す(fading)」の実践が不十分な場合がある。支援の『質』と『引き算のタイミング』が効果を決める。
 ---

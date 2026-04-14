@@ -18,6 +18,7 @@ evidence:
   hattie:
     cohensD: 0.74
     note: "Hattie の Visible Learning で d=0.74。Rosenshine & Meister(1994)の16研究メタ分析では、読解全般で d=0.32、読解理解テストで d=0.88 と幅がある。What Works Clearinghouse(2010)も一定の効果を確認。"
+lastVerified: "2026-04-14"
 culturalContext: |
   日本の国語授業でも「音読」「質問」「要約」の活動は広く行われているが、**Palincsar & Brown(1984)の相互教授法の核心は『先生役を交代する』『4つの方略を明示的に教える』こと**。日本でよく行われる「順番に読む」「感想を言い合う」とは異なる構造化された手法。日本の班活動に相互教授法の枠組みを意識的に組み込むことで、読解戦略の内面化が促進される可能性。
 ---

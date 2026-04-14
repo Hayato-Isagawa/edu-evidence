@@ -12,7 +12,8 @@
     "check:links:live": "linkinator https://edu-evidence.org --recurse --skip 'mailto:|^#|doi\\.org/10\\.1037|us\\.corwin\\.com'",
     "check:text": "textlint 'src/content/**/*.md'",
     "check:text:fix": "textlint --fix 'src/content/**/*.md'",
-    "check:all": "npm run check && npm run check:text && npm run check:links",
+    "check:consistency": "npx tsx scripts/check-consistency.ts",
+    "check:all": "npm run check && npm run check:text && npm run check:consistency && npm run check:links",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui"
   },
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@playwright/test": "^1.59.1",
+    "gray-matter": "^4.0.3",
     "linkinator": "^7.6.1",
     "pagefind": "^1.5.0",
     "textlint": "^15.5.4",
@@ -39,6 +41,7 @@
     "textlint-rule-preset-ja-spacing": "^2.4.3",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "textlint-rule-prh": "^6.1.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.0.0"
   }
 }

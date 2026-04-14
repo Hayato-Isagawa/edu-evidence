@@ -20,6 +20,7 @@ evidence:
     monthsGained: 0
     strength: 2
     note: "EEF Toolkit に Lesson Study の独立したエントリは無い(プロフェッショナル・ディベロップメントの一環として扱われる)。"
+lastVerified: "2026-04-14"
 culturalContext: |
   Lesson Study は **日本から世界に輸出された数少ない教育実践** で、シンガポール・米国・英国などでも研修手法として採用されている。Lewis & Perry (2017) の米国 RCT(39 教育者チーム)は、分数指導に特化した形で Lesson Study の効果を検証し、教師と児童双方の学力向上を確認した。What Works Clearinghouse の厳格な基準を満たした数少ない研究の一つ。ただし、日本国内では「校内研究」として広く実施されているにもかかわらず、その効果を RCT で検証した研究は極めて限定的で、「当然の実践」として効果量の定量化が遅れている状況にある。「+3ヶ月」は Lewis & Perry の分数指導研究からの暫定換算値で、全教科全般の効果ではない。
 ---

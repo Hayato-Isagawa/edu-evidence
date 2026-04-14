@@ -19,6 +19,7 @@ evidence:
   hattie:
     cohensD: 0.30
     note: "国際的には CAST が提唱する Universal Design for Learning(UDL)フレームが近い概念で、Capp(2017)の 18 研究メタ分析では学業成果への中程度の効果を報告(ただし研究設計の質は幅がある)。scaffolding(足場かけ)との重なりが大きい。"
+lastVerified: "2026-04-14"
 culturalContext: |
   **授業 UD は日本の特別支援教育の文脈から発展した独自概念**で、CAST の UDL とは起源が異なる。発達障害等の診断が無くても困難を感じる子への配慮を授業設計に組み込む『**インクルーシブな授業設計**』として広く浸透。scaffolding(+5)・direct-instruction(+5)・dual-coding(+4)と重なる要素を持ち、**個別要素の足し算ではなく総合的な授業設計思想**として捉えるべき。効果量 +3 はやや楽観的で **+2 に調整**。
 ---

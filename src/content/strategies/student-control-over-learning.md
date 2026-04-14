@@ -17,6 +17,7 @@ evidence:
   hattie:
     cohensD: 0.02
     note: "Hattie の Visible Learning で d≒0.02(ほぼ効果無し)。Kirschner, Sweller & Clark(2006)『Why Minimal Guidance During Instruction Does Not Work』が決定的に論じたように、**教師のガイドなしの完全自由学習は効果が無いか負**。Direct Instruction と対比される典型例。"
+lastVerified: "2026-04-14"
 culturalContext: |
   **日本の『主体的な学び』が『完全自由放任』と誤解されるリスク**を指摘する項目。新学習指導要領の『主体的・対話的で深い学び』は『教師の関与を減らす』ことを意味しない。**足場かけ(scaffolding)** や **直接教授法(direct instruction)** と組み合わせた『ガイド付きの主体性』が本来の趣旨。『子どもに任せれば主体的になる』という素朴な信念は、Hattie のエビデンスに反する。
 ---

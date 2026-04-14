@@ -50,6 +50,9 @@ const strategies = defineCollection({
 
     // 文化的注記: 日本文脈での効果の差異や注意点
     culturalContext: z.string().optional(),
+
+    // 最終検証日: 一次ソースとの照合日
+    lastVerified: z.string().optional(),
   }),
 });
 

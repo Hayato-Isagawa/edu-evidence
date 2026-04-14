@@ -18,6 +18,7 @@ evidence:
     researcher: "文部科学省"
   hattie:
     note: "国際的には Character Education の効果量は d=0.1-0.3 程度と報告されるが、内容・目的・評価方法が日本の道徳科と異なるため直接比較は困難。"
+lastVerified: "2026-04-14"
 culturalContext: |
   **道徳教育は学力向上を主目的とする領域ではない**ため、『効果量 +X ヶ月』の枠組みで論じること自体が不適切な側面がある。SEL(social-emotional-learning)・philosophy-for-children との関連項目で参照するのが適切。フロントマター +2 は根拠が薄いため **0 に調整** — 『学力効果を主張できる根拠が現時点で無い』という意味で、道徳教育そのものの価値を否定するものではない。『考え、議論する道徳』の実現は p4c(philosophy-for-children)のエビデンスが参考になる。
 ---

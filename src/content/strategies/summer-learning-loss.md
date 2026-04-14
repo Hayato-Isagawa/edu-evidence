@@ -15,6 +15,7 @@ evidence:
   hattie:
     cohensD: -0.05
     note: "Cooper et al.(1996)の古典的メタ分析では、夏休み後に平均で 1 ヶ月分の学力低下、特に**算数の計算**と**読解**で顕著。低所得層ほど低下幅が大きく、夏休みを挟むたびに格差が拡大する(summer slide)。ただし Von Hippel & Hamrock(2019)など近年の研究では、効果量の解釈に異論もある。"
+lastVerified: "2026-04-14"
 culturalContext: |
   **日本の夏休みは欧米より短い(約 40 日)が、無視できる差ではない**。日本では夏休み期間中、学習は家庭と学習塾が担う構造のため、**SES による学習機会の差が学力差に直結** する(cram-school-effect、parental-engagement を参照)。近年はプール開放縮小・公民館学習支援の縮小など、公的な夏休み支援基盤が弱まっている。summer-schools(+3)が対策候補。
 ---
