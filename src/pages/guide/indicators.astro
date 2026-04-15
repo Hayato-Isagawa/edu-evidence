@@ -65,6 +65,30 @@ import Layout from "../../layouts/Layout.astro";
             <li>・月数が小さい指導法が「意味がない」のではなく、効果が小さめだということです</li>
           </ul>
         </div>
+        <div class="border-l-4 border-[var(--color-accent)] pl-5 py-1 space-y-2 bg-[var(--color-accent)]/5 -mx-5 pr-5">
+          <h3 class="font-bold">【重要】この数値は「学力」への効果のみです</h3>
+          <p class="text-sm">
+            「+◯ヶ月」は主に<strong>テストで測定可能な学力(読解・算数等)</strong>への効果を示しています。
+            しかし、教育には学力以外にも重要な側面が数多くあります:
+          </p>
+          <ul class="text-sm space-y-1 pl-4">
+            <li>・<strong>非認知能力</strong> — 自己肯定感・粘り強さ・協調性・動機づけ</li>
+            <li>・<strong>社会性・情動</strong> — 他者理解・感情調整・対人スキル</li>
+            <li>・<strong>行動面</strong> — 学校適応・出席率・問題行動の減少</li>
+            <li>・<strong>ウェルビーイング</strong> — 学校が楽しい、安心できる場所である感覚</li>
+          </ul>
+          <p class="text-sm">
+            たとえば<a href="/strategies/social-emotional-learning" class="link-underline text-[var(--color-accent)]">SEL(+4ヶ月)</a>、
+            <a href="/strategies/arts-participation" class="link-underline text-[var(--color-accent)]">芸術活動(+3ヶ月)</a>、
+            <a href="/strategies/outdoor-learning" class="link-underline text-[var(--color-accent)]">屋外学習(+3ヶ月)</a>、
+            <a href="/strategies/mentoring" class="link-underline text-[var(--color-accent)]">メンタリング(+2ヶ月)</a>などは、
+            <strong>学力効果は小さくても、非認知的な側面で大きな価値</strong>を持つことが多くの研究で示されています。
+            月数だけで判断せず、<strong>「この指導で何を育てたいのか」</strong>と合わせて検討してください。
+          </p>
+          <p class="text-xs text-[var(--color-sub)]">
+            EEF Toolkit も同じく「Toolkit は学業効果のみを反映しており、他の側面の重要性を軽視するものではない」と繰り返し注意を促しています。
+          </p>
+        </div>
         <div class="space-y-3">
           <h3 class="font-bold">目安としての読み方</h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-center">
@@ -161,41 +185,44 @@ import Layout from "../../layouts/Layout.astro";
           その指導法を導入するのに、児童1人あたり年間どのくらいの<strong>金銭的コスト</strong>がかかるかの概算です。
           EEF Toolkit の基準(英ポンド £)を日本円に換算し、日本の小学校の文脈に合わせた目安としています。
         </p>
+        <p class="text-xs text-[var(--color-sub)]">
+          ※ 下記の日本円換算は <strong>2026年4月時点(1£ ≒ 215円)</strong> の為替レートに基づく概算です。為替変動により数値は変わります。
+        </p>
         <div class="space-y-3">
           <h3 class="font-bold">¥の基準(児童1人あたり年間)</h3>
           <div class="space-y-3">
             <div class="flex gap-4 items-start">
               <span class="text-emerald-700 shrink-0 font-mono">¥····</span>
               <div>
-                <div><strong>0円〜約16,000円</strong>（EEF: £0–£80）</div>
+                <div><strong>0円〜約17,000円</strong>（EEF: £0–£80）</div>
                 <div class="text-[var(--color-sub)] text-sm">教師の工夫で始められる。特別な予算不要。例: フィードバック、メタ認知の指導、検索練習</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
               <span class="text-emerald-700 shrink-0 font-mono">¥¥···</span>
               <div>
-                <div><strong>約16,000〜40,000円</strong>（EEF: £80–£200）</div>
+                <div><strong>約17,000〜43,000円</strong>（EEF: £80–£200）</div>
                 <div class="text-[var(--color-sub)] text-sm">少額の教材費や短時間の研修。例: 協同学習、SEL、マスタリーラーニング</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
               <span class="text-emerald-700 shrink-0 font-mono">¥¥¥··</span>
               <div>
-                <div><strong>約40,000〜140,000円</strong>（EEF: £200–£700）</div>
+                <div><strong>約43,000〜150,000円</strong>（EEF: £200–£700）</div>
                 <div class="text-[var(--color-sub)] text-sm">まとまった教材費、定期的な研修、一部人員の確保。例: 少人数指導、保護者との連携プログラム</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
               <span class="text-emerald-700 shrink-0 font-mono">¥¥¥¥·</span>
               <div>
-                <div><strong>約140,000〜240,000円</strong>（EEF: £700–£1,200）</div>
+                <div><strong>約150,000〜258,000円</strong>（EEF: £700–£1,200）</div>
                 <div class="text-[var(--color-sub)] text-sm">専門スタッフの配置、大規模な研修、ICT環境整備。例: 個別指導、補助スタッフの活用</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
               <span class="text-emerald-700 shrink-0 font-mono">¥¥¥¥¥</span>
               <div>
-                <div><strong>約240,000円以上</strong>（EEF: £1,200以上）</div>
+                <div><strong>約258,000円以上</strong>（EEF: £1,200以上）</div>
                 <div class="text-[var(--color-sub)] text-sm">学級編成の変更、教員増員など、組織的・制度的投資。例: 学級規模の縮小、教科担任制</div>
               </div>
             </div>
