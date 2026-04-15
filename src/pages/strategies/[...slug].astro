@@ -124,7 +124,7 @@ const effectNote =
   </header>
 
   {
-    (d.evidence?.eef || d.evidence?.japan || d.evidence?.hattie || d.culturalContext) && (
+    (d.evidence?.eef || d.evidence?.japan || d.evidence?.hattie || d.culturalContext || d.methodology) && (
       <section class="pt-12 max-w-2xl space-y-6">
         <div class="space-y-1">
           <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
@@ -204,6 +204,56 @@ const effectNote =
             </div>
           )}
         </div>
+
+        {d.methodology && (
+          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-3 bg-[var(--color-card)]">
+            <div class="flex items-baseline gap-3">
+              <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">Technical Appendix</span>
+              <span class="text-xs text-[var(--color-sub)]">研究の詳細</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              {d.methodology.studies !== undefined && (
+                <div class="space-y-1">
+                  <div class="text-xs text-[var(--color-sub)]">研究数</div>
+                  <div class="font-black text-lg tabular-nums">{d.methodology.studies} 件</div>
+                </div>
+              )}
+              {d.methodology.sampleSize && (
+                <div class="space-y-1">
+                  <div class="text-xs text-[var(--color-sub)]">総サンプルサイズ</div>
+                  <div class="font-black text-lg tabular-nums">{d.methodology.sampleSize}</div>
+                </div>
+              )}
+              {d.methodology.effectSize && (
+                <div class="space-y-1 sm:col-span-2">
+                  <div class="text-xs text-[var(--color-sub)]">効果量</div>
+                  <div class="font-mono text-sm">{d.methodology.effectSize}</div>
+                </div>
+              )}
+            </div>
+            {d.methodology.primaryMetaAnalysis && (
+              <div class="space-y-1 border-t border-[var(--color-line)] pt-3">
+                <div class="text-xs text-[var(--color-sub)]">主要メタ分析</div>
+                <div class="text-sm">
+                  {d.methodology.primaryMetaAnalysis.authors} ({d.methodology.primaryMetaAnalysis.year}).{" "}
+                  {d.methodology.primaryMetaAnalysis.url ? (
+                    <a href={d.methodology.primaryMetaAnalysis.url} target="_blank" rel="noopener" class="link-underline text-[var(--color-accent)]">
+                      {d.methodology.primaryMetaAnalysis.title}
+                    </a>
+                  ) : (
+                    <span>{d.methodology.primaryMetaAnalysis.title}</span>
+                  )}
+                </div>
+              </div>
+            )}
+            {d.methodology.limitations && (
+              <div class="space-y-1 border-t border-[var(--color-line)] pt-3">
+                <div class="text-xs text-[var(--color-sub)]">エビデンスの限界</div>
+                <p class="text-sm text-[var(--color-sub)] leading-relaxed" set:html={annotateGlossaryTerms(d.methodology.limitations)} />
+              </div>
+            )}
+          </div>
+        )}
 
         {d.culturalContext && (
           <div class="border-l-4 border-[var(--color-accent)] pl-5 py-1 space-y-2">
