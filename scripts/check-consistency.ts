@@ -146,6 +146,42 @@ if (fs.existsSync(COLUMNS_DIR)) {
   }
 }
 
+// 用語集・ツールチップデータ: 戦略名に続く「(+Xヶ月)」を戦略マップで照合
+function checkGlossaryFile(filePath: string) {
+  if (!fs.existsSync(filePath)) return;
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const strategyMap = buildStrategyMap();
+  const lines = raw.split("\n");
+
+  lines.forEach((line, i) => {
+    // 「戦略名(+Xヶ月)」パターン。ただし汎用的なテンプレート文字列は除外
+    const refPattern = /([^\s"`（(]+?)[（(]\+?(-?\d+)ヶ月[）)]/g;
+    let match;
+    while ((match = refPattern.exec(line)) !== null) {
+      const refName = match[1].replace(/\*\*/g, "").trim();
+      const refValue = parseInt(match[2], 10);
+
+      for (const [title, monthsGained] of strategyMap) {
+        if (refName === title || refName.endsWith(title) || title.endsWith(refName)) {
+          if (refValue !== monthsGained) {
+            issues.push({
+              file: path.basename(filePath),
+              line: i + 1,
+              expected: monthsGained,
+              found: `${refName}(${refValue > 0 ? "+" : ""}${refValue}ヶ月)`,
+              context: `戦略「${title}」の値は ${monthsGained > 0 ? "+" : ""}${monthsGained}`,
+            });
+          }
+          break;
+        }
+      }
+    }
+  });
+}
+
+checkGlossaryFile(path.resolve("src/pages/guide/glossary.astro"));
+checkGlossaryFile(path.resolve("src/data/glossary.ts"));
+
 // 結果出力
 if (issues.length === 0) {
   console.log("✓ 不一致は見つかりませんでした。\n");
