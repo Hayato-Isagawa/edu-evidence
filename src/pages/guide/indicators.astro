@@ -67,7 +67,11 @@ import Layout from "../../layouts/Layout.astro";
         </div>
         <div class="space-y-3">
           <h3 class="font-bold">目安としての読み方</h3>
-          <div class="grid grid-cols-3 gap-4 text-sm text-center">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-center">
+            <div class="border border-red-600/30 rounded-lg p-4 space-y-1 bg-red-50/30">
+              <div class="text-2xl font-black text-red-600">-1 以下</div>
+              <div class="text-[var(--color-sub)]">やらない方が<br />よかった領域</div>
+            </div>
             <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
               <div class="text-2xl font-black text-[var(--color-accent)]">+1〜3</div>
               <div class="text-[var(--color-sub)]">小さいが<br />確認できる効果</div>
@@ -81,6 +85,17 @@ import Layout from "../../layouts/Layout.astro";
               <div class="text-[var(--color-sub)]">非常に<br />大きな効果</div>
             </div>
           </div>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-bold">マイナスの値について</h3>
+          <p>
+            「-◯ヶ月」は、その取り組みを行った学級が、<strong>行わなかった場合より◯ヶ月分遅れた</strong>ことを意味します。
+            本サイトでは直感に反してでも効果のない・逆効果の研究知見も掲載しており、例えば
+            <a href="/strategies/repeating-a-year" class="link-underline text-[var(--color-accent)]">留年(-4ヶ月)</a>、
+            <a href="/strategies/corporal-punishment" class="link-underline text-[var(--color-accent)]">体罰(-3ヶ月)</a>、
+            <a href="/strategies/suspension" class="link-underline text-[var(--color-accent)]">停学・出席停止(-2ヶ月)</a> など、
+            <strong>「やってはいけない」ことをエビデンスで確認する</strong>ためにも使えます。
+          </p>
         </div>
       </div>
     </div>
@@ -152,7 +167,7 @@ import Layout from "../../layouts/Layout.astro";
             <div class="flex gap-4 items-start">
               <span class="text-emerald-700 shrink-0 font-mono">¥····</span>
               <div>
-                <div><strong>〜約16,000円</strong>（EEF: £0–£80）</div>
+                <div><strong>0円〜約16,000円</strong>（EEF: £0–£80）</div>
                 <div class="text-[var(--color-sub)] text-sm">教師の工夫で始められる。特別な予算不要。例: フィードバック、メタ認知の指導、検索練習</div>
               </div>
             </div>
