@@ -106,7 +106,7 @@ const terms = [
   <section class="pb-24">
     {
       terms.map((t) => (
-        <div id={t.term.replace(/[()（）]/g, "").replace(/\s+/g, "-")} class="border-t border-[var(--color-line)] py-5 grid grid-cols-12 gap-4 scroll-mt-20">
+        <div id={t.term.split(/[(（]/)[0].trim().replace(/\s+/g, "-")} class="border-t border-[var(--color-line)] py-5 grid grid-cols-12 gap-4 scroll-mt-20">
           <div class="col-span-12 md:col-span-4">
             <div class="font-bold">{t.term}</div>
             <div class="font-mono text-[11px] text-[var(--color-sub)]">{t.en}</div>
