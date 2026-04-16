@@ -11,15 +11,11 @@ const entries = [
       },
       {
         type: "update",
-        text: "値の不一致を自動検出するチェックスクリプトを導入(npm run check:consistency)。メタ認知+7→+8 等、本文とフロントマターの数値ズレを複数修正",
+        text: "各指導法の効果量を一次研究と再照合し、本文と数値のズレを複数修正(メタ認知 +7→+8 等)",
       },
       {
-        type: "add",
-        text: "各戦略ページに「最終検証日(lastVerified)」フィールドを追加。一次ソースとの照合日を記録",
-      },
-      {
-        type: "security",
-        text: "JSON-LD のエスケープ漏れ修正、glossary-inline の XSS 対策、Pagefind 用 CSP の wasm-unsafe-eval を追加",
+        type: "update",
+        text: "サイト全体のセキュリティを強化",
       },
     ],
   },
@@ -46,10 +42,6 @@ const entries = [
       {
         type: "add",
         text: "コラム3本追加:「不登校35万人時代」「教員不足と授業の質」「生成AIは教育をどう変えるか」。コラムは計10本に",
-      },
-      {
-        type: "add",
-        text: "README・LICENSE・CONTRIBUTING・CLAUDE.md を追加し、GitHub リポジトリとしての体裁を整備",
       },
       {
         type: "add",
@@ -102,19 +94,19 @@ const entries = [
       },
       {
         type: "add",
-        text: "全文検索(Pagefind)を導入。203ページ・5,523語を検索可能に",
+        text: "全文検索機能を導入。サイト内のすべての指導法・コラム・ガイドを横断検索できるように",
       },
       {
         type: "add",
-        text: "指導法ごとの動的OG画像を生成(SNS共有時にタイトル・効果量・★が表示される)",
+        text: "指導法ごとの SNS 共有用画像を自動生成(タイトル・効果量・★が表示される)",
       },
       {
         type: "add",
-        text: "404ページ、Playwright E2Eテスト(16件)、GitHub Actions CI を追加",
+        text: "404ページ(見つからないページ用)を追加",
       },
       {
         type: "update",
-        text: "用語集を50語に拡充。コラムのテーブルスタイルを追加。アクセシビリティスコア 100 達成",
+        text: "用語集を50語に拡充。コラムのテーブルスタイルを改善。アクセシビリティ改善",
       },
     ],
   },
