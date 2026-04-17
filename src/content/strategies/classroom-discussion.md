@@ -18,7 +18,16 @@ evidence:
   hattie:
     cohensD: 0.82
     note: "Hattie の Visible Learning では d=0.82(classroom discussion)と報告されているが、これは上端寄り。EEF の +6ヶ月の方が近年の大規模研究に基づく保守的な推定値。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-17"
+methodology:
+  sampleSize: "イングランド 78 校 / Year 5(小5相当)約 2,493 名を解析(EEF Dialogic Teaching RCT, 2014-17)"
+  effectSize: "+2ヶ月(英語・理科) / +1ヶ月(算数)。無償給食対象児は算数でも +2ヶ月。背景指標の EEF 口頭言語介入は +6ヶ月(222 研究)"
+  primaryMetaAnalysis:
+    authors: "Alexander, Hardman ら(University of York)"
+    year: 2017
+    title: "Dialogic Teaching — EEF Evaluation Report"
+    url: "https://files.eric.ed.gov/fulltext/ED581114.pdf"
+  limitations: "Alexander の Dialogic Teaching は『教師の問いの質・子どもの応答の連鎖・理由付け』を意図的に設計する手法で、単なる『話し合いの時間』とは別物。効果量の差(EEF 口頭言語 +6 vs Dialogic RCT +2)は、広義の口頭言語介入と厳密に構造化された対話の違いを反映している。英国での RCT のため、日本の『めあて→考えを発表→まとめ』型授業にそのまま持ち込むには、発問の質と応答連鎖の明示的な訓練が必要。"
 culturalContext: |
   日本の小学校では『めあて → 考えを発表 → まとめ』の流れの中で対話は広く行われているが、EEF が強調する『**構造化された対話(dialogic teaching)**』とは必ずしも一致しない。Alexander の dialogic teaching は「教師の問いの質」「子ども同士の応答の連鎖」「理由付けを求める」ことを意図的に設計する手法で、単なる『話し合いの時間』とは異なる。日本の授業研究で「発問の質」「子どもの発言をどう繋ぐか」が議論されるのと同じ方向。EEF の +6 ヶ月と Dialogic Teaching RCT の +2 ヶ月の差は、『一般的な対話』と『厳密に構造化された対話』の差でもある。
 ---
