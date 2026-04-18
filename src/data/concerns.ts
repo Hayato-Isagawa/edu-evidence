@@ -197,6 +197,7 @@ export const concernCategories: ConcernCategory[] = [
           "oral-language",
           "phonics",
         ],
+        columns: ["beginner-teacher-entry"],
       },
       {
         slug: "avoid-ineffective",
