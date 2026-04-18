@@ -42,6 +42,9 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="EduEvidence JP — エビデンスで考える" href="/rss.xml" />
+
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -234,6 +237,7 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
           </div>
           <ul class="space-y-1.5">
             <li><a href="/columns" class="link-underline">コラム</a></li>
+            <li><a href="/rss.xml" class="link-underline">RSS 購読</a></li>
             <li><a href="/policy-evidence" class="link-underline">政策とエビデンス</a></li>
             <li><a href="/voices" class="link-underline">現場の声</a></li>
             <li><a href="/guide/indicators" class="link-underline">指標の読み方</a></li>
