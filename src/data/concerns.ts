@@ -175,6 +175,7 @@ export const concernCategories: ConcernCategory[] = [
         diagnosis:
           "保護者との連携は EEF +4ヶ月。情報提供の質と、家庭と学校が『同じ方向を向く』仕組みづくりが効く。",
         strategies: ["parental-engagement"],
+        columns: ["joint-custody-school-impact"],
       },
     ],
   },
