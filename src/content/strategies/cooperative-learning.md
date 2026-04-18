@@ -15,7 +15,17 @@ evidence:
     monthsGained: 5
     strength: 4
     note: "小学校 +5ヶ月、中学校 +6ヶ月。算数 +5、理科 +10、国語 +3(教科差あり)。3〜5人の小グループで『共通の目標』があるときに効果が大きい。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 65
+  sampleSize: "初等〜高等教育(1995 年以降、実際の教室で実施された研究に限定)"
+  effectSize: "学力・態度ともに正の効果。科学・数学で効果が大きい"
+  primaryMetaAnalysis:
+    authors: "Kyndt, Raes, Lismont, Timmers, Cascallar & Dochy"
+    year: 2013
+    title: "A meta-analysis of the effects of face-to-face cooperative learning"
+    url: "https://doi.org/10.1016/j.edurev.2013.02.002"
+  limitations: "『協同学習』には構造化された設計(Johnson & Johnson の 5 要素など)と、単なるグループ活動が混在。効果量は前者で大きく、後者では小さい。互恵的相互依存・個人の責任・対面の相互作用といった要素設計が鍵。"
 culturalContext: |
   日本の小学校では班活動・グループ学習が既に広く行われており、EEF の研究(英語圏)で「協同学習を初めて導入した学級」の効果がそのまま日本に当てはまるとは限らない。ただし、日本の班活動が「役割分担はあるが個々の責任が曖昧」な場合、EEF が強調する『個別の説明責任(individual accountability)』と『積極的な相互依存(positive interdependence)』を明確に設計することで、更なる効果が期待できる可能性がある。
 ---

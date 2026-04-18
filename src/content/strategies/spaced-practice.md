@@ -17,7 +17,17 @@ evidence:
   hattie:
     cohensD: 0.60
     note: "Cepeda et al.(2006)の 254 研究メタ分析で、分散学習は集中学習より有意に優れる(長期保持で大きな効果)。Dunlosky et al.(2013)が 10 の学習法を評価し、分散学習を『高い有用性』に分類。効果量は実験設計により幅があるが、d=0.4-0.8 程度が一般的で『月数換算 +5』に対応。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 317
+  sampleSize: "317 実験 / 184 論文 / 839 評価(幼児〜成人、言語記憶課題中心)"
+  effectSize: "保持期間の長さに依存。最適な学習間隔は保持期間の 10〜20% 程度"
+  primaryMetaAnalysis:
+    authors: "Cepeda, Pashler, Vul, Wixted & Rohrer"
+    year: 2006
+    title: "Distributed practice in verbal recall tasks: A review and quantitative synthesis"
+    url: "https://doi.org/10.1037/0033-2909.132.3.354"
+  limitations: "メタ分析の中心は言語記憶課題で、概念理解・手続き学習への一般化には追加検討が必要。教室運用では『何を忘れさせて、いつ思い出させるか』の設計が鍵。短期直後のテスト中心の評価では詰め込み学習との差が見えにくい。"
 culturalContext: |
   分散学習は日本の『復習の大切さ』という一般的な助言と整合する一方、**カリキュラムの単元完結型構造**により実践が難しい。漢字練習・計算練習など反復学習の領域では取り入れやすいが、「今日学んだ範囲だけテストする」習慣を崩す必要がある。認知科学の知見は言語・文化を問わない普遍性が高いため、日本語教育でもそのまま適用可能。
 ---

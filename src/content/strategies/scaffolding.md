@@ -18,7 +18,17 @@ evidence:
   hattie:
     cohensD: 0.82
     note: "Hattie の Visible Learning では d=0.82 と報告。複数の独立メタ分析(Belland et al. 2017 computer-based scaffolding g=0.46、online learning d=0.53 等)では d=0.4-0.6 程度が一般的。Hattie の値は上端寄り。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 144
+  sampleSize: "144 実験研究 / 333 効果量(STEM 学習者、K-12〜高等教育)"
+  effectSize: "Hedges' g = 0.46(小〜中)"
+  primaryMetaAnalysis:
+    authors: "Belland, Walker, Kim & Lefler"
+    year: 2017
+    title: "Synthesizing Results From Empirical Research on Computer-Based Scaffolding in STEM Education"
+    url: "https://journals.sagepub.com/doi/10.3102/0034654316670999"
+  limitations: "Belland メタ分析はコンピュータベーススキャフォールディングを対象としており、一般的な対面スキャフォールディング全体とは厳密には異なる。Van de Pol et al.(2010)の枠組み(contingency / fading / transfer of responsibility)が背景。効果の本質は『外す(fading)』にあり、恒久的な支援は効果を弱める。"
 culturalContext: |
   足場かけは日本の授業研究(授業デザイン、ヒントカード、段階的な発問など)の中で広く実践されている概念で、文化差は小さい。EEF にも独立したエントリは無いため厳密な +◯ヶ月 値は存在しないが、メタ分析全体から見ると **中程度〜やや大きな効果(d=0.4-0.8)** が報告されている。日本では「ヒントを出しすぎる」傾向があり、足場かけの真髄である「段階的に支援を外す(fading)」の実践が不十分な場合がある。支援の『質』と『引き算のタイミング』が効果を決める。
 ---

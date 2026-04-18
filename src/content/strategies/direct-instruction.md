@@ -18,7 +18,17 @@ evidence:
   hattie:
     cohensD: 0.59
     note: "Hattie の Visible Learning ではより高い d=0.59 を報告しているが、EEF の +5ヶ月がより最近かつ保守的な推定値。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 318
+  sampleSize: "431 研究設計 / 約 4,000 効果(1961〜2016 の半世紀、幼児〜高校)"
+  effectSize: "d = 0.60(95%CI 0.54〜0.66)。維持期に効果がほぼ減衰しない"
+  primaryMetaAnalysis:
+    authors: "Stockard, Wood, Coughlin & Khoury"
+    year: 2018
+    title: "The Effectiveness of Direct Instruction Curricula: A Meta-Analysis of a Half Century of Research"
+    url: "https://journals.sagepub.com/doi/abs/10.3102/0034654317751919"
+  limitations: "『Direct Instruction』は Engelmann 由来の体系化されたプログラム群(DISTAR 等)を含み、単なる『講義型』の同義語ではない。日本の『一斉指導』と完全には重ならない。教材のスクリプト化・反応確認・マスタリー前提の反復が本質で、この要素が薄いと効果は得にくい。"
 culturalContext: |
   日本の一斉授業は「明示的指導」の要素を多く含んでいるが、EEF が定義する「モデル提示 → 段階的な移行(I do, We do, You do)」の明確な構造とは必ずしも一致しない。特に「よくある誤概念の想定」や「小さなステップへの分解」の意識が弱い場合がある。現在の一斉指導に EEF の原則を統合することで、追加の効果が期待できる可能性がある。
 ---

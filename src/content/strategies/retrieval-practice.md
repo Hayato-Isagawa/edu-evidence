@@ -17,7 +17,17 @@ evidence:
   hattie:
     cohensD: 0.58
     note: "Roediger & Butler(2011)のレビューで再読に対する優位性が一貫して報告されている。Adesope, Trevisan & Sundararajan(2017)の 118 研究メタ分析で g=0.51。Dunlosky et al.(2013)が『高い有用性』に分類。効果量は d=0.5-0.8 程度が一般的。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 118
+  sampleSize: "118 独立研究 / 217 効果量(ラボ・教室両設定、幼児〜成人)"
+  effectSize: "Hedges' g = 0.51 〜 0.61(分析条件による、中〜大)"
+  primaryMetaAnalysis:
+    authors: "Adesope, Trevisan & Sundararajan"
+    year: 2017
+    title: "Rethinking the Use of Tests: A Meta-Analysis of Practice Testing"
+    url: "https://journals.sagepub.com/doi/abs/10.3102/0034654316689306"
+  limitations: "テスト形式(自由再生・選択式・穴埋め)で効果量が変動し、自由再生ほど効果が大きい傾向。短期直後のテストでは差が小さく、長期保持で差が大きく出る。フィードバックの有無と難易度調整が効果を左右する。中等教育年代で特に効果が大きい。"
 culturalContext: |
   日本の教室では『テスト = 評価・成績』という文化が強く、**『学ぶためのテスト』**という位置づけの転換が必要。小テストを点数化せず、「何を覚えていたか自分で確認するための道具」として運用する工夫が鍵。ただし、既に日本の小学校で広く行われている「漢字ドリル」「計算プリント」「百マス計算」は検索練習の性質を持っており、認知科学的な裏付けがある実践と言える。
 ---
