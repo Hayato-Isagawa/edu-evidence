@@ -36,7 +36,7 @@
     "@playwright/test": "^1.59.1",
     "gray-matter": "^4.0.3",
     "linkinator": "^7.6.1",
-    "pagefind": "^1.5.0",
+    "pagefind": "^1.5.2",
     "textlint": "^15.5.4",
     "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",
     "textlint-rule-preset-ja-spacing": "^2.4.3",
