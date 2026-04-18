@@ -36,18 +36,54 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </div>
 
-    <div class="border border-[var(--color-line)] rounded-xl p-8 md:p-12 text-center space-y-6">
-      <p class="text-[var(--color-sub)] leading-loose">
-        現在、現場の先生方からの声を募集しています。<br />
-        本サイトの情報を参考に実践された経験がありましたら、ぜひお聞かせください。<br />
-        匿名での掲載も可能です。<br /><br />
-        また、全国各地の教育委員会や学校で行われている教育施策についての情報もお待ちしています。<br />
-        「うちの自治体ではこんな取り組みをしている」「この施策の効果が気になる」など、<br />
-        現場からの声をお聞かせください。
-      </p>
-      <p class="text-sm">
-        <a href="mailto:info@edu-evidence.org" class="link-underline text-[var(--color-accent)]">info@edu-evidence.org</a> までお寄せください。
-      </p>
+    <div class="border border-[var(--color-line)] rounded-xl p-8 md:p-12 space-y-8">
+      <div class="text-center space-y-3">
+        <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+          Open call
+        </p>
+        <h2 class="font-black text-2xl md:text-3xl tracking-tight">
+          現場からの声を募集しています
+        </h2>
+        <p class="text-sm text-[var(--color-sub)]">
+          匿名での掲載も可能です。どんな形でも歓迎します。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="border border-[var(--color-line)] rounded-lg p-5 space-y-2">
+          <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-accent)]">01 Practice</p>
+          <h3 class="font-bold">実践の報告</h3>
+          <p class="text-xs text-[var(--color-sub)] leading-relaxed">
+            本サイトの指導法を試したときの手応え・工夫・子どもの反応。
+            「うまくいった」だけでなく「うまくいかなかった」も貴重です。
+          </p>
+        </div>
+        <div class="border border-[var(--color-line)] rounded-lg p-5 space-y-2">
+          <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-accent)]">02 Question</p>
+          <h3 class="font-bold">現場の疑問</h3>
+          <p class="text-xs text-[var(--color-sub)] leading-relaxed">
+            「このテーマのエビデンスを知りたい」「この指導法は日本でも効くのか」など。
+            コラムや戦略ページの追加の手がかりになります。
+          </p>
+        </div>
+        <div class="border border-[var(--color-line)] rounded-lg p-5 space-y-2">
+          <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-accent)]">03 Info</p>
+          <h3 class="font-bold">地域の施策・情報</h3>
+          <p class="text-xs text-[var(--color-sub)] leading-relaxed">
+            自治体・学校で進行中の施策、気になる研究や報告書の情報。
+            全国的に見える化する材料になります。
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center space-y-2">
+        <p class="text-sm">
+          <a href="mailto:info@edu-evidence.org" class="link-underline text-[var(--color-accent)]">info@edu-evidence.org</a> までお寄せください。
+        </p>
+        <p class="text-xs text-[var(--color-sub)]">
+          氏名・所属・学年・教科は任意。匿名希望の場合はその旨を明記してください。
+        </p>
+      </div>
     </div>
   </section>
 </Layout>
