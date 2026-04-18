@@ -101,6 +101,7 @@ export const concernCategories: ConcernCategory[] = [
           "oral-language",
           "phonics",
         ],
+        columns: ["reading-quantity-myth"],
       },
       {
         slug: "shallow-dialogue",
