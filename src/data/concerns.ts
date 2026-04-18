@@ -30,6 +30,7 @@ export const concernCategories: ConcernCategory[] = [
           "social-emotional-learning",
           "classroom-discussion",
         ],
+        columns: ["school-refusal-crisis"],
       },
       {
         slug: "bullying",
@@ -87,6 +88,7 @@ export const concernCategories: ConcernCategory[] = [
           "scaffolding",
           "individualised-instruction",
         ],
+        columns: ["class-size-cost-effectiveness", "giga-school-evidence"],
       },
       {
         slug: "reading-difficulty",
@@ -144,7 +146,7 @@ export const concernCategories: ConcernCategory[] = [
           "tokkatsu",
           "arts-participation",
         ],
-        columns: ["education-inequality-evidence"],
+        columns: ["education-inequality-evidence", "school-lunch-free"],
       },
     ],
   },
@@ -204,7 +206,11 @@ export const concernCategories: ConcernCategory[] = [
           "learning-styles",
           "screen-time",
         ],
-        columns: ["finland-education-myth", "grit-reconsidered"],
+        columns: [
+          "finland-education-myth",
+          "grit-reconsidered",
+          "brainrot-science-check",
+        ],
       },
     ],
   },
