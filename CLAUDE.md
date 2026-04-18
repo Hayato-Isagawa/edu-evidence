@@ -15,7 +15,7 @@ npm run check:text   # textlint日本語校正
 ## プロジェクト構造
 
 - `src/content/strategies/*.md` — 73の指導法(frontmatter + markdown body)
-- `src/content/columns/*.md` — コラム7本
+- `src/content/columns/*.md` — コラム20本
 - `src/pages/` — Astroページ(ルーティング)
 - `src/components/StrategyRow.astro` — 戦略カードコンポーネント
 - `src/layouts/Layout.astro` — 共通レイアウト(ヘッダー・フッター・ツールチップJS)
