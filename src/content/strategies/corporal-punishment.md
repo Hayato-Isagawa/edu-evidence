@@ -15,7 +15,17 @@ evidence:
   hattie:
     cohensD: -0.33
     note: "Hattie の Visible Learning では学業・行動面で負の効果。Gershoff & Grogan-Kaylor(2016)の 75 研究メタ分析で、体罰は攻撃性・反社会的行動・メンタルヘルス問題を増加させ、道徳的内面化を阻害。学業成果への効果は無いか負。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 75
+  sampleSize: "160,927 名(75 研究 / 111 効果量、主に家庭での体罰を対象)"
+  effectSize: "d = 0.33(95%CI 0.29〜0.38、不利な方向)。111 効果量の 99% が不利方向、71% が統計的有意"
+  primaryMetaAnalysis:
+    authors: "Gershoff & Grogan-Kaylor"
+    year: 2016
+    title: "Spanking and Child Outcomes: Old Controversies and New Meta-Analyses"
+    url: "https://doi.org/10.1037/fam0000191"
+  limitations: "主対象は家庭での体罰(spanking)で、学校の体罰を直接扱う研究ではない。ただし効果の方向は一致。以前の行動を統制した縦断分析でも効果は残り、方法論的な反論にも頑健。『しつけのための軽い体罰は有効』という言説もこのメタ分析で支持されない。"
 culturalContext: |
   **日本では学校教育法第 11 条で体罰が明確に禁止** されている(2013 年の大阪市立桜宮高校事件を契機に指導強化)。家庭内でも 2020 年の児童虐待防止法改正で体罰が禁止された。**『体罰禁止』はエビデンスと一致する制度設計**。『しつけのための軽い体罰は有効』という言説は日本でも根強いが、Gershoff 2016 はそれも否定している。
 ---

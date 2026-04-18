@@ -18,7 +18,17 @@ evidence:
   hattie:
     cohensD: 0.64
     note: "Hattie の Visible Learning で d=0.64。Schroeder et al.(2018)のメタ分析では、『作る(g=0.72)』方が『読む(g=0.43)』より効果的。STEM 教科では d=0.63 程度。L2 学習では g=1.05 と特に大きな効果。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-17"
+methodology:
+  studies: 142
+  sampleSize: "11,814人(独立効果量ベース、1972〜2014 年の研究を統合)"
+  effectSize: "g=0.58(ランダム効果モデル)。作成 g=0.72 / 閲覧 g=0.43"
+  primaryMetaAnalysis:
+    authors: "Schroeder, Nesbit, Anguiano & Adesope"
+    year: 2018
+    title: "Studying and Constructing Concept Maps: a Meta-Analysis"
+    url: "https://link.springer.com/article/10.1007/s10648-017-9403-9"
+  limitations: "『コンセプトマップ』の定義は幅広く、実施形態(紙 vs デジタル、個人 vs ペア、評価の有無)で効果量が変動する。メタ分析は 1972〜2014 年の研究が中心で、近年のデジタルツール前提の授業とは条件が異なる可能性がある。日本の『思考ツール』実践との重なりは大きいが、効果の中核は『作成プロセスを子ども自身が経る』点にある。"
 culturalContext: |
   日本の授業で「思考ツール」として Y字チャート・ベン図・マトリクス等が広く使われており、コンセプトマップも同じ系譜に位置づく。ただし、メタ分析が示すように **子ども自身が作ること** が鍵。教師が提示したマップを写すだけでは効果が限定的。日本の思考ツール指導で「作成のプロセス」と「振り返り」を強化することで、追加の効果が期待できる。
 ---

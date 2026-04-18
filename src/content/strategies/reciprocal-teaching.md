@@ -18,7 +18,17 @@ evidence:
   hattie:
     cohensD: 0.74
     note: "Hattie の Visible Learning で d=0.74。Rosenshine & Meister(1994)の16研究メタ分析では、読解全般で d=0.32、読解理解テストで d=0.88 と幅がある。What Works Clearinghouse(2010)も一定の効果を確認。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 16
+  sampleSize: "初等〜中等教育(16 実験研究、主に英語圏の読解)"
+  effectSize: "中央値 — 標準化テスト 0.32、実験者開発テスト 0.88"
+  primaryMetaAnalysis:
+    authors: "Rosenshine & Meister"
+    year: 1994
+    title: "Reciprocal Teaching: A Review of the Research"
+    url: "https://journals.sagepub.com/doi/10.3102/00346543064004479"
+  limitations: "測定テストの種類で効果量が大きく変動(標準化 0.32 vs 実験者開発 0.88)。4 方略(予測・質問・明確化・要約)の明示的指導と対話的支援が鍵。1994 年のメタ分析のため、近年の知見と合わせて解釈する必要がある(Hattie d=0.74 等の値あり)。日本語読解への翻案では語彙・統語の違いを踏まえる。"
 culturalContext: |
   日本の国語授業でも「音読」「質問」「要約」の活動は広く行われているが、**Palincsar & Brown(1984)の相互教授法の核心は『先生役を交代する』『4つの方略を明示的に教える』こと**。日本でよく行われる「順番に読む」「感想を言い合う」とは異なる構造化された手法。日本の班活動に相互教授法の枠組みを意識的に組み込むことで、読解戦略の内面化が促進される可能性。
 ---

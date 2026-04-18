@@ -15,7 +15,17 @@ evidence:
   hattie:
     cohensD: -0.21
     note: "Delgado et al.(2018)の 54 研究メタ分析で、**紙>デジタル**の優位性を確認(Hedges g=-0.21)。この差は 2000 年以降さらに大きくなっており、画面の性能向上では解消しない。効果は特に**説明文**(narrative より)、**時間制約あり**の場面で大きい。原因候補:浅い処理、スキミング傾向、気を散らす要素、空間的手がかりの欠如(shallowing hypothesis)。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 54
+  sampleSize: "54 研究 / 171,055 名以上(2000〜2017、英語圏中心)"
+  effectSize: "Hedges' g = −0.21(紙優位)。説明文・時間制約ありで差が拡大、ナラティブ(物語文)では差がない"
+  primaryMetaAnalysis:
+    authors: "Delgado, Vargas, Ackerman & Salmerón"
+    year: 2018
+    title: "Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension"
+    url: "https://doi.org/10.1016/j.edurev.2018.09.003"
+  limitations: "画面の種類(タブレット・電子書籍・PC)で効果が変動。2000 年以降の研究の方が差が大きくなる傾向で、画面性能の向上では自動解消しない。『Shallowing hypothesis(浅い処理仮説)』— 注意散漫・スキミング習慣・空間的手がかりの欠如 — が主な機構候補。ナラティブでは差がないため、文種・目的に応じた使い分けが現実解。"
 culturalContext: |
   **GIGA スクール構想下で『デジタル教科書推進』が進む日本で、最も慎重な検討が必要な研究知見**。長文読解・思考を要する読みでは紙が優位という Delgado 2018 の結論は、デジタル教科書導入の是非そのものを問うものではなく、**紙とデジタルの使い分け**を示唆する。速読・検索はデジタル、深い読解は紙、というハイブリッド運用が現実的。文部科学省のデジタル教科書実証研究も参照。
 ---

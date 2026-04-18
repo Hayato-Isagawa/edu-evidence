@@ -7,7 +7,7 @@ interface Props {
 }
 const {
   title = "EduEvidence JP — 小学校エビデンスポータル",
-  description = "日本の小学校教員のための教育エビデンスまとめサイト。国内外の研究から得られた知見を「効果」「信頼性」「コスト」の3指標で整理し、現場で使える形に翻案して公開。",
+  description = "日本の小学校教員のための教育エビデンスまとめサイト。国内外の研究から得られた知見を「効果」「信頼性」「コスト」「出典」の4指標で整理し、現場で使える形に翻案して公開。",
   ogImagePath,
 } = Astro.props;
 const siteUrl = "https://edu-evidence.org";
@@ -42,6 +42,9 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="EduEvidence JP — エビデンスで考える" href="/rss.xml" />
+
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -63,6 +66,7 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
         </a>
         <nav class="hidden sm:flex text-xs gap-4 md:gap-6 text-[var(--color-sub)]" aria-label="メインナビゲーション">
           <a href="/" class="link-underline hover:text-[var(--color-ink)] transition">ホーム</a>
+          <a href="/concerns" class="link-underline hover:text-[var(--color-ink)] transition">悩みから探す</a>
           <a href="/#strategy-list" class="link-underline hover:text-[var(--color-ink)] transition">指導法から探す</a>
           <a href="/columns" class="link-underline hover:text-[var(--color-ink)] transition">コラム</a>
           <a href="/guide" class="link-underline hover:text-[var(--color-ink)] transition">ガイド</a>
@@ -93,6 +97,7 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
       >
         <ul class="mx-auto max-w-6xl px-6 py-2 flex flex-col text-sm text-[var(--color-sub)]">
           <li><a href="/" class="block py-3 hover:text-[var(--color-ink)] transition">ホーム</a></li>
+          <li><a href="/concerns" class="block py-3 hover:text-[var(--color-ink)] transition">悩みから探す</a></li>
           <li><a href="/#strategy-list" class="block py-3 hover:text-[var(--color-ink)] transition">指導法から探す</a></li>
           <li><a href="/columns" class="block py-3 hover:text-[var(--color-ink)] transition">コラム</a></li>
           <li><a href="/guide" class="block py-3 hover:text-[var(--color-ink)] transition">ガイド</a></li>
@@ -200,7 +205,7 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
           </div>
           <p class="leading-relaxed">
             教員一人ひとりが「研究で確かめられた知見」にアクセスできるように。<br />
-            英国 EEF Toolkit を起点に、73の指導法を「効果」「信頼性」「コスト」の3指標で整理し、日本の小学校現場に合わせて翻案・公開しています。
+            英国 EEF Toolkit を起点に、73の指導法を「効果」「信頼性」「コスト」「出典」の4指標で整理し、日本の小学校現場に合わせて翻案・公開しています。
           </p>
           <div class="space-y-1.5 pt-2">
             <div class="font-mono uppercase tracking-widest text-[10px] text-[var(--color-ink)]">お問い合わせ</div>
@@ -216,6 +221,7 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
             指導法を探す
           </div>
           <ul class="space-y-1.5">
+            <li><a href="/concerns" class="link-underline">悩みから探す</a></li>
             <li><a href="/#strategy-list" class="link-underline">指導法一覧</a></li>
             <li><a href="/subjects" class="link-underline">教科から探す</a></li>
             <li><a href="/grades" class="link-underline">学年から探す</a></li>
@@ -231,6 +237,7 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
           </div>
           <ul class="space-y-1.5">
             <li><a href="/columns" class="link-underline">コラム</a></li>
+            <li><a href="/rss.xml" class="link-underline">RSS 購読</a></li>
             <li><a href="/policy-evidence" class="link-underline">政策とエビデンス</a></li>
             <li><a href="/voices" class="link-underline">現場の声</a></li>
             <li><a href="/guide/indicators" class="link-underline">指標の読み方</a></li>

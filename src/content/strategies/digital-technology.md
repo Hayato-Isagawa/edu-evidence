@@ -15,7 +15,17 @@ evidence:
     monthsGained: 4
     strength: 4
     note: "EEF Toolkit で +4ヶ月。ただし「既存の指導を置き換える」のではなく「補完する」形で使われたときに効果が大きい。教師の指導設計の中に組み込まれることが前提。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 32
+  sampleSize: "32 メタ分析を統合(うち 20 は過去 10 年以内、幼児〜高校)"
+  effectSize: "研究間で幅広い(d = 0.16 〜 1.6)。EEF 集約値で +4ヶ月"
+  primaryMetaAnalysis:
+    authors: "EEF(Teaching and Learning Toolkit)"
+    year: 2019
+    title: "Using Digital Technology to Improve Learning: Evidence Review"
+    url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/digital-technology/technical-appendix"
+  limitations: "『デジタル技術』はタブレット・ソフト・プラットフォーム・ゲーム・VR など極めて多様で、効果は『技術そのもの』より『使い方』に左右される。既存指導を『補完』する使い方のほうが『置き換え』より効果大。32 メタ分析の統合で異質性が大きく、単一効果量に集約しにくい。GIGA 下の日本の文脈では、『端末を使っているか』より『何のために使っているか』が決定的。"
 culturalContext: |
   日本の GIGA スクール構想(2020年度〜)で1人1台端末環境は整ったが、「使用頻度」と「学力向上」は別物。EEF の +4ヶ月は英国の研究に基づく平均値で、日本の文脈では「端末を使っているか」より「何のために使っているか(即時フィードバック、共有、個別最適化)」が効果を左右する。端末を配るだけでは効果は出ない、という EEF の知見は日本にも直接当てはまる。
 ---

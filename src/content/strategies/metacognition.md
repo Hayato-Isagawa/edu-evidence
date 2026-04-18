@@ -17,6 +17,16 @@ evidence:
     strength: 5
     note: "2025年のEEF Toolkit 更新で +7 → +8ヶ月に引き上げ(107の新しい研究を追加)。小学校で特に大きな効果。『思考について考える』を明示的に教えることが鍵。"
 lastVerified: "2026-04-14"
+methodology:
+  studies: 246
+  sampleSize: "小中学校の児童生徒対象"
+  effectSize: "+8ヶ月(EEF Toolkit、2025年更新)"
+  primaryMetaAnalysis:
+    authors: "Muijs & Bokhove"
+    year: 2020
+    title: "Metacognition and Self-regulation: Evidence Review"
+    url: "https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/metacognition-and-self-regulation"
+  limitations: "効果量は教科文脈や実施の質に大きく依存する。『何となく振り返らせる』だけでは効果が出にくい。構造化された方略指導(計画・モニタリング・評価の明示)が鍵。"
 culturalContext: |
   日本の小学校では「振り返り(リフレクション)」として既に実践されている部分がある。ただし、EEF が指す「メタ認知」は単なる『今日の授業どうだった?』ではなく、『この問題を解くとき、自分はどの方略を使ったか』『次は何を変えるか』を明示的に指導することを意味する。「めあて」→「活動」→「振り返り」の『振り返り』段階を、子どもの内部プロセスに焦点を当てて深める余地がある。
 ---

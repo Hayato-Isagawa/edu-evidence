@@ -20,7 +20,17 @@ evidence:
     strength: 3
     note: "松岡亮二(2015, 2019)は日本の縦断データで、保護者の教育的関与(学習時間管理・読み聞かせ・文化資本)が SES により大きく異なり、それが学力格差につながることを実証。耳塚寛明(2007)も小学校段階で既に文化的・経済的資本が学力と関連することを示した。"
     researcher: "松岡亮二(早稲田大学)、耳塚寛明(お茶の水女子大学)"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 51
+  sampleSize: "都市部の小中高生(51 研究)"
+  effectSize: "全体 d ≈ 0.30。小学校 d ≈ 0.125、中等教育 d ≈ 0.138、親子対話型プログラムで最大"
+  primaryMetaAnalysis:
+    authors: "Jeynes"
+    year: 2012
+    title: "A Meta-Analysis of the Efficacy of Different Types of Parental Involvement Programs for Urban Students"
+    url: "https://eric.ed.gov/?id=EJ969713"
+  limitations: "『保護者関与』は定義が広く(期待・対話・家庭学習の監督・学校行事参加など)、種類ごとに効果量が変動。親子対話型 > 学校だよりの送付など受動型。SES によって関与のしやすさが異なるため、『全家庭に一律』の介入では格差を縮められない可能性(松岡 2015, 2019・耳塚 2007)。"
 culturalContext: |
   **『保護者との連携』が全ての家庭に等しく機能するわけではない**。松岡亮二(2015, 2019)・耳塚寛明(2007)が示すように、日本では SES(社会経済的地位)により保護者の教育的関与に構造的な差があり、学校からの一律の呼びかけだけでは格差は縮まらない可能性がある。EEF の +4 ヶ月は『連携できた場合』の効果量であり、**学校側からの積極的・非対称的な働きかけ**(連携できない家庭の子へのフォロー)が併せて必要。
 ---

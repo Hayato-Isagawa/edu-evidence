@@ -15,7 +15,17 @@ evidence:
     monthsGained: 4
     strength: 4
     note: "EEF Toolkit で +4ヶ月・エビデンス★4。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析で、2-5 人のグループでも 1 対 1 に近い効果が得られる。6 人を超えると効果が薄れる。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 96
+  sampleSize: "幼児〜高校生(PreK-12、96 件 RCT)"
+  effectSize: "d ≈ 0.37(全体)。グループサイズ 2〜5 人で 1 対 1 に近い効果、6 人超で減衰"
+  primaryMetaAnalysis:
+    authors: "Nickow, Oreopoulos & Quan"
+    year: 2020
+    title: "The Impressive Effects of Tutoring on PreK-12 Learning: A Systematic Review and Meta-Analysis"
+    url: "https://doi.org/10.3386/w27476"
+  limitations: "実施者によって効果が減衰(教師 > 訓練を受けた補助員 > ボランティア)。短期集中(8〜12 週間)で最も効果が出やすく、長期化で逓減。『少人数指導』と『少人数学級』の混同に注意(後者は EEF 別項目で効果限定的)。"
 culturalContext: |
   日本では『少人数学級』と『少人数指導』が混同されがちだが、EEF のエビデンスは **学級規模の縮小(reducing class size)ではなく、小集団での補充・発展指導** に関するもの。文部科学省が進める 35 人学級化は学級規模縮小であり、EEF では別項目(効果は限定的)として扱われる。**習熟度別少人数指導・TT・支援員との連携**などが EEF の少人数指導に対応する。ラベリング回避とグループ流動化が日本でも有効。
 ---

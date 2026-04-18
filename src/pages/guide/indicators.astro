@@ -13,12 +13,12 @@ import Layout from "../../layouts/Layout.astro";
       <h1
         class="font-black text-5xl md:text-6xl leading-[1.15] tracking-tight"
       >
-        3つの指標の<br /><span class="text-[var(--color-accent)]">読み方</span>
+        4つの指標の<br /><span class="text-[var(--color-accent)]">読み方</span>
       </h1>
     </div>
     <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
       <p>
-        本サイトの各指導法には3つの指標が付いています。<br />
+        本サイトの各指導法には4つの指標が付いています。<br />
         ここでは、それぞれの意味と読み取り方を解説します。
       </p>
     </div>
@@ -43,8 +43,8 @@ import Layout from "../../layouts/Layout.astro";
         <div class="space-y-2">
           <h3 class="font-bold">具体的なイメージ</h3>
           <p>
-            通常、子どもは1学年(12ヶ月)で12ヶ月分の学力が伸びます。
-            「+6ヶ月」の指導法を取り入れた場合、同じ1年間で18ヶ月分の学力が伸びた——
+            通常、子どもは1学年分(1年間)の学習で標準的な成長をします。
+            「+6ヶ月」の指導法を取り入れた場合、同じ1年間で<strong>約1年半分の成長</strong>が得られた——
             つまり、3月の時点で<strong>通常より約半年先の学力水準に到達した</strong>ということです。
           </p>
         </div>
@@ -65,9 +65,37 @@ import Layout from "../../layouts/Layout.astro";
             <li>・月数が小さい指導法が「意味がない」のではなく、効果が小さめだということです</li>
           </ul>
         </div>
+        <div class="border-l-4 border-[var(--color-accent)] pl-5 py-1 space-y-2 bg-[var(--color-accent)]/5 -mx-5 pr-5">
+          <h3 class="font-bold">【重要】この数値は「学力」への効果のみです</h3>
+          <p class="text-sm">
+            「+◯ヶ月」は主に<strong>テストで測定可能な学力(読解・算数等)</strong>への効果を示しています。
+            しかし、教育には学力以外にも重要な側面が数多くあります:
+          </p>
+          <ul class="text-sm space-y-1 pl-4">
+            <li>・<strong>非認知能力</strong> — 自己肯定感・粘り強さ・協調性・動機づけ</li>
+            <li>・<strong>社会性・情動</strong> — 他者理解・感情調整・対人スキル</li>
+            <li>・<strong>行動面</strong> — 学校適応・出席率・問題行動の減少</li>
+            <li>・<strong>ウェルビーイング</strong> — 学校が楽しい、安心できる場所である感覚</li>
+          </ul>
+          <p class="text-sm">
+            たとえば<a href="/strategies/social-emotional-learning" class="link-underline text-[var(--color-accent)]">SEL(+4ヶ月)</a>、
+            <a href="/strategies/arts-participation" class="link-underline text-[var(--color-accent)]">芸術活動(+3ヶ月)</a>、
+            <a href="/strategies/outdoor-learning" class="link-underline text-[var(--color-accent)]">屋外学習(+3ヶ月)</a>、
+            <a href="/strategies/mentoring" class="link-underline text-[var(--color-accent)]">メンタリング(+2ヶ月)</a>などは、
+            <strong>学力効果は小さくても、非認知的な側面で大きな価値</strong>を持つことが多くの研究で示されています。
+            月数だけで判断せず、<strong>「この指導で何を育てたいのか」</strong>と合わせて検討してください。
+          </p>
+          <p class="text-xs text-[var(--color-sub)]">
+            EEF も公式の使い方ガイド(<a href="https://educationendowmentfoundation.org.uk/education-evidence/using-the-toolkits" target="_blank" rel="noopener" class="link-underline">Using the Toolkits</a>)で「Toolkit は教育的達成度(attainment)を主要な指標としており、意欲・出席・行動など他の成果はこの月数に体系的に反映されていない」と明記しています。
+          </p>
+        </div>
         <div class="space-y-3">
           <h3 class="font-bold">目安としての読み方</h3>
-          <div class="grid grid-cols-3 gap-4 text-sm text-center">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-center">
+            <div class="border border-red-600/30 rounded-lg p-4 space-y-1 bg-red-50/30">
+              <div class="text-2xl font-black text-red-600">-1 以下</div>
+              <div class="text-[var(--color-sub)]">やらない方が<br />よかった領域</div>
+            </div>
             <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
               <div class="text-2xl font-black text-[var(--color-accent)]">+1〜3</div>
               <div class="text-[var(--color-sub)]">小さいが<br />確認できる効果</div>
@@ -77,10 +105,21 @@ import Layout from "../../layouts/Layout.astro";
               <div class="text-[var(--color-sub)]">中程度〜<br />大きな効果</div>
             </div>
             <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
-              <div class="text-2xl font-black text-[var(--color-accent)]">+7〜</div>
+              <div class="text-2xl font-black text-[var(--color-accent)]">+7 以上</div>
               <div class="text-[var(--color-sub)]">非常に<br />大きな効果</div>
             </div>
           </div>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-bold">マイナスの値について</h3>
+          <p>
+            「-◯ヶ月」は、その取り組みを行った学級が、<strong>行わなかった場合より◯ヶ月分遅れた</strong>ことを意味します。
+            本サイトでは直感に反してでも効果のない・逆効果の研究知見も掲載しており、例えば
+            <a href="/strategies/repeating-a-year" class="link-underline text-[var(--color-accent)]">留年(-4ヶ月)</a>、
+            <a href="/strategies/corporal-punishment" class="link-underline text-[var(--color-accent)]">体罰(-3ヶ月)</a>、
+            <a href="/strategies/suspension" class="link-underline text-[var(--color-accent)]">停学・出席停止(-2ヶ月)</a> など、
+            <strong>「やってはいけない」ことをエビデンスで確認する</strong>ためにも使えます。
+          </p>
         </div>
       </div>
     </div>
@@ -102,7 +141,7 @@ import Layout from "../../layouts/Layout.astro";
           <div class="space-y-3">
             <div class="flex gap-4 items-start">
               <span class="text-amber-500 shrink-0">★☆☆☆☆</span>
-              <span>研究の数が少ない、または研究の質が低い。参考程度</span>
+              <span>研究は存在するが数が少なく、結論は初期段階のもの</span>
             </div>
             <div class="flex gap-4 items-start">
               <span class="text-amber-500 shrink-0">★★☆☆☆</span>
@@ -143,30 +182,49 @@ import Layout from "../../layouts/Layout.astro";
       <div class="text-4xl text-emerald-700 tracking-widest">¥¥···</div>
       <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
         <p>
-          その指導法を導入するのにかかる<strong>金銭的・時間的コスト</strong>の概算です。
+          その指導法を導入するのに、児童1人あたり年間どのくらいの<strong>金銭的コスト</strong>がかかるかの概算です。
+          EEF Toolkit の基準(英ポンド £)を日本円に換算し、日本の小学校の文脈に合わせた目安としています。
+        </p>
+        <p class="text-xs text-[var(--color-sub)]">
+          ※ 下記の日本円換算は <strong>2026年4月時点(1£ ≒ 215円)</strong> の為替レートに基づく概算です。為替変動により数値は変わります。
         </p>
         <div class="space-y-3">
-          <h3 class="font-bold">¥の基準</h3>
+          <h3 class="font-bold">¥の基準(児童1人あたり年間)</h3>
           <div class="space-y-3">
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0">¥····</span>
-              <span>教師の工夫だけで始められる。特別な予算不要</span>
+              <span class="text-emerald-700 shrink-0 font-mono">¥····</span>
+              <div>
+                <div><strong>0円〜約17,000円</strong>（EEF: £0–£80）</div>
+                <div class="text-[var(--color-sub)] text-sm">教師の工夫で始められる。特別な予算不要。例: フィードバック、メタ認知の指導、検索練習</div>
+              </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0">¥¥···</span>
-              <span>少額の教材費、または短時間の研修が必要</span>
+              <span class="text-emerald-700 shrink-0 font-mono">¥¥···</span>
+              <div>
+                <div><strong>約17,000〜43,000円</strong>（EEF: £80–£200）</div>
+                <div class="text-[var(--color-sub)] text-sm">少額の教材費や短時間の研修。例: 協同学習、SEL、マスタリーラーニング</div>
+              </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0">¥¥¥··</span>
-              <span>まとまった教材費、定期的な研修、一部人員の確保が必要</span>
+              <span class="text-emerald-700 shrink-0 font-mono">¥¥¥··</span>
+              <div>
+                <div><strong>約43,000〜150,000円</strong>（EEF: £200–£700）</div>
+                <div class="text-[var(--color-sub)] text-sm">まとまった教材費、定期的な研修、一部人員の確保。例: 少人数指導、保護者との連携プログラム</div>
+              </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0">¥¥¥¥·</span>
-              <span>相当な予算、専門スタッフの配置、または大規模な研修が必要</span>
+              <span class="text-emerald-700 shrink-0 font-mono">¥¥¥¥·</span>
+              <div>
+                <div><strong>約150,000〜258,000円</strong>（EEF: £700–£1,200）</div>
+                <div class="text-[var(--color-sub)] text-sm">専門スタッフの配置、大規模な研修、ICT環境整備。例: 個別指導、補助スタッフの活用</div>
+              </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0">¥¥¥¥¥</span>
-              <span>人員増や施設変更など、組織的な投資が必要</span>
+              <span class="text-emerald-700 shrink-0 font-mono">¥¥¥¥¥</span>
+              <div>
+                <div><strong>約258,000円以上</strong>（EEF: £1,200以上）</div>
+                <div class="text-[var(--color-sub)] text-sm">学級編成の変更、教員増員など、組織的・制度的投資。例: 学級規模の縮小、教科担任制</div>
+              </div>
             </div>
           </div>
         </div>
@@ -174,9 +232,62 @@ import Layout from "../../layouts/Layout.astro";
           <h3 class="font-bold">費用対効果の考え方</h3>
           <p>
             「+◯ヶ月」の効果が大きくても、コストが見合わない場合があります。
-            逆に、効果がやや小さくても、¥1つで明日から始められる指導法は、
-            費用対効果が非常に高いと言えます。
-            本サイトでは3指標を総合的に見ることをおすすめしています。
+            たとえば学級規模の縮小は +1ヶ月の効果に対して ¥¥¥¥¥ のコストがかかる一方、
+            フィードバックの改善は +6ヶ月の効果を ¥ つまりほぼ無料で得られます。
+            「効果 ÷ コスト」で考えると、後者の方が圧倒的に費用対効果が高いと言えます。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 出典(ソース) -->
+    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+      <div class="flex items-center gap-6">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">04</span>
+        <h2 class="text-3xl font-black tracking-tight">出典バッジ</h2>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-sky-800 border-sky-800/40 bg-sky-50">EEF</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-rose-700 border-rose-700/40 bg-rose-50">日本</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-amber-800 border-amber-800/40 bg-amber-50">Hattie</span>
+      </div>
+      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+        <p>
+          各指導法に付いているバッジは、その効果量が<strong>どの研究ソースに基づいているか</strong>を示します。
+          複数のソースに該当する場合は、複数のバッジが表示されます。
+        </p>
+        <div class="space-y-3">
+          <h3 class="font-bold">各バッジの意味</h3>
+          <div class="space-y-3">
+            <div class="flex gap-4 items-start">
+              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-sky-800 border-sky-800/40 bg-sky-50 shrink-0 mt-1">EEF</span>
+              <div>
+                <div><strong>英国 Education Endowment Foundation</strong></div>
+                <div class="text-[var(--color-sub)] text-sm">Teaching and Learning Toolkit に基づく。数百〜数千本のメタ分析を統合。本サイトの主要参照元。</div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-rose-700 border-rose-700/40 bg-rose-50 shrink-0 mt-1">日本</span>
+              <div>
+                <div><strong>日本国内の研究</strong></div>
+                <div class="text-[var(--color-sub)] text-sm">中室牧子・松岡亮二・赤林英夫・耳塚寛明 等による実証研究。日本の文脈に最も近い知見。</div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-amber-800 border-amber-800/40 bg-amber-50 shrink-0 mt-1">Hattie</span>
+              <div>
+                <div><strong>Hattie の Visible Learning</strong></div>
+                <div class="text-[var(--color-sub)] text-sm">800以上のメタ分析を統合。影響力は大きいが、効果量が楽観的に出やすい傾向があり、参考値として扱う。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-bold">優先順位</h3>
+          <p>
+            複数のソースで値が異なる場合、本サイトは以下の順で代表値を選んでいます:
+            <strong>日本研究(★3以上) &gt; EEF &gt; Hattie(保守的に調整) &gt; 推測値(0として扱う)</strong>。
+            詳しくは <a href="/guide/cultural-context" class="link-underline text-[var(--color-accent)]">エビデンスと文化的文脈</a> を参照。
           </p>
         </div>
       </div>
@@ -185,7 +296,7 @@ import Layout from "../../layouts/Layout.astro";
     <!-- まとめ -->
     <div class="border-t border-[var(--color-line)] pt-10 text-center space-y-8">
       <p class="text-[var(--color-sub)] leading-loose">
-        3つの指標は、いずれも「絶対的な答え」ではありません。<br />
+        4つの指標は、いずれも「絶対的な答え」ではありません。<br />
         目の前の子どもと教室の状況を踏まえて、<br />
         <strong class="text-[var(--color-ink)]">判断の参考</strong>としてお使いください。
       </p>

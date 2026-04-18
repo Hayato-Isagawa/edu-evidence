@@ -15,7 +15,17 @@ evidence:
     monthsGained: 6
     strength: 5
     note: "EEF Toolkit で +6ヶ月・エビデンス★5。幼児期 +7、小学校 +6、中学校 +5。週3回以上の頻繁なセッションが効果的。話すことと聞くことの両方に焦点を当てる。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-17"
+methodology:
+  studies: 222
+  sampleSize: "幼児〜中等教育(2025年5月 EEF 更新で 188→222 研究)"
+  effectSize: "+6ヶ月(幼児期 +7、小学校 +6、中学校 +5)"
+  primaryMetaAnalysis:
+    authors: "EEF(Teaching and Learning Toolkit)"
+    year: 2025
+    title: "Oral language interventions — Technical Appendix"
+    url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions/technical-appendix"
+  limitations: "含まれる研究の多くは英語圏で実施されており、日本語の言語指導に直接当てはめる際には語彙指導の内容・頻度・構造化の度合いを日本の文脈に合わせる必要がある。また『口頭言語介入』は語彙指導・談話スキル・ナラティブ指導など多様な活動を含む総称で、どの要素が特に効いているかは活動ごとに異なる。自由会話だけでは効果が小さく、構造化された介入の方が効果量が大きい傾向がある。"
 culturalContext: |
   日本の「話す・聞くこと」の指導は、低学年国語・生活科・道徳など複数の場面で実践されているが、EEF が示す『会話を通じた明示的な語彙指導』『談話スキルの構造化された練習』までは踏み込まない場合がある。低学年の語彙基盤の差は後の読解・学力に直結するため、話す・聞くの指導は **早期・頻繁・意図的** であることが鍵。
 ---

@@ -1,4 +1,5 @@
 import satori from "satori";
+import type { ReactNode } from "react";
 import sharp from "sharp";
 
 interface OgParams {
@@ -40,10 +41,9 @@ export async function generateOgImage(params: OgParams): Promise<Buffer> {
     fontData = await fallbackRes.arrayBuffer();
   }
 
-  const svg = await satori(
-    {
-      type: "div",
-      props: {
+  const element = {
+    type: "div",
+    props: {
         style: {
           width: "1200px",
           height: "630px",
@@ -155,20 +155,20 @@ export async function generateOgImage(params: OgParams): Promise<Buffer> {
           },
         ],
       },
-    },
-    {
-      width: 1200,
-      height: 630,
-      fonts: [
-        {
-          name: "Noto Sans JP",
-          data: fontData,
-          weight: 700,
-          style: "normal" as const,
-        },
-      ],
-    }
-  );
+  };
+
+  const svg = await satori(element as unknown as ReactNode, {
+    width: 1200,
+    height: 630,
+    fonts: [
+      {
+        name: "Noto Sans JP",
+        data: fontData,
+        weight: 700,
+        style: "normal" as const,
+      },
+    ],
+  });
 
   return await sharp(Buffer.from(svg)).png().toBuffer();
 }

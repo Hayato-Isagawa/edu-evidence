@@ -53,6 +53,25 @@ const strategies = defineCollection({
 
     // 最終検証日: 一次ソースとの照合日
     lastVerified: z.string().optional(),
+
+    // Technical Appendix: 計算根拠の構造化データ(オプション)
+    // EEF 方式に倣い、戦略ページで「研究の詳細」セクションを表示
+    methodology: z
+      .object({
+        studies: z.number().optional(),           // メタ分析に含まれる研究数
+        sampleSize: z.string().optional(),        // 総サンプルサイズ(例: "10,500人")
+        effectSize: z.string().optional(),        // 効果量(例: "d=0.37, 95%CI [0.30, 0.44]")
+        primaryMetaAnalysis: z
+          .object({
+            authors: z.string(),                  // 著者(例: "Nickow, Oreopoulos & Quan")
+            year: z.number(),                     // 発表年
+            title: z.string(),                    // 論文タイトル
+            url: z.string().url().optional(),     // DOI 等のリンク
+          })
+          .optional(),
+        limitations: z.string().optional(),       // エビデンスの限界
+      })
+      .optional(),
   }),
 });
 
