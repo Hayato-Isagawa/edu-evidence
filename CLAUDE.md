@@ -5,11 +5,14 @@
 ## ビルド・テスト
 
 ```bash
-npm run dev          # 開発サーバー(localhost:4321)
-npm run build        # 本番ビルド(OG画像73枚 + Pagefindインデックス生成、約2分)
-npm run test:e2e     # Playwright E2Eテスト(16テスト、ビルド後に実行)
-npm run check        # Astro型チェック
-npm run check:text   # textlint日本語校正
+npm run dev                # 開発サーバー(localhost:4321)
+npm run build              # 本番ビルド(OG画像73枚 + Pagefindインデックス生成、約2分)
+npm run test:e2e           # Playwright E2Eテスト(16テスト、ビルド後に実行)
+npm run check              # Astro型チェック
+npm run check:text         # textlint日本語校正
+npm run check:consistency  # monthsGained 整合性チェック
+npm run check:stale        # lastVerified 期限切れチェック
+npm run check:all          # 上記チェックを一括実行
 ```
 
 ## プロジェクト構造
@@ -37,24 +40,18 @@ npm run check:text   # textlint日本語校正
 
 ## frontmatter スキーマ
 
-```yaml
-title: string
-summary: string
-monthsGained: number        # -4 ~ +8 の範囲
-evidenceStrength: 1-5
-cost: 1-5
-subjects: string[]
-grades: string[]
-tags: string[]
-source: "eef" | "japan" | "hattie" | "mixed"
-sourceUrl: string
-sourceTitle: string
-evidence:
-  eef: { monthsGained?, strength?, note? }
-  japan: { monthsGained?, strength?, note?, researcher? }
-  hattie: { cohensD?, note? }
-culturalContext: string      # 日本の文脈での注記
-```
+詳細な型定義は `src/content.config.ts` を参照。主要フィールド:
+
+- `title` / `summary` — 必須
+- `monthsGained` — 効果量(月数換算、整数)
+- `evidenceStrength` / `cost` — 段階評価
+- `subjects` / `grades` / `tags` — 分類
+- `category` — カテゴリ(指導法 / 制度・環境 / 知っておくべき知見 / 認知科学 / 家庭・外部)
+- `source` / `sourceUrl` / `sourceTitle` — 出典
+- `evidence.{eef,japan,hattie}` — 出典別の詳細(併記用、オプション)
+- `culturalContext` — 日本の文脈での注記
+- `lastVerified` — 最終検証日(YYYY-MM-DD)
+- `methodology` — 研究詳細(Technical Appendix、オプション)
 
 ## ソースバッジの仕組み
 
