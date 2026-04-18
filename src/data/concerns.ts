@@ -134,6 +134,7 @@ export const concernCategories: ConcernCategory[] = [
           "one-to-one-tuition",
           "metacognition",
         ],
+        columns: ["special-needs-8-8-percent"],
       },
       {
         slug: "inequality",
