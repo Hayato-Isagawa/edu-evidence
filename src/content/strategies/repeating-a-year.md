@@ -16,7 +16,17 @@ evidence:
     monthsGained: -4
     strength: 4
     note: "EEF Toolkit で -4ヶ月・エビデンス★4(高)。留年は学力・自己肯定感・中退リスクすべてに負の効果。Jimerson(2001)・Allen et al.(2009)のメタ分析でも一貫して負の効果。コスト(+5)は追加年度の教育費用を反映。『追加支援付きの進級』が唯一効果的な代替案。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 22
+  sampleSize: "207 効果量 / 22 研究(1990〜2007、主に米国)"
+  effectSize: "研究設計の質に依存。低質な研究は大きな負の効果、高質な研究では効果はゼロ近くまで小さくなる"
+  primaryMetaAnalysis:
+    authors: "Allen, Chen, Willson & Hughes"
+    year: 2009
+    title: "Quality of Research Design Moderates Effects of Grade Retention on Achievement: A Meta-Analytic, Multilevel Analysis"
+    url: "https://journals.sagepub.com/doi/abs/10.3102/0162373709352239"
+  limitations: "留年効果は研究設計で大きく変動。Jimerson(2001)・Hattie は一貫して負の効果を報告する一方、Allen 2009 の高質研究ではゼロ近く。EEF の −4ヶ月は複数メタ分析を統合した値で、保守的な推定。米国型の強制的留年と、追加支援付き進級(代替案)との比較が重要。日本では制度上ほぼ行われず、参照知識としての意義が中心。"
 culturalContext: |
   **日本の小学校では制度上ほぼ留年は行われない**(病気・長期欠席での特例を除く)ため、この項目は日本では『参照しない選択肢』として意味を持つ。一方、国際比較(PISA)では留年率の高い国(フランス・ドイツ等)で学力格差が大きい傾向があり、留年制度そのものが格差拡大要因となる可能性が示唆される。日本の自動進級制度は、EEF のエビデンスと整合する設計と言える。
 ---

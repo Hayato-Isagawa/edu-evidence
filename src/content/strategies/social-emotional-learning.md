@@ -15,7 +15,17 @@ evidence:
     monthsGained: 4
     strength: 4
     note: "EEF Toolkit で +4ヶ月・エビデンス★4。Durlak et al.(2011)の 213 プログラム(270,034 人)メタ分析で、学力が平均 11 パーセンタイル向上、社会性・態度・行動にも正の効果。Taylor et al.(2017)が効果の持続も確認。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  studies: 213
+  sampleSize: "270,034 名(小学校 56% / 中学校 31% / 高校 他)"
+  effectSize: "全体 d=0.30(学力は 11 パーセンタイル点の向上、社会性・態度・行動にも正の効果)"
+  primaryMetaAnalysis:
+    authors: "Durlak, Weissberg, Dymnicki, Taylor & Schellinger"
+    year: 2011
+    title: "The Impact of Enhancing Students' Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions"
+    url: "https://srcd.onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2010.01564.x"
+  limitations: "プログラム(CASEL 系など)と実施者(教師 53% / 外部 21%)で効果量が変動。Taylor et al.(2017)は効果の持続を確認しつつも一定の減衰を示す。非英語圏の研究が相対的に少なく、日本の道徳・特活との直接比較は未成熟。"
 culturalContext: |
   日本には『特別活動(学級活動)』『道徳科』『生活科』という SEL と重なる既存枠組みがあり、感情理解・対人関係・意思決定の要素は既にカリキュラムに組み込まれている。ただし、**CASEL のような体系的な 5 領域フレームと、明示的なプログラム(レッスンプラン・評価)という形では整備されていない**。中室牧子(2015)は Heckman のペリー就学前研究を引用し、非認知能力の育成が学力と同等以上に重要と論じた。日本の文脈では SEL を『新しいもの』として導入するより、**既存の特活・道徳を SEL の枠組みで再構成**するアプローチが現実的。
 ---

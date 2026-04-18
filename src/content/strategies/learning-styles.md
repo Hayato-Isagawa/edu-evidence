@@ -17,7 +17,16 @@ evidence:
   hattie:
     cohensD: 0.23
     note: "Pashler et al.(2008)の大規模レビューは、学習スタイル理論を支持する質の高いエビデンスは**ほぼ存在しない**と結論。VARK 等の学習スタイル分類は神経神話(neuromyth)の代表例。教師の 90% 以上が信じているが、科学的裏付けは無い(Dekker et al. 2012)。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-18"
+methodology:
+  sampleSize: "広範な実証研究のレビュー(Psychological Science in the Public Interest)"
+  effectSize: "『学習スタイル × 指導法』の交互作用を示す質の高い研究は実質的に存在しない"
+  primaryMetaAnalysis:
+    authors: "Pashler, McDaniel, Rohrer & Bjork"
+    year: 2008
+    title: "Learning Styles: Concepts and Evidence"
+    url: "https://journals.sagepub.com/doi/10.1111/j.1539-6053.2009.01038.x"
+  limitations: "『学習スタイル』の定義(VARK、認知スタイル、Kolb 型など)は多様で、概念的統一性が弱い。検証には『学習スタイル A の子は指導法 X で、B の子は指導法 Y で最大効果』という交互作用の実証が必要だが、この設計の質の高い研究は非常に少ない。教師の 90% 以上が学習スタイル理論を信じる(Dekker et al. 2012)一方で、科学的裏付けはない『神経神話(neuromyth)』の代表例。"
 culturalContext: |
   **日本の教員研修・教職課程でも『視覚型・聴覚型・運動型』といった学習スタイル理論が今も紹介されることがある** が、国際的にはこれは神経神話と位置づけられている。教師が『この子は視覚型だから図で教えよう』と決めつけることは、固定観念の強化・指導の偏向につながる危険性がある。代わりに **二重符号化(dual-coding)** — 全員に言葉+図の両方を提示する — が認知科学的に支持される。
 ---
