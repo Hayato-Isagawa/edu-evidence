@@ -80,7 +80,67 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
 
-      <!-- ② 編集方針(エディトリアル・ポリシー) -->
+      <!-- ② 本サイトのつくり方(AI 支援と検証プロセスの透明化) -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-black tracking-tight">本サイトのつくり方</h2>
+        <p>
+          AI の普及で教育情報が玉石混交になる中、「研究で確かめられたこと」と「確かめられていないこと」を明確に区別することに価値があると考え、以下のプロセスで運営しています。
+        </p>
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <h3 class="font-bold text-lg">制作プロセス</h3>
+            <ol class="list-decimal pl-6 space-y-2">
+              <li>
+                <strong>情報収集</strong> — AI を活用し、EEF Teaching and Learning Toolkit、Visible Learning、国内外のメタ分析を横断的に検索します
+              </li>
+              <li>
+                <strong>下書き生成</strong> — 候補となる指導法やコラムの下書きを AI が作成します
+              </li>
+              <li>
+                <strong>一次研究での検証(ここが要)</strong> — 効果量(+◯ヶ月)や引用論文は、著者が一次研究(メタ分析・RCT)を<strong>必ず自分の目で確かめてから公開</strong>します。推測で数値を書くことは禁じています(<a
+                  class="link-underline text-[var(--color-accent)]"
+                  href="https://github.com/Hayato-Isagawa/edu-evidence/blob/main/docs/CONTENT_GUIDELINES.md"
+                  target="_blank"
+                  rel="noopener">詳細ルール</a>)
+              </li>
+              <li>
+                <strong>継続的な再検証</strong> — リンク切れや 12 ヶ月以上前の検証データは自動で検知し、人間が再確認します(<a
+                  class="link-underline text-[var(--color-accent)]"
+                  href="https://github.com/Hayato-Isagawa/edu-evidence/tree/main/.github/workflows"
+                  target="_blank"
+                  rel="noopener">自動化ワークフロー</a>)
+              </li>
+            </ol>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-lg">過去の失敗と、そこから学んだこと</h3>
+            <p>
+              運営初期、AI が生成した下書きをそのまま載せた結果、<strong>7 件中 5 件の効果量が研究と一致しない</strong>ことが判明しました。たとえば「朝食欠食は +3 ヶ月」と書いたのですが、実際の研究は「効果は subtle で月数換算できない」が正しい記述でした。
+            </p>
+            <p>
+              この失敗を受けて、数値はすべて一次研究で裏付けを取るルールを徹底しました。失敗の詳細も <a
+                class="link-underline text-[var(--color-accent)]"
+                href="https://github.com/Hayato-Isagawa/edu-evidence/blob/main/docs/CONTENT_GUIDELINES.md"
+                target="_blank"
+                rel="noopener">GitHub 上で公開</a>しています。
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-lg">なぜこの運用か</h3>
+            <p>
+              教員のあなたが授業改善を考えるとき、「それは研究で確かめられているか?」を確かめられる日本語の情報源はほとんどありません。AI はその網を広げる強力な道具ですが、<strong>AI だけに頼ると「もっともらしい嘘」を広げてしまう</strong>ことが、上記の失敗で分かりました。
+            </p>
+            <p class="font-bold">
+              AI はあくまで道具。「なにが正しいか」の判断は人間が担う。
+            </p>
+            <p>
+              この原則で運営しています。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ③ 編集方針(エディトリアル・ポリシー) -->
       <div class="space-y-6">
         <h2 class="text-2xl font-black tracking-tight">編集方針</h2>
         <div class="space-y-6">
