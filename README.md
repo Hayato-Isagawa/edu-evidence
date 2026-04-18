@@ -62,6 +62,12 @@ npm run test:e2e
 | `npm run preview` | ビルド結果のローカルプレビュー |
 | `npm run check` | Astro の型チェック |
 | `npm run check:text` | textlint による日本語校正 |
+| `npm run check:text:fix` | textlint で自動修正 |
+| `npm run check:consistency` | monthsGained 整合性チェック |
+| `npm run check:stale` | lastVerified 期限切れチェック |
+| `npm run check:links` | ビルド後のローカルリンクチェック |
+| `npm run check:links:live` | 本番サイトのリンクチェック |
+| `npm run check:all` | check + check:text + check:consistency + check:links を一括実行 |
 | `npm run test:e2e` | Playwright E2E テスト |
 | `npm run test:e2e:ui` | Playwright UI モード |
 

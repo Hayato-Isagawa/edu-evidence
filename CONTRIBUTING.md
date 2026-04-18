@@ -94,10 +94,14 @@ culturalContext: |
 
 ```bash
 npm install
-npm run dev        # 開発サーバー
-npm run build      # ビルド
-npm run test:e2e   # E2E テスト
-npm run check:text # 日本語校正
+npm run dev                # 開発サーバー
+npm run build              # ビルド
+npm run test:e2e           # E2E テスト
+npm run check              # Astro 型チェック
+npm run check:text         # textlint 日本語校正
+npm run check:consistency  # monthsGained 整合性チェック
+npm run check:stale        # lastVerified 期限切れチェック
+npm run check:all          # 上記チェックを一括実行
 ```
 
 ## 行動規範
