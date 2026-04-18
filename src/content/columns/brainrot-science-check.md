@@ -20,8 +20,8 @@ relatedStrategies: ["screen-time", "social-media-mental-health", "digital-techno
 
 | エビデンス | 効果量 | 出典 |
 |---|---|---|
-| スクリーンタイム | −2ヶ月 | Madigan et al.(2019) / Oswald et al.(2020) |
-| SNS利用 | −1ヶ月 | Viner et al.(2019) |
+| [スクリーンタイム](/strategies/screen-time) | −2ヶ月 | Madigan et al.(2019) / Oswald et al.(2020) |
+| [SNS利用](/strategies/social-media-mental-health) | −1ヶ月 | Viner et al.(2019) |
 
 いずれも **Cohen's d = −0.15 〜 −0.18** 程度で、統計的には「小さい効果量」に分類されます。
 
