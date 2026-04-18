@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -74,3 +75,59 @@ jobs:
           name: lychee-report-${{ github.run_id }}
           path: lychee-report.md
           retention-days: 14
+
+      - name: Create Issue on broken links
+        if: steps.lychee.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+
+          if [ ! -s lychee-report.md ]; then
+            echo "lychee-report.md is missing or empty; skipping issue creation."
+            exit 0
+          fi
+
+          # Ensure labels exist (idempotent)
+          for label in automated link-check needs-human-review; do
+            gh label create "$label" --force >/dev/null 2>&1 || true
+          done
+
+          # Skip if an open Issue already tracks broken links
+          existing=$(gh issue list \
+            --label link-check \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          if [ -n "$existing" ]; then
+            echo "Existing open link-check Issue #$existing found. Skipping creation."
+            exit 0
+          fi
+
+          today=$(date -u +'%Y-%m-%d')
+
+          {
+            echo "週次の自動リンクチェックでリンク切れを検出しました。"
+            echo ""
+            echo "- Workflow run: $RUN_URL"
+            echo "- 検出日 (UTC): $today"
+            echo ""
+            echo "一次研究の URL 変更・出版社サイトのメンテナンス等、人間の判断が必要です。"
+            echo "修正が完了したらこの Issue を close してください。"
+            echo ""
+            echo "## lychee レポート"
+            echo ""
+            head -c 60000 lychee-report.md
+            if [ "$(wc -c < lychee-report.md)" -gt 60000 ]; then
+              echo ""
+              echo ""
+              echo "_(レポートが長いため末尾を省略しました。全文は上記 Workflow run のアーティファクト \`lychee-report-*\` を参照してください)_"
+            fi
+          } > issue-body.md
+
+          gh issue create \
+            --title "[auto] Broken links detected ($today)" \
+            --body-file issue-body.md \
+            --label "automated,link-check,needs-human-review"
