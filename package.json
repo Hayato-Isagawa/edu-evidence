@@ -13,6 +13,7 @@
     "check:text": "textlint 'src/content/**/*.md'",
     "check:text:fix": "textlint --fix 'src/content/**/*.md'",
     "check:consistency": "npx tsx scripts/check-consistency.ts",
+    "check:stale": "npx tsx scripts/check-stale.ts",
     "check:all": "npm run check && npm run check:text && npm run check:consistency && npm run check:links",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui"

@@ -1,0 +1,97 @@
+name: Stale Content Check
+
+on:
+  schedule:
+    # Every month on the 1st at 09:00 JST (= 00:00 UTC on the 1st)
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+concurrency:
+  group: stale-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check stale lastVerified
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run stale check
+        id: stale
+        continue-on-error: true
+        run: npx tsx scripts/check-stale.ts > stale-report.md
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: stale-report-${{ github.run_id }}
+          path: stale-report.md
+          retention-days: 30
+
+      - name: Create Issue on stale entries
+        if: steps.stale.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+
+          if [ ! -s stale-report.md ]; then
+            echo "stale-report.md is missing or empty; skipping issue creation."
+            exit 0
+          fi
+
+          # Ensure labels exist (idempotent)
+          for label in automated stale-check needs-human-review; do
+            gh label create "$label" --force >/dev/null 2>&1 || true
+          done
+
+          # Skip if an open Issue already tracks stale entries
+          existing=$(gh issue list \
+            --label stale-check \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          if [ -n "$existing" ]; then
+            echo "Existing open stale-check Issue #$existing found. Skipping creation."
+            exit 0
+          fi
+
+          today=$(date -u +'%Y-%m-%d')
+
+          {
+            echo "月次の自動チェックで、\`lastVerified\` から 365 日以上経過した戦略を検出しました。"
+            echo ""
+            echo "- Workflow run: $RUN_URL"
+            echo "- 検出日 (UTC): $today"
+            echo ""
+            echo "---"
+            echo ""
+            head -c 60000 stale-report.md
+            if [ "$(wc -c < stale-report.md)" -gt 60000 ]; then
+              echo ""
+              echo ""
+              echo "_(レポートが長いため末尾を省略しました。全文は上記 Workflow run のアーティファクト \`stale-report-*\` を参照してください)_"
+            fi
+          } > issue-body.md
+
+          gh issue create \
+            --title "[auto] Stale content detected ($today)" \
+            --body-file issue-body.md \
+            --label "automated,stale-check,needs-human-review"
