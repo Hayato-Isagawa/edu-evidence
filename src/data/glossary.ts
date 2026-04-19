@@ -36,6 +36,7 @@ export const glossary: GlossaryTerm[] = [
   { term: "ZPD", en: "Zone of Proximal Development", short: "一人ではできないが支援があればできる領域(ヴィゴツキー)", def: "ヴィゴツキーが提唱。「一人ではできないが、適切な支援があればできる」領域。足場かけの理論的根拠。" },
   { term: "学習指導要領", en: "Course of Study", short: "文部科学省が告示する全国共通の教育課程の基準", def: "文部科学省が告示する全国共通の教育課程の基準。約10年ごとに改訂される。現行版(2017年告示)の核は「主体的・対話的で深い学び」と「資質・能力の三つの柱」。" },
   { term: "学力格差", en: "Achievement gap", short: "家庭背景・地域等により学力が異なる現象", def: "子どもの学力が家庭背景・地域・学校等の要因で異なる現象。日本でもSESによる学力格差は明確に存在する。" },
+  { term: "教育格差", en: "Educational disparity", short: "「生まれ」で教育結果(学力・進学率・学歴等)に差が生じる現象", def: "家庭のSES・地域・性別など「個人が選べない属性」によって、教育結果(学力・進学率・学歴・文化資本)に差が生まれる現象。松岡亮二氏『教育格差』(ちくま新書, 2019)が日本におけるSES・地域・性別の影響を包括的に実証し、日本を「緩やかな身分社会」として論じた。学力格差(Achievement gap)より広い概念で、学力だけでなく進路選択・教育投資の世代間継承までを含む。" },
   { term: "ICT", en: "Information and Communication Technology", short: "情報通信技術。PC・タブレット・ネット等の活用", def: "情報通信技術。教育分野ではPC・タブレット・インターネット等を活用した指導・学習を指す。GIGAスクール構想で1人1台端末が整備された。" },
   { term: "PISA", en: "Programme for International Student Assessment", short: "OECDの国際学力調査(15歳対象・3年ごと)", def: "OECDが3年ごとに実施する国際学力調査。15歳(日本では高1)を対象に、読解力・数学的リテラシー・科学的リテラシーを測定。日本の教育政策に大きな影響を与える。" },
   { term: "OECD", en: "Organisation for Economic Co-operation and Development", short: "経済協力開発機構。PISAやTALISを実施", def: "経済協力開発機構。38カ国が加盟。教育分野ではPISA(学力調査)やTALIS(教員調査)を実施し、各国の教育政策に影響を与える。" },
