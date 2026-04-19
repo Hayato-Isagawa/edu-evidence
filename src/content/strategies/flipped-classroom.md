@@ -8,24 +8,24 @@ subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 source: mixed
 tags: ["GIGA", "デジタル", "家庭学習"]
-sourceUrl: https://doi.org/10.3102/00346543251323787
-sourceTitle: "Li et al. (2025) Effectiveness of Flipped Classrooms for K-12 Students: A Three-Level Meta-Analysis"
+sourceUrl: https://doi.org/10.3102/00346543241261732
+sourceTitle: "Li, Fu, Liu & Hwang (2025) Effectiveness of Flipped Classrooms for K-12 Students: Evidence From a Three-Level Meta-Analysis"
 evidence:
   eef:
     note: "EEF Toolkit には反転授業の独立したエントリは無い。関連する『Digital technology』(+4)の一部として扱われる可能性がある。"
   hattie:
     cohensD: 0.53
     note: "Li et al.(2025)の K-12 129研究のメタ分析で g=0.53。Shi et al.(2020)等でも d=0.5 前後が報告されている。d=0.53 は『月数換算 +5』に対応。"
-lastVerified: "2026-04-18"
+lastVerified: "2026-04-19"
 methodology:
   studies: 129
   sampleSize: "K-12 129 研究(3レベルメタ分析、多数の国際研究)"
   effectSize: "Hedges' g = 0.53(小〜中)。Låg & Sæle(2019, 高等教育中心)では g = 0.35"
   primaryMetaAnalysis:
-    authors: "Li, Yu, Li & Lian"
+    authors: "Li, Fu, Liu & Hwang"
     year: 2025
-    title: "Effectiveness of Flipped Classrooms for K-12 Students: A Three-Level Meta-Analysis"
-    url: "https://doi.org/10.3102/00346543251323787"
+    title: "Effectiveness of Flipped Classrooms for K-12 Students: Evidence From a Three-Level Meta-Analysis"
+    url: "https://doi.org/10.3102/00346543241261732"
   limitations: "統制群との比較で『動画視聴+対面演習』という設計全体が効いているのか、『反転』の形式自体が効いているのかを切り分けにくい。動画視聴を家庭に依存するため、家庭環境の格差を増幅する懸念。日本の小学校文脈での RCT は未実施。"
 culturalContext: |
   **日本国内での反転授業の効果を検証した RCT は存在しない**。GIGA スクール構想により 1 人 1 台端末が整備され、実践環境は整ってきたが、定量的な効果検証は今後の課題。海外メタ分析の効果量がそのまま日本の小学校文脈で成立するかは未検証である点に注意。特に、日本の家庭学習文化・保護者の関与・就寝時刻などは海外 K-12 と条件が異なる。

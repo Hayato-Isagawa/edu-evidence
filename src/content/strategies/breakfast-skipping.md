@@ -9,8 +9,8 @@ grades: ["全学年"]
 category: "知っておくべき知見"
 source: japan
 tags: ["生活習慣", "格差", "食育"]
-sourceUrl: https://www.mext.go.jp/b_menu/shingi/chousa/shotou/045/shiryo/__icsFiles/afieldfile/2012/02/07/1314819_1.pdf
-sourceTitle: "文部科学省 — 全国学力・学習状況調査と生活習慣の関連"
+sourceUrl: https://www.mext.go.jp/a_menu/shotou/gakuryoku-chousa/zenkoku/08020513/001/002.htm
+sourceTitle: "文部科学省 — 全国学力・学習状況調査における児童生徒の生活の諸側面等に関する分析"
 evidence:
   japan:
     monthsGained: 1
@@ -19,7 +19,7 @@ evidence:
   hattie:
     cohensD: 0.10
     note: "Adolphus, Lawton & Dye(2013)の系統的レビューでは、朝食欠食と認知機能の関連は『subtle』と結論。効果は**栄養状態が悪い子どもに条件付き**で現れ、十分に栄養が取れている子どもには効果が検出されない。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-19"
 culturalContext: |
   **『朝食を食べると成績が上がる』という言説は日本で広く流布しているが、因果関係を証明した研究は存在しない**。全国学力調査の相関を因果として紹介するのは統計的に誤り。ただし、朝食欠食が深刻な子ども(SES 的に不利な家庭)に対する **子ども食堂・朝食提供** の取り組みは、栄養改善と登校継続の両面で意義を持つ(原因が何であれ介入の必要はある)。『朝食指導』と『朝食提供』は別の話。
 ---
