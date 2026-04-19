@@ -9,8 +9,8 @@ grades: ["全学年"]
 category: "制度・環境"
 source: japan
 tags: ["読書", "図書館", "習慣"]
-sourceUrl: https://www.mext.go.jp/a_menu/shotou/dokusho/link/1360933.htm
-sourceTitle: "文部科学省 — 学校図書館の現状に関する調査"
+sourceUrl: https://www.mext.go.jp/a_menu/shotou/dokusho/link/1360318.htm
+sourceTitle: "文部科学省 — 学校図書館の現状に関する調査結果"
 evidence:
   japan:
     monthsGained: 1
@@ -20,7 +20,7 @@ evidence:
   hattie:
     cohensD: 0.15
     note: "Lance & Kachel(2018)のレビューは、米国の州別調査で学校図書館の整備度・司書の質と学業達成の正の相関を一貫して報告。ただし横断研究中心で因果推論は限定的。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-19"
 culturalContext: |
   日本では学校図書館の整備水準が自治体間で大きく異なり、**司書の専門性と学校図書館の活用頻度が、結果として読書習慣・読解力に影響**する可能性が示唆される。ただし『学校図書館を整備すれば学力が上がる』という単純な因果関係ではなく、**読み聞かせ・調べ学習・利用指導**等の実践の質が鍵。朝読書(morning-reading)との組み合わせで実効性が高まる。
 ---
