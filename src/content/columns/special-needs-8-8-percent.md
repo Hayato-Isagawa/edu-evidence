@@ -11,7 +11,7 @@ relatedStrategies: ["scaffolding", "feedback", "metacognition", "universal-desig
 
 2022 年に文部科学省が実施した「通常の学級に在籍する特別な教育的支援を必要とする児童生徒に関する調査」で、小・中学校の通常学級に在籍する児童生徒のうち **8.8%** が「知的発達に遅れはないものの、学習面または行動面で著しい困難を示す」とされました(高等学校は 2.2%)。
 
-前回(2012 年)は 6.5% でしたが、文科省は **「対象地域や一部質問項目等が異なるため単純比較することはできない」** と明記しています。数値が上がった事実はあるものの、**同一基準で 2.3 ポイント増えた** とは言い切れません。
+前回(2012 年)は 6.5% でしたが、文科省は **「対象地域や一部質問項目等が異なるため単純比較することはできない」** と明記しています。数値が上がった事実はあるものの、**同じ条件で比較した 2.3 ポイント増** とは言い切れません。
 
 **1 学級 35 人なら 3 人**。これは「特別な教室」で起きている話ではなく、**すべての教員が日常的に直面している** 現実です。
 
@@ -23,7 +23,7 @@ relatedStrategies: ["scaffolding", "feedback", "metacognition", "universal-desig
 - したがってこの数値は、**「支援を必要とする子がどのくらい教室にいるか」を示す現場感覚の推計** です
 - 文科省自身が「発達障害のある児童生徒数の割合を示すものではない」と明記しています
 
-もう一つは **増加の解釈**。文科省は理由として「教師や保護者の特別支援教育に関する理解が進み、**今まで見過ごされてきた困難のある子どもたちに目を向けるようになった**」ことを挙げています。子どもが急に増えたというより、**見える化が進んだ**側面が大きい。
+もう一つは **増加の解釈**。文科省は理由として「教師や保護者の特別支援教育に関する理解が進み、**今まで見過ごされてきた困難のある子どもたちに目を向けるようになった**」ことを挙げています。子どもが急に増えたというより、**気づかれる子が増えた** 側面が大きい。
 
 ## 受け皿の問題 — 特別支援学校の教室不足
 
@@ -39,7 +39,7 @@ relatedStrategies: ["scaffolding", "feedback", "metacognition", "universal-desig
 
 ## EEF の答え:「Five-a-day」— 5 つの原則
 
-英国の教育エンドウメント財団(EEF)は、[SEND(Special Educational Needs and Disabilities)の子どもを通常学級で支える指導](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/supporting-high-quality-teaching-for-pupils-with-send) について **「Five-a-day」** という 5 原則を示しています。これらは **SEND の子どもを対象としたエビデンスレビューから導かれた** 5 原則で、**SEND の子どもとその他の子ども双方の学力向上に資する** と報告されています。
+英国の教育エンドウメント財団(EEF)は、[SEND(Special Educational Needs and Disabilities)の子どもを通常学級で支える指導](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/supporting-high-quality-teaching-for-pupils-with-send) について **「Five-a-day」** という 5 原則を示しています。これらは **SEND の子どもを対象としたエビデンスレビューから導かれた** 5 原則で、**SEND の子どもとその他の子ども双方の学力向上につながる** と報告されています。
 
 EEF 自身の標語は **"To a great extent, good teaching for pupils with SEND is good teaching for all"**(SEND への質の高い指導は、おおむねすべての子どもへの質の高い指導でもある)。特別支援のための専門的な指導法ではなく、**通常学級の教員が日常の授業で既に実践している、あるいは少し意識することで取り入れられる指導** として位置付けられています。
 
