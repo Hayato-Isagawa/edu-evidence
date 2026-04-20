@@ -10,7 +10,7 @@ relatedStrategies: ["retrieval-practice", "spaced-practice", "metacognition", "a
 
 ChatGPT を使って勉強すると、**短時間で学べて楽だが、記憶が定着しにくい**。そんな直感を、厳密な RCT で確かめた研究があります。
 
-ブラジル FGV の André Barcaui 氏が 2025 年に発表した RCT(Barcaui 2025, *Computers in Human Behavior: Artificial Humans*)は、次の設計でした。
+ブラジルの研究者 André Barcaui 氏が 2025 年に発表した RCT([Barcaui 2025, *Social Sciences & Humanities Open*, 12, 102287](https://www.sciencedirect.com/science/article/pii/S2590291125010186))は、次の設計でした。
 
 - **対象**: 学部生 **120 名**(AI の概念を学習)
 - **割付**: ランダムに 2 群
@@ -55,6 +55,12 @@ ChatGPT はまさに **「学びから困難を取り除く道具」** として
 
 関連する本サイトのコラムも参照してください: [生成 AI は教育をどう変えるか?](/columns/generative-ai-education)
 
+## 家庭での使用と学校での役割
+
+小学生の AI 使用は実際には **家庭(宿題や自学習の場面)** で起きることが多く、学校の授業時間内より頻度が高い可能性があります。家庭のデバイスで、保護者が把握しないまま AI に学習を肩代わりさせる — これが現実的に起きやすい場面です。
+
+家庭での使用そのものをコントロールするのは、本来は **家庭の役割** です。学校にできるのは、学級・教科の中で AI との付き合い方を扱うこと、および **保護者へ情報共有** することであり、家庭で完結する領域の管理までは学校が担えません。以下の「教員として、どう使い分けるか」は、この役割分担を前提とした、学校側の動きをまとめたものです。
+
 ## 教員として、どう使い分けるか
 
 結論は「AI を使うな」ではなく、**「AI に何を任せて、何を任せないか」を意識する** ことです。
@@ -84,6 +90,14 @@ ChatGPT はまさに **「学びから困難を取り除く道具」** として
 
 文科省の生成 AI ガイドライン Ver.2.0 でも「思考の代替リスク」が明示されています。エビデンスもそれを追認した形です。
 
+## デジタルシティズンシップ教育の枠組み
+
+ここまでの使い分けやガードレールは、個別の技術対応というより、**デジタル技術を主体的に使いこなす市民を育てる** 教育方針の具体化として位置づけられます。従来の情報モラル教育が「危険を避けるルール・マナー」を教える禁止型であるのに対し、**デジタルシティズンシップ教育** は「技術を主体的に使いこなして社会に参加する」育成型のアプローチで、AI の扱いもこの枠組みに含まれます。
+
+小学生の段階で AI を完全に禁止することは非現実的であり、禁止で済ませると「家庭で隠れて使う」に追いやるだけになりかねません。**AI をどう使うか、何に使わないか、どう検証するか** を明示的に学ぶプロセスとして設計する視点が、エビデンスとも整合的です。
+
+この視点の詳細は、[『ブレインロットを盗む』が学級に来た日](/columns/brainrot-classroom-response) で Roblox ゲームの文脈で扱っています。生成 AI の政策的論点 (文科省ガイドライン Ver.2.0 など) の整理は [生成 AI は教育をどう変えるか?](/columns/generative-ai-education) を参照してください。
+
 ## まとめ
 
 - Barcaui(2025)RCT: ChatGPT 群は **45 日後の保持テストで 11 ポイント低い**(d=0.68)
@@ -94,3 +108,9 @@ ChatGPT はまさに **「学びから困難を取り除く道具」** として
 - 使う場合も「自分で → 確認」「要約する」「検証する」のガードレール
 
 ChatGPT は便利な道具ですが、**便利さは学びの敵になりうる** — この直感を、初めて厳密に RCT で示した研究が出た、というのが 2025 年の大きなトピックです。道具を使いこなすには、**何に効くか、何を損なうか** を知っておくことが、教員の専門性の核になります。
+
+## 参考資料
+
+- Barcaui, A. (2025). [ChatGPT as a cognitive crutch: Evidence from a randomized controlled trial on knowledge retention](https://www.sciencedirect.com/science/article/pii/S2590291125010186). *Social Sciences & Humanities Open*, 12, 102287. — 学部生 120 名の RCT。ChatGPT 群は 45 日後の保持テストで 11 ポイント低く (57.5% vs 68.5%、d=0.68)、学習時間を共変量とした ANCOVA でも効果が残る。
+- 文部科学省 (2024). [初等中等教育段階における生成 AI の利活用に関するガイドライン(Ver.2.0)](https://www.mext.go.jp/a_menu/other/mext_02412.html). — 2024 年 12 月 26 日公表。学校現場における生成 AI の利活用の基本方針として「思考の代替リスク」を明示。
+- Bjork, R. A., & Bjork, E. L. (2011). Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning. In M. A. Gernsbacher et al. (Eds.), *Psychology and the real world: Essays illustrating fundamental contributions to society* (pp. 56–64). Worth. — 「望ましい困難」概念の古典的整理。学びの途中の適度な困難が長期記憶への定着を促すことを論じた。
