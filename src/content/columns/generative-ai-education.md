@@ -2,6 +2,7 @@
 title: 生成AIは教育をどう変えるか？ — エビデンスはまだ追いついていない
 summary: ChatGPT 公開から約 3 年半。文科省ガイドライン Ver.2.0 が出たが、「効果があるのか」の問いに答える研究はほぼ皆無。現場に何ができるかを考える。
 date: "2026-04-13"
+lastVerified: "2026-04-20"
 tags: ["AI", "GIGA", "政策"]
 relatedStrategies: ["ai-in-education", "digital-technology", "metacognition"]
 ---

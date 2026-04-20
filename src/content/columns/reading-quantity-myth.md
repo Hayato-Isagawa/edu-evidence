@@ -2,6 +2,7 @@
 title: 「読書 100 冊目標」は学力を上げるか — 冊数信仰をエビデンスで問い直す
 summary: 2024 年、小学生の月平均読書冊数は 13.8 冊で過去 31 年の最高値。自治体や学校が「年間◯冊」の目標を掲げる例も多い。しかし、冊数を追うことと学力が上がることの因果は、思うほど明確ではない。
 date: "2026-04-18"
+lastVerified: "2026-04-19"
 tags: ["読書", "国語", "学力"]
 relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"]
 ---

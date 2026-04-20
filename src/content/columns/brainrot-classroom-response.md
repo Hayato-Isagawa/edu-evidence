@@ -2,6 +2,7 @@
 title: 「ブレインロットを盗む」が学級に来た日 — 禁止より対話、エビデンスが示す関わり方
 summary: Robloxの人気ゲームが学級に持ち込む略奪トラブル・喧嘩・睡眠不足。「ゲームを禁止する」前に、SELと行動介入のエビデンスが示す関わり方を整理する。
 date: "2026-04-17"
+lastVerified: "2026-04-19"
 tags: ["生徒指導", "学級経営", "デジタル"]
 relatedStrategies: ["social-emotional-learning", "behaviour-interventions", "screen-time", "social-media-mental-health"]
 ---

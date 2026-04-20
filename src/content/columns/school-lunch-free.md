@@ -2,6 +2,7 @@
 title: 給食無償化は何を変えるのか — 政策目的とエビデンスを整理する
 summary: 2026年4月、公立小学校の給食が全国一律で無償化された。この政策は何を目的としているのか、そして研究は何を示しているのか。自治体の政策目的と先行研究のエビデンスを整理する。
 date: "2026-04-14"
+lastVerified: "2026-04-19"
 tags: ["給食", "政策", "格差"]
 relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 ---

@@ -81,6 +81,8 @@ const columns = defineCollection({
     title: z.string(),
     summary: z.string(),
     date: z.string(),
+    // 最終検証日: 公開後に一次ソースや記述内容を再検証した最新日。未設定なら公開日=最終検証日と見なす
+    lastVerified: z.string().optional(),
     tags: z.array(z.string()).default([]),
     relatedStrategies: z.array(z.string()).default([]),
   }),

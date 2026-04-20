@@ -2,6 +2,7 @@
 title: GIGAスクール端末で何が変わったか？
 summary: 1人1台端末が全国に行き渡った今、「使っている」だけでは効果が出ない理由をエビデンスから考える。
 date: "2026-04-10"
+lastVerified: "2026-04-20"
 tags: ["GIGA", "ICT", "デジタル", "政策"]
 relatedStrategies: ["digital-technology", "flipped-classroom", "feedback"]
 ---
