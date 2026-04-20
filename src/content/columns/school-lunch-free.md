@@ -98,7 +98,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 給食無償化を「学力を上げる施策」として評価すると、エビデンス上は期待が裏切られることになります。しかし **「子育て家庭の生活基盤を下支えする施策」** として評価すれば、参加率・健康・経済支援のいずれでも合理的な政策です。**何を期待するか** が、評価の分かれ目になります。
 
-## 主な参考資料
+## 参考資料
 
 - 文部科学省 (2024). [「給食無償化」に関する課題の整理について](https://www.mext.go.jp/a_menu/sports/syokuiku/mext_00001.html). — 2024年12月27日公表。自治体の政策目的の内訳と課題整理。
 - Spill, M. K., et al. (2024). [Universal Free School Meals and School and Student Outcomes: A Systematic Review](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2822155). *JAMA Network Open*, 7(8), e2424082. — 米国 11,000 校超を対象とした系統的レビュー。参加率・出席率・肥満・停学に関する結果。
