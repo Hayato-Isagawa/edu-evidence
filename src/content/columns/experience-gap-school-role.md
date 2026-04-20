@@ -2,6 +2,7 @@
 title: 「体験格差」とエビデンス — 家庭・地域・学校の役割分担
 summary: 子どもの体験機会には家庭の経済状況や地域環境による格差がある。一義的な提供主体は家庭と地域・NPOであり、学校はその補完的な役割を担う。中室牧子氏らのプロジェクトと国内外の研究から、役割分担を整理する。
 date: "2026-04-18"
+lastVerified: "2026-04-20"
 tags: ["格差", "非認知能力", "特別活動"]
 relatedStrategies: ["social-emotional-learning", "outdoor-learning", "tokkatsu", "arts-participation", "early-years-intervention"]
 ---

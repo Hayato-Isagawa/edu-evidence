@@ -58,7 +58,7 @@ const effectNote =
           <p
             class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] leading-none"
           >
-            Strategy
+            Strategy{d.lastVerified ? ` — Last verified ${d.lastVerified}` : ""}
           </p>
           {badges.map((key) => (
             <span
