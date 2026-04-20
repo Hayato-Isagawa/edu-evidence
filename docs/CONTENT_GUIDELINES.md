@@ -170,7 +170,7 @@ cost: 1〜5。導入コスト
 - 初回公開時は `lastVerified` を設定しない(公開日 = 最新検証日と見なす)
 - **公開後に実質的な内容更新** (引用の訂正・新規セクション追加・数値更新など) をした場合、frontmatter に `lastVerified: "YYYY-MM-DD"` を追加または更新する
 - 軽微な修正(誤字脱字・書式調整)は `lastVerified` を更新しない
-- `lastVerified` が `date` と異なる場合、コラム・戦略ページのヘッダーに「Last verified YYYY-MM-DD」として表示される
+- `lastVerified` が `date` と異なる場合、コラム・戦略ページのヘッダーに「最終更新 YYYY-MM-DD」として表示される
 
 ---
 
