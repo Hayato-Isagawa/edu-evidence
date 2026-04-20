@@ -6,8 +6,10 @@ const strategies = await getCollection("strategies");
 strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
 
 const allColumns = await getCollection("columns");
+// 実効更新日(lastVerified があればそれ、無ければ公開日)の降順でソート
+const columnFreshnessDate = (c: typeof allColumns[number]) => c.data.lastVerified ?? c.data.date;
 const latestColumns = [...allColumns]
-  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .sort((a, b) => columnFreshnessDate(b).localeCompare(columnFreshnessDate(a)))
   .slice(0, 3);
 ---
 
@@ -168,7 +170,10 @@ const latestColumns = [...allColumns]
             class="group block border border-[var(--color-line)] rounded-xl p-5 bg-[var(--color-card)] hover:border-[var(--color-accent)] transition space-y-3"
           >
             <div class="font-mono text-[10px] tracking-widest text-[var(--color-sub)]">
-              {c.data.date}
+              {c.data.lastVerified ?? c.data.date}
+              {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
+                <span class="ml-1 text-[var(--color-accent)]">(更新)</span>
+              )}
             </div>
             <h3 class="font-black text-base md:text-lg leading-snug group-hover:text-[var(--color-accent)] transition">
               {c.data.title}

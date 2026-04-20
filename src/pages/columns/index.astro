@@ -3,7 +3,9 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 const columns = await getCollection("columns");
-columns.sort((a, b) => b.data.date.localeCompare(a.data.date));
+// 実効更新日(lastVerified があればそれ、無ければ公開日)の降順でソート
+const freshnessDate = (c: typeof columns[number]) => c.data.lastVerified ?? c.data.date;
+columns.sort((a, b) => freshnessDate(b).localeCompare(freshnessDate(a)));
 ---
 
 <Layout title="エビデンスで考える — EduEvidence JP">
@@ -53,7 +55,10 @@ columns.sort((a, b) => b.data.date.localeCompare(a.data.date));
               </div>
               <div class="col-span-12 md:col-span-3 md:text-right">
                 <span class="font-mono text-xs text-[var(--color-sub)]">
-                  {c.data.date}
+                  {c.data.lastVerified ?? c.data.date}
+                  {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
+                    <span class="ml-1 text-[var(--color-accent)]">(更新)</span>
+                  )}
                 </span>
                 <span class="inline-block ml-3 transition group-hover:translate-x-1 text-[var(--color-sub)]">
                   →
