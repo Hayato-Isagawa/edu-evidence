@@ -2,6 +2,7 @@
 title: ChatGPT で勉強すると記憶が定着しない? — RCT が示す「認知的オフローディング」
 summary: Barcaui(2025)の RCT は、学部生 120 名を対象に「ChatGPT を使って学習 vs 従来学習」を比較。45 日後の抜き打ちテストで ChatGPT 群は 11 ポイント低かった(57.5% vs 68.5%, d=0.68)。学習時間が短くても効果は残る。「思い出す努力」を AI が奪うとき、何が失われるのか。
 date: "2026-04-18"
+lastVerified: "2026-04-20"
 tags: ["AI", "認知科学", "学習科学"]
 relatedStrategies: ["retrieval-practice", "spaced-practice", "metacognition", "ai-in-education"]
 ---
