@@ -58,7 +58,7 @@ Five-a-day の各原則は、本サイトの戦略と次のように対応しま
 | 明示的指導 | [直接教授法(明示的指導)](/strategies/direct-instruction) | +5ヶ月 |
 | メタ認知方略 | [メタ認知の指導](/strategies/metacognition) | +8ヶ月 |
 | 足場かけ | [足場かけ](/strategies/scaffolding) | +5ヶ月 |
-| 柔軟なグルーピング | [少人数指導](/strategies/small-group-tuition) / [個別指導](/strategies/one-to-one-tuition) | +4 / +4ヶ月 |
+| 柔軟なグルーピング | [少人数指導](/strategies/small-group-tuition) / [個別指導](/strategies/one-to-one-tuition) | +4 / +5ヶ月 |
 | テクノロジー活用 | [ICT活用](/strategies/digital-technology) | +4ヶ月 |
 
 どれも「特別支援の指導法」ではなく、**通常学級の質を上げる指導法** です。
