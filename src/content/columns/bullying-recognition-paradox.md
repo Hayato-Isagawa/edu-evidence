@@ -68,9 +68,18 @@ Durlak et al.（2011）の213件のSELプログラムを対象としたメタ分
 
 **重大事態**(同法第 28 条)が発生した場合は、学校設置者による調査組織(第三者委員会)の設置と、生命・身体への危険が疑われる事案での **警察・医療機関・児童相談所などの関係機関との連携** が法律上求められます。軽微な認知の段階で組織共有を習慣化しておくことが、重大事態への連続性を断つ第一歩です。
 
-## 参考データ・文献
+## まとめ
 
-- 文部科学省 (2025). [令和6年度 児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm). — いじめ認知76.9万件(過去最多)、重大事態1,405件
-- 国立教育政策研究所. [いじめの「認知件数」](https://www.nier.go.jp/shido/leaf/leaf11.pdf). — 認知件数の読み方についての解説リーフレット
-- Durlak, J. A., et al. (2011). The impact of enhancing students' social and emotional learning. *Child Development*, 82(1), 405–432. — 213件のSELプログラムのメタ分析。社会性・態度・行動・学力に正の効果
-- 文部科学省 (2026). [いじめ防止・情報モラル教育 動画教材](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). — 2026年3月公開
+- いじめ認知件数は **76 万 9,022 件** で過去最多、重大事態は **1,405 件**(令和 6 年度)
+- 文科省は認知件数の多さを「初期段階から積極的に認知して対応しているスタートライン」と **肯定的に評価** しており、「認知が多い = 悪化」ではない
+- 増加の背景には、**2013 年いじめ防止対策推進法による定義の拡大・アンケートの充実・GIGA 端末での心身チェック・SNS いじめの積極認知** など認知する力の向上がある
+- 予防エビデンス: [SEL](/strategies/social-emotional-learning) **+4 ヶ月** / [行動への働きかけ](/strategies/behaviour-interventions) **+4 ヶ月** / [教師と子どもの関係性](/strategies/teacher-student-relationships) **+4 ヶ月**
+- 対応は **いじめ防止対策推進法 第 22 条の常設組織** を通じた組織対応が前提。重大事態(第 28 条)は警察・医療機関・児相等の関係機関連携が法定
+
+## 参考資料
+
+- 文部科学省 (2025). [令和 6 年度 児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm). — いじめ認知 76 万 9,022 件(過去最多)、重大事態 1,405 件、2025 年 10 月 29 日公表。
+- 文部科学省 (2013). [いじめ防止対策推進法(平成 25 年法律第 71 号)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1337278.htm). — 第 22 条「いじめの防止等の対策のための組織」、第 28 条「重大事態への対処」を規定。
+- 文部科学省 (2025). [令和 6 年度児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果及びこれを踏まえた対応の充実について(通知)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). 令和 7 年 10 月 29 日. — いじめを含む生徒指導 8 論点についての組織対応・関係機関連携の方針を示した通知。
+- 国立教育政策研究所. [生徒指導リーフ「いじめの認知について」](https://www.nier.go.jp/shido/leaf/leaf11.pdf). — 認知件数の読み方(認知 ≠ 発生)を解説したリーフレット。
+- Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., & Schellinger, K. B. (2011). [The impact of enhancing students' social and emotional learning: A meta-analysis of school-based universal interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 213 本の学校ベース SEL プログラムのメタ分析。社会性・態度・行動・学力に正の効果。
