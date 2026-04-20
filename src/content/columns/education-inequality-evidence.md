@@ -15,7 +15,7 @@ relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-l
 
 ## 松岡亮二氏の研究が示すもの
 
-教育社会学者の松岡亮二氏(龍谷大学・社会学部准教授)は、全国の大規模データを用いて日本の教育格差を実証的に分析しました([『教育格差—階層・地域・学歴』](https://www.chikumashobo.co.jp/product/9784480072375/)ちくま新書、2019)。
+教育社会学者の松岡亮二氏(龍谷大学・社会学部教授)は、全国の大規模データを用いて日本の教育格差を実証的に分析しました([『教育格差—階層・地域・学歴』](https://www.chikumashobo.co.jp/product/9784480072375/)ちくま新書、2019)。
 
 主な知見:
 
