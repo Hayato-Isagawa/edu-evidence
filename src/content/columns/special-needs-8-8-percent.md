@@ -39,7 +39,9 @@ relatedStrategies: ["scaffolding", "feedback", "metacognition", "universal-desig
 
 ## EEF の答え:「Five-a-day」— 5 つの原則
 
-英国の教育エンドウメント財団(EEF)は、SEND(Special Educational Needs and Disabilities)の子どもを通常学級で支える指導について **「Five-a-day」** という 5 原則を示しています。重要なのは、**この 5 つは SEND の子のための特別な指導ではなく、クラス全体に効く質の高い指導** であり、**SEND の子どもに特に大きな効果がある** という点です。
+英国の教育エンドウメント財団(EEF)は、[SEND(Special Educational Needs and Disabilities)の子どもを通常学級で支える指導](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/supporting-high-quality-teaching-for-pupils-with-send) について **「Five-a-day」** という 5 原則を示しています。これらは **SEND の子どもを対象としたエビデンスレビューから導かれた** 5 原則で、**SEND の子どもとその他の子ども双方の学力向上に資する** と報告されています。
+
+EEF 自身の標語は **"To a great extent, good teaching for pupils with SEND is good teaching for all"**(SEND への質の高い指導は、おおむねすべての子どもへの質の高い指導でもある)。特別な指導法ではなく、**メインストリームの教員がすでに持っている、あるいは容易に取り入れられる指導** として位置付けられています。
 
 1. **明示的指導(Explicit Instruction)** — 何をどう学ぶかを明確に説明し、モデルを示し、練習させる
 2. **認知・メタ認知方略** — 計画・モニタリング・自己評価を子どもに促す
