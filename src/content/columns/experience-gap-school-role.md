@@ -105,7 +105,7 @@ SEL は学力にも波及するエビデンスがあり、Durlak et al.(2011)の
 
 ## 参考資料
 
+- JICA 人間開発部. [エジプトにおける特別活動を中心とした日本式教育の取り組みについて(2025 年 3 月シンポジウム資料)](https://www.eduport.mext.go.jp/epsite/wp-content/uploads/2025/02/Symposium_JICA_202503JPN.pdf). — 日本エジプト学校 69 校および全公立校週 40 分必修化の制度化状況。
 - 子どもの体験格差解消プロジェクト (2023 年発足). [プロジェクト概要(EdTechZine)](https://edtechzine.jp/article/detail/8805). — 中室牧子氏(慶應義塾大学)らによる 4 者共同の取り組み。約 150 団体・1 万世帯を対象とした実態調査と、1,000 名への体験機会提供を 2025 年 3 月末まで実施。
 - 中室牧子. [教育格差の処方箋 子供と過ごす時間の質高めよ](https://www.rieti.go.jp/jp/papers/contribution/nakamuro-makiko/02.html). RIETI. — デンマークでの RCT を引用し、親子の関わりは量より質が重要と論じた寄稿。
-- JICA 人間開発部. [エジプトにおける特別活動を中心とした日本式教育の取り組みについて(2025 年 3 月シンポジウム資料)](https://www.eduport.mext.go.jp/epsite/wp-content/uploads/2025/02/Symposium_JICA_202503JPN.pdf). — 日本エジプト学校 69 校および全公立校週 40 分必修化の制度化状況。
 - Durlak, J. A., et al. (2011). [The impact of enhancing students' social and emotional learning: A meta-analysis of school-based universal interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 213 プログラム(270,034 人)メタ分析。学力が平均 11 パーセンタイル向上、社会性・態度・行動にも正の効果。

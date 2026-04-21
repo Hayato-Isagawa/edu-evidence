@@ -101,8 +101,8 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ## 参考資料
 
-- 文部科学省 (2024). [「給食無償化」に関する課題の整理について](https://www.mext.go.jp/a_menu/sports/syokuiku/mext_00001.html). — 2024年12月27日公表。自治体の政策目的の内訳と課題整理。
-- Spill, M. K., et al. (2024). [Universal Free School Meals and School and Student Outcomes: A Systematic Review](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2822155). *JAMA Network Open*, 7(8), e2424082. — 米国 11,000 校超を対象とした系統的レビュー。参加率・出席率・肥満・停学に関する結果。
-- Schwartz, A. E., & Rothbart, M. W. (2020). [Let Them Eat Lunch: The Impact of Universal Free Meals on Student Performance](https://onlinelibrary.wiley.com/doi/abs/10.1002/pam.22175). *Journal of Policy Analysis and Management*, 39(2), 376–410. — NYC 中学校での差分の差分分析。非貧困層・貧困層別の効果量を報告。
-- Cohen, J. F. W., et al. (2021). [Universal School Meals and Associations with Student Participation, Attendance, Academic Performance, Diet Quality, Food Security, and Body Mass Index: A Systematic Review](https://pmc.ncbi.nlm.nih.gov/articles/PMC8000006/). *Nutrients*, 13(3), 911. — 高所得層で効果が大きいと報告。
+- 文部科学省 (2024). [「給食無償化」に関する課題の整理について](https://www.mext.go.jp/a_menu/sports/syokuiku/mext_00001.html). — 2024 年 12 月 27 日公表。自治体の政策目的の内訳と課題整理。
 - Ayllón, S., & Lado, S. (2025). [The Causal Impact of School-Meal Programmes on Children in Developed Economies: A Meta-Analysis](https://www.iza.org/publications/dp/18042/the-causal-impact-of-school-meal-programmes-on-children-in-developed-economies-a-meta-analysis). IZA Discussion Paper No. 18042. — 先進国 42 研究・2,821 推定値のメタ分析。普遍的プログラムの効果は minimal。
+- Spill, M. K., et al. (2024). [Universal Free School Meals and School and Student Outcomes: A Systematic Review](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2822155). *JAMA Network Open*, 7(8), e2424082. — 米国 11,000 校超を対象とした系統的レビュー。参加率・出席率・肥満・停学に関する結果。
+- Cohen, J. F. W., et al. (2021). [Universal School Meals and Associations with Student Participation, Attendance, Academic Performance, Diet Quality, Food Security, and Body Mass Index: A Systematic Review](https://pmc.ncbi.nlm.nih.gov/articles/PMC8000006/). *Nutrients*, 13(3), 911. — 高所得層で効果が大きいと報告。
+- Schwartz, A. E., & Rothbart, M. W. (2020). [Let Them Eat Lunch: The Impact of Universal Free Meals on Student Performance](https://onlinelibrary.wiley.com/doi/abs/10.1002/pam.22175). *Journal of Policy Analysis and Management*, 39(2), 376–410. — NYC 中学校での差分の差分分析。非貧困層・貧困層別の効果量を報告。

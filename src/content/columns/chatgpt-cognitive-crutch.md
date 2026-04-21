@@ -112,6 +112,6 @@ ChatGPT は便利な道具ですが、**便利さは学びの敵になりうる*
 
 ## 参考資料
 
-- Barcaui, A. (2025). [ChatGPT as a cognitive crutch: Evidence from a randomized controlled trial on knowledge retention](https://www.sciencedirect.com/science/article/pii/S2590291125010186). *Social Sciences & Humanities Open*, 12, 102287. — 学部生 120 名の RCT。ChatGPT 群は 45 日後の保持テストで 11 ポイント低く (57.5% vs 68.5%、d=0.68)、学習時間を共変量とした ANCOVA でも効果が残る。
 - 文部科学省 (2024). [初等中等教育段階における生成 AI の利活用に関するガイドライン(Ver.2.0)](https://www.mext.go.jp/a_menu/other/mext_02412.html). — 2024 年 12 月 26 日公表。学校現場における生成 AI の利活用の基本方針として「思考の代替リスク」を明示。
+- Barcaui, A. (2025). [ChatGPT as a cognitive crutch: Evidence from a randomized controlled trial on knowledge retention](https://www.sciencedirect.com/science/article/pii/S2590291125010186). *Social Sciences & Humanities Open*, 12, 102287. — 学部生 120 名の RCT。ChatGPT 群は 45 日後の保持テストで 11 ポイント低く (57.5% vs 68.5%、d=0.68)、学習時間を共変量とした ANCOVA でも効果が残る。
 - Bjork, R. A., & Bjork, E. L. (2011). Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning. In M. A. Gernsbacher et al. (Eds.), *Psychology and the real world: Essays illustrating fundamental contributions to society* (pp. 56–64). Worth. — 「望ましい困難」概念の古典的整理。学びの途中の適度な困難が長期記憶への定着を促すことを論じた。
