@@ -15,7 +15,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 ## フレーズ全体としてのエビデンスは存在しない
 
-率直に言うと、**「主体的・対話的で深い学び」というフレーズそのものを定量的に検証した RCT やメタ分析は存在しません**。これは概念が日本独自の政策用語であり、海外研究の俎上に載っていないためです。
+率直に言うと、**「主体的・対話的で深い学び」というフレーズそのものを定量的に検証した RCT やメタ分析は存在しません**。これは「主体的・対話的で深い学び」が日本独自の政策用語であり、**海外の教育研究では検討対象になっていない** ためです。
 
 つまり、「『主体的・対話的で深い学び』を実施した学級は +◯ ヶ月の効果がある」と直接言える研究はありません。
 
@@ -27,9 +27,17 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 |---|---|---|
 | 主体的に学ぶ | [メタ認知・自己調整学習](/strategies/metacognition) | **+8 ヶ月**(355 研究のメタ分析) |
 | 対話的に学ぶ | [協同学習(小学校)](/strategies/cooperative-learning) | **+5 ヶ月** |
-| 対話的に学ぶ | 口頭言語介入 | **+6 ヶ月** |
+| 対話的に学ぶ | 口頭言語介入(後述) | **+6 ヶ月** |
 | フィードバック | [形成的評価・フィードバック](/strategies/feedback) | **+6 ヶ月**(エビデンスが堅牢) |
-| 深い学び | [探究学習](/strategies/inquiry-based-learning) / プロジェクト型学習(PBL) | **限定的、条件によっては負の影響** |
+| 深い学び | [探究学習](/strategies/inquiry-based-learning) / プロジェクト型学習(PBL、後述) | **限定的、条件によっては負の影響** |
+
+### 口頭言語介入(+6 ヶ月)とは
+
+[EEF Toolkit の「Oral language interventions」](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions) は、**話す・聞く・語彙・構造化された話し合い** を授業の中で **明示的に指導する** 一連のアプローチを指します。読み書きだけでなく「聞いて理解し、話して説明する」力を計画的に育てる指導を授業に組み込むと、読解や教科学習にも波及するため、+6 ヶ月の効果が報告されています。既存のカリキュラムに統合する形で実施されたとき効果が大きく、就学援助対象の児童にも有効性が示唆されています(34 研究を含む更新版)。
+
+### プロジェクト型学習(PBL)とは、なぜ効果が限定的か
+
+**プロジェクト型学習(Project Based Learning、PBL)** は、ひとつのテーマや「問い」を長期のプロジェクトとして探究し、成果物(レポート・展示・発表など)を作る学習形式です。日本の総合的な学習の時間や教科横断型の探究活動とも重なる概念です。
 
 「主体的」と「対話的」を支える指導法には比較的強いエビデンスがある一方で、**「深い学び」を「探究学習」や PBL と直結させると、研究的な裏付けは弱くなる** 点に注意が必要です。EEF が実施した [Project Based Learning のランダム化比較試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning) では、学力(読み書き)への正の効果は確認されず、**就学援助対象児童(FSM: Free School Meals)には負の影響が報告** されました(なお学校の中途脱落が多く、結果の解釈には慎重さが必要)。「深い学び」は、形式としての探究ではなく **メタ認知や知識の転移** の側面で実現される方が、エビデンスと整合します。
 
