@@ -28,7 +28,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 | 主体的に学ぶ | [メタ認知の指導](/strategies/metacognition)(EEF では自己調整学習を含む) | **+8 ヶ月**(355 研究のメタ分析) |
 | 対話的に学ぶ | [協同学習(小学校)](/strategies/cooperative-learning) | **+5 ヶ月** |
 | 対話的に学ぶ | [口頭言語の指導](/strategies/oral-language)(後述) | **+6 ヶ月** |
-| フィードバック | [形成的評価・フィードバック](/strategies/feedback) | **+6 ヶ月**(エビデンスが堅牢) |
+| フィードバック | [フィードバック](/strategies/feedback)(形成的評価を含む) | **+6 ヶ月**(エビデンスが堅牢) |
 | 深い学び | [探究学習](/strategies/inquiry-based-learning) / プロジェクト型学習(PBL、後述) | **限定的、条件によっては負の影響** |
 
 ### 口頭言語の指導(+6 ヶ月)とは
