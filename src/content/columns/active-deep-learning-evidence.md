@@ -25,7 +25,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 | 要素 | 関連する指導法 | 効果量 |
 |---|---|---|
-| 主体的に学ぶ | [メタ認知・自己調整学習](/strategies/metacognition) | **+8 ヶ月**(355 研究のメタ分析) |
+| 主体的に学ぶ | [メタ認知の指導](/strategies/metacognition)(EEF では自己調整学習を含む) | **+8 ヶ月**(355 研究のメタ分析) |
 | 対話的に学ぶ | [協同学習(小学校)](/strategies/cooperative-learning) | **+5 ヶ月** |
 | 対話的に学ぶ | [口頭言語の指導](/strategies/oral-language)(後述) | **+6 ヶ月** |
 | フィードバック | [形成的評価・フィードバック](/strategies/feedback) | **+6 ヶ月**(エビデンスが堅牢) |
