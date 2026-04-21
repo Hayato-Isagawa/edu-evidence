@@ -78,8 +78,8 @@ Durlak et al.（2011）の213件のSELプログラムを対象としたメタ分
 
 ## 参考資料
 
-- 文部科学省 (2025). [令和 6 年度 児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm). — いじめ認知 76 万 9,022 件(過去最多)、重大事態 1,405 件、2025 年 10 月 29 日公表。
-- 文部科学省 (2013). [いじめ防止対策推進法(平成 25 年法律第 71 号)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1337278.htm). — 第 22 条「いじめの防止等の対策のための組織」、第 28 条「重大事態への対処」を規定。
-- 文部科学省 (2025). [令和 6 年度児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果及びこれを踏まえた対応の充実について(通知)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). 令和 7 年 10 月 29 日. — いじめを含む生徒指導 8 論点についての組織対応・関係機関連携の方針を示した通知。
-- 国立教育政策研究所. [生徒指導リーフ「いじめの認知について」](https://www.nier.go.jp/shido/leaf/leaf11.pdf). — 認知件数の読み方(認知 ≠ 発生)を解説したリーフレット。
+- [令和 6 年度 児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm). 文部科学省 (2025). — いじめ認知 76 万 9,022 件(過去最多)、重大事態 1,405 件、2025 年 10 月 29 日公表。
+- [いじめ防止対策推進法(平成 25 年法律第 71 号)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1337278.htm). 文部科学省 (2013). — 第 22 条「いじめの防止等の対策のための組織」、第 28 条「重大事態への対処」を規定。
+- [令和 6 年度児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果及びこれを踏まえた対応の充実について(通知)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). 文部科学省 (2025), 令和 7 年 10 月 29 日. — いじめを含む生徒指導 8 論点についての組織対応・関係機関連携の方針を示した通知。
+- [生徒指導リーフ「いじめの認知について」](https://www.nier.go.jp/shido/leaf/leaf11.pdf). 国立教育政策研究所. — 認知件数の読み方(認知 ≠ 発生)を解説したリーフレット。
 - Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., & Schellinger, K. B. (2011). [The impact of enhancing students' social and emotional learning: A meta-analysis of school-based universal interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 213 本の学校ベース SEL プログラムのメタ分析。社会性・態度・行動・学力に正の効果。

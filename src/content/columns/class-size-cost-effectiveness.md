@@ -50,9 +50,8 @@ relatedStrategies: ["reducing-class-size", "small-group-tuition", "feedback"]
 
 …というように、**「何が変わるか」を意識的に設計すること**が、少人数学級の効果を最大化する鍵です。
 
-## 参考
+## 参考資料
 
-- [学級規模の縮小](/strategies/reducing-class-size) — 本サイトの指導法ページ
-- [少人数指導](/strategies/small-group-tuition)
-- [フィードバック](/strategies/feedback)
-- Finn, J. D., & Achilles, C. M. (1990). [Answers and questions about class size](https://doi.org/10.3102/00028312027003557). *American Educational Research Journal*, 27(3), 557–577.
+- [Reducing class size](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 学級規模縮小は +1 ヶ月で、コストと対比すると効果は限定的と評価。
+- [Small group tuition](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 特定の子を対象とした少人数指導は +4 ヶ月と、学級全体の縮小より費用対効果が高い。
+- Finn, J. D., & Achilles, C. M. (1990). [Answers and questions about class size: A statewide experiment](https://doi.org/10.3102/00028312027003557). *American Educational Research Journal*, 27(3), 557–577. — テネシー州 STAR 計画(大規模 RCT)の代表的な報告。少人数学級の効果を初期段階で実証した古典。
