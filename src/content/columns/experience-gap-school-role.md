@@ -47,7 +47,7 @@ relatedStrategies: ["social-emotional-learning", "outdoor-learning", "tokkatsu",
 | [社会性と情動の学習(SEL)](/strategies/social-emotional-learning) | +4ヶ月 | Durlak et al.(2011)の 213 プログラム・270,034 人のメタ分析 |
 | [就学前教育への介入](/strategies/early-years-intervention) | +6ヶ月 | 特に社会経済的に不利な子どもで効果が大きい |
 | [屋外学習](/strategies/outdoor-learning) | +3ヶ月 | 冒険的活動・自然体験 |
-| [芸術への参加](/strategies/arts-participation) | +3ヶ月 | 音楽・美術・演劇の直接体験 |
+| [芸術活動への参加](/strategies/arts-participation) | +3ヶ月 | 音楽・美術・演劇の直接体験 |
 | [特別活動](/strategies/tokkatsu) | +2ヶ月 | 日本独自の枠組み |
 
 SEL は学力にも波及するエビデンスがあり、Durlak et al.(2011)のメタ分析では学力が平均 11 パーセンタイル向上と報告されています。就学前教育は **社会経済的に不利な子どもで効果が大きい** ため、早期の公的支援は格差縮小に直結する領域です。

@@ -76,7 +76,7 @@ relatedStrategies: ["teacher-workload-reform", "teacher-student-relationships", 
 
 [中学校 35 人学級の実施等のための法律](https://www.mext.go.jp/b_menu/activity/detail/2026/20260331.html) が 2026 年 3 月 31 日に成立し、令和 8 年度から中学校でも段階的に 35 人学級が実施されます(令和 8: 中 1、令和 9: 中 1・2、令和 10: 中 1〜3)。約 40 年ぶりの中学校学級編制標準の引下げです。
 
-ただし、学級規模縮小の学力効果は [EEF Toolkit で +1 ヶ月](/strategies/reducing-class-size) と限定的。35 人学級は教員の労働環境改善・個別対応の余裕確保には寄与しますが、**学力向上の直接的な手段としては限界がある** という点は、エビデンスベースに誠実であるために併記しておきます(詳細は [少人数学級にどれだけの効果があるか?](/columns/class-size-cost-effectiveness))。
+ただし、[学級規模の縮小](/strategies/reducing-class-size) の学力効果は EEF Toolkit で **+1 ヶ月** と限定的。35 人学級は教員の労働環境改善・個別対応の余裕確保には寄与しますが、**学力向上の直接的な手段としては限界がある** という点は、エビデンスベースに誠実であるために併記しておきます(詳細は [少人数学級にどれだけの効果があるか?](/columns/class-size-cost-effectiveness))。
 
 ## 教員として考えたいこと
 

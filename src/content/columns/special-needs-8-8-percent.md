@@ -68,7 +68,7 @@ Five-a-day の各原則は、本サイトの戦略と次のように対応しま
 加えて、日常的に効くエビデンスが 2 つ。
 
 - [フィードバック](/strategies/feedback) +6ヶ月 — つまずきに即応し、次の一歩を具体的に示す
-- [ユニバーサルデザイン・学びのデザイン(UDL)](/strategies/universal-design-learning) — 最初から多様な子どもを想定した授業設計
+- [授業のユニバーサルデザイン](/strategies/universal-design-learning) — 最初から多様な子どもを想定した授業設計(UDL、Universal Design for Learning)
 
 ## 教室で今できる 3 つのこと
 
