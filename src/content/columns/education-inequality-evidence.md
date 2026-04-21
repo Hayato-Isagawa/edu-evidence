@@ -2,7 +2,7 @@
 title: 教育格差はエビデンスでどこまで見えるのか — 松岡亮二・中室牧子の研究から
 summary: 日本の教育格差は小学校入学時に既にあり、6 年間の学校教育だけでは解消しきれない。松岡亮二氏・中室牧子氏の研究を軸に、学校・家庭・社会制度の役割分担とエビデンスを整理する。
 date: "2026-04-10"
-lastVerified: "2026-04-20"
+lastVerified: "2026-04-21"
 tags: ["格差", "SES", "日本研究", "政策"]
 relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-learning-loss", "social-emotional-learning", "feedback", "metacognition"]
 ---
