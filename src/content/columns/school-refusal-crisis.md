@@ -70,8 +70,8 @@ relatedStrategies: ["school-refusal-support", "social-emotional-learning", "beha
 
 ## 参考資料
 
-- 文部科学省 (2025). [令和 6 年度 児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm). — 不登校 35 万 3,970 人(過去最多・12 年連続増)、新規は 9 年ぶり減、2025 年 10 月 29 日公表。
-- 文部科学省 (2016). [教育機会確保法](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422155.htm). — 学校外の学びの場を含む教育機会の保障を明文化した法律。
-- 文部科学省 (2023). [誰一人取り残されない学びの保障に向けた不登校対策(COCOLO プラン)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). — 教育支援センター・ICT 活用・SC/SSW 配置拡充の政策パッケージ。
-- Education Endowment Foundation. [Social and emotional learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/social-and-emotional-learning). *Teaching and Learning Toolkit*. — SEL 全般で +4 ヶ月。学級環境づくりに関するエビデンス概観。
+- [令和 6 年度 児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm). 文部科学省 (2025). — 不登校 35 万 3,970 人(過去最多・12 年連続増)、新規は 9 年ぶり減、2025 年 10 月 29 日公表。
+- [教育機会確保法](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422155.htm). 文部科学省 (2016). — 学校外の学びの場を含む教育機会の保障を明文化した法律。
+- [誰一人取り残されない学びの保障に向けた不登校対策(COCOLO プラン)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). 文部科学省 (2023). — 教育支援センター・ICT 活用・SC/SSW 配置拡充の政策パッケージ。
+- [Social and emotional learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/social-and-emotional-learning). Education Endowment Foundation, *Teaching and Learning Toolkit*. — SEL 全般で +4 ヶ月。学級環境づくりに関するエビデンス概観。
 - Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., & Schellinger, K. B. (2011). [The impact of enhancing students' social and emotional learning: A meta-analysis of school-based universal interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 213 本の学校ベース SEL プログラムのメタ分析。学業成績で平均 11 パーセンタイルの効果。

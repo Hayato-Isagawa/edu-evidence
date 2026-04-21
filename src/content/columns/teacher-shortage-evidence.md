@@ -100,13 +100,13 @@ relatedStrategies: ["teacher-workload-reform", "teacher-student-relationships", 
 
 ## 参考資料
 
-- 文部科学省 (2025). [令和 7 年度(令和 6 年度実施)公立学校教員採用選考試験の実施状況等について](https://www.mext.go.jp/a_menu/shotou/senkou/1416039_00013.html). — 小学校 2.0 倍(受験者 34,434 / 採用者 17,078)。2025 年 12 月 18 日公表。
-- 文部科学省 (2024). [令和 6 年度(令和 5 年度実施)公立学校教員採用選考試験の実施状況について](https://www.mext.go.jp/a_menu/shotou/senkou/1416039_00012.html). — 全体倍率 3.2 倍(過去最低)、小学校 2.2 倍。採用者総数 36,421 人。2024 年 12 月 26 日公表。
-- 文部科学省 (2024). [令和 5 年度公立学校教職員の人事行政状況調査について](https://www.mext.go.jp/a_menu/shotou/jinji/1411820_00008.htm). — 精神疾患による病気休職者 7,119 人(過去最多、全教育職員の 0.77%)、前年比 +580 人。2024 年 12 月 20 日公表。
-- 文部科学省 (2023). [令和 4 年度 教員勤務実態調査](https://www.mext.go.jp/a_menu/shotou/hatarakikata/index.htm). — 小学校教諭の時間外在校等時間は月平均約 41 時間(前回調査の約 59 時間から減少)。
-- 文部科学省 (2022). [「教師不足」に関する実態調査](https://www.mext.go.jp/a_menu/shotou/kyoin/mext_00003.html). 令和 4 年 1 月. — 全国の欠員実態と主要因(産休・育休・特別支援学級増・病休・臨時的任用教員のなり手不足)を整理した文科省の公式調査。
-- 文部科学省 (2026). [中学校 35 人学級の実施等のための法律案が参議院本会議で可決・成立](https://www.mext.go.jp/b_menu/activity/detail/2026/20260331.html). — 令和 8 年度に中 1、令和 9 年度に中 1・2、令和 10 年度に中 1〜3 で 35 人学級を段階的実施。2026 年 3 月 31 日成立。
-- 文部科学省 (2025). [公立の義務教育諸学校等の教育職員の給与等に関する特別措置法等の一部を改正する法律の概要](https://www.mext.go.jp/content/20250725-mxt_syokyo02-000043935_7.pdf). — 教職調整額 4% → 10% の段階的引き上げ(〜令和 11 年度)、主務教諭の創設、業務量管理計画の義務化等。2025 年 6 月 11 日成立、2026 年 4 月 1 日施行。
-- 全国公立学校教頭会 (2024). [令和 6 年度 全国公立学校教頭会の調査](https://kyotokai.jp/). 2024 年 12 月公表. — 2024 年度始業時点で約 21% の学校で教職員未配置、全国 4,500 校超が該当。副校長・教頭の負担増を指摘。
+- [令和 7 年度(令和 6 年度実施)公立学校教員採用選考試験の実施状況等について](https://www.mext.go.jp/a_menu/shotou/senkou/1416039_00013.html). 文部科学省 (2025), 2025 年 12 月 18 日公表. — 小学校 2.0 倍(受験者 34,434 / 採用者 17,078)。
+- [令和 6 年度(令和 5 年度実施)公立学校教員採用選考試験の実施状況について](https://www.mext.go.jp/a_menu/shotou/senkou/1416039_00012.html). 文部科学省 (2024), 2024 年 12 月 26 日公表. — 全体倍率 3.2 倍(過去最低)、小学校 2.2 倍。採用者総数 36,421 人。
+- [令和 5 年度公立学校教職員の人事行政状況調査について](https://www.mext.go.jp/a_menu/shotou/jinji/1411820_00008.htm). 文部科学省 (2024), 2024 年 12 月 20 日公表. — 精神疾患による病気休職者 7,119 人(過去最多、全教育職員の 0.77%)、前年比 +580 人。
+- [令和 4 年度 教員勤務実態調査](https://www.mext.go.jp/a_menu/shotou/hatarakikata/index.htm). 文部科学省 (2023). — 小学校教諭の時間外在校等時間は月平均約 41 時間(前回調査の約 59 時間から減少)。
+- [「教師不足」に関する実態調査](https://www.mext.go.jp/a_menu/shotou/kyoin/mext_00003.html). 文部科学省 (2022), 令和 4 年 1 月. — 全国の欠員実態と主要因(産休・育休・特別支援学級増・病休・臨時的任用教員のなり手不足)を整理した文科省の公式調査。
+- [中学校 35 人学級の実施等のための法律案が参議院本会議で可決・成立](https://www.mext.go.jp/b_menu/activity/detail/2026/20260331.html). 文部科学省 (2026), 2026 年 3 月 31 日成立. — 令和 8 年度に中 1、令和 9 年度に中 1・2、令和 10 年度に中 1〜3 で 35 人学級を段階的実施。
+- [公立の義務教育諸学校等の教育職員の給与等に関する特別措置法等の一部を改正する法律の概要](https://www.mext.go.jp/content/20250725-mxt_syokyo02-000043935_7.pdf). 文部科学省 (2025), 2025 年 6 月 11 日成立、2026 年 4 月 1 日施行. — 教職調整額 4% → 10% の段階的引き上げ(〜令和 11 年度)、主務教諭の創設、業務量管理計画の義務化等。
+- [令和 6 年度 全国公立学校教頭会の調査](https://kyotokai.jp/). 全国公立学校教頭会 (2024), 2024 年 12 月公表. — 2024 年度始業時点で約 21% の学校で教職員未配置、全国 4,500 校超が該当。副校長・教頭の負担増を指摘。
 - [3 割近い公立小中校で教員不足の可能性 教頭会調査で指摘](https://www.kyobun.co.jp/article/2025020502). 教育新聞, 2025-02-05. — 全公教調査の結果を解説。小学校の教頭・副校長の 31.1% が担任代替を実施。
-- Education Endowment Foundation. [Reducing class size](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size). *Teaching and Learning Toolkit*. — 学級規模縮小の学力効果は +1 ヶ月で限定的。
+- [Reducing class size](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 学級規模縮小の学力効果は +1 ヶ月で限定的。

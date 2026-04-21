@@ -72,7 +72,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "inquiry-based-lear
 
 ## 参考資料
 
-- 文部科学省 (2017). [小学校学習指導要領](https://www.mext.go.jp/content/1413522_001.pdf). — 「主体的・対話的で深い学び」を掲げた現行版。
-- Education Endowment Foundation. [Metacognition and self-regulation](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation). *Teaching and Learning Toolkit*. — メタ認知と自己調整学習で +7〜+8 ヶ月(エビデンス強)。
-- Education Endowment Foundation. [Collaborative learning approaches](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches). *Teaching and Learning Toolkit*. — 構造化された協同学習で +5 ヶ月。
-- Education Endowment Foundation. [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月(最もエビデンスが堅牢)。
+- [小学校学習指導要領](https://www.mext.go.jp/content/1413522_001.pdf). 文部科学省 (2017). — 「主体的・対話的で深い学び」を掲げた現行版。
+- [Metacognition and self-regulation](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation). Education Endowment Foundation, *Teaching and Learning Toolkit*. — メタ認知と自己調整学習で +7〜+8 ヶ月(エビデンス強)。
+- [Collaborative learning approaches](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 構造化された協同学習で +5 ヶ月。
+- [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月(最もエビデンスが堅牢)。

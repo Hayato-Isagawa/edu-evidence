@@ -132,6 +132,6 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 
 ## 参考資料
 
-- 全国学校図書館協議会 (2024). [第 69 回学校読書調査](https://www.j-sla.or.jp/material/research/dokusyotyousa.html). — 小学生の月平均読書冊数は 13.8 冊で過去最高と報告。
+- [第 69 回学校読書調査](https://www.j-sla.or.jp/material/research/dokusyotyousa.html). 全国学校図書館協議会 (2024). — 小学生の月平均読書冊数は 13.8 冊で過去最高と報告。
 - Mol, S. E., & Bus, A. G. (2011). [To read or not to read: A meta-analysis of print exposure from infancy to early adulthood](https://pubmed.ncbi.nlm.nih.gov/21219054/). *Psychological Bulletin*, 137(2), 267–296. — 99 研究 (N=7,669) のメタ分析。家庭での本との接触と読解力・語彙力の間に一貫した正の相関を報告。
 - Abeberese, A. B., Kumler, T. J., & Linden, L. L. (2014). [Improving reading skills by encouraging children to read in school: A randomized evaluation of the Sa Aklat Sisikat reading program in the Philippines](https://onlinelibrary.wiley.com/doi/abs/10.1002/pam.22175). *Journal of Policy Analysis and Management*, 39(2). — タルラク州の 100 校・4 年生を対象とした RCT。読書スキル +0.13 SD(3 か月後 +0.06 SD)、他教科への波及は確認されず。
