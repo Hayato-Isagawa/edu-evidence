@@ -2,6 +2,7 @@
 title: 「脳が腐る」は本当か — スクリーンタイム研究が見せる「小さいが確かな」負の効果
 summary: 2024年のオックスフォード「今年の言葉」に選ばれた「brain rot」。科学的に検証すると、効果量は小さいものの複数の縦断研究で負の関連が確認されている。福井大学2025年の新知見を含めて整理する。
 date: "2026-04-17"
+lastVerified: "2026-04-21"
 tags: ["デジタル", "健康", "研究紹介"]
 relatedStrategies: ["screen-time", "social-media-mental-health", "digital-technology"]
 ---
@@ -18,10 +19,10 @@ relatedStrategies: ["screen-time", "social-media-mental-health", "digital-techno
 
 本サイトでは、スクリーンタイムの学習・発達への影響を整理しています。
 
-| エビデンス | 効果量 | 出典 |
+| エビデンス | 効果量 | 主な出典 |
 |---|---|---|
-| [スクリーンタイム](/strategies/screen-time) | −2ヶ月 | Madigan et al.(2019) / Oswald et al.(2020) |
-| [SNS利用](/strategies/social-media-mental-health) | −1ヶ月 | Viner et al.(2019) |
+| [スクリーンタイムの影響](/strategies/screen-time) | −2ヶ月 | Madigan et al.(2019)ほか |
+| [SNS利用と精神健康への影響](/strategies/social-media-mental-health) | −1ヶ月 | Viner et al.(2019)ほか |
 
 いずれも **Cohen's d = −0.15 〜 −0.18** 程度で、統計的には「小さい効果量」に分類されます。
 
@@ -42,7 +43,7 @@ relatedStrategies: ["screen-time", "social-media-mental-health", "digital-techno
 
 ## 福井大2025:脳構造が「媒介」する経路が見えた
 
-福井大学子どものこころの発達研究センター(寿秋露・山下雅俊・水野賀史ら)は、2025年11月、米国の大規模小児縦断研究 **ABCD Study(約1万人)** のデータを用いた解析結果を発表しました。
+[福井大学子どものこころの発達研究センター](https://www.u-fukui.ac.jp/result/110350/) の Shou・Yamashita・Mizuno は、2025 年 11 月 20 日、米国の大規模小児縦断研究 **ABCD Study** のデータ(ベースライン 9〜10 歳・10,116 名、2 年後追跡 7,880 名)を用いた解析を [*Translational Psychiatry* 15, 447](https://doi.org/10.1038/s41398-025-03672-1) に発表しました。
 
 主な結果:
 
@@ -84,3 +85,13 @@ relatedStrategies: ["screen-time", "social-media-mental-health", "digital-techno
 - 指導上は「時間管理」より「削られているものを守る」視点が、エビデンスと整合的
 
 「脳が腐る」は誇張です。しかし、「気にしなくていい」も同じくらい不正確です。**小さいけれど確かな効果量** をそのまま受け取るのが、エビデンスに対して誠実な姿勢だと言えます。
+
+## 参考資料
+
+- [Word of the Year 2024: 'brain rot'](https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/). Oxford University Press (2024). — オックスフォード英語辞典の 2024 年「今年の言葉」発表。使用頻度が前年比 230% 増。
+- [子どものスクリーンタイム、注意欠如多動症(ADHD)症状、脳の構造との関係を解明](https://www.u-fukui.ac.jp/result/110350/). 福井大学 (2025). 2025 年 11 月 20 日公表. — ABCD Study(10,116 名 / 追跡 7,880 名)の縦断解析でスクリーンタイム → 皮質体積 → ADHD 症状の部分媒介を確認。
+- Shou, Q., Yamashita, M., & Mizuno, Y. (2025). [Association of screen time with attention-deficit/hyperactivity disorder symptoms and their development: the mediating role of brain structure](https://doi.org/10.1038/s41398-025-03672-1). *Translational Psychiatry*, 15, 447. — 上記福井大プレスリリースの原著論文。
+- Madigan, S., Browne, D., Racine, N., Mori, C., & Tough, S. (2019). [Association between screen time and children's performance on a developmental screening test](https://jamanetwork.com/journals/jamapediatrics/fullarticle/2722666). *JAMA Pediatrics*, 173(3), 244–250. — 2〜5 歳の縦断コホート(2,441 人)。スクリーンタイムと発達スクリーニングテストの負の関連を確認。
+- Orben, A., & Przybylski, A. K. (2019). [The association between adolescent well-being and digital technology use](https://doi.org/10.1038/s41562-018-0506-1). *Nature Human Behaviour*, 3, 173–182. — 3 つの大規模データセット(計 355,358 人)の特定化曲線分析。デジタル技術使用が幸福度の分散を説明するのは最大でも 0.4%(r ≈ 0.05)で「朝食を毎日食べる」と同程度と示した。
+- Viner, R. M., et al. (2019). [Roles of cyberbullying, sleep, and physical activity in mediating the effects of social media use on mental health and wellbeing among young people in England](https://doi.org/10.1016/S2352-4642(19)30186-5). *The Lancet Child & Adolescent Health*, 3(10), 685–696. — Our Futures 研究(12,866 人・13〜16 歳)の縦断分析。SNS 利用と精神健康の関連は、サイバーいじめ・睡眠不足・身体活動減少を経由して媒介されていることを示した。
+- 『[スマホが学力を破壊する](https://shinsho.shueisha.co.jp/kikan/0917-d/)』 川島隆太 (2018), 集英社新書. — 仙台市学習状況調査をもとに、スマホ使用時間と学力の負の相関を論じた一般書。解析は横断中心のため因果は未確定。
