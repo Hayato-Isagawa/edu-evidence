@@ -53,10 +53,8 @@ relatedStrategies: ["growth-mindset", "social-emotional-learning"]
 
 子どもの成長を支えるのは、流行のラベルよりも、地道で具体的な指導の質。それがエビデンスの示す道筋です。
 
-## 参考
+## 参考資料
 
-- [成長マインドセット](/strategies/growth-mindset) — 関連する概念のエビデンス
-- [SEL(社会性と情動の学習)](/strategies/social-emotional-learning) — 非認知能力の育成
-- Credé, M., Tynan, M. C., & Harms, P. D. (2017). Much ado about grit: A meta-analytic synthesis of the grit literature. *Journal of Personality and Social Psychology*, 113(3), 492–511. — グリットの効果を再検証した代表的なメタ分析(88研究、約66,000人)。
-- Lam, K. K. L., & Zhou, M. (2019). Examining the relationship between grit and academic achievement within K-12 and higher education: A systematic review. *Psychology in the Schools*, 56(10), 1654–1686. — 44研究のシステマティックレビュー。
-- 中室牧子(2015). 『「学力」の経済学』ディスカヴァー・トゥエンティワン. — 非認知能力の議論の入門書。
+- Credé, M., Tynan, M. C., & Harms, P. D. (2017). [Much ado about grit: A meta-analytic synthesis of the grit literature](https://doi.org/10.1037/pspp0000102). *Journal of Personality and Social Psychology*, 113(3), 492–511. — グリットの効果を再検証した代表的なメタ分析(88 研究、約 66,000 人)。
+- Lam, K. K. L., & Zhou, M. (2019). [Examining the relationship between grit and academic achievement within K-12 and higher education: A systematic review](https://doi.org/10.1002/pits.22302). *Psychology in the Schools*, 56(10), 1654–1686. — 44 研究のシステマティックレビュー。
+- 『[「学力」の経済学](https://d21.co.jp/book/detail/978-4-7993-1685-6)』 中室牧子 (2015), ディスカヴァー・トゥエンティワン. — 非認知能力の議論の入門書。
