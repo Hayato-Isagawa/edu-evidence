@@ -35,9 +35,9 @@ relatedStrategies: []
 
 フィンランドは 1972 年から段階的に **9 年制の総合学校(peruskoulu)** を導入(1977 年に全国展開完了)しました。1970 年に策定された国家カリキュラムは詳細かつ中央集権的で、それ以前の **二層制(文法学校と市民学校の分離)を廃止** しています。
 
-この制度の下で学齢期全体を過ごしたコホート(1970 年代半ば以降生まれ)が PISA 調査年齢(15 歳)を迎えたのが **2000 年前後**。PISA 2000・2003・2006 でフィンランドが上位を独占した時期と一致します。Pasi Sahlberg の『Finnish Lessons 2.0』(2015)はこの時差を詳述しており、2000 年代のフィンランドを称賛した世界は、**2000 年代のフィンランドを見ていたのではなく、1970 年代改革の『果実』を見ていた** と論じています。
+この制度の下で学齢期全体を過ごしたコホート(1970 年代半ば以降生まれ)が PISA 調査年齢(15 歳)を迎えたのが **2000 年前後**。PISA 2000・2003・2006 でフィンランドが上位を独占した時期と一致します。
 
-この視点は、**教育政策と結果の間には数十年の遅れがある** ことを示すとともに、**「現在のフィンランドを真似ても、1970 年代改革を真似たことにはならない」** ことも意味します。2010 年代以降の低下は、この改革後の方針変更(地方分権化や評価方針の変更など)の帰結がさらに時差を経て表れたもの、と解釈できます。
+教育政策と結果の間には世代単位の時差があるという視点から見れば、**2000 年代にフィンランドを称賛した世界は、2000 年代のフィンランドではなく 1970 年代改革の「果実」を見ていた** と解釈できます。**「現在のフィンランドを真似ても、1970 年代改革を真似たことにはならない」** という含意も同時にあり、2010 年代以降の低下も、改革後の方針変更(地方分権化や評価方針の変更など)の帰結がさらに時差を経て表れたもの、と整合的に位置づけることができます。
 
 ## 「学べ」が成立していた時期と、反転した後
 
@@ -115,4 +115,4 @@ relatedStrategies: []
 - [PISA 2022 Country Notes — Japan](https://www.oecd.org/en/publications/pisa-2022-results-volume-i-and-ii-country-notes_ed6fbcc5-en/japan_f7d7daad-en.html). OECD (2023). — 日本の数学 536 点(OECD 平均 472 より 64 点高く歴代最高タイ)を記録。2018 年から 2022 年にかけてスコアが上昇した数少ない国として分析。
 - [Finland PISA Scores (Math) — Trends & Historical Data](https://worldscorecard.com/scorecards/finnish-scorecard/pisa-scores-math/). World Scorecard. — 2003〜2022 年のフィンランド数学スコアの集約データ(544 → 548 → 541 → 524 → 511 → 507 → 484)。
 - 『[World Class: How to Build a 21st-Century School System](https://doi.org/10.1787/9789264300002-en)』 Andreas Schleicher (2018), OECD Publishing. — PISA 責任者による国際比較分析。各国の教育制度を PISA データの視点から検討。
-- 『[Finnish Lessons 2.0: What Can the World Learn from Educational Change in Finland?](https://www.google.com/books/edition/Finnish_Lessons_2_0/V8dpBAAAQBAJ)』 Pasi Sahlberg (2015), Teachers College Press (ISBN 978-0807755853). — フィンランド出身の教育研究者による批判的分析。1970 年代 peruskoulu 改革の効果が 2000 年代の PISA ピークとして現れた時差を詳述している。
+- 『[Finnish Lessons 2.0: What Can the World Learn from Educational Change in Finland?](https://www.google.com/books/edition/Finnish_Lessons_2_0/V8dpBAAAQBAJ)』 Pasi Sahlberg (2015), Teachers College Press (ISBN 978-0807755853). — フィンランド出身の教育研究者による批判的分析。
