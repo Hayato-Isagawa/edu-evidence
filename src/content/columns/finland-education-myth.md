@@ -78,8 +78,8 @@ relatedStrategies: []
 
 フィンランド神話の盛衰は、私たちが「教育改革のヒーロー」を探す癖を見直すきっかけになります。
 
-## 参考
+## 参考資料
 
-- OECD(2023). [PISA 2022 Results (Volume I)](https://www.oecd.org/publication/pisa-2022-results/). — 最新のPISA結果。
-- Andreas Schleicher(2018). *World Class: How to Build a 21st-Century School System*. OECD Publishing. — PISA責任者による国際比較分析。
-- Pasi Sahlberg(2015). *Finnish Lessons 2.0*. Teachers College Press. — フィンランド出身の教育研究者による批判的分析。
+- OECD (2023). [PISA 2022 Results (Volume I): The state of learning and equity in education](https://www.oecd.org/publication/pisa-2022-results/). — 最新の PISA 結果。フィンランドを含む各国のスコア推移と教育格差の国際比較。
+- 『[World Class: How to Build a 21st-Century School System](https://doi.org/10.1787/9789264300002-en)』 Andreas Schleicher (2018), OECD Publishing. — PISA 責任者による国際比較分析。各国の教育制度を PISA データの視点から検討。
+- 『[Finnish Lessons 2.0: What Can the World Learn from Educational Change in Finland?](https://www.tcpress.com/finnish-lessons-2.0-9780807755853)』 Pasi Sahlberg (2015), Teachers College Press. — フィンランド出身の教育研究者による批判的分析。
