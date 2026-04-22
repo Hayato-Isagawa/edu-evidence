@@ -390,7 +390,15 @@ Hattie の有名な言葉:
 - `astro check`: 型エラー
 - `textlint`: 日本語品質
 - `check:consistency`: frontmatter の `monthsGained` と本文中の月数表記の整合性
-- `check:links`: ビルド後のリンク切れ検知
+- `check:links:source`: md ソース中の外部 URL 到達性(dist ビルド不要、404 / 410 / network error のみ失敗)
+- `check:links`: ビルド後の dist に対する linkinator 走査
+
+`check:links:source` の挙動:
+
+- **2xx / 3xx**: OK
+- **403 / 429 / 5xx**: warning として列挙(ボット対策・一時障害の可能性、ブラウザで要確認)
+- **404 / 410 / network error**: error(exit code 1)
+- markdown リンク `[text](url)` は balanced-paren 抽出のため `doi.org/10.1016/S2352-4642(19)30186-5` のような括弧入り URL にも対応
 
 GitHub Actions で稼働中の自動化:
 
