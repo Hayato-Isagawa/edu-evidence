@@ -15,7 +15,17 @@ evidence:
     monthsGained: 4
     strength: 3
     note: "EEF Toolkit で +4ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。対象を絞った介入(困難の大きい子への個別計画)で効果が大きい。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-22"
+methodology:
+  studies: 249
+  sampleSize: "K-12 の 249 研究(Wilson & Lipsey 2007 の Campbell/Cochrane レビュー)"
+  effectSize: "攻撃的・破壊的行動への効果 d ≈ 0.21。対象を絞った介入(Tier 2/3)で効果が大きい"
+  primaryMetaAnalysis:
+    authors: "Wilson & Lipsey"
+    year: 2007
+    title: "School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis"
+    url: "https://doi.org/10.1016/j.amepre.2007.04.012"
+  limitations: "『行動への働きかけ』は校全体(SWPBIS 等)・学級・個別と階層が異なり、効果量も階層・対象層で変動。Marzano 2003 は学級経営全般の書籍的集約で独立したメタ分析ではない。Fryer 2011 は金銭的インセンティブの RCT で『行動』概念の広い枠組みのうち一領域にとどまる。"
 culturalContext: |
   日本の生徒指導は 2022 年の『生徒指導提要』改訂で **発達支持的・課題予防的(未然防止/早期発見対応)・困難課題対応的** の 4 層からなる重層的支援構造が明確化された。EEF の知見は、**個別の支援が必要な児童への個別計画**の方が学級全体への一律介入より効率的であることを示しており、提要が示す「個別の支援」層と親和性が高い。報酬(シール・スタンプ)運用は広く行われているが、Fryer(2011)が示すように『行動(インプット)への報酬は効果があるが結果(アウトプット)への報酬は効果がない』点に注意。
 ---
@@ -53,9 +63,9 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Marzano, R. J., Marzano, J. S., & Pickering, D. J. (2003). *Classroom management that works*. ASCD. — 学級経営と行動マネジメントの100以上の研究をレビュー。教師と子どもの関係性が最も効果的な要因であることを示した。
-- Wilson, S. J., & Lipsey, M. W. (2007). [School-based interventions for aggressive and disruptive behavior](https://doi.org/10.1016/j.amepre.2007.04.012). *American Journal of Preventive Medicine*, 33(2), S130–S143. — 249研究のメタ分析。行動への介入の平均効果量d=0.21。特に対象を絞った介入で効果が大きい。
-- EEF (2021). Behaviour interventions: Evidence review. — 効果量+4ヶ月。学級全体への介入より、困難の大きい子への個別計画が効率的。
+- 『[Classroom Management That Works: Research-Based Strategies for Every Teacher](https://ascd.org/books/classroom-management-that-works?variant=103027)』 Marzano, R. J., Marzano, J. S., & Pickering, D. J. (2003), ASCD. — 学級経営と行動マネジメントの 100 以上の研究を集約した書籍。教師と子どもの関係性・ルールと手順・規律への介入・メンタルセットという 4 要因が学級経営の効果を左右すると整理。
+- Wilson, S. J., & Lipsey, M. W. (2007). [School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis](https://doi.org/10.1016/j.amepre.2007.04.012). *American Journal of Preventive Medicine*, 33(2), S130–S143. — 249 研究のメタ分析。攻撃的・破壊的行動への介入の平均効果量 d ≈ 0.21。特に Tier 2/3(対象を絞った介入)で効果が大きい。
+- [Improving Behaviour in Schools](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/behaviour). Education Endowment Foundation (2019, updated 2021), *Guidance Report*. — 学校全体の行動支援を 6 原則で整理。学級全体への画一的介入より、困難の大きい子への個別計画(個別の行動サポートプラン)が効率的と提言。
 
 ## 関連する学習指導要領
 
