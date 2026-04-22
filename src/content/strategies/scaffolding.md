@@ -18,7 +18,7 @@ evidence:
   hattie:
     cohensD: 0.82
     note: "Hattie の Visible Learning では d=0.82 と報告。複数の独立メタ分析(Belland et al. 2017 computer-based scaffolding g=0.46、online learning d=0.53 等)では d=0.4-0.6 程度が一般的。Hattie の値は上端寄り。"
-lastVerified: "2026-04-18"
+lastVerified: "2026-04-22"
 methodology:
   studies: 144
   sampleSize: "144 実験研究 / 333 効果量(STEM 学習者、K-12〜高等教育)"
@@ -51,7 +51,7 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- Hattieのメタ分析では効果量d=0.82。非常に高い効果
+- Hattie の Visible Learning では d = 0.82 と高めの値を報告。ただし独立メタ分析(Belland 2017 の Hedges' g = 0.46 など)は d = 0.4〜0.6 程度の中程度が一般的で、Hattie の値は上端寄りと評価される
 - van de Pol, Volman & Beishuizen (2010) のレビューでは、足場かけの3要素(偶発的対応・フェーディング・責任の移行)が効果を決めることを示した
 - 足場かけは特定の教科に限定されず、全教科で効果が確認されている
 - 授業のユニバーサルデザイン(焦点化・視覚化・共有化)は足場かけの具体的な実践形
@@ -65,8 +65,9 @@ culturalContext: |
 
 ## 主な参考研究
 
-- van de Pol, J., Volman, M., & Beishuizen, J. (2010). [Scaffolding in teacher–student interaction](https://doi.org/10.1007/s10648-010-9127-6). *Educational Psychology Review*, 22(3), 271–296. — 足場かけの3要素を整理したレビュー。
-- Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem solving. *Journal of Child Psychology and Psychiatry*, 17(2), 89–100. — 「足場かけ」の概念を提唱した原典。
+- van de Pol, J., Volman, M., & Beishuizen, J. (2010). [Scaffolding in teacher–student interaction](https://doi.org/10.1007/s10648-010-9127-6). *Educational Psychology Review*, 22(3), 271–296. — 足場かけを「偶発的対応 / フェーディング / 責任の移行」の 3 要素で整理したレビュー。
+- Wood, D., Bruner, J. S., & Ross, G. (1976). [The role of tutoring in problem solving](https://doi.org/10.1111/j.1469-7610.1976.tb00381.x). *Journal of Child Psychology and Psychiatry*, 17(2), 89–100. — 「足場かけ(scaffolding)」概念を初めて提唱した原典論文。
+- Belland, B. R., Walker, A. E., Kim, N. J., & Lefler, M. (2017). [Synthesizing results from empirical research on computer-based scaffolding in STEM education: A meta-analysis](https://doi.org/10.3102/0034654316670999). *Review of Educational Research*, 87(2), 309–344. — コンピューターベースの足場かけを対象とした 144 研究・333 効果量のメタ分析。Hedges' g = 0.46(小〜中)。
 
 ## 関連する学習指導要領
 
