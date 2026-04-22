@@ -2,7 +2,7 @@
 title: 給食無償化は何を変えるのか — 政策目的とエビデンスを整理する
 summary: 2026年4月、公立小学校の給食が全国一律で無償化された。この政策は何を目的としているのか、そして研究は何を示しているのか。自治体の政策目的と先行研究のエビデンスを整理する。
 date: "2026-04-14"
-lastVerified: "2026-04-19"
+lastVerified: "2026-04-22"
 tags: ["給食", "政策", "格差"]
 relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 ---
@@ -39,7 +39,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 | 指標 | 結果 | 証拠の確実性 |
 |---|---|---|
 | 昼食参加率 | 有意に増加(3 研究) | 中程度 |
-| 朝食参加率 | 有意に増加(1 研究のみ) | 非常に低い |
+| [朝食](/strategies/breakfast-skipping) 参加率 | 有意に増加(1 研究のみ) | 非常に低い |
 | 出席率 | 変化なし〜わずかに改善 | 低い |
 | 肥満有病率 | 減少 | 非常に低い |
 | 停学率 | 減少 | 非常に低い |
@@ -67,7 +67,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 [Ayllón & Lado (2025) の先進国 42 研究・2,821 推定値のメタ分析(IZA DP 18042)](https://www.iza.org/publications/dp/18042/the-causal-impact-of-school-meal-programmes-on-children-in-developed-economies-a-meta-analysis) は、**「先進国における給食プログラムは、行動・健康・教育への影響が最小限」** と結論しました。
 
-なお同論文の下位分析では、**所得制限型(means-tested)の給食プログラムと朝食プログラムが最も効果を生む** とも報告されています。普遍的な無償化そのものより、支援対象を絞ったプログラムのほうが効果が大きい、という示唆です。
+なお同論文の下位分析では、**所得制限型(means-tested)の給食プログラムと [朝食](/strategies/breakfast-skipping) プログラムが最も効果を生む** とも報告されています。普遍的な無償化そのものより、支援対象を絞ったプログラムのほうが効果が大きい、という示唆です。
 
 ### 中室牧子氏の指摘との整合
 
