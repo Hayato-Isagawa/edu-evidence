@@ -34,6 +34,39 @@ const TIMEOUT_MS = Number(process.env.LINK_CHECK_TIMEOUT_MS ?? 15000);
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
 
+// 学術・公的機関系でボット対策 (Cloudflare / Atypon / Silverchair 等) が常時 403 を返すドメイン。
+// warn に分類はするが、サマリ表示にして行単位のノイズを減らす。
+// ブラウザからは通常 200 でアクセスできる前提。
+const KNOWN_BOT_PROTECTED_HOSTS: readonly string[] = [
+  "doi.org",
+  "educationendowmentfoundation.org.uk",
+  "www.sciencedirect.com",
+  "journals.sagepub.com",
+  "jamanetwork.com",
+  "pubmed.ncbi.nlm.nih.gov",
+  "www.ncbi.nlm.nih.gov",
+  "www.nichd.nih.gov",
+  "www.tandfonline.com",
+  "www.nier.go.jp",
+  "www.oecd.org",
+  "www.mhlw.go.jp",
+  "link.springer.com",
+  "onlinelibrary.wiley.com",
+  "files.eric.ed.gov",
+];
+
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
+function isKnownBotProtected(url: string): boolean {
+  return KNOWN_BOT_PROTECTED_HOSTS.includes(hostOf(url));
+}
+
 // frontmatter やベタ URL を対象とする(markdown のリンクは balanced-paren で別抽出)
 const BARE_URL_REGEX = /(?<![(\["'])(https?:\/\/[^\s"'<>\]]+)/g;
 
@@ -95,9 +128,11 @@ interface Occurrence {
 
 interface Result {
   occurrence: Occurrence;
-  status: number; // 0 = network error
+  status: number; // 0 = network error / timeout
   error?: string;
 }
+
+// FetchOutcome は後方宣言される。型エクスポートせず内部で使う。
 
 function listMarkdownFiles(): string[] {
   const files: string[] = [];
@@ -136,22 +171,50 @@ function extractUrls(raw: string, file: string): Occurrence[] {
   return occurrences;
 }
 
-async function fetchOnce(url: string): Promise<Pick<Result, "status" | "error">> {
+interface FetchOutcome {
+  status: number;
+  error?: string;
+}
+
+const BROWSER_LIKE_HEADERS: Record<string, string> = {
+  "User-Agent": USER_AGENT,
+  Accept:
+    "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+  "Accept-Language": "en-US,en;q=0.9,ja;q=0.8",
+  "Accept-Encoding": "gzip, deflate, br",
+  "Upgrade-Insecure-Requests": "1",
+  "Sec-Fetch-Dest": "document",
+  "Sec-Fetch-Mode": "navigate",
+  "Sec-Fetch-Site": "none",
+  "Sec-Fetch-User": "?1",
+};
+
+async function fetchOnce(url: string): Promise<FetchOutcome> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
+    // HEAD で軽量に確認
     let res = await fetch(url, {
       method: "HEAD",
       redirect: "follow",
       headers: { "User-Agent": USER_AGENT, Accept: "*/*" },
       signal: controller.signal,
     });
-    if (res.status === 405 || res.status === 501 || res.status === 404) {
-      // 405/501 は HEAD 非対応、404 は一部 CDN で HEAD のみ返すため GET で再確認
+
+    // HEAD が 405/501(未対応)/ 404(CDN偽装)/ 401 / 403(ボット対策)/ 429 の場合
+    // ブラウザ風ヘッダ + Range GET でフォールバック再試行
+    if (
+      res.status === 405 ||
+      res.status === 501 ||
+      res.status === 404 ||
+      res.status === 401 ||
+      res.status === 403 ||
+      res.status === 429
+    ) {
       res = await fetch(url, {
         method: "GET",
         redirect: "follow",
-        headers: { "User-Agent": USER_AGENT, Accept: "*/*" },
+        headers: { ...BROWSER_LIKE_HEADERS, Range: "bytes=0-0" },
         signal: controller.signal,
       });
     }
@@ -165,7 +228,7 @@ async function fetchOnce(url: string): Promise<Pick<Result, "status" | "error">>
 }
 
 // 5xx / network error は一時障害の可能性が高いので 1 回リトライする
-async function checkUrl(url: string): Promise<Pick<Result, "status" | "error">> {
+async function checkUrl(url: string): Promise<FetchOutcome> {
   const first = await fetchOnce(url);
   const shouldRetry = first.status === 0 || (first.status >= 500 && first.status < 600);
   if (!shouldRetry) return first;
@@ -221,24 +284,29 @@ async function main() {
   console.log(`並列: ${CONCURRENCY} / timeout: ${TIMEOUT_MS}ms`);
   console.log("");
 
-  const urlStatus = new Map<string, Pick<Result, "status" | "error">>();
+  const urlStatus = new Map<string, FetchOutcome>();
   await runWithConcurrency(uniqueUrls, CONCURRENCY, async (url) => {
     const r = await checkUrl(url);
     urlStatus.set(url, r);
   });
 
   const errors: Result[] = [];
-  const warnings: Result[] = [];
+  const warningsActionable: Result[] = []; // 既知ボット対策ドメイン 以外 の warn(個別列挙)
+  const warningsKnown: Result[] = []; // 既知ボット対策ドメインの warn(サマリ)
   for (const occ of allOccurrences) {
     const s = urlStatus.get(occ.url)!;
     const result: Result = { occurrence: occ, ...s };
     const cat = categorize(s.status);
-    if (cat === "error") errors.push(result);
-    else if (cat === "warn") warnings.push(result);
+    if (cat === "error") {
+      errors.push(result);
+    } else if (cat === "warn") {
+      if (isKnownBotProtected(occ.url)) warningsKnown.push(result);
+      else warningsActionable.push(result);
+    }
   }
 
   if (errors.length > 0) {
-    console.log(`## ❌ 壊れているリンク(404 / 5xx / ネットワークエラー)`);
+    console.log(`## ❌ 壊れているリンク(404 / 410 / ネットワークエラー)`);
     console.log("");
     for (const e of errors) {
       const detail = e.status === 0 ? `network error: ${e.error ?? "unknown"}` : `HTTP ${e.status}`;
@@ -247,19 +315,39 @@ async function main() {
     console.log("");
   }
 
-  if (warnings.length > 0) {
-    console.log(`## ⚠️ 要目視(401 / 403 / 429 / 5xx)`);
+  if (warningsActionable.length > 0) {
+    console.log(`## ⚠️ 新規に 401 / 403 / 429 / 5xx を返したリンク(未登録ドメイン、要目視)`);
     console.log("");
-    for (const w of warnings) {
-      console.log(`- ${rel(w.occurrence.file)}:${w.occurrence.line} — ${w.occurrence.url} → HTTP ${w.status}`);
+    for (const w of warningsActionable) {
+      console.log(
+        `- ${rel(w.occurrence.file)}:${w.occurrence.line} — ${w.occurrence.url} → HTTP ${w.status}`,
+      );
     }
     console.log("");
   }
 
-  const okCount = allOccurrences.length - errors.length - warnings.length;
+  if (warningsKnown.length > 0) {
+    // ホスト別サマリ
+    const byHost = new Map<string, number>();
+    for (const w of warningsKnown) {
+      const h = hostOf(w.occurrence.url);
+      byHost.set(h, (byHost.get(h) ?? 0) + 1);
+    }
+    const hosts = [...byHost.entries()].sort((a, b) => b[1] - a[1]);
+    console.log(`## ℹ️ 既知のボット対策ドメイン(ブラウザでは通常 200、サマリ表示)`);
+    console.log("");
+    for (const [h, n] of hosts) {
+      console.log(`- ${h}: ${n} 件`);
+    }
+    console.log("");
+  }
+
+  const warnTotal = warningsActionable.length + warningsKnown.length;
+  const okCount = allOccurrences.length - errors.length - warnTotal;
   console.log(`## 集計`);
   console.log(`- ✓ 2xx / 3xx: ${okCount}`);
-  console.log(`- ⚠️ 要目視(403 / 429 / 5xx 等): ${warnings.length}`);
+  console.log(`- ⚠️ 要目視 (未登録ドメイン): ${warningsActionable.length}`);
+  console.log(`- ℹ️ 既知ボット対策ドメイン: ${warningsKnown.length}`);
   console.log(`- ❌ 404 / 410 / network error: ${errors.length}`);
 
   if (errors.length > 0) {

@@ -396,8 +396,11 @@ Hattie の有名な言葉:
 `check:links:source` の挙動:
 
 - **2xx / 3xx**: OK
-- **403 / 429 / 5xx**: warning として列挙(ボット対策・一時障害の可能性、ブラウザで要確認)
+- **403 / 429 / 5xx 等(warn)**:
+  - 未登録ドメインは個別に列挙(新たなボット対策を発見したら目視確認)
+  - 既知のボット対策ドメイン(`doi.org`・`educationendowmentfoundation.org.uk`・`journals.sagepub.com` など)はホスト別サマリで表示しノイズを抑制
 - **404 / 410 / network error**: error(exit code 1)
+- `HEAD` で 401 / 403 / 404 / 405 / 429 / 501 が返った場合はブラウザ風ヘッダ + `Range: bytes=0-0` で GET フォールバックし、ボット対策を一部回避
 - markdown リンク `[text](url)` は balanced-paren 抽出のため `doi.org/10.1016/S2352-4642(19)30186-5` のような括弧入り URL にも対応
 
 GitHub Actions で稼働中の自動化:
