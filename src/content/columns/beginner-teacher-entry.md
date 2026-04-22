@@ -43,15 +43,15 @@ relatedStrategies: ["feedback", "metacognition", "reading-comprehension", "oral-
 
 **選ぶ理由**: 毎日の授業で即使える。特別な準備が要らない。すべての教科・学年で効く。
 
-EEF Toolkit で **エビデンスが最も堅牢とされる領域の一つ(★5)** です。小学校での効果は +7 ヶ月(中学校 +5)。Hattie のメタ分析でも常に上位。
+EEF Toolkit で **エビデンスが最も堅牢とされる領域の一つ(★5、155 研究)** です。小学校での効果は +7 ヶ月(中学校 +5)。さらに **口頭フィードバックは +7 ヶ月** で、書面フィードバックよりわずかに効果量が高いと報告されています。EEF は「書面だけに限定すべきではない」「職員の負担を監視しながら運用せよ」と明記しており、**書くことに集中するよりも、話すことを主軸に据える方が効果と持続性の両立につながる** 可能性が高いと言えます。
 
-**明日からできること**:
+**明日からできること**(口頭を主軸に、書くのは最小限):
 
-- ノートに **「ここがいい」「次はここを」** を短く書く
-- 「がんばったね」ではなく **「どこをがんばったか、次に何を試すか」** を書く
-- クラス全体の誤答に対して、**何を間違えたか・どう直すか** を説明する
+- **机間指導中の即時の口頭フィードバック** — 「ここがいい」「次はここを」を声で短く伝える。紙に書かない分、教師の負担も少ない
+- **授業終わりの 2〜3 分フィードバック** — クラス全体に向けて、**今日の多数の誤答と、その修正ポイント** を口頭で説明する
+- **書く場合は短く、行動指向に** — 「がんばったね」ではなく **「どこをがんばったか、次に何を試すか」** を 1 文で。ノート所見に長文は要らない
 
-EEF が強調するのは「**フィードバックの質**」。曖昧な称賛より、**次の行動を指す具体的な情報** が効果的です。
+EEF が強調するのは「**フィードバックの質**」(曖昧な称賛より、次の行動を指す具体的な情報)と「**職員の負担の持続可能性**」(書くのは最小限、口頭を主軸に)。両者を両立できる指導法として設計するのが実装上の鍵です。
 
 ### 2. メタ認知の指導(+8ヶ月・★5)
 
@@ -128,7 +128,7 @@ EEF が強調するのは「**フィードバックの質**」。曖昧な称賛
 ## 参考資料
 
 - [Metacognition and self-regulation](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation). Education Endowment Foundation, *Teaching and Learning Toolkit*. — メタ認知・自己調整学習で +8 ヶ月(355 研究のメタ分析、エビデンス ★5)。本コラム最上位推奨の根拠。
-- [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月(小学校 +7)、エビデンス ★5。本コラム推奨の根拠。
+- [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月(小学校 +7、中学校 +5)、エビデンス ★5(155 研究)。**口頭フィードバックは +7 ヶ月** で書面よりわずかに効果量が高く、EEF は「書面だけに限定せず、職員の負担を監視しながら運用すべき」と提言。
 - [Reading comprehension strategies](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reading-comprehension-strategies). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 読解戦略の明示的指導で +7 ヶ月、エビデンス ★5。本コラム推奨の根拠。
 - [Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語の指導で +6 ヶ月(幼児期 +7・小 +6・中 +5)、エビデンス ★5。
 - [Phonics](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/phonics). Education Endowment Foundation, *Teaching and Learning Toolkit*. — フォニックス指導で +5 ヶ月、エビデンス ★5(英語圏の読み書き初期指導での効果)。
