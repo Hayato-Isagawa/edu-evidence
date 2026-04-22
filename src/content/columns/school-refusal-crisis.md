@@ -1,10 +1,10 @@
 ---
 title: 不登校35万人時代 — エビデンスで考える「学びの保障」
-summary: 過去最多35.4万人。増加の背景、エビデンスに基づく支援策、そして「学校に戻す」から「学びを保障する」へのパラダイムシフトを考える。
+summary: 過去最多35.4万人。増加の背景、エビデンスに基づく支援策、そして「学校に戻す」から「学びを保障する」への政策転換を考える。
 date: "2026-04-13"
-lastVerified: "2026-04-19"
+lastVerified: "2026-04-22"
 tags: ["不登校", "格差", "政策"]
-relatedStrategies: ["school-refusal-support", "social-emotional-learning", "behaviour-interventions"]
+relatedStrategies: ["school-refusal-support", "social-emotional-learning", "behaviour-interventions", "teacher-student-relationships", "feedback"]
 ---
 
 ## 過去最多を更新し続ける不登校
@@ -25,9 +25,9 @@ relatedStrategies: ["school-refusal-support", "social-emotional-learning", "beha
 
 ただし、関連する知見はあります。
 
-- **SEL（社会性と情動の学習）** (+4ヶ月) — 自己理解・対人スキル・感情調整を育てるプログラムは、学校適応と学力の両方に正の効果がある
-- **行動への働きかけ** (+4ヶ月) — 困難の大きい子への個別計画が、全体への一律対応より効果的
-- **教師と子どもの関係性** (+4ヶ月) — 「この先生は自分をわかってくれている」という感覚が学校適応を支える
+- **[社会性と情動の学習(SEL)](/strategies/social-emotional-learning)** (+4ヶ月) — 自己理解・対人スキル・感情調整を育てるプログラムは、学校適応と学力の両方に正の効果がある
+- **[行動への働きかけ](/strategies/behaviour-interventions)** (+4ヶ月) — 困難の大きい子への個別計画が、全体への一律対応より効果的
+- **[教師と子どもの関係性](/strategies/teacher-student-relationships)** (+4ヶ月) — 「この先生は自分をわかってくれている」という感覚が学校適応を支える
 
 いずれも「不登校になった後の対処」ではなく、**「不登校を予防する学級環境づくり」**に関するエビデンスです。
 
@@ -43,7 +43,7 @@ relatedStrategies: ["school-refusal-support", "social-emotional-learning", "beha
 
 エビデンスの観点からは以下が示唆されます。
 
-- **予防が対処より効果的** — SEL・関係性づくり・形成的評価は、不登校のリスクを減らす学級環境の基盤
+- **予防が対処より効果的** — [SEL](/strategies/social-emotional-learning)・[関係性づくり](/strategies/teacher-student-relationships)・[フィードバック](/strategies/feedback) は、不登校のリスクを減らす学級環境の基盤
 - **早期の気づきが鍵** — 欠席が3日連続したら注意、10日を超えたら組織的対応。早期ほど回復しやすい
 - **「学校に来ること」と「学ぶこと」を分ける** — オンライン授業・別室登校・教育支援センターなど、学びの選択肢を複数持つ
 - **教員だけで抱えない** — スクールカウンセラー・スクールソーシャルワーカーとの連携は、個人の頑張りではなくシステムで対応するということ
@@ -64,7 +64,7 @@ relatedStrategies: ["school-refusal-support", "social-emotional-learning", "beha
 
 - 不登校児童生徒は **35 万 3,970 人(令和 6 年度)** で 12 年連続の過去最多。ただし **新規の不登校は 9 年ぶりに減少** しており、動向は変化の局面にある
 - 要因として多い「やる気が出ない」「生活リズムの乱れ」は原因ではなく **症状**。単一の原因に帰属させる見方は支援の設計を誤らせる
-- 大規模 RCT は少ないが、**SEL・関係性づくり・形成的評価** が予防的学級環境の基盤として示唆される
+- 大規模 RCT は少ないが、**[SEL](/strategies/social-emotional-learning)・[関係性づくり](/strategies/teacher-student-relationships)・[フィードバック](/strategies/feedback)** が予防的学級環境の基盤として示唆される
 - 2016 年の [教育機会確保法](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422155.htm) 以降、政策の軸は「学校復帰」から **学びの保障** へ移っている
 - 学校内外の相談・指導につながっていない約 13 万 6,000 人が最大の論点。**家庭・学校・制度** の役割分担と、学校内での **専門職との連携によるシステム対応** が前提となる
 
