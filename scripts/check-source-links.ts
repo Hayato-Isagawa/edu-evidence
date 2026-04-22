@@ -49,6 +49,7 @@ const KNOWN_BOT_PROTECTED_HOSTS: readonly string[] = [
   "www.tandfonline.com",
   "www.nier.go.jp",
   "www.oecd.org",
+  "gpseducation.oecd.org",
   "www.mhlw.go.jp",
   "link.springer.com",
   "onlinelibrary.wiley.com",
