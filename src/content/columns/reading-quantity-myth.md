@@ -2,7 +2,7 @@
 title: 「読書 100 冊目標」は学力を上げるか — 冊数信仰をエビデンスで問い直す
 summary: 2024 年、小学生の月平均読書冊数は 13.8 冊で過去 31 年の最高値。自治体や学校が「年間◯冊」の目標を掲げる例も多い。しかし、冊数を追うことと学力が上がることの因果は、思うほど明確ではない。
 date: "2026-04-18"
-lastVerified: "2026-04-19"
+lastVerified: "2026-04-22"
 tags: ["読書", "国語", "学力"]
 relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"]
 ---
@@ -35,7 +35,7 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 
 読書習慣は、本質的に **家庭で形成される** 領域です。国際的には、[Mol & Bus(2011)の 99 研究メタ分析(N=7,669)](https://pubmed.ncbi.nlm.nih.gov/21219054/) が、就学前から大学生までを対象に「家庭での本との接触量」と「読解力・語彙力」の間に一貫した正の相関を報告しており、家庭での読み聞かせ・蔵書・保護者の読書モデルが、読書習慣と読解力の基礎になることが示されています。
 
-学校は、家庭で育った読書習慣を **維持・強化するサポート役** であり、家庭の役割を代替する手段は持ちません。ただし、**家庭環境に格差がある現実** において、学校の果たす役割は小さくありません。特に家庭での蔵書アクセスや保護者モデルが限られる家庭にとって、学校図書館と学校での読書時間は、教育格差を緩和する装置として機能します。
+学校は、家庭で育った読書習慣を **維持・強化するサポート役** であり、家庭の役割を代替する手段は持ちません。ただし、**家庭環境に格差がある現実** において、学校の果たす役割は小さくありません。特に家庭での蔵書アクセスや保護者モデルが限られる家庭にとって、[学校図書館](/strategies/school-library) と学校での [朝読書](/strategies/morning-reading) のような読書時間は、教育格差を緩和する装置として機能します。
 
 ## 因果を示した少数の研究 — フィリピン Sa Aklat Sisikat
 
@@ -61,9 +61,9 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 
 つまり本サイトでも、朝読書について「確実に +2ヶ月の効果」とは言っていません。**「量より習慣化」「習慣化より継続」** の視点が重要です。
 
-## 冊数目標の 3 つの落とし穴
+## 冊数目標の 4 つの落とし穴
 
-エビデンスを踏まえると、学級で冊数目標を運用する際に注意したい点が 3 つあります。
+エビデンスを踏まえると、学級で冊数目標を運用する際に注意したい点が 4 つあります。
 
 ### 落とし穴① 薄い本を何冊も
 
@@ -134,4 +134,4 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 
 - [第 69 回学校読書調査](https://www.j-sla.or.jp/material/research/dokusyotyousa.html). 全国学校図書館協議会 (2024). — 小学生の月平均読書冊数は 13.8 冊で過去最高と報告。
 - Mol, S. E., & Bus, A. G. (2011). [To read or not to read: A meta-analysis of print exposure from infancy to early adulthood](https://pubmed.ncbi.nlm.nih.gov/21219054/). *Psychological Bulletin*, 137(2), 267–296. — 99 研究 (N=7,669) のメタ分析。家庭での本との接触と読解力・語彙力の間に一貫した正の相関を報告。
-- Abeberese, A. B., Kumler, T. J., & Linden, L. L. (2014). [Improving reading skills by encouraging children to read in school: A randomized evaluation of the Sa Aklat Sisikat reading program in the Philippines](https://onlinelibrary.wiley.com/doi/abs/10.1002/pam.22175). *Journal of Policy Analysis and Management*, 39(2). — タルラク州の 100 校・4 年生を対象とした RCT。読書スキル +0.13 SD(3 か月後 +0.06 SD)、他教科への波及は確認されず。
+- Abeberese, A. B., Kumler, T. J., & Linden, L. L. (2014). [Improving reading skills by encouraging children to read in school: A randomized evaluation of the Sa Aklat Sisikat reading program in the Philippines](https://doi.org/10.3368/jhr.49.3.611). *Journal of Human Resources*, 49(3), 611–633. — タルラク州の 100 校・4 年生を対象とした RCT。読書スキル +0.13 SD(3 か月後 +0.06 SD)、他教科への波及は確認されず。
