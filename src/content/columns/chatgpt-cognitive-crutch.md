@@ -2,7 +2,7 @@
 title: ChatGPT で勉強すると記憶が定着しない? — RCT が示す「認知的オフローディング」
 summary: Barcaui(2025)の RCT は、学部生 120 名を対象に「ChatGPT を使って学習 vs 従来学習」を比較。45 日後の抜き打ちテストで ChatGPT 群は 11 ポイント低かった(57.5% vs 68.5%, d=0.68)。学習時間が短くても効果は残る。「思い出す努力」を AI が奪うとき、何が失われるのか。
 date: "2026-04-18"
-lastVerified: "2026-04-20"
+lastVerified: "2026-04-22"
 tags: ["AI", "認知科学", "学習科学"]
 relatedStrategies: ["retrieval-practice", "spaced-practice", "metacognition", "ai-in-education"]
 ---
@@ -108,10 +108,10 @@ ChatGPT はまさに **「学びから困難を取り除く道具」** として
 - 教員の実務用途(教材・校務)は OK。**児童の『思い出す・考える・説明する』場面は AI に任せない**
 - 使う場合も「自分で → 確認」「要約する」「検証する」のガードレール
 
-ChatGPT は便利な道具ですが、**便利さは学びの敵になりうる** — この直感を、初めて厳密に RCT で示した研究が出た、というのが 2025 年の大きなトピックです。道具を使いこなすには、**何に効くか、何を損なうか** を知っておくことが、教員の専門性の核になります。
+ChatGPT は便利な道具ですが、**便利さは学びの敵になりうる** — この直感を、学部生を対象とした RCT で検証したのが Barcaui(2025)の研究です。道具を使いこなすには、**何に効くか、何を損なうか** を知っておくことが、教員の専門性の核になります。
 
 ## 参考資料
 
 - [初等中等教育段階における生成 AI の利活用に関するガイドライン(Ver.2.0)](https://www.mext.go.jp/a_menu/other/mext_02412.html). 文部科学省 (2024), 2024 年 12 月 26 日公表. — 学校現場における生成 AI の利活用の基本方針として「思考の代替リスク」を明示。
 - Barcaui, A. (2025). [ChatGPT as a cognitive crutch: Evidence from a randomized controlled trial on knowledge retention](https://www.sciencedirect.com/science/article/pii/S2590291125010186). *Social Sciences & Humanities Open*, 12, 102287. — 学部生 120 名の RCT。ChatGPT 群は 45 日後の保持テストで 11 ポイント低く (57.5% vs 68.5%、d=0.68)、学習時間を共変量とした ANCOVA でも効果が残る。
-- Bjork, R. A., & Bjork, E. L. (2011). Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning. In M. A. Gernsbacher et al. (Eds.), *Psychology and the real world: Essays illustrating fundamental contributions to society* (pp. 56–64). Worth. — 「望ましい困難」概念の古典的整理。学びの途中の適度な困難が長期記憶への定着を促すことを論じた。
+- Bjork, E. L., & Bjork, R. A. (2011). [Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning](https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2016/04/EBjork_RBjork_2011.pdf). In M. A. Gernsbacher, R. W. Pew, L. M. Hough, & J. R. Pomerantz (Eds.), *Psychology and the real world: Essays illustrating fundamental contributions to society* (pp. 56–64). Worth Publishers. — 「望ましい困難」概念の古典的整理。学びの途中の適度な困難が長期記憶への定着を促すことを論じた。PDF は UCLA Bjork Lab 掲載版。
