@@ -20,16 +20,16 @@ evidence:
     strength: 3
     note: "松岡亮二(2015, 2019)は日本の縦断データで、保護者の教育的関与(学習時間管理・読み聞かせ・文化資本)が SES により大きく異なり、それが学力格差につながることを実証。耳塚寛明(2007)も小学校段階で既に文化的・経済的資本が学力と関連することを示した。"
     researcher: "松岡亮二(早稲田大学)、耳塚寛明(お茶の水女子大学)"
-lastVerified: "2026-04-18"
+lastVerified: "2026-04-22"
 methodology:
   studies: 51
-  sampleSize: "都市部の小中高生(51 研究)"
-  effectSize: "全体 d ≈ 0.30。小学校 d ≈ 0.125、中等教育 d ≈ 0.138、親子対話型プログラムで最大"
+  sampleSize: "都市部の就学前〜高校生(51 研究)"
+  effectSize: "全体 d ≈ 0.30。就学前・小学校 d ≈ 0.29、中等教育 d ≈ 0.35、親子対話型(shared reading)で d ≈ 0.51 と最大"
   primaryMetaAnalysis:
     authors: "Jeynes"
     year: 2012
     title: "A Meta-Analysis of the Efficacy of Different Types of Parental Involvement Programs for Urban Students"
-    url: "https://eric.ed.gov/?id=EJ969713"
+    url: "https://doi.org/10.1177/0042085912445643"
   limitations: "『保護者関与』は定義が広く(期待・対話・家庭学習の監督・学校行事参加など)、種類ごとに効果量が変動。親子対話型 > 学校だよりの送付など受動型。SES によって関与のしやすさが異なるため、『全家庭に一律』の介入では格差を縮められない可能性(松岡 2015, 2019・耳塚 2007)。"
 culturalContext: |
   **『保護者との連携』が全ての家庭に等しく機能するわけではない**。松岡亮二(2015, 2019)・耳塚寛明(2007)が示すように、日本では SES(社会経済的地位)により保護者の教育的関与に構造的な差があり、学校からの一律の呼びかけだけでは格差は縮まらない可能性がある。EEF の +4 ヶ月は『連携できた場合』の効果量であり、**学校側からの積極的・非対称的な働きかけ**(連携できない家庭の子へのフォロー)が併せて必要。
@@ -49,7 +49,7 @@ culturalContext: |
 ## 日本の小学校で取り入れるヒント
 
 - 学級通信で「家庭でこういう声かけをしてみてください」と具体的に伝える
-- 個人面談で、家庭での子どもの姿を聞く時間を必ず取る
+- 個人面談で、家庭での子どもの姿を聞く時間を意識して確保する
 - 読み聞かせや家庭学習の方法を、保護者向けに短く紹介する機会を持つ
 - 保護者からの情報を、学級での子どもの理解に活かす
 - 「指導の協力者」ではなく「子どもを共に育てる仲間」として接する
@@ -57,7 +57,7 @@ culturalContext: |
 ## 研究からわかっていること
 
 - 平均的に、学習は約4ヶ月分前進します。
-- 効果は、低学年・読み書きの初期段階で最も大きくなります。
+- 効果は、低学年・読み書きの初期段階で大きく出やすいと報告されています(Jeynes 2012 では shared reading 型で d ≈ 0.51)。
 - 一般的な「学校だよりを送る」より、具体的な関わり方を伝える介入の方が効果があります。
 
 ## 注意したいこと
@@ -68,9 +68,9 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Jeynes, W. H. (2005). A meta-analysis of the relation of parental involvement. *Urban Education*, 40(3), 237–269. — 41研究のメタ分析。保護者の関与は学力と有意に正の関連。
-- Jeynes, W. H. (2012). [A meta-analysis of the efficacy of different types of parental involvement programs](https://doi.org/10.1177/0042085912445643). *Urban Education*, 47(4), 706–742. — 51研究のメタ分析。親子の対話型プログラムが最も効果が大きいことを示した。
-- EEF (2021). Parental engagement: Evidence review. — 効果量+4ヶ月。一般的な情報提供より、具体的な関わり方を伝える介入の方が効果的。
+- Jeynes, W. H. (2005). [A meta-analysis of the relation of parental involvement to urban elementary school student academic achievement](https://doi.org/10.1177/0042085905274540). *Urban Education*, 40(3), 237–269. — 41 研究のメタ分析。都市部の小学生で保護者関与と学力に有意な正の関連を確認した先行研究。
+- Jeynes, W. H. (2012). [A meta-analysis of the efficacy of different types of parental involvement programs for urban students](https://doi.org/10.1177/0042085912445643). *Urban Education*, 47(4), 706–742. — 51 研究のメタ分析。全体 d ≈ 0.30、就学前・小学校 d ≈ 0.29、中等教育 d ≈ 0.35、親子対話型(shared reading)で d ≈ 0.51 が最大。
+- [Working with Parents to Support Children's Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/supporting-parents). Education Endowment Foundation (2018, updated 2021), *Guidance Report*. — 保護者と学校が子どもの学習を支えるための 4 原則を提示。受動的な情報提供より、具体的な関わり方を伝える介入が効果的と結論。
 
 ## 関連する学習指導要領
 
