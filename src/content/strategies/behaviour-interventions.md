@@ -63,9 +63,12 @@ culturalContext: |
 
 ## 主な参考研究
 
-- 『[Classroom Management That Works: Research-Based Strategies for Every Teacher](https://ascd.org/books/classroom-management-that-works?variant=103027)』 Marzano, R. J., Marzano, J. S., & Pickering, D. J. (2003), ASCD. — 学級経営と行動マネジメントの 100 以上の研究を集約した書籍。教師と子どもの関係性・ルールと手順・規律への介入・メンタルセットという 4 要因が学級経営の効果を左右すると整理。
 - Wilson, S. J., & Lipsey, M. W. (2007). [School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis](https://doi.org/10.1016/j.amepre.2007.04.012). *American Journal of Preventive Medicine*, 33(2), S130–S143. — 249 研究のメタ分析。攻撃的・破壊的行動への介入の平均効果量 d ≈ 0.21。特に Tier 2/3(対象を絞った介入)で効果が大きい。
 - [Improving Behaviour in Schools](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/behaviour). Education Endowment Foundation (2019, updated 2021), *Guidance Report*. — 学校全体の行動支援を 6 原則で整理。学級全体への画一的介入より、困難の大きい子への個別計画(個別の行動サポートプラン)が効率的と提言。
+
+### 関連読み物
+
+- 『[Classroom Management That Works: Research-Based Strategies for Every Teacher](https://ascd.org/books/classroom-management-that-works?variant=103027)』 Marzano, R. J., Marzano, J. S., & Pickering, D. J. (2003), ASCD. — 学級経営と行動マネジメントの 100 以上の研究を集約した米国発の実践書。教師と子どもの関係性・ルールと手順・規律への介入・メンタルセットの 4 要因を整理。
 
 ## 関連する学習指導要領
 
