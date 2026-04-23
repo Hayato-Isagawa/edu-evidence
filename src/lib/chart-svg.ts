@@ -1,22 +1,24 @@
 /**
- * 純粋な SVG 折れ線グラフ生成ユーティリティ
+ * 純粋な SVG チャート生成ユーティリティ(折れ線・棒グラフ)
  *
  * 依存ライブラリなし。文字列として SVG を組み立てて返す。
  * remark-chart プラグイン(ビルド時)および Astro コンポーネント両方から
  * 同じ関数を利用できるよう、副作用のない pure 関数で実装する。
  */
 
-export interface LineSeries {
+export interface ChartSeries {
   name: string;
   data: number[];
   color?: "accent" | "sub" | "ink" | string;
 }
 
-export interface LineChartSpec {
-  type: "line";
+// 後方互換用エイリアス
+export type LineSeries = ChartSeries;
+
+interface BaseChartSpec {
   title?: string;
   xLabels: (string | number)[];
-  series: LineSeries[];
+  series: ChartSeries[];
   yMin?: number;
   yMax?: number;
   yTickStep?: number;
@@ -25,6 +27,16 @@ export interface LineChartSpec {
   caption?: string;
   ariaLabel: string;
 }
+
+export interface LineChartSpec extends BaseChartSpec {
+  type: "line";
+}
+
+export interface BarChartSpec extends BaseChartSpec {
+  type: "bar";
+}
+
+export type ChartSpec = LineChartSpec | BarChartSpec;
 
 const WIDTH = 640;
 const HEIGHT = 400;
@@ -57,7 +69,7 @@ function escapeHtml(s: string | number): string {
 
 function computeYAxis(
   values: number[],
-  spec: LineChartSpec,
+  spec: BaseChartSpec,
 ): { min: number; max: number; step: number; ticks: number[] } {
   const flat = values.filter((v) => Number.isFinite(v));
   const rawMin = flat.length ? Math.min(...flat) : 0;
@@ -106,6 +118,11 @@ function formatTick(v: number): string {
     return v.toLocaleString("en-US");
   }
   return String(v);
+}
+
+export function renderChartSVG(spec: ChartSpec, chartId: string): string {
+  if (spec.type === "bar") return renderBarChartSVG(spec, chartId);
+  return renderLineChartSVG(spec, chartId);
 }
 
 export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string {
@@ -236,6 +253,157 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
 
   return `
 <figure class="line-chart" data-chart-id="${escapeHtml(chartId)}">
+  <svg viewBox="0 0 ${WIDTH} ${HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${escapeHtml(spec.ariaLabel)}" xmlns="http://www.w3.org/2000/svg">
+    ${titleEl}
+    ${yTicksMarkup}
+    ${axisLines}
+    ${xLabelsMarkup}
+    ${seriesMarkup}
+    ${axisLabels.join("\n    ")}
+    ${legendMarkup}
+  </svg>
+  ${captionMarkup}
+  <details class="chart-data-table">
+    <summary>数値データを表形式で表示</summary>
+    <table>
+      <thead>${tableHeader}</thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+  </details>
+</figure>
+`.trim();
+}
+
+export function renderBarChartSVG(spec: BarChartSpec, chartId: string): string {
+  if (spec.type !== "bar" || !spec.series?.length || !spec.xLabels?.length) {
+    return "";
+  }
+
+  const innerW = WIDTH - PADDING.left - PADDING.right;
+  const innerH = HEIGHT - PADDING.top - PADDING.bottom;
+
+  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
+  const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
+
+  const xCount = spec.xLabels.length;
+  const categoryWidth = innerW / xCount;
+  const groupWidth = categoryWidth * 0.7;
+  const seriesCount = spec.series.length;
+  const barWidth = groupWidth / seriesCount;
+
+  const categoryCenter = (i: number): number =>
+    PADDING.left + (i + 0.5) * categoryWidth;
+  const yPos = (v: number): number =>
+    PADDING.top + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
+
+  const fallbackColors = ["var(--color-accent)", "var(--color-sub)", "var(--color-ink)"];
+
+  const titleEl = spec.title
+    ? `<text x="${WIDTH / 2}" y="${TITLE_Y}" text-anchor="middle" font-size="14" font-weight="600" fill="var(--color-ink)">${escapeHtml(spec.title)}</text>`
+    : "";
+
+  const yTicksMarkup = yTicks
+    .map((t) => {
+      const y = yPos(t).toFixed(1);
+      return `
+    <line x1="${PADDING.left}" y1="${y}" x2="${PADDING.left + innerW}" y2="${y}" stroke="var(--color-border, rgba(0,0,0,0.08))" stroke-width="1" />
+    <text x="${PADDING.left - Y_TICK_LABEL_X_OFFSET}" y="${y}" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(formatTick(t))}</text>`;
+    })
+    .join("");
+
+  const xLabelsMarkup = spec.xLabels
+    .map((label, i) => {
+      const x = categoryCenter(i).toFixed(1);
+      const y = (PADDING.top + innerH + 18).toFixed(1);
+      return `<text x="${x}" y="${y}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(label)}</text>`;
+    })
+    .join("\n    ");
+
+  const axisLines = `
+    <line x1="${PADDING.left}" y1="${PADDING.top + innerH}" x2="${PADDING.left + innerW}" y2="${PADDING.top + innerH}" stroke="var(--color-ink)" stroke-width="1.5" />
+    <line x1="${PADDING.left}" y1="${PADDING.top}" x2="${PADDING.left}" y2="${PADDING.top + innerH}" stroke="var(--color-ink)" stroke-width="1.5" />`;
+
+  const baselineY = yPos(Math.max(yMin, 0));
+
+  const seriesMarkup = spec.series
+    .map((s, sIdx) => {
+      const color = resolveColor(s.color, fallbackColors[sIdx % fallbackColors.length]);
+      const bars = s.data
+        .map((v, i) => {
+          if (v === undefined || v === null || !Number.isFinite(v)) return "";
+          const center = categoryCenter(i);
+          const groupLeft = center - groupWidth / 2;
+          const x = groupLeft + sIdx * barWidth + barWidth * 0.1;
+          const bw = barWidth * 0.8;
+          const topY = yPos(v);
+          const y = Math.min(topY, baselineY);
+          const h = Math.abs(baselineY - topY);
+          const valueLabelY = (topY - 6).toFixed(1);
+          const valueLabel = `<text x="${(x + bw / 2).toFixed(1)}" y="${valueLabelY}" text-anchor="middle" font-size="10" fill="var(--color-ink)">${escapeHtml(formatTick(v))}</text>`;
+          return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${color}" rx="2" />${valueLabel}`;
+        })
+        .join("\n    ");
+      return `
+    <g role="presentation" data-series-name="${escapeHtml(s.name)}">
+      ${bars}
+    </g>`;
+    })
+    .join("");
+
+  const axisLabels: string[] = [];
+  if (spec.xAxisLabel) {
+    axisLabels.push(
+      `<text x="${(PADDING.left + PADDING.left + innerW) / 2}" y="${HEIGHT - 18}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(spec.xAxisLabel)}</text>`,
+    );
+  }
+  if (spec.yAxisLabel) {
+    const cx = Y_AXIS_LABEL_X;
+    const cy = PADDING.top + innerH / 2;
+    axisLabels.push(
+      `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="11" fill="var(--color-sub)" transform="rotate(-90 ${cx} ${cy})">${escapeHtml(spec.yAxisLabel)}</text>`,
+    );
+  }
+
+  const legendMarkup =
+    spec.series.length > 1
+      ? `
+    <g transform="translate(${PADDING.left}, ${LEGEND_Y})">
+      ${spec.series
+        .map((s, sIdx) => {
+          const color = resolveColor(s.color, fallbackColors[sIdx % fallbackColors.length]);
+          const offset = sIdx * 110;
+          return `
+        <g transform="translate(${offset}, 0)">
+          <rect x="0" y="-6" width="14" height="12" fill="${color}" rx="2" />
+          <text x="20" y="4" font-size="11" fill="var(--color-ink)">${escapeHtml(s.name)}</text>
+        </g>`;
+        })
+        .join("")}
+    </g>`
+      : "";
+
+  const tableHeader =
+    `<tr><th scope="col">${escapeHtml(spec.xAxisLabel ?? "項目")}</th>` +
+    spec.series.map((s) => `<th scope="col">${escapeHtml(s.name)}</th>`).join("") +
+    `</tr>`;
+  const tableRows = spec.xLabels
+    .map((label, i) => {
+      const cells = spec.series
+        .map((s) => {
+          const value = s.data[i];
+          return `<td>${value === undefined || value === null ? "—" : escapeHtml(value)}</td>`;
+        })
+        .join("");
+      return `<tr><th scope="row">${escapeHtml(label)}</th>${cells}</tr>`;
+    })
+    .join("");
+
+  const captionMarkup = spec.caption
+    ? `<figcaption class="chart-caption">${escapeHtml(spec.caption)}</figcaption>`
+    : "";
+
+  return `
+<figure class="line-chart bar-chart" data-chart-id="${escapeHtml(chartId)}">
   <svg viewBox="0 0 ${WIDTH} ${HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${escapeHtml(spec.ariaLabel)}" xmlns="http://www.w3.org/2000/svg">
     ${titleEl}
     ${yTicksMarkup}

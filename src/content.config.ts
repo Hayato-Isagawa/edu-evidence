@@ -75,21 +75,18 @@ const strategies = defineCollection({
   }),
 });
 
-// LineChart 定義(Issue #52): frontmatter で宣言してコラム本文内で
+// Chart 定義(Issue #52): frontmatter で宣言してコラム本文内で
 // {{chart:id}} プレースホルダーから参照する
-const lineChartSchema = z.object({
-  type: z.literal("line"),
+const chartSeriesSchema = z.object({
+  name: z.string(),
+  data: z.array(z.number().nullable()),
+  color: z.string().optional(),
+});
+
+const chartBaseFields = {
   title: z.string().optional(),
   xLabels: z.array(z.union([z.string(), z.number()])),
-  series: z
-    .array(
-      z.object({
-        name: z.string(),
-        data: z.array(z.number().nullable()),
-        color: z.string().optional(),
-      }),
-    )
-    .min(1),
+  series: z.array(chartSeriesSchema).min(1),
   yMin: z.number().optional(),
   yMax: z.number().optional(),
   yTickStep: z.number().optional(),
@@ -97,7 +94,11 @@ const lineChartSchema = z.object({
   yAxisLabel: z.string().optional(),
   caption: z.string().optional(),
   ariaLabel: z.string(),
-});
+};
+
+const lineChartSchema = z.object({ type: z.literal("line"), ...chartBaseFields });
+const barChartSchema = z.object({ type: z.literal("bar"), ...chartBaseFields });
+const chartSchema = z.discriminatedUnion("type", [lineChartSchema, barChartSchema]);
 
 const columns = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/columns" }),
@@ -110,7 +111,7 @@ const columns = defineCollection({
     tags: z.array(z.string()).default([]),
     relatedStrategies: z.array(z.string()).default([]),
     // チャート定義(任意): id をキーにした辞書で、本文の {{chart:id}} から参照
-    charts: z.record(z.string(), lineChartSchema).optional(),
+    charts: z.record(z.string(), chartSchema).optional(),
   }),
 });
 
