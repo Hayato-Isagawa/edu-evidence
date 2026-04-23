@@ -32,13 +32,18 @@
 
 ## セットアップ
 
+Node.js のバージョンは `.tool-versions` で固定(`nodejs 24.15.0`)。[mise](https://mise.jdx.dev/) を推奨。
+
 ```bash
 # クローン
 git clone https://github.com/Hayato-Isagawa/edu-evidence.git
 cd edu-evidence
 
-# 依存関係のインストール
-npm install
+# Node 24 を導入(mise が .tool-versions を読む)
+mise install
+
+# 依存関係のインストール(ロックから厳密に復元)
+npm ci
 
 # 開発サーバー起動
 npm run dev

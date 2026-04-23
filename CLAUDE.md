@@ -2,6 +2,17 @@
 
 日本の小学校教員向け教育エビデンスポータル。Astro 6 + React 19 + Tailwind 4 + TypeScript。
 
+## 環境
+
+Node.js のバージョンは `.tool-versions` で固定している(`nodejs 24.15.0`)。[mise](https://mise.jdx.dev/) を使う前提。
+
+```bash
+mise install               # .tool-versions に従って Node 24 を導入
+npm ci                     # 依存をロックから復元
+```
+
+`package.json` の `engines.node` は `>=24.0.0`。CI やエディタ側もこれに合わせる。
+
 ## ビルド・テスト
 
 ```bash
