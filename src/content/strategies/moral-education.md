@@ -55,14 +55,14 @@ culturalContext: |
 
 ## 主な参考研究
 
-### 海外の研究(効果量の根拠)
-
-- Nucci, L. P. (2001). [*Education in the moral domain*](https://books.google.com/books?id=sJFBmwEACAAJ). Cambridge University Press. — 道徳教育の心理学的基盤を体系化。道徳的領域と社会的慣習の区別が指導設計に重要であることを示した。
-
 ### 日本の研究・公式資料
 
 - 文部科学省 (2017). [「小学校学習指導要領解説 特別の教科 道徳編」](https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387017_012.pdf). — 「考え、議論する道徳」への転換を示した公式解説。教科化の背景と目標を定義。
 - 道徳教育に係る評価等の在り方に関する専門家会議 (2016). 報告書. — 道徳の評価方法について、記述式の個人内評価を推奨した報告。
+
+### 関連読み物
+
+- 『[Education in the Moral Domain](https://books.google.com/books?id=sJFBmwEACAAJ)』 Nucci, L. P. (2001), Cambridge University Press. — 道徳的領域と社会的慣習を心理学的に区別して論じた米国の教科書。
 
 ### 注記
 
