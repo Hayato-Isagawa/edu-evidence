@@ -6,6 +6,18 @@ const columns = await getCollection("columns");
 // 実効更新日(lastVerified があればそれ、無ければ公開日)の降順でソート
 const freshnessDate = (c: typeof columns[number]) => c.data.lastVerified ?? c.data.date;
 columns.sort((a, b) => freshnessDate(b).localeCompare(freshnessDate(a)));
+
+// 全タグを出現頻度順で抽出(チップ表示用)
+const tagCounts = new Map<string, number>();
+for (const c of columns) {
+  for (const tag of c.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+const allTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+
+// URL `?tag=<tag>` から初期選択タグを取得(SSR)
+const initialTag = Astro.url.searchParams.get("tag") ?? "";
 ---
 
 <Layout title="エビデンスで考える — EduEvidence JP">
@@ -33,41 +45,180 @@ columns.sort((a, b) => freshnessDate(b).localeCompare(freshnessDate(a)));
     </div>
   </section>
 
-  <section class="pb-24">
-    <div class="border-b border-[var(--color-line)]">
+  <section class="pb-6" aria-label="タグで絞り込み">
+    <div class="flex flex-wrap gap-2" data-tag-filter>
+      <button
+        type="button"
+        data-filter="all"
+        class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 transition cursor-pointer ${
+          initialTag === ""
+            ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
+            : "border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+        }`}
+      >
+        すべて <span class="ml-1 opacity-70">{columns.length}</span>
+      </button>
       {
-        columns.map((c, i) => (
-          <a
-            href={`/columns/${c.id}`}
-            class="group block border-t border-[var(--color-line)] py-10 transition hover:bg-[var(--color-card)]"
+        allTags.map(([tag, count]) => (
+          <button
+            type="button"
+            data-filter={tag}
+            class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 transition cursor-pointer ${
+              initialTag === tag
+                ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
+                : "border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+            }`}
           >
-            <div class="grid grid-cols-12 gap-4 items-baseline px-2">
-              <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <div class="col-span-10 md:col-span-8 space-y-2">
-                <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition">
-                  {c.data.title}
-                </h3>
-                <p class="text-sm text-[var(--color-sub)] leading-relaxed line-clamp-2">
-                  {c.data.summary}
-                </p>
-              </div>
-              <div class="col-span-12 md:col-span-3 md:text-right">
-                <span class="font-mono text-xs text-[var(--color-sub)]">
-                  {c.data.lastVerified ?? c.data.date}
-                  {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
-                    <span class="ml-1 text-[var(--color-accent)]">(更新)</span>
-                  )}
-                </span>
-                <span class="inline-block ml-3 transition group-hover:translate-x-1 text-[var(--color-sub)]">
-                  →
-                </span>
-              </div>
-            </div>
-          </a>
+            {tag} <span class="ml-1 opacity-70">{count}</span>
+          </button>
         ))
+      }
+    </div>
+    <p class="mt-3 text-xs text-[var(--color-sub)]" data-result-count>
+      {initialTag ? `「${initialTag}」に一致: ` : "全 "}
+      <span data-result-num>{initialTag ? tagCounts.get(initialTag) ?? 0 : columns.length}</span> 件
+    </p>
+  </section>
+
+  <section class="pb-24">
+    <div class="border-b border-[var(--color-line)]" data-column-list>
+      {
+        columns.map((c, i) => {
+          const matches = initialTag === "" || c.data.tags.includes(initialTag);
+          return (
+            <a
+              href={`/columns/${c.id}`}
+              data-tags={JSON.stringify(c.data.tags)}
+              data-hidden={matches ? undefined : "true"}
+              class="group block border-t border-[var(--color-line)] py-10 transition hover:bg-[var(--color-card)] data-[hidden=true]:hidden"
+            >
+              <div class="grid grid-cols-12 gap-4 items-baseline px-2">
+                <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div class="col-span-10 md:col-span-8 space-y-2">
+                  <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition">
+                    {c.data.title}
+                  </h3>
+                  <p class="text-sm text-[var(--color-sub)] leading-relaxed line-clamp-2">
+                    {c.data.summary}
+                  </p>
+                </div>
+                <div class="col-span-12 md:col-span-3 md:text-right">
+                  <span class="font-mono text-xs text-[var(--color-sub)]">
+                    {c.data.lastVerified ?? c.data.date}
+                    {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
+                      <span class="ml-1 text-[var(--color-accent)]">(更新)</span>
+                    )}
+                  </span>
+                  <span class="inline-block ml-3 transition group-hover:translate-x-1 text-[var(--color-sub)]">
+                    →
+                  </span>
+                </div>
+              </div>
+            </a>
+          );
+        })
       }
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  (() => {
+    const filterRoot = document.querySelector("[data-tag-filter]");
+    const list = document.querySelector("[data-column-list]");
+    const resultNum = document.querySelector("[data-result-num]");
+    const resultLabel = document.querySelector("[data-result-count]");
+    if (!filterRoot || !list || !resultNum || !resultLabel) return;
+
+    const activeClasses = [
+      "border-[var(--color-accent)]",
+      "bg-[var(--color-accent)]",
+      "text-white",
+    ];
+    const inactiveClasses = [
+      "border-[var(--color-line)]",
+      "text-[var(--color-sub)]",
+      "hover:border-[var(--color-accent)]",
+      "hover:text-[var(--color-accent)]",
+    ];
+
+    function setActive(buttonEl) {
+      const buttons = filterRoot.querySelectorAll(".tag-chip");
+      buttons.forEach((b) => {
+        if (b === buttonEl) {
+          activeClasses.forEach((c) => b.classList.add(c));
+          inactiveClasses.forEach((c) => b.classList.remove(c));
+        } else {
+          inactiveClasses.forEach((c) => b.classList.add(c));
+          activeClasses.forEach((c) => b.classList.remove(c));
+        }
+      });
+    }
+
+    function applyFilter(tag) {
+      const rows = list.querySelectorAll("[data-tags]");
+      let visible = 0;
+      rows.forEach((row) => {
+        let tags = [];
+        try {
+          tags = JSON.parse(row.dataset.tags ?? "[]");
+        } catch {
+          tags = [];
+        }
+        const match = tag === "" || tags.includes(tag);
+        if (match) {
+          row.removeAttribute("data-hidden");
+          visible++;
+        } else {
+          row.setAttribute("data-hidden", "true");
+        }
+      });
+      resultNum.textContent = String(visible);
+      resultLabel.firstChild.textContent = tag ? `「${tag}」に一致: ` : "全 ";
+    }
+
+    function updateUrl(tag) {
+      const url = new URL(window.location.href);
+      if (tag) {
+        url.searchParams.set("tag", tag);
+      } else {
+        url.searchParams.delete("tag");
+      }
+      window.history.replaceState({}, "", url.toString());
+    }
+
+    filterRoot.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      const button = target.closest(".tag-chip");
+      if (!(button instanceof HTMLButtonElement)) return;
+      const filter = button.dataset.filter ?? "all";
+      const tag = filter === "all" ? "" : filter;
+      setActive(button);
+      applyFilter(tag);
+      updateUrl(tag);
+    });
+
+    window.addEventListener("popstate", () => {
+      const tag = new URL(window.location.href).searchParams.get("tag") ?? "";
+      const button = filterRoot.querySelector(
+        `.tag-chip[data-filter="${tag === "" ? "all" : tag}"]`,
+      );
+      if (button instanceof HTMLButtonElement) setActive(button);
+      applyFilter(tag);
+    });
+
+    // 初回: URL `?tag=X` を優先して再フィルタ(SSG ビルドでは SSR 時の URL が
+    // 反映されないため、クライアント側で再同期する)
+    const initialTag = new URL(window.location.href).searchParams.get("tag") ?? "";
+    if (initialTag) {
+      const button = filterRoot.querySelector(
+        `.tag-chip[data-filter="${initialTag}"]`,
+      );
+      if (button instanceof HTMLButtonElement) setActive(button);
+      applyFilter(initialTag);
+    }
+  })();
+</script>
