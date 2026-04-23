@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import RelatedStrategyCard from "../../components/RelatedStrategyCard.astro";
 
 export async function getStaticPaths() {
   const columns = await getCollection("columns");
@@ -10,6 +11,12 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+
+const allStrategies = await getCollection("strategies");
+const strategyById = new Map(allStrategies.map((s) => [s.id, s]));
+const related = (d.relatedStrategies ?? [])
+  .map((id) => strategyById.get(id))
+  .filter((s): s is (typeof allStrategies)[number] => Boolean(s));
 ---
 
 <Layout title={`${d.title} — EduEvidence JP`} description={d.summary}>
@@ -62,7 +69,35 @@ const d = entry.data;
     <Content />
   </article>
 
-  <div class="pt-8 border-t border-[var(--color-line)] max-w-2xl">
+  {
+    related.length > 0 && (
+      <section class="pt-10 border-t border-[var(--color-line)] max-w-2xl space-y-6">
+        <div class="space-y-1">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+            Related Strategies
+          </div>
+          <h2 class="text-2xl font-black tracking-tight">関連する指導法</h2>
+          <p class="text-sm text-[var(--color-sub)]">
+            本コラムで言及した指導法の詳細ページ。エビデンスの強さと効果量を確認できます。
+          </p>
+        </div>
+        <div class="grid grid-cols-1 gap-4">
+          {related.map((s) => (
+            <RelatedStrategyCard
+              href={`/strategies/${s.id}`}
+              title={s.data.title}
+              summary={s.data.summary}
+              monthsGained={s.data.monthsGained}
+              evidenceStrength={s.data.evidenceStrength}
+              evidence={s.data.evidence}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <div class="pt-10 mt-10 border-t border-[var(--color-line)] max-w-2xl">
     <a
       href="/columns"
       class="link-underline font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
