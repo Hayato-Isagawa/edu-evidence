@@ -67,7 +67,7 @@ culturalContext: |
 
 - van de Pol, J., Volman, M., & Beishuizen, J. (2010). [Scaffolding in teacher–student interaction](https://doi.org/10.1007/s10648-010-9127-6). *Educational Psychology Review*, 22(3), 271–296. — 足場かけを「偶発的対応 / フェーディング / 責任の移行」の 3 要素で整理したレビュー。
 - Wood, D., Bruner, J. S., & Ross, G. (1976). [The role of tutoring in problem solving](https://doi.org/10.1111/j.1469-7610.1976.tb00381.x). *Journal of Child Psychology and Psychiatry*, 17(2), 89–100. — 「足場かけ(scaffolding)」概念を初めて提唱した原典論文。
-- Belland, B. R., Walker, A. E., Kim, N. J., & Lefler, M. (2017). [Synthesizing results from empirical research on computer-based scaffolding in STEM education: A meta-analysis](https://doi.org/10.3102/0034654316670999). *Review of Educational Research*, 87(2), 309–344. — コンピューターベースの足場かけを対象とした 144 研究・333 効果量のメタ分析。Hedges' g = 0.46(小〜中)。
+- Belland, B. R., Walker, A. E., Kim, N. J., & Lefler, M. (2017). [Synthesizing results from empirical research on computer-based scaffolding in STEM education: A meta-analysis](https://doi.org/10.3102/0034654316670999). *Review of Educational Research*, 87(2), 309–344. — コンピューターーベースの足場かけを対象とした 144 研究・333 効果量のメタ分析。Hedges' g = 0.46(小〜中)。
 
 ## 関連する学習指導要領
 
