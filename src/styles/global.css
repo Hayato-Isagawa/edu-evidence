@@ -79,6 +79,54 @@ a {
   }
 }
 
+/* LineChart コンポーネント(remark-chart で生成される SVG) */
+.line-chart {
+  margin: 1.75rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.line-chart svg {
+  width: 100%;
+  height: auto;
+  max-width: 720px;
+  margin: 0 auto;
+  display: block;
+}
+.line-chart .chart-caption {
+  font-size: 0.85rem;
+  color: var(--color-sub);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.line-chart .chart-data-table {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+.line-chart .chart-data-table summary {
+  color: var(--color-sub);
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+.line-chart .chart-data-table summary:hover {
+  color: var(--color-accent);
+}
+.line-chart .chart-data-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+.line-chart .chart-data-table th,
+.line-chart .chart-data-table td {
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+.line-chart .chart-data-table th[scope="col"] {
+  background: rgba(0, 0, 0, 0.03);
+  font-weight: 600;
+}
+
 /* Article body shared by /strategies and /columns */
 .prose-article {
   font-size: 16px;
