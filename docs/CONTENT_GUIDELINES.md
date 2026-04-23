@@ -427,7 +427,11 @@ Hattie の有名な言葉:
 
 - `astro check`: 型エラー
 - `textlint`: 日本語品質
-- `check:consistency`: frontmatter の `monthsGained` と本文中の月数表記の整合性
+- `check:consistency`: 3 段階の整合性チェックを実行
+  - **戦略ページ内**: frontmatter `monthsGained` と本文「約 X ヶ月」「+X ヶ月」
+  - **コラム→戦略(ファイル間)**: `[...](/strategies/<slug>)` インラインリンクと同行の `+N ヶ月`(複数リンクは順序対応、スラッシュ区切り `+4 / +5 ヶ月` 型の表セルも分解対応)
+  - **用語集・ツールチップ**: `glossary.astro` / `glossary.ts` の戦略名(+N ヶ月)
+
 - `check:links:source`: md ソース中の外部 URL 到達性(dist ビルド不要、404 / 410 / network error のみ失敗)
 - `check:links`: ビルド後の dist に対する linkinator 走査
 

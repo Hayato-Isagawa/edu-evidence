@@ -1,8 +1,20 @@
 /**
  * 整合性チェックスクリプト
  *
- * frontmatter の monthsGained と本文中の「約Xヶ月」「+Xヶ月」を照合し、
- * 不一致があれば警告を出力する。
+ * 以下 3 段階のチェックを実行する。不一致があれば exit code 1。
+ *
+ *   1. 同一ファイル内整合(戦略ページ)
+ *      frontmatter の monthsGained と本文の「約 X ヶ月」「+X ヶ月」を照合
+ *
+ *   2. コラム内の戦略参照整合(ファイル間、Issue #43)
+ *      ・コラム本文で「戦略名(+N ヶ月)」を書いた場合、その戦略ページの
+ *        monthsGained と N を照合(既存)
+ *      ・コラム本文で `[任意](/strategies/<slug>)` のインラインリンクを
+ *        書いた際、同じ行に現れる「+N ヶ月」を順序対応で突合し、
+ *        `<slug>.md` の monthsGained と一致するか検証(新規)
+ *
+ *   3. 用語集・ツールチップの参照整合
+ *      glossary.astro / glossary.ts 内の戦略名(+N ヶ月)を照合(既存)
  *
  * 使い方: npx tsx scripts/check-consistency.ts
  */
@@ -74,10 +86,11 @@ function checkFile(filePath: string, isColumn = false) {
   // コラムの場合: 戦略の効果量への言及もチェック
   if (isColumn) {
     checkColumnReferences(filePath, lines, offset);
+    checkColumnStrategyLinks(filePath, lines, offset);
   }
 }
 
-// 戦略ファイルの monthsGained マップを作成
+// 戦略ファイルの monthsGained マップを作成(title キー)
 function buildStrategyMap(): Map<string, number> {
   const map = new Map<string, number>();
   const files = fs.readdirSync(STRATEGIES_DIR).filter((f) => f.endsWith(".md"));
@@ -89,6 +102,75 @@ function buildStrategyMap(): Map<string, number> {
     }
   }
   return map;
+}
+
+// 戦略ファイルの monthsGained マップを作成(slug キー)
+// Issue #43 の column → strategy インラインリンク整合チェック用
+function buildStrategySlugMap(): Map<string, number> {
+  const map = new Map<string, number>();
+  const files = fs.readdirSync(STRATEGIES_DIR).filter((f) => f.endsWith(".md"));
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(STRATEGIES_DIR, file), "utf-8");
+    const { data } = matter(raw);
+    if (data.monthsGained !== undefined) {
+      const slug = file.replace(/\.md$/, "");
+      map.set(slug, data.monthsGained as number);
+    }
+  }
+  return map;
+}
+
+// コラム本文の [任意](/strategies/<slug>) と同一行の「+N ヶ月」を順序対応で突合
+// (Issue #43: 数値直接書き写しのズレを検出)
+function checkColumnStrategyLinks(
+  filePath: string,
+  lines: string[],
+  offset: number,
+) {
+  const slugMap = buildStrategySlugMap();
+
+  lines.forEach((line, i) => {
+    // 行内の /strategies/<slug> リンクをすべて取得(順序を保持)
+    const linkRe = /\[[^\]]+\]\(\/strategies\/([a-z0-9-]+)\)/g;
+    const slugs: string[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = linkRe.exec(line)) !== null) slugs.push(m[1]);
+    if (slugs.length === 0) return;
+
+    // 行内の「+N ヶ月」「-N ヶ月」「+N / +M ヶ月」をすべて取得
+    // 「ヵ月」「ヶ月」いずれも許容、スラッシュ区切り複合表記(表セル型)も分解して個別値に
+    const monthGroupRe = /([+-]?\d+(?:\s*\/\s*[+-]?\d+)*)\s*[ヶヵ]月/g;
+    const months: number[] = [];
+    while ((m = monthGroupRe.exec(line)) !== null) {
+      const parts = m[1].split(/\s*\/\s*/).map((s) => parseInt(s, 10));
+      months.push(...parts);
+    }
+    if (months.length === 0) return;
+
+    const pushIssue = (slug: string, found: number) => {
+      const expected = slugMap.get(slug);
+      if (expected === undefined) return;
+      if (expected === found) return;
+      issues.push({
+        file: path.basename(filePath),
+        line: i + offset,
+        expected,
+        found: `[${slug}] ${found >= 0 ? "+" : ""}${found}ヶ月`,
+        context: `strategies/${slug}.md の monthsGained は ${
+          expected >= 0 ? "+" : ""
+        }${expected}`,
+      });
+    };
+
+    if (slugs.length === months.length) {
+      // リンク数と月数が一致: 順序対応で突合
+      slugs.forEach((slug, idx) => pushIssue(slug, months[idx]));
+    } else if (slugs.length === 1) {
+      // リンク 1 つ: 最初の月数とのみ突合(誤検知を避けるため多対一はスキップ)
+      pushIssue(slugs[0], months[0]);
+    }
+    // リンク数 ≠ 月数 かつリンク複数のケースは、順序対応が曖昧なのでスキップ
+  });
 }
 
 function checkColumnReferences(
