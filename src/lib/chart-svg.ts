@@ -45,6 +45,7 @@ const TITLE_Y = 28;
 const LEGEND_Y = 56; // title と描画領域の間に凡例を配置
 const Y_AXIS_LABEL_X = 16;
 const Y_TICK_LABEL_X_OFFSET = 8; // 目盛数字は PADDING.left - この値 に配置
+const FALLBACK_COLORS = ["var(--color-accent)", "var(--color-sub)", "var(--color-ink)"];
 
 const COLOR_MAP: Record<string, string> = {
   accent: "var(--color-accent)",
@@ -56,6 +57,10 @@ const COLOR_MAP: Record<string, string> = {
 function resolveColor(color: string | undefined, fallback: string): string {
   if (!color) return fallback;
   return COLOR_MAP[color] ?? color;
+}
+
+function seriesColor(series: ChartSeries, index: number): string {
+  return resolveColor(series.color, FALLBACK_COLORS[index % FALLBACK_COLORS.length]);
 }
 
 function escapeHtml(s: string | number): string {
@@ -120,38 +125,21 @@ function formatTick(v: number): string {
   return String(v);
 }
 
-export function renderChartSVG(spec: ChartSpec, chartId: string): string {
-  if (spec.type === "bar") return renderBarChartSVG(spec, chartId);
-  return renderLineChartSVG(spec, chartId);
+// =============================================================
+// 共通 SVG パーツ生成
+// =============================================================
+
+function renderTitle(title: string | undefined): string {
+  if (!title) return "";
+  return `<text x="${WIDTH / 2}" y="${TITLE_Y}" text-anchor="middle" font-size="14" font-weight="600" fill="var(--color-ink)">${escapeHtml(title)}</text>`;
 }
 
-export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string {
-  if (spec.type !== "line" || !spec.series?.length || !spec.xLabels?.length) {
-    return "";
-  }
-
-  const innerW = WIDTH - PADDING.left - PADDING.right;
-  const innerH = HEIGHT - PADDING.top - PADDING.bottom;
-
-  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
-  const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
-
-  const xCount = spec.xLabels.length;
-  const xStep = xCount > 1 ? innerW / (xCount - 1) : 0;
-
-  const xPos = (i: number): number => PADDING.left + i * xStep;
-  const yPos = (v: number): number =>
-    PADDING.top + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
-
-  const fallbackColors = ["var(--color-accent)", "var(--color-sub)", "var(--color-ink)"];
-
-  // タイトル
-  const titleEl = spec.title
-    ? `<text x="${WIDTH / 2}" y="${TITLE_Y}" text-anchor="middle" font-size="14" font-weight="600" fill="var(--color-ink)">${escapeHtml(spec.title)}</text>`
-    : "";
-
-  // Y 軸目盛 + 水平グリッド
-  const yTicksMarkup = yTicks
+function renderYTicks(
+  ticks: number[],
+  yPos: (v: number) => number,
+  innerW: number,
+): string {
+  return ticks
     .map((t) => {
       const y = yPos(t).toFixed(1);
       return `
@@ -159,25 +147,137 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
     <text x="${PADDING.left - Y_TICK_LABEL_X_OFFSET}" y="${y}" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(formatTick(t))}</text>`;
     })
     .join("");
+}
 
-  // X 軸ラベル
-  const xLabelsMarkup = spec.xLabels
+function renderXLabels(
+  labels: (string | number)[],
+  xPos: (i: number) => number,
+  innerH: number,
+): string {
+  return labels
     .map((label, i) => {
       const x = xPos(i).toFixed(1);
       const y = (PADDING.top + innerH + 18).toFixed(1);
       return `<text x="${x}" y="${y}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(label)}</text>`;
     })
     .join("\n    ");
+}
 
-  // 軸ライン
-  const axisLines = `
+function renderAxisLines(innerW: number, innerH: number): string {
+  return `
     <line x1="${PADDING.left}" y1="${PADDING.top + innerH}" x2="${PADDING.left + innerW}" y2="${PADDING.top + innerH}" stroke="var(--color-ink)" stroke-width="1.5" />
     <line x1="${PADDING.left}" y1="${PADDING.top}" x2="${PADDING.left}" y2="${PADDING.top + innerH}" stroke="var(--color-ink)" stroke-width="1.5" />`;
+}
 
-  // 系列(折れ線 + ドット)
-  const seriesMarkup = spec.series
+function renderAxisLabels(
+  xAxisLabel: string | undefined,
+  yAxisLabel: string | undefined,
+  innerW: number,
+  innerH: number,
+): string {
+  const parts: string[] = [];
+  if (xAxisLabel) {
+    parts.push(
+      `<text x="${(PADDING.left + PADDING.left + innerW) / 2}" y="${HEIGHT - 18}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(xAxisLabel)}</text>`,
+    );
+  }
+  if (yAxisLabel) {
+    const cx = Y_AXIS_LABEL_X;
+    const cy = PADDING.top + innerH / 2;
+    parts.push(
+      `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="11" fill="var(--color-sub)" transform="rotate(-90 ${cx} ${cy})">${escapeHtml(yAxisLabel)}</text>`,
+    );
+  }
+  return parts.join("\n    ");
+}
+
+function renderLegend(
+  series: ChartSeries[],
+  variant: "line" | "bar",
+): string {
+  if (series.length <= 1) return "";
+  const items = series
     .map((s, sIdx) => {
-      const color = resolveColor(s.color, fallbackColors[sIdx % fallbackColors.length]);
+      const color = seriesColor(s, sIdx);
+      const offset = sIdx * 110;
+      const marker =
+        variant === "line"
+          ? `<line x1="0" y1="0" x2="18" y2="0" stroke="${color}" stroke-width="3" />
+          <circle cx="9" cy="0" r="3" fill="${color}" />`
+          : `<rect x="0" y="-6" width="14" height="12" fill="${color}" rx="2" />`;
+      const textX = variant === "line" ? 24 : 20;
+      return `
+        <g transform="translate(${offset}, 0)">
+          ${marker}
+          <text x="${textX}" y="4" font-size="11" fill="var(--color-ink)">${escapeHtml(s.name)}</text>
+        </g>`;
+    })
+    .join("");
+  return `
+    <g transform="translate(${PADDING.left}, ${LEGEND_Y})">
+      ${items}
+    </g>`;
+}
+
+function renderDataTable(spec: BaseChartSpec): string {
+  const tableHeader =
+    `<tr><th scope="col">${escapeHtml(spec.xAxisLabel ?? "項目")}</th>` +
+    spec.series.map((s) => `<th scope="col">${escapeHtml(s.name)}</th>`).join("") +
+    `</tr>`;
+  const tableRows = spec.xLabels
+    .map((label, i) => {
+      const cells = spec.series
+        .map((s) => {
+          const value = s.data[i];
+          return `<td>${value === undefined || value === null ? "—" : escapeHtml(value)}</td>`;
+        })
+        .join("");
+      return `<tr><th scope="row">${escapeHtml(label)}</th>${cells}</tr>`;
+    })
+    .join("");
+  return `
+    <table>
+      <thead>${tableHeader}</thead>
+      <tbody>${tableRows}</tbody>
+    </table>`;
+}
+
+interface AssembleArgs {
+  spec: BaseChartSpec;
+  chartId: string;
+  figureClass: string;
+  innerSvg: string;
+}
+
+function assembleFigure({ spec, chartId, figureClass, innerSvg }: AssembleArgs): string {
+  const captionMarkup = spec.caption
+    ? `<figcaption class="chart-caption">${escapeHtml(spec.caption)}</figcaption>`
+    : "";
+  return `
+<figure class="${figureClass}" data-chart-id="${escapeHtml(chartId)}">
+  <svg viewBox="0 0 ${WIDTH} ${HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${escapeHtml(spec.ariaLabel)}" xmlns="http://www.w3.org/2000/svg">
+    ${innerSvg}
+  </svg>
+  ${captionMarkup}
+  <details class="chart-data-table">
+    <summary>数値データを表形式で表示</summary>${renderDataTable(spec)}
+  </details>
+</figure>
+`.trim();
+}
+
+// =============================================================
+// 系列描画(折れ線 / 棒)
+// =============================================================
+
+function renderLineSeries(
+  series: ChartSeries[],
+  xPos: (i: number) => number,
+  yPos: (v: number) => number,
+): string {
+  return series
+    .map((s, sIdx) => {
+      const color = seriesColor(s, sIdx);
       const pathData = s.data
         .map((v, i) => `${i === 0 ? "M" : "L"} ${xPos(i).toFixed(1)} ${yPos(v).toFixed(1)}`)
         .join(" ");
@@ -194,140 +294,28 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
     </g>`;
     })
     .join("");
-
-  // 軸ラベル
-  const axisLabels: string[] = [];
-  if (spec.xAxisLabel) {
-    axisLabels.push(
-      `<text x="${(PADDING.left + PADDING.left + innerW) / 2}" y="${HEIGHT - 18}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(spec.xAxisLabel)}</text>`,
-    );
-  }
-  if (spec.yAxisLabel) {
-    const cx = Y_AXIS_LABEL_X;
-    const cy = PADDING.top + innerH / 2;
-    axisLabels.push(
-      `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="11" fill="var(--color-sub)" transform="rotate(-90 ${cx} ${cy})">${escapeHtml(spec.yAxisLabel)}</text>`,
-    );
-  }
-
-  // 凡例: title と描画領域の間に配置、title から十分な余白を確保
-  const legendMarkup =
-    spec.series.length > 1
-      ? `
-    <g transform="translate(${PADDING.left}, ${LEGEND_Y})">
-      ${spec.series
-        .map((s, sIdx) => {
-          const color = resolveColor(s.color, fallbackColors[sIdx % fallbackColors.length]);
-          const offset = sIdx * 110;
-          return `
-        <g transform="translate(${offset}, 0)">
-          <line x1="0" y1="0" x2="18" y2="0" stroke="${color}" stroke-width="3" />
-          <circle cx="9" cy="0" r="3" fill="${color}" />
-          <text x="24" y="4" font-size="11" fill="var(--color-ink)">${escapeHtml(s.name)}</text>
-        </g>`;
-        })
-        .join("")}
-    </g>`
-      : "";
-
-  // 数値テーブル(アクセシビリティ)
-  const tableHeader =
-    `<tr><th scope="col">${escapeHtml(spec.xAxisLabel ?? "項目")}</th>` +
-    spec.series.map((s) => `<th scope="col">${escapeHtml(s.name)}</th>`).join("") +
-    `</tr>`;
-  const tableRows = spec.xLabels
-    .map((label, i) => {
-      const cells = spec.series
-        .map((s) => {
-          const value = s.data[i];
-          return `<td>${value === undefined || value === null ? "—" : escapeHtml(value)}</td>`;
-        })
-        .join("");
-      return `<tr><th scope="row">${escapeHtml(label)}</th>${cells}</tr>`;
-    })
-    .join("");
-
-  const captionMarkup = spec.caption
-    ? `<figcaption class="chart-caption">${escapeHtml(spec.caption)}</figcaption>`
-    : "";
-
-  return `
-<figure class="line-chart" data-chart-id="${escapeHtml(chartId)}">
-  <svg viewBox="0 0 ${WIDTH} ${HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${escapeHtml(spec.ariaLabel)}" xmlns="http://www.w3.org/2000/svg">
-    ${titleEl}
-    ${yTicksMarkup}
-    ${axisLines}
-    ${xLabelsMarkup}
-    ${seriesMarkup}
-    ${axisLabels.join("\n    ")}
-    ${legendMarkup}
-  </svg>
-  ${captionMarkup}
-  <details class="chart-data-table">
-    <summary>数値データを表形式で表示</summary>
-    <table>
-      <thead>${tableHeader}</thead>
-      <tbody>${tableRows}</tbody>
-    </table>
-  </details>
-</figure>
-`.trim();
 }
 
-export function renderBarChartSVG(spec: BarChartSpec, chartId: string): string {
-  if (spec.type !== "bar" || !spec.series?.length || !spec.xLabels?.length) {
-    return "";
-  }
+interface BarSeriesArgs {
+  series: ChartSeries[];
+  categoryCenter: (i: number) => number;
+  yPos: (v: number) => number;
+  groupWidth: number;
+  barWidth: number;
+  baselineY: number;
+}
 
-  const innerW = WIDTH - PADDING.left - PADDING.right;
-  const innerH = HEIGHT - PADDING.top - PADDING.bottom;
-
-  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
-  const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
-
-  const xCount = spec.xLabels.length;
-  const categoryWidth = innerW / xCount;
-  const groupWidth = categoryWidth * 0.7;
-  const seriesCount = spec.series.length;
-  const barWidth = groupWidth / seriesCount;
-
-  const categoryCenter = (i: number): number =>
-    PADDING.left + (i + 0.5) * categoryWidth;
-  const yPos = (v: number): number =>
-    PADDING.top + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
-
-  const fallbackColors = ["var(--color-accent)", "var(--color-sub)", "var(--color-ink)"];
-
-  const titleEl = spec.title
-    ? `<text x="${WIDTH / 2}" y="${TITLE_Y}" text-anchor="middle" font-size="14" font-weight="600" fill="var(--color-ink)">${escapeHtml(spec.title)}</text>`
-    : "";
-
-  const yTicksMarkup = yTicks
-    .map((t) => {
-      const y = yPos(t).toFixed(1);
-      return `
-    <line x1="${PADDING.left}" y1="${y}" x2="${PADDING.left + innerW}" y2="${y}" stroke="var(--color-border, rgba(0,0,0,0.08))" stroke-width="1" />
-    <text x="${PADDING.left - Y_TICK_LABEL_X_OFFSET}" y="${y}" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(formatTick(t))}</text>`;
-    })
-    .join("");
-
-  const xLabelsMarkup = spec.xLabels
-    .map((label, i) => {
-      const x = categoryCenter(i).toFixed(1);
-      const y = (PADDING.top + innerH + 18).toFixed(1);
-      return `<text x="${x}" y="${y}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(label)}</text>`;
-    })
-    .join("\n    ");
-
-  const axisLines = `
-    <line x1="${PADDING.left}" y1="${PADDING.top + innerH}" x2="${PADDING.left + innerW}" y2="${PADDING.top + innerH}" stroke="var(--color-ink)" stroke-width="1.5" />
-    <line x1="${PADDING.left}" y1="${PADDING.top}" x2="${PADDING.left}" y2="${PADDING.top + innerH}" stroke="var(--color-ink)" stroke-width="1.5" />`;
-
-  const baselineY = yPos(Math.max(yMin, 0));
-
-  const seriesMarkup = spec.series
+function renderBarSeries({
+  series,
+  categoryCenter,
+  yPos,
+  groupWidth,
+  barWidth,
+  baselineY,
+}: BarSeriesArgs): string {
+  return series
     .map((s, sIdx) => {
-      const color = resolveColor(s.color, fallbackColors[sIdx % fallbackColors.length]);
+      const color = seriesColor(s, sIdx);
       const bars = s.data
         .map((v, i) => {
           if (v === undefined || v === null || !Number.isFinite(v)) return "";
@@ -349,78 +337,84 @@ export function renderBarChartSVG(spec: BarChartSpec, chartId: string): string {
     </g>`;
     })
     .join("");
+}
 
-  const axisLabels: string[] = [];
-  if (spec.xAxisLabel) {
-    axisLabels.push(
-      `<text x="${(PADDING.left + PADDING.left + innerW) / 2}" y="${HEIGHT - 18}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(spec.xAxisLabel)}</text>`,
-    );
+// =============================================================
+// 公開 API
+// =============================================================
+
+export function renderChartSVG(spec: ChartSpec, chartId: string): string {
+  if (spec.type === "bar") return renderBarChartSVG(spec, chartId);
+  return renderLineChartSVG(spec, chartId);
+}
+
+export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string {
+  if (spec.type !== "line" || !spec.series?.length || !spec.xLabels?.length) {
+    return "";
   }
-  if (spec.yAxisLabel) {
-    const cx = Y_AXIS_LABEL_X;
-    const cy = PADDING.top + innerH / 2;
-    axisLabels.push(
-      `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="11" fill="var(--color-sub)" transform="rotate(-90 ${cx} ${cy})">${escapeHtml(spec.yAxisLabel)}</text>`,
-    );
+
+  const innerW = WIDTH - PADDING.left - PADDING.right;
+  const innerH = HEIGHT - PADDING.top - PADDING.bottom;
+
+  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
+  const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
+
+  const xCount = spec.xLabels.length;
+  const xStep = xCount > 1 ? innerW / (xCount - 1) : 0;
+  const xPos = (i: number): number => PADDING.left + i * xStep;
+  const yPos = (v: number): number =>
+    PADDING.top + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
+
+  const innerSvg = `${renderTitle(spec.title)}
+    ${renderYTicks(yTicks, yPos, innerW)}
+    ${renderAxisLines(innerW, innerH)}
+    ${renderXLabels(spec.xLabels, xPos, innerH)}
+    ${renderLineSeries(spec.series, xPos, yPos)}
+    ${renderAxisLabels(spec.xAxisLabel, spec.yAxisLabel, innerW, innerH)}
+    ${renderLegend(spec.series, "line")}`;
+
+  return assembleFigure({
+    spec,
+    chartId,
+    figureClass: "line-chart",
+    innerSvg,
+  });
+}
+
+export function renderBarChartSVG(spec: BarChartSpec, chartId: string): string {
+  if (spec.type !== "bar" || !spec.series?.length || !spec.xLabels?.length) {
+    return "";
   }
 
-  const legendMarkup =
-    spec.series.length > 1
-      ? `
-    <g transform="translate(${PADDING.left}, ${LEGEND_Y})">
-      ${spec.series
-        .map((s, sIdx) => {
-          const color = resolveColor(s.color, fallbackColors[sIdx % fallbackColors.length]);
-          const offset = sIdx * 110;
-          return `
-        <g transform="translate(${offset}, 0)">
-          <rect x="0" y="-6" width="14" height="12" fill="${color}" rx="2" />
-          <text x="20" y="4" font-size="11" fill="var(--color-ink)">${escapeHtml(s.name)}</text>
-        </g>`;
-        })
-        .join("")}
-    </g>`
-      : "";
+  const innerW = WIDTH - PADDING.left - PADDING.right;
+  const innerH = HEIGHT - PADDING.top - PADDING.bottom;
 
-  const tableHeader =
-    `<tr><th scope="col">${escapeHtml(spec.xAxisLabel ?? "項目")}</th>` +
-    spec.series.map((s) => `<th scope="col">${escapeHtml(s.name)}</th>`).join("") +
-    `</tr>`;
-  const tableRows = spec.xLabels
-    .map((label, i) => {
-      const cells = spec.series
-        .map((s) => {
-          const value = s.data[i];
-          return `<td>${value === undefined || value === null ? "—" : escapeHtml(value)}</td>`;
-        })
-        .join("");
-      return `<tr><th scope="row">${escapeHtml(label)}</th>${cells}</tr>`;
-    })
-    .join("");
+  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
+  const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
 
-  const captionMarkup = spec.caption
-    ? `<figcaption class="chart-caption">${escapeHtml(spec.caption)}</figcaption>`
-    : "";
+  const xCount = spec.xLabels.length;
+  const categoryWidth = innerW / xCount;
+  const groupWidth = categoryWidth * 0.7;
+  const barWidth = groupWidth / spec.series.length;
 
-  return `
-<figure class="line-chart bar-chart" data-chart-id="${escapeHtml(chartId)}">
-  <svg viewBox="0 0 ${WIDTH} ${HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${escapeHtml(spec.ariaLabel)}" xmlns="http://www.w3.org/2000/svg">
-    ${titleEl}
-    ${yTicksMarkup}
-    ${axisLines}
-    ${xLabelsMarkup}
-    ${seriesMarkup}
-    ${axisLabels.join("\n    ")}
-    ${legendMarkup}
-  </svg>
-  ${captionMarkup}
-  <details class="chart-data-table">
-    <summary>数値データを表形式で表示</summary>
-    <table>
-      <thead>${tableHeader}</thead>
-      <tbody>${tableRows}</tbody>
-    </table>
-  </details>
-</figure>
-`.trim();
+  const categoryCenter = (i: number): number =>
+    PADDING.left + (i + 0.5) * categoryWidth;
+  const yPos = (v: number): number =>
+    PADDING.top + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
+  const baselineY = yPos(Math.max(yMin, 0));
+
+  const innerSvg = `${renderTitle(spec.title)}
+    ${renderYTicks(yTicks, yPos, innerW)}
+    ${renderAxisLines(innerW, innerH)}
+    ${renderXLabels(spec.xLabels, categoryCenter, innerH)}
+    ${renderBarSeries({ series: spec.series, categoryCenter, yPos, groupWidth, barWidth, baselineY })}
+    ${renderAxisLabels(spec.xAxisLabel, spec.yAxisLabel, innerW, innerH)}
+    ${renderLegend(spec.series, "bar")}`;
+
+  return assembleFigure({
+    spec,
+    chartId,
+    figureClass: "line-chart bar-chart",
+    innerSvg,
+  });
 }
