@@ -5,11 +5,13 @@ import StrategyRow from "../../components/StrategyRow.astro";
 
 export async function getStaticPaths() {
   const strategies = await getCollection("strategies");
+  const columns = await getCollection("columns");
   const tagSet = new Set<string>();
   for (const s of strategies) {
-    for (const tag of s.data.tags) {
-      tagSet.add(tag);
-    }
+    for (const tag of s.data.tags) tagSet.add(tag);
+  }
+  for (const c of columns) {
+    for (const tag of c.data.tags) tagSet.add(tag);
   }
   return [...tagSet].map((tag) => ({
     params: { tag },
@@ -19,9 +21,17 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.props;
 const allStrategies = await getCollection("strategies");
+const allColumns = await getCollection("columns");
+
 const strategies = allStrategies
   .filter((s) => s.data.tags.includes(tag))
   .sort((a, b) => b.data.monthsGained - a.data.monthsGained);
+
+const columns = allColumns
+  .filter((c) => c.data.tags.includes(tag))
+  .sort((a, b) => (b.data.date || "").localeCompare(a.data.date || ""));
+
+const totalCount = strategies.length + columns.length;
 ---
 
 <Layout title={`${tag} — EduEvidence JP`}>
@@ -43,36 +53,95 @@ const strategies = allStrategies
     </div>
     <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
       <p>
-        「{tag}」に関連する指導法<br />
-        <span class="text-xs">{strategies.length}件</span>
+        「{tag}」に関連するコンテンツ<br />
+        <span class="text-xs">
+          指導法 {strategies.length}件 / コラム {columns.length}件
+        </span>
       </p>
     </div>
   </section>
 
-  <section class="pb-24 space-y-8">
-    <div class="border-b border-[var(--color-line)]">
-      {
-        strategies.map((s, i) => (
-          <StrategyRow
-            index={i + 1}
-            href={`/strategies/${s.id}`}
-            title={s.data.title}
-            monthsGained={s.data.monthsGained}
-            evidenceStrength={s.data.evidenceStrength}
-            evidence={s.data.evidence}
-            subjects={s.data.subjects}
-            grades={s.data.grades}
-          />
-        ))
-      }
-    </div>
-    <div>
-      <a
-        href="/tags"
-        class="link-underline font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
-      >
-        ← タグ一覧へ戻る
-      </a>
-    </div>
+  {
+    strategies.length > 0 && (
+      <section class="pb-16 space-y-6">
+        <div class="space-y-1">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+            Strategies
+          </div>
+          <h2 class="text-2xl font-black tracking-tight">関連する指導法</h2>
+        </div>
+        <div class="border-b border-[var(--color-line)]">
+          {strategies.map((s, i) => (
+            <StrategyRow
+              index={i + 1}
+              href={`/strategies/${s.id}`}
+              title={s.data.title}
+              monthsGained={s.data.monthsGained}
+              evidenceStrength={s.data.evidenceStrength}
+              evidence={s.data.evidence}
+              subjects={s.data.subjects}
+              grades={s.data.grades}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    columns.length > 0 && (
+      <section class="pb-16 space-y-6">
+        <div class="space-y-1">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+            Columns
+          </div>
+          <h2 class="text-2xl font-black tracking-tight">関連するコラム</h2>
+        </div>
+        <ul class="space-y-3">
+          {columns.map((c) => (
+            <li>
+              <a
+                href={`/columns/${c.id}`}
+                class="group block border border-[var(--color-line)] rounded-xl p-5 transition hover:border-[var(--color-accent)] hover:bg-[var(--color-card)]"
+              >
+                <div class="flex items-start justify-between gap-4">
+                  <div class="flex-1 min-w-0 space-y-2">
+                    <h3 class="text-lg md:text-xl font-black tracking-tight leading-snug group-hover:text-[var(--color-accent)] transition">
+                      {c.data.title}
+                    </h3>
+                    <p class="text-sm text-[var(--color-sub)] leading-relaxed line-clamp-2">
+                      {c.data.summary}
+                    </p>
+                    <div class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]">
+                      {c.data.date}
+                    </div>
+                  </div>
+                  <span class="shrink-0 text-[var(--color-sub)] transition group-hover:translate-x-1">→</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    totalCount === 0 && (
+      <section class="pb-24 max-w-2xl">
+        <p class="text-[var(--color-sub)] leading-relaxed">
+          このタグに対応するコンテンツはまだありません。
+        </p>
+      </section>
+    )
+  }
+
+  <section class="pb-24">
+    <a
+      href="/tags"
+      class="link-underline font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+    >
+      ← タグ一覧へ戻る
+    </a>
   </section>
 </Layout>

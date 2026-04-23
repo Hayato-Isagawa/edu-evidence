@@ -3,10 +3,16 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 const strategies = await getCollection("strategies");
+const columns = await getCollection("columns");
 
 const tagMap = new Map<string, number>();
 for (const s of strategies) {
   for (const tag of s.data.tags) {
+    tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
+  }
+}
+for (const c of columns) {
+  for (const tag of c.data.tags) {
     tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
   }
 }
@@ -30,9 +36,9 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
     </div>
     <div class="col-span-12 md:col-span-4 md:pt-6 text-[var(--color-sub)] leading-loose text-sm">
       <p>
-        指導法を関心のあるテーマから<br />
+        指導法とコラムを関心のあるテーマから<br />
         探すことができます。<br />
-        <span class="text-xs">{tags.length}タグ / {strategies.length}件の指導法</span>
+        <span class="text-xs">{tags.length}タグ / 指導法 {strategies.length}件 / コラム {columns.length}件</span>
       </p>
     </div>
   </section>
