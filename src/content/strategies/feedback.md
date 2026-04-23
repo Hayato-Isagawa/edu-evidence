@@ -24,7 +24,7 @@ methodology:
     year: 2021
     title: "Teacher Feedback to Improve Pupil Learning: Guidance Report"
     url: "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback"
-  limitations: "『フィードバックを与えれば効果が出る』わけではなく、質が効果を左右する。曖昧な『がんばったね』より、次の行動を指す具体的な情報が効果的。タイミング・内容・受け手の理解度により効果量に大きな幅があり、Kluger & DeNisi(1996)は約 3 分の 1 の事例で負効果と報告。"
+  limitations: "『フィードバックを与えれば効果が出る』わけではなく、フィードバックの質によって効果は大きく変わる。曖昧な『がんばったね』より、次の行動を指す具体的な情報が効果的。タイミング・内容・受け手の理解度により効果量に大きな幅があり、Kluger & DeNisi(1996)は約 3 分の 1 の事例で負効果と報告。"
 culturalContext: |
   日本の教室文化では「みんなの前で個別に褒める」方式が有効でない場合があるが、フィードバックそのものの効果は高い。書面での個別コメント、小集団での振り返り、ノート上のコメントなど、日本文化に合わせた形式で実施することで効果が期待できる。「褒めることが目的」ではなく「次の一歩を示す具体的な情報」であることが鍵。
 ---
