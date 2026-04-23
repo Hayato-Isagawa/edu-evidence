@@ -55,9 +55,12 @@ const related = (d.relatedStrategies ?? [])
         d.tags.length > 0 && (
           <div class="flex flex-wrap gap-2">
             {d.tags.map((tag) => (
-              <span class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] border border-[var(--color-line)] rounded-full px-3 py-1">
+              <a
+                href={`/tags/${encodeURIComponent(tag)}`}
+                class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] border border-[var(--color-line)] rounded-full px-3 py-1 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition"
+              >
                 {tag}
-              </span>
+              </a>
             ))}
           </div>
         )
