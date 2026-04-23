@@ -51,7 +51,7 @@ culturalContext: |
 ## 研究からわかっていること
 
 - Hattieのメタ分析で効果量d=0.82。非常に高い効果
-- Alexander (2020) の研究では、対話型教授法(dialogic teaching)が読解力と理科の学力を有意に向上させた
+- EEF の Dialogic Teaching RCT(Alexander ら、小 5 対象・20 週間)では、対話型教授法(dialogic teaching)が英語・理科の学力を +2 ヶ月、算数を +1 ヶ月有意に向上させた
 - 効果は対話の「量」ではなく「質」に依存する
 - 教師の問いかけの質が対話の質を決定づける
 
@@ -64,8 +64,12 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Alexander, R. (2020). [A dialogic teaching companion](https://doi.org/10.4324/9781351040143). Routledge. — 対話型教授法の理論と実践を体系化。英国の大規模実験で効果を実証。
-- Mercer, N., & Dawes, L. (2008). The value of exploratory talk. In N. Mercer & S. Hodgkinson (Eds.), *Exploring Talk in School*. — 「探索的対話」の概念を提唱し、その学力への効果を示した。
+- [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — 小 5 対象 78 校の RCT。英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM 児童は 3 科目すべて +2 ヶ月の正効果を確認。
+
+### 関連読み物
+
+- 『[A Dialogic Teaching Companion](https://doi.org/10.4324/9781351040143)』 Alexander, R. (2020), Routledge. — 対話型教授法の理論と実践を体系化した英国の書籍。上記 EEF の Dialogic Teaching RCT の理論的背景を網羅的に論じている。
+- Mercer, N., & Dawes, L. (2008). The value of exploratory talk. In N. Mercer & S. Hodgkinson (Eds.), *Exploring Talk in School*. — 「探索的対話」の概念を提唱した書籍章。
 
 ## 関連する学習指導要領
 
