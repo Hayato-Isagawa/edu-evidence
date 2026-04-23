@@ -85,6 +85,20 @@ const effectNote =
       >
         {d.summary}
       </p>
+      {
+        d.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 pt-2">
+            {d.tags.map((tag) => (
+              <a
+                href={`/tags/${encodeURIComponent(tag)}`}
+                class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] border border-[var(--color-line)] rounded-full px-3 py-1 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
     </div>
 
     <div
