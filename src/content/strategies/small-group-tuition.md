@@ -15,7 +15,7 @@ evidence:
     monthsGained: 4
     strength: 4
     note: "EEF Toolkit で +4ヶ月・エビデンス★4。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析で、2-5 人のグループでも 1 対 1 に近い効果が得られる。6 人を超えると効果が薄れる。"
-lastVerified: "2026-04-18"
+lastVerified: "2026-04-22"
 methodology:
   studies: 96
   sampleSize: "幼児〜高校生(PreK-12、96 件 RCT)"
@@ -63,9 +63,9 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Nickow, A., Oreopoulos, P., & Quan, V. (2020). [The impressive effects of tutoring on preK-12 learning](https://doi.org/10.3386/w27476). *NBER Working Paper* 27476. — 少人数指導を含む96件のRCTのメタ分析。小グループ(2〜5人)でも1対1に近い効果が得られることを示した。
-- EEF (2021). Small group tuition: Evidence review. — 効果量+4ヶ月。グループサイズ6人以下で効果が大きいことを報告。
-- Slavin, R. E., Lake, C., Davis, S., & Madden, N. A. (2011). Effective programs for struggling readers. *Educational Research Review*, 6(1), 1–26. — 読みに困難を持つ子への少人数指導プログラムの効果をレビュー。
+- Nickow, A., Oreopoulos, P., & Quan, V. (2020). [The impressive effects of tutoring on preK-12 learning: A systematic review and meta-analysis of the experimental evidence](https://doi.org/10.3386/w27476). *NBER Working Paper* 27476. — 少人数指導を含む 96 件の RCT のメタ分析。小グループ(2〜5 人)でも 1 対 1 に近い効果が得られることを示した。
+- [Small group tuition](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 少人数指導の Toolkit ストランド。効果量 +4 ヶ月、グループサイズ 6 人以下で効果が大きい。
+- Slavin, R. E., Lake, C., Davis, S., & Madden, N. A. (2011). [Effective programs for struggling readers: A best-evidence synthesis](https://doi.org/10.1016/j.edurev.2010.07.002). *Educational Research Review*, 6(1), 1–26. — 読みに困難を持つ児童向けの指導プログラムを系統的に集約。構造化された少人数指導プログラム(1 対 1 または 2〜5 人)が効果的と報告。
 
 ## 関連する学習指導要領
 

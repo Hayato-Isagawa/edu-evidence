@@ -43,7 +43,7 @@ relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-l
 教育格差への対応は、学校だけでは完結しません。松岡の研究が示すのは「格差の起点は家庭」、中室の研究が示すのは「学校の介入には優先順位がある」。この 2 つを統合すると、**家庭・学校・社会制度の 3 層の役割分担** が見えてきます。
 
 - **家庭**: 読み聞かせ・学習環境・親の関わり。SES によって差が出やすい領域
-- **学校**: 質の高い授業([フィードバック](/strategies/feedback) +6 ヶ月、[メタ認知](/strategies/metacognition) +8 ヶ月など)、[夏休みの学力低下](/strategies/summer-learning-loss) への対策、[SEL](/strategies/social-emotional-learning) による非認知能力の育成
+- **学校**: 質の高い授業([フィードバック](/strategies/feedback) +6 ヶ月、[メタ認知の指導](/strategies/metacognition) +8 ヶ月など)、[夏休みの学力低下](/strategies/summer-learning-loss) への対策、[社会性と情動の学習(SEL)](/strategies/social-emotional-learning) による非認知能力の育成
 - **社会制度**: [就学前教育への介入](/strategies/early-years-intervention) (+6 ヶ月)、SSW を介した福祉機関との連携、自治体の学習支援事業(貧困世帯対象)、奨学金・就学援助
 
 一方で、格差を「家庭の責任」に帰してしまうと、学校が何もしない言い訳になり、逆に「学校の努力不足」に帰してしまうと、教員の過剰負担とバーンアウトを招きます。**「家庭でしか打てない手」「学校でしか打てない手」「社会制度でしか打てない手」を分けて考える** のが現実的です。
