@@ -62,7 +62,7 @@ culturalContext: |
 ## 主な参考研究
 
 - Hattie, J., & Timperley, H. (2007). [The power of feedback](https://doi.org/10.3102/003465430298487). *Review of Educational Research*, 77(1), 81–112. — フィードバックの効果量をd=0.70〜0.79と報告。フィードバックの4つのレベル(課題・プロセス・自己調整・自己)を提唱した、この分野の基礎文献。
-- Kluger, A. N., & DeNisi, A. (1996). [The effects of feedback interventions on performance](https://doi.org/10.1037/0033-2909.119.2.254). *Psychological Bulletin*, 119(2), 254–284. — 131研究・12,000人以上を対象としたメタ分析。平均効果量d=0.38だが、約3分の1の事例で効果が負になることを示し、フィードバックの「質」が決定的に重要であることを明らかにした。
+- Kluger, A. N., & DeNisi, A. (1996). [The effects of feedback interventions on performance](https://doi.org/10.1037/0033-2909.119.2.254). *Psychological Bulletin*, 119(2), 254–284. — 131 研究・12,000 人以上を対象としたメタ分析。平均効果量 d=0.38 だが、約 3 分の 1 の事例で効果が負になることを示し、フィードバックの「質」によって効果が大きく変わることを明らかにした。
 - Wisniewski, B., Zierer, K., & Hattie, J. (2020). [The power of feedback revisited](https://doi.org/10.3389/fpsyg.2019.03087). *Frontiers in Psychology*, 10, 3087. — 435研究を再分析。フィードバックの効果は内容(情報の質)と形式(いつ・どう伝えるか)の両方に依存することを示した。
 
 ## 関連する学習指導要領

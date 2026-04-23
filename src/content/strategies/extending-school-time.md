@@ -54,7 +54,7 @@ culturalContext: |
 ## 主な参考研究
 
 - Meyer, E., & Van Klaveren, C. (2020). [How deficiency subsidies could reduce inequality in education](https://doi.org/10.1016/j.econedurev.2020.101960). *Economics of Education Review*, 78. — 放課後学習の効果は特に低学力層で大きいことを示した研究。
-- EEF (2021). Extending school time: Evidence review. — 効果量+3ヶ月。時間の延長そのものより、延長された時間の質が決定的であることを指摘。
+- [Extending School Time](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/extending-school-time). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 効果量 +3 ヶ月。時間の延長そのものより、延長された時間の質が効果を大きく左右することを指摘。
 - Cooper, H., Charlton, K., Valentine, J. C., & Muhlenbruck, L. (2000). Making the most of summer school. *Monographs of the Society for Research in Child Development*, 65(1). — サマースクールの効果を包括的にレビュー。
 
 ## 関連する学習指導要領
