@@ -14,6 +14,9 @@
   --color-card: #ffffff;
   --color-accent: #2b5d3a;
 
+  /* チャート系列の対比色(アクセント深緑と視認性を確保するため) */
+  --color-chart-red: #c0392b;
+
   --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;

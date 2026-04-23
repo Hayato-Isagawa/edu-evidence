@@ -36,6 +36,7 @@ const COLOR_MAP: Record<string, string> = {
   accent: "var(--color-accent)",
   sub: "var(--color-sub)",
   ink: "var(--color-ink)",
+  red: "var(--color-chart-red)",
 };
 
 function resolveColor(color: string | undefined, fallback: string): string {
