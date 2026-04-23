@@ -55,8 +55,12 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Aronson, E., & Patnoe, S. (2011). *Cooperation in the classroom: The jigsaw method* (3rd ed.). Pinter & Martin. — ジグソー法の開発者による解説書。
-- Hattie, J. (2023). *Visible Learning: The Sequel*. Routledge. — 効果量d=1.20と報告。ただし研究数の限界も指摘。
+- [Visible Learning MetaX — Jigsaw Method](https://www.visiblelearningmetax.com/). Hattie, J. 公開データベース. — Hattie の Visible Learning 集計で jigsaw method は d ≒ 1.20 と高水準で報告されているが、研究数の少なさと異質性の高さから信頼区間は広い(関連指標は MetaX で検索可能)。
+
+### 関連読み物
+
+- 『[Cooperation in the Classroom: The Jigsaw Method](https://www.amazon.com/Cooperation-Classroom-Jigsaw-Method-3rd/dp/1905177224)』 Aronson, E., & Patnoe, S. (2011), Pinter & Martin(第 3 版、ISBN 978-1905177226). — ジグソー法の開発者による解説書。
+- 『[Visible Learning: The Sequel](https://www.routledge.com/Visible-Learning-The-Sequel-A-Synthesis-of-Over-2100-Meta-Analyses-Relating-to-Achievement/Hattie/p/book/9781032462004)』 Hattie, J. (2023), Routledge. — 上記 Visible Learning MetaX DB の書籍版。
 
 ## 関連する学習指導要領
 

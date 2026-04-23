@@ -38,8 +38,8 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- Hattieのメタ分析では効果量d=0.90。非常に高い効果
-- Fisher, Frey & Hattie (2016) は、教師の信頼性が失われると他の指導法の効果も下がることを示した
+- Hattie の Visible Learning 集計で効果量 d ≒ 0.90 と報告されている(高水準)。ただし独立メタ分析での再現は限定的で、teacher self-efficacy の近縁メタ分析では r=0.06〜0.19 とかなり控えめな値も併存する
+- Hattie の整理では、教師の信頼性が失われると他の指導法の効果も下がる基盤要素として位置づけられる
 - 信頼性は「固定的な資質」ではなく「日々の行動の積み重ね」で構築される
 - 子どもは年齢が上がるほど教師の信頼性に敏感になる
 
@@ -52,8 +52,13 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Fisher, D., Frey, N., & Hattie, J. (2016). [*Visible Learning for Literacy*](https://us.corwin.com/books/visible-learning-for-literacy-242972). Corwin. — 教師の信頼性の4要素(専門性・温かさ・公正さ・情熱)を定義し、リテラシー教育との接続を解説。
-- Hattie, J. (2023). *Visible Learning: The Sequel*. Routledge. — 効果量d=0.90と報告。教師の信頼性が他の介入の前提条件であることを強調。
+- [Visible Learning MetaX — Teacher Credibility](https://www.visiblelearningmetax.com/). Hattie, J. 公開データベース. — teacher credibility の効果量(d ≒ 0.90)の一次出典。Hattie の集計値および元になった個別メタ分析の一覧を検索可能。
+- Frymier, A. B., & Houser, M. L. (2000). [The teacher-student relationship as an interpersonal relationship](https://doi.org/10.1080/03634520009379209). *Communication Education*, 49(3), 207–219. — 教師と子どもの関係を対人関係として捉え、教師の信頼性(credibility)を構成する次元を論じた実証研究。
+
+### 関連読み物
+
+- 『[Visible Learning for Literacy](https://us.corwin.com/books/visible-learning-for-literacy-242972)』 Fisher, D., Frey, N., & Hattie, J. (2016), Corwin. — 教師の信頼性の要素をリテラシー教育の実践と接続して整理した米国発の書籍。
+- 『[Visible Learning: The Sequel](https://www.routledge.com/Visible-Learning-The-Sequel-A-Synthesis-of-Over-2100-Meta-Analyses-Relating-to-Achievement/Hattie/p/book/9781032462004)』 Hattie, J. (2023), Routledge. — 上記 Visible Learning MetaX DB の書籍版。
 
 ## 日本の研究者による関連知見
 

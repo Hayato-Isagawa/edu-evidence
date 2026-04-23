@@ -63,7 +63,11 @@ culturalContext: |
 
 - Kirschner, P. A., Sweller, J., & Clark, R. E. (2006). [Why minimal guidance during instruction does not work](https://doi.org/10.1207/s15326985ep4102_1). *Educational Psychologist*, 41(2), 75–86. — 最小限のガイダンスによる指導が効果的でないことを認知負荷理論から説明した重要論文。
 - Lazonder, A. W., & Harmsen, R. (2016). [Meta-analysis of inquiry-based learning](https://doi.org/10.3102/0034654315627366). *Review of Educational Research*, 86(3), 681–718. — ガイド付き探究 vs ガイドなし探究の効果差を実証。
-- Hattie, J. (2009). *Visible Learning*. Routledge. — 子どもの学習への主導権(student control over learning)の効果量d=0.02と報告。
+- [Visible Learning MetaX — Student Control Over Learning](https://www.visiblelearningmetax.com/). Hattie, J. 公開データベース. — Hattie の Visible Learning で student control over learning は d ≒ 0.02 とほぼ効果なしに分類される。
+
+### 関連読み物
+
+- 『[Visible Learning: A Synthesis of Over 800 Meta-Analyses Relating to Achievement](https://www.routledge.com/Visible-Learning-A-Synthesis-of-Over-800-Meta-Analyses-Relating-to-Achievement/Hattie/p/book/9780415476188)』 Hattie, J. (2009), Routledge. — 学習要因のランキング書籍。上記の Visible Learning MetaX DB で個別効果量を検索可能。
 
 ## 関連する学習指導要領
 

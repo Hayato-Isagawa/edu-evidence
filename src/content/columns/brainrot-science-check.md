@@ -94,4 +94,7 @@ relatedStrategies: ["screen-time", "social-media-mental-health", "digital-techno
 - Madigan, S., Browne, D., Racine, N., Mori, C., & Tough, S. (2019). [Association between screen time and children's performance on a developmental screening test](https://jamanetwork.com/journals/jamapediatrics/fullarticle/2722666). *JAMA Pediatrics*, 173(3), 244–250. — 2〜5 歳の縦断コホート(2,441 人)。スクリーンタイムと発達スクリーニングテストの負の関連を確認。
 - Orben, A., & Przybylski, A. K. (2019). [The association between adolescent well-being and digital technology use](https://doi.org/10.1038/s41562-018-0506-1). *Nature Human Behaviour*, 3, 173–182. — 3 つの大規模データセット(計 355,358 人)の特定化曲線分析。デジタル技術使用が幸福度の分散を説明するのは最大でも 0.4%(r ≈ 0.05)で「朝食を毎日食べる」と同程度と示した。
 - Viner, R. M., et al. (2019). [Roles of cyberbullying, sleep, and physical activity in mediating the effects of social media use on mental health and wellbeing among young people in England](https://doi.org/10.1016/S2352-4642(19)30186-5). *The Lancet Child & Adolescent Health*, 3(10), 685–696. — Our Futures 研究(12,866 人・13〜16 歳)の縦断分析。SNS 利用と精神健康の関連は、サイバーいじめ・睡眠不足・身体活動減少を経由して媒介されていることを示した。
-- 『[スマホが学力を破壊する](https://shinsho.shueisha.co.jp/kikan/0924-i/)』 川島隆太 (2018), 集英社新書(ISBN 978-4087210248). — 仙台市学習状況調査をもとに、スマホ使用時間と学力の負の相関を論じた一般書。解析は横断中心のため因果は未確定。
+
+### 関連読み物
+
+- 『[スマホが学力を破壊する](https://shinsho.shueisha.co.jp/kikan/0924-i/)』 川島隆太 (2018), 集英社新書(ISBN 978-4087210248). — 仙台市学習状況調査をもとに、スマホ使用時間と学力の負の相関を論じた日本の一般書。解析は横断中心のため因果は未確定。
