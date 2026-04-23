@@ -20,7 +20,7 @@
  * vfile.data.astro.frontmatter から charts 定義を取得する。
  */
 import { visit } from "unist-util-visit";
-import { renderLineChartSVG } from "../lib/chart-svg.ts";
+import { renderChartSVG } from "../lib/chart-svg.ts";
 
 const PATTERN = /\{\{chart:([a-z0-9-]+)\}\}/g;
 
@@ -49,7 +49,7 @@ export function remarkChart() {
       }
 
       const spec = charts[chartId];
-      const svgHtml = renderLineChartSVG(spec, chartId);
+      const svgHtml = renderChartSVG(spec, chartId);
       if (!svgHtml) {
         console.warn(`[remark-chart] Failed to render chart: ${chartId}`);
         return;
