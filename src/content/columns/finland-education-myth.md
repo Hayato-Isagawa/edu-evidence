@@ -112,4 +112,7 @@ relatedStrategies: []
 - [PISA 2022 Country Notes — Finland](https://www.oecd.org/en/publications/2023/11/pisa-2022-results-volume-i-and-ii-country-notes_2fca04b9/finland_ac04e1eb.html). OECD (2023). — フィンランド個別の分析。3 科目すべてで過去最低を更新し、「2018〜2022 年の急落は以前から始まっていた低下を強化するもの」と評価。
 - [PISA 2022 Country Notes — Japan](https://www.oecd.org/en/publications/pisa-2022-results-volume-i-and-ii-country-notes_ed6fbcc5-en/japan_f7d7daad-en.html). OECD (2023). — 日本の数学 536 点(OECD 平均 472 より 64 点高く歴代最高タイ)を記録。2018 年から 2022 年にかけてスコアが上昇した数少ない国として分析。
 - [Education GPS — Finland Country Profile](https://gpseducation.oecd.org/CountryProfile?primaryCountry=FIN). OECD. — OECD 公式のフィンランド国別プロファイル。PISA 2000〜2022 の各科目時系列スコア・国際比較を参照できる。本コラム掲載の数学スコア(544 → 548 → 541 → 524 → 511 → 507 → 484)の一次出典。
-- 『[World Class: How to Build a 21st-Century School System](https://www.oecd.org/content/dam/oecd/en/publications/reports/2018/05/world-class_g1g8d583/9789264300002-en.pdf)』 Andreas Schleicher (2018), OECD Publishing. — PISA 責任者による国際比較分析(OECD が全文を無料公開)。各国の教育制度を PISA データの視点から検討。
+
+### 関連読み物
+
+- 『[World Class: How to Build a 21st-Century School System](https://www.oecd.org/content/dam/oecd/en/publications/reports/2018/05/world-class_g1g8d583/9789264300002-en.pdf)』 Andreas Schleicher (2018), OECD Publishing. — PISA 責任者による国際比較分析。各国の教育制度を PISA データの視点から検討した一般書。OECD が PDF を無料公開。

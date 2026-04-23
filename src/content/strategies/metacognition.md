@@ -1,6 +1,6 @@
 ---
 title: メタ認知の指導
-summary: 子どもが「自分はどう学んでいるか」を意識し、自分で計画・実行・振り返りをできるようにすること。EEF Toolkit の 2025 年更新で +7 → +8ヶ月に引き上げられた最も効果の大きい領域の一つ。
+summary: 子どもが「自分はどう学んでいるか」を意識し、自分で計画・実行・振り返りをできるようにすること。EEF Toolkit の 2025 年更新で +7 → +8 ヶ月に引き上げられた、エビデンスが堅い領域の一つ。
 monthsGained: 8
 evidenceStrength: 5
 cost: 1
@@ -16,7 +16,7 @@ evidence:
     monthsGained: 8
     strength: 5
     note: "2025年のEEF Toolkit 更新で +7 → +8ヶ月に引き上げ(107の新しい研究を追加)。小学校で特に大きな効果。『思考について考える』を明示的に教えることが鍵。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-22"
 methodology:
   studies: 246
   sampleSize: "小中学校の児童生徒対象"
@@ -58,19 +58,19 @@ culturalContext: |
 
 ## 注意したいこと
 
-- メタ認知は「振り返りのワークシート」を配るだけでは育ちません。教師との対話が決定的に重要です。
+- メタ認知は「振り返りのワークシート」を配るだけでは育ちません。教師との対話が大きな役割を果たします。
 - 低学年では抽象的な振り返りは難しいため、具体的な行動レベルから始めるのが現実的です。
 - 一度の授業で完結する指導ではなく、日々の積み重ねで育つものです。
 
 ## 主な参考研究
 
 - Dignath, C., & Büttner, G. (2008). [Components of fostering self-regulated learning among students](https://doi.org/10.1007/s11409-008-9029-x). *Metacognition and Learning*, 3, 231–264. — 小学生49研究・中学生35研究のメタ分析。自己調整学習介入の平均効果量d=0.69。小学校段階でも十分に効果があることを示した。
-- EEF (2020). Metacognition and self-regulation: Evidence review. — メタ認知指導を7つの推奨事項に整理したガイダンスレポート。教科の文脈に組み込むことの重要性を強調。
-- Muijs, D., & Bokhove, C. (2020). Metacognition and self-regulation: Evidence review. Education Endowment Foundation. — EEF Toolkitの背後にあるエビデンスレビュー。74研究を分析し、平均効果量+7ヶ月を算出(2025年の更新で+8ヶ月に引き上げ)。
+- [Metacognition and Self-regulated Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition). Education Endowment Foundation (2018), *Guidance Report*. — メタ認知指導を 7 つの推奨事項に整理したガイダンスレポート。教科の文脈に組み込むことの重要性を強調。
+- Muijs, D., & Bokhove, C. (2020). [Metacognition and Self-regulation: Evidence Review](https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/metacognition-and-self-regulation). Education Endowment Foundation. — EEF Toolkit の根拠となる最新のエビデンスレビュー。多数の研究を統合して平均効果量 +7 ヶ月を算出(2025 年の Toolkit 更新で +8 ヶ月に引き上げ)。
 
 ## 関連する政策動向
 
-学習指導要領が掲げる「主体的・対話的で深い学び」の中核には、メタ認知的な学習者像があります。メタ認知指導は+8ヶ月と最も効果が高い領域であり、この政策の方向性はエビデンスと整合しています。ただし、具体的な指導方法の研修が現場に行き届いているかが課題です。
+学習指導要領が掲げる「主体的・対話的で深い学び」の中核には、メタ認知的な学習者像があります。メタ認知指導は +8 ヶ月と EEF Toolkit の中でも効果量が大きい領域の一つであり、この政策の方向性はエビデンスと整合しています。ただし、具体的な指導方法の研修が現場に行き届いているかが課題です。
 
 → [政策とエビデンスの対照表](/policy-evidence)
 

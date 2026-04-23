@@ -54,7 +54,7 @@ relatedStrategies: ["metacognition", "growth-mindset", "social-emotional-learnin
 - グリットは **誠実性(Conscientiousness)とほぼ同じもの** を測っている可能性が高く(両者の相関 ρ ≈ 0.84 は非常に高い)、新しい構成概念として独自の予測力は小さい
 - 効果の大半は **「努力の継続」** に由来し、「興味の持続」の寄与は弱い(Lam & Zhou 2019、44 研究・60,133 人)
 - 介入で育てた効果の再現性は限定的
-- 学力への効果量で比べれば、[メタ認知の指導](/strategies/metacognition)(+8 ヶ月)や [SEL](/strategies/social-emotional-learning)(+4 ヶ月)といった **具体的な指導法のエビデンス** の方が桁違いに大きい
+- 学力への効果量で比べれば、[メタ認知の指導](/strategies/metacognition)(+8 ヶ月)や [社会性と情動の学習(SEL)](/strategies/social-emotional-learning)(+4 ヶ月)といった **具体的な指導法のエビデンス** の方が桁違いに大きい
 
 ## 流行と科学のあいだで
 
