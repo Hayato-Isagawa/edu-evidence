@@ -15,7 +15,7 @@ evidence:
     monthsGained: 5
     strength: 4
     note: "EEF Toolkit で +5ヶ月・エビデンス★4。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析で d=0.37。教師が行う指導の効果が最も大きく、パラプロフェッショナル・親・ボランティアの順に効果が小さくなる。短期集中(8〜12週)で効果が出やすい。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-04-22"
 methodology:
   studies: 96
   sampleSize: "幼児〜高校生(preK-12)"
@@ -63,9 +63,9 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Bloom, B. S. (1984). [The 2 sigma problem](https://doi.org/10.3102/0013189X013006004). *Educational Researcher*, 13(6), 4–16. — 1対1の個別指導の効果量が2σ(平均の学生が上位2%に到達)であることを報告。
-- Nickow, A., Oreopoulos, P., & Quan, V. (2020). [The impressive effects of tutoring on preK-12 learning](https://doi.org/10.3386/w27476). *NBER Working Paper* 27476. — 96件のRCTを分析。チュータリングの平均効果量d=0.37。特に読みの指導で効果が大きい。
-- EEF (2021). One to one tuition: Evidence review. — 個別指導の効果量+5ヶ月。短期集中(8〜12週)の効果が高いことを報告。
+- Bloom, B. S. (1984). [The 2 sigma problem: The search for methods of group instruction as effective as one-to-one tutoring](https://doi.org/10.3102/0013189X013006004). *Educational Researcher*, 13(6), 4–16. — 1 対 1 の個別指導の効果量が 2σ(平均の学生が上位 2% に到達)と報告した古典。
+- Nickow, A., Oreopoulos, P., & Quan, V. (2020). [The impressive effects of tutoring on preK-12 learning: A systematic review and meta-analysis of the experimental evidence](https://doi.org/10.3386/w27476). *NBER Working Paper* 27476. — 96 件の RCT を分析。チュータリングの平均効果量 d = 0.37。特に読みの指導で効果が大きい。
+- [One to one tuition](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/one-to-one-tuition). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 個別指導の Toolkit ストランド。効果量 +5 ヶ月、短期集中(8〜12 週間)の効果が高い。
 
 ## 関連する学習指導要領
 
