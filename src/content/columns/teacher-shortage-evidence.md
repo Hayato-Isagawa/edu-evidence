@@ -2,9 +2,25 @@
 title: 教員不足の現在地 — 年度初の欠員、学期途中の穴、悪循環のエビデンス
 summary: 公立学校教員採用試験の倍率は過去最低を更新し続け、小学校は 2.0 倍(令和 7 年度)。精神疾患による休職者は年々増え、学期途中に代替が見つからない事態が広がる。給特法改正と中学校 35 人学級の中で、エビデンスが示す「何に集中すべきか」を整理する。
 date: "2026-04-12"
-lastVerified: "2026-04-20"
+lastVerified: "2026-04-23"
 tags: ["教員", "働き方改革", "政策"]
 relatedStrategies: ["teacher-workload-reform", "teacher-student-relationships", "teacher-credibility", "feedback", "metacognition"]
+charts:
+  shogakko-saiyo-bairitsu:
+    type: line
+    title: 公立小学校教員採用試験の倍率推移(2014〜2025)
+    xLabels: [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+    series:
+      - name: 小学校採用倍率
+        data: [4.1, 3.9, 3.6, 3.5, 3.2, 2.8, 2.7, 2.6, 2.5, 2.3, 2.2, 2.0]
+        color: accent
+    yMin: 0
+    yMax: 5
+    yTickStep: 1
+    xAxisLabel: 試験実施年(年度)
+    yAxisLabel: 倍率(倍)
+    caption: 出典 文部科学省「公立学校教員採用選考試験の実施状況等」。2014 年 4.1 倍から 2025 年 2.0 倍へ、7 年連続で過去最低を更新。
+    ariaLabel: 公立小学校教員採用試験の倍率推移(2014 年から 2025 年)。4.1 倍から 2.0 倍へ段階的に低下し続けている。
 ---
 
 ## 数字で見る教員不足
@@ -12,6 +28,8 @@ relatedStrategies: ["teacher-workload-reform", "teacher-student-relationships", 
 公立学校の教員採用選考試験の競争倍率は、平成 12 年度(2000 年度)のピークから低下し続けています。[文部科学省 令和 6 年度(令和 5 年度実施)採用試験実施状況](https://www.mext.go.jp/a_menu/shotou/senkou/1416039_00012.html) によれば、令和 6 年度の全体倍率は **3.2 倍(過去最低)**、**小学校は 2.2 倍** でした。さらに [令和 7 年度(令和 6 年度実施)の結果](https://www.mext.go.jp/a_menu/shotou/senkou/1416039_00013.html) では、**小学校は 2.0 倍** へとさらに低下しています。
 
 文科省は、採用倍率低下の背景として **大量退職に伴う採用者数の増加(令和 6 年度 36,421 人、平成 12 年度 11,021 人の 3 倍超)** と **既卒受験者の減少** を挙げています。単純に「教員人気が落ちた」で片付けられない構造があります。
+
+{{chart:shogakko-saiyo-bairitsu}}
 
 ## 学期途中の離脱と代替不在 — 数字に出にくい教員不足
 

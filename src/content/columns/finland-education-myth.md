@@ -17,6 +17,9 @@ charts:
       - name: 日本
         data: [534, 523, 529, 536, 532, 527, 536]
         color: red
+    yMin: 460
+    yMax: 560
+    yTickStep: 20
     xAxisLabel: 調査年
     yAxisLabel: 数学スコア
     caption: 出典 OECD Education GPS。2006 年をピークにフィンランドは低下、日本は 2012 年以降上回り続ける。

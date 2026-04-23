@@ -28,9 +28,11 @@ export interface LineChartSpec {
 
 const WIDTH = 640;
 const HEIGHT = 400;
-const PADDING = { top: 88, right: 24, bottom: 68, left: 56 };
+const PADDING = { top: 88, right: 24, bottom: 68, left: 80 };
 const TITLE_Y = 28;
 const LEGEND_Y = 56; // title と描画領域の間に凡例を配置
+const Y_AXIS_LABEL_X = 16;
+const Y_TICK_LABEL_X_OFFSET = 8; // 目盛数字は PADDING.left - この値 に配置
 
 const COLOR_MAP: Record<string, string> = {
   accent: "var(--color-accent)",
@@ -53,34 +55,57 @@ function escapeHtml(s: string | number): string {
     .replace(/'/g, "&#39;");
 }
 
-function niceExtent(values: number[], spec: LineChartSpec): { min: number; max: number } {
+function computeYAxis(
+  values: number[],
+  spec: LineChartSpec,
+): { min: number; max: number; step: number; ticks: number[] } {
   const flat = values.filter((v) => Number.isFinite(v));
-  if (flat.length === 0) return { min: 0, max: 1 };
-  const rawMin = Math.min(...flat);
-  const rawMax = Math.max(...flat);
-  const margin = Math.max(1, (rawMax - rawMin) * 0.1);
-  const min = spec.yMin ?? Math.floor((rawMin - margin) / 10) * 10;
-  const max = spec.yMax ?? Math.ceil((rawMax + margin) / 10) * 10;
-  return { min, max: Math.max(max, min + 1) };
-}
-
-function buildTicks(min: number, max: number, step: number | undefined): number[] {
-  const tickStep = step ?? chooseStep(max - min);
+  const rawMin = flat.length ? Math.min(...flat) : 0;
+  const rawMax = flat.length ? Math.max(...flat) : 1;
+  // 描画範囲のヒント(spec 指定があればそれ、なければ raw 値)から step を決める
+  // これにより yMin: 0 指定時にも step は「0 からデータ上限」の range で選ばれる
+  const hintMin = spec.yMin ?? rawMin;
+  const hintMax = spec.yMax ?? rawMax;
+  const hintRange = hintMax - hintMin || Math.max(1, Math.abs(hintMax) || 1);
+  const step = spec.yTickStep ?? chooseStep(hintRange * 1.2);
+  const min = spec.yMin ?? Math.floor(rawMin / step) * step;
+  let max = spec.yMax ?? Math.ceil(rawMax / step) * step;
+  if (max <= min) max = min + step;
   const ticks: number[] = [];
-  for (let v = Math.ceil(min / tickStep) * tickStep; v <= max; v += tickStep) {
+  for (let v = min; v <= max + step * 1e-6; v += step) {
     ticks.push(Number(v.toFixed(6)));
   }
-  if (ticks[0] !== min) ticks.unshift(min);
-  if (ticks[ticks.length - 1] !== max) ticks.push(max);
-  return ticks;
+  return { min, max, step, ticks };
 }
 
 function chooseStep(range: number): number {
+  // 小さい範囲は固定テーブル
+  if (range <= 1) return 0.2;
+  if (range <= 5) return 1;
+  if (range <= 10) return 2;
   if (range <= 20) return 5;
   if (range <= 50) return 10;
   if (range <= 100) return 20;
   if (range <= 200) return 50;
-  return Math.ceil(range / 5);
+  if (range <= 500) return 100;
+  if (range <= 1000) return 200;
+  // 大きい範囲: 10 の冪 × {1,2,5} の中で、目盛数が 4〜8 個になる刻みを選ぶ
+  const pow10 = Math.pow(10, Math.floor(Math.log10(range)));
+  for (const mult of [0.1, 0.2, 0.25, 0.5, 1, 2, 2.5, 5]) {
+    const step = mult * pow10;
+    const ticks = range / step;
+    if (ticks >= 4 && ticks <= 8) return step;
+  }
+  return pow10;
+}
+
+function formatTick(v: number): string {
+  if (!Number.isFinite(v)) return "";
+  // 整数の大きい値は 3 桁カンマ区切り、それ以外は toString
+  if (Number.isInteger(v) && Math.abs(v) >= 1000) {
+    return v.toLocaleString("en-US");
+  }
+  return String(v);
 }
 
 export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string {
@@ -91,9 +116,8 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
   const innerW = WIDTH - PADDING.left - PADDING.right;
   const innerH = HEIGHT - PADDING.top - PADDING.bottom;
 
-  const allValues = spec.series.flatMap((s) => s.data);
-  const { min: yMin, max: yMax } = niceExtent(allValues, spec);
-  const yTicks = buildTicks(yMin, yMax, spec.yTickStep);
+  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
+  const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
 
   const xCount = spec.xLabels.length;
   const xStep = xCount > 1 ? innerW / (xCount - 1) : 0;
@@ -115,7 +139,7 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
       const y = yPos(t).toFixed(1);
       return `
     <line x1="${PADDING.left}" y1="${y}" x2="${PADDING.left + innerW}" y2="${y}" stroke="var(--color-border, rgba(0,0,0,0.08))" stroke-width="1" />
-    <text x="${PADDING.left - 8}" y="${y}" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(t)}</text>`;
+    <text x="${PADDING.left - Y_TICK_LABEL_X_OFFSET}" y="${y}" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(formatTick(t))}</text>`;
     })
     .join("");
 
@@ -162,7 +186,7 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
     );
   }
   if (spec.yAxisLabel) {
-    const cx = 16;
+    const cx = Y_AXIS_LABEL_X;
     const cy = PADDING.top + innerH / 2;
     axisLabels.push(
       `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="11" fill="var(--color-sub)" transform="rotate(-90 ${cx} ${cy})">${escapeHtml(spec.yAxisLabel)}</text>`,
