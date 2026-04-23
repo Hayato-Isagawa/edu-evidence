@@ -53,9 +53,12 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Blatchford, P., Russell, A., & Webster, R. (2012). *Reassessing the impact of teaching assistants*. Routledge. — 英国の大規模研究(DISS Project)。補助スタッフの配置だけでは学力に負の効果が出る場合があることを示し、「役割設計」の重要性を明らかにした。
-- Sharples, J., Webster, R., & Blatchford, P. (2015). *Making best use of teaching assistants*. EEF. — 補助スタッフの効果的な活用のための7つの推奨事項を提示したガイダンスレポート。
-- EEF (2021). Teaching assistants: Evidence review. — 構造化された介入を実施した場合、正の効果(+4ヶ月)が出ることを報告。配置だけでは+1ヶ月。
+- [Making Best Use of Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/teaching-assistants). Education Endowment Foundation (2015, updated 2021), *Guidance Report*. — 補助スタッフの効果的な活用のための 7 つの推奨事項を提示した EEF 公式ガイダンス。DISS Project(Blatchford らによる英国の大規模研究)の知見を基礎に、「配置だけでは学力に負の効果が出る場合があり、役割設計が鍵」と整理。
+- [Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistants). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 構造化された介入を実施した場合、正の効果(+4 ヶ月)が出ることを報告。配置だけでは +1 ヶ月。
+
+### 関連読み物
+
+- 『[Reassessing the Impact of Teaching Assistants](https://www.routledge.com/Reassessing-the-Impact-of-Teaching-Assistants-How-Research-Challenges-Practice/Blatchford-Russell-Webster/p/book/9780415688826)』 Blatchford, P., Russell, A., & Webster, R. (2012), Routledge. — 上記 EEF ガイダンスの基礎となった DISS Project の詳細をまとめた英国発の書籍。
 
 ## 関連する政策動向
 

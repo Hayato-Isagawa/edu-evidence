@@ -64,8 +64,11 @@ culturalContext: |
 ## 主な参考研究
 
 - Law, J., Garrett, Z., & Nye, C. (2003). [Speech and language therapy interventions for children](https://doi.org/10.1002/14651858.CD004110). *Cochrane Database of Systematic Reviews*. — 口頭言語介入の効果を系統的にレビュー。語彙と表現に正の効果を確認。
-- EEF (2021). Oral language interventions: Evidence review. — 効果量+6ヶ月。エビデンスの強度★★★★★(最高)。構造化された対話活動の効果を報告。
-- Hattie, J. (2009). *Visible Learning*. Routledge. — 800以上のメタ分析を統合。言語プログラムの効果量d=0.67と報告。
+- [Oral Language Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語の指導で +6 ヶ月、エビデンス強度 ★5(小学校 +6 ヶ月、幼児 +7 ヶ月、中等 +5 ヶ月)。構造化された対話活動の効果を集約。
+
+### 関連読み物
+
+- 『[Visible Learning: A Synthesis of Over 800 Meta-Analyses Relating to Achievement](https://www.routledge.com/Visible-Learning-A-Synthesis-of-Over-800-Meta-Analyses-Relating-to-Achievement/Hattie/p/book/9780415476188)』 Hattie, J. (2009), Routledge. — 学習要因を効果量でランキングした教科書。言語プログラムは d=0.67 と報告されている。各効果量の詳細は [Visible Learning MetaX DB](https://www.visiblelearningmetax.com/) で検索可能。
 
 ## 関連する学習指導要領
 
