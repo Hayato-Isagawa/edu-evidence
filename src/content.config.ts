@@ -75,6 +75,30 @@ const strategies = defineCollection({
   }),
 });
 
+// LineChart 定義(Issue #52): frontmatter で宣言してコラム本文内で
+// {{chart:id}} プレースホルダーから参照する
+const lineChartSchema = z.object({
+  type: z.literal("line"),
+  title: z.string().optional(),
+  xLabels: z.array(z.union([z.string(), z.number()])),
+  series: z
+    .array(
+      z.object({
+        name: z.string(),
+        data: z.array(z.number().nullable()),
+        color: z.string().optional(),
+      }),
+    )
+    .min(1),
+  yMin: z.number().optional(),
+  yMax: z.number().optional(),
+  yTickStep: z.number().optional(),
+  xAxisLabel: z.string().optional(),
+  yAxisLabel: z.string().optional(),
+  caption: z.string().optional(),
+  ariaLabel: z.string(),
+});
+
 const columns = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/columns" }),
   schema: z.object({
@@ -85,6 +109,8 @@ const columns = defineCollection({
     lastVerified: z.string().optional(),
     tags: z.array(z.string()).default([]),
     relatedStrategies: z.array(z.string()).default([]),
+    // チャート定義(任意): id をキーにした辞書で、本文の {{chart:id}} から参照
+    charts: z.record(z.string(), lineChartSchema).optional(),
   }),
 });
 
