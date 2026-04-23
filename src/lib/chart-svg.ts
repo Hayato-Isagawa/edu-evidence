@@ -27,8 +27,10 @@ export interface LineChartSpec {
 }
 
 const WIDTH = 640;
-const HEIGHT = 360;
-const PADDING = { top: 48, right: 24, bottom: 64, left: 56 };
+const HEIGHT = 400;
+const PADDING = { top: 88, right: 24, bottom: 68, left: 56 };
+const TITLE_Y = 28;
+const LEGEND_Y = 56; // title と描画領域の間に凡例を配置
 
 const COLOR_MAP: Record<string, string> = {
   accent: "var(--color-accent)",
@@ -103,7 +105,7 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
 
   // タイトル
   const titleEl = spec.title
-    ? `<text x="${WIDTH / 2}" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="var(--color-ink)">${escapeHtml(spec.title)}</text>`
+    ? `<text x="${WIDTH / 2}" y="${TITLE_Y}" text-anchor="middle" font-size="14" font-weight="600" fill="var(--color-ink)">${escapeHtml(spec.title)}</text>`
     : "";
 
   // Y 軸目盛 + 水平グリッド
@@ -166,11 +168,11 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
     );
   }
 
-  // 凡例(シンプルに上部)
+  // 凡例: title と描画領域の間に配置、title から十分な余白を確保
   const legendMarkup =
     spec.series.length > 1
       ? `
-    <g transform="translate(${PADDING.left}, ${PADDING.top - 18})">
+    <g transform="translate(${PADDING.left}, ${LEGEND_Y})">
       ${spec.series
         .map((s, sIdx) => {
           const color = resolveColor(s.color, fallbackColors[sIdx % fallbackColors.length]);
