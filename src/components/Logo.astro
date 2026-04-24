@@ -1,0 +1,46 @@
+---
+/**
+ * EduEvidence JP brand mark — 成熟した葉
+ *
+ * モチーフ: しっかり葉脈の通った成熟した葉は「積み上げてきたエビデンス」を
+ * 象徴。姉妹サイト EduWatch JP の「双葉(cotyledon)」モチーフと対になり、
+ * 両サイトで「学びを育む植物」の成長段階を表現する。
+ *
+ * 色は currentColor を継承するので、呼び出し側で `color:` / Tailwind の
+ * text- クラスを指定すれば反映される。
+ */
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 120 120"
+  class={className}
+  aria-hidden="true"
+  fill="currentColor"
+>
+  <!-- 葉本体 -->
+  <path d="M60 10 C25 28, 15 58, 22 88 C30 78, 42 68, 60 62 C78 68, 90 78, 98 88 C105 58, 95 28, 60 10Z" />
+  <!-- 中央葉脈(強調) -->
+  <line
+    x1="60"
+    y1="14"
+    x2="60"
+    y2="78"
+    stroke="var(--color-bg, #faf9f5)"
+    stroke-width="2.5"
+    stroke-linecap="round"
+  />
+  <!-- 左葉脈 -->
+  <line x1="60" y1="32" x2="36" y2="48" stroke="var(--color-bg, #faf9f5)" stroke-width="2" stroke-linecap="round" />
+  <line x1="60" y1="52" x2="30" y2="66" stroke="var(--color-bg, #faf9f5)" stroke-width="2" stroke-linecap="round" />
+  <line x1="60" y1="70" x2="38" y2="80" stroke="var(--color-bg, #faf9f5)" stroke-width="2" stroke-linecap="round" />
+  <!-- 右葉脈 -->
+  <line x1="60" y1="32" x2="84" y2="48" stroke="var(--color-bg, #faf9f5)" stroke-width="2" stroke-linecap="round" />
+  <line x1="60" y1="52" x2="90" y2="66" stroke="var(--color-bg, #faf9f5)" stroke-width="2" stroke-linecap="round" />
+  <line x1="60" y1="70" x2="82" y2="80" stroke="var(--color-bg, #faf9f5)" stroke-width="2" stroke-linecap="round" />
+  <!-- 茎 -->
+  <line x1="60" y1="78" x2="60" y2="112" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+</svg>
