@@ -8,3 +8,9 @@ dist
 test-results
 playwright-report
 blob-report
+
+# OG 画像生成のフォントキャッシュ(ビルド時に自動取得、サイズ数MB)
+scripts/fonts/*.bin
+scripts/fonts/*.woff2
+scripts/fonts/*.otf
+scripts/fonts/*.ttf
