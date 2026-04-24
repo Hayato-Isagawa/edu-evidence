@@ -1,24 +1,20 @@
 ---
 title: 足場かけ(スキャフォールディング)
-summary: 子どもが一人ではできないことを、段階的に支援し、次第に支援を減らしていく指導法。複数のメタ分析で中程度〜大きな効果(d ≈ 0.4-0.8)。ヴィゴツキーのZPD概念が理論的基盤。
-monthsGained: 5
-evidenceStrength: 4
+summary: 子どもが一人ではできないことを、段階的に支援し、次第に支援を減らしていく指導法。独立メタ分析では中程度の効果(g ≈ 0.46)。ヴィゴツキーの ZPD 概念が理論的基盤。
+monthsGained: 4
+evidenceStrength: 3
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["授業設計", "支援"]
 source: mixed
-sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation
-sourceTitle: "EEF — Metacognition and self-regulation (scaffolding は関連手法として扱われる)"
+sourceUrl: https://journals.sagepub.com/doi/10.3102/0034654316670999
+sourceTitle: "Belland et al. (2017) — Synthesizing Results From Empirical Research on Computer-Based Scaffolding in STEM Education"
 evidence:
-  eef:
-    monthsGained: 5
-    strength: 4
-    note: "EEF Toolkit に独立したエントリは無いが、Metacognition and self-regulation(+8)の中核的手法として位置づけられ、SEND 対応の推奨アプローチにも含まれる。ここでは中程度〜高の効果量を控えめに換算。"
   hattie:
     cohensD: 0.82
-    note: "Hattie の Visible Learning では d=0.82 と報告。複数の独立メタ分析(Belland et al. 2017 computer-based scaffolding g=0.46、online learning d=0.53 等)では d=0.4-0.6 程度が一般的。Hattie の値は上端寄り。"
-lastVerified: "2026-04-22"
+    note: "Hattie の Visible Learning では d = 0.82 と報告されているが、複数の独立メタ分析(Belland et al. 2017 の computer-based scaffolding g = 0.46、online learning d ≈ 0.53 等)では d = 0.4〜0.6 程度が一般的。Hattie の値は上端寄り。"
+lastVerified: "2026-04-24"
 methodology:
   studies: 144
   sampleSize: "144 実験研究 / 333 効果量(STEM 学習者、K-12〜高等教育)"
@@ -28,9 +24,9 @@ methodology:
     year: 2017
     title: "Synthesizing Results From Empirical Research on Computer-Based Scaffolding in STEM Education"
     url: "https://journals.sagepub.com/doi/10.3102/0034654316670999"
-  limitations: "Belland メタ分析はコンピュータベーススキャフォールディングを対象としており、一般的な対面スキャフォールディング全体とは厳密には異なる。Van de Pol et al.(2010)の枠組み(contingency / fading / transfer of responsibility)が背景。効果の本質は『外す(fading)』にあり、恒久的な支援は効果を弱める。"
+  limitations: "Belland メタ分析はコンピューターベース足場かけを対象としており、一般的な対面の足場かけ全体とは厳密には異なる。Van de Pol et al. (2010) の枠組み(contingency / fading / transfer of responsibility)が背景。効果の本質は『外す(fading)』にあり、恒久的な支援は効果を弱める。EEF Toolkit には独立したエントリは無く、Metacognition and self-regulation(+8 ヶ月)の中核的手法として位置づけられるのみ。"
 culturalContext: |
-  足場かけは日本の授業研究(授業デザイン、ヒントカード、段階的な発問など)の中で広く実践されている概念で、文化差は小さい。EEF にも独立したエントリは無いため厳密な +◯ヶ月 値は存在しないが、メタ分析全体から見ると **中程度〜やや大きな効果(d=0.4-0.8)** が報告されている。日本では「ヒントを出しすぎる」傾向があり、足場かけの真髄である「段階的に支援を外す(fading)」の実践が不十分な場合がある。支援の『質』と『引き算のタイミング』が効果を決める。
+  足場かけは日本の授業研究(授業デザイン、ヒントカード、段階的な発問など)の中で広く実践されている概念で、文化差は小さい。EEF Toolkit に独立したエントリは無いが、独立メタ分析全体から見ると **中程度(g ≈ 0.46、換算で約 +4 ヶ月)** の効果が安定して報告されている。Hattie の d = 0.82 は上端寄りの推定で、代表値としては独立メタ分析に揃える方が保守的で誠実である。日本では「ヒントを出しすぎる」傾向があり、足場かけの真髄である「段階的に支援を外す(fading)」の実践が不十分な場合がある。支援の『質』と『引き算のタイミング』が効果を決める。
 ---
 
 ## 一言でいうと
@@ -51,8 +47,10 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- Hattie の Visible Learning では d = 0.82 と高めの値を報告。ただし独立メタ分析(Belland 2017 の Hedges' g = 0.46 など)は d = 0.4〜0.6 程度の中程度が一般的で、Hattie の値は上端寄りと評価される
-- van de Pol, Volman & Beishuizen (2010) のレビューでは、足場かけの3要素(偶発的対応・フェーディング・責任の移行)が効果を決めることを示した
+- Belland et al. (2017) のメタ分析(144 研究、STEM 領域のコンピューターベース足場かけ)では Hedges' g = 0.46(小〜中程度)
+- Hattie の Visible Learning は d = 0.82 と高めの値を報告。ただし独立メタ分析と比べて上端寄りで、代表値としては g ≈ 0.46 を用いる方が保守的
+- EEF Toolkit に独立エントリは無く、Metacognition and self-regulation(+8 ヶ月)の中核的手法として扱われる
+- van de Pol, Volman & Beishuizen (2010) のレビューでは、足場かけの 3 要素(偶発的対応・フェーディング・責任の移行)が効果を決めることを示した
 - 足場かけは特定の教科に限定されず、全教科で効果が確認されている
 - 授業のユニバーサルデザイン(焦点化・視覚化・共有化)は足場かけの具体的な実践形
 
