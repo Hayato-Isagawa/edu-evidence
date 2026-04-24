@@ -2,6 +2,12 @@
 
 日本の小学校教員向け教育エビデンスポータル。Astro 6 + React 19 + Tailwind 4 + TypeScript。
 
+## ブランド
+
+- **モチーフ**: 成熟した葉(葉脈の通った 1 枚の葉)。姉妹サイト EduWatch JP の「双葉(cotyledon)」と対になり、「積み上げてきたエビデンス」を象徴する
+- **アクセント色**: 深緑 `#2b5d3a`(`--color-accent`)
+- **ロゴ実装**: `src/components/Logo.astro` が inline SVG + `currentColor` 継承。色を変えたい時は呼び出し側の `color:` / Tailwind の `text-` クラスを変えるだけで済み、SVG を直接編集する必要なし
+
 ## 環境
 
 Node.js のバージョンは `.tool-versions` で固定している(`nodejs 24.15.0`)。[mise](https://mise.jdx.dev/) を使う前提。
