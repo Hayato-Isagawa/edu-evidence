@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#2b5d3a"/>
-  <!-- Small leaf -->
+  <!-- EduEvidence JP favicon — 成熟した葉。葉脈を強調(太さと本数を favicon サイズ向けに最適化) -->
   <path d="M16 4 C9 9, 5 16, 7 24 C9 21, 12 18, 16 17 C20 18, 23 21, 25 24 C27 16, 23 9, 16 4Z" fill="#faf9f5"/>
-  <!-- Center vein -->
-  <line x1="16" y1="7" x2="16" y2="23" stroke="#2b5d3a" stroke-width="0.8" stroke-linecap="round"/>
-  <!-- Side veins -->
-  <line x1="16" y1="12" x2="11" y2="16" stroke="#2b5d3a" stroke-width="0.6" stroke-linecap="round"/>
-  <line x1="16" y1="16" x2="10.5" y2="19.5" stroke="#2b5d3a" stroke-width="0.6" stroke-linecap="round"/>
-  <line x1="16" y1="12" x2="21" y2="16" stroke="#2b5d3a" stroke-width="0.6" stroke-linecap="round"/>
-  <line x1="16" y1="16" x2="21.5" y2="19.5" stroke="#2b5d3a" stroke-width="0.6" stroke-linecap="round"/>
+  <line x1="16" y1="6" x2="16" y2="19" stroke="#2b5d3a" stroke-width="1.1" stroke-linecap="round"/>
+  <line x1="16" y1="10" x2="10.5" y2="14.5" stroke="#2b5d3a" stroke-width="0.9" stroke-linecap="round"/>
+  <line x1="16" y1="14" x2="9.5" y2="18.5" stroke="#2b5d3a" stroke-width="0.9" stroke-linecap="round"/>
+  <line x1="16" y1="10" x2="21.5" y2="14.5" stroke="#2b5d3a" stroke-width="0.9" stroke-linecap="round"/>
+  <line x1="16" y1="14" x2="22.5" y2="18.5" stroke="#2b5d3a" stroke-width="0.9" stroke-linecap="round"/>
 </svg>
