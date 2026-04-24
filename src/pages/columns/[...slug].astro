@@ -17,9 +17,44 @@ const strategyById = new Map(allStrategies.map((s) => [s.id, s]));
 const related = (d.relatedStrategies ?? [])
   .map((id) => strategyById.get(id))
   .filter((s): s is (typeof allStrategies)[number] => Boolean(s));
+
+const siteUrl = "https://edu-evidence.org";
+const pageUrl = `${siteUrl}/columns/${entry.id}`;
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: d.title,
+  description: d.summary,
+  datePublished: d.date,
+  dateModified: d.lastVerified ?? d.date,
+  author: { "@type": "Person", name: "伊差川隼人" },
+  publisher: {
+    "@type": "Organization",
+    name: "EduEvidence JP",
+    url: siteUrl,
+  },
+  mainEntityOfPage: pageUrl,
+  url: pageUrl,
+  inLanguage: "ja",
+  keywords: d.tags.join(", "),
+};
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "ホーム", item: `${siteUrl}/` },
+    { "@type": "ListItem", position: 2, name: "コラム", item: `${siteUrl}/columns` },
+    { "@type": "ListItem", position: 3, name: d.title, item: pageUrl },
+  ],
+};
 ---
 
-<Layout title={`${d.title} — EduEvidence JP`} description={d.summary}>
+<Layout
+  title={`${d.title} — EduEvidence JP`}
+  description={d.summary}
+  articleJsonLd={articleJsonLd}
+  breadcrumbJsonLd={breadcrumbJsonLd}
+>
   <div class="pt-10 pb-6">
     <a
       href="/columns"

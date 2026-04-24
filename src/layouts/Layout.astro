@@ -4,15 +4,21 @@ interface Props {
   title?: string;
   description?: string;
   ogImagePath?: string;
+  articleJsonLd?: object;
+  breadcrumbJsonLd?: object;
 }
 const {
   title = "EduEvidence JP — 小学校エビデンスポータル",
   description = "日本の小学校教員のための教育エビデンスまとめサイト。国内外の研究から得られた知見を「効果」「信頼性」「コスト」「出典」の4指標で整理し、現場で使える形に翻案して公開。",
   ogImagePath,
+  articleJsonLd,
+  breadcrumbJsonLd,
 } = Astro.props;
 const siteUrl = "https://edu-evidence.org";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.png`;
+
+const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -46,14 +52,20 @@ const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/og-image.
     <link rel="alternate" type="application/rss+xml" title="EduEvidence JP — エビデンスで考える" href="/rss.xml" />
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script type="application/ld+json" set:html={escapeLd({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "EduEvidence JP",
       "url": siteUrl,
       "description": description,
       "inLanguage": "ja",
-    }).replace(/</g, "\\u003c")} />
+    })} />
+    {articleJsonLd && (
+      <script type="application/ld+json" set:html={escapeLd(articleJsonLd)} />
+    )}
+    {breadcrumbJsonLd && (
+      <script type="application/ld+json" set:html={escapeLd(breadcrumbJsonLd)} />
+    )}
   </head>
   <body class="bg-[var(--color-bg)] text-[var(--color-ink)]">
     <header class="relative border-b border-[var(--color-line)]">
