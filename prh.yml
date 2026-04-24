@@ -23,7 +23,7 @@ rules:
       - ユーザ
       - ユーザ―
   - expected: コンピューター
-    pattern: コンピュータ
+    pattern: /コンピュータ(?!ー)/
   - expected: サーバー
     pattern: /サーバ(?!ー)/
 
