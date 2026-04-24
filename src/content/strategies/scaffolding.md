@@ -31,7 +31,7 @@ culturalContext: |
 
 ## 一言でいうと
 
-子どもが今の力だけではできない課題に取り組むとき、教師が適切な支援(ヒント・手順の分解・モデルの提示など)を段階的に提供し、子どもができるようになるにつれて支援を減らしていく指導法です。ヴィゴツキーの「最近接発達領域」に基づく考え方です。
+子どもが今の力だけではできない課題に取り組むとき、教師が適切な支援(ヒント・手順の分解・モデルの提示など)を段階的に提供し、子どもができるようになるにつれて支援を減らしていく指導法です。ヴィゴツキーの **「最近接発達領域」(ZPD、一人ではできないが支援があればできる範囲)** に基づく考え方です。
 
 ## なぜ効果があるのか
 
@@ -50,7 +50,7 @@ culturalContext: |
 - Belland et al. (2017) のメタ分析(144 研究、STEM 領域のコンピューターベース足場かけ)では Hedges' g = 0.46(小〜中程度)
 - Hattie の Visible Learning は d = 0.82 と高めの値を報告。ただし独立メタ分析と比べて上端寄りで、代表値としては g ≈ 0.46 を用いる方が保守的
 - EEF Toolkit に独立エントリは無く、Metacognition and self-regulation(+8 ヶ月)の中核的手法として扱われる
-- van de Pol, Volman & Beishuizen (2010) のレビューでは、足場かけの 3 要素(偶発的対応・フェーディング・責任の移行)が効果を決めることを示した
+- van de Pol, Volman & Beishuizen (2010) のレビューでは、足場かけの 3 要素(**子どもの様子に応じて支援を変える / 段階的に支援を外す / 子どもに任せる範囲を広げる**)が効果を決めることを示した
 - 足場かけは特定の教科に限定されず、全教科で効果が確認されている
 - 授業のユニバーサルデザイン(焦点化・視覚化・共有化)は足場かけの具体的な実践形
 
@@ -63,7 +63,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- van de Pol, J., Volman, M., & Beishuizen, J. (2010). [Scaffolding in teacher–student interaction](https://doi.org/10.1007/s10648-010-9127-6). *Educational Psychology Review*, 22(3), 271–296. — 足場かけを「偶発的対応 / フェーディング / 責任の移行」の 3 要素で整理したレビュー。
+- van de Pol, J., Volman, M., & Beishuizen, J. (2010). [Scaffolding in teacher–student interaction](https://doi.org/10.1007/s10648-010-9127-6). *Educational Psychology Review*, 22(3), 271–296. — 足場かけを 3 要素(子どもの様子に応じて支援を変える / 段階的に支援を外す / 子どもに任せる範囲を広げる)で整理したレビュー。
 - Wood, D., Bruner, J. S., & Ross, G. (1976). [The role of tutoring in problem solving](https://doi.org/10.1111/j.1469-7610.1976.tb00381.x). *Journal of Child Psychology and Psychiatry*, 17(2), 89–100. — 「足場かけ(scaffolding)」概念を初めて提唱した原典論文。
 - Belland, B. R., Walker, A. E., Kim, N. J., & Lefler, M. (2017). [Synthesizing results from empirical research on computer-based scaffolding in STEM education: A meta-analysis](https://doi.org/10.3102/0034654316670999). *Review of Educational Research*, 87(2), 309–344. — コンピューターベースの足場かけを対象とした 144 研究・333 効果量のメタ分析。Hedges' g = 0.46(小〜中)。
 
