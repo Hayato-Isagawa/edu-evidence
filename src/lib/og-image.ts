@@ -1,12 +1,78 @@
 import satori from "satori";
 import type { ReactNode } from "react";
 import sharp from "sharp";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 
 interface OgParams {
   title: string;
   monthsGained: number;
   evidenceStrength: number;
   subjects: string[];
+}
+
+const FONT_CSS_URL =
+  "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&display=swap";
+const FALLBACK_FONT_URL =
+  "https://cdn.jsdelivr.net/gh/nicehash/Noto-Sans-JP@main/fonts/NotoSansJP-Bold.otf";
+
+// Astro のバンドル後もソース位置と無関係にプロジェクトルートへ解決できるよう
+// process.cwd() を基準にする(build は常にリポジトリルートから実行される前提)
+const FONT_CACHE_DIR = path.resolve(process.cwd(), "scripts", "fonts");
+const FONT_CACHE_PATH = path.join(FONT_CACHE_DIR, "noto-sans-jp-bold.bin");
+
+let inProcessFontData: ArrayBuffer | null = null;
+
+async function fetchFromGoogleFonts(): Promise<ArrayBuffer> {
+  const cssRes = await fetch(FONT_CSS_URL, {
+    headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)" },
+  });
+  const css = await cssRes.text();
+  const match = css.match(/src:\s*url\(([^)]+)\)/);
+  if (!match) throw new Error("Font URL not found in Google Fonts CSS");
+  const fontRes = await fetch(match[1]);
+  return await fontRes.arrayBuffer();
+}
+
+async function loadFontFromDisk(): Promise<ArrayBuffer | null> {
+  try {
+    const buf = await fs.readFile(FONT_CACHE_PATH);
+    return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+  } catch {
+    return null;
+  }
+}
+
+async function writeFontToDisk(data: ArrayBuffer): Promise<void> {
+  try {
+    await fs.mkdir(FONT_CACHE_DIR, { recursive: true });
+    await fs.writeFile(FONT_CACHE_PATH, Buffer.from(data));
+  } catch {
+    // キャッシュ書き込みに失敗してもレンダリング自体は続行
+  }
+}
+
+async function loadNotoSansJpFont(): Promise<ArrayBuffer> {
+  if (inProcessFontData) return inProcessFontData;
+
+  const fromDisk = await loadFontFromDisk();
+  if (fromDisk) {
+    inProcessFontData = fromDisk;
+    return fromDisk;
+  }
+
+  try {
+    const fresh = await fetchFromGoogleFonts();
+    inProcessFontData = fresh;
+    await writeFontToDisk(fresh);
+    return fresh;
+  } catch {
+    const fallbackRes = await fetch(FALLBACK_FONT_URL);
+    const fallback = await fallbackRes.arrayBuffer();
+    inProcessFontData = fallback;
+    await writeFontToDisk(fallback);
+    return fallback;
+  }
 }
 
 export async function generateOgImage(params: OgParams): Promise<Buffer> {
@@ -16,30 +82,7 @@ export async function generateOgImage(params: OgParams): Promise<Buffer> {
   const effectColor = monthsGained > 0 ? "#2b5d3a" : monthsGained === 0 ? "#6b6b66" : "#dc2626";
   const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
 
-  // Noto Sans JP を fetch してフォントデータとして使用
-  const fontUrl = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&display=swap";
-  let fontData: ArrayBuffer;
-
-  try {
-    // Google Fonts から CSS を取得し、フォント URL を抽出
-    const cssRes = await fetch(fontUrl, {
-      headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)" },
-    });
-    const css = await cssRes.text();
-    const match = css.match(/src:\s*url\(([^)]+)\)/);
-    if (match) {
-      const fontRes = await fetch(match[1]);
-      fontData = await fontRes.arrayBuffer();
-    } else {
-      throw new Error("Font URL not found");
-    }
-  } catch {
-    // フォールバック: システムフォント相当のダミー
-    const fallbackRes = await fetch(
-      "https://cdn.jsdelivr.net/gh/nicehash/Noto-Sans-JP@main/fonts/NotoSansJP-Bold.otf"
-    );
-    fontData = await fallbackRes.arrayBuffer();
-  }
+  const fontData = await loadNotoSansJpFont();
 
   const element = {
     type: "div",
