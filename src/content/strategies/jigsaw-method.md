@@ -37,6 +37,17 @@ culturalContext: |
 
 ジグソー法が注目される理由は「**相互依存**」の設計にあります。自分が学んだ部分は、自分しか持っていない。だから全員が貢献しなければ課題が完成しない。この構造が、協同学習でありがちな「一部の子だけが活躍する」問題を解決する可能性があります。また、**人に教えることで自分の理解が深まる** 効果も同時に発揮されると理論的には期待されます。
 
+## 日本独自の系譜 — 知識構成型ジグソー法
+
+日本の教育現場で「ジグソー法」と呼ばれる実践には、Aronson の元祖だけではなく、**東京大学 CoREF(Consortium for Renovating Education of the Future)の三宅なほみ氏が提案した「知識構成型ジグソー法」** という日本独自のバリエーションが含まれます。
+
+2 つの系譜は **設計思想が異なります**:
+
+- **Aronson 元祖(1978〜)** — 人種統合教室で **異なる背景の子ども同士の偏見や対立を減らす** ことが主目的。集団間関係の改善に軸足
+- **知識構成型(三宅なほみ / CoREF、1990 年代〜)** — 構成主義の学習観に基づき、**複数視点の資料を学習者が統合して新しい理解を構築する** 認知的な狙い。学力形成に軸足
+
+このため、効果量として引用される研究(Hattie の d=1.20、Cochon Drouet 2023 の g=0.88、Bratt 2021 の ES ≈ 0.00 など)は **基本的に元祖ジグソーを対象にした研究** であり、知識構成型ジグソー法の独立した効果量エビデンスは現時点で限られます。現場で実践するときや研究レビューに触れるときは、**どちらの系譜の研究かを確認する** ことが正確な判断につながります。
+
 ## 日本の小学校で取り入れるヒント
 
 - 社会科で地域の特色を4つに分け、各自が1つを担当して調べ、班で統合する
@@ -66,6 +77,8 @@ culturalContext: |
 - Cochon Drouet, O., Galand, B., Meyer, F., & Wollast, R. (2023). [Effects of the Jigsaw method on student educational outcomes: Systematic review and meta-analyses](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1216437/full). *Frontiers in Psychology*, 14, 1216437. — ジグソー法を対象とした 43 研究のメタ分析。平均効果量 g = 0.88 だが I² = 92.85% と異質性が極端に高く、研究間の再現性に課題がある。
 - Bratt, C. (2021). [Is there a lasting effect of the Jigsaw classroom for prejudice reduction?](https://doi.org/10.1016/j.jesp.2021.104191). *Journal of Experimental Social Psychology*, 97, 104191. — ジグソー法の **内部メタ分析**(同じ研究グループが厳密な無作為割当で実施した 5 実験)で、集団間の関係改善・学力向上ともに効果量ほぼゼロを報告。先行研究の効果量は方法論的な偏りにより過大推定されていた可能性を指摘。
 - [Visible Learning MetaX — Jigsaw Method](https://www.visiblelearningmetax.com/). Hattie, J. 公開データベース. — Hattie の集計で jigsaw method は d ≈ 1.20 と報告されるが、研究数の少なさと異質性の高さから信頼区間は広い。
+- Vives, E., Poletti, C., Robert, A., Butera, F., Huguet, P., & Régner, I. (2025). [Learning With Jigsaw: A Systematic Review and Meta-Analyses](https://journals.sagepub.com/doi/10.3102/00346543241230064). *Review of Educational Research*, 95(3), 339–384. — ジグソー法を対象とした 69 研究(1978〜2022)の最新メタ分析。全体に正の効果だが、学科・測定変数・学生特性・教材複雑性による変動が大きいことを報告。Cochon Drouet(43 研究)よりも広範。
+- [知識構成型ジグソー法(東京大学 CoREF)](https://coref.u-tokyo.ac.jp/). — 三宅なほみ氏を中心とする東京大学 CoREF が 1990 年代から展開してきた日本独自のバリエーション。Aronson の元祖が集団間関係改善を主眼とするのに対し、本手法は認知的統合を主眼とする。
 
 ### 関連読み物
 
