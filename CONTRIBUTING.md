@@ -90,6 +90,28 @@ culturalContext: |
   日本の文脈での注記
 ```
 
+## ブランチ運用
+
+`main` ブランチへの直接編集・直接コミットは禁止です。すべての変更はフィーチャーブランチを切ってから行い、PR 経由で `main` に取り込みます。
+
+```bash
+git checkout -b <type>/<short-description>
+# 例: docs/jigsaw-update, fix/og-image-bug, chore/deps-bump
+```
+
+この規約は二段のフックで自動的に強制されます。
+
+- **Claude Code 経由の編集**: `.claude/hooks/branch-guard.sh` が `Edit` / `Write` / `MultiEdit` の前に発動し、現ブランチが `main` / `master` のときに編集を拒否
+- **任意のツール経由のコミット**: `.githooks/pre-commit` が `main` / `master` への直接コミットを拒否
+
+`.githooks/` は `npm install` 時に `package.json` の `prepare` スクリプトで自動的に有効化されるため、特別なセットアップは不要です。手動で確認したい場合:
+
+```bash
+git config core.hooksPath        # .githooks と表示されれば有効
+```
+
+緊急時(本物のホットフィックスなど)に限り `git commit --no-verify` でバイパス可能ですが、通常運用では使いません。
+
 ## 開発環境
 
 ```bash
