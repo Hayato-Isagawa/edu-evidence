@@ -42,7 +42,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ### スウェーデン: 全期間受益で生涯所得 +3%
 
-スウェーデンは 1946 年から 1969 年にかけて自治体ごとに段階導入したため、生年と居住地によって「給食無償の年数」が異なる **自然実験** が成立しました。Lundborg, Rooth, Alex-Petersen (2022) は [*Review of Economic Studies* 89(2): 876–908](https://doi.org/10.1093/restud/rdab028) で、これを大規模行政データで分析しています。
+スウェーデンは 1946 年から 1969 年にかけて自治体ごとに段階導入したため、生年と居住地によって「給食無償の年数」が異なる **自然実験**(制度導入の時期が地域・年代でずれた事実を活用した、擬似的な比較研究の枠組み)が成立しました。Lundborg, Rooth, Alex-Petersen (2022) は [*Review of Economic Studies* 89(2): 876–908](https://doi.org/10.1093/restud/rdab028) で、これを大規模行政データで分析しています。
 
 主要結果:
 
@@ -58,7 +58,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ### 英国: 全員一律化で小 1 の肥満率が下がった
 
-イングランドは 2014 年から **UIFSM**(Universal Infant Free School Meals、5–7 歳全員)を実施しています。Holford & Rabe (2024) は [*Journal of Health Economics*](https://www.sciencedirect.com/science/article/pii/S0167629624000821) で、政策前後の National Child Measurement Programme データを使い、UIFSM 導入により小 1 で **BMI が約 0.041 SD 低下、肥満率が 0.7 ポイント低下** したと報告しました。低所得地域でより大きな改善が見られた点は重要です。
+イングランドは 2014 年から **UIFSM**(Universal Infant Free School Meals、5–7 歳全員)を実施しています。Holford & Rabe (2024) は [*Journal of Health Economics*](https://www.sciencedirect.com/science/article/pii/S0167629624000821) で、政策前後の National Child Measurement Programme データを使い、UIFSM 導入により小 1 で **BMI が約 0.041 SD 低下、肥満率が 0.7 ポイント低下** したと報告しました。SD は標準偏差換算の効果量で 0.2 程度から「小」が目安、0.041 SD は集団平均の微小な変化、0.7 ポイントは実数の有病率差です。低所得地域でより大きな改善が見られた点は重要です。
 
 ### 韓国: 生徒間の暴力行為が 35% 減った
 
