@@ -2,7 +2,7 @@
 title: 「読書 100 冊目標」は学力を上げるか — 冊数信仰をエビデンスで問い直す
 summary: 2024 年、小学生の月平均読書冊数は 13.8 冊で過去 31 年の最高値。自治体や学校が「年間◯冊」の目標を掲げる例も多い。しかし、冊数を追うことと学力が上がることの因果は、思うほど明確ではない。
 date: "2026-04-18"
-lastVerified: "2026-04-22"
+lastVerified: "2026-04-26"
 tags: ["読書", "国語", "学力"]
 relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"]
 ---
@@ -73,9 +73,9 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 
 読書記録カードの運用、冊数の集計、表彰制度の準備 — これらは **教員の時間と児童の認知負荷を奪う**。読書そのものの時間が削られれば本末転倒です。
 
-### 落とし穴③ 外発的動機づけの弊害
+### 落とし穴③ 報酬設計の難しさ
 
-**報酬(ご褒美・ランキング)で本を読ませる**と、報酬が外れた途端に読書が減ることが、心理学の複数の研究で指摘されています(アンダーマイニング効果)。読書を「作業」に変えてしまうリスクがあります。
+読書を **報酬(ご褒美・ランキング)で動機づける** 方法は、心理学の研究で **条件依存** と整理されています。[Deci, Koestner, & Ryan (1999)](https://doi.org/10.1037/0033-2909.125.6.627) の 128 研究メタ分析は、結果や課題完了に応じた有形報酬が内発的動機を損ないうる(d≒-0.36、いわゆるアンダーマイニング効果)一方で、**言語的称賛は内発的動機を高める**(エンハンシング効果、d=0.31)と報告しています。[Cameron & Pierce (1994)](https://doi.org/10.3102/00346543064003363) など対立する整理もあり、「報酬一律否定」でも「全肯定」でもなく **設計次第** というのが現代の理解です。読書プログラムでは、有形報酬で冊数を競わせるより、**読書行動そのものを認める言葉かけ** に重心を置く方が、エビデンスと整合します。
 
 ### 落とし穴④ 教育格差の増幅
 
@@ -135,3 +135,5 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 - [第 69 回学校読書調査](https://www.j-sla.or.jp/material/research/dokusyotyousa.html). 全国学校図書館協議会 (2024). — 小学生の月平均読書冊数は 13.8 冊で過去最高と報告。
 - Mol, S. E., & Bus, A. G. (2011). [To read or not to read: A meta-analysis of print exposure from infancy to early adulthood](https://pubmed.ncbi.nlm.nih.gov/21219054/). *Psychological Bulletin*, 137(2), 267–296. — 99 研究 (N=7,669) のメタ分析。家庭での本との接触と読解力・語彙力の間に一貫した正の相関を報告。
 - Abeberese, A. B., Kumler, T. J., & Linden, L. L. (2014). [Improving reading skills by encouraging children to read in school: A randomized evaluation of the Sa Aklat Sisikat reading program in the Philippines](https://doi.org/10.3368/jhr.49.3.611). *Journal of Human Resources*, 49(3), 611–633. — タルラク州の 100 校・4 年生を対象とした RCT。読書スキル +0.13 SD(3 か月後 +0.06 SD)、他教科への波及は確認されず。
+- Deci, E. L., Koestner, R., & Ryan, R. M. (1999). [A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation](https://doi.org/10.1037/0033-2909.125.6.627). *Psychological Bulletin*, 125(6), 627–668. — 128 研究のメタ分析。有形報酬(課題完了・成績達成連動)は内発的動機を損ないうる(d≒-0.36)が、**言語的称賛は内発的動機を高める**(エンハンシング効果、d=0.31)。報酬の効果は条件依存と整理。
+- Cameron, J., & Pierce, W. D. (1994). [Reinforcement, reward, and intrinsic motivation: A meta-analysis](https://doi.org/10.3102/00346543064003363). *Review of Educational Research*, 64(3), 363–423. — 96 研究のメタ分析。Deci 系の主張に対し「報酬は概して内発的動機を損なわない」と整理。期待された有形報酬を単純な作業に与える場合のみ minimal な負の効果。報酬否定の単純化に対する代表的な反論。
