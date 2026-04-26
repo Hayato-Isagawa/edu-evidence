@@ -15,7 +15,7 @@ evidence:
     monthsGained: 4
     strength: 3
     note: "EEF Toolkit で +4ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。対象を絞った介入(困難の大きい子への個別計画)で効果が大きい。"
-lastVerified: "2026-04-22"
+lastVerified: "2026-04-26"
 methodology:
   studies: 249
   sampleSize: "K-12 の 249 研究(Wilson & Lipsey 2007 の Campbell/Cochrane レビュー)"
@@ -58,13 +58,14 @@ culturalContext: |
 ## 注意したいこと
 
 - 「望ましい行動を褒める」だけで全てが解決するわけではありません。子どもの背景理解が前提です。
-- 報酬(シール・スタンプ)に依存した運用は、長期的には内発的動機を下げる可能性があります。
+- 報酬(シール・スタンプ)の効果は条件依存です。Deci, Koestner, & Ryan (1999) の 128 研究メタ分析は、結果や課題完了連動の有形報酬は内発的動機を損ないうる(d≒-0.36)一方で、**言語的称賛は内発的動機を高める**(エンハンシング効果、d=0.31)と報告しています。Fryer (2011) / 中室 (2015) の教育経済学的整理「行動報酬は効果あり、結果報酬は効果なし」とも整合し、シール・スタンプの一律運用より、**行動を具体的に認める言葉かけと組み合わせる設計** がエビデンスと整合します。
 - 行動だけを見て、その背後にある気持ちや困難を見落とさないようにします。
 
 ## 主な参考研究
 
 - Wilson, S. J., & Lipsey, M. W. (2007). [School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis](https://doi.org/10.1016/j.amepre.2007.04.012). *American Journal of Preventive Medicine*, 33(2), S130–S143. — 249 研究のメタ分析。攻撃的・破壊的行動への介入の平均効果量 d ≈ 0.21。特に Tier 2/3(対象を絞った介入)で効果が大きい。
 - [Improving Behaviour in Schools](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/behaviour). Education Endowment Foundation (2019, updated 2021), *Guidance Report*. — 学校全体の行動支援を 6 原則で整理。学級全体への画一的介入より、困難の大きい子への個別計画(個別の行動サポートプラン)が効率的と提言。
+- Deci, E. L., Koestner, R., & Ryan, R. M. (1999). [A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation](https://doi.org/10.1037/0033-2909.125.6.627). *Psychological Bulletin*, 125(6), 627–668. — 128 研究のメタ分析。有形報酬(課題完了・成績達成連動)は内発的動機を損ないうる(d≒-0.36)が、**言語的称賛は内発的動機を高める**(エンハンシング効果、d=0.31)。報酬運用の条件依存性を示す代表文献。
 
 ### 関連読み物
 
