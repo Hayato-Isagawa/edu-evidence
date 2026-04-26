@@ -32,7 +32,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ## 米国研究で確認されている効果
 
-国際的な先行研究で、普遍的な給食無償化の効果として **一定の確実性で確認されている** のは、以下の内容です。
+国際的な先行研究で、所得制限なしの給食無償化の効果として **一定の確実性で確認されている** のは、以下の内容です。
 
 ### 参加率・出席率・健康指標の改善
 
@@ -61,7 +61,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 | **非貧困層生徒** | +0.083 SD | +0.059 SD | +11.0 ポイント |
 | **貧困層生徒** | +0.032 SD | +0.027 SD | +5.4 ポイント |
 
-効果量はいずれも「小」の範囲にとどまり、**貧困層より非貧困層のほうが大きい** 点が重要です。なおこれは米国 NSLP 文脈の研究のため、効果の方向性(普遍的無償化が大きな学力効果を生まない)は参照できますが、効果量の絶対値を日本にそのまま当てはめることは適切ではありません。
+効果量はいずれも「小」の範囲にとどまり、**貧困層より非貧困層のほうが大きい** 点が重要です。なおこれは米国 NSLP 文脈の研究のため、効果の方向性(所得制限なしの一律無償化が大きな学力効果を生まない)は参照できますが、効果量の絶対値を日本にそのまま当てはめることは適切ではありません。
 
 ### Cohen et al. (2021) のレビューも同じ方向
 
@@ -71,11 +71,11 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 [Ayllón & Lado (2025) の先進国 42 研究・2,821 推定値のメタ分析(IZA DP 18042)](https://www.iza.org/publications/dp/18042/the-causal-impact-of-school-meal-programmes-on-children-in-developed-economies-a-meta-analysis) は、**「先進国における給食プログラムは、行動・健康・教育への影響が最小限」** と結論しました。
 
-なお同論文の下位分析では、**所得制限型(means-tested)の給食プログラムと [朝食](/strategies/breakfast-skipping) プログラムが最も効果を生む** とも報告されています。普遍的な無償化そのものより、支援対象を絞ったプログラムのほうが効果が大きい、という示唆です。
+なお同論文の下位分析では、**所得制限型(means-tested)の給食プログラムと [朝食](/strategies/breakfast-skipping) プログラムが最も効果を生む** とも報告されています。所得制限なしの一律無償化そのものより、支援対象を絞ったプログラムのほうが効果が大きい、という示唆です。
 
 ### 中室牧子氏の指摘との整合
 
-教育経済学者の中室牧子氏は、[幼児教育無償化に関する講演](https://www.hitachi-zaidan.org/mirai/02/symposium/nakamuro-01.html) で、「無償化は経済的に恵まれた層にもメリットがあるため、格差是正に直結しない」と指摘しています。給食無償化でも同じ構造が研究データに表れており、**所得制限なしの普遍的無償化は、格差是正の手段としては限定的** という評価は研究結果とも一致します。
+教育経済学者の中室牧子氏は、[幼児教育無償化に関する講演](https://www.hitachi-zaidan.org/mirai/02/symposium/nakamuro-01.html) で、「無償化は経済的に恵まれた層にもメリットがあるため、格差是正に直結しない」と指摘しています。給食無償化でも同じ構造が研究データに表れており、**所得制限なしの一律無償化は、格差是正の手段としては限定的** という評価は研究結果とも一致します。
 
 ## 米国研究の指標を日本に転用する際の注意
 
@@ -104,7 +104,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 - 給食無償化の主目的は **子育て支援・少子化対策**(文科省 2024 資料)
 - 米国研究で確認されている参加率・出席率・肥満・停学率の改善は、**米国 NSLP 固有の制度文脈に依拠した効果指標** であり、日本の学校給食法・就学援助・徴収運用・栄養基準告示の前提では同等の効果として転用できない
 - 学力への効果は小さく、かつ **貧困層より非貧困層のほうが大きく出る**(Schwartz & Rothbart 2020 / Cohen 2021)
-- 先進国メタ分析は **普遍的な無償化の効果は最小限** と結論。所得制限型の支援のほうが効果が大きい(Ayllón & Lado 2025)
+- 先進国メタ分析は **所得制限なしの一律無償化の効果は最小限** と結論。所得制限型の支援のほうが効果が大きい(Ayllón & Lado 2025)
 - 日本固有の文脈で確実に発生する変化(徴収業務の消滅、海外実装データから予見される効果)は姉妹コラム [給食無償化、日本は周回遅れ](/columns/school-lunch-free-followup) で扱う
 
 給食無償化を「学力を上げる施策」として評価すると、エビデンス上は期待が裏切られることになります。一方 **「子育て家庭の生活基盤を下支えする施策」** として評価すれば、月額 5,200 円相当の家計支援自体に合理性があり、就学援助対象外の中間層に届く点で意義があります。**何を期待するか** が、評価の分かれ目になります。
@@ -117,7 +117,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 - [学校給食実施基準](https://www.mext.go.jp/a_menu/sports/syokuiku/1407704.htm). 令和 3 年文部科学省告示第 10 号. — エネルギー・主要栄養素の摂取基準を法定。
 - [学校給食費徴収・管理に関するガイドライン](https://www.mext.go.jp/content/20230821-mxt_kenshoku-100003364_4.pdf). 文部科学省 (2023, 改訂版). — 督促手順を規定。給食提供停止や弁当持参指示は記述されていない。
 - [就学援助実施状況](https://www.mext.go.jp/a_menu/shotou/career/05010502/1412177_00003.htm). 文部科学省. — 要保護・準要保護世帯への給食費補助を含む就学援助の実施実態。
-- Ayllón, S., & Lado, S. (2025). [The Causal Impact of School-Meal Programmes on Children in Developed Economies: A Meta-Analysis](https://www.iza.org/publications/dp/18042/the-causal-impact-of-school-meal-programmes-on-children-in-developed-economies-a-meta-analysis). IZA Discussion Paper No. 18042. — 先進国 42 研究・2,821 推定値のメタ分析。普遍的プログラムの効果は minimal。
+- Ayllón, S., & Lado, S. (2025). [The Causal Impact of School-Meal Programmes on Children in Developed Economies: A Meta-Analysis](https://www.iza.org/publications/dp/18042/the-causal-impact-of-school-meal-programmes-on-children-in-developed-economies-a-meta-analysis). IZA Discussion Paper No. 18042. — 先進国 42 研究・2,821 推定値のメタ分析。所得制限なしの一律プログラムの効果は minimal。
 - Spill, M. K., et al. (2024). [Universal Free School Meals and School and Student Outcomes: A Systematic Review](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2822155). *JAMA Network Open*, 7(8), e2424082. — 米国 11,000 校超を対象とした系統的レビュー。参加率・出席率・肥満・停学に関する結果。
 - Cohen, J. F. W., et al. (2021). [Universal School Meals and Associations with Student Participation, Attendance, Academic Performance, Diet Quality, Food Security, and Body Mass Index: A Systematic Review](https://pmc.ncbi.nlm.nih.gov/articles/PMC8000006/). *Nutrients*, 13(3), 911. — 高所得層で効果が大きいと報告。
 - Schwartz, A. E., & Rothbart, M. W. (2020). [Let Them Eat Lunch: The Impact of Universal Free Meals on Student Performance](https://onlinelibrary.wiley.com/doi/abs/10.1002/pam.22175). *Journal of Policy Analysis and Management*, 39(2), 376–410. — NYC 中学校での差分の差分分析。非貧困層・貧困層別の効果量を報告。
