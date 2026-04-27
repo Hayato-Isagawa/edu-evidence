@@ -1,0 +1,139 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  headings: Heading[];
+  variant: "sidebar" | "mobile";
+}
+const { headings, variant } = Astro.props;
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  items.length > 0 &&
+    (variant === "sidebar" ? (
+      <nav
+        class="toc toc-sidebar hidden lg:block"
+        aria-label="目次"
+        data-toc
+        data-toc-variant="sidebar"
+      >
+        <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)] mb-3">
+          目次
+        </p>
+        <ol class="space-y-1.5">
+          {items.map((h) => (
+            <li class={h.depth === 3 ? "pl-3" : ""}>
+              <a
+                href={`#${h.slug}`}
+                class="toc-link block text-sm leading-snug text-[var(--color-sub)] hover:text-[var(--color-ink)] transition-colors"
+                data-toc-link
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    ) : (
+      <details
+        class="toc toc-mobile lg:hidden border border-[var(--color-line)] rounded-md mb-8"
+        data-toc
+        data-toc-variant="mobile"
+        data-state="closed"
+      >
+        <summary class="cursor-pointer select-none flex items-center justify-between px-4 py-3 text-sm font-mono uppercase tracking-widest text-[var(--color-sub)]">
+          <span>目次({items.length})</span>
+          <svg
+            class="toc-chevron w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </summary>
+        <ol class="space-y-1.5 px-4 pb-4 pt-1 border-t border-[var(--color-line)]">
+          {items.map((h) => (
+            <li class={h.depth === 3 ? "pl-3" : ""}>
+              <a
+                href={`#${h.slug}`}
+                class="toc-link inline-block py-1 text-sm leading-snug text-[var(--color-sub)] hover:text-[var(--color-ink)] transition-colors"
+                data-toc-link
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </details>
+    ))
+}
+
+<script>
+  const tocs = document.querySelectorAll<HTMLElement>("[data-toc]");
+  if (tocs.length > 0) {
+    const links = document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]");
+    const targets = new Map<string, HTMLAnchorElement[]>();
+    links.forEach((link) => {
+      const id = decodeURIComponent(link.hash.slice(1));
+      if (!id) return;
+      if (!targets.has(id)) targets.set(id, []);
+      targets.get(id)!.push(link);
+    });
+
+    const setCurrent = (id: string | null) => {
+      links.forEach((link) => link.removeAttribute("aria-current"));
+      if (!id) return;
+      const matched = targets.get(id);
+      matched?.forEach((link) => link.setAttribute("aria-current", "location"));
+    };
+
+    const headings = Array.from(targets.keys())
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (headings.length > 0) {
+      const offset = 96;
+      let ticking = false;
+      const compute = () => {
+        ticking = false;
+        const scrollY = window.scrollY;
+        let currentId: string | null = null;
+        for (const h of headings) {
+          const top = h.getBoundingClientRect().top + scrollY;
+          if (top - offset <= scrollY) {
+            currentId = h.id;
+          } else {
+            break;
+          }
+        }
+        if (currentId === null && headings.length > 0) {
+          currentId = headings[0].id;
+        }
+        setCurrent(currentId);
+      };
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(compute);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      compute();
+    }
+
+    document.querySelectorAll<HTMLDetailsElement>('[data-toc-variant="mobile"]').forEach((d) => {
+      d.addEventListener("toggle", () => {
+        d.dataset.state = d.open ? "open" : "closed";
+      });
+    });
+  }
+</script>
