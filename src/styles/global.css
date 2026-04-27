@@ -102,11 +102,14 @@ body[data-menu="open"] {
   background: var(--color-accent);
   color: var(--color-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
   opacity: 0;
   transform: translateY(0.5rem);
   transition:
     opacity 200ms ease-out,
-    transform 200ms ease-out;
+    transform 200ms ease-out,
+    background-color 200ms ease-out,
+    box-shadow 200ms ease-out;
   pointer-events: none;
 }
 #back-to-top svg {
@@ -118,8 +121,10 @@ body[data-menu="open"] {
   transform: translateY(0);
   pointer-events: auto;
 }
-#back-to-top:hover {
+#back-to-top[data-state="visible"]:hover {
   background: color-mix(in oklab, var(--color-accent) 85%, black);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 #back-to-top:focus-visible {
   outline: 2px solid var(--color-accent);
@@ -127,10 +132,13 @@ body[data-menu="open"] {
 }
 @media (prefers-reduced-motion: reduce) {
   #back-to-top {
-    transition: opacity 100ms linear;
+    transition:
+      opacity 100ms linear,
+      background-color 100ms linear;
     transform: none;
   }
-  #back-to-top[data-state="visible"] {
+  #back-to-top[data-state="visible"],
+  #back-to-top[data-state="visible"]:hover {
     transform: none;
   }
 }
