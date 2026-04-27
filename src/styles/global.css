@@ -85,7 +85,6 @@ body[data-menu="open"] {
 }
 .toc-link[aria-current="location"] {
   color: var(--color-accent);
-  font-weight: 700;
 }
 .toc-sidebar .toc-link[aria-current="location"]::before {
   content: "";
