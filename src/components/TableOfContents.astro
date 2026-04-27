@@ -65,7 +65,7 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
             <li class={h.depth === 3 ? "pl-3" : ""}>
               <a
                 href={`#${h.slug}`}
-                class="toc-link block py-1 text-sm leading-snug text-[var(--color-sub)] hover:text-[var(--color-ink)] transition-colors"
+                class="toc-link inline-block py-1 text-sm leading-snug text-[var(--color-sub)] hover:text-[var(--color-ink)] transition-colors"
                 data-toc-link
               >
                 {h.text}
