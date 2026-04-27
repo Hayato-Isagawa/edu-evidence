@@ -30,6 +30,8 @@ html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+  scrollbar-gutter: stable;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -40,6 +42,32 @@ html {
 body {
   min-height: 100vh;
   line-height: 1.8;
+}
+
+body[data-menu="open"] {
+  overflow: hidden;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in oklab, var(--color-bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+}
+@supports not (backdrop-filter: blur(8px)) {
+  .site-header {
+    background: var(--color-bg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--color-bg);
+  }
 }
 
 a {

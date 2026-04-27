@@ -68,8 +68,8 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
       <script type="application/ld+json" set:html={escapeLd(breadcrumbJsonLd)} />
     )}
   </head>
-  <body class="bg-[var(--color-bg)] text-[var(--color-ink)]">
-    <header class="relative border-b border-[var(--color-line)]">
+  <body class="bg-[var(--color-bg)] text-[var(--color-ink)]" data-menu="closed">
+    <header class="site-header">
       <div
         class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between gap-4"
       >
@@ -132,6 +132,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         const setOpen = (open) => {
           isOpen = open;
           menu.dataset.state = open ? "open" : "closed";
+          document.body.dataset.menu = open ? "open" : "closed";
           if (open) menu.removeAttribute("inert");
           else menu.setAttribute("inert", "");
           toggle.setAttribute("aria-expanded", String(open));
