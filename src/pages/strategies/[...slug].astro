@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { annotateGlossaryTerms } from "../../lib/glossary-inline";
+import TableOfContents from "../../components/TableOfContents.astro";
 
 export async function getStaticPaths() {
   const strategies = await getCollection("strategies");
@@ -9,7 +10,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const d = entry.data;
 
 const allColumns = await getCollection("columns");
@@ -328,9 +329,17 @@ const effectNote =
     )
   }
 
-  <article class="prose-article py-16 max-w-2xl">
-    <Content />
-  </article>
+  <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-10">
+    <div class="min-w-0">
+      <article class="prose-article py-16 max-w-2xl">
+        <TableOfContents headings={headings} variant="mobile" />
+        <Content />
+      </article>
+    </div>
+    <aside class="lg:pt-16">
+      <TableOfContents headings={headings} variant="sidebar" />
+    </aside>
+  </div>
 
   {
     (d.sourceUrl || d.sourceTitle) && (
