@@ -155,4 +155,36 @@ test.describe("ナビゲーション", () => {
     const headerBox = await header.boundingBox();
     expect(headerBox?.y ?? 999).toBeLessThanOrEqual(0.5);
   });
+
+  test("ページ上部へ戻るボタンが 600px スクロール後に表示される", async ({ page }) => {
+    await page.goto("/strategies/feedback/");
+    const btn = page.locator("#back-to-top");
+    await expect(btn).toHaveAttribute("data-state", "hidden");
+    await expect(btn).toHaveAttribute("aria-hidden", "true");
+    await page.evaluate(() => window.scrollTo(0, 800));
+    await expect(btn).toHaveAttribute("data-state", "visible");
+    await expect(btn).toHaveAttribute("aria-hidden", "false");
+    await btn.click();
+    await page.waitForFunction(() => window.scrollY < 10);
+    await expect(btn).toHaveAttribute("data-state", "hidden");
+  });
+
+  test("長文ページに読了プログレスバーが表示される", async ({ page }) => {
+    await page.goto("/strategies/feedback/");
+    const bar = page.locator("#reading-progress");
+    await expect(bar).toHaveAttribute("role", "progressbar");
+    await expect(bar).toHaveAttribute("aria-valuenow", "0");
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await page.waitForFunction(() => {
+      const el = document.getElementById("reading-progress");
+      return el && Number(el.getAttribute("aria-valuenow")) >= 90;
+    });
+    const finalValue = await bar.getAttribute("aria-valuenow");
+    expect(Number(finalValue)).toBeGreaterThanOrEqual(90);
+  });
+
+  test("短文ページにはプログレスバーが表示されない", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#reading-progress")).toHaveCount(0);
+  });
 });
