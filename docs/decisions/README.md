@@ -44,3 +44,4 @@
 - [0004. 公開氏名表記を Isagawa Hayato に統一](0004-public-byline-isagawa-hayato.md)
 - [0005. 本体は非営利維持、収益化は別ブランド SaaS に分離](0005-non-commercial-with-saas-separation.md)
 - [0006. 反論型コラムを解説型に差し替える(前提検証ルール)](0006-rebuttal-column-replaced-with-explainer.md)
+- [0007. UI 状態はセマンティック属性(aria-* / data-*)で管理する](0007-semantic-attribute-state-management.md)
