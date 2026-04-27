@@ -134,7 +134,25 @@ test.describe("ナビゲーション", () => {
     await toggle.click();
     const menu = page.locator("#mobile-menu");
     await expect(menu).not.toHaveAttribute("inert");
+    await expect(menu).toHaveAttribute("data-state", "open");
+    await expect(toggle).toHaveAttribute("aria-expanded", "true");
+    await expect(page.locator("body")).toHaveAttribute("data-menu", "open");
     await toggle.click();
     await expect(menu).toHaveAttribute("inert", "");
+    await expect(menu).toHaveAttribute("data-state", "closed");
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(page.locator("body")).toHaveAttribute("data-menu", "closed");
+  });
+
+  test("ヘッダーが sticky で表示される", async ({ page }) => {
+    await page.goto("/");
+    const header = page.locator("header.site-header");
+    await expect(header).toBeVisible();
+    const position = await header.evaluate((el) => getComputedStyle(el).position);
+    expect(position).toBe("sticky");
+    await page.evaluate(() => window.scrollTo(0, 1500));
+    await page.waitForTimeout(100);
+    const headerBox = await header.boundingBox();
+    expect(headerBox?.y ?? 999).toBeLessThanOrEqual(0.5);
   });
 });
