@@ -173,9 +173,11 @@ import Layout from "../layouts/Layout.astro";
         background-size 0.3s ease;
     }
     .pagefind-ui .pagefind-ui__result-link:hover,
-    .pagefind-ui .pagefind-ui__result:hover .pagefind-ui__result-link,
-    .pagefind-ui .pagefind-ui__result-link:focus-visible {
+    .pagefind-ui .pagefind-ui__result-link:focus,
+    .pagefind-ui .pagefind-ui__result-link:focus-visible,
+    .pagefind-ui .pagefind-ui__result:hover .pagefind-ui__result-link {
       color: var(--color-accent);
+      text-decoration: none;
       background-size: 100% 1px;
     }
     .pagefind-ui .pagefind-ui__result-link:focus-visible {
