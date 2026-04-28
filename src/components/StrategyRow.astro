@@ -46,6 +46,11 @@ const effectColor =
     : monthsGained === 0
       ? "text-[var(--color-sub)]"
       : "text-red-600";
+
+const effectBarMax = 9;
+const effectBarPct = Math.min(Math.abs(monthsGained), effectBarMax) / effectBarMax * 100;
+const effectBarSign =
+  monthsGained > 0 ? "positive" : monthsGained < 0 ? "negative" : "neutral";
 ---
 
 <a
@@ -53,7 +58,7 @@ const effectColor =
   data-category={category ?? "指導法"}
   data-months={monthsGained}
   data-evidence={evidenceStrength}
-  class="group block border-t border-[var(--color-line)] py-4 sm:py-8 md:py-10 transition hover:bg-[var(--color-card)]"
+  class="strategy-row group block border-t border-[var(--color-line)] py-4 sm:py-8 md:py-10"
 >
   <div class="grid grid-cols-12 gap-4 md:gap-6 items-center px-4 sm:px-2">
     <div
@@ -66,7 +71,7 @@ const effectColor =
     <div class="col-span-10 md:col-span-7 space-y-2">
       <div class="flex flex-wrap items-center gap-2">
         <h2
-          class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition"
+          class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition-colors"
         >
           {title}
         </h2>
@@ -79,11 +84,13 @@ const effectColor =
         ))}
       </div>
       <div
-        class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] flex flex-wrap gap-x-4 gap-y-1"
+        class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] flex flex-wrap items-center gap-x-4 gap-y-1"
       >
         <span>{subjects.join(" · ")}</span>
         <span>{grades.join(" · ")}</span>
-        <span class="text-amber-600">{stars}</span>
+        <span class="text-amber-600 tracking-normal" aria-label={`エビデンスの強さ ${evidenceStrength} / 5`}>
+          {stars}
+        </span>
       </div>
     </div>
 
@@ -96,5 +103,15 @@ const effectColor =
         >→</span
       >
     </div>
+  </div>
+
+  <div
+    class="effect-bar mt-3 md:mt-4 mx-4 sm:mx-2"
+    data-effect-bar
+    data-effect-sign={effectBarSign}
+    style={`--effect-bar-width: ${effectBarPct}%`}
+    aria-hidden="true"
+  >
+    <div class="effect-bar-fill"></div>
   </div>
 </a>
