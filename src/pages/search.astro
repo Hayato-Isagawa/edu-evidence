@@ -117,7 +117,7 @@ import Layout from "../layouts/Layout.astro";
     /* Result row — editorial layout, hover accent matches StrategyRow */
     .pagefind-ui .pagefind-ui__result {
       position: relative;
-      padding: 1.25rem 1rem 1.25rem 1.25rem;
+      padding: 1.25rem 1rem 1.25rem 2rem;
       border-bottom: 1px solid var(--color-line);
       border-top: none;
       transition: background-color 200ms ease-out;
@@ -125,7 +125,7 @@ import Layout from "../layouts/Layout.astro";
     .pagefind-ui .pagefind-ui__result::before {
       content: "";
       position: absolute;
-      left: 0;
+      left: 0.5rem;
       top: 0;
       bottom: 0;
       width: 3px;
@@ -148,6 +148,8 @@ import Layout from "../layouts/Layout.astro";
     }
     .pagefind-ui .pagefind-ui__result-inner {
       gap: 0.5rem;
+      padding-left: 0;
+      margin-left: 0;
     }
 
     /* Result title link */
