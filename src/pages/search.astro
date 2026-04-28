@@ -162,7 +162,7 @@ import Layout from "../layouts/Layout.astro";
     }
     .pagefind-ui .pagefind-ui__result-link {
       color: var(--color-ink);
-      text-decoration: none;
+      text-decoration: none !important;
       background-image: linear-gradient(var(--color-accent), var(--color-accent));
       background-size: 0% 1px;
       background-position: left bottom;
@@ -177,7 +177,6 @@ import Layout from "../layouts/Layout.astro";
     .pagefind-ui .pagefind-ui__result-link:focus-visible,
     .pagefind-ui .pagefind-ui__result:hover .pagefind-ui__result-link {
       color: var(--color-accent);
-      text-decoration: none;
       background-size: 100% 1px;
     }
     .pagefind-ui .pagefind-ui__result-link:focus-visible {
