@@ -153,7 +153,7 @@ import Layout from "../layouts/Layout.astro";
       padding-left: 10px;
     }
 
-    /* Result title link */
+    /* Result title link — matches .prose-article a underline animation */
     .pagefind-ui .pagefind-ui__result-title {
       font-size: 1.25rem;
       font-weight: 800;
@@ -162,16 +162,31 @@ import Layout from "../layouts/Layout.astro";
     }
     .pagefind-ui .pagefind-ui__result-link {
       color: var(--color-ink);
-      transition: color 150ms ease-out;
+      text-decoration: none;
+      background-image: linear-gradient(var(--color-accent), var(--color-accent));
+      background-size: 0% 1px;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      padding-bottom: 2px;
+      transition:
+        color 150ms ease-out,
+        background-size 0.3s ease;
     }
     .pagefind-ui .pagefind-ui__result-link:hover,
-    .pagefind-ui .pagefind-ui__result:hover .pagefind-ui__result-link {
+    .pagefind-ui .pagefind-ui__result:hover .pagefind-ui__result-link,
+    .pagefind-ui .pagefind-ui__result-link:focus-visible {
       color: var(--color-accent);
+      background-size: 100% 1px;
     }
     .pagefind-ui .pagefind-ui__result-link:focus-visible {
       outline: 2px solid var(--color-accent);
       outline-offset: 4px;
       border-radius: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pagefind-ui .pagefind-ui__result-link {
+        transition: none;
+      }
     }
 
     /* Excerpt — body color */
