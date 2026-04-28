@@ -162,6 +162,8 @@ test.describe("ナビゲーション", () => {
     const menu = page.locator("#mobile-menu");
     await expect(menu).not.toHaveAttribute("inert");
     await expect(menu).toHaveAttribute("data-state", "open");
+    await expect(menu).toHaveAttribute("role", "dialog");
+    await expect(menu).toHaveAttribute("aria-modal", "true");
     await expect(toggle).toHaveAttribute("aria-expanded", "true");
     await expect(page.locator("body")).toHaveAttribute("data-menu", "open");
     await toggle.click();
@@ -169,6 +171,38 @@ test.describe("ナビゲーション", () => {
     await expect(menu).toHaveAttribute("data-state", "closed");
     await expect(toggle).toHaveAttribute("aria-expanded", "false");
     await expect(page.locator("body")).toHaveAttribute("data-menu", "closed");
+  });
+
+  test("モバイルメニューに 3 つのセクション(Explore / Learn / About)が表示される", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/");
+    await page.locator("#menu-toggle").click();
+    const titles = page.locator(".mobile-menu-section-title");
+    await expect(titles).toHaveCount(3);
+    await expect(titles.nth(0)).toContainText("Explore");
+    await expect(titles.nth(1)).toContainText("Learn");
+    await expect(titles.nth(2)).toContainText("About");
+  });
+
+  test("モバイルメニューを開くと検索 input にフォーカスが移る", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/");
+    await page.locator("#menu-toggle").click();
+    await page.waitForTimeout(120);
+    const focusedId = await page.evaluate(() => document.activeElement?.id);
+    expect(focusedId).toBe("mobile-menu-search-input");
+  });
+
+  test("検索 input から submit すると /search?q= に遷移する", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/");
+    await page.locator("#menu-toggle").click();
+    const input = page.locator("#mobile-menu-search-input");
+    await input.fill("メタ認知");
+    await input.press("Enter");
+    await page.waitForURL(/\/search\?q=/);
+    expect(page.url()).toContain("/search");
+    expect(page.url()).toContain("q=%E3%83%A1%E3%82%BF%E8%AA%8D%E7%9F%A5");
   });
 
   test("ヘッダーが sticky で表示される", async ({ page }) => {

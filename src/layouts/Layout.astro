@@ -105,23 +105,81 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           <span class="block w-6 h-[2px] bg-[var(--color-ink)] transition-transform duration-200 origin-center"></span>
         </button>
       </div>
-      <nav
+      <div
         id="mobile-menu"
         data-state="closed"
-        class="lg:hidden absolute left-0 right-0 top-full z-50 border-t border-b border-[var(--color-line)] bg-[var(--color-bg)] shadow-lg transition duration-200 ease-out motion-reduce:transition-none opacity-0 -translate-y-2 pointer-events-none data-[state=open]:opacity-100 data-[state=open]:translate-y-0 data-[state=open]:pointer-events-auto"
+        class="mobile-menu lg:hidden"
+        role="dialog"
+        aria-modal="true"
         aria-label="モバイルナビゲーション"
         inert
       >
-        <ul class="mx-auto max-w-6xl px-6 py-2 flex flex-col text-sm text-[var(--color-sub)]">
-          <li><a href="/" class="block py-3 hover:text-[var(--color-ink)] transition">ホーム</a></li>
-          <li><a href="/concerns" class="block py-3 hover:text-[var(--color-ink)] transition">悩みから探す</a></li>
-          <li><a href="/#strategy-list" class="block py-3 hover:text-[var(--color-ink)] transition">指導法から探す</a></li>
-          <li><a href="/columns" class="block py-3 hover:text-[var(--color-ink)] transition">コラム</a></li>
-          <li><a href="/guide" class="block py-3 hover:text-[var(--color-ink)] transition">ガイド</a></li>
-          <li><a href="/about" class="block py-3 hover:text-[var(--color-ink)] transition">サイトについて</a></li>
-          <li><a href="/search" class="block py-3 hover:text-[var(--color-ink)] transition">検索</a></li>
-        </ul>
-      </nav>
+        <div class="mobile-menu-inner">
+          <form
+            class="mobile-menu-search"
+            action="/search"
+            method="get"
+            role="search"
+          >
+            <label for="mobile-menu-search-input" class="sr-only">検索</label>
+            <svg
+              class="mobile-menu-search-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input
+              id="mobile-menu-search-input"
+              type="search"
+              name="q"
+              placeholder="指導法・コラム・用語を検索…"
+              autocomplete="off"
+              enterkeyhint="search"
+            />
+          </form>
+
+          <nav class="mobile-menu-nav" aria-label="サイトナビゲーション">
+            <section class="mobile-menu-section">
+              <h2 class="mobile-menu-section-title">Explore — 探す</h2>
+              <ul>
+                <li><a href="/concerns">悩みから探す</a></li>
+                <li><a href="/#strategy-list">指導法一覧</a></li>
+                <li><a href="/subjects">教科から探す</a></li>
+                <li><a href="/grades">学年から探す</a></li>
+                <li><a href="/cost">コストから探す</a></li>
+                <li><a href="/tags">タグから探す</a></li>
+              </ul>
+            </section>
+
+            <section class="mobile-menu-section">
+              <h2 class="mobile-menu-section-title">Learn — 学ぶ・読む</h2>
+              <ul>
+                <li><a href="/columns">コラム</a></li>
+                <li><a href="/guide">ガイド</a></li>
+                <li><a href="/policy-evidence">政策とエビデンス</a></li>
+                <li><a href="/voices">現場の声</a></li>
+                <li><a href="/faq">よくある質問</a></li>
+              </ul>
+            </section>
+
+            <section class="mobile-menu-section">
+              <h2 class="mobile-menu-section-title">About — サイトについて</h2>
+              <ul>
+                <li><a href="/about">このサイトについて</a></li>
+                <li><a href="/support">運営を支援する</a></li>
+                <li><a href="/changelog">更新履歴</a></li>
+              </ul>
+            </section>
+          </nav>
+        </div>
+      </div>
       {longForm && (
         <div
           id="reading-progress"
@@ -155,6 +213,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         const menu = document.getElementById("mobile-menu");
         if (!toggle || !menu) return;
         const bars = toggle.querySelectorAll("span");
+        const searchInput = document.getElementById("mobile-menu-search-input");
         let isOpen = false;
         const setOpen = (open) => {
           isOpen = open;
@@ -169,13 +228,18 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
             bars[1].style.opacity = open ? "0" : "";
             bars[2].style.transform = open ? "translateY(-8px) rotate(-45deg)" : "";
           }
+          if (open && searchInput) {
+            window.setTimeout(() => searchInput.focus({ preventScroll: true }), 50);
+          } else if (!open) {
+            toggle.focus({ preventScroll: true });
+          }
         };
         toggle.addEventListener("click", () => setOpen(!isOpen));
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape" && isOpen) setOpen(false);
         });
         window.addEventListener("resize", () => {
-          if (window.innerWidth >= 640 && isOpen) setOpen(false);
+          if (window.innerWidth >= 1024 && isOpen) setOpen(false);
         });
       })();
     </script>
