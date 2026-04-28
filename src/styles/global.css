@@ -185,6 +185,60 @@ a {
   text-decoration: none;
 }
 
+.strategy-row {
+  position: relative;
+  transition: background-color 200ms ease-out;
+}
+.strategy-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 250ms ease-out;
+  pointer-events: none;
+}
+.strategy-row:hover {
+  background: var(--color-card);
+}
+.strategy-row:hover::before {
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .strategy-row::before {
+    transition: none;
+  }
+}
+
+.effect-bar {
+  height: 2px;
+  background: var(--color-line);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.effect-bar-fill {
+  height: 100%;
+  width: var(--effect-bar-width, 0%);
+  background: var(--color-accent);
+  transform-origin: left center;
+  transition: width 300ms ease-out;
+}
+.effect-bar[data-effect-sign="negative"] .effect-bar-fill {
+  background: var(--color-chart-red);
+}
+.effect-bar[data-effect-sign="neutral"] .effect-bar-fill {
+  background: var(--color-sub);
+}
+@media (prefers-reduced-motion: reduce) {
+  .effect-bar-fill {
+    transition: none;
+  }
+}
+
 .font-serif {
   font-family: var(--font-serif);
 }
