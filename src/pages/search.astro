@@ -58,17 +58,188 @@ import Layout from "../layouts/Layout.astro";
     })();
   </script>
 
-  <style>
+  <style is:global>
     :root {
-      --pagefind-ui-scale: 0.9;
-      --pagefind-ui-primary: #2b5d3a;
-      --pagefind-ui-text: #1a1a1a;
-      --pagefind-ui-background: #faf9f5;
-      --pagefind-ui-border: #e5e3da;
-      --pagefind-ui-tag: #2b5d3a;
+      --pagefind-ui-scale: 1;
+      --pagefind-ui-primary: var(--color-accent);
+      --pagefind-ui-text: var(--color-ink);
+      --pagefind-ui-background: var(--color-bg);
+      --pagefind-ui-border: var(--color-line);
+      --pagefind-ui-tag: var(--color-accent);
       --pagefind-ui-border-width: 1px;
-      --pagefind-ui-border-radius: 8px;
-      --pagefind-ui-font: "Noto Sans JP", sans-serif;
+      --pagefind-ui-border-radius: 0.5rem;
+      --pagefind-ui-font: var(--font-sans);
+    }
+
+    /* Search input — match the mobile menu search bar style */
+    .pagefind-ui .pagefind-ui__search-input {
+      padding: 0.875rem 1rem 0.875rem 1rem;
+      font-size: 1rem;
+      background: var(--color-card);
+      border: 1px solid var(--color-line);
+      border-radius: 0.5rem;
+      color: var(--color-ink);
+      box-shadow: none;
+      transition:
+        border-color 200ms ease-out,
+        box-shadow 200ms ease-out;
+    }
+    .pagefind-ui .pagefind-ui__search-input:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 20%, transparent);
+      outline: none;
+    }
+    .pagefind-ui .pagefind-ui__search-clear {
+      color: var(--color-sub);
+    }
+    .pagefind-ui .pagefind-ui__search-clear:hover {
+      color: var(--color-accent);
+    }
+
+    /* Result count + filters label */
+    .pagefind-ui .pagefind-ui__message {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-sub);
+      padding: 1.5rem 0 0.75rem;
+      border-bottom: 1px solid var(--color-line);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Hide thumbnails — pages do not carry meaningful images */
+    .pagefind-ui .pagefind-ui__result-thumb,
+    .pagefind-ui .pagefind-ui__result-image {
+      display: none !important;
+    }
+
+    /* Result row — editorial layout, hover accent matches StrategyRow */
+    .pagefind-ui .pagefind-ui__result {
+      position: relative;
+      padding: 1.25rem 1rem 1.25rem 1.25rem;
+      border-bottom: 1px solid var(--color-line);
+      border-top: none;
+      transition: background-color 200ms ease-out;
+    }
+    .pagefind-ui .pagefind-ui__result::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--color-accent);
+      transform: scaleY(0);
+      transform-origin: top center;
+      transition: transform 250ms ease-out;
+      pointer-events: none;
+    }
+    .pagefind-ui .pagefind-ui__result:hover {
+      background: var(--color-card);
+    }
+    .pagefind-ui .pagefind-ui__result:hover::before {
+      transform: scaleY(1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pagefind-ui .pagefind-ui__result::before {
+        transition: none;
+      }
+    }
+    .pagefind-ui .pagefind-ui__result-inner {
+      gap: 0.5rem;
+    }
+
+    /* Result title link */
+    .pagefind-ui .pagefind-ui__result-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+    .pagefind-ui .pagefind-ui__result-link {
+      color: var(--color-ink);
+      transition: color 150ms ease-out;
+    }
+    .pagefind-ui .pagefind-ui__result-link:hover,
+    .pagefind-ui .pagefind-ui__result:hover .pagefind-ui__result-link {
+      color: var(--color-accent);
+    }
+    .pagefind-ui .pagefind-ui__result-link:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    /* Excerpt — body color */
+    .pagefind-ui .pagefind-ui__result-excerpt {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--color-sub);
+    }
+
+    /* Highlighted search term */
+    .pagefind-ui .pagefind-ui__result-excerpt mark,
+    .pagefind-ui mark {
+      background: color-mix(in oklab, var(--color-accent) 18%, transparent);
+      color: var(--color-accent);
+      font-weight: 700;
+      padding: 0 0.15em;
+      border-radius: 2px;
+    }
+
+    /* Tags / metadata row */
+    .pagefind-ui .pagefind-ui__result-tags {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-sub);
+      gap: 0.5rem 1rem;
+    }
+
+    /* Sub-results — visually subordinate */
+    .pagefind-ui .pagefind-ui__result-nested {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--color-line);
+      margin-top: 0.75rem;
+    }
+    .pagefind-ui .pagefind-ui__result-nested .pagefind-ui__result-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .pagefind-ui .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
+      font-size: 0.8rem;
+    }
+
+    /* Filter chips — mono caps to match site convention */
+    .pagefind-ui .pagefind-ui__filter-name,
+    .pagefind-ui .pagefind-ui__filter-value-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* Load more button */
+    .pagefind-ui .pagefind-ui__button {
+      background: var(--color-card);
+      border: 1px solid var(--color-line);
+      color: var(--color-ink);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      transition:
+        border-color 200ms ease-out,
+        color 200ms ease-out;
+      cursor: pointer;
+    }
+    .pagefind-ui .pagefind-ui__button:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
     }
   </style>
 </Layout>
