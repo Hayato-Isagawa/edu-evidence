@@ -68,7 +68,10 @@ function formatMonths(m: number): string {
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {cat.concerns.map((concern) => (
-              <article class="border border-[var(--color-line)] rounded-xl p-5 md:p-6 bg-[var(--color-card)] space-y-4">
+              <article
+                id={concern.slug}
+                class="border border-[var(--color-line)] rounded-xl p-5 md:p-6 bg-[var(--color-card)] space-y-4"
+              >
                 <h3 class="font-black text-lg md:text-xl leading-snug">
                   {concern.title}
                 </h3>

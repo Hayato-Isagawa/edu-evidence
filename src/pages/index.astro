@@ -2,6 +2,11 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import StrategyRow from "../components/StrategyRow.astro";
+import {
+  concernCategories,
+  getAllConcerns,
+  getConcernIndex,
+} from "../data/concerns";
 const strategies = await getCollection("strategies");
 strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
 
@@ -11,6 +16,26 @@ const columnFreshnessDate = (c: typeof allColumns[number]) => c.data.lastVerifie
 const latestColumns = [...allColumns]
   .sort((a, b) => columnFreshnessDate(b).localeCompare(columnFreshnessDate(a)))
   .slice(0, 3);
+
+const totalConcerns = getAllConcerns(concernCategories).length;
+
+// 編集ピックアップ: 学級経営 / 授業(集中) / 授業(学力差) / 教員キャリア入門 の 4 件
+const featuredConcernSlugs = [
+  "classroom-unrest",
+  "passive-class",
+  "achievement-gap",
+  "beginner-entry",
+];
+const concernIndex = getConcernIndex(concernCategories);
+const featuredConcerns = featuredConcernSlugs.map((slug) => {
+  const entry = concernIndex.get(slug);
+  if (!entry) {
+    throw new Error(
+      `[index.astro] featuredConcernSlugs に存在しない slug: "${slug}". src/data/concerns.ts と同期してください`
+    );
+  }
+  return entry;
+});
 ---
 
 <Layout>
@@ -46,6 +71,96 @@ const latestColumns = [...allColumns]
         国内外の教育研究を「効果」「信頼性」「コスト」「出典」の4指標で整理し、日本の小学校の現場で使える形に翻案して公開しています。
       </p>
     </div>
+  </section>
+
+  <section
+    aria-labelledby="concerns-cta-heading"
+    class="border-t border-[var(--color-line)] py-8 xs:py-10 sm:py-14"
+  >
+    <div class="grid grid-cols-12 gap-6 mb-6">
+      <div class="col-span-12 min-[900px]:col-span-8 space-y-2">
+        <p
+          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+        >
+          Find by your concern
+        </p>
+        <h2
+          id="concerns-cta-heading"
+          class="font-black text-3xl md:text-4xl tracking-tight leading-[1.2]"
+        >
+          現場の<span class="text-[var(--color-accent)]">悩み</span>から、エビデンスを探す。
+        </h2>
+        <p class="text-sm text-[var(--color-sub)] leading-relaxed pt-1">
+          指導法の一覧から入る前に、まず日々の悩みから関連するエビデンスをたどれます。
+        </p>
+      </div>
+      <div
+        class="col-span-12 min-[900px]:col-span-4 flex min-[900px]:items-end min-[900px]:justify-end"
+      >
+        <a
+          href="/concerns"
+          class="group inline-flex items-center justify-between gap-3 rounded-full border border-[var(--color-accent)] bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white motion-safe:transition hover:bg-[var(--color-accent)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+        >
+          <span>全{totalConcerns}件の悩みを見る</span>
+          <span class="motion-safe:transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {
+        featuredConcerns.map(({ concern, categoryTitle }) => {
+          const strategyCount = concern.strategies.length;
+          const columnCount = concern.columns?.length ?? 0;
+          const titleId = `featured-${concern.slug}-title`;
+          return (
+            <li>
+              <a
+                href={`/concerns#${concern.slug}`}
+                aria-labelledby={titleId}
+                data-concern-card
+                class="group relative block h-full rounded-xl border border-[var(--color-line)] bg-[var(--color-card)] p-5 motion-safe:transition hover:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+              >
+                <span
+                  aria-hidden="true"
+                  class="pointer-events-none absolute inset-y-3 left-0 w-[3px] origin-center scale-y-0 rounded-full bg-[var(--color-accent)] motion-safe:transition-transform motion-safe:duration-200 group-hover:scale-y-100 group-focus-visible:scale-y-100"
+                />
+                <div class="space-y-3 pl-2">
+                  <div class="font-mono text-[10px] tracking-widest uppercase text-[var(--color-sub)]">
+                    {categoryTitle}
+                  </div>
+                  <h3
+                    id={titleId}
+                    class="font-black text-base leading-snug text-[var(--color-ink)] motion-safe:transition group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]"
+                  >
+                    {concern.title}
+                  </h3>
+                  <p class="text-xs text-[var(--color-sub)] leading-relaxed line-clamp-3">
+                    {concern.diagnosis}
+                  </p>
+                  <div class="flex items-center gap-3 pt-1 text-[11px] text-[var(--color-sub)]">
+                    <span>
+                      <span class="font-bold text-[var(--color-ink)]">
+                        {strategyCount}
+                      </span>
+                      件の指導法
+                    </span>
+                    {columnCount > 0 && (
+                      <span>
+                        <span class="font-bold text-[var(--color-ink)]">
+                          {columnCount}
+                        </span>
+                        件のコラム
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
   </section>
 
   <section class="border-t border-[var(--color-line)] py-5 xs:py-7 sm:py-10">
@@ -189,12 +304,6 @@ const latestColumns = [...allColumns]
 
   <section class="pt-6 xs:pt-8 sm:pt-12 pb-10 xs:pb-14 sm:pb-20 space-y-8">
     <div class="flex flex-wrap gap-3">
-      <a
-        href="/concerns"
-        class="border border-[var(--color-accent)] bg-[var(--color-accent)]/5 rounded-full px-4 py-2 text-sm hover:bg-[var(--color-accent)]/10 transition"
-      >
-        <span class="font-bold text-[var(--color-accent)]">悩み</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
-      </a>
       <a
         href="/subjects"
         class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
