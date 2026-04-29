@@ -348,7 +348,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
       <div
         class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 py-6 xs:py-8 sm:py-12 grid md:grid-cols-4 gap-8 text-xs text-[var(--color-sub)] leading-relaxed"
       >
-        <!-- Column 1: ブランド -->
+        <!-- Column 1: ブランド + コンタクト + 購読 -->
         <div class="space-y-4">
           <div class="font-black text-base text-[var(--color-ink)] flex items-center gap-2">
             <span class="text-[var(--color-accent)] inline-flex">
@@ -366,13 +366,22 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
               <a href="mailto:info@edu-evidence.org" class="link-underline">info@edu-evidence.org</a>
             </div>
           </div>
+          <div class="space-y-1.5">
+            <div class="font-mono uppercase tracking-widest text-[10px] text-[var(--color-ink)]">購読</div>
+            <div>
+              <a href="/rss.xml" class="link-underline">RSS フィード</a>
+            </div>
+          </div>
         </div>
 
-        <!-- Column 2: 指導法を探す -->
-        <div class="space-y-3">
-          <div class="font-mono uppercase tracking-widest text-[var(--color-ink)]">
-            指導法を探す
-          </div>
+        <!-- Column 2: Explore — 探す -->
+        <section aria-labelledby="footer-explore" class="space-y-3">
+          <h2
+            id="footer-explore"
+            class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+          >
+            Explore — 探す
+          </h2>
           <ul class="space-y-1.5">
             <li><a href="/concerns" class="link-underline">悩みから探す</a></li>
             <li><a href="/#strategy-list" class="link-underline">指導法一覧</a></li>
@@ -381,36 +390,39 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
             <li><a href="/cost" class="link-underline">コストから探す</a></li>
             <li><a href="/tags" class="link-underline">タグから探す</a></li>
           </ul>
-        </div>
+        </section>
 
-        <!-- Column 3: 学ぶ・読む -->
-        <div class="space-y-3">
-          <div class="font-mono uppercase tracking-widest text-[var(--color-ink)]">
-            学ぶ・読む
-          </div>
+        <!-- Column 3: Learn — 学ぶ・読む -->
+        <section aria-labelledby="footer-learn" class="space-y-3">
+          <h2
+            id="footer-learn"
+            class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+          >
+            Learn — 学ぶ・読む
+          </h2>
           <ul class="space-y-1.5">
             <li><a href="/columns" class="link-underline">コラム</a></li>
-            <li><a href="/rss.xml" class="link-underline">RSS 購読</a></li>
+            <li><a href="/guide" class="link-underline">ガイド</a></li>
             <li><a href="/policy-evidence" class="link-underline">政策とエビデンス</a></li>
             <li><a href="/voices" class="link-underline">現場の声</a></li>
-            <li><a href="/guide/indicators" class="link-underline">指標の読み方</a></li>
-            <li><a href="/guide/evidence" class="link-underline">エビデンス入門</a></li>
-            <li><a href="/guide/glossary" class="link-underline">用語集</a></li>
             <li><a href="/faq" class="link-underline">よくある質問</a></li>
           </ul>
-        </div>
+        </section>
 
-        <!-- Column 4: サイトについて -->
-        <div class="space-y-3">
-          <div class="font-mono uppercase tracking-widest text-[var(--color-ink)]">
-            サイトについて
-          </div>
+        <!-- Column 4: About — サイトについて -->
+        <section aria-labelledby="footer-about" class="space-y-3">
+          <h2
+            id="footer-about"
+            class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+          >
+            About — サイトについて
+          </h2>
           <ul class="space-y-1.5">
             <li><a href="/about" class="link-underline">このサイトについて</a></li>
             <li><a href="/support" class="link-underline">運営を支援する</a></li>
             <li><a href="/changelog" class="link-underline">更新履歴</a></li>
           </ul>
-        </div>
+        </section>
       </div>
       <div class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 pb-4 xs:pb-6 sm:pb-8 text-[10px] text-[var(--color-sub)] leading-relaxed">
         © 2026 EduEvidence JP. CC BY-SA 4.0. 英国 EEF
