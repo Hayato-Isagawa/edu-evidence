@@ -101,8 +101,8 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
           href="/concerns"
           class="group inline-flex items-center justify-between gap-3 rounded-full border border-[var(--color-accent)] bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white motion-safe:transition hover:bg-[var(--color-accent)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
         >
-          <span>全{totalConcerns}件の悩みを見る</span>
-          <span class="motion-safe:transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+          <span class="text-white">全{totalConcerns}件の悩みを見る</span>
+          <span class="text-white motion-safe:transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -119,41 +119,35 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
                 href={`/concerns#${concern.slug}`}
                 aria-labelledby={titleId}
                 data-concern-card
-                class="group relative block h-full rounded-xl border border-[var(--color-line)] bg-[var(--color-card)] p-5 motion-safe:transition hover:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                class="group block h-full rounded-xl border border-[var(--color-line)] bg-[var(--color-card)] p-5 space-y-3 motion-safe:transition hover:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
               >
-                <span
-                  aria-hidden="true"
-                  class="pointer-events-none absolute inset-y-3 left-0 w-[3px] origin-center scale-y-0 rounded-full bg-[var(--color-accent)] motion-safe:transition-transform motion-safe:duration-200 group-hover:scale-y-100 group-focus-visible:scale-y-100"
-                />
-                <div class="space-y-3 pl-2">
-                  <div class="font-mono text-[10px] tracking-widest uppercase text-[var(--color-sub)]">
-                    {categoryTitle}
-                  </div>
-                  <h3
-                    id={titleId}
-                    class="font-black text-base leading-snug text-[var(--color-ink)] motion-safe:transition group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]"
-                  >
-                    {concern.title}
-                  </h3>
-                  <p class="text-xs text-[var(--color-sub)] leading-relaxed line-clamp-3">
-                    {concern.diagnosis}
-                  </p>
-                  <div class="flex items-center gap-3 pt-1 text-[11px] text-[var(--color-sub)]">
+                <div class="font-mono text-[10px] tracking-widest uppercase text-[var(--color-sub)]">
+                  {categoryTitle}
+                </div>
+                <h3
+                  id={titleId}
+                  class="font-black text-base leading-snug motion-safe:transition group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]"
+                >
+                  {concern.title}
+                </h3>
+                <p class="text-xs text-[var(--color-sub)] leading-relaxed line-clamp-3">
+                  {concern.diagnosis}
+                </p>
+                <div class="flex items-center gap-3 pt-1 text-[11px] text-[var(--color-sub)]">
+                  <span>
+                    <span class="font-bold text-[var(--color-ink)]">
+                      {strategyCount}
+                    </span>
+                    件の指導法
+                  </span>
+                  {columnCount > 0 && (
                     <span>
                       <span class="font-bold text-[var(--color-ink)]">
-                        {strategyCount}
+                        {columnCount}
                       </span>
-                      件の指導法
+                      件のコラム
                     </span>
-                    {columnCount > 0 && (
-                      <span>
-                        <span class="font-bold text-[var(--color-ink)]">
-                          {columnCount}
-                        </span>
-                        件のコラム
-                      </span>
-                    )}
-                  </div>
+                  )}
                 </div>
               </a>
             </li>
