@@ -13,6 +13,24 @@ export interface ConcernCategory {
   concerns: Concern[];
 }
 
+export function getAllConcerns(
+  categories: readonly ConcernCategory[]
+): Concern[] {
+  return categories.flatMap((cat) => cat.concerns);
+}
+
+export function getConcernIndex(
+  categories: readonly ConcernCategory[]
+): Map<string, { concern: Concern; categoryTitle: string }> {
+  const index = new Map<string, { concern: Concern; categoryTitle: string }>();
+  for (const cat of categories) {
+    for (const c of cat.concerns) {
+      index.set(c.slug, { concern: c, categoryTitle: cat.title });
+    }
+  }
+  return index;
+}
+
 export const concernCategories: ConcernCategory[] = [
   {
     id: "classroom-management",

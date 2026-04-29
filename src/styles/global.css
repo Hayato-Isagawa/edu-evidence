@@ -13,6 +13,7 @@
   --color-line: #e5e3da;
   --color-card: #ffffff;
   --color-accent: #2b5d3a;
+  --color-accent-hover: color-mix(in oklab, var(--color-accent) 85%, black);
 
   /* チャート系列の対比色(アクセント深緑と視認性を確保するため) */
   --color-chart-red: #c0392b;
@@ -159,7 +160,7 @@ body[data-menu="open"] {
   pointer-events: auto;
 }
 #back-to-top[data-state="visible"]:hover {
-  background: color-mix(in oklab, var(--color-accent) 85%, black);
+  background: var(--color-accent-hover);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
