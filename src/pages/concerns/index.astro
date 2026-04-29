@@ -56,7 +56,11 @@ function formatMonths(m: number): string {
     {
       concernCategories.map((cat) => (
         <div class="space-y-6">
-          <div class="border-b border-[var(--color-line)] pb-3 flex items-baseline gap-4 flex-wrap">
+          <div class="border-b border-[var(--color-line)] pb-3 flex items-baseline gap-4 flex-wrap relative pl-4">
+            <span
+              aria-hidden="true"
+              class="absolute left-0 top-1 w-[3px] h-[calc(100%-1rem)] rounded-full bg-[var(--color-accent)]"
+            />
             <h2
               id={cat.id}
               class="font-black text-2xl md:text-3xl tracking-tight"
@@ -67,68 +71,101 @@ function formatMonths(m: number): string {
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {cat.concerns.map((concern) => (
-              <article
-                id={concern.slug}
-                class="border border-[var(--color-line)] rounded-xl p-5 md:p-6 bg-[var(--color-card)] space-y-4"
-              >
-                <h3 class="font-black text-lg md:text-xl leading-snug">
-                  {concern.title}
-                </h3>
-                <p class="text-sm text-[var(--color-sub)] leading-relaxed">
-                  {concern.diagnosis}
-                </p>
-
-                <div class="space-y-2">
-                  <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]">
-                    関連する指導法
+            {cat.concerns.map((concern) => {
+              const strategiesLabelId = `${concern.slug}-strategies-label`;
+              const columnsLabelId = `${concern.slug}-columns-label`;
+              return (
+                <article
+                  id={concern.slug}
+                  class="border border-[var(--color-line)] rounded-xl p-5 md:p-6 bg-[var(--color-card)] space-y-4 motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out focus-within:border-[var(--color-accent)]"
+                >
+                  <h3 class="font-black text-lg md:text-xl leading-snug">
+                    {concern.title}
+                  </h3>
+                  <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+                    {concern.diagnosis}
                   </p>
-                  <ul class="flex flex-wrap gap-2">
-                    {concern.strategies.map((slug) => {
-                      const s = strategyMap.get(slug);
-                      if (!s) return null;
-                      return (
-                        <li>
-                          <a
-                            href={`/strategies/${slug}`}
-                            class="inline-flex items-baseline gap-1.5 border border-[var(--color-line)] rounded-full px-3 py-1 text-xs hover:border-[var(--color-accent)] hover:bg-[var(--color-bg)] transition"
-                          >
-                            <span class="font-bold">{s.title}</span>
-                            <span class="font-mono text-[10px] text-[var(--color-sub)]">
-                              {formatMonths(s.monthsGained)}
-                            </span>
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
 
-                {concern.columns && concern.columns.length > 0 && (
                   <div class="space-y-2">
-                    <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]">
-                      関連コラム
+                    <p
+                      id={strategiesLabelId}
+                      class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]"
+                    >
+                      関連する指導法
                     </p>
-                    <ul class="space-y-1">
-                      {concern.columns.map((slug) => {
-                        const title = columnMap.get(slug);
-                        if (!title) return null;
+                    <ul
+                      aria-labelledby={strategiesLabelId}
+                      class="flex flex-wrap gap-2"
+                    >
+                      {concern.strategies.map((slug) => {
+                        const s = strategyMap.get(slug);
+                        if (!s) return null;
+                        const monthsLabel = formatMonths(s.monthsGained);
+                        const monthsClass =
+                          s.monthsGained > 0
+                            ? "text-[var(--color-accent)]"
+                            : s.monthsGained < 0
+                              ? "text-[var(--color-chart-red)]"
+                              : "text-[var(--color-sub)]";
                         return (
                           <li>
                             <a
-                              href={`/columns/${slug}`}
-                              class="text-sm link-underline hover:text-[var(--color-accent)] transition"
+                              href={`/strategies/${slug}`}
+                              class="group inline-flex items-baseline gap-1.5 border border-[var(--color-line)] rounded-full px-3 min-h-[1.5rem] py-1 text-xs bg-[var(--color-bg)] motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] focus-visible:outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
                             >
-                              → {title}
+                              <span class="font-bold motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]">
+                                {s.title}
+                              </span>
+                              <span class={`font-mono text-[10px] font-bold ${monthsClass}`}>
+                                {monthsLabel}
+                              </span>
                             </a>
                           </li>
                         );
                       })}
                     </ul>
                   </div>
-                )}
-              </article>
-            ))}
+
+                  {concern.columns && concern.columns.length > 0 && (
+                    <div class="space-y-2">
+                      <p
+                        id={columnsLabelId}
+                        class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]"
+                      >
+                        関連コラム
+                      </p>
+                      <ul
+                        aria-labelledby={columnsLabelId}
+                        class="flex flex-wrap gap-2"
+                      >
+                        {concern.columns.map((slug) => {
+                          const title = columnMap.get(slug);
+                          if (!title) return null;
+                          return (
+                            <li>
+                              <a
+                                href={`/columns/${slug}`}
+                                class="group inline-flex items-center gap-1.5 border border-[var(--color-line)] rounded-full px-3 min-h-[1.5rem] py-1 text-xs bg-[var(--color-bg)] motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] focus-visible:outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="font-mono text-[9px] uppercase tracking-widest text-[var(--color-sub)] motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]"
+                                >
+                                  Column
+                                </span>
+                                <span class="motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]">
+                                  {title}
+                                </span>
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
           </div>
         </div>
       ))
