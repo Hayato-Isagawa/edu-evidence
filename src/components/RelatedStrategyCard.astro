@@ -48,16 +48,25 @@ const effectColor =
     : monthsGained === 0
       ? "text-[var(--color-sub)]"
       : "text-red-600";
+
+const effectBarMax = 9;
+const effectBarPct = Math.min(Math.abs(monthsGained), effectBarMax) / effectBarMax * 100;
+const effectBarSign =
+  monthsGained > 0 ? "positive" : monthsGained < 0 ? "negative" : "neutral";
 ---
 
 <a
   href={href}
-  class="group block border border-[var(--color-line)] rounded-xl p-5 transition hover:border-[var(--color-accent)] hover:bg-[var(--color-card)]"
+  class="group relative block overflow-hidden border border-[var(--color-line)] rounded-xl p-5 motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] focus-visible:outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
 >
+  <span
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-y-0 left-0 w-[3px] origin-top scale-y-0 bg-[var(--color-accent)] motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out group-hover:scale-y-100 group-focus-visible:scale-y-100"
+  />
   <div class="flex items-start justify-between gap-4">
     <div class="flex-1 min-w-0 space-y-2">
       <div class="flex flex-wrap items-center gap-2">
-        <h3 class="text-lg md:text-xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition">
+        <h3 class="text-lg md:text-xl font-black tracking-tight leading-tight motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]">
           {title}
         </h3>
         {badges.map((key) => (
@@ -71,7 +80,7 @@ const effectColor =
       <p class="text-sm text-[var(--color-sub)] leading-relaxed line-clamp-2">
         {summary}
       </p>
-      <div class="font-mono text-[10px] uppercase tracking-widest text-amber-600">
+      <div class="font-mono text-[10px] uppercase tracking-widest text-amber-600" aria-label={`エビデンスの強さ ${evidenceStrength} / 5`}>
         {stars}
       </div>
     </div>
@@ -79,7 +88,17 @@ const effectColor =
       <div class="text-2xl md:text-3xl leading-none">
         {effectSign}{monthsGained}<span class="text-xs font-sans ml-0.5">ヶ月</span>
       </div>
-      <div class="mt-1 text-[var(--color-sub)] text-sm transition group-hover:translate-x-1 inline-block">→</div>
+      <div class="mt-1 text-[var(--color-sub)] text-sm motion-safe:transition group-hover:translate-x-1 inline-block">→</div>
     </div>
+  </div>
+
+  <div
+    class="effect-bar mt-4"
+    data-effect-bar
+    data-effect-sign={effectBarSign}
+    style={`--effect-bar-width: ${effectBarPct}%`}
+    aria-hidden="true"
+  >
+    <div class="effect-bar-fill"></div>
   </div>
 </a>
