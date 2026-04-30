@@ -24,7 +24,7 @@ npm ci                     # 依存をロックから復元
 ```bash
 npm run dev                # 開発サーバー(localhost:4321)
 npm run build              # 本番ビルド(OG画像73枚 + Pagefindインデックス生成、約2分)
-npm run test:e2e           # Playwright E2Eテスト(16テスト、ビルド後に実行)
+npm run test:e2e           # Playwright E2Eテスト(29テスト・7ファイル、ビルド後に実行)
 npm run check              # Astro型チェック
 npm run check:text         # textlint日本語校正
 npm run check:consistency  # monthsGained 整合性チェック
