@@ -297,7 +297,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
       (function () {
         var bubble = document.createElement("div");
         bubble.className = "glossary-bubble";
-        bubble.setAttribute("role", "tooltip");
+        bubble.setAttribute("aria-hidden", "true");
         document.body.appendChild(bubble);
         var hideTimer;
 
@@ -306,6 +306,8 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           var tip = el.getAttribute("data-tip");
           if (!tip) return;
           bubble.textContent = tip;
+          bubble.setAttribute("role", "tooltip");
+          bubble.setAttribute("aria-hidden", "false");
           bubble.classList.add("is-visible");
           var rect = el.getBoundingClientRect();
           var bw = bubble.offsetWidth;
@@ -320,6 +322,8 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         function hide() {
           hideTimer = setTimeout(function () {
             bubble.classList.remove("is-visible");
+            bubble.removeAttribute("role");
+            bubble.setAttribute("aria-hidden", "true");
           }, 100);
         }
 

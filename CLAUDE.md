@@ -24,7 +24,8 @@ npm ci                     # 依存をロックから復元
 ```bash
 npm run dev                # 開発サーバー(localhost:4321)
 npm run build              # 本番ビルド(OG画像73枚 + Pagefindインデックス生成、約2分)
-npm run test:e2e           # Playwright E2Eテスト(29テスト・7ファイル、ビルド後に実行)
+npm run test:e2e           # Playwright E2Eテスト(37テスト・8ファイル、ビルド後に実行)
+npm run a11y:baseline      # axe-core で a11y 違反一覧を再生成(dev 起動後 `node scripts/a11y-baseline.mjs http://localhost:<port>`)
 npm run check              # Astro型チェック
 npm run check:text         # textlint日本語校正
 npm run check:consistency  # monthsGained 整合性チェック
