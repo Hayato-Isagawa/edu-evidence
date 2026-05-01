@@ -28,6 +28,8 @@
     "@astrojs/react": "^5.0.4",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
+    "@fontsource-variable/jetbrains-mono": "5.2.8",
+    "@fontsource-variable/noto-sans-jp": "5.2.10",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.0.9",
     "@types/react-dom": "^19.0.3",
