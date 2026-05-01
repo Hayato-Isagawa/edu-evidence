@@ -6,10 +6,10 @@ evidenceStrength: 2
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
-source: japan
+source: mixed
 tags: ["インクルーシブ", "特別支援", "授業設計"]
-sourceUrl: https://kyoiku.sho.jp/194884/
-sourceTitle: "授業のユニバーサルデザインを実現する４ステップ — みんなの教育技術"
+sourceUrl: https://doi.org/10.1080/13603116.2017.1325074
+sourceTitle: "Capp, M. J. (2017). The effectiveness of universal design for learning: A meta-analysis of literature between 2013 and 2016. International Journal of Inclusive Education. — 日本の「授業 UD」と概念的に近い米 CAST UDL の 18 研究メタ分析"
 evidence:
   japan:
     monthsGained: 2
@@ -19,7 +19,7 @@ evidence:
   hattie:
     cohensD: 0.30
     note: "国際的には CAST が提唱する Universal Design for Learning(UDL)フレームが近い概念で、Capp(2017)の 18 研究メタ分析では学業成果への中程度の効果を報告(ただし研究設計の質は幅がある)。scaffolding(足場かけ)との重なりが大きい。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-05-02"
 culturalContext: |
   **授業 UD は日本の特別支援教育の文脈から発展した独自概念**で、CAST の UDL とは起源が異なる。発達障害等の診断が無くても困難を感じる子への配慮を授業設計に組み込む『**インクルーシブな授業設計**』として広く浸透。scaffolding(+5)・direct-instruction(+5)・dual-coding(+4)と重なる要素を持ち、**個別要素の足し算ではなく総合的な授業設計思想**として捉えるべき。効果量 +3 はやや楽観的で **+2 に調整**。
 ---
