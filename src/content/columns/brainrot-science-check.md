@@ -2,7 +2,7 @@
 title: 「脳が腐る」は本当か — スクリーンタイム研究が見せる「小さいが確かな」負の効果
 summary: 2024年のオックスフォード「今年の言葉」に選ばれた「brain rot」。科学的に検証すると、効果量は小さいものの複数の縦断研究で負の関連が確認されている。福井大学2025年の新知見を含めて整理する。
 date: "2026-04-17"
-lastVerified: "2026-04-21"
+lastVerified: "2026-05-02"
 tags: ["デジタル", "健康", "研究紹介"]
 relatedStrategies: ["screen-time", "social-media-mental-health", "digital-technology"]
 ---
@@ -88,12 +88,20 @@ relatedStrategies: ["screen-time", "social-media-mental-health", "digital-techno
 
 ## 参考資料
 
-- [Word of the Year 2024: 'brain rot'](https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/). Oxford University Press (2024). — オックスフォード英語辞典の 2024 年「今年の言葉」発表。使用頻度が前年比 230% 増。
+### 日本の研究・公式資料
+
 - [子どものスクリーンタイム、注意欠如多動症(ADHD)症状、脳の構造との関係を解明](https://www.u-fukui.ac.jp/result/110350/). 福井大学 (2025). 2025 年 11 月 20 日公表. — ABCD Study(10,116 名 / 追跡 7,880 名)の縦断解析でスクリーンタイム → 皮質体積 → ADHD 症状の部分媒介を確認。
 - Shou, Q., Yamashita, M., & Mizuno, Y. (2025). [Association of screen time with attention-deficit/hyperactivity disorder symptoms and their development: the mediating role of brain structure](https://doi.org/10.1038/s41398-025-03672-1). *Translational Psychiatry*, 15, 447. — 上記福井大プレスリリースの原著論文。
+
+### 海外の研究
+
 - Madigan, S., Browne, D., Racine, N., Mori, C., & Tough, S. (2019). [Association between screen time and children's performance on a developmental screening test](https://jamanetwork.com/journals/jamapediatrics/fullarticle/2722666). *JAMA Pediatrics*, 173(3), 244–250. — 2〜5 歳の縦断コホート(2,441 人)。スクリーンタイムと発達スクリーニングテストの負の関連を確認。
 - Orben, A., & Przybylski, A. K. (2019). [The association between adolescent well-being and digital technology use](https://doi.org/10.1038/s41562-018-0506-1). *Nature Human Behaviour*, 3, 173–182. — 3 つの大規模データセット(計 355,358 人)の特定化曲線分析。デジタル技術使用が幸福度の分散を説明するのは最大でも 0.4%(r ≈ 0.05)で「朝食を毎日食べる」と同程度と示した。
 - Viner, R. M., et al. (2019). [Roles of cyberbullying, sleep, and physical activity in mediating the effects of social media use on mental health and wellbeing among young people in England](https://doi.org/10.1016/S2352-4642(19)30186-5). *The Lancet Child & Adolescent Health*, 3(10), 685–696. — Our Futures 研究(12,866 人・13〜16 歳)の縦断分析。SNS 利用と精神健康の関連は、サイバーいじめ・睡眠不足・身体活動減少を経由して媒介されていることを示した。
+
+### 用語の出典
+
+- [Word of the Year 2024: 'brain rot'](https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/). Oxford University Press (2024). — オックスフォード英語辞典の 2024 年「今年の言葉」発表。使用頻度が前年比 230% 増。
 
 ### 関連読み物
 
