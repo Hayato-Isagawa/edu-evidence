@@ -57,15 +57,15 @@ culturalContext: |
 
 ## 主な参考研究
 
-### 海外の研究
-
-- Fryer, R. G. (2018). [The "Pupil" Factory: Specialization and the Production of Human Capital in Schools](https://www.aeaweb.org/articles?id=10.1257/aer.20161495). *American Economic Review*, 108(3), 616–656. — 米テキサス州ヒューストンの公立小学校で既存教員を専科化する RCT を実施。数学+読解の合成指標で平均 -0.11 SD/年の負の効果を報告。
-
 ### 日本の研究・公式資料
 
 - 伊芸研吾・中室牧子・村川智哉・レ・クン・チエン (2025). [「専科教員配置が学力に与える効果」](https://www.rieti.go.jp/jp/publications/dp/25j029.pdf). RIETI Discussion Paper 25-J-029. — 千葉県の小学校 60 校を対象とした日本初のクラスター RCT。理科専科群で理科 0.153〜0.162 SD・算数 0.101〜0.108 SD の有意な学力向上、算数専科群では効果なし。少人数学級政策の約 1/12 のコストで同等の効果が得られると試算。
 - 文部科学省 (2021). [義務教育 9 年間を見通した教科担任制の在り方について(報告)](https://www.mext.go.jp/content/20211028-mxt_syoto02-000018673-04.pdf). — 中央教育審議会の検討会議報告。優先教科として外国語・理科・算数・体育を提示。
 - 中央教育審議会 (2021). [「令和の日本型学校教育の構築を目指して」(答申)](https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo3/079/sonota/1412985_00002.htm). — 小学校高学年における教科担任制の推進を提言した公式文書。
+
+### 海外の研究
+
+- Fryer, R. G. (2018). [The "Pupil" Factory: Specialization and the Production of Human Capital in Schools](https://www.aeaweb.org/articles?id=10.1257/aer.20161495). *American Economic Review*, 108(3), 616–656. — 米テキサス州ヒューストンの公立小学校で既存教員を専科化する RCT を実施。数学+読解の合成指標で平均 -0.11 SD/年の負の効果を報告。
 
 ### 注記
 
