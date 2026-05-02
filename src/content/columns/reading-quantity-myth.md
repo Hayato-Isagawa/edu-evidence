@@ -2,7 +2,7 @@
 title: 「読書 100 冊目標」は学力を上げるか — 冊数信仰をエビデンスで問い直す
 summary: 2024 年、小学生の月平均読書冊数は 13.8 冊で過去 31 年の最高値。自治体や学校が「年間◯冊」の目標を掲げる例も多い。しかし、冊数を追うことと学力が上がることの因果は、思うほど明確ではない。
 date: "2026-04-18"
-lastVerified: "2026-04-26"
+lastVerified: "2026-05-02"
 tags: ["読書", "国語", "学力"]
 relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"]
 ---
@@ -132,7 +132,12 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 
 ## 参考資料
 
+### 日本の研究・公式資料
+
 - [第 69 回学校読書調査](https://www.j-sla.or.jp/material/research/dokusyotyousa.html). 全国学校図書館協議会 (2024). — 小学生の月平均読書冊数は 13.8 冊で過去最高と報告。
+
+### 海外の研究
+
 - Mol, S. E., & Bus, A. G. (2011). [To read or not to read: A meta-analysis of print exposure from infancy to early adulthood](https://pubmed.ncbi.nlm.nih.gov/21219054/). *Psychological Bulletin*, 137(2), 267–296. — 99 研究 (N=7,669) のメタ分析。家庭での本との接触と読解力・語彙力の間に一貫した正の相関を報告。
 - Abeberese, A. B., Kumler, T. J., & Linden, L. L. (2014). [Improving reading skills by encouraging children to read in school: A randomized evaluation of the Sa Aklat Sisikat reading program in the Philippines](https://doi.org/10.3368/jhr.49.3.611). *Journal of Human Resources*, 49(3), 611–633. — タルラク州の 100 校・4 年生を対象とした RCT。読書スキル +0.13 SD(3 か月後 +0.06 SD)、他教科への波及は確認されず。
 - Deci, E. L., Koestner, R., & Ryan, R. M. (1999). [A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation](https://doi.org/10.1037/0033-2909.125.6.627). *Psychological Bulletin*, 125(6), 627–668. — 128 研究のメタ分析。有形報酬(課題完了・成績達成連動)は内発的動機を損ないうる(d≒-0.36)が、**言語的称賛は内発的動機を高める**(エンハンシング効果、d=0.31)。報酬の効果は条件依存と整理。
