@@ -2,7 +2,7 @@
 title: 「グリット」は本当に大事なのか? — メタ分析以後の位置付け
 summary: 一時期もてはやされた「やり抜く力」は、2017 年以降のメタ分析で効果が限定的で、しかも既存の性格特性「誠実性」とほぼ重なることが示された。教育現場での扱い方を、エビデンスを踏まえて整理する。
 date: "2026-04-12"
-lastVerified: "2026-04-21"
+lastVerified: "2026-05-02"
 tags: ["非認知能力", "グリット", "心理学"]
 relatedStrategies: ["metacognition", "growth-mindset", "social-emotional-learning"]
 ---
@@ -64,8 +64,13 @@ relatedStrategies: ["metacognition", "growth-mindset", "social-emotional-learnin
 
 ## 参考資料
 
+### 日本の研究・公式資料
+
+- 『[「学力」の経済学](https://d21.co.jp/book/detail/978-4-7993-1685-6)』 中室牧子 (2015), ディスカヴァー・トゥエンティワン. — 非認知能力(自制心・やり抜く力など)の議論の日本語入門。
+
+### 海外の研究
+
 - [Metacognition and self-regulation](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation). Education Endowment Foundation, *Teaching and Learning Toolkit*. — メタ認知と自己調整学習で +8 ヶ月(355 研究のメタ分析)。グリット介入より効果量が大きい。
 - Credé, M., Tynan, M. C., & Harms, P. D. (2017). [Much ado about grit: A meta-analytic synthesis of the grit literature](https://doi.org/10.1037/pspp0000102). *Journal of Personality and Social Psychology*, 113(3), 492–511. — グリット研究のメタ分析(584 効果量・88 独立サンプル・66,807 人)。グリット × 学業成績 r = 0.18、グリット × 誠実性 ρ = 0.84。
 - Lam, K. K. L., & Zhou, M. (2019). [Examining the relationship between grit and academic achievement within K-12 and higher education: A systematic review](https://doi.org/10.1002/pits.22302). *Psychology in the Schools*, 56(10), 1654–1686. — 44 研究・60,133 人の系統的レビュー。「努力の継続」は効果あり、「興味の持続」は弱い。
 - Duckworth, A. L., Peterson, C., Matthews, M. D., & Kelly, D. R. (2007). [Grit: Perseverance and passion for long-term goals](https://doi.org/10.1037/0022-3514.92.6.1087). *Journal of Personality and Social Psychology*, 92(6), 1087–1101. — グリット概念の原典。West Point(N = 1,218 / 1,308)・全米スペリングコンテスト(N = 175)・常春藤大学生(N = 138)の複数サンプルで、グリットが成功分散の平均 4% を説明することを報告。
-- 『[「学力」の経済学](https://d21.co.jp/book/detail/978-4-7993-1685-6)』 中室牧子 (2015), ディスカヴァー・トゥエンティワン. — 非認知能力(自制心・やり抜く力など)の議論の日本語入門。
