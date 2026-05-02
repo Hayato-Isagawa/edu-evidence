@@ -2,7 +2,7 @@
 title: 給食無償化、日本は周回遅れ — 海外 80 年の実装データから見える期待と落とし穴
 summary: 2026 年 4 月、日本は公立小学校の給食を全国一律で無償化した。だがフィンランドは 1948 年から、スウェーデンは 1969 年完了、韓国は 2021 年全面と、多くの国は何十年も前から所得制限なしの給食無償化を実施している。海外の長期検証データを並べて、日本がこれから経験する効果と踏みやすい轍を整理する。
 date: "2026-04-25"
-lastVerified: "2026-04-26"
+lastVerified: "2026-05-02"
 tags: ["給食", "政策", "検証", "働き方改革"]
 relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 ---
@@ -135,10 +135,15 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ## 参考資料
 
+### 日本の研究・公式資料
+
 - [「給食無償化」に関する課題の整理について](https://www.mext.go.jp/a_menu/sports/syokuiku/mext_00001.html). 文部科学省 (2024-12). — 2023 年 9 月時点で独自無償化実施 722 自治体のうち成果検証実施 16.5%、成果目標設定 13.4%。
 - [学校給食費の無償化を実施する各教育委員会における取組の実態調査について](https://www.mext.go.jp/content/20240612-mxt-kenshoku-000036402-1.pdf). 文部科学省 (2024-06). — 令和 5 年度時点で独自無償化を実施していた 722 自治体のうち 199 自治体(722 中の比率で約 27.6%)が「給食費の徴収や未納者等への対応負担の解消」を効果として挙げる。
 - [学校給食費徴収・管理に関するガイドライン](https://www.mext.go.jp/content/20230821-mxt_kenshoku-100003364_4.pdf). 文部科学省 (2023, 改訂版). — 平成 28 年度 572 校抽出調査を踏まえ、未納督促の主担当が学級担任 46.0% / 副校長・教頭 41.0% と記載。
 - [学校給食費の公会計化について(概要資料)](https://www.mext.go.jp/component/a_menu/education/detail/__icsFiles/afieldfile/2019/09/04/1420661-1_1.pdf). 文部科学省 (2019). — 公会計化により「督促業務等から解放されて子供に向き合う時間や授業改善の時間を確保できる」と整理。
+
+### 海外の研究
+
 - Babad, E. Y., Inbar, J., & Rosenthal, R. (1982). [Pygmalion, Galatea, and the Golem: Investigations of biased and unbiased teachers](https://doi.org/10.1037/0022-0663.74.4.459). *Journal of Educational Psychology*, 74(4), 459–474. — 教師期待バイアスの負の側面(ゴーレム効果)を実験的に検証した古典研究。
 - Lundborg, P., Rooth, D.-O., & Alex-Petersen, J. (2022). [Long-Term Effects of Childhood Nutrition: Evidence from a School Lunch Reform](https://doi.org/10.1093/restud/rdab028). *Review of Economic Studies*, 89(2), 876–908. — スウェーデン段階導入を自然実験として活用。生涯所得 +3%、低所得層 +6%、身長 +0.5〜0.7cm(性別差あり)、教育年数 +0.3 年。
 - Holford, A., & Rabe, B. (2024). [Universal Free School Meals and Child Outcomes](https://www.sciencedirect.com/science/article/pii/S0167629624000821). *Journal of Health Economics*. — 英 UIFSM 導入で小 1 の BMI -0.041 SD、肥満率 -0.7pt。

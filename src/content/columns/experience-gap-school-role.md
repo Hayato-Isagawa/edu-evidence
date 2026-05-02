@@ -2,7 +2,7 @@
 title: 「体験格差」とエビデンス — 家庭・地域・学校の役割分担
 summary: 子どもの体験機会には家庭の経済状況や地域環境による格差がある。一義的な提供主体は家庭と地域・NPOであり、学校はその補完的な役割を担う。中室牧子氏らのプロジェクトと国内外の研究から、役割分担を整理する。
 date: "2026-04-18"
-lastVerified: "2026-04-22"
+lastVerified: "2026-05-02"
 tags: ["格差", "非認知能力", "特別活動"]
 relatedStrategies: ["social-emotional-learning", "outdoor-learning", "tokkatsu", "arts-participation", "early-years-intervention"]
 ---
@@ -105,7 +105,15 @@ SEL は学力にも波及するエビデンスがあり、Durlak et al.(2011)の
 
 ## 参考資料
 
+### 日本の研究・公式資料
+
 - [エジプトにおける特別活動を中心とした日本式教育の取り組みについて(2025 年 3 月シンポジウム資料)](https://www.eduport.mext.go.jp/epsite/wp-content/uploads/2025/02/Symposium_JICA_202503JPN.pdf). JICA 人間開発部 (2025). — 日本エジプト学校 69 校および全公立校週 40 分必修化の制度化状況。
-- [慶應義塾大・中室牧子氏ら4者、子どもの体験格差を解消し生きる力を育む「子どもの体験格差解消プロジェクト」を発足](https://edtechzine.jp/article/detail/8805). EdTechZine, 2023-01-31. — 中室牧子氏(慶應義塾大学)ら 4 者共同のプロジェクト発足を報じた記事。約 150 団体・1 万世帯の実態調査と 1,000 名への体験機会提供を 2025 年 3 月末までの 3 年間で実施する計画。
 - [教育格差の処方箋 子供と過ごす時間の質高めよ](https://www.rieti.go.jp/jp/papers/contribution/nakamuro-makiko/02.html). 中室牧子, 日本経済新聞『経済教室』, 2022-08-22(RIETI 再掲 2022-08-29). — デンマークで小学 2 年生の親約 1,500 人を対象にした RCT を引用。関わり方のヒントを書いたパンフレット配布だけで子どもの読み書き能力が底上げされ、特に低学歴・低所得層で効果が大きかったと紹介。
+
+### 海外の研究
+
 - Durlak, J. A., et al. (2011). [The impact of enhancing students' social and emotional learning: A meta-analysis of school-based universal interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 213 プログラム(270,034 人)メタ分析。学力が平均 11 パーセンタイル向上、社会性・態度・行動にも正の効果。
+
+### 関連読み物
+
+- [慶應義塾大・中室牧子氏ら4者、子どもの体験格差を解消し生きる力を育む「子どもの体験格差解消プロジェクト」を発足](https://edtechzine.jp/article/detail/8805). EdTechZine, 2023-01-31. — 中室牧子氏(慶應義塾大学)ら 4 者共同のプロジェクト発足を報じた記事。約 150 団体・1 万世帯の実態調査と 1,000 名への体験機会提供を 2025 年 3 月末までの 3 年間で実施する計画。

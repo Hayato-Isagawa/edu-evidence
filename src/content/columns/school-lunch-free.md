@@ -2,7 +2,7 @@
 title: 給食無償化は何を変えるのか — 政策目的とエビデンスを整理する
 summary: 2026年4月、公立小学校の給食が全国一律で無償化された。この政策は何を目的としていて、研究は何を示しているのか。自治体の政策目的、米国主軸の先行研究、そして日本の制度文脈との差を整理する。
 date: "2026-04-14"
-lastVerified: "2026-04-26"
+lastVerified: "2026-05-02"
 tags: ["給食", "政策", "格差"]
 relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 ---
@@ -111,12 +111,17 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ## 参考資料
 
+### 日本の研究・公式資料
+
 - [「給食無償化」に関する課題の整理について](https://www.mext.go.jp/a_menu/sports/syokuiku/mext_00001.html). 文部科学省 (2024), 2024 年 12 月 27 日公表. — 自治体の政策目的の内訳と課題整理。
 - [学校給食法](https://laws.e-gov.go.jp/law/329AC0000000160). 昭和 29 年法律第 160 号. — 給食実施の根拠法。第 4 条で設置者の実施努力義務、第 11 条第 2 項で保護者の費用負担を規定。
 - [令和 3 年度学校給食実施状況等調査](https://www.mext.go.jp/b_menu/toukei/chousa05/kyuushoku/kekka/k_detail/1413836.htm). 文部科学省 (2023). — 小学校の給食実施率 99.0%(うち完全給食 98.7%、補食給食 0.2%、ミルク給食 0.1%)。全員給食を制度的前提とすることを示す。
 - [学校給食実施基準](https://www.mext.go.jp/a_menu/sports/syokuiku/1407704.htm). 令和 3 年文部科学省告示第 10 号. — エネルギー・主要栄養素の摂取基準を法定。
 - [学校給食費徴収・管理に関するガイドライン](https://www.mext.go.jp/content/20230821-mxt_kenshoku-100003364_4.pdf). 文部科学省 (2023, 改訂版). — 督促手順を規定。給食提供停止や弁当持参指示は記述されていない。
 - [就学援助実施状況](https://www.mext.go.jp/a_menu/shotou/career/05010502/1412177_00003.htm). 文部科学省. — 要保護・準要保護世帯への給食費補助を含む就学援助の実施実態。
+
+### 海外の研究
+
 - Ayllón, S., & Lado, S. (2025). [The Causal Impact of School-Meal Programmes on Children in Developed Economies: A Meta-Analysis](https://www.iza.org/publications/dp/18042/the-causal-impact-of-school-meal-programmes-on-children-in-developed-economies-a-meta-analysis). IZA Discussion Paper No. 18042. — 先進国 42 研究・2,821 推定値のメタ分析。所得制限なしの一律プログラムの効果は minimal。
 - Spill, M. K., et al. (2024). [Universal Free School Meals and School and Student Outcomes: A Systematic Review](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2822155). *JAMA Network Open*, 7(8), e2424082. — 米国 11,000 校超を対象とした系統的レビュー。参加率・出席率・肥満・停学に関する結果。
 - Cohen, J. F. W., et al. (2021). [Universal School Meals and Associations with Student Participation, Attendance, Academic Performance, Diet Quality, Food Security, and Body Mass Index: A Systematic Review](https://pmc.ncbi.nlm.nih.gov/articles/PMC8000006/). *Nutrients*, 13(3), 911. — 高所得層で効果が大きいと報告。
