@@ -66,43 +66,35 @@ const breadcrumbJsonLd = {
     </a>
   </div>
 
-  <header class="grid grid-cols-12 gap-6 pb-12 border-b border-[var(--color-line)]">
-    <div class="col-span-12 md:col-span-8 space-y-6">
-      <div class="space-y-1">
-        <p
-          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
-        >
-          Column — {d.date}{d.lastVerified && d.lastVerified !== d.date ? ` / 最終更新 ${d.lastVerified}` : ""}
-        </p>
-        <p class="text-xs text-[var(--color-sub)]">コラム</p>
-      </div>
-      <h1
-        class="font-black text-4xl md:text-5xl leading-[1.15] tracking-tight"
-      >
-        {d.title}
-      </h1>
-      <p
-        class="text-[var(--color-sub)] text-base md:text-lg leading-loose max-w-xl"
-      >
-        {d.summary}
-      </p>
-    </div>
-    <div class="col-span-12 md:col-span-4 md:pt-12">
-      {
-        d.tags.length > 0 && (
-          <div class="flex flex-wrap gap-2">
-            {d.tags.map((tag) => (
-              <a
-                href={`/tags/${encodeURIComponent(tag)}`}
-                class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] border border-[var(--color-line)] rounded-full px-3 py-1 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition"
-              >
-                {tag}
-              </a>
-            ))}
-          </div>
-        )
-      }
-    </div>
+  <header class="pb-12 border-b border-[var(--color-line)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+      Column — {d.date}{d.lastVerified && d.lastVerified !== d.date ? ` / 最終更新 ${d.lastVerified}` : ""}
+    </p>
+    <p class="mt-1 text-xs text-[var(--color-sub)]">コラム</p>
+    <h1
+      class="mt-5 font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight"
+    >
+      {d.title}
+    </h1>
+    <p
+      class="mt-6 text-[var(--color-sub)] text-base md:text-lg leading-loose max-w-2xl"
+    >
+      {d.summary}
+    </p>
+    {
+      d.tags.length > 0 && (
+        <div class="mt-6 flex flex-wrap gap-2">
+          {d.tags.map((tag) => (
+            <a
+              href={`/tags/${encodeURIComponent(tag)}`}
+              class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)] border border-[var(--color-line)] rounded-full px-3 py-1 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      )
+    }
   </header>
 
   <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-10">
