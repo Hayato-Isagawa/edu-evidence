@@ -1,2 +1,7 @@
 # www付きからwwwなしへリダイレクト(カスタムドメイン取得後に有効)
 # https://www.edu-evidence.jp/* https://edu-evidence.jp/:splat 301
+
+# /strategies は独立ページではなくトップの #strategy-list セクションに集約しているため、
+# /strategies と /strategies/ への直接アクセスをトップへリダイレクトする
+/strategies     /#strategy-list   301
+/strategies/    /#strategy-list   301
