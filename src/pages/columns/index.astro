@@ -18,6 +18,16 @@ const allTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
 
 // URL `?tag=<tag>` から初期選択タグを取得(SSR)
 const initialTag = Astro.url.searchParams.get("tag") ?? "";
+
+const listDayFormatter = new Intl.DateTimeFormat("ja-JP", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "Asia/Tokyo",
+});
+function formatListDay(iso: string): string {
+  return listDayFormatter.format(new Date(`${iso}T00:00:00+09:00`));
+}
 ---
 
 <Layout title="エビデンスで考える — EduEvidence JP">
@@ -97,12 +107,15 @@ const initialTag = Astro.url.searchParams.get("tag") ?? "";
                   </p>
                 </div>
                 <div class="col-span-12 md:col-span-3 md:text-right">
-                  <span class="font-mono text-xs text-[var(--color-sub)]">
-                    {c.data.lastVerified ?? c.data.date}
+                  <time
+                    class="font-mono text-xs text-[var(--color-sub)]"
+                    datetime={c.data.lastVerified ?? c.data.date}
+                  >
+                    {formatListDay(c.data.lastVerified ?? c.data.date)}
                     {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
                       <span class="ml-1 text-[var(--color-accent)]">(更新)</span>
                     )}
-                  </span>
+                  </time>
                   <span class="inline-block ml-3 transition group-hover:translate-x-1 text-[var(--color-sub)]">
                     →
                   </span>
