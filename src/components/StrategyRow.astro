@@ -27,9 +27,9 @@ const num = String(index).padStart(2, "0");
 const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
 
 const badgeConfig = {
-  eef: { label: "EEF", color: "text-sky-800 border-sky-800/40 bg-sky-50" },
-  japan: { label: "日本", color: "text-rose-700 border-rose-700/40 bg-rose-50" },
-  hattie: { label: "Hattie", color: "text-amber-800 border-amber-800/40 bg-amber-50" },
+  eef: { label: "EEF", color: "text-sky-800 border-sky-800/40 bg-sky-50 dark:text-sky-200 dark:border-sky-200/40 dark:bg-sky-200/10" },
+  japan: { label: "日本", color: "text-rose-700 border-rose-700/40 bg-rose-50 dark:text-rose-200 dark:border-rose-200/40 dark:bg-rose-200/10" },
+  hattie: { label: "Hattie", color: "text-amber-800 border-amber-800/40 bg-amber-50 dark:text-amber-200 dark:border-amber-200/40 dark:bg-amber-200/10" },
 } as const;
 
 type BadgeKey = keyof typeof badgeConfig;
