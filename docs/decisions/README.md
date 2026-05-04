@@ -46,3 +46,4 @@
 - [0006. 反論型コラムを解説型に差し替える(前提検証ルール)](0006-rebuttal-column-replaced-with-explainer.md)
 - [0007. UI 状態はセマンティック属性(aria-* / data-*)で管理する](0007-semantic-attribute-state-management.md)
 - [0008. 直線 3px アクセントバーは角張ったリスト要素のみに適用する](0008-linear-accent-bar-scope.md)
+- [0018. 静的 default OG 画像を整備し、個別 OG を持たないページのフォールバックとする](0018-static-default-og-image.md)
