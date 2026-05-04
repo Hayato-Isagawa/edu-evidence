@@ -132,3 +132,7 @@ charts:
 ### 海外の研究
 
 - [Reducing class size](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 学級規模縮小の学力効果は +1 ヶ月で限定的。
+
+### 関連読み物
+
+- 『崩壊する日本の公教育』 鈴木大裕 (2023), 集英社新書 1235E. — 元中学校教師で米国コロンビア大学で教育学博士号を取得、現在は高知県土佐町議会議員も務める著者が、米国の教育市場化(チャータースクール・標準テスト)の経緯を追いながら日本の公教育が直面する構造的課題を論じた書籍。本コラムが扱う教員不足・労働環境の文脈と地続きの読み物。
