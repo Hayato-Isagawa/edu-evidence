@@ -15,7 +15,7 @@ evidence:
     monthsGained: 6
     strength: 5
     note: "EEF Toolkit で +6ヶ月・エビデンス★5。幼児期 +7、小学校 +6、中学校 +5。週3回以上の頻繁なセッションが効果的。話すことと聞くことの両方に焦点を当てる。"
-lastVerified: "2026-04-17"
+lastVerified: "2026-05-05"
 methodology:
   studies: 222
   sampleSize: "幼児〜中等教育(2025年5月 EEF 更新で 188→222 研究)"

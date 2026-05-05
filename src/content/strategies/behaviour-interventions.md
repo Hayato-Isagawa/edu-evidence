@@ -1,7 +1,7 @@
 ---
 title: 行動への働きかけ
 summary: 望ましい行動を増やし、学習を妨げる行動を減らす指導的アプローチ。学級経営の基盤になる。
-monthsGained: 4
+monthsGained: 3
 evidenceStrength: 3
 cost: 2
 subjects: ["全教科"]
@@ -12,10 +12,10 @@ sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teachi
 sourceTitle: "EEF Teaching and Learning Toolkit — Behaviour interventions"
 evidence:
   eef:
-    monthsGained: 4
+    monthsGained: 3
     strength: 3
-    note: "EEF Toolkit で +4ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。対象を絞った介入(困難の大きい子への個別計画)で効果が大きい。"
-lastVerified: "2026-04-26"
+    note: "EEF Toolkit で +3ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。対象を絞った介入(困難の大きい子への個別計画)で効果が大きい。"
+lastVerified: "2026-05-05"
 methodology:
   studies: 249
   sampleSize: "K-12 の 249 研究(Wilson & Lipsey 2007 の Campbell/Cochrane レビュー)"
@@ -51,7 +51,7 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 平均的に、学習は約4ヶ月分前進します。
+- 平均的に、学習は約3ヶ月分前進します。
 - 効果は、対象を絞った介入(個別の支援が必要な児童への個別計画)で特に大きくなります。
 - 学級全体への一律の介入より、必要な子に焦点を当てる方が効率的です。
 
