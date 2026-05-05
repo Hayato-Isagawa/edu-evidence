@@ -54,7 +54,7 @@ relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-l
 
 - **授業の質に投資する** — [フィードバック](/strategies/feedback)(+6 ヶ月)、[メタ認知の指導](/strategies/metacognition)(+8 ヶ月)は、家庭の SES にかかわらず効く高効果の指導。学級規模縮小(+1 ヶ月)より優先度が高い(中室の費用対効果論とも整合)
 - **夏休みの学力低下への対策** — 長期休業は SES による家庭の学習機会の差が出やすい局面。[夏休みの学力低下](/strategies/summer-learning-loss) 戦略ページ参照
-- **非認知能力を意識した学級経営** — [SEL](/strategies/social-emotional-learning) (+4 ヶ月) や特別活動は非認知能力の育成と親和性が高い
+- **非認知能力を意識した学級経営** — [SEL](/strategies/social-emotional-learning) (+3 ヶ月) や特別活動は非認知能力の育成と親和性が高い
 - **家庭の学習を補う校内のしくみ** — 図書館活用、朝の時間の読書習慣、低学年の書く量を支える指導など
 - **SSW との連携** — 貧困・家庭機能不全などが背景にあるケースでは、担任一人で抱えず **スクールソーシャルワーカー(SSW)** や市町村福祉部局と連携する(「チーム学校」の枠組み)
 

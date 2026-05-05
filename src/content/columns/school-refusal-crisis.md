@@ -43,8 +43,8 @@ charts:
 
 ただし、関連する知見はあります。
 
-- **[社会性と情動の学習(SEL)](/strategies/social-emotional-learning)** (+4ヶ月) — 自己理解・対人スキル・感情調整を育てるプログラムは、学校適応と学力の両方に正の効果がある
-- **[行動への働きかけ](/strategies/behaviour-interventions)** (+4ヶ月) — 困難の大きい子への個別計画が、全体への一律対応より効果的
+- **[社会性と情動の学習(SEL)](/strategies/social-emotional-learning)** (+3ヶ月) — 自己理解・対人スキル・感情調整を育てるプログラムは、学校適応と学力の両方に正の効果がある
+- **[行動への働きかけ](/strategies/behaviour-interventions)** (+3ヶ月) — 困難の大きい子への個別計画が、全体への一律対応より効果的
 - **[教師と子どもの関係性](/strategies/teacher-student-relationships)** (+4ヶ月) — 「この先生は自分をわかってくれている」という感覚が学校適応を支える
 
 いずれも「不登校になった後の対処」ではなく、**「不登校を予防する学級環境づくり」**に関するエビデンスです。
@@ -91,5 +91,5 @@ charts:
 - [令和 6 年度 児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査結果](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1302902.htm). 文部科学省 (2025). — 不登校 35 万 3,970 人(過去最多・12 年連続増)、新規は 9 年ぶり減、2025 年 10 月 29 日公表。
 - [教育機会確保法](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422155.htm). 文部科学省 (2016). — 学校外の学びの場を含む教育機会の保障を明文化した法律。
 - [誰一人取り残されない学びの保障に向けた不登校対策(COCOLO プラン)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). 文部科学省 (2023). — 教育支援センター・ICT 活用・SC/SSW 配置拡充の政策パッケージ。
-- [Social and emotional learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/social-and-emotional-learning). Education Endowment Foundation, *Teaching and Learning Toolkit*. — SEL 全般で +4 ヶ月。学級環境づくりに関するエビデンス概観。
+- [Social and emotional learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/social-and-emotional-learning). Education Endowment Foundation, *Teaching and Learning Toolkit*. — SEL 全般で +3 ヶ月。学級環境づくりに関するエビデンス概観。
 - Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., & Schellinger, K. B. (2011). [The impact of enhancing students' social and emotional learning: A meta-analysis of school-based universal interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 213 本の学校ベース SEL プログラムのメタ分析。学業成績で平均 11 パーセンタイルの効果。

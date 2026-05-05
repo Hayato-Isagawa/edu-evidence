@@ -16,7 +16,7 @@ evidence:
     monthsGained: 8
     strength: 5
     note: "2025年のEEF Toolkit 更新で +7 → +8ヶ月に引き上げ(107の新しい研究を追加)。小学校で特に大きな効果。『思考について考える』を明示的に教えることが鍵。"
-lastVerified: "2026-04-22"
+lastVerified: "2026-05-05"
 methodology:
   studies: 246
   sampleSize: "小中学校の児童生徒対象"
