@@ -1,7 +1,7 @@
 ---
 title: ピア・チュータリング
 summary: 子どもが子どもに教え合う指導。教える側にも学ぶ側にも効果がある、コストの低い実践。
-monthsGained: 5
+monthsGained: 6
 evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
@@ -12,10 +12,10 @@ sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teachi
 sourceTitle: "EEF Teaching and Learning Toolkit — Peer tutoring"
 evidence:
   eef:
-    monthsGained: 5
+    monthsGained: 6
     strength: 4
-    note: "EEF Toolkit で +5ヶ月・エビデンス★4。Rohrbeck et al.(2003)の小学生対象メタ分析で加重 d=0.33、Bowman-Perrott et al.(2013)で d=0.75(ただし対象・手法に幅あり)。構造化(役割・手順明確)されたプログラムほど効果が大きい。"
-lastVerified: "2026-04-18"
+    note: "EEF Toolkit で +6ヶ月・エビデンス★4。Rohrbeck et al.(2003)の小学生対象メタ分析で加重 d=0.33、Bowman-Perrott et al.(2013)で d=0.75(ただし対象・手法に幅あり)。構造化(役割・手順明確)されたプログラムほど効果が大きい。"
+lastVerified: "2026-05-05"
 methodology:
   studies: 26
   sampleSize: "26 単一被験体研究 / 938 名(Grade 1〜12)"
@@ -51,7 +51,7 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 平均的に、学習は約5ヶ月分前進します。
+- 平均的に、学習は約6ヶ月分前進します。
 - 教える側にも教わる側にも効果があります。特に教える側の理解の深化が報告されています。
 - 構造化された(役割・手順が明確な)ピア・チュータリングほど効果が大きくなります。
 
@@ -65,7 +65,7 @@ culturalContext: |
 
 - Rohrbeck, C. A., Ginsburg-Block, M. D., Fantuzzo, J. W., & Miller, T. R. (2003). [Peer-assisted learning interventions with elementary school students](https://doi.org/10.1037/0022-0663.95.2.240). *Journal of Educational Psychology*, 95(2), 240–257. — 小学生を対象としたメタ分析。加重効果量d=0.33。低所得層・マイノリティの子どもで効果が大きい。
 - Bowman-Perrott, L., et al. (2013). [Academic benefits of peer tutoring](https://doi.org/10.1080/02796015.2013.12087490). *School Psychology Review*, 42(1), 39–55. — ピア・チュータリングの学力効果を包括的にレビュー。教える側・教わる側の双方に効果を確認。
-- EEF (2021). Peer tutoring: Evidence review. — 効果量+5ヶ月。構造化された設計の重要性を強調。
+- EEF (2021). Peer tutoring: Evidence review. — 効果量+6ヶ月。構造化された設計の重要性を強調。
 
 ## 関連する学習指導要領
 

@@ -54,8 +54,8 @@ relatedStrategies: ["social-emotional-learning", "behaviour-interventions", "scr
 
 | エビデンス | 効果量 | 出典 |
 |---|---|---|
-| [社会性と情動の学習(SEL)](/strategies/social-emotional-learning) | +4 ヶ月 | Durlak et al.(2011)/ EEF |
-| [行動への働きかけ](/strategies/behaviour-interventions) | +4 ヶ月 | Wilson & Lipsey(2007)/ EEF |
+| [社会性と情動の学習(SEL)](/strategies/social-emotional-learning) | +3 ヶ月 | Durlak et al.(2011)/ EEF |
+| [行動への働きかけ](/strategies/behaviour-interventions) | +3 ヶ月 | Wilson & Lipsey(2007)/ EEF |
 
 SEL は「自己理解・自己管理・他者理解・対人スキル・意思決定」の 5 領域を育てる学習。行動介入は「望ましい行動を増やし、妨げる行動を減らす」指導アプローチで、EEF は **個別の支援が必要な児童への個別計画の方が、全体への一律指導より効率的** であることを示しています。
 

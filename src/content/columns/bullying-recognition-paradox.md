@@ -60,8 +60,8 @@ charts:
 
 | 指導法 | 効果量 | いじめ予防との接点 |
 |---|---|---|
-| [社会性と情動の学習(SEL)](/strategies/social-emotional-learning) | +4ヶ月 | 自己理解・感情調整・対人スキルを育てる。いじめの加害・被害の両方を減らす効果 |
-| [行動への働きかけ](/strategies/behaviour-interventions) | +4ヶ月 | 望ましい行動を増やすアプローチ。困難の大きい子への個別計画が効果的 |
+| [社会性と情動の学習(SEL)](/strategies/social-emotional-learning) | +3ヶ月 | 自己理解・感情調整・対人スキルを育てる。いじめの加害・被害の両方を減らす効果 |
+| [行動への働きかけ](/strategies/behaviour-interventions) | +3ヶ月 | 望ましい行動を増やすアプローチ。困難の大きい子への個別計画が効果的 |
 | [教師と子どもの関係性](/strategies/teacher-student-relationships) | +4ヶ月 | 「この先生は自分をわかってくれている」と感じる子はSOSを出しやすい |
 
 Durlak et al.（2011）の213件のSELプログラムを対象としたメタ分析では、学力向上に加えて**社会的スキル・態度・行動面でも正の効果**が確認されています。SELは「いじめ対策」として単独で導入するより、**学級経営の基盤として日常化** する方が効果的です。
@@ -91,7 +91,7 @@ Durlak et al.（2011）の213件のSELプログラムを対象としたメタ分
 - いじめ認知件数は **76 万 9,022 件** で過去最多、重大事態は **1,405 件**(令和 6 年度)
 - 文科省は認知件数の多さを「初期段階から積極的に認知して対応しているスタートライン」と **肯定的に評価** しており、「認知が多い = 悪化」ではない
 - 増加の背景には、**2013 年いじめ防止対策推進法による定義の拡大・アンケートの充実・GIGA 端末での心身チェック・SNS いじめの積極認知** など認知する力の向上がある
-- 予防エビデンス: [SEL](/strategies/social-emotional-learning) **+4 ヶ月** / [行動への働きかけ](/strategies/behaviour-interventions) **+4 ヶ月** / [教師と子どもの関係性](/strategies/teacher-student-relationships) **+4 ヶ月**
+- 予防エビデンス: [SEL](/strategies/social-emotional-learning) **+3 ヶ月** / [行動への働きかけ](/strategies/behaviour-interventions) **+3 ヶ月** / [教師と子どもの関係性](/strategies/teacher-student-relationships) **+4 ヶ月**
 - 対応は **いじめ防止対策推進法 第 22 条の常設組織** を通じた組織対応が前提。重大事態(第 28 条)は警察・医療機関・児相等の関係機関連携が法定
 
 ## 参考資料
