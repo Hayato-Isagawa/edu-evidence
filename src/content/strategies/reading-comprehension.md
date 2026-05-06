@@ -15,7 +15,7 @@ evidence:
     monthsGained: 7
     strength: 5
     note: "EEF Toolkit で +7ヶ月・エビデンス★5(最高ランク)。言語理解と意味構築を明示的に教える手法。『予測・質問・要約・関連付け』などの戦略を段階的に指導することが効果的。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-05-06"
 methodology:
   studies: 60
   sampleSize: "小中学生を中心とした複数メタ分析"
