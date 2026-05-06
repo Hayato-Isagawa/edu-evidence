@@ -58,9 +58,9 @@ Pashler 2008 以降も追試は続き、結論は変わっていません。
 - [Cuevas (2015)](https://doi.org/10.1177/1477878515606621) — *Theory and Research in Education* の系統的再レビュー。学習スタイル理論を支持する研究はサンプルサイズ・統制群の設計・効果の独立性のいずれかに問題があり、**再現可能な支持エビデンスはほぼ存在しない**
 - [Aslaksen & Lorås (2018)](https://doi.org/10.3389/fpsyg.2018.01538) — modality-specific 学習仮説(感覚様式に特化した学習)のミニレビュー。脳機能と感覚様式の対応を主張する研究を含めても、**教育場面での meshing 効果は支持されない**
 
-## なぜ「最重要 neuromyth」なのか
+## なぜ「最も影響力の大きな神経神話」なのか
 
-[Howard-Jones (2014)](https://doi.org/10.1038/nrn3817) は *Nature Reviews Neuroscience* で、教育界に流通する科学的に誤った言説(neuromyths)を体系的に整理し、**学習スタイル / VARK を最も拡散している neuromyth** として位置づけました。
+[Howard-Jones (2014)](https://doi.org/10.1038/nrn3817) は *Nature Reviews Neuroscience* で、教育界に流通する科学的に誤った言説(神経神話)を体系的に整理し、**学習スタイル / VARK を最も拡散している神経神話** として位置づけました。
 
 なぜここまで広まったのか。研究者側の分析は次のようなものです。
 
@@ -100,7 +100,7 @@ Pashler 2008 以降も追試は続き、結論は変わっていません。
 ## まとめ
 
 - Pashler ら 2008 のレビューは、学習スタイルの meshing 仮説を支持する **適切なエビデンス基盤は存在しない** と結論
-- それから 15 年以上経っても、教員(英国 **93%** / オランダ **96%**、Dekker 2012)・学術文献(高等教育関連論文の **89%**、Newton 2015)・米国成人(**90% 超**、Nancekivell 2020)で学習スタイル理論が支持され続けており、教育界に最も深く根付いた neuromyth と位置づけられている(Howard-Jones 2014)
+- それから 15 年以上経っても、教員(英国 **93%** / オランダ **96%**、Dekker 2012)・学術文献(高等教育関連論文の **89%**、Newton 2015)・米国成人(**90% 超**、Nancekivell 2020)で学習スタイル理論が支持され続けており、教育界に最も深く根付いた神経神話と位置づけられている(Howard-Jones 2014)
 - 追試の RCT・系統的レビュー(Husmann 2019 N=426 / Rogowsky 2020 / Cuevas 2015 / Aslaksen 2018)も meshing 効果を支持しない
 - ただし **特別支援教育の合理的配慮** は本コラムの否定対象には含まれない別の領域
 - ラベル別最適化ではなく、[二重符号化](/strategies/dual-coding)・[メタ認知の指導](/strategies/metacognition)・[個別最適化指導](/strategies/individualised-instruction)・[授業のユニバーサルデザイン](/strategies/universal-design-learning) のような、全員に届くエビデンスベースのアプローチの方が、効果量は桁違いに大きい
