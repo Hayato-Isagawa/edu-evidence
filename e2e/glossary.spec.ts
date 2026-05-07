@@ -51,6 +51,6 @@ test.describe("用語集ページ構造", () => {
   test("神経神話エントリが critical_thinking カテゴリ配下に表示される", async ({ page }) => {
     await page.goto("/guide/glossary");
     const section = page.locator('section[aria-labelledby="cat-critical_thinking"]');
-    await expect(section.getByText("神経神話")).toBeVisible();
+    await expect(section.locator("[id='神経神話']")).toBeVisible();
   });
 });
