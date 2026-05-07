@@ -1,93 +1,34 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { glossary, type GlossaryCategory } from "../../data/glossary";
 
-// 戦略データを取得し、数値依存の用語定義を動的に生成
-const strategies = await getCollection("strategies");
-const strategyMap = new Map(
-  strategies.map((s) => [s.id, s.data])
-);
+const categoryLabels: Record<GlossaryCategory, string> = {
+  foundations: "基本概念とエビデンス",
+  pedagogy: "指導法・学習プロセス",
+  methodology: "統計・方法論",
+  cognitive_science: "認知科学・学習科学",
+  critical_thinking: "批判的思考と科学的態度",
+  japan_context: "日本の教育文脈",
+};
 
-/** 戦略の効果量を「+Xヶ月」形式で取得。見つからなければエラー */
-function months(slug: string): string {
-  const s = strategyMap.get(slug);
-  if (!s) throw new Error(`Strategy not found: ${slug}`);
-  const sign = s.monthsGained > 0 ? "+" : "";
-  return `${sign}${s.monthsGained}ヶ月`;
-}
-
-const terms = [
-  { term: "エビデンス", en: "Evidence", def: "研究で確かめられた知見や根拠。個人の経験や印象ではなく、データに基づいて「効果がある/ない」を判断するための材料。本サイトでは主にメタ分析やRCTの結果を指す。エビデンスは「正解」ではなく「判断の材料」であり、教師の専門的判断と組み合わせて使うもの。" },
-  { term: "メタ分析", en: "Meta-analysis", def: "同じテーマについて行われた数十〜数百本の研究を統計的に統合し、全体的な傾向を分析する手法。1本の研究では「たまたま」の可能性があるが、多数を統合すると信頼性が高くなる。本サイトの「+◯ヶ月」の多くはメタ分析から算出されている。" },
-  { term: "効果量", en: "Effect size", def: "「効果があった」だけでなく「どのくらい効いたか」を数値化した指標。代表的なのはコーエンのd。d=0.2で小さい効果、d=0.5で中程度、d=0.8で大きい効果。本サイトではd≈0.1を約1ヶ月に換算して表示している。" },
-  { term: "RCT(ランダム化比較試験)", en: "Randomized Controlled Trial", def: "対象者をくじ引き等でランダムに2群に分け、片方にだけ指導法を実施し、もう片方と比較する。ランダムに分けることで両群の条件(学力・家庭環境等)がほぼ同じになるため、差が出れば「指導法のおかげ」と言える。教育研究では倫理的・実務的な理由から実施が難しく、数が限られている。日本の小学校分野では、教科担任制について慶應義塾大学・赤林英夫氏らによる 2025 年の大規模効果検証が初期の事例として知られる。" },
-  { term: "クラスターRCT(集団単位のランダム化比較試験)", en: "Cluster Randomized Controlled Trial", def: "学級・学年・学校といった「集団(クラスター)」を単位としてランダムに介入群・対照群に割り付けるRCT。個人単位でランダム化できない教育介入(学級規模の縮小、教科担任制、新しいカリキュラム等)に適した設計。通常のRCTより多くの対象者が必要で、分析では級内相関(ICC)を考慮したマルチレベル分析を行う。日本の教育研究ではこの設計が特に適しており、赤林英夫氏ら(2025)の教科担任制の効果検証もクラスターRCT。" },
-  { term: "システマティックレビュー", en: "Systematic review", def: "あるテーマについて、検索条件を明確にして網羅的に文献を収集し、一定の基準で質を評価する手法。「手当たり次第に探す」のではなく「漏れなく・偏りなく集める」点が通常の文献レビューと異なる。メタ分析の前段階として行われることが多い。" },
-  { term: "コーエンのd", en: "Cohen's d", def: "2つのグループ(例：介入群と対照群)の平均点の差を、ばらつき(標準偏差)で割った値。教科や年齢が異なる研究同士でも効果の大きさを比較できる共通の物差し。d=0.2(小)、d=0.5(中)、d=0.8(大)が目安。" },
-  { term: "形成的評価", en: "Formative assessment", def: "学習の途中で行う評価。通知表のための成績づけ(総括的評価)とは異なり、「今どこでつまずいているか」「次に何をすべきか」を教師と子どもが把握し、指導を調整するために行う。小テスト・ノートチェック・対話などが具体例。" },
-  { term: "メタ認知", en: "Metacognition", def: `「自分の思考について考える」こと。「今の自分は何が分かっていて、何が分かっていないか」「この方法でうまくいっているか」を意識する力。学習効果が最も高い領域の一つ(${months("metacognition")})。` },
-  { term: "自己調整学習", en: "Self-regulated learning", def: "学習者が自分で目標を設定し、計画を立て、実行し、振り返り、次の学びにつなげるプロセス。メタ認知が土台。「やらされる勉強」から「自分で進める学び」への転換。" },
-  { term: "足場かけ", en: "Scaffolding", def: `子どもが一人ではできないことに取り組むとき、教師がヒント・手順の分解・モデルの提示などで段階的に支援し、できるようになるにつれて支援を外していくこと。「教えすぎない、でも放置しない」の技術。効果量${months("scaffolding")}。` },
-  { term: "フィードバック", en: "Feedback", def: "学びや行動に対して具体的な情報を返すこと。「何がよかったか」「次はどうするか」を伝える。" },
-  { term: "協同学習", en: "Cooperative learning", def: "子ども同士が小グループで役割を持って学び合う指導法。全員が貢献する設計が鍵。" },
-  { term: "マスタリーラーニング", en: "Mastery learning", def: "全員が一定の到達基準に達してから次に進む学習方式。理解の差を時間で吸収する。" },
-  { term: "ピア・チュータリング", en: "Peer tutoring", def: "子ども同士がペアになり、教え合う指導法。教える側にも学ぶ側にも効果がある。" },
-  { term: "SEL(社会性と情動の学習)", en: "Social and Emotional Learning", def: "自己理解・自己管理・他者理解・対人スキル・意思決定の5領域からなる非認知的能力の育成プログラム。" },
-  { term: "CASEL", en: "Collaborative for Academic, Social, and Emotional Learning", def: "Collaborative for Academic, Social, and Emotional Learningの略。米国を拠点とするSEL研究・普及の組織で、SELの5つの中核能力(自己認識・自己管理・社会的認識・対人関係スキル・責任ある意思決定)を定義した枠組みを提供している。世界的にSELの標準フレームワークとして採用され、本サイトのSEL関連ページもこの枠組みに準拠している。" },
-  { term: "成長マインドセット", en: "Growth mindset", def: "「能力は努力や戦略で伸ばせる」という信念。対義語は「固定マインドセット(能力は生まれつき決まっている)」。" },
-  { term: "ユニバーサルデザイン(授業UD)", en: "Universal Design for Learning", def: "特別な配慮なしに、すべての子が分かる授業を設計する手法。視覚化・焦点化・共有化の3原則。" },
-  { term: "研究授業", en: "Lesson Study", def: "教師が協働で授業を計画し、1人が実施、他が観察・検討する日本発の研修手法。世界にLesson Studyとして輸出された。" },
-  { term: "探究学習", en: "Inquiry-based learning", def: "子どもが自ら問いを立て、調べ、考え、まとめ、表現する学習。総合的な学習の時間の核。" },
-  { term: "反転授業", en: "Flipped classroom", def: "家庭で動画等により知識をインプットし、教室では対話・演習に集中する授業形態。" },
-  { term: "特別活動(特活)", en: "Tokkatsu", def: "学級活動・児童会活動・クラブ活動・学校行事を通じて自治的な力を育てる日本固有の教育領域。" },
-  { term: "非認知能力", en: "Non-cognitive skills", def: "テストの点数では測れない力の総称。粘り強さ(グリット)、自己効力感、協調性、自制心、好奇心などが含まれる。Heckmanの研究で「将来の年収・健康・犯罪率に学力と同等以上に影響する」ことが示され、注目が高まった。" },
-  { term: "GIGAスクール構想", en: "GIGA School Program", def: "「Global and Innovation Gateway for All」の略。児童生徒1人1台端末と高速ネットワークを整備する日本の国策。2020年度にコロナ禍で加速的に展開。端末の配備は完了したが「どう使うか」が次の課題。" },
-  { term: "デジタルシティズンシップ教育", en: "Digital citizenship education", def: "デジタル技術を使って社会に参加し、責任ある行動をとる『善き市民』を育てる教育。従来の情報モラル教育が『危険を避けるルール・マナー』を教える禁止型だったのに対し、デジタルシティズンシップ教育は『技術を主体的に使いこなし社会に参加する』という育成型のアプローチ。日本では坂本旬氏(法政大学)らが普及を主導し、2020年前後から実践研究と教材開発が進んでいる。" },
-  { term: "出版バイアス", en: "Publication bias", def: "「効果があった」研究は学術誌に発表されやすく、「効果がなかった」研究はお蔵入りしやすい傾向。その結果、メタ分析に含まれる研究が「効果あり」に偏り、全体の効果が過大評価される原因になる。本サイトの数値にもこのバイアスが含まれている可能性がある。" },
-  { term: "SES(社会経済的地位)", en: "Socioeconomic Status", def: "保護者の学歴・収入・職業などで構成される指標。松岡亮二氏の研究で、日本でもSESと学力の間に強い相関があることが実証されている。" },
-  { term: "EEF(英国教育基金財団)", en: "Education Endowment Foundation", def: "英国の教育研究財団。2011年設立。Teaching and Learning Toolkitで30以上の指導法を効果量・エビデンスの強さ・コストで評価し公開。本サイトの主要な参照元。CC BY-SA 4.0で公開されている。" },
-  { term: "Visible Learning", en: "Visible Learning (Hattie)", def: "ジョン・ハッティ(John Hattie)が800以上のメタ分析を統合し、250以上の要因を効果量(コーエンのd)で順位づけした教育研究プロジェクト。2009年の書籍で発表され、世界中の教育政策に影響を与えた。ただし、効果量が楽観的に出やすい傾向(例：ジグソー法 d=1.20)があり、独立したメタ分析で再現されない値もある。本サイトではEEFを主たるデータ源とし、Hattieの値は参考として併記している。" },
-  { term: "教育経済学", en: "Economics of Education", def: "経済学の手法(RCT・統計分析)を使って教育の効果や費用対効果を分析する学問分野。日本では中室牧子氏(慶應義塾大学)が代表的。「勘と経験」ではなく「データ」で教育を語る立場。" },
-  { term: "相関", en: "Correlation", def: "2つの変数が同時に変化する関係性のこと。AとBの間に相関があるとは、Aが大きいときBも大きい(または小さい)傾向があることを意味する。ただし相関は因果関係を意味せず、逆因果や交絡変数の可能性も残る。因果の証明にはRCTや縦断デザイン等の別の手法が必要。" },
-  { term: "因果関係", en: "Causation", def: "「AがBを引き起こす」という原因と結果の関係。単なる相関(AとBが同時に変化する)とは異なり、Aを変化させたときBも変化することを示す。因果関係を確認するにはRCT(ランダム化比較試験)・縦断研究・自然実験などの手法が必要で、観察研究だけでは逆因果や交絡変数の可能性を排除できない。" },
-
-  // 統計・方法論
-  { term: "標準偏差", en: "Standard deviation", def: "データのばらつきを示す指標。同じ平均点でも、ばらつきが小さければ「みんな似た水準」、大きければ「個人差が大きい」を意味する。効果量(コーエンのd)の計算でも使われる。" },
-  { term: "信頼区間", en: "Confidence interval", def: "推定値が収まる範囲を示す統計的な「幅」。例:「効果は+5ヶ月、95%信頼区間は+2〜+8ヶ月」とあれば、真の効果は2〜8ヶ月の範囲に収まる確率が95%という意味。狭い信頼区間ほど推定の精度が高い。" },
-  { term: "p値(有意確率)", en: "p-value", def: "「もし本当は効果がないとしたら、観察された差以上の差が偶然起きる確率」。一般に0.05未満なら「統計的に有意」とされる。ただし「効果が大きい」を意味するわけではない点に注意。" },
-  { term: "統計的有意性", en: "Statistical significance", def: "観察された差が「偶然では起きにくい」と判断できること。p<0.05が慣例。「統計的に有意 ≠ 実用的に意味がある」点に注意。サンプルが大きいと小さな差でも有意になる。" },
-  { term: "選択バイアス", en: "Selection bias", def: "研究の対象者が「典型」から偏ることで結果が歪む現象。例:「やる気のあるクラスだけを介入群にする」と効果が過大評価される。RCTはランダム化でこれを防ぐ。" },
-  { term: "交絡変数", en: "Confounding variable", def: "関心のある2つの変数(例:朝食と学力)の両方に影響する、隠れた第三の変数。家庭のSESは朝食習慣と学力の双方に影響しうるため、統制しないと『朝食が学力を上げた』という誤った因果推論につながる。観察研究の最大の難所であり、RCTはランダム化により交絡を除去できる点で強力。日本疫学会の定義では(1)アウトカムに影響を与える、(2)要因と関連がある、(3)要因とアウトカムの中間因子でない、の3条件を満たす変数を指す。" },
-  { term: "逆因果", en: "Reverse causality", def: "「AがBを引き起こす」と解釈される関係が、実際には「BがAを引き起こしている」可能性を指す。例:「読書量が多い子は学力が高い」という相関から「読書が学力を上げる」と解釈しがちだが、実際は「学力が高い子が読書を好む」という逆方向の因果が働いている可能性がある。観察研究では逆因果を排除できず、因果推論にはRCTや縦断デザイン等の工夫が必要。" },
-  { term: "差分の差分(DiD)", en: "Difference-in-differences", def: "因果推論の手法。介入前後の変化を介入群と非介入群で比較し、両者の差から介入の純粋な効果を推定する。RCTができない場合の代替手段で、教育政策の評価でよく使われる。" },
-  { term: "回帰不連続デザイン", en: "Regression discontinuity design", def: "ある基準値の前後で介入の有無が決まる場合に使う因果推論手法。例:「合格点ぎりぎりで合格した子」と「ぎりぎりで不合格だった子」を比較すれば、合格の効果がほぼ純粋に取り出せる。" },
-
-  // 認知科学・学習科学
-  { term: "認知負荷理論", en: "Cognitive load theory", def: "ジョン・スウェラーが提唱。ワーキングメモリの容量には限界があるため、教える内容を整理して認知的負担を最適化することが学びの効率を上げる、という理論。直接教授法・足場かけの理論的根拠の一つ。" },
-  { term: "ワーキングメモリ", en: "Working memory", def: "数秒間だけ情報を保持・処理する短期的な記憶領域。容量が小さく、同時に扱える情報は4±1個程度とされる。この限界が学習の難しさの主な原因の一つ。" },
-  { term: "学習科学", en: "Learning sciences", def: "認知心理学・神経科学・教育学・コンピューター科学などを統合し、「人はどう学ぶか」を解明する学際領域。1990年代以降に発展。エビデンスベース教育の理論基盤の一つ。" },
-  { term: "検索練習", en: "Retrieval practice", def: "学んだことを後から思い出す練習。ノートを読み返すより、自分で「何だっけ?」と思い出そうとする方が記憶が定着する。テスト効果(testing effect)とも呼ばれ、最も効果が確認されている学習法の一つ。" },
-  { term: "分散学習", en: "Spaced practice", def: "学習を間隔を空けて何度も実施すること。一夜漬けより、毎日少しずつ復習する方が長期記憶に残る。「忘れかけた頃に思い出す」と最も定着する(間隔反復)。" },
-  { term: "交互練習", en: "Interleaving", def: "複数の単元・問題タイプを混ぜて練習すること。ブロック学習(同じタイプを連続)より、長期的な定着と応用力が高まる。最初は難しく感じるが、それが学びを深める鍵。" },
-  { term: "二重符号化", en: "Dual coding", def: "言語と視覚イメージの両方で情報を処理すると記憶が強化される、というアラン・パイヴィオの理論。図解・概念マップ・スケッチノートが効果的な理由を説明する。" },
-
-  // 批判的思考と科学的態度
-  { term: "神経神話", en: "Neuromyth", def: "脳科学の研究結果が一般化・単純化される過程で生まれた、科学的根拠のない通説。「右脳/左脳タイプ」「学習スタイル(VARK)」「脳の10%しか使っていない」などが代表例。OECD (2002) の報告書で概念化され、Howard-Jones (2014) などで体系的に整理されている。教員研修や保護者向け教育情報で繰り返し再生産される傾向がある。" },
-  { term: "疑似科学", en: "Pseudoscience", def: "科学的根拠があるかのように主張されるが、反証可能性・体系的検証・専門家による吟味といった科学的方法を欠く言説。Popper の反証可能性概念や Bunge (1984) の定義「科学を装う誤り(error parading as science)」が哲学的基盤。教育文脈では学習スタイル(VARK)、多重知能理論、心の知能指数(EQ)などが代表的批判対象で、Waterhouse (2006) や Pashler ら (2009) が実証的根拠不足を体系的に指摘している。神経神話は脳科学領域に特化した疑似科学の一種で、本概念の方が射程が広い。" },
-
-  // 教育心理学
-  { term: "ZPD(発達の最近接領域)", en: "Zone of Proximal Development", def: "ヴィゴツキーが提唱。「一人ではできないが、適切な支援があればできる」領域。足場かけ(scaffolding)の理論的根拠。教師の役割はこのZPDで子どもを支援することにある。" },
-  { term: "ピグマリオン効果", en: "Pygmalion effect", def: "教師の期待が子どもの学力に影響する現象。「この子はできる」と教師が期待すると、その子の成績が実際に上がる、というローゼンタールとジェイコブソンの古典的研究。逆に否定的期待が下げる場合(ゴーレム効果)もある。" },
-  { term: "自己効力感", en: "Self-efficacy", def: "アルバート・バンデューラが提唱。「自分はこれができる」という信念。能力そのものより、効力感の高さが行動と成果を予測する。SELの中核要素の一つ。" },
-  { term: "グリット", en: "Grit", def: "アンジェラ・ダックワースが提唱した「やり抜く力」。長期目標への情熱と粘り強さ。当初は学力との強い関連が話題になったが、近年の研究では効果が限定的で、SES等の交絡を除くと効果は小さいことが指摘されている。" },
-
-  // 日本の教育文脈
-  { term: "学習指導要領", en: "Course of Study (National Curriculum)", def: "文部科学省が告示する全国共通の教育課程の基準。約10年ごとに改訂される。現行版(2017年告示)の核は「主体的・対話的で深い学び」と「資質・能力の三つの柱」。" },
-  { term: "全国学力・学習状況調査", en: "National Assessment of Academic Ability", def: "文部科学省が毎年実施する学力調査。小6と中3が対象で、国語・算数(数学)・理科を測定。学力の地域差や経年変化のデータソースとして重要。" },
-  { term: "学力格差", en: "Achievement gap", def: "子どもの学力が家庭背景・地域・学校等の要因で異なる現象。日本でもSESによる学力格差は明確に存在し、松岡亮二・耳塚寛明らの研究で実証されている。" },
-  { term: "教育格差", en: "Educational disparity", def: "家庭のSES・地域・性別など「個人が選べない属性」によって、教育結果(学力・進学率・学歴・文化資本)に差が生まれる現象。松岡亮二氏『教育格差』(ちくま新書, 2019)が日本におけるSES・地域・性別の影響を包括的に実証し、日本を「緩やかな身分社会」として論じた。学力格差(Achievement gap)より広い概念で、学力だけでなく進路選択・教育投資の世代間継承までを含む。" },
-  { term: "インクルーシブ教育", en: "Inclusive education", def: "障害の有無や特別なニーズに関わらず、すべての子どもが共に学ぶ教育。日本でも合理的配慮が義務化され、通常学級での個別最適化が課題になっている。" },
+const categoryOrder: GlossaryCategory[] = [
+  "foundations",
+  "pedagogy",
+  "methodology",
+  "cognitive_science",
+  "critical_thinking",
+  "japan_context",
 ];
+
+const grouped = categoryOrder.map((cat) => ({
+  category: cat,
+  label: categoryLabels[cat],
+  terms: glossary.filter((t) => t.category === cat),
+}));
+
+function anchorFor(term: string): string {
+  return term.replace(/[()（）]/g, "").replace(/\s+/g, "-");
+}
 ---
 
 <Layout title="用語集 — EduEvidence JP">
@@ -102,26 +43,39 @@ const terms = [
     </h1>
     <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base space-y-2">
       <p>
-        本サイトで使われている専門用語を一行で解説します。
+        本サイトで使われている専門用語を一行で解説します。カテゴリごとにまとめています。
       </p>
-      <p class="text-xs">{terms.length}語収録</p>
+      <p class="text-xs">{glossary.length}語収録</p>
     </div>
   </section>
 
-  <section class="pb-24">
-    {
-      terms.map((t) => (
-        <div id={t.term.split(/[(（]/)[0].trim().replace(/\s+/g, "-")} class="border-t border-[var(--color-line)] py-5 grid grid-cols-12 gap-4 scroll-mt-20">
-          <div class="col-span-12 md:col-span-4">
-            <div class="font-bold">{t.term}</div>
-            <div class="font-mono text-[11px] text-[var(--color-sub)]">{t.en}</div>
+  {
+    grouped.map((group) => (
+      <section class="pb-10" aria-labelledby={`cat-${group.category}`}>
+        <h2
+          id={`cat-${group.category}`}
+          class="font-black text-2xl sm:text-3xl tracking-tight mb-4 mt-2 text-[var(--color-accent)] scroll-mt-20"
+        >
+          {group.label}
+        </h2>
+        {group.terms.map((t) => (
+          <div
+            id={anchorFor(t.term)}
+            class="border-t border-[var(--color-line)] py-5 grid grid-cols-12 gap-4 scroll-mt-20"
+          >
+            <div class="col-span-12 md:col-span-4">
+              <div class="font-bold">{t.term}</div>
+              <div class="font-mono text-[11px] text-[var(--color-sub)]">
+                {t.en}
+              </div>
+            </div>
+            <div class="col-span-12 md:col-span-8 text-sm text-[var(--color-sub)] leading-relaxed">
+              {t.def}
+            </div>
           </div>
-          <div class="col-span-12 md:col-span-8 text-sm text-[var(--color-sub)] leading-relaxed">
-            {t.def}
-          </div>
-        </div>
-      ))
-    }
-    <div class="border-t border-[var(--color-line)]"></div>
-  </section>
+        ))}
+        <div class="border-t border-[var(--color-line)]"></div>
+      </section>
+    ))
+  }
 </Layout>
