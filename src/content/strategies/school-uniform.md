@@ -54,4 +54,4 @@ culturalContext: |
 
 - Brunsma, D. L., & Rockquemore, K. A. (1998). [Effects of student uniforms on attendance, behavior problems, substance use, and academic achievement](https://doi.org/10.1080/00220679809597559). *Journal of Educational Research*, 92(1), 53–62. — 大規模データ分析。制服と学力・行動に有意な関連なし。
 - EEF (2021). School uniform: Evidence review. — 効果量±0ヶ月。帰属意識への効果も限定的。
-- 松岡亮二 (2019). 『教育格差――階層・地域・学歴』筑摩書房. — 日本における教育格差はSES(社会経済的地位)に起因し、外見の統一では解消されないことを実証。
+- 松岡亮二 (2019). 『教育格差――階層・地域・学歴』筑摩書房. — 日本における教育格差はSESに起因し、外見の統一では解消されないことを実証。
