@@ -67,7 +67,7 @@ export const glossary: GlossaryTerm[] = [
   { term: "疑似科学", en: "Pseudoscience", short: "科学を装うが方法論を欠く主張。教育界では学習スタイル等が該当", def: "科学的根拠があるかのように主張されるが、反証可能性・体系的検証・専門家による吟味といった科学的方法を欠く言説。Popper の反証可能性概念や Bunge (1984) の定義「科学を装う誤り(error parading as science)」が哲学的基盤。教育文脈では学習スタイル(VARK)、多重知能理論、心の知能指数(EQ)などが代表的批判対象で、Waterhouse (2006) や Pashler ら (2009) が実証的根拠不足を体系的に指摘している。神経神話は脳科学領域に特化した疑似科学の一種で、本概念の方が射程が広い。", category: "critical_thinking" },
   { term: "マスタリーラーニング", en: "Mastery learning", short: "全員が一定の到達基準に達してから次に進む学習方式", def: "全員が一定の到達基準に達してから次に進む学習方式。理解の差を時間で吸収する。", category: "pedagogy" },
   { term: "ピア・チュータリング", en: "Peer tutoring", short: "子ども同士のペアで教え合う指導法", def: "子ども同士がペアになり、教え合う指導法。教える側にも学ぶ側にも効果がある。", category: "pedagogy" },
-  { term: "UDL", en: "Universal Design for Learning", short: "全員が分かる授業を設計する手法。視覚化・焦点化・共有化の3原則", def: "授業のユニバーサルデザイン(授業UD)。特別な配慮なしに、すべての子が分かる授業を設計する手法。視覚化・焦点化・共有化の3原則。", category: "pedagogy" },
+  { term: "UDL", en: "Universal Design for Learning", short: "全員が分かる授業を設計する手法。視覚化・焦点化・共有化の3原則", def: "授業のユニバーサルデザイン(授業UD)。日本では桂聖氏ら(2011)が CAST(米国)の Universal Design for Learning を踏まえ独自に発展させた、すべての子が分かる授業設計の手法。視覚化・焦点化・共有化の3原則。", category: "pedagogy" },
   { term: "研究授業", en: "Lesson Study", short: "教師が協働で授業を計画・実施・検討する日本発の研修手法", def: "教師が協働で授業を計画し、1人が実施、他が観察・検討する日本発の研修手法。世界にLesson Studyとして輸出された。", category: "pedagogy" },
   { term: "反転授業", en: "Flipped classroom", short: "家で動画でインプット、教室で対話・演習に集中する授業形態", def: "家庭で動画等により知識をインプットし、教室では対話・演習に集中する授業形態。", category: "pedagogy" },
   { term: "特別活動", en: "Tokkatsu", short: "学級活動・児童会・クラブ・学校行事で自治的な力を育てる日本固有の領域", def: "学級活動・児童会活動・クラブ活動・学校行事を通じて自治的な力を育てる日本固有の教育領域。略称「特活」。", category: "japan_context" },
