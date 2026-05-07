@@ -2,13 +2,16 @@ import { glossary } from "../data/glossary";
 
 const sorted = [...glossary].sort((a, b) => b.term.length - a.term.length);
 
+const STRONG_PATTERN = /\*\*([^*]+?)\*\*/g;
+
 /**
+ * Markdown 強調 `**...**` を `<strong>` に変換した上で、
  * テキスト中の用語集用語の初出をツールチップリンクに変換する。
  * Astro テンプレートの set:html で使用。
  */
 export function annotateGlossaryTerms(text: string): string {
   const seen = new Set<string>();
-  let result = text;
+  let result = text.replace(STRONG_PATTERN, "<strong>$1</strong>");
 
   for (const entry of sorted) {
     if (seen.has(entry.term)) continue;
