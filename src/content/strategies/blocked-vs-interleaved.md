@@ -15,7 +15,17 @@ evidence:
   hattie:
     cohensD: -0.10
     note: "ブロック練習は短期(練習直後)では正答率が高く『できている感覚』を生むが、遅延テストでは交互練習群に劣る(Rohrer & Taylor 2007)。Dunlosky et al.(2013)はブロック練習を『低い有用性』、交互練習を『中〜高い有用性』と評価。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-05-11"
+methodology:
+  studies: 59
+  sampleSize: "k=238 効果量、158 サンプル(就学前〜成人、絵画・数学・単語など素材横断)"
+  effectSize: "全体で交互練習 Hedges' g = 0.42。材料別: 絵画 +0.67 / 数学 +0.34 / 単語 -0.39(単語暗記のみブロック練習が有利)"
+  primaryMetaAnalysis:
+    authors: "Brunmair & Richter"
+    year: 2019
+    title: "Similarity matters: A meta-analysis of interleaved learning and its moderators"
+    url: "https://doi.org/10.1037/bul0000209"
+  limitations: "効果は学習材料の性質に強く依存する。カテゴリ間が類似していてカテゴリ内が多様な複雑材料(算数の問題タイプ判別など)で効果が大きく、単純な単語暗記ではブロック練習が有利になる。習得初期はブロック練習で基本を作り、定着段階で交互練習に切り替えるのが現実的。"
 culturalContext: |
   日本の算数ドリル・漢字練習帳は典型的なブロック練習型で、**見かけの成績(練習時の正答率)は上がるが長期定着は劣る**。保護者や管理職に『練習中の正答率が下がっても問題ない』と説明するには、**望ましい難しさ(desirable difficulty)** の概念共有が必要。
 ---
