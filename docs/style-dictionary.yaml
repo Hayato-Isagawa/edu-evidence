@@ -1,0 +1,104 @@
+# 文体辞書(観点 12.3 — 硬い・古い・施設用語)
+#
+# edu-evidence の教員読者(現役・志望教員 + 教育関係者)が一拍止まる語彙を集めた辞書。
+# `.claude/agents/edu-content-reviewer.md` 観点 12.3 から参照される。
+#
+# 形式: `term`(検出対象)/ `suggest`(置換候補、「/」で複数併記可)/ `reason`(理由)
+#
+# 文脈依存で残すべき硬い語もある(例:法令用語の「教諭」、対比表現の「処遇」)。
+# 辞書は **置換候補の提案** として運用し、最終判断は reviewer + 運営者が行う。
+
+# --- 学術論文調 ---
+- term: 経験研究
+  suggest: 実地調査 / フィールド研究
+  reason: 学術用語、教員読者には硬い
+- term: 概説
+  suggest: 解説 / 入門書
+  reason: 学術用語
+- term: 論考
+  suggest: 論文 / 記事
+  reason: 学術論文調
+- term: 商業学術誌
+  suggest: 一般向け学術誌 / 教育専門誌
+  reason: 用法が硬い
+- term: 整理しています
+  suggest: まとめています / 示しています
+  reason: 「整理」が頻出すると単調・冗長
+- term: 整理されてきました
+  suggest: まとめられてきました / 蓄積されてきました
+  reason: 受動的で冗長
+- term: 関連していました
+  suggest: 関係していました / 結びついていました
+  reason: 「関連」は学術論文調
+- term: 言及しています
+  suggest: 触れています / 述べています
+  reason: 硬い語
+- term: 提示しています
+  suggest: 示しています
+  reason: 重複的、平易な「示す」で足りる
+- term: 知見
+  suggest: わかったこと / 結果
+  reason: 学術用語、平易化可能
+- term: 帰結
+  suggest: 結果 / 結末
+  reason: 学術用語
+
+# --- 抽象名詞・施設語 ---
+- term: 定式化
+  suggest: 形にする / 整理する
+  reason: 学術論文調
+- term: 俯瞰
+  suggest: 全体を見る / 見渡す
+  reason: 古めの和語
+- term: 敷衍
+  suggest: 詳しく説明する
+  reason: 難読語
+- term: 精緻化
+  suggest: 細かくする / 詰める
+  reason: 学術論文調
+- term: 策定
+  suggest: 作成 / 決定
+  reason: 行政用語
+
+# --- 行政・古い和語 ---
+- term: 当該
+  suggest: この / その
+  reason: 行政用語、口語では使わない
+- term: 既述の通り
+  suggest: 前述のように
+  reason: 古い表現
+- term: 並びに
+  suggest: と
+  reason: 法令用語
+- term: 若しくは
+  suggest: または
+  reason: 法令用語
+- term: 鑑みる
+  suggest: 踏まえる / 考えると
+  reason: 硬い動詞
+- term: 措置
+  suggest: 対応 / 対策
+  reason: 行政用語(文脈で残す判断あり)
+- term: 専ら
+  suggest: もっぱら / 主に
+  reason: 古い和語
+- term: 然るに
+  suggest: しかし
+  reason: 古い接続詞
+- term: 故に
+  suggest: だから / そのため
+  reason: 古い接続詞
+- term: 即ち
+  suggest: つまり / すなわち
+  reason: 漢字表記が硬い
+
+# --- 教育施設・制度語(文脈次第で残す)---
+- term: 被指導者
+  suggest: 児童 / 生徒
+  reason: 専門用語、本サイト読者層では平易語が自然
+- term: 当方
+  suggest: (削除)
+  reason: 自己言及表現、Rule 4 に抵触
+- term: 当サイト
+  suggest: (削除 / 主語省略)
+  reason: 自己言及表現、Rule 4 に抵触

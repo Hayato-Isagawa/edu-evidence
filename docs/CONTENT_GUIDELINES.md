@@ -725,6 +725,17 @@ GitHub Actions で稼働中の自動化:
 - 「**『職員室の担任』と呼ばれる副校長・教頭の負担が膨張している**」→「**副校長・教頭の負担が膨張している**」
   ([teacher-shortage-evidence.md](../src/content/columns/teacher-shortage-evidence.md), PR #46). 「職員室の担任」は教頭会の調査や一部の業界ブログで使われる自称的表現であり、文科省文書や一般的な教育用語集には存在しない。引用先で通じても一般読者には通じない例
 
+### 自動チェック(観点 12)
+
+`.claude/agents/edu-content-reviewer.md` 観点 12(文体)と `scripts/check-sentence-length.ts` が、本セクションの規約を機械検出する。詳細仕様は spec を参照(本ファイルでは概要のみ、二重管理回避):
+
+- **観点 12.1 直訳調** — 文末の翻訳調パターン(「〜が示したのは〜という整理です」等)を grep
+- **観点 12.2 抽象修飾** — 「視点が必要です」「整合性が高い実践です」等の具体不足を grep
+- **観点 12.3 硬い・古い・施設用語** — `docs/style-dictionary.yaml` 辞書を grep
+- **観点 12.4 長文** — 1 文 100/150/200 字 3 段階 severity、読点 4 個以上は info
+
+実行: `npm run check:sentence-length`(観点 12.4 のみ)/ edu-content-reviewer 起動(全 4 サブ観点)
+
 ---
 
 ## 関連ドキュメント
