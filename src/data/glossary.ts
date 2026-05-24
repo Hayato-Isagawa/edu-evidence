@@ -60,6 +60,7 @@ export const glossary: GlossaryTerm[] = [
   { term: "交互練習", en: "Interleaving", short: "異なる種類を混ぜて練習する方が応用力が育つ", def: "複数の問題タイプを混ぜて練習すること。ブロック学習(同じタイプを連続)より長期的な定着と応用力が高まる。", category: "cognitive_science" },
   { term: "二重符号化", en: "Dual coding", short: "言葉+図の両方で学ぶと記憶が強化される", def: "言語と視覚イメージの両方で情報を処理すると記憶が強化される理論。図解やスケッチノートが効果的な理由を説明する。", category: "cognitive_science" },
   { term: "自己効力感", en: "Self-efficacy", short: "「自分はこれができる」という信念(バンデューラ)", def: "アルバート・バンデューラが提唱。「自分はこれができる」という信念。能力そのものより効力感の高さが行動と成果を予測する。", category: "pedagogy" },
+  { term: "自己概念", en: "Self-concept", short: "自分が自分をどう捉えているかの総体(シャベルソンら)", def: "シャベルソン・ハブナー・スタントン(1976)が体系化。自分が自分をどう捉えているかの総体で、多面的・階層的な構造を持つ。頂点に一般的自己概念があり、学業的自己概念(教科ごと)と非学業的自己概念(社会・情緒・身体)に分かれる。「特定の行動ができる」という信念を指す自己効力感とは区別され、「自分とは何者か」という自分像全体を指す。", category: "pedagogy" },
   { term: "成長マインドセット", en: "Growth mindset", short: "「能力は努力で伸ばせる」という信念(ドゥエック)", def: "「能力は努力や戦略で伸ばせる」という信念。キャロル・ドゥエックが提唱。ただしSisk et al.(2018)のメタ分析では学力との関連は相関係数 0.10(ほぼ無相関)と非常に小さい。", category: "pedagogy" },
   { term: "探究学習", en: "Inquiry-based learning", short: "子ども自ら問いを立て調べ考える学習", def: "子どもが自ら問いを立て、調べ、考え、まとめ、表現する学習。総合的な学習の時間の核。", category: "pedagogy" },
   { term: "STEM", en: "Science, Technology, Engineering, and Mathematics", short: "科学・技術・工学・数学を統合的に扱う理系教育の概念", def: "科学(Science)・技術(Technology)・工学(Engineering)・数学(Mathematics)の頭文字。理系教育を統合的に扱う概念で、米国国立科学財団(NSF)が 2001 年に正式採用したのが起源(それ以前は SMET と呼ばれていた)。日本では文部科学省・経済産業省が普及を推進している。教育研究では「STEM 領域での介入効果」という研究分類としても使われる。", category: "pedagogy" },
