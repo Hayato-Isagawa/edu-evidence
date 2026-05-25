@@ -33,9 +33,9 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.3.0",
-    "@types/react": "^19.0.9",
+    "@types/react": "^19.2.15",
     "@types/react-dom": "^19.0.3",
-    "astro": "^6.3.3",
+    "astro": "^6.3.7",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "satori": "^0.26.0",
@@ -50,12 +50,12 @@
     "linkinator": "^7.6.1",
     "pagefind": "^1.5.2",
     "rehype-external-links": "^3.0.0",
-    "textlint": "^15.7.0",
+    "textlint": "^15.7.1",
     "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",
     "textlint-rule-preset-ja-spacing": "^2.4.3",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "textlint-rule-prh": "^6.1.0",
-    "tsx": "^4.22.1",
+    "tsx": "^4.22.3",
     "typescript": "^5.0.0"
   }
 }
