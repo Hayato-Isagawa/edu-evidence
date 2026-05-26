@@ -42,7 +42,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ### スウェーデン: 全期間受益で生涯所得 +3%
 
-スウェーデンは 1946 年から 1969 年にかけて自治体ごとに段階導入しました。生年と居住地によって「給食無償の年数」が異なるため、 **自然実験**(導入時期の地域差を活用した擬似的な比較研究)が成立しています。Lundborg, Rooth, Alex-Petersen (2022) は [*Review of Economic Studies* 89(2): 876–908](https://doi.org/10.1093/restud/rdab028) で、これを大規模行政データで分析しています。
+スウェーデンは 1946 年から 1969 年にかけて自治体ごとに段階導入しました。生年と居住地によって「給食無償の年数」が異なるため、 **自然実験**(導入時期の地域差を活用した擬似的な比較研究)が成立しています。Lundborg, Rooth, Alex-Petersen (2022) は [*Review of Economic Studies* 89(2): 876–908](https://doi.org/10.1093/restud/rdab028) で発表しました。この段階導入を大規模行政データで分析した研究です。
 
 主要結果:
 
@@ -58,15 +58,15 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ### 英国: 全員一律化で小 1 の肥満率が下がった
 
-イングランドは 2014 年から **UIFSM**(Universal Infant Free School Meals、5–7 歳全員)を実施しています。Holford & Rabe (2024) は [*Journal of Health Economics*](https://www.sciencedirect.com/science/article/pii/S0167629624000821) で、政策前後の National Child Measurement Programme データを分析しました。UIFSM 導入後、小 1 で **BMI が約 0.041 SD 低下、肥満率が 0.7 ポイント低下** という結果です。SD は標準偏差換算の効果量で 0.2 程度から「小」が目安、0.041 SD は集団平均の微小な変化、0.7 ポイントは実数の有病率差です。低所得地域でより大きな改善が見られた点は重要です。
+イングランドは 2014 年から **UIFSM**(Universal Infant Free School Meals、5–7 歳全員)を実施しています。Holford & Rabe (2024) は [*Journal of Health Economics*](https://www.sciencedirect.com/science/article/pii/S0167629624000821) で発表しました。政策前後の National Child Measurement Programme データを分析した研究です。UIFSM 導入後、小 1 で **BMI が約 0.041 SD 低下、肥満率が 0.7 ポイント低下** という結果です。SD は標準偏差換算の効果量で 0.2 程度から「小」が目安、0.041 SD は集団平均の微小な変化、0.7 ポイントは実数の有病率差です。低所得地域でより大きな改善が見られた点は重要です。
 
 ### 韓国: 生徒間の暴力行為が 35% 減った
 
-韓国は 2010 年代初頭の給食無償化(Free School Meal Program、FSMP)拡大が自治体ごとに段階導入されたため、これも自然実験になりました。Altindag, Baek, Lee, Merkle (2020) は [*Economics of Education Review* 74: 101945](https://doi.org/10.1016/j.econedurev.2019.101945) で、無償給食の対象になった学校で **生徒間の暴力行為(physical fights)が約 35% 減少** したと報告しています。「給食費の払える子・払えない子」の分断が消えたことのスティグマ削減効果と整合的な結果です。
+韓国は 2010 年代初頭の給食無償化(Free School Meal Program、FSMP)拡大が自治体ごとに段階導入されたため、これも自然実験になりました。Altindag, Baek, Lee, Merkle (2020) は [*Economics of Education Review* 74: 101945](https://doi.org/10.1016/j.econedurev.2019.101945) で発表しました。無償給食の対象になった学校で **生徒間の暴力行為(physical fights)が約 35% 減少** したと報告しています。「給食費の払える子・払えない子」の分断が消えたことのスティグマ削減効果と整合的な結果です。
 
 ### 米国: 食料不足世帯が有意に減った
 
-米国では 2021–2022 年から **州ごとに所得制限なしの一律無償化を恒久化** する動きが始まっています。Hecht et al. (2024) と USDA Economic Research Service の [Amber Waves(2024-06)](https://www.ers.usda.gov/amber-waves/2024/june/state-universal-free-school-meal-policies-reduced-food-insufficiency-among-children-in-the-2022-2023-school-year) は、CA・ME など継続実施州を非実施州と比較し、**2022–23 学年で子どもの食料不足発生率が有意に低下** したと報告しました。
+米国では 2021–2022 年から **州ごとに所得制限なしの一律無償化を恒久化** する動きが始まっています。Hecht et al. (2024) と USDA Economic Research Service の [Amber Waves(2024-06)](https://www.ers.usda.gov/amber-waves/2024/june/state-universal-free-school-meal-policies-reduced-food-insufficiency-among-children-in-the-2022-2023-school-year) は、CA・ME など継続実施州を非実施州と比較しました。**2022–23 学年で子どもの食料不足発生率が有意に低下** したと報告しています。
 
 これらは別々の研究ですが、方向性は揃っています。**所得制限なしの一律給食無償化は、健康・行動・経済の各指標で小〜中の効果を出す。学力への直接効果は小さいが、生涯所得など長期成果には影響する**。日本でもこの方向に動くと予見するのが自然です。
 
@@ -87,7 +87,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 さらに文科省 [「学校給食費の無償化を実施する各教育委員会における取組の実態調査」](https://www.mext.go.jp/content/20240612-mxt-kenshoku-000036402-1.pdf)(2024 年 6 月公表、令和 5 年度実施分)が、独自無償化を実施していた 722 自治体を対象に調査しています。**199 自治体(約 27.6%)が「給食費の徴収や未納者等への対応負担の解消」を無償化の効果として挙げました**。働き方改革と直結する変化として、現場で確実に観察される影響です。給特法改正(2026 年 1 月施行、教職調整額の段階引き上げ)と並走する文脈に位置づきます。
 
-加えて、督促業務という接点の消滅は教育心理学的にも副次効果として議論できます。教師が特定児童に対して低い期待を抱く現象は古典的に **ゴーレム効果**(Babad et al. 1982)として研究されてきました。対概念であるピグマリオン効果(Rosenthal & Jacobson 1968)と同じく、後年の追試・メタ分析で効果量・再現性ともに文脈依存と整理されており、確立された普遍的効果とは見なされていません。現代評価の整理は [教師の期待とラベルは子どもの未来を決めるか](/columns/pygmalion-and-labeling-reconsidered) を参照してください。給食費未納と教師期待を直接結びつけて検証した研究も確認できないため、ここでの位置づけは「未納督促という接点が消滅することで、教師期待バイアスが発生しうる経路の一つが断たれる可能性」にとどまります。
+加えて、督促業務という接点の消滅は教育心理学的にも副次効果として議論できます。教師が特定児童に対して低い期待を抱く現象は古典的に **ゴーレム効果**(Babad et al. 1982)として研究されてきました。対概念であるピグマリオン効果(Rosenthal & Jacobson 1968)と同じく、後年の追試・メタ分析で効果量・再現性ともに文脈依存と整理されてきました。確立された普遍的効果とは見なされていません。現代評価の整理は [教師の期待とラベルは子どもの未来を決めるか](/columns/pygmalion-and-labeling-reconsidered) を参照してください。給食費未納と教師期待を直接結びつけて検証した研究も確認できないため、ここでの位置づけは「未納督促という接点が消滅することで、教師期待バイアスが発生しうる経路の一つが断たれる可能性」にとどまります。
 
 ## 質と逆進性の落とし穴 — 他国が踏んだ轍
 
@@ -95,7 +95,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ### スウェーデン: 栄養基準は法制化後も半分しか改善しなかった
 
-スウェーデンは 1969 年に全員一律化が完了しましたが、「**給食の栄養基準を法律で義務化**」したのは 2011 年でした。Patterson & Schäfer Elinder (2015) は [*European Journal of Public Health* 25(4): 655–660](https://doi.org/10.1093/eurpub/cku184) で、2011 年法制化の前後 2 年を追跡しました。2011 年・2013 年の 2 時点で、4 つの栄養基準(食物繊維・鉄・脂質質・ビタミン D)の遵守状況を比較しています。**有意に改善したのは食物繊維(68% → 80%)と鉄(70% → 75%)の 2 項目のみ** で、脂質質とビタミン D の遵守率は変化しなかったと報告しています。
+スウェーデンは 1969 年に全員一律化が完了しましたが、「**給食の栄養基準を法律で義務化**」したのは 2011 年でした。Patterson & Schäfer Elinder (2015) は [*European Journal of Public Health* 25(4): 655–660](https://doi.org/10.1093/eurpub/cku184) で発表しました。2011 年法制化の前後 2 年を追跡した研究です。2011 年・2013 年の 2 時点で、4 つの栄養基準(食物繊維・鉄・脂質質・ビタミン D)の遵守状況を比較しています。**有意に改善したのは食物繊維(68% → 80%)と鉄(70% → 75%)の 2 項目のみ** で、脂質質とビタミン D の遵守率は変化しなかったと報告しています。
 
 実施から 60 年以上が経過した時点でも、栄養基準遵守は半分の項目で頭打ちだったわけです。「無償で提供すれば質は保証される」という前提は成立しません。栄養水準を担保する仕組みは別途必要だった、というのが法制化前後 2 年の追跡が示したことです。
 
@@ -103,7 +103,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 ### ウェールズ: 全員一律化で逆進的な副作用が出ている
 
-英国ウェールズは 2022 年に開始した一律給食無償化を 2024 年 9 月に小学校全学年で完了させました。ウェールズ政府委託で ICF / Arad が実施した [中間評価(2026 年 2 月公表)](https://www.gov.wales/sites/default/files/statistics-and-research/2026-02/evaluation-of-welsh-governments-universal-free-school-meals-policy-interim-report.pdf) は、取り込み 69%、家計圧迫の緩和、スティグマ解消といった成果を確認する一方で、想定外の副作用を報告しました。
+英国ウェールズは 2022 年に開始した一律給食無償化を 2024 年 9 月に小学校全学年で完了させました。ウェールズ政府委託で ICF / Arad が実施した [中間評価(2026 年 2 月公表)](https://www.gov.wales/sites/default/files/statistics-and-research/2026-02/evaluation-of-welsh-governments-universal-free-school-meals-policy-interim-report.pdf) は、取り込み 69%、家計圧迫の緩和、スティグマ解消といった成果を確認しました。一方で、想定外の副作用も報告しています。
 
 全員一律化により、**最貧困層が pupil premium(日本の就学援助に相当)の申請をしなくなり、学用品費・修学旅行費などの追加支援が届きにくくなった** という現象です。給食費の支払い負担が消えたことで、申請動機そのものが弱まったためと評価では分析されています。
 
