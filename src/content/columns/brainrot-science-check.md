@@ -43,7 +43,7 @@ relatedStrategies: ["screen-time", "social-media-mental-health", "digital-techno
 
 ## 福井大2025:脳構造が「媒介」する経路が見えた
 
-[福井大学子どものこころの発達研究センター](https://www.u-fukui.ac.jp/result/110350/) の Shou・Yamashita・Mizuno は、2025 年 11 月 20 日、米国の大規模小児縦断研究 **ABCD Study** のデータ(ベースライン 9〜10 歳・10,116 名、2 年後追跡 7,880 名)を用いた解析を [*Translational Psychiatry* 15, 447](https://doi.org/10.1038/s41398-025-03672-1) に発表しました。
+[福井大学子どものこころの発達研究センター](https://www.u-fukui.ac.jp/result/110350/) の Shou・Yamashita・Mizuno は、米国の大規模小児縦断研究 **ABCD Study** のデータ(ベースライン 9〜10 歳・10,116 名、2 年後追跡 7,880 名)を解析しました。その結果は 2025 年 11 月 20 日に [*Translational Psychiatry* 15, 447](https://doi.org/10.1038/s41398-025-03672-1) で発表されています。
 
 主な結果:
 
