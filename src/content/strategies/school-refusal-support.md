@@ -19,7 +19,7 @@ evidence:
     researcher: "文部科学省、日本財団(不登校傾向調査)"
   hattie:
     note: "国際的にも school refusal に対する学校外支援の効果量推定は困難。多くは臨床心理学・家族療法の文脈で研究される(King, Tonge et al. 1998, Heyne et al. 2011)。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-05-30"
 culturalContext: |
   **『不登校支援』は学力向上を主目的とする介入ではなく、安全な居場所の確保・社会的孤立の予防・子どもの自己決定を支える領域**。学力効果で評価する枠組み自体が不適切な面がある。2016 年の教育機会確保法以降、『無理に学校に戻す』のではなく『多様な学びの機会を保障する』方針に転換した。効果量を **0** に設定するのは『効果が無い』意味ではなく、『学力効果の枠組みで議論すべきではない』という立場表明。
 ---
@@ -47,6 +47,7 @@ culturalContext: |
 - 学校外支援を受けた児童生徒の心理面・自己肯定感は改善する報告が多い
 - 学力面での効果は限定的だが、社会的孤立の予防効果は一貫して報告されている
 - 個別対応・継続支援・多職種連携が効果の鍵
+- 海外の評価も同じ方向を示している。英国の教育研究財団 EEF が委託した中等学校対象の大規模評価(2026 年)では、出席や家庭連絡を専門に担う職員を配置するだけでは欠席はほとんど改善しなかった。EEF はこの結果を「万能な解決策は無い」と総括している。改善の鍵は役割や仕組みそのものより、学校全体の関係性・文化と、一人ひとりの背景に応じた個別支援にあるとされる。
 
 ## 注意したいこと
 
@@ -61,6 +62,7 @@ culturalContext: |
 
 - King, N. J., Heyne, D., & Ollendick, T. H. (2005). Cognitive-behavioral treatments for anxiety and phobic disorders in children and adolescents: A review. *Behavioral Disorders*, 30(3), 241–257. — 不登校を含む不安・恐怖症への認知行動療法の効果をレビュー。
 - Lyon, A. R., & Cotler, S. (2007). Toward reduced bias and increased utility in the assessment of school refusal behavior. *Psychology in the Schools*, 44(6), 551–565. — 不登校評価の方法論的バイアスに関するレビュー。
+- Education Endowment Foundation & Youth Endowment Fund (2026). [Four new evaluations of programmes and approaches designed to improve attendance and prevent persistent absence](https://educationendowmentfoundation.org.uk/news/evaluations-improve-attendance-and-prevent-persistent-absence). — 出席・家庭連絡を担う職員の配置(独立評価機関 ICF が実施、中等学校・約 50 万人/621 校)を含む 4 つの評価。専門職の配置だけでは持続的な欠席にほぼ効果がなく(各期間で約 0.1 パーセントポイント、確実性は中〜高)、役割や仕組みより関係性・文化・個別支援の質が鍵と結論。
 
 ### 日本の研究・公式資料
 
