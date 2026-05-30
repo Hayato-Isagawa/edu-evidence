@@ -42,7 +42,7 @@ const P2_ALLOWED_ABBREVS = new Set<string>([
   "NEA", "USDA", "NSLP",
   "FIN", "NYC", "SYNODOS",
   "SAS", "PNAE", "POSHAN", "UIFSM", "FSMP", "MINJI",
-  "IEEE", "SAT", "NFER", "DISS", "ICF", "SOS",
+  "IEEE", "SAT", "NFER", "NELI", "DISS", "ICF", "SOS",
   "COCOLO",
 ]);
 
