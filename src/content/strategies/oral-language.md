@@ -15,7 +15,7 @@ evidence:
     monthsGained: 6
     strength: 5
     note: "EEF Toolkit で +6ヶ月・エビデンス★5。幼児期 +7、小学校 +6、中学校 +5。週3回以上の頻繁なセッションが効果的。話すことと聞くことの両方に焦点を当てる。"
-lastVerified: "2026-05-05"
+lastVerified: "2026-05-30"
 methodology:
   studies: 222
   sampleSize: "幼児〜中等教育(2025年5月 EEF 更新で 188→222 研究)"
@@ -54,6 +54,7 @@ culturalContext: |
 - 平均的に、学習は約6ヶ月分前進します。エビデンスの強度は最も高い領域の一つです。
 - 効果は低学年・中学年で特に大きく、語彙の少ない子に対する効果も顕著です。
 - 構造化された活動(役割・手順がある)の方が、自由な会話より効果が大きい傾向があります。
+- 英国では、幼児(4〜5歳)向けの構造化された言語プログラム(NELI)を全国規模で実施した評価があります。参加した子どもの言語スキルはおよそ4ヶ月相当先に進み、社会経済的に不利な家庭の子どもではおよそ7ヶ月相当とさらに大きく伸びました。356校・約1万人規模の評価で、試験的な環境ではなく通常の実施でこの効果が保たれた点が重要です。
 
 ## 注意したいこと
 
@@ -65,6 +66,7 @@ culturalContext: |
 
 - Law, J., Garrett, Z., & Nye, C. (2003). [Speech and language therapy interventions for children](https://doi.org/10.1002/14651858.CD004110). *Cochrane Database of Systematic Reviews*. — 口頭言語介入の効果を系統的にレビュー。語彙と表現に正の効果を確認。
 - [Oral Language Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語の指導で +6 ヶ月、エビデンス強度 ★5(小学校 +6 ヶ月、幼児 +7 ヶ月、中等 +5 ヶ月)。構造化された対話活動の効果を集約。
+- Smith, A., Staunton, R., Sahasranaman, A., & Worth, J. (2023). [Impact Evaluation of Nuffield Early Language Intervention (NELI) Wave Two](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/nuffield-early-language-intervention-scale-up-impact-evaluation). National Foundation for Educational Research / Education Endowment Foundation. — 全国規模(356校・10,759人)で実施した幼児向け構造化言語プログラムの評価。全児童で +4 ヶ月(効果量 0.29)、社会経済的に不利な層では +7 ヶ月(効果量 0.56)。評価の確実性は中〜高で、通常環境での大規模実施でも効果が維持された。
 
 ### 関連読み物
 
