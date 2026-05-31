@@ -2,7 +2,7 @@
 title: 不登校35万人時代 — エビデンスで考える「学びの保障」
 summary: 過去最多35.4万人。増加の背景、エビデンスに基づく支援策、そして「学校に戻す」から「学びを保障する」への政策転換を考える。
 date: "2026-04-13"
-lastVerified: "2026-04-23"
+lastVerified: "2026-05-30"
 tags: ["不登校", "格差", "政策"]
 relatedStrategies: ["school-refusal-support", "social-emotional-learning", "behaviour-interventions", "teacher-student-relationships", "feedback"]
 charts:
@@ -78,6 +78,8 @@ charts:
 
 どれか 1 つに負荷が集中すると持続しません。特に **学校内でも「担任一人で抱える」構造を作らないこと** が、エビデンスが示唆する実装上の前提です。
 
+ただし、専門職を配置すれば解決するわけではありません。英国の教育研究財団 EEF が委託した中等学校対象の大規模評価(2026 年)では、出席や家庭連絡を専門に担う職員を置くだけでは、欠席はほとんど改善しませんでした。鍵になるのは役割や仕組みそのものより、学校全体の関係性・文化と、一人ひとりの背景に応じた個別支援の質だと総括されています。なお英国の「持続的な欠席」は日本の不登校より広い概念で、ここでは支援を設計するうえでの原則として参照しています。
+
 ## まとめ
 
 - 不登校児童生徒は **35 万 3,970 人(令和 6 年度)** で 12 年連続の過去最多。ただし **新規の不登校は 9 年ぶりに減少** しており、動向は変化の局面にある
@@ -93,3 +95,4 @@ charts:
 - [誰一人取り残されない学びの保障に向けた不登校対策(COCOLO プラン)](https://www.mext.go.jp/a_menu/shotou/seitoshidou/1422178_00006.htm). 文部科学省 (2023). — 教育支援センター・ICT 活用・SC/SSW 配置拡充の政策パッケージ。
 - [Social and emotional learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/social-and-emotional-learning). Education Endowment Foundation, *Teaching and Learning Toolkit*. — SEL 全般で +3 ヶ月。学級環境づくりに関するエビデンス概観。
 - Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., & Schellinger, K. B. (2011). [The impact of enhancing students' social and emotional learning: A meta-analysis of school-based universal interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 213 本の学校ベース SEL プログラムのメタ分析。学業成績で平均 11 パーセンタイルの効果。
+- Education Endowment Foundation & Youth Endowment Fund (2026). [Four new evaluations of programmes and approaches designed to improve attendance and prevent persistent absence](https://educationendowmentfoundation.org.uk/news/evaluations-improve-attendance-and-prevent-persistent-absence). — 出席・家庭連絡を専門に担う職員の配置(独立評価機関 ICF が実施、中等学校・約 50 万人/621 校)を含む 4 つの評価。専門職を置くだけでは持続的な欠席にほぼ効果がなく(各期間で約 0.1 パーセントポイント、確実性は中〜高)、役割や仕組みより関係性・文化・個別支援の質が鍵と結論。
