@@ -52,7 +52,7 @@
     "rehype-external-links": "^3.0.0",
     "textlint": "^15.7.1",
     "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",
-    "textlint-rule-preset-ja-spacing": "^2.4.3",
+    "textlint-rule-preset-ja-spacing": "^3.0.0",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "textlint-rule-prh": "^6.1.0",
     "tsx": "^4.22.4",
