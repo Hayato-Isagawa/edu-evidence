@@ -16,7 +16,7 @@ evidence:
   hattie:
     cohensD: 0.72
     note: "Hattie の Visible Learning では d=0.72(上限寄り)。独立メタ分析では Roorda et al.(2011, 99研究)が学業成績との関連 r≒0.16-0.19(d≒0.32-0.39)、Cornelius-White(2007, 119研究)が r=0.31(d≒0.65)と報告。Hattie 値は上端、実態は中程度で **+4 ヶ月程度** が妥当と判断。"
-lastVerified: "2026-04-26"
+lastVerified: "2026-06-01"
 methodology:
   studies: 99
   sampleSize: "就学前〜高校(エンゲージメントとの関連 k=61・N=88,417、学業成績との関連 k=61・N=52,718)"
@@ -58,6 +58,7 @@ culturalContext: |
 - 特に低学年・学習困難を抱える子ども・社会経済的に不利な環境の子どもに対して効果が大きいことが示されています。
 - 温かさと高い期待の「両方」が重要です。温かいだけ(甘やかし)、厳しいだけ(管理的)では効果が弱まります。
 - 関係性の質は、学力だけでなく学校適応・出席率・行動面にも正の影響を与えます。
+- この「関係性が出席にも効く」方向は、海外の大規模評価とも整合します。英国の教育研究財団 EEF が委託した中等学校対象の評価(2026 年)では、出席や家庭連絡を担う職員を配置するだけでは欠席はほぼ改善しませんでした。改善の鍵は役割や仕組みより、学校全体の関係性・文化と個別支援にあると結論づけられています。ただし英国の継続的な欠席は日本の不登校と同義ではなく、上記の効果量もこの評価から導いたものではありません。
 
 ## 注意したいこと
 
@@ -69,6 +70,7 @@ culturalContext: |
 
 - Roorda, D. L., Koomen, H. M. Y., Spilt, J. L., & Oort, F. J. (2011). [The influence of affective teacher–student relationships on students' school engagement and achievement](https://doi.org/10.3102/0034654311421793). *Review of Educational Research*, 81(4), 493–529. — 99研究のメタ分析。教師と子どもの情緒的な関係が、学校への関与と学業成績の両方に影響することを確認。
 - Cornelius-White, J. (2007). [Learner-centered teacher–student relationships are effective: A meta-analysis](https://doi.org/10.3102/003465430298563). *Review of Educational Research*, 77(1), 113–143. — 119研究のメタ分析。学習者中心の関係性(共感、温かさ、真正性)と学業成績の正の関連を実証。
+- Education Endowment Foundation & Youth Endowment Fund (2026). [Four new evaluations of programmes and approaches designed to improve attendance and prevent persistent absence](https://educationendowmentfoundation.org.uk/news/evaluations-improve-attendance-and-prevent-persistent-absence). — 出席・家庭連絡を担う職員の配置(独立評価機関 ICF が実施、中等学校・約 50 万人/621 校)を含む 4 つの評価。専門職の配置だけでは持続的な欠席にほぼ効果がなく(各期間で約 0.1 パーセントポイント、確実性は中〜高)、役割や仕組みより関係性・文化・個別支援の質が鍵と結論。
 
 ## 関連する学習指導要領
 
