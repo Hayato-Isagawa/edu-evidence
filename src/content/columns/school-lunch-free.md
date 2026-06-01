@@ -73,7 +73,7 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 
 なお同論文の下位分析では、**所得制限型(means-tested)の給食プログラムと [朝食](/strategies/breakfast-skipping) プログラムが最も効果を生む** とも報告されています。所得制限なしの一律無償化そのものより、支援対象を絞ったプログラムのほうが効果が大きい、という示唆です。
 
-この「対象を絞った型のほうが効く」という示唆は、現実の政策選択にも表れています。英国(イングランド)は 2025 年 6 月、[2026 年 9 月から Universal Credit(低所得世帯向けの給付)受給世帯の全児童を無償給食の対象に加える](https://www.gov.uk/government/news/over-half-a-million-more-children-to-get-free-school-meals)と発表しました。2018 年以来の「世帯年収 7,400 ポンド未満」という所得要件を撤廃する拡大で、50 万人超が新たに対象になります。日本が所得制限なしの一律無償化に進んだのに対し、英国は **支援対象を絞った型(means-tested)を広げる** 方向を選びました。同じ「給食無償化」でも、一律で配るか対象を絞るかで設計思想は分かれており、先進国メタ分析が効果を認めたのは後者の型でした。
+この「対象を絞った型のほうが効く」という示唆は、現実の政策選択にも表れています。英国(イングランド)は 2025 年 6 月、[2026 年 9 月から、低所得世帯向けの公的給付(Universal Credit)を受けるすべての家庭の子どもを無償給食の対象に加える](https://www.gov.uk/government/news/over-half-a-million-more-children-to-get-free-school-meals)と発表しました。2018 年以来の「世帯年収 7,400 ポンド未満」という所得要件を撤廃する拡大で、50 万人超が新たに対象になります。日本が所得制限なしの一律無償化に進んだのに対し、英国は **支援対象を絞った型(means-tested)を広げる** 方向を選びました。同じ「給食無償化」でも、一律で配るか対象を絞るかで設計思想は分かれており、先進国メタ分析が効果を認めたのは後者の型でした。
 
 ### 中室牧子氏の指摘との整合
 
@@ -128,4 +128,4 @@ relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 - Spill, M. K., et al. (2024). [Universal Free School Meals and School and Student Outcomes: A Systematic Review](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2822155). *JAMA Network Open*, 7(8), e2424082. — 米国 11,000 校超を対象とした系統的レビュー。参加率・出席率・肥満・停学に関する結果。
 - Cohen, J. F. W., et al. (2021). [Universal School Meals and Associations with Student Participation, Attendance, Academic Performance, Diet Quality, Food Security, and Body Mass Index: A Systematic Review](https://pmc.ncbi.nlm.nih.gov/articles/PMC8000006/). *Nutrients*, 13(3), 911. — 高所得層で効果が大きいと報告。
 - Schwartz, A. E., & Rothbart, M. W. (2020). [Let Them Eat Lunch: The Impact of Universal Free Meals on Student Performance](https://onlinelibrary.wiley.com/doi/abs/10.1002/pam.22175). *Journal of Policy Analysis and Management*, 39(2), 376–410. — NYC 中学校での差分の差分分析。非貧困層・貧困層別の効果量を報告。
-- Department for Education (2025). [Over half a million more children to get free school meals](https://www.gov.uk/government/news/over-half-a-million-more-children-to-get-free-school-meals). 2025-06-04 公表. — イングランドで 2026 年 9 月(2026/27 学年度)から Universal Credit 受給世帯の全児童に無償給食を拡大。2018 年以来の所得要件(世帯年収 7,400 ポンド未満)を撤廃し、50 万人超が新規対象。一律ではなく means-tested の拡大(政策発表)。
+- Department for Education (2025). [Over half a million more children to get free school meals](https://www.gov.uk/government/news/over-half-a-million-more-children-to-get-free-school-meals). 2025-06-04 公表. — イングランドで 2026 年 9 月(2026/27 学年度)から低所得世帯向けの公的給付(Universal Credit)を受ける全家庭の児童に無償給食を拡大。2018 年以来の所得要件(世帯年収 7,400 ポンド未満)を撤廃し、50 万人超が新規対象。一律ではなく means-tested の拡大(政策発表)。
