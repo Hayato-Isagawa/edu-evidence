@@ -12,7 +12,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "check:links": "linkinator dist --recurse --skip 'mailto:|^#|doi\\.org/10\\.1037|us\\.corwin\\.com'",
+    "check:links": "npx tsx scripts/check-links.ts",
     "check:links:live": "linkinator https://edu-evidence.org --recurse --skip 'mailto:|^#|doi\\.org/10\\.1037|us\\.corwin\\.com'",
     "check:links:source": "npx tsx scripts/check-source-links.ts",
     "check:text": "textlint 'src/content/**/*.md'",
@@ -26,6 +26,7 @@
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
     "a11y:baseline": "node scripts/a11y-baseline.mjs",
+    "links:baseline": "npx tsx scripts/check-links.ts --update-baseline",
     "og:default": "npx tsx scripts/generate-default-og.ts"
   },
   "dependencies": {

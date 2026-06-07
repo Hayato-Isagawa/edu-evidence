@@ -528,7 +528,7 @@ Hattie の有名な言葉:
   - **用語集・ツールチップ**: `glossary.astro` / `glossary.ts` の戦略名(+N ヶ月)
 
 - `check:links:source`: md ソース中の外部 URL 到達性(dist ビルド不要、404 / 410 / network error のみ失敗)
-- `check:links`: ビルド後の dist に対する linkinator 走査
+- `check:links`: ビルド後の dist に対する linkinator 走査(既知 broken はベースラインで管理、新規破損のみ失敗)
 
 `check:links:source` の挙動:
 
@@ -539,6 +539,18 @@ Hattie の有名な言葉:
 - **404 / 410 / network error**: error(exit code 1)
 - `HEAD` で 401 / 403 / 404 / 405 / 429 / 501 が返った場合はブラウザ風ヘッダ + `Range: bytes=0-0` で GET フォールバックし、ボット対策を一部回避
 - markdown リンク `[text](url)` は balanced-paren 抽出のため `doi.org/10.1016/S2352-4642(19)30186-5` のような括弧入り URL にも対応
+
+`check:links` の挙動:
+
+- broken URL を `scripts/links-known-issues.json`(baseline)と照合して 3 分類する
+  - **NEW**: baseline に無い URL、または baseline 登録済みでも今回 404 / 410 / network error に変化した URL → 列挙して error(exit code 1。ボット対策 403 → 本物の消滅への変化も検知)
+  - **known**: baseline 登録済みで 404 / 410 / network error 以外 → ホスト別サマリ表示のみ(失敗にしない)
+  - **stale**: baseline 登録済みだが今回 broken でない(直った)→ 情報表示のみ(baseline の縮小余地)
+- NEW が出たときの対応: リンク自体を修正する。ブラウザでは開ける新たなボット対策ドメインであれば `npm run links:baseline` で baseline を再生成
+- `npm run links:baseline`: 現在の broken 集合で baseline を書き直す(404 / 410 / network error は本物の死リンクの可能性が高いため登録せず警告のみ)
+- 照合キーは URL のみ。status 値は「403 = ボット対策」等の文脈メモで、403 ↔ 503 のネットワーク揺れで NEW 化しない
+- dist が無い場合は exit code 2(先に `npm run build`)
+- a11y 検査(`e2e/a11y-known-issues.json` + `npm run a11y:baseline`)と同じベースライン方式で、操作も対称
 
 GitHub Actions で稼働中の自動化:
 
