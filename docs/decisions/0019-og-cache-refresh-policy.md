@@ -136,6 +136,15 @@ portfolio ADR 0003 と揃えて、**本 ADR を採択する PR では `Layout.as
 | `scripts/generate-default-og.ts` のレイアウト変更 | 必要 | 同上 |
 | ハブページ(トップ / コラム一覧)の本文・カードレイアウト変更 | 不要 | OG 画像自体は変わらない |
 
+### 同梱フォントの変更(2026-06-07 追記、実装 PR にて)
+
+ADR 0017 で同梱したフォント(`scripts/fonts/noto-sans-jp-bold.bin`)は、戦略個別 OG(`src/lib/og-image.ts`)と静的 default OG(`scripts/generate-default-og.ts`)の **両方が参照している**。フォントを差し替えた場合は両系統の見た目が変わるため、次の両方を行う:
+
+| 対象 | 操作 |
+|---|---|
+| 静的 default OG | `npm run og:default` で再生成し、`OG_DEFAULT_VERSION` を生成日(YYYYMMDD)に更新 |
+| 戦略個別 OG | 全戦略の `lastVerified` 一括更新(または、その時点で別 ADR を起こして個別ハンドリングを設計) |
+
 ## edu-evidence 固有の運用ワークフロー
 
 ### 戦略を更新するとき(コンテンツ編集者向け)
