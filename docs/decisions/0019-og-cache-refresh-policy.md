@@ -2,7 +2,7 @@
 
 - 状態: 採用
 - 日付: 2026-05-05
-- 関連 PR: 本 ADR と同一 PR で確定
+- 関連 PR: 本 ADR と同一 PR で確定(採択 PR #162)/ 実装 PR #250
 - 起点 ADR: ISAGAWA HAYATO Portfolio ADR 0003(共通フレーム + SNS runbook の元、PR #44 マージ済)
 - 関連 ADR: 0017(動的 OG 画像生成用フォント同梱)/ 0018(静的 default OG 画像)
 - 姉妹サイト ADR: edu-watch ADR 0034(同方針のミラー、別 PR で確定予定)
@@ -135,6 +135,15 @@ portfolio ADR 0003 と揃えて、**本 ADR を採択する PR では `Layout.as
 | ブランド改修(色トークン / wordmark / tagline) | 必要 | `OG_DEFAULT_VERSION` を生成日に手動更新 |
 | `scripts/generate-default-og.ts` のレイアウト変更 | 必要 | 同上 |
 | ハブページ(トップ / コラム一覧)の本文・カードレイアウト変更 | 不要 | OG 画像自体は変わらない |
+
+### 同梱フォントの変更(2026-06-07 追記、PR #250)
+
+ADR 0017 で同梱したフォント(`scripts/fonts/noto-sans-jp-bold.bin`)は、戦略個別 OG(`src/lib/og-image.ts`)と静的 default OG(`scripts/generate-default-og.ts`)の **両方が参照している**。フォントを差し替えた場合は両系統の見た目が変わるため、次の両方を行う:
+
+| 対象 | 操作 |
+|---|---|
+| 静的 default OG | `npm run og:default` で再生成し、`OG_DEFAULT_VERSION` を生成日(YYYYMMDD)に更新 |
+| 戦略個別 OG | 全戦略の `lastVerified` 一括更新(または、その時点で別 ADR を起こして個別ハンドリングを設計) |
 
 ## edu-evidence 固有の運用ワークフロー
 

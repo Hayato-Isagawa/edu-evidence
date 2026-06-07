@@ -83,6 +83,7 @@ const effectNote =
   title={`${d.title} — EduEvidence JP`}
   description={d.summary}
   ogImagePath={`/og/${entry.id}.png`}
+  ogVersion={entry.data.lastVerified?.replaceAll("-", "")}
   articleJsonLd={articleJsonLd}
   breadcrumbJsonLd={breadcrumbJsonLd}
   longForm
