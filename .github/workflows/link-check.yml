@@ -58,9 +58,11 @@ jobs:
             --root-dir ${{ github.workspace }}/dist
             --accept 200,201,202,203,204,206,301,302,303,307,308,403,429,503,520
             --exclude 'doi\.org/10\.1037'
+            --exclude 'doi\.org/10\.5951'
             --exclude 'us\.corwin\.com'
             --exclude 'educationendowmentfoundation\.org\.uk'
             --exclude 'nctm\.org'
+            --exclude 'chikumashobo\.co\.jp'
             --timeout 30
             --max-retries 2
             './dist/**/*.html'
