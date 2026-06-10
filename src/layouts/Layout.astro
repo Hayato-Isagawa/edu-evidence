@@ -224,6 +224,14 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
             </section>
 
             <section class="mobile-menu-section">
+              <h2 class="mobile-menu-section-title">Sister Sites — 姉妹サイト</h2>
+              <ul>
+                <li><a href="https://news.edu-evidence.org">EduWatch JP — 教育ニュース</a></li>
+                <li><a href="https://law.edu-evidence.org">EduLaw JP — 教育法令</a></li>
+              </ul>
+            </section>
+
+            <section class="mobile-menu-section">
               <h2 class="mobile-menu-section-title">Display — 表示</h2>
               <button
                 id="theme-toggle-mobile"
@@ -533,20 +541,41 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           </ul>
         </section>
 
-        <!-- Column 4: About — サイトについて -->
-        <section aria-labelledby="footer-about" class="space-y-3">
-          <h2
-            id="footer-about"
-            class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
-          >
-            About — サイトについて
-          </h2>
-          <ul class="space-y-1.5">
-            <li><a href="/about" class="link-underline">このサイトについて</a></li>
-            <li><a href="/support" class="link-underline">運営を支援する</a></li>
-            <li><a href="/changelog" class="link-underline">更新履歴</a></li>
-          </ul>
-        </section>
+        <!-- Column 4: About — サイトについて / Sister Sites — 姉妹サイト -->
+        <div class="space-y-8">
+          <section aria-labelledby="footer-about" class="space-y-3">
+            <h2
+              id="footer-about"
+              class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+            >
+              About — サイトについて
+            </h2>
+            <ul class="space-y-1.5">
+              <li><a href="/about" class="link-underline">このサイトについて</a></li>
+              <li><a href="/support" class="link-underline">運営を支援する</a></li>
+              <li><a href="/changelog" class="link-underline">更新履歴</a></li>
+            </ul>
+          </section>
+          <section aria-labelledby="footer-sister" class="space-y-3">
+            <h2
+              id="footer-sister"
+              class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+            >
+              Sister Sites — 姉妹サイト
+            </h2>
+            <ul class="space-y-1.5">
+              <li>
+                <span aria-current="page" class="text-[var(--color-ink)]">EduEvidence JP(このサイト)</span>
+              </li>
+              <li>
+                <a href="https://news.edu-evidence.org" class="link-underline">EduWatch JP — 教育ニュース</a>
+              </li>
+              <li>
+                <a href="https://law.edu-evidence.org" class="link-underline">EduLaw JP — 教育法令</a>
+              </li>
+            </ul>
+          </section>
+        </div>
       </div>
       <div class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 pb-4 xs:pb-6 sm:pb-8 text-[10px] text-[var(--color-sub)] leading-relaxed">
         © 2026 EduEvidence JP. CC BY-SA 4.0. 英国 EEF

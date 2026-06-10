@@ -21,16 +21,17 @@ test.describe("ナビゲーション", () => {
     await expect(page.locator("body")).toHaveAttribute("data-menu", "closed");
   });
 
-  test("モバイルメニューに 4 つのセクション(Explore / Learn / About / Display)が表示される", async ({ page }) => {
+  test("モバイルメニューに 5 つのセクション(Explore / Learn / About / Sister Sites / Display)が表示される", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
     await page.locator("#menu-toggle").click();
     const titles = page.locator(".mobile-menu-section-title");
-    await expect(titles).toHaveCount(4);
+    await expect(titles).toHaveCount(5);
     await expect(titles.nth(0)).toContainText("Explore");
     await expect(titles.nth(1)).toContainText("Learn");
     await expect(titles.nth(2)).toContainText("About");
-    await expect(titles.nth(3)).toContainText("Display");
+    await expect(titles.nth(3)).toContainText("Sister Sites");
+    await expect(titles.nth(4)).toContainText("Display");
   });
 
   test("モバイルメニューを開くと検索 input にフォーカスが移る", async ({ page }) => {
