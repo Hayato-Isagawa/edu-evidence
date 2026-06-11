@@ -19,7 +19,17 @@ evidence:
     strength: 3
     note: "川島隆太(2016-2018)の東北大学チームが仙台市の学習状況調査で、スマートフォン使用時間と学力の負の相関を報告(ただし横断調査のため因果は未確定)。"
     researcher: "川島隆太(東北大学)"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 58
+  sampleSize: "系統的レビュー 58 横断研究・480,479 人(4〜18 歳)、うちメタ分析は 30 研究・106,653 人"
+  effectSize: "総スクリーン時間は学業成績と非関連(ES = −0.29、95% CI −0.65〜0.08)。用途別ではテレビ視聴が総合 −0.19・言語 −0.18・数学 −0.25、ゲームが総合 −0.15 の負の関連。子どもより青年期で関連が強い"
+  primaryMetaAnalysis:
+    authors: "Adelantado-Renau, Moliner-Urdiales, Cavero-Redondo, Beltran-Valls, Martínez-Vizcaíno & Álvarez-Bueno"
+    year: 2019
+    title: "Association Between Screen Media Use and Academic Performance Among Children and Adolescents: A Systematic Review and Meta-analysis"
+    url: "https://doi.org/10.1001/jamapediatrics.2019.3176"
+  limitations: "全研究が横断デザインで因果関係は示せない(学業不振がスクリーン利用を増やす逆方向の可能性も残る)。関連は用途別に分かれ、総スクリーン時間との関連は確認されていないため、一律の時間制限を直接支持するエビデンスではない。メタ分析に含まれたのは 58 研究中 30 研究にとどまる。"
 culturalContext: |
   **GIGA スクール構想で 1 人 1 台端末が配布された日本では、『学習用の画面時間』と『娯楽の画面時間』を区別する必要**がある。学校用途の目的的な使用は学習効果(digital-technology +4)を持つ一方、家庭での無目的な長時間使用は学力・睡眠・メンタルヘルスに負の影響。両者を同じ『スクリーンタイム』として論じると混乱する。川島隆太のデータは日本の子どもを対象とした数少ない知見だが、交絡変数の統制は限定的。
 ---

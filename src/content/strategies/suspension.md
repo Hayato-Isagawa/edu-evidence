@@ -9,13 +9,23 @@ grades: ["全学年"]
 tags: ["生徒指導", "負の効果", "排除"]
 category: "制度・環境"
 source: mixed
-sourceUrl: https://doi.org/10.3102/0034654319853545
-sourceTitle: "Valdebenito, Eisner, Farrington et al. (2019) What can we do to reduce disciplinary school exclusion? A Campbell systematic review"
+sourceUrl: https://doi.org/10.1007/s11292-018-09351-0
+sourceTitle: "Valdebenito, Eisner, Farrington, Ttofi & Sutherland (2019) What can we do to reduce disciplinary school exclusion? A systematic review and meta-analysis"
 evidence:
   hattie:
     cohensD: -0.20
-    note: "Hattie の Visible Learning で負の効果。Valdebenito et al.(2019)の 37 研究系統的レビューでは、排除的措置は対象児の学業・行動・中退リスクを悪化させ、**学校全体の行動風土も改善しない**。Noltemeyer, Ward & Mcloughlin(2015)のメタ分析でも、停学率が高い学校の方が学力が低い相関が一貫して見られる。"
-lastVerified: "2026-04-14"
+    note: "Hattie の Visible Learning で負の効果。Valdebenito et al.(2019)の 37 RCT メタ分析では、**排除を減らす学校ベースの介入は導入後 6 か月で停学・出席停止を有意に削減する(SMD = 0.30)が、12 か月以降は効果が半減し非有意**。停学そのものの害は、APA ゼロトレランス検証(2008)や Noltemeyer, Ward & Mcloughlin(2015)のメタ分析(停学と学力の一貫した負の関連)に依拠する。"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 37
+  sampleSize: "排除(停学・出席停止)削減を目的とした学校ベース介入の RCT 37 件(4〜18 歳、1980 年以降の介入、27 データベースの系統検索)"
+  effectSize: "介入は導入後 6 か月時点で排除措置を有意に削減(SMD = 0.30、95% CI 0.20〜0.41、p < .001)。12 か月以降のフォローアップでは効果が半減し統計的に非有意"
+  primaryMetaAnalysis:
+    authors: "Valdebenito, Eisner, Farrington, Ttofi & Sutherland"
+    year: 2019
+    title: "What can we do to reduce disciplinary school exclusion? A systematic review and meta-analysis"
+    url: "https://doi.org/10.1007/s11292-018-09351-0"
+  limitations: "このメタ分析は『排除を減らす介入』の効果を検証したもので、停学そのものが学力を下げる因果効果を直接推定したものではない。停学と学力低下・中退・非行の関連は相関研究(Noltemeyer et al. 2015 など)に依拠し、交絡の可能性が残る。介入の効果は長期では持続が確認されていない。日本の義務教育段階では停学が原則認められないため、適用は別室指導などの小規模な排除の文脈に限られる。"
 culturalContext: |
   日本の学校教育法では**小中学校の子どもへの停学は原則認められていない**(公立小中の義務教育段階、学校教育法施行規則第 26 条)。ただし出席停止は可能(26 条 3 項:児童の行動の問題のあるときなど)だが極めて稀。本項目は日本の小学校では『**参照しない選択肢**』。不登校支援・別室指導・外部連携等の代替が国際エビデンスと整合する。
 ---
