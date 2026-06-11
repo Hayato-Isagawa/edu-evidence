@@ -21,7 +21,17 @@ evidence:
     strength: 3
     note: "小学6年生の国語で正の効果を確認。ただし効果は裕福な地域の学校で大きく、学力格差の縮小にはつながらないことが示された。"
     researcher: "赤林英夫・中村亮介(2014, 慶應義塾大学)"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 127
+  sampleSize: "組み入れ 127 研究(148 報告・41 か国、幼稚園〜第 12 学年)。うちメタ分析に使えたのは 10 研究で、大半は米テネシー州 STAR 実験(1980 年代・K-3)に由来"
+  effectSize: "読解はランダム効果加重 SMD 0.11(95% CI 0.05〜0.16)の小さい正効果。算数は負だが統計的に非有意"
+  primaryMetaAnalysis:
+    authors: "Filges, Sonne-Schmidt & Viinholt Nielsen"
+    year: 2018
+    title: "Small class sizes for improving student achievement in primary and secondary schools: A systematic review"
+    url: "https://doi.org/10.4073/csr.2018.10"
+  limitations: "メタ分析可能な研究が 10 件と少なく、エビデンスの大半が単一の大規模実験(STAR)に依存する。効果はせいぜい小さい一方で費用は極めて高い。算数では一部の子どもに負の影響が及ぶ可能性も排除できないと著者らは注記している。学級規模の縮小それ自体より、減った人数で教師が指導方法を変えられるかが効果の条件になる(EEF)。"
 culturalContext: |
   日本の学級規模は国際的に大きめで、「35人学級」など縮小政策が進められている。赤林・中村(2014)の分析では、日本でも国語で正の効果が確認されたが、**効果は裕福な地域ほど大きく、格差縮小の政策目標とは整合しない** ことが示された。また、教師が指導方法を変えられるかどうかが効果の分かれ目であり、「人数を減らすこと」自体より「減った人数でどう指導するか」の設計が重要。
 ---
