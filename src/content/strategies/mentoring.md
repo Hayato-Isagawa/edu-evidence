@@ -16,7 +16,17 @@ evidence:
     monthsGained: 2
     strength: 3
     note: "EEF Toolkit で +2ヶ月・エビデンス★3。学力への効果は小さいが、非認知スキル(自信・動機づけ・登校継続)への効果が報告される。Dubois et al.(2011)の 73 プログラムメタ分析でも学力効果は限定的だが、行動・情動面への効果は明確。"
-lastVerified: "2026-05-05"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 73
+  sampleSize: "1999〜2010 年に公表された青少年メンタリングプログラムの独立評価 73 件(行動・社会性・情動・学業の 4 領域を横断)"
+  effectSize: "全領域・全研究を通算した平均効果量は 0.21(小さいが有意)。リスクを抱えた青少年を対象とするプログラムで相対的に大きい"
+  primaryMetaAnalysis:
+    authors: "DuBois, Portillo, Rhodes, Silverthorn & Valentine"
+    year: 2011
+    title: "How Effective Are Mentoring Programs for Youth? A Systematic Assessment of the Evidence"
+    url: "https://doi.org/10.1177/1529100611414806"
+  limitations: "対象は学校型に限らない青少年メンタリング全般の評価で、学力(成績・標準テスト)への効果は小さい。EEF Toolkit も学力 +2 か月と控えめに評価し、効果の中心は非認知面(自信・動機づけ・登校継続)にある。効果はプログラムの質・継続期間で大きく変動し、メンタリング関係そのものにリスクが無いわけではないことも指摘されている。"
 culturalContext: |
   日本では担任教師が学習・生活・進路の全面的な支援を担う構造で、欧米型の外部メンター制度は馴染みが薄い。近年は**不登校支援の『校内別室指導員』『スクールサポートスタッフ』**など、メンタリング的な役割が制度化されつつある。学力への直接効果は期待せず、**関係性・自己肯定感・登校継続**といった非認知目標に焦点を当てる使い方が適切。
 ---
