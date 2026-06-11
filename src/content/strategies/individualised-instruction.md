@@ -14,8 +14,18 @@ evidence:
   eef:
     monthsGained: 3
     strength: 3
-    note: "EEF Toolkit で +3ヶ月・エビデンス★3。効果量はプログラムの質により大きく幅があり、十分な指導・評価のサイクルが成立しているときにのみ効果が出る。単に『違う教材をやらせる』のでは効果が限定的。Deunk et al.(2018)のメタ分析でも効果量は d≒0.11 と小さい。"
-lastVerified: "2026-04-14"
+    note: "EEF Toolkit で +3ヶ月・エビデンス★3。効果量はプログラムの質により大きく幅があり、十分な指導・評価のサイクルが成立しているときにのみ効果が出る。単に『違う教材をやらせる』のでは効果が限定的。Deunk et al.(2018)のメタ分析でも全体の効果量は d = +0.146 と小さく、差別化の方法により正負が分かれる。"
+lastVerified: "2026-06-12"
+methodology:
+  studies: 21
+  sampleSize: "1995 年以降の小学校での差別化(個別最適化)実践の実証研究 21 件・78 効果量のメタ分析(言語・算数の成績)"
+  effectSize: "全体は d = +0.146(95% CI 0.066〜0.226)と小さい正効果。内訳は PC 支援の差別化 +0.290・包括的プログラム内の差別化 +0.296 が有意な正、学級間グループ化 −0.065・学級内グループ化 −0.007 は効果なし。等質の能力別グループ化は低学力層に有意な負効果(d = −0.195)"
+  primaryMetaAnalysis:
+    authors: "Deunk, Smale-Jacobse, de Boer, Doolaard & Bosker"
+    year: 2018
+    title: "Effective differentiation practices: A systematic review and meta-analysis of studies on the cognitive effects of differentiation practices in primary education"
+    url: "https://doi.org/10.1016/j.edurev.2018.01.002"
+  limitations: "組み入れは 21 研究と少なく、能力グループ別のサブグループ分析は 6 研究に限られる。効果は差別化の方法で正負が分かれるため『個別化すれば効果がある』という一般化はできない。特に等質の能力別グループ化は低学力層に負の効果を持つ。EEF の『高品質の診断・課題・フィードバックのサイクルがある場合に限り効果』という条件付きの整理と一致する。"
 culturalContext: |
   **日本の文脈で最も誤解されている EEF 項目の一つ**。文部科学省が掲げる『**個別最適な学び**』は EEF の Individualised instruction(+3)と AI ドリル(digital-technology +4)の両方を含む概念で、しばしば『GIGA 端末を配れば個別最適が実現する』と誤認される。EEF の知見は『個別化すれば効果が出る』ではなく『高品質の個別介入(診断・課題・フィードバック・再評価のサイクル)がある場合に限る』という条件付き。ドリル学習の自動化だけでは +3 は達成できない可能性が高い。
 ---
