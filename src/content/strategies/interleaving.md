@@ -17,7 +17,17 @@ evidence:
   hattie:
     cohensD: 0.45
     note: "Rohrer(2012)の算数領域の実験では交互練習群が遅延テストで約 43% vs ブロック練習群約 20% の正答率。Dunlosky et al.(2013)は交互練習を『中程度の有用性』と評価。分野・熟達度により効果量は幅がある(d=0.2-0.6 程度)。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 59
+  sampleSize: "k=238 効果量、158 サンプル(就学前〜成人、絵画・数学・単語など素材横断)"
+  effectSize: "全体で交互練習 Hedges' g = 0.42。材料別: 絵画 +0.67 / 数学 +0.34 / 単語 -0.39(単語暗記のみブロック練習が有利)"
+  primaryMetaAnalysis:
+    authors: "Brunmair & Richter"
+    year: 2019
+    title: "Similarity matters: A meta-analysis of interleaved learning and its moderators"
+    url: "https://doi.org/10.1037/bul0000209"
+  limitations: "効果は学習材料の性質に強く依存する。カテゴリ間が類似しカテゴリ内が多様な材料(算数の問題タイプ判別など)で効果が大きく、単純な単語暗記ではブロック練習が有利になる。練習中の正答率は一時的に下がるため、見かけの成績低下を効果不足と誤解しない運用が前提。習得初期はブロック練習で基本を作り、定着段階で交互練習へ移行するのが現実的。"
 culturalContext: |
   日本の算数ドリル・漢字ドリルは基本的に『単元完結・ブロック練習型』で構成されており、交互練習を取り入れるには **教師が意図的に問題を組み替える** 必要がある。練習中の正答率が下がるため、子ども・保護者・管理職に『これは望ましい難しさ(desirable difficulty)である』と説明する必要がある。一方、日本の『百マス計算』や『復習テスト』は既に交互性を含む実践で、認知科学的な裏付けを持つ。
 ---
