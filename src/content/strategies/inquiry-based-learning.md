@@ -19,7 +19,17 @@ evidence:
     monthsGained: 5
     strength: 3
     note: "日本の『総合的な学習の時間』は探究学習の一形態。Lazonder & Harmsen の国際メタ分析(72研究、d=0.50)は、ガイダンス付きの探究が学力に正の効果を持つことを示している。「放任」ではなく「足場かけ」が鍵。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 72
+  sampleSize: "探究学習中のガイダンス(足場かけ)の効果を検証した 72 研究のメタ分析(年齢層・ガイダンス種別を比較)"
+  effectSize: "ガイダンスの効果は学習活動 d = 0.66(95% CI 0.44〜0.88)、課題遂行 d = 0.71(0.52〜0.90)、学習成果 d = 0.50(0.37〜0.62)。ガイダンスの種類が効果を左右したのは課題遂行のみ"
+  primaryMetaAnalysis:
+    authors: "Lazonder & Harmsen"
+    year: 2016
+    title: "Meta-Analysis of Inquiry-Based Learning: Effects of Guidance"
+    url: "https://doi.org/10.3102/0034654315627366"
+  limitations: "このメタ分析が比較したのは『探究 vs 一斉指導』ではなく『ガイダンスの多い探究 vs 少ない探究』で、d = 0.50 は探究にガイダンスを加えることの効果。研究数の制約から年齢差は確定的な結論が出ていない。EEF の Project-Based Learning 試験では学力への正の効果が確認されず低所得層への負の影響も報告されており、放任型の探究を支持するエビデンスではない。"
 culturalContext: |
   日本の「総合的な学習の時間」は世界的にも先進的な探究学習の枠組みだが、『放任』と『ガイダンス付きの探究』の区別が曖昧な実践も多い。Lazonder & Harmsen のメタ分析が示すように、**教師のガイダンス(問いの立て方、調査方法、結果のまとめ方)の質が効果を決める**。EEF の PBL 試験が示す負の効果も、構造化されていない自由探究に起因する。「子どもに任せる」のではなく「探究の方法を明示的に教える」姿勢が必要。
 ---

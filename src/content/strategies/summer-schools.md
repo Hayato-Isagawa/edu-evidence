@@ -16,7 +16,17 @@ evidence:
     monthsGained: 3
     strength: 3
     note: "EEF Toolkit で +3ヶ月・エビデンス★3。集中的な学業プログラム(小集団・専門性の高い指導)のみ効果。娯楽中心のサマースクールには学力効果は見られない。社会経済的に不利な子どもでより大きな効果が見られ、夏休みの学力低下(summer slide)対策として位置づけられる。"
-lastVerified: "2026-05-05"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 93
+  sampleSize: "サマースクールの評価研究 93 件の統合(メタ分析+ナラティブレビュー、米国中心)"
+  effectSize: "補習型・先取り型とも参加者の知識・技能に正の効果。補習型は小規模で個別化された指導ほど効果が大きく、読解より算数で効果が出やすい。全学年で効果があり、最低学年と中等段階で最大の可能性。EEF Toolkit は学校段階の平均を +3 か月と換算"
+  primaryMetaAnalysis:
+    authors: "Cooper, Charlton, Valentine & Muhlenbruck"
+    year: 2000
+    title: "Making the Most of Summer School: A Meta-Analytic and Narrative Review"
+    url: "https://pubmed.ncbi.nlm.nih.gov/12467098/"
+  limitations: "メタ分析自身の知見では、全生徒に効果がある一方で中流家庭の生徒の方が不利な環境の生徒より効果が大きく、格差縮小の手段としては逆説を抱える。著者らは政策提言として厳密な評価の組み込みを求めており、既存評価の研究設計の質には幅がある。EEF は学業に焦点化したプログラムのみに効果を認め、娯楽中心のプログラムに学力効果は見られないと整理している。"
 culturalContext: |
   日本の小学校には欧米型の『夏休み中の学校主催学習プログラム』は一般的ではなく、**夏休みの学習は家庭と学習塾が担う構造**。これが SES による学力格差の拡大要因となっている可能性がある(cram-school-effect も参照)。公教育としてのサマースクール導入は、教員の労働環境・外部人材との連携が鍵。
 ---
