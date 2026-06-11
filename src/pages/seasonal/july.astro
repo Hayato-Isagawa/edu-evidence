@@ -1,0 +1,194 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const scenes = [
+  {
+    title: "通知表・1 学期の評価",
+    description:
+      "所見の文章に向き合う放課後が続く時期。評価を「学期末の作業」で終わらせず子どもの次の一歩につなげる視点として、フィードバック研究の知見が使えます。成績・所見は個人情報としての取り扱いにも気を配りたいところです。",
+    strategies: [
+      { name: "形成的評価とフィードバック", href: "/strategies/feedback" },
+      { name: "メタ認知の指導", href: "/strategies/metacognition" },
+    ],
+    laws: [
+      {
+        name: "個人情報保護法",
+        href: "https://law.edu-evidence.org/laws/personal-information-protection-act/",
+      },
+    ],
+  },
+  {
+    title: "1 学期の学習の締めくくり",
+    description:
+      "まとめテストの前に、何をどう復習させるか。直前の詰め込みより「思い出す練習」と「間隔を空けた復習」に効果のエビデンスがあります。",
+    strategies: [
+      { name: "検索練習(テスト効果)", href: "/strategies/retrieval-practice" },
+      { name: "分散学習(スペーシング)", href: "/strategies/spaced-practice" },
+    ],
+    laws: [],
+  },
+  {
+    title: "夏休みの宿題・家庭学習の設計",
+    description:
+      "夏休みの宿題をどう出すか。量を増やしても小学校段階では効果が限定的で、長期休暇中の学力変化は家庭環境による差が大きいことが知られています。「全員一律のドリル」を見直す材料に。",
+    strategies: [
+      { name: "宿題(小学校)", href: "/strategies/homework" },
+      { name: "夏休みの学力低下", href: "/strategies/summer-learning-loss" },
+      { name: "サマースクール", href: "/strategies/summer-schools" },
+      { name: "保護者との連携", href: "/strategies/parental-engagement" },
+    ],
+    laws: [],
+  },
+  {
+    title: "水泳・プールと暑さ対策",
+    description:
+      "プール指導と熱中症対策は、学校保健安全法が定める安全管理の枠組みの中にあります。万一の事故の補償制度(災害共済給付)も、夏前に確認しておきたい公的情報です。",
+    strategies: [],
+    laws: [
+      {
+        name: "学校保健安全法",
+        href: "https://law.edu-evidence.org/laws/school-health-and-safety-act/",
+      },
+      {
+        name: "学校管理下の事故の補償と責任",
+        href: "https://law.edu-evidence.org/guides/school-accident/",
+      },
+    ],
+  },
+  {
+    title: "個人面談・保護者対応",
+    description:
+      "学期末の個人面談は、家庭との連携を組み直す機会。連携のエビデンスと、難しい対応になったときの公的な相談先の両方を手元に置いておけます。",
+    strategies: [
+      { name: "保護者との連携", href: "/strategies/parental-engagement" },
+    ],
+    laws: [
+      {
+        name: "保護者対応をめぐる公的な支援と相談先",
+        href: "https://law.edu-evidence.org/guides/parent-response/",
+      },
+    ],
+  },
+  {
+    title: "夏休み前の生活指導(スマホ・SNS・生活リズム)",
+    description:
+      "長い休みに入る前の生活指導。スマホ・SNS・睡眠や朝食のリズムは、学校がすべてを抱え込むのではなく、家庭の役割を明示しながらエビデンスを共有したい領域です。",
+    strategies: [
+      { name: "スクリーンタイムの影響", href: "/strategies/screen-time" },
+      { name: "SNS利用と精神健康への影響", href: "/strategies/social-media-mental-health" },
+      { name: "学校でのスマートフォン制限", href: "/strategies/smartphone-ban" },
+      { name: "朝食と学力の関係", href: "/strategies/breakfast-skipping" },
+    ],
+    laws: [],
+  },
+  {
+    title: "教師自身の学期末",
+    description:
+      "成績処理・面談・行事が重なる 7 月は、教師自身の心身も消耗する時期。働き方と授業の質の研究、そして公的な支援制度を知っておくことも仕事のうちです。",
+    strategies: [
+      { name: "教員の働き方と授業への影響", href: "/strategies/teacher-workload-reform" },
+    ],
+    laws: [
+      {
+        name: "教員のメンタルヘルスと休職・復職",
+        href: "https://law.edu-evidence.org/guides/teacher-mental-health/",
+      },
+      {
+        name: "教員の長時間労働と働き方改革",
+        href: "https://law.edu-evidence.org/guides/work-style-reform/",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="7月・学期末の教室 — EduEvidence JP">
+  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
+    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+      Seasonal — July
+    </p>
+    <h1
+      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
+    >
+      7月・<span class="text-[var(--color-accent)]">学期末</span>の教室
+    </h1>
+    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base">
+      <p>
+        通知表、夏休みの宿題、プール、個人面談——
+        7月の教室で起きることを場面ごとに整理し、いま使えるエビデンスと公的情報への入口をまとめました。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-12">
+    <div
+      class="border border-[var(--color-accent)] rounded-xl p-6 md:p-8 bg-[var(--color-accent)]/[0.03] max-w-3xl"
+    >
+      <p class="text-sm leading-loose">
+        <strong>このページの使い方</strong> ——
+        ここでは新しい効果量や法解釈は示していません。
+        7月の学校現場で起きる場面を入口に、本サイトの指導法・コラムと、
+        姉妹サイト EduLaw JP の公的情報ページへの道筋を時期別に整理したものです。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-12">
+    {
+      scenes.map((s, i) => (
+        <div class="border-t border-[var(--color-line)] py-10 md:py-12">
+          <div class="grid grid-cols-12 gap-6 px-2">
+            <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
+              {String(i + 1).padStart(2, "0")}
+            </div>
+
+            <div class="col-span-10 md:col-span-11 space-y-4">
+              <h2 class="text-xl md:text-2xl font-black tracking-tight">{s.title}</h2>
+              <p class="text-sm leading-relaxed max-w-2xl">{s.description}</p>
+
+              <div class="space-y-2 text-xs">
+                {s.strategies.length > 0 && (
+                  <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
+                    <span class="font-mono text-[11px] tracking-widest text-[var(--color-sub)]">
+                      エビデンス
+                    </span>
+                    {s.strategies.map((t) => (
+                      <a href={t.href} class="link-underline text-[var(--color-accent)]">
+                        {t.name} →
+                      </a>
+                    ))}
+                  </div>
+                )}
+                {s.laws.length > 0 && (
+                  <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
+                    <span class="font-mono text-[11px] tracking-widest text-[var(--color-sub)]">
+                      法令・公的情報(EduLaw JP)
+                    </span>
+                    {s.laws.map((l) => (
+                      <a href={l.href} class="link-underline text-[var(--color-ink)]">
+                        {l.name} →
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+    <div class="border-t border-[var(--color-line)]"></div>
+  </section>
+
+  <section class="pb-24">
+    <div class="text-sm text-[var(--color-sub)] leading-loose max-w-2xl">
+      <p>
+        法令・公的情報の全体は姉妹サイト
+        <a href="https://law.edu-evidence.org" class="link-underline text-[var(--color-accent)]">EduLaw JP</a>
+        に、日々の教育ニュースは
+        <a href="https://news.edu-evidence.org" class="link-underline text-[var(--color-accent)]">EduWatch JP</a>
+        にまとめています。
+      </p>
+    </div>
+  </section>
+</Layout>
