@@ -14,8 +14,18 @@ sourceTitle: "Cooper, Nye, Charlton, Lindsay & Greathouse (1996) The Effects of 
 evidence:
   hattie:
     cohensD: -0.05
-    note: "Cooper et al.(1996)の古典的メタ分析では、夏休み後に平均で 1 ヶ月分の学力低下、特に**算数の計算**と**読解**で顕著。低所得層ほど低下幅が大きく、夏休みを挟むたびに格差が拡大する(summer slide)。ただし Von Hippel & Hamrock(2019)など近年の研究では、効果量の解釈に異論もある。"
-lastVerified: "2026-04-14"
+    note: "Cooper et al.(1996)の古典的メタ分析では、夏休み後に平均で 1 ヶ月分の学力低下、特に**算数の計算**と**スペリング**で顕著(算数は読解より低下が大きい)。低所得層ほど低下幅が大きく、夏休みを挟むたびに格差が拡大する(summer slide)。ただし Von Hippel & Hamrock(2019)など近年の研究では、効果量の解釈に異論もある。"
+lastVerified: "2026-06-11"
+methodology:
+  studies: 13
+  sampleSize: "39 研究のナラティブレビューのうち直近 13 研究をメタ分析(米国の小中学生の標準学力テスト)"
+  effectSize: "夏休みで学年換算約 1 か月分(春の得点比で約 0.1 SD)の低下。算数は読解より低下が大きく、算数の計算とスペリングで最大。読解認識は中流層が伸びる一方、低所得層は低下"
+  primaryMetaAnalysis:
+    authors: "Cooper, Nye, Charlton, Lindsay & Greathouse"
+    year: 1996
+    title: "The Effects of Summer Vacation on Achievement Test Scores: A Narrative and Meta-Analytic Review"
+    url: "https://doi.org/10.3102/00346543066003227"
+  limitations: "対象は夏休みが約 3 か月と長い米国の研究群(1990 年代以前)で、約 40 日の日本へそのまま換算はできない。読解の変化は家庭環境で方向が分かれるため平均値だけでは実態を表さない。Von Hippel & Hamrock(2019)は測定方法の問題から従来の損失推定は過大と批判しており、近年は効果量の解釈に異論がある。"
 culturalContext: |
   **日本の夏休みは欧米より短い(約 40 日)が、無視できる差ではない**。日本では夏休み期間中、学習は家庭と学習塾が担う構造のため、**SES による学習機会の差が学力差に直結** する(cram-school-effect、parental-engagement を参照)。近年はプール開放縮小・公民館学習支援の縮小など、公的な夏休み支援基盤が弱まっている。summer-schools(+3)が対策候補。
 ---
