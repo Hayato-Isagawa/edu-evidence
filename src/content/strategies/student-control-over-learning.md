@@ -17,7 +17,17 @@ evidence:
   hattie:
     cohensD: 0.02
     note: "Hattie の Visible Learning で d≒0.02(ほぼ効果無し)。Kirschner, Sweller & Clark(2006)『Why Minimal Guidance During Instruction Does Not Work』が認知負荷理論の観点から明確に論じたように、**教師のガイドなしの完全自由学習は効果が無いか負**。Direct Instruction と対比される典型例。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-12"
+methodology:
+  studies: 41
+  sampleSize: "学習者への選択(チョイス)提供の効果を検証した実験研究 41 件のメタ分析(子ども・成人を含む)"
+  effectSize: "選択の提供は内発的動機づけ d = 0.30(k=46)・努力 d = 0.22・課題遂行 d = 0.32・有能感 d = 0.59 を高めるが、**その後の学習(subsequent learning)は d = 0.10(95% CI −0.02〜0.21)で有意でない**。2〜4 回の連続した選択で効果が最大、子どもは成人より効果が大きい"
+  primaryMetaAnalysis:
+    authors: "Patall, Cooper & Robinson"
+    year: 2008
+    title: "The Effects of Choice on Intrinsic Motivation and Related Outcomes: A Meta-Analysis of Research Findings"
+    url: "https://doi.org/10.1037/0033-2909.134.2.270"
+  limitations: "多くが実験室ベースの短期実験で、教室での長期的な学力効果のエビデンスではない。内発的動機づけへの効果は出版バイアス補正(trim-and-fill)で約 3 分の 1 縮小する。Hattie の『学習の主導権』は d ≒ 0.02 とほぼ無効果で、ガイドなしの完全な自由学習を支持するエビデンスはない(Kirschner et al. 2006)。効果が見込めるのは『枠組みの中の限定された選択』。"
 culturalContext: |
   **日本の『主体的な学び』が『完全自由放任』と誤解されるリスク**を指摘する項目。新学習指導要領の『主体的・対話的で深い学び』は『教師の関与を減らす』ことを意味しない。**足場かけ(scaffolding)** や **直接教授法(direct instruction)** と組み合わせた『ガイド付きの主体性』が本来の趣旨。『子どもに任せれば主体的になる』という素朴な信念は、Hattie のエビデンスに反する。
 ---
