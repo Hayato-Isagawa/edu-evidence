@@ -15,7 +15,17 @@ evidence:
     monthsGained: 3
     strength: 3
     note: "EEF Toolkit の Outdoor adventure learning は +4ヶ月・エビデンス★3 だが、ここでは保守的に +3 として本文と整合。自己肯定感・協働性・チームワークへの効果が学力への効果より大きいことが一貫して報告される。Gutman & Schoon(2013)も非認知効果の優位性を指摘。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-12"
+methodology:
+  studies: 96
+  sampleSize: "冒険教育プログラムの 96 研究・151 独立サンプル・1,728 効果量のメタ分析"
+  effectSize: "プログラム終了時の平均効果量 d = 0.34。多くの教育研究と対照的に、終了後の追跡期間にさらに +0.17 の上乗せ効果。効果はプログラムが長いほど・参加者の年齢が高いほど大きい"
+  primaryMetaAnalysis:
+    authors: "Hattie, Marsh, Neill & Richards"
+    year: 1997
+    title: "Adventure Education and Outward Bound: Out-of-Class Experiences That Make a Lasting Difference"
+    url: "https://doi.org/10.3102/00346543067001043"
+  limitations: "測定されたアウトカムは自己概念・統制の所在・リーダーシップなど非認知面が中心で、教科学力への直接効果のエビデンスではない。効果はプログラムとアウトカムにより大きくばらつき、著者ら自身が『なぜ機能するのか』の解明は不十分と明記している。対象には年長の参加者・長期プログラム(Outward Bound 型)が多く、小学校の短期の野外学習にそのまま当てはまるとは限らない。自己肯定感・協働性への効果が学力への効果より大きいことは EEF の整理とも一致する。"
 culturalContext: |
   日本の小学校は『生活科』『総合的な学習の時間』『宿泊学習』『遠足・校外学習』で屋外学習を既に多く実施しており、EEF の屋外学習は日本のカリキュラムに既に深く組み込まれている。新規導入の効果量ではなく、**既存の体験学習の『質』を高める**観点で EEF 知見を参照するのが適切。コスト(+4)が高いのは日常的な導入を想定した場合の値。
 ---
