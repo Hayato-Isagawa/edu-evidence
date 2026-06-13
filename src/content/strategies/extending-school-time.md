@@ -16,7 +16,17 @@ evidence:
     monthsGained: 3
     strength: 3
     note: "EEF Toolkit で +3ヶ月・エビデンス★3。単に時間を延長するだけでは効果は限定的で、延長時間の『質』(少人数・targeted・構造化)が効果を決める。社会経済的に不利な子どもでより大きな効果が見られる傾向。コスト(+3)も大きな負担。"
-lastVerified: "2026-05-05"
+methodology:
+  studies: 35
+  sampleSize: "統制群・比較群を持つ放課後・夏季プログラム(OST)研究 35 件のメタ分析(低学力・at-risk の K-12 児童生徒対象、米国中心)"
+  effectSize: "読解・算数とも小さいが統計的に有意な正の効果。前身レポート版(Lauer et al. 2004 更新版、53 研究)では全体 ES 読解 0.06〜0.13・算数 0.09〜0.17(統計モデルにより変動)、読解の 1 対 1 チュータリング型で最大 0.50"
+  primaryMetaAnalysis:
+    authors: "Lauer, Akiba, Wilkerson, Apthorp, Snow & Martin-Glenn"
+    year: 2006
+    title: "Out-of-School-Time Programs: A Meta-Analysis of Effects for At-Risk Students"
+    url: "https://eric.ed.gov/?id=EJ751154"
+  limitations: "対象は低学力・at-risk 児童生徒であり、全児童への一般化はできない。実施時期(放課後か夏季か)で効果に差はない。45 時間超のプログラムで効果が大きい一方、最長時間帯(読解 210 時間超・算数 100 時間超)では効果がゼロと有意差なし(時間を増やすほど効くわけではない)。学年は有意なモデレータで、読解の最大効果(0.26)は K-2。※レンジ・モデレータの数値は同一プロジェクトのレポート版(McREL 2004 更新版)による"
+lastVerified: "2026-06-13"
 culturalContext: |
   日本では放課後児童クラブ(学童保育)・放課後子供教室が広く整備されているが、これらは **保育・居場所機能が主で学習支援機能は副次的**。EEF の知見が示すのは『時間を増やせば学力が上がる』のではなく『質の高い追加介入が必要』という点。教員の働き方改革と逆行するため、導入には**外部人材(学習支援員・地域ボランティア)**との組み合わせが現実的。
 ---
@@ -56,6 +66,7 @@ culturalContext: |
 - Meyer, E., & Van Klaveren, C. (2020). [How deficiency subsidies could reduce inequality in education](https://doi.org/10.1016/j.econedurev.2020.101960). *Economics of Education Review*, 78. — 放課後学習の効果は特に低学力層で大きいことを示した研究。
 - [Extending School Time](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/extending-school-time). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 効果量 +3 ヶ月。時間の延長そのものより、延長された時間の質が効果を大きく左右することを指摘。
 - Cooper, H., Charlton, K., Valentine, J. C., & Muhlenbruck, L. (2000). Making the most of summer school. *Monographs of the Society for Research in Child Development*, 65(1). — サマースクールの効果を包括的にレビュー。
+- Lauer, P. A., Akiba, M., Wilkerson, S. B., Apthorp, H. S., Snow, D., & Martin-Glenn, M. L. (2006). [Out-of-school-time programs: A meta-analysis of effects for at-risk students](https://eric.ed.gov/?id=EJ751154). *Review of Educational Research*, 76(2), 275–313. — 35 研究を統合し、読解・算数とも小さいが有意な正の効果と「時間より質」の条件を示したメタ分析([レポート版全文](https://files.eric.ed.gov/fulltext/ED483021.pdf))。
 
 ## 関連する学習指導要領
 

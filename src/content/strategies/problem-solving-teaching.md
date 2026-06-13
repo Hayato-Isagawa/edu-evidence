@@ -18,7 +18,17 @@ evidence:
   hattie:
     cohensD: 0.68
     note: "Hattie の Visible Learning で d=0.68。ただし『問題解決型学習』の操作的定義は幅広く、純粋な放任型と構造化された指導型の両方が含まれる。後者の方が効果的。"
-lastVerified: "2026-04-14"
+methodology:
+  studies: 487
+  sampleSize: "問題解決研究 487 報告をメタ分析で統合(問題解決者の特性/問題の難易条件/指導法の効果/教室条件の 4 領域)"
+  effectSize: "図・スケッチを添えた問題提示形式が成績と直接関連し、その表現スキルの訓練が最大の改善をもたらした。発見的方法(ヒューリスティクス)の訓練を受けた教師の指導は児童生徒の成績に正の効果(統合効果量の数値は本文が有料アクセスのため記載見送り)"
+  primaryMetaAnalysis:
+    authors: "Hembree"
+    year: 1992
+    title: "Experiments and Relational Studies in Problem Solving: A Meta-Analysis"
+    url: "https://eric.ed.gov/?id=EJ447764"
+  limitations: "小学校段階(K-5)では優位な問題解決指導法が確認されていない。発見的指導の優位は中学(6-8 年)でやや見られ、高校で明確になる(出版社抄録より逐語確認)。1992 年のメタ分析で対象研究は古く、『問題解決型学習』の操作的定義も研究間で幅広い。"
+lastVerified: "2026-06-13"
 culturalContext: |
   日本の算数教育で広く実践される「問題提示 → 自力解決 → 練り上げ → まとめ」の授業構造は、**世界的に『Japanese Problem Solving』として評価** され、シンガポールや TIMSS でも参照されている。ただし日本国内では、この枠組みの効果を RCT で検証した研究は極めて限定的。『問題解決型学習』の効果は『構造化の質』に強く依存する(放任型は逆効果の可能性)。日本の算数の授業構造そのものが、この構造化を体現している面がある。
 ---
@@ -48,6 +58,7 @@ culturalContext: |
 - 日本の算数授業はTIMSSビデオ研究で「問題解決型」の典型として分析されました。
 - 教師の発問の質と「練り上げ」の深さが、学習効果を大きく左右します。
 - 効果量は約4ヶ月分とされていますが、教師の力量への依存度が高い手法です。
+- ただし487報告のメタ分析(Hembree 1992)では、小学校段階(K-5)で優位な指導法は確認されておらず、発見的指導の優位が明確になるのは高校段階です。小学校では「型」より教師の発問・練り上げの質が鍵になります。
 
 ## 注意したいこと
 
@@ -60,6 +71,7 @@ culturalContext: |
 - Hiebert, J., Gallimore, R., Garnier, H., et al. (2003). [Teaching Mathematics in Seven Countries: Results from the TIMSS 1999 Video Study](https://nces.ed.gov/pubs2003/2003013.pdf). NCES. — 7カ国の数学授業をビデオ分析。日本の授業が問題解決型の構造を持つことを国際比較で明示。
 - Stigler, J. W., & Hiebert, J. (1999). *The Teaching Gap: Best Ideas from the World's Teachers for Improving Education in the Classroom*. Free Press. — 日本の授業研究と問題解決型学習の強みを国際的に紹介した著作。
 - Kapur, M. (2014). [Productive failure in learning math](https://doi.org/10.1111/cogs.12107). *Cognitive Science*, 38(5), 1008–1022. — 最初に「失敗」する経験が、その後の理解を深めることを実証。問題解決型学習の理論的根拠を補強。
+- Hembree, R. (1992). [Experiments and relational studies in problem solving: A meta-analysis](https://eric.ed.gov/?id=EJ447764). *Journal for Research in Mathematics Education*, 23(3), 242–273. — 487報告を統合した問題解決研究の包括的メタ分析。図解付き問題提示と表現スキル訓練の効果、学校段階による指導法効果の違いを示した。
 
 ## 関連する学習指導要領
 
