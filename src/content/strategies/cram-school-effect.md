@@ -1,6 +1,6 @@
 ---
 title: 学習塾と公教育の関係
-summary: 学習塾通いは中程度の正効果(d = 0.42-0.67)が国際的なメタ分析で報告されている一方、家庭の経済状況による格差を生む構造でもある。
+summary: 学習塾通いは平均的に学力向上と関連する一方、家庭の経済状況による格差を生む構造でもある。効果量は選択バイアスの統制が難しく、研究によって幅がある。
 monthsGained: 3
 evidenceStrength: 3
 cost: 5
@@ -15,9 +15,9 @@ evidence:
   japan:
     monthsGained: 3
     strength: 3
-    note: "松岡亮二(2019)・中室牧子(2015)らは日本の学習塾通いと学力・進学の関連を分析し、通塾は学力向上に寄与する一方、SES により通塾率に大きな差があり、**公教育では縮まらない格差を学習塾が拡大している** と指摘。国際的には Byun, Chung & Baker(2018)のメタ分析で shadow education の効果量が d=0.42-0.67 と報告。"
+    note: "松岡亮二(2019)・中室牧子(2015)らは日本の学習塾通いと学力・進学の関連を分析し、通塾は学力向上に寄与する一方、SES により通塾率に大きな差があり、**公教育では縮まらない格差を学習塾が拡大している** と指摘。"
     researcher: "中室牧子(慶應義塾大学)、松岡亮二(早稲田大学)"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-14"
 culturalContext: |
   **『学習塾は公教育の補完ではなく学力格差の主要因の一つ』** という日本特有の論点。OECD 国で見ても日本・韓国・台湾等の東アジア諸国は shadow education の比率が突出して高い。公教育の教員が知っておくべきは、**学級内の学力差の背後に通塾の有無がある可能性**と、その差が SES に強く規定されていること。『家で勉強しないから学力が低い』という解釈は、構造を見誤らせる。
 ---
@@ -61,6 +61,7 @@ culturalContext: |
 
 - Bray, M. (2009). *Confronting the shadow education system: What government policies for what private tutoring?* UNESCO IIEP. — 民間塾(shadow education)の国際比較研究。日本・韓国・中国を含む。
 - Buchmann, C., Condron, D. J., & Roscigno, V. J. (2010). Shadow education, American style: Test preparation, the SAT and college enrollment. *Social Forces*, 89(2), 435–461. — 米国の SAT 対策と進学の関連。
+- Byun, S., Chung, H. J., & Baker, D. P. (2018). Global patterns of the use of shadow education: Student, family, and national influences. *Research in the Sociology of Education*, 20, 71–105. — PISA データを用いて、学習塾(shadow education)の利用パターンを国際比較した研究。
 
 ### 日本の研究・公式資料
 
@@ -70,4 +71,4 @@ culturalContext: |
 
 ### 注記
 
-学習塾の効果は選択バイアスの統制が難しく、効果量の推定は研究によって幅があります。直近の3レベルメタ分析では中程度の正効果(d = 0.42-0.67)が報告されていますが、地域・科目・学年・経済状況によって効果は大きく異なります。本サイトの「+3ヶ月」は中庸寄りの控えめな換算値で、確定値ではありません。
+学習塾の効果は選択バイアスの統制が難しく、効果量の推定は研究によって幅があります。地域・科目・学年・経済状況によって効果は大きく異なり、本サイトの「+3ヶ月」は中庸寄りの控えめな換算値で、確定値ではありません。
