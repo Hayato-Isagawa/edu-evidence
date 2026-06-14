@@ -15,7 +15,17 @@ evidence:
     monthsGained: 1
     strength: 2
     note: "EEF Toolkit で +1ヶ月・エビデンス★2。学力への直接効果は小さい。一方で、身体活動は健康・集中力・ストレス耐性に確かな効果があり、学習の土台として重要。Donnelly et al.(2016)の系統的レビューでも学業成果への効果は限定的で、身体的・心理的効果が主。"
-lastVerified: "2026-05-05"
+lastVerified: "2026-06-14"
+methodology:
+  studies: 26
+  sampleSize: "メタ分析 26 介入研究・児童 10,205 人(4〜13 歳)。ランダム効果モデルでプール"
+  effectSize: "身体活動介入のプール効果量(95%CI)は数学関連スキル 0.21〔0.09, 0.33〕・読解 0.13〔0.02, 0.24〕・総合スコア 0.26〔0.07, 0.45〕でいずれも有意。言語関連スキルは 0.16〔−0.06, 0.37〕で有意でなく、授業中の課題従事(on-task)時間は 0.77〔0.22, 1.32〕と最も大きい"
+  primaryMetaAnalysis:
+    authors: "Álvarez-Bueno, Pesce, Cavero-Redondo, Sánchez-López, Garrido-Miguel & Martínez-Vizcaíno"
+    year: 2017
+    title: "Academic Achievement and Physical Activity: A Meta-analysis"
+    url: "https://doi.org/10.1542/peds.2017-1498"
+  limitations: "学力の測定に用いられた尺度が研究間で多様なこと、放課後の身体活動介入の効果を報告した研究が限られることが限界。対象は運動を意図的に与えた介入研究で、効果は学力領域によって差があり、言語関連スキルへの効果は有意ではなかった。"
 culturalContext: |
   日本の小学校は体育が週 2-3 時間必修で、休み時間・昼休みの自由遊びも含めると国際的に見て身体活動時間は確保されている方。EEF の +1 を『追加で取り組むべき』と読むより、**既存の体育・休み時間の質を維持**する観点で参照するのが適切。学力への効果を期待するより、健康・生活リズム・メンタルヘルスへの効果を目的とすべき領域。
 ---
@@ -53,7 +63,8 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Singh, A., et al. (2012). [Physical activity and performance at school](https://doi.org/10.1016/j.arcped.2012.01.002). *Archives of Pediatrics & Adolescent Medicine*, 166(1), 49–55. — 14研究のレビュー。身体活動と学力の間に正の関連があるが、因果関係の立証には限界あり。
+- Álvarez-Bueno, C., et al. (2017). [Academic Achievement and Physical Activity: A Meta-analysis](https://doi.org/10.1542/peds.2017-1498). *Pediatrics*, 140(6), e20171498. — 26 の介入研究・児童 10,205 人のメタ分析。数学・読解・総合スコアに小さな正の効果、授業中の課題従事(on-task)に中程度の効果。
+- Singh, A., et al. (2012). [Physical activity and performance at school](https://doi.org/10.1001/archpediatrics.2011.716). *Archives of Pediatrics & Adolescent Medicine*, 166(1), 49–55. — 14研究のレビュー。身体活動と学力の間に正の関連があるが、因果関係の立証には限界あり。
 - Donnelly, J. E., et al. (2016). [Physical activity, fitness, cognitive function, and academic achievement](https://doi.org/10.1249/MSS.0000000000000901). *Medicine & Science in Sports & Exercise*, 48(6), 1197–1222. — 身体活動が認知機能と集中力に正の効果を持つことを包括的にレビュー。
 - EEF (2021). Physical activity: Evidence review. — 学力への効果量+1ヶ月。健康・集中力への効果は別途確認。
 
