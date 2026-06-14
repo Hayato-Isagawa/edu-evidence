@@ -20,7 +20,11 @@ evidence:
     monthsGained: 0
     strength: 2
     note: "EEF Toolkit に Lesson Study の独立したエントリは無い(プロフェッショナル・ディベロップメントの一環として扱われる)。"
-lastVerified: "2026-04-14"
+methodology:
+  sampleSize: "米国の 39 教育者チーム・213 名(87% が小学校教員)を 3 条件に無作為割付(分数教材キット付き授業研究 73 名/通常の研修 67 名/テーマ自由選択の授業研究 73 名)。約 3 か月の自己管理型介入。児童の分析対象は 1,059 人(66 教育者・38 チーム)"
+  effectSize: "児童の分数知識 +0.49 SD(係数 0.492、p < .001。見慣れた形式 0.44/見慣れない形式 0.52)・教師の分数知識 +0.19 SD(統計的に有意。いずれも HLM)"
+  limitations: "単一の RCT でありメタ分析ではない。検証されたのは『分数教材キット付き授業研究』という複合介入で、日本の校内研究そのものの効果検証ではない(米国・分数単元・約 3 か月)。対照 2 条件のうち 1 つはテーマ自由選択の授業研究であり、『授業研究 vs 研修なし』の比較ではない。日本国内で授業研究の効果を検証した RCT は存在しない。"
+lastVerified: "2026-06-13"
 culturalContext: |
   Lesson Study は **日本から世界に輸出された数少ない教育実践** で、シンガポール・米国・英国などでも研修手法として採用されている。Lewis & Perry (2017) の米国 RCT(39 教育者チーム)は、分数指導に特化した形で Lesson Study の効果を検証し、教師と児童双方の学力向上を確認した。What Works Clearinghouse の厳格な基準を満たした数少ない研究の一つ。ただし、日本国内では「校内研究」として広く実施されているにもかかわらず、その効果を RCT で検証した研究は極めて限定的で、「当然の実践」として効果量の定量化が遅れている状況にある。「+3ヶ月」は Lewis & Perry の分数指導研究からの暫定換算値で、全教科全般の効果ではない。
 ---
@@ -58,7 +62,7 @@ culturalContext: |
 
 ### 海外の研究(効果量の根拠)
 
-- Lewis, C., & Perry, R. (2017). Lesson study to scale up research-based knowledge. *Journal for Research in Mathematics Education*, 48(3), 261–299. — 分数の学習におけるLesson Studyの効果をRCTで検証。What Works Clearinghouseの厳格な基準を満たした数少ない研究の一つ。
+- Lewis, C., & Perry, R. (2017). [Lesson study to scale up research-based knowledge: A randomized, controlled trial of fractions learning](https://eric.ed.gov/?id=EJ1141508). *Journal for Research in Mathematics Education*, 48(3), 261–299. — 分数の学習におけるLesson Studyの効果をRCTで検証。What Works Clearinghouseの厳格な基準を満たした数少ない研究の一つ。
 - Gersten, R., Taylor, M. J., Keys, T. D., Rolfhus, E., & Newman-Gonchar, R. (2014). Summary of research on the effectiveness of math professional development approaches. IES. — 643件の数学授業改善研究のレビュー。正の効果が確認されたのは2手法のみで、その1つがLesson Study。
 
 ### 日本の研究・公式資料
@@ -67,7 +71,7 @@ culturalContext: |
 
 ### 注記
 
-効果量(+5ヶ月)は米国のRCT(Lewis & Perry, 2017)に基づいています。日本は研究授業の発祥国であり広範な実践がありますが、日本国内で実施された定量的なRCTは存在しません。秋田(2008)は日本における研究授業の理論的整理であり、効果量の根拠ではありません。
+効果量(+3ヶ月)は米国のRCT(Lewis & Perry, 2017)に基づいています。日本は研究授業の発祥国であり広範な実践がありますが、日本国内で実施された定量的なRCTは存在しません。秋田(2008)は日本における研究授業の理論的整理であり、効果量の根拠ではありません。
 
 ## 関連する学習指導要領
 
