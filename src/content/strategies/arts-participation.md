@@ -15,7 +15,17 @@ evidence:
     monthsGained: 3
     strength: 2
     note: "EEF Toolkit で +3ヶ月・エビデンス★2(低)。学力への効果は小さいが、非認知スキル(創造性・自己表現・動機づけ)への正の効果がより大きい。Winner, Goldstein & Vincent-Lancrin(2013 OECD)も芸術教育の領域横断的効果を限定的と評価。"
-lastVerified: "2026-04-14"
+methodology:
+  studies: 188
+  sampleSize: "1950〜1999 の英語文献 11,467 件を検索し、芸術学習と学力の関係を実証的に検証した 188 報告(275 の効果量)を抽出した、Harvard Project Zero による 10 件のメタ分析(REAP: Reviewing Education and the Arts Project)"
+  effectSize: "芸術学習と学力(主にテスト得点)の間には小〜中程度の相関(31 報告・66 効果量)が見られたが、芸術学習が学力を向上させるという因果的証拠は得られなかった。因果関係が確認されたのは、音楽演奏→空間推論(19 報告・大)、音楽聴取→空間的・時間的推論(26 報告・中・一時的)、演劇→言語スキル(80 報告・主に中)の 3 領域に限られる(効果量は相関係数 r。r=.10 が小、.24 が中、.37 が大)"
+  primaryMetaAnalysis:
+    authors: "Winner & Hetland (Harvard Project Zero, REAP)"
+    year: 2000
+    title: "The Arts and Academic Achievement: What the Evidence Shows (Reviewing Education and the Arts Project)"
+    url: "https://pz.harvard.edu/sites/default/files/REAP%20Executive%20Summary.pdf"
+  limitations: "芸術学習と学力の相関は、学力の高い生徒が芸術活動を選択しやすい(自己選択)など非因果的な機構で説明できる。因果が示されたのは音楽→空間推論・演劇→言語スキルに限られ、いずれも一般的な学力ではない。EEF Toolkit の『+3 か月』は芸術活動の介入研究に基づく別系統の推計で、REAP が対象とした『芸術学習→学力への転移』とは範囲が異なる。"
+lastVerified: "2026-06-14"
 culturalContext: |
   日本の小学校は音楽・図画工作・体育という教科枠で芸術活動を必修化しており、EEF の『芸術活動への参加』の大部分は既にカリキュラムに組み込まれている。欧米の『課外活動としての音楽・演劇』とは位置づけが異なるため、EEF の +3 をそのまま追加効果として読むのは誤り。教科としての質と、特別活動・クラブ活動の芸術機会を合わせて考える必要がある。
 ---
