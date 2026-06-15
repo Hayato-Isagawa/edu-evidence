@@ -6,7 +6,7 @@ evidenceStrength: 2
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
-tags: ["制度", "負の効果"]
+tags: ["制度"]
 category: "制度・環境"
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/school-uniform
@@ -15,15 +15,15 @@ evidence:
   eef:
     monthsGained: 0
     strength: 2
-    note: "EEF Toolkit で 0 ヶ月・エビデンス★2。制服の着用自体には学力への効果は確認されない。Bodine(2003)・Brunsma & Rockquemore(1998)等の研究でも学力・出席率・行動への効果は見られないか、わずか。『制服で学校文化を作る』という直感的な信念はエビデンスに裏付けられない。"
-lastVerified: "2026-04-14"
+    note: "EEF Toolkit で 0 ヶ月・エビデンス★2。制服の着用自体に学力への効果は確認されていない。なお単一研究の Brunsma & Rockquemore(1998) は学力への負の相関を報告したが、Bodine(2003) が『同じデータはむしろ全体・大半の学校種別で正の相関を示し、負の結論は分析手法の誤用による』と批判し、著者が反論(2003)するなど解釈は定まっていない。『制服で学校文化を作る』という直感的な信念はエビデンスに裏付けられない。"
+lastVerified: "2026-06-15"
 culturalContext: |
   日本の小学校の多くは私服制または指定服(簡易制服)で、**欧米の『制服の有無』論争とはやや文脈が異なる**。ただし、『制服があれば落ち着く』『帰属意識が高まる』といった言説は日本でも聞かれる。経済的負担・選択の自由・ジェンダー表現といった観点と合わせて議論すべき領域で、学力向上の手段として制服を正当化する根拠はない。
 ---
 
 ## 一言でいうと
 
-制服を導入・統一することで学力が向上するかどうかを検証した研究です。結論として、**学力への効果はほぼゼロ**です。帰属意識や規律の改善が期待されることがありますが、それも研究では一貫した結果が出ていません。
+制服を導入・統一することで学力が向上するかどうかを検証した研究です。結論として、**学力への明確な効果は確認されていません**。帰属意識や規律の改善が期待されることがありますが、それも研究では一貫した結果が出ていません。
 
 ## なぜ効果がないのか
 
@@ -42,7 +42,7 @@ culturalContext: |
 
 - EEF Toolkitでは効果量±0ヶ月。学力への効果は確認されていない
 - 帰属意識・出席率への効果を示す研究もあるが、質が高い研究では一貫した結果が出ていない
-- Brunsma & Rockquemore (1998) の大規模分析では、制服と学力・行動の間に有意な関連は見られなかった
+- Brunsma & Rockquemore (1998)（縦断調査データの二次分析・単一研究）は、出席・行動・物質使用には効果がなく、学力にはむしろ負の相関があると報告した。ただしこの解釈は Bodine (2003) に『同じデータはむしろ正の相関を示す／分析手法の誤用』と批判され、著者が反論(2003)するなど論争がある
 
 ## 注意したいこと
 
@@ -52,6 +52,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Brunsma, D. L., & Rockquemore, K. A. (1998). [Effects of student uniforms on attendance, behavior problems, substance use, and academic achievement](https://doi.org/10.1080/00220679809597559). *Journal of Educational Research*, 92(1), 53–62. — 大規模データ分析。制服と学力・行動に有意な関連なし。
+- Brunsma, D. L., & Rockquemore, K. A. (1998). [Effects of student uniforms on attendance, behavior problems, substance use, and academic achievement](https://doi.org/10.1080/00220679809597575). *Journal of Educational Research*, 92(1), 53–62. — 縦断調査データの二次分析（単一研究）。出席・行動・物質使用に効果なし、学力には負の相関を報告。ただし解釈には後続の論争がある。
+- Bodine, A. (2003). [School uniforms, academic achievement, and uses of research](https://doi.org/10.1080/00220670309597509). *Journal of Educational Research*, 97(2). — Brunsma & Rockquemore (1998) の負の相関の主張に対し、同じデータは全体・大半の学校種別でむしろ正の相関を示しており、負の結論は学校種別分析の誤用によると批判（著者は2003年に反論）。
 - EEF (2021). School uniform: Evidence review. — 効果量±0ヶ月。帰属意識への効果も限定的。
 - 松岡亮二 (2019). 『教育格差――階層・地域・学歴』筑摩書房. — 日本における教育格差はSESに起因し、外見の統一では解消されないことを実証。
