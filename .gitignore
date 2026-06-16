@@ -20,3 +20,7 @@ scripts/fonts/*.ttf
 # Claude Code の生きたセッション状態(docs/context-management.md 参照)
 .claude/state/
 .claude/sessions/
+
+# Local security assessment notes (kept outside the repository)
+VULN_ASSESSMENT_*.md
+SUPPLY_CHAIN_AUDIT_*.md
