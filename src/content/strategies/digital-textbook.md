@@ -19,7 +19,17 @@ evidence:
   hattie:
     cohensD: -0.21
     note: "Delgado et al.(2018)の 54 研究メタ分析で、読解においては **紙>デジタル** の優位性が確認されている(g=-0.21)。この差は時間制約・説明文・長文で特に大きい(digital-vs-paper-reading を参照)。"
-lastVerified: "2026-04-14"
+methodology:
+  studies: 54
+  sampleSize: "紙とデジタル端末で同等のテキストを読んだ際の読解力を比較した 54 研究(被験者間計画 38・被験者内計画 16)、計 171,055 名。2000〜2017 年に発表された研究を対象とする"
+  effectSize: "読解では紙が画面より優位: 被験者間計画で Hedges' g = -0.21(95%CI [-0.28, -0.14])、被験者内計画で dc = -0.21(95%CI [-0.37, -0.06])。両計画とも同一の差で、Cohen の基準では小さいが有意(負値はデジタルが劣位)"
+  primaryMetaAnalysis:
+    authors: "Delgado, Vargas, Ackerman & Salmerón"
+    year: 2018
+    title: "Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension"
+    url: "https://doi.org/10.1016/j.edurev.2018.09.003"
+  limitations: "本メタ分析は『紙 vs 画面での読解』の比較であり、動画・音声・書き込み等を備えた日本の多機能な学習者用デジタル教科書そのものの効果検証ではない。効果は小さく、3 つの調整変数に依存する: ①時間制約下では紙優位が拡大(g = -0.26)するが自己ペースでは縮小(g = -0.09)、②情報文・混合文では紙優位だが物語文のみでは差が消える(g = 0.01)、③出版年が新しいほど紙優位が拡大した(2000 年から 2017 年)。読解以外(学習意欲・アクセシビリティ・音声/動画教材・協働的な書き込み)は本メタの対象外で、戦略全体の評価とは区別が必要"
+lastVerified: "2026-06-16"
 culturalContext: |
   日本では**紙の教科書を無償配布する制度**が定着しており、デジタル教科書は追加措置(併存)として議論されている。欧米の『紙 vs デジタル』論争とは前提が異なる。**コスト +4** は端末・ライセンス・インフラの追加費用を反映。『デジタル化すれば学力が上がる』という素朴な期待は Delgado 2018 のエビデンスに反する。使い分け(長文読解は紙、検索・書き込み・録音はデジタル)が現実的。
 ---
@@ -58,7 +68,7 @@ culturalContext: |
 
 ### 海外の研究(効果量の根拠)
 
-- Delgado, P., Vargas, C., Ackerman, R., & Salmerón, L. (2018). Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension. *Educational Research Review*, 25, 23–38. — 紙とデジタルの読解メタ分析。長文では紙の方が有利。
+- Delgado, P., Vargas, C., Ackerman, R., & Salmerón, L. (2018). [Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension](https://doi.org/10.1016/j.edurev.2018.09.003). *Educational Research Review*, 25, 23–38. — 紙とデジタルの読解メタ分析。長文では紙の方が有利。
 - Singer, L. M., & Alexander, P. A. (2017). Reading on paper and digitally: What the past decades of empirical research reveal. *Review of Educational Research*, 87(6), 1007–1041. — 過去10年の紙vs.デジタル研究を包括的にレビュー。
 
 ### 日本の研究・公式資料
