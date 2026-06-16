@@ -13,13 +13,23 @@ sourceUrl: https://doi.org/10.3389/fpsyg.2023.1219945
 sourceTitle: "van der Meer & van der Weel (2023) — Handwriting but not typewriting leads to widespread brain connectivity"
 evidence:
   hattie:
-    cohensD: 0.30
-    note: "van der Meer & van der Weel(2023)の EEG 研究で、手書き時は脳の広範なネットワーク(視覚・運動・感覚)が活性化するが、タイピングでは限定的。Mueller & Oppenheimer(2014)の『ペンはキーボードより強し』は有名だが、**Morehead et al.(2019)の追試で効果が再現されず**、効果の大きさには議論がある。**幼児の文字習得・図形学習**では手書きの優位性が一貫して報告されている(James & Engelhardt 2012 等)。"
+    cohensD: 0.25
+    note: "Flanigan ら(2024)の 24 研究(21 論文・大学生 3,005 名)のメタ分析では、手書きノートを取り復習した学生は学力(コース成績)が高く、効果量は Hedges' g=0.248 [0.181, 0.315](小)。一方、ノートの記録量はタイピングの方が多い(g=0.919)。脳活動の面では van der Meer & van der Weel(2023)の EEG 研究で、手書き時に視覚・運動・感覚を含む広範なネットワークが活性化するのに対しタイピングでは限定的。Mueller & Oppenheimer(2014)の『ペンはキーボードより強し』は有名だが、**Morehead et al.(2019)の追試で効果が再現されず**、効果の大きさには議論がある。**幼児の文字習得・図形学習**では手書きの優位性が一貫して報告されている(James & Engelhardt 2012 等)。"
   japan:
     strength: 2
     note: "文部科学省は GIGA スクール端末導入後も『手書きの指導を維持』する方針を示し、特に低学年の文字習得・漢字学習では手書きを重視している。国内の学術的な効果量研究は限定的。"
     researcher: "文部科学省"
-lastVerified: "2026-04-23"
+lastVerified: "2026-06-16"
+methodology:
+  studies: 24
+  sampleSize: "Flanigan ら(2024)が大学生 3,005 名・24 研究(実験 22・準実験 2、21 論文、うち未公刊 6)を Hedges' g でメタ分析(講義ノートの手書き vs タイピング)。学力への効果は 49 効果量に基づく"
+  effectSize: "学力(コース成績)への効果は Hedges' g=0.248 [0.181, 0.315](小)で手書きが優位。一方、ノートの記録量はタイピングが g=0.919 と大きい。手書きは『記録量は少ないが学力は高い』方向"
+  primaryMetaAnalysis:
+    authors: "Flanigan, Wheeler, Colliot, Lu & Kiewra"
+    year: 2024
+    title: "Typed Versus Handwritten Lecture Notes and College Student Achievement: A Meta-Analysis"
+    url: "https://doi.org/10.1007/s10648-024-09914-w"
+  limitations: "対象は大学生の講義ノート場面に限られ、小学生への直接的な一般化は確認されていない。効果量 g=0.248 は小さく、Mueller & Oppenheimer(2014)の初期の大きな効果は Morehead et al.(2019)の追試で再現されていない。日本の漢字・ひらがな等の文字体系に特有の手書き効果を検証した研究は含まれない。タイピングはノートの記録量を増やす(g=0.919)ため、目的に応じた使い分けが必要"
 culturalContext: |
   **日本では漢字学習という手書き特有の領域があり、欧米のアルファベット圏とは前提が異なる**。漢字の形を覚える過程で運動記憶(筆順・運動パターン)が重要な役割を果たすため、GIGA 端末でも『書く』操作をデジタルペンで代替する運用が増えている。フロントマター +3 は Mueller 2014 の初期研究に依拠しており **再現性の議論を踏まえ +2 に調整**。strength も 2 に引き下げ。
 ---
@@ -46,7 +56,7 @@ culturalContext: |
 ## 研究からわかっていること
 
 - van der Meer & van der Weel (2023) のEEG研究では、手書き時に脳の広範なネットワークが活性化することを確認
-- 2024年のメタ分析では、手書きノートを復習した場合にタイピングより学力が有意に高い結果
+- Flanigan ら(2024)の 24 研究のメタ分析では、手書きノートを取り復習した場合にタイピングより学力が有意に高い(ただし効果は小さい)
 - ノルウェーは2024年、小学校での手書き教育を復活させる政策を発表
 - ただし効果は「ノートの取り方」(要約するか逐語的に写すか)に依存する面もある
 
@@ -71,6 +81,7 @@ culturalContext: |
 
 ### 海外の研究(効果量の根拠)
 
+- Flanigan, A. E., Wheeler, J., Colliot, T., Lu, J., & Kiewra, K. A. (2024). [Typed Versus Handwritten Lecture Notes and College Student Achievement: A Meta-Analysis](https://doi.org/10.1007/s10648-024-09914-w). *Educational Psychology Review*, 36(78). — 大学生 3,005 名・24 研究(21 論文)のメタ分析。手書きノートは学力(コース成績)で小さな優位(Hedges' g=0.248 [0.181, 0.315])、タイピングはノートの記録量で優位(g=0.919)。
 - van der Meer, A. L. H., & van der Weel, F. R. (2023). [Handwriting but not typewriting leads to widespread brain connectivity](https://doi.org/10.3389/fpsyg.2023.1219945). *Frontiers in Psychology*, 14. — 手書き時の脳活動が広範なネットワーク接続を示すことをEEGで実証。
 - Morehead, K., Dunlosky, J., & Rawson, K. A. (2019). [How much mightier is the pen than the keyboard for note-taking?](https://doi.org/10.1177/0956797619876982) *Educational Psychology Review*, 31, 753–774. — 手書きvsタイピングの効果を実験的に検証。条件による差を詳細に分析。
 - Mueller, P. A., & Oppenheimer, D. M. (2014). [The pen is mightier than the keyboard](https://doi.org/10.1177/0956797614524581). *Psychological Science*, 25(6), 1159–1168. — 手書きノートの方が概念的な理解が深いことを示した先駆的研究。
@@ -81,7 +92,7 @@ culturalContext: |
 
 ### 注記
 
-効果量(+3ヶ月)は海外の実験研究(van der Meer, Mueller, Morehead等)に基づいています。すべての参考研究が海外のものであり、日本の学校文化や文字体系(漢字・ひらがな)における手書きの効果を検証した研究は引用されていません。なお、研究の多くは大学生を対象としており、小学生への直接的なエビデンスは限られています。
+効果量(+2ヶ月)の主な根拠は Flanigan ら(2024)のメタ分析(大学生対象、Hedges' g=0.248)で、van der Meer・Mueller・Morehead 等は手書きの機序や個別実験の知見です。すべての参考研究が海外のものであり、日本の学校文化や文字体系(漢字・ひらがな)における手書きの効果を検証した研究は引用されていません。なお、研究の多くは大学生を対象としており、小学生への直接的なエビデンスは限られています。
 
 ## 関連する学習指導要領
 
