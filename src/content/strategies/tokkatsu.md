@@ -18,7 +18,16 @@ evidence:
     researcher: "国立教育政策研究所、JICA"
   hattie:
     note: "国際的には日本の Tokkatsu を直接評価したメタ分析は無いが、構成要素である協同学習・SEL・自治活動の効果量を合成すると、d=0.3-0.5 程度が期待される。"
-lastVerified: "2026-04-14"
+lastVerified: "2026-06-18"
+methodology:
+  sampleSize: "特別活動(学級活動・児童会・クラブ・学校行事)そのものの学力・非認知効果を直接検証したクリーンなメタ分析や大規模 RCT は確認されていない。効果量は構成要素である社会情動的学習(SEL)・協同学習の知見からの借用推定に依拠する。最も近い大規模証拠は、学校ベースの普遍的 SEL 介入を統合した Durlak et al.(2011)の213研究・延べ270,034名(幼稚園〜高校)のメタ分析。"
+  effectSize: "特別活動に固有の標準化効果量(Cohen's d 等)は確立していない。最も近い大規模証拠である Durlak et al.(2011)の SEL 介入メタ分析では、学力到達度が約11パーセンタイルポイント向上し(効果量換算でおおむね d=0.3 弱)、社会情動的スキルや向社会的行動への効果はそれより大きいと報告されている。ただしこれらは特別活動を直接測定した値ではなく、自治・協働・集団活動という重なる構成要素からの借用推定である。本サイトの『+2ヶ月』はこの借用レンジの下限よりさらに保守的に置いた暫定値。"
+  primaryMetaAnalysis:
+    authors: "Durlak et al."
+    year: 2011
+    title: "The Impact of Enhancing Students' Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions"
+    url: "https://doi.org/10.1111/j.1467-8624.2010.01564.x"
+  limitations: "特別活動は日本固有の教育領域であり、それ自体を統合効果量で示したメタ分析や大規模 RCT はほぼ存在しない。効果量は SEL・協同学習(Durlak et al. 2011 等)からの借用推定であり、構成要素が重なるとはいえ特別活動の効果そのものを測ったものではない。非認知能力(自己効力感・協働性・帰属意識)への正の効果は実践研究で繰り返し報告されるが、学力への直接的な因果効果は実証されていない。さらに『学級活動が充実した学級ほど学力が高い』といった国内の相関研究は選択バイアスを免れず、効果を過大評価しやすい。本サイトの『+2ヶ月』は、こうした不確実性を踏まえた控えめな暫定値であり、確定した因果効果ではない。"
 culturalContext: |
   **日本で独自に発達した教育領域** で、EEF などの欧米メタ分析にそのまま対応する項目は存在しない。国際的には日本の学級経営・学校文化の鍵として注目を集めており、エジプトの『日本式教育(TKKJ)』等で海外導入が進む。効果量 +2 はあくまで『構成要素(SEL・協同学習)から推定した保守的な値』であり、**学力効果だけで評価すべき領域ではない** 点に注意。『特別活動を通じた自治の経験』そのものが目的であって、学力向上はその副産物。
 ---
@@ -56,11 +65,12 @@ culturalContext: |
 ### 海外の研究(効果量の根拠)
 
 - OECD (2020). *What Students Learn Matters: Towards a 21st Century Curriculum*. — OECDが日本の特別活動を「社会情動的スキルの育成に成功した実践」として紹介。
+- Durlak, J. A., et al. (2011). [The Impact of Enhancing Students' Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions](https://doi.org/10.1111/j.1467-8624.2010.01564.x). *Child Development*, 82(1), 405–432. — 学校ベースの普遍的 SEL 介入213件・延べ27万人のメタ分析。学力到達度を約11パーセンタイルポイント押し上げた。特別活動が育てる社会情動的スキルの効果量の最も近い根拠。
 
 ### 日本の研究・公式資料
 
 - 国立教育政策研究所 (2024). [「特別活動指導資料」](https://www.nier.go.jp/kaihatsu/pdf/tokkatsu_20240722-01.pdf). — 特別活動の意義・内容・指導方法を整理した公式資料。学力向上・生徒指導・道徳的実践との接続を解説。
-- Tsuneyoshi, R. (2012). The new Japanese educational reforms and the achievement "crisis" debate. *Educational Policy*, 18(2), 364–394. — 日本の特別活動が非認知能力の育成にどう寄与しているかを分析した研究。
+- Tsuneyoshi, R. (2019). [The Tokkatsu Framework: The Japanese Model of Holistic Education](https://doi.org/10.1142/9789813232679_0001). In *Tokkatsu: The Japanese Educational Model of Holistic Education*. World Scientific. — 特別活動(Tokkatsu)を全人的教育の日本型モデルとして体系的に提示した文献。学級活動・児童会・クラブ・学校行事を貫く理念と国際的な展開を論じる。
 
 ### 注記
 
