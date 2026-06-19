@@ -17,9 +17,17 @@ evidence:
     strength: 1
     note: "文部科学省の 2022 年教員勤務実態調査では、小学校教諭の時間外労働時間は月平均 41 時間(2016 年の 59 時間から減少)だが、依然として過労死ラインを超える水準。OECD TALIS 2018 でも日本の教員の勤務時間は参加国中最長。**働き方改革と子どもの学力の因果関係を示した日本の大規模研究は存在しない**。"
     researcher: "文部科学省、OECD TALIS"
-  hattie:
-    note: "国際的には teacher burnout と学力の関連を示す研究(Madigan & Kim 2021 メタ分析)があり、教員のエンゲージメントが下がると子どもの学業成果も低下する傾向が示唆される。ただし因果方向は双方向的で、効果量の特定は難しい。"
-lastVerified: "2026-04-14"
+methodology:
+  studies: 14
+  sampleSize: "教員 5,311 名・児童生徒 50,616 名"
+  effectSize: "Madigan & Kim (2021) の系統的レビュー(メタ分析ではなく、統合した単一の効果量は算出していない)は、教員のバーンアウトと児童生徒の成果との関連を調べた 14 研究を統合した。教員のバーンアウトが高いほど学業成果が低く、学習動機の質も低いという『一定の証拠(some evidence)』が示された一方、児童生徒のウェルビーイングとの関連はほとんど見られなかった。著者らはこれを『予備的(preliminary)』な証拠と位置づけ、より頑健な研究設計が必要だと述べている。"
+  primaryMetaAnalysis:
+    authors: "Madigan & Kim"
+    year: 2021
+    title: "Does teacher burnout affect students? A systematic review of its association with academic achievement and student-reported outcomes"
+    url: "https://doi.org/10.1016/j.ijer.2020.101714"
+  limitations: "この研究が扱うのは『働き方改革』そのものではなく、その先にある『教員のバーンアウト』と児童生徒の成果との相関である。(1) 統合効果量を持たない記述的な系統的レビューであり、(2) 含まれる 14 研究の多くは横断研究のため因果の方向を特定できず(バーンアウトが成果を下げるのか、困難な環境がバーンアウトを生むのかを区別できない)、(3) 著者ら自身が予備的な証拠と位置づける。『働き方改革→労働時間の短縮→児童生徒の学力向上』を直接示した研究は日本にも海外にも存在しない。なお教員のバーンアウト・職務満足と離職意図の関連は別のメタ分析(Madigan & Kim 2021, Teaching and Teacher Education 105, 103425)でも示されており、働き方改革の主たる効果は学力ではなく教員の離職防止・定着にある。"
+lastVerified: "2026-06-19"
 culturalContext: |
   **働き方改革は学力向上を直接の目的とする施策ではなく、教員の持続可能性と離職率改善、そして結果として教員の質の維持** を通じて間接的に子どもの学びに影響する領域。『効果量 +X ヶ月』という枠組みと整合しないため **0 に設定**。一方、教員の労働環境悪化は、feedback・teacher-student-relationships・small-group-tuition など多くの高効果戦略の実施可能性を左右する『上流要因』として重要。
 ---
@@ -58,6 +66,7 @@ culturalContext: |
 
 ### 海外の研究
 
+- Madigan, D. J., & Kim, L. E. (2021). Does teacher burnout affect students? A systematic review of its association with academic achievement and student-reported outcomes. *International Journal of Educational Research*, 105, 101714. — 教員のバーンアウトと児童生徒の学業成果・学習動機の関連を調べた 14 研究の系統的レビュー(教員 5,311 名・児童生徒 50,616 名)。関連は『予備的』で、より頑健な研究設計が必要とされる。
 - OECD TALIS 2018 Results. — 加盟国の教員の労働時間・職務満足度を比較。日本の教員労働時間は最長レベル。
 - Skaalvik, E. M., & Skaalvik, S. (2017). Motivated for teaching? Associations with school goal structure, teacher self-efficacy, job satisfaction and emotional exhaustion. *Teaching and Teacher Education*, 65, 152–160. — 学校の目標構造と教員の自己効力感・感情的疲弊・離職意図の関連をノルウェーの教員 760 名で実証。
 
