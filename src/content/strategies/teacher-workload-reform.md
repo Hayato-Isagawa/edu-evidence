@@ -68,7 +68,7 @@ culturalContext: |
 
 - Madigan, D. J., & Kim, L. E. (2021). Does teacher burnout affect students? A systematic review of its association with academic achievement and student-reported outcomes. *International Journal of Educational Research*, 105, 101714. — 教員のバーンアウトと児童生徒の学業成果・学習動機の関連を調べた 14 研究の系統的レビュー(教員 5,311 名・児童生徒 50,616 名)。関連は『予備的』で、より頑健な研究設計が必要とされる。
 - OECD TALIS 2018 Results. — 加盟国の教員の労働時間・職務満足度を比較。日本の教員労働時間は最長レベル。
-- Skaalvik, E. M., & Skaalvik, S. (2017). Motivated for teaching? Associations with school goal structure, teacher self-efficacy, job satisfaction and emotional exhaustion. *Teaching and Teacher Education*, 65, 152–160. — 学校の目標構造と教員の自己効力感・感情的疲弊・離職意図の関連をノルウェーの教員 760 名で実証。
+- Skaalvik, E. M., & Skaalvik, S. (2017). Motivated for teaching? Associations with school goal structure, teacher self-efficacy, job satisfaction and emotional exhaustion. *Teaching and Teacher Education*, 67, 152–160. — 学校の目標構造と教員の自己効力感・感情的疲弊・離職意図の関連をノルウェーの教員 760 名で実証。
 
 ### 日本の研究・公式資料
 
