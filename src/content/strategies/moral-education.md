@@ -16,9 +16,17 @@ evidence:
     strength: 1
     note: "2018 年に『特別の教科 道徳』として必修化。『考え、議論する道徳』への転換が図られるが、**学力・行動・道徳性の定量的な効果を測定した大規模研究はまだ無い**。評価方法(記述式)自体が数値化を避ける設計で、『効果量 +X ヶ月』という指標と整合しない。"
     researcher: "文部科学省"
-  hattie:
-    note: "国際的には Character Education の効果量は d=0.1-0.3 程度と報告されるが、内容・目的・評価方法が日本の道徳科と異なるため直接比較は困難。"
-lastVerified: "2026-04-14"
+methodology:
+  studies: 55
+  sampleSize: "道徳教育の効果に関する古典的メタ分析 Schlaefli, Rest & Thoma (1985) は、道徳判断力を育てる教育介入 55 件を統合した(対象は中高生・大学生・成人と幅広く、すべて Defining Issues Test を指標とする)。character education 全般では Johnson ら (2022) が K–12 の 64 研究・836 比較・96,930 人を統合している。いずれも日本の道徳科そのものを直接測定したものではない。"
+  effectSize: "Schlaefli ら (1985) はジレンマ討議型・心理発達型のプログラムで控えめ(modest)な効果量を報告し、3〜12 週間の介入が最適で、効果量は成人(24 歳以上)で大きく学齢期では小さい(ただし全年齢層で有意)とした。character education 全般の Johnson ら (2022) は平均効果量 g = 0.33, 95%CI [0.21, 0.45](小さいが有意)。いずれも日本の道徳科を直接測った値ではない。"
+  primaryMetaAnalysis:
+    authors: "Schlaefli, Rest & Thoma"
+    year: 1985
+    title: "Does Moral Education Improve Moral Judgment? A Meta-Analysis of Intervention Studies Using the Defining Issues Test"
+    url: "https://doi.org/10.3102/00346543055003319"
+  limitations: "これらは欧米のメタ分析で、指標は Defining Issues Test(道徳判断)など特定の尺度に依存する。日本の道徳科は『考え、議論する道徳』へ転換したが、学力・行動・道徳性を定量化した大規模研究は国内に無く、評価も記述式の個人内評価が原則で数値指標と整合しない。Schlaefli ら(1985)の効果量は学齢期ほど小さく、学力向上の直接の根拠としては弱い。Johnson ら(2022)も一部の研究に報告バイアスの兆候があると述べる(バイアス補正後も結論は維持)。"
+lastVerified: "2026-06-19"
 culturalContext: |
   **道徳教育は学力向上を主目的とする領域ではない**ため、『効果量 +X ヶ月』の枠組みで論じること自体が不適切な側面がある。SEL(social-emotional-learning)・philosophy-for-children との関連項目で参照するのが適切。フロントマター +2 は根拠が薄いため **0 に調整** — 『学力効果を主張できる根拠が現時点で無い』という意味で、道徳教育そのものの価値を否定するものではない。『考え、議論する道徳』の実現は p4c(philosophy-for-children)のエビデンスが参考になる。
 ---
@@ -45,6 +53,7 @@ culturalContext: |
 - 日本では教科化後の効果検証が始まったばかりで、研究方法の確立自体が課題とされています
 - SELの領域では、道徳教育と重なる内容について正の効果が示されています
 - 「考え、議論する」型の授業は、子どもの道徳的判断力の向上に寄与するという質的研究があります
+- 道徳的ジレンマについて議論する型の道徳教育は、道徳的判断力に控えめな効果を示すという古典的なメタ分析(Schlaefli ら 1985、介入55件)があります。ただし効果は学齢期ほど小さく成人で大きい傾向で、3〜12週間の介入が最適とされています
 
 ## 注意したいこと
 
@@ -60,13 +69,18 @@ culturalContext: |
 - 文部科学省 (2017). [「小学校学習指導要領解説 特別の教科 道徳編」](https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387017_012.pdf). — 「考え、議論する道徳」への転換を示した公式解説。教科化の背景と目標を定義。
 - 道徳教育に係る評価等の在り方に関する専門家会議 (2016). 報告書. — 道徳の評価方法について、記述式の個人内評価を推奨した報告。
 
+### 海外の研究
+
+- Schlaefli, A., Rest, J. R., & Thoma, S. J. (1985). [Does Moral Education Improve Moral Judgment? A Meta-Analysis of Intervention Studies Using the Defining Issues Test](https://doi.org/10.3102/00346543055003319). *Review of Educational Research*, 55(3), 319–352. — 道徳判断力を育てる教育介入55件のメタ分析。ジレンマについて議論する型のプログラムで控えめな効果量を示し、3〜12週間の介入が最適。効果量は成人で大きく学齢期では小さい(全年齢層で有意)。指標は Defining Issues Test。
+- Johnson, K., McGrath, R. E., Bier, M., Brown, M., & Berkowitz, M. W. (2022). [A Meta-Analysis of the What Works in Character Education Research](https://doi.org/10.1108/jced-10-2022-0007). *Journal of Character Education*, 18(1), 87–112. — K–12 の character education 研究64件(836比較・96,930人)のメタ分析。平均効果量 g = 0.33, 95% CI [0.21, 0.45](小さいが有意)。
+
 ### 関連読み物
 
 - 『[Education in the Moral Domain](https://books.google.com/books?id=sJFBmwEACAAJ)』 Nucci, L. P. (2001), Cambridge University Press. — 道徳的領域と社会的慣習を心理学的に区別して論じた米国の教科書。
 
 ### 注記
 
-効果量(+2ヶ月)は推定値であり、道徳教育の効果を検証したメタ分析やRCTは世界的にも非常に限られています。日本では2018年の教科化後に効果検証が始まったばかりで、定量的なエビデンスの蓄積は今後の課題です。SELの知見が間接的な参考となっています。
+効果量は 0 ヶ月としています(学力向上を主張できる根拠が現時点で無いため)。道徳教育の効果を検証したメタ分析やRCTは世界的にも限られ、Schlaefli ら(1985)や character education のメタ分析(Johnson ら 2022)も日本の道徳科を直接測ったものではありません。日本では2018年の教科化後に効果検証が始まったばかりで、定量的なエビデンスの蓄積は今後の課題です。SELの知見が間接的な参考となっています。
 
 ## 関連する政策動向
 
