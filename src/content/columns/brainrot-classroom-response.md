@@ -5,6 +5,9 @@ date: "2026-04-17"
 lastVerified: "2026-05-02"
 tags: ["生徒指導", "学級経営", "デジタル"]
 relatedStrategies: ["social-emotional-learning", "behaviour-interventions", "screen-time", "social-media-mental-health"]
+series:
+  id: "brainrot"
+  order: 2
 ---
 
 ## ブレインロットとは何か

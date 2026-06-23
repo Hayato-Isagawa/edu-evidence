@@ -5,6 +5,10 @@ date: "2026-04-17"
 lastVerified: "2026-05-02"
 tags: ["デジタル", "健康", "研究紹介"]
 relatedStrategies: ["screen-time", "social-media-mental-health", "digital-technology"]
+series:
+  id: "brainrot"
+  order: 1
+  title: "ブレインロット"
 ---
 
 ## 「今年の言葉」になった「脳が腐る」

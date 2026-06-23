@@ -5,6 +5,9 @@ date: "2026-05-06"
 lastVerified: "2026-05-06"
 tags: ["神経神話", "VARK", "認知科学", "定説再検証"]
 relatedStrategies: ["learning-styles", "dual-coding", "metacognition", "individualised-instruction", "universal-design-learning"]
+series:
+  id: "reconsidered"
+  order: 2
 sourceUrl: https://journals.sagepub.com/doi/10.1111/j.1539-6053.2009.01038.x
 ---
 

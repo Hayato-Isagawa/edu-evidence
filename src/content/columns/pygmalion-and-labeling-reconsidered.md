@@ -5,6 +5,9 @@ date: "2026-05-24"
 lastVerified: "2026-05-23"
 tags: ["教師期待", "ラベリング", "自己成就的予言", "心理学", "社会学", "再現性", "定説再検証"]
 relatedStrategies: ["teacher-student-relationships", "setting-streaming", "feedback"]
+series:
+  id: "reconsidered"
+  order: 3
 ---
 
 ## 「期待すれば伸びる」「ラベルが運命を決める」のあいだで

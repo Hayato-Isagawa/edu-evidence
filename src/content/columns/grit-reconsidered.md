@@ -5,6 +5,10 @@ date: "2026-04-12"
 lastVerified: "2026-05-02"
 tags: ["非認知能力", "グリット", "心理学", "定説再検証"]
 relatedStrategies: ["metacognition", "growth-mindset", "social-emotional-learning"]
+series:
+  id: "reconsidered"
+  order: 1
+  title: "定説再検証"
 ---
 
 ## 「やり抜く力」が話題になった頃

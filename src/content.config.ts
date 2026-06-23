@@ -111,6 +111,14 @@ const columns = defineCollection({
     lastVerified: z.string().optional(),
     tags: z.array(z.string()).default([]),
     relatedStrategies: z.array(z.string()).default([]),
+    // シリーズ(任意): 「正/続」や複数回シリーズを束ねる。各記事が自分の id/order を宣言
+    series: z
+      .object({
+        id: z.string(),               // シリーズ識別子(同一シリーズで共有)
+        order: z.number(),            // シリーズ内の順序(1 = 正/初回)
+        title: z.string().optional(), // シリーズ表示名(order 1 の記事にのみ記載)
+      })
+      .optional(),
     // チャート定義(任意): id をキーにした辞書で、本文の {{chart:id}} から参照
     charts: z.record(z.string(), chartSchema).optional(),
   }),
