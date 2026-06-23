@@ -7,6 +7,7 @@ cost: 1
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
 tags: ["認知科学", "記憶"]
+relatedStrategies: ["blocked-vs-interleaved"]
 category: "認知科学"
 source: mixed
 sourceUrl: https://doi.org/10.1007/s10648-012-9201-3

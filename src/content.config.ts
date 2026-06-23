@@ -14,6 +14,7 @@ const strategies = defineCollection({
     subjects: z.array(z.string()).default(["全教科"]),
     grades: z.array(z.string()).default(["全学年"]),
     tags: z.array(z.string()).default([]),
+    relatedStrategies: z.array(z.string()).default([]),
     category: z
       .enum(["指導法", "制度・環境", "知っておくべき知見", "認知科学", "家庭・外部"])
       .default("指導法"),

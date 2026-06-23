@@ -7,6 +7,7 @@ cost: 4
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["個別最適化"]
+relatedStrategies: ["small-group-tuition"]
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/one-to-one-tuition
 sourceTitle: "EEF Teaching and Learning Toolkit — One to one tuition"
