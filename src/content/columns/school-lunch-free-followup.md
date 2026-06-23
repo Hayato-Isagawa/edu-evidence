@@ -5,6 +5,9 @@ date: "2026-04-25"
 lastVerified: "2026-05-02"
 tags: ["給食", "政策", "検証", "働き方改革"]
 relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
+series:
+  id: "school-lunch-free"
+  order: 2
 ---
 
 ## 実施 1 ヶ月、何を検証すべきか

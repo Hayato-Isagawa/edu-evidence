@@ -5,6 +5,10 @@ date: "2026-04-14"
 lastVerified: "2026-06-01"
 tags: ["給食", "政策", "格差"]
 relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
+series:
+  id: "school-lunch-free"
+  order: 1
+  title: "給食無償化"
 ---
 
 ## 2026年4月、給食無償化が始まった
