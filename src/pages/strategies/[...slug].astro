@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { annotateGlossaryTerms } from "../../lib/glossary-inline";
 import TableOfContents from "../../components/TableOfContents.astro";
+import RelatedStrategyCard from "../../components/RelatedStrategyCard.astro";
 
 export async function getStaticPaths() {
   const strategies = await getCollection("strategies");
@@ -17,6 +18,16 @@ const allColumns = await getCollection("columns");
 const referringColumns = allColumns
   .filter((c) => (c.data.relatedStrategies ?? []).includes(entry.id))
   .sort((a, b) => (b.data.date || "").localeCompare(a.data.date || ""));
+
+const allStrategies = await getCollection("strategies");
+const forwardIds = d.relatedStrategies ?? [];
+const backwardIds = allStrategies
+  .filter((s) => (s.data.relatedStrategies ?? []).includes(entry.id))
+  .map((s) => s.id);
+const relatedStrategyEntries = [...new Set([...forwardIds, ...backwardIds])]
+  .filter((id) => id !== entry.id)
+  .map((id) => allStrategies.find((s) => s.id === id))
+  .filter((s): s is (typeof allStrategies)[number] => s !== undefined);
 
 const siteUrl = "https://edu-evidence.org";
 const pageUrl = `${siteUrl}/strategies/${entry.id}`;
@@ -360,6 +371,36 @@ const effectNote =
         ) : (
           <p class="text-[var(--color-ink)]">{d.sourceTitle}</p>
         )}
+      </section>
+    )
+  }
+
+  {
+    relatedStrategyEntries.length > 0 && (
+      <section class="pt-10 mt-10 border-t border-[var(--color-line)] max-w-2xl space-y-6">
+        <div class="space-y-1">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+            Related Strategies
+          </div>
+          <h2 class="text-2xl font-black tracking-tight">関連する指導法</h2>
+          <p class="text-sm text-[var(--color-sub)]">
+            この指導法とあわせて検討したい、関連する指導法です。
+          </p>
+        </div>
+        <ul class="space-y-3">
+          {relatedStrategyEntries.map((s) => (
+            <li>
+              <RelatedStrategyCard
+                href={`/strategies/${s.id}`}
+                title={s.data.title}
+                summary={s.data.summary}
+                monthsGained={s.data.monthsGained}
+                evidenceStrength={s.data.evidenceStrength}
+                evidence={s.data.evidence}
+              />
+            </li>
+          ))}
+        </ul>
       </section>
     )
   }

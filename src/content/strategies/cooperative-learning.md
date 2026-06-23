@@ -7,6 +7,7 @@ cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["グループ学習", "対話"]
+relatedStrategies: ["jigsaw-method"]
 source: eef
 sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches
 sourceTitle: "EEF Teaching and Learning Toolkit — Collaborative learning approaches"
