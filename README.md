@@ -32,7 +32,7 @@
 
 ## セットアップ
 
-Node.js のバージョンは `.tool-versions` で固定(`nodejs 24.15.0`)。[mise](https://mise.jdx.dev/) を推奨。
+Node.js のバージョンは `.tool-versions` で固定(`nodejs 24.17.0`)。[mise](https://mise.jdx.dev/) を推奨。
 
 ```bash
 # クローン

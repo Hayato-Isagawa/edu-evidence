@@ -10,7 +10,7 @@
 
 ## 環境
 
-Node.js のバージョンは `.tool-versions` で固定している(`nodejs 24.15.0`)。[mise](https://mise.jdx.dev/) を使う前提。
+Node.js のバージョンは `.tool-versions` で固定している(`nodejs 24.17.0`)。[mise](https://mise.jdx.dev/) を使う前提。
 
 ```bash
 mise install               # .tool-versions に従って Node 24 を導入
