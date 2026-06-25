@@ -22,6 +22,9 @@ const pages = [
 for (const p of pages) {
   test(p.name, async ({ page }) => {
     await page.goto(p.path, { waitUntil: "networkidle" });
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForLoadState("networkidle");
+    await page.evaluate(() => window.scrollTo(0, 0));
     await expect(page).toHaveScreenshot(`${p.name}.png`, { fullPage: true });
   });
 }

@@ -11,6 +11,7 @@ export default defineConfig({
   reporter: "html",
   snapshotPathTemplate: "vrt/__screenshots__/{projectName}/{arg}{ext}",
   expect: {
+    timeout: 30000,
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.01,
       animations: "disabled",
