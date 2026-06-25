@@ -25,6 +25,7 @@ npm ci                     # 依存をロックから復元
 npm run dev                # 開発サーバー(localhost:4321)
 npm run build              # 本番ビルド(OG画像74枚 + Pagefindインデックス生成、約2分)
 npm run test:e2e           # Playwright E2Eテスト(42テスト・9ファイル、ビルド後に実行)
+npm run vrt                # ビジュアルリグレッションテスト(現 dist を撮影・比較。権威ある比較は CI、後述)
 npm run a11y:baseline      # axe-core で a11y 違反一覧を再生成(dev 起動後 `node scripts/a11y-baseline.mjs http://localhost:<port>`)
 npm run check              # Astro型チェック
 npm run check:text         # textlint日本語校正
@@ -82,6 +83,17 @@ npm run check:all          # 上記チェックを一括実行
 2. **frontmatter テキスト** — `glossary-inline.ts` の `annotateGlossaryTerms()` で Astroテンプレート内のテキストを変換(`set:html` で使用)
 
 ツールチップの表示JS は `Layout.astro` の `<script is:inline>` で共通DOM要素(`.glossary-bubble`)を生成。
+
+## ビジュアルリグレッションテスト(VRT)
+
+共有レイアウト・コンポーネント・`global.css` の改修による視覚回帰を、目視に頼らず差分画像で検出する仕組み(ADR 0024)。機能テスト(`e2e/`)とは別系統で併走する:
+
+- **設定**: `playwright.vrt.config.ts`(`testDir: vrt/`、desktop 1280 / mobile 390 の 2 projects、`maxDiffPixelRatio: 0.01`、アニメーション無効)
+- **対象**: `vrt/pages.spec.ts` がテンプレート代表 16 URL をフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する
+- **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts` に限定起動。`src/content/**` だけの PR では走らない(`workflow_dispatch` で手動実行可)
+- **比較方式(案A)**: CI 内で main と PR を両方ビルドし、同一 Linux 環境で撮影・比較する。ベースライン PNG はコミットしない(`vrt/__screenshots__/` は gitignore)。システムフォント描画の macOS↔Linux 差を回避するため
+- **ローカル**: `npm run vrt` で現在の `dist` を撮影・比較できる。権威ある 2 ビルド差分は CI 側
+- **required check 非対象**: 視覚変更 PR でしか起動しないため main 保護(ADR 0022)の required には含めない。マージ可否は編集者判断(rule 13)
 
 ## ホスティング
 
