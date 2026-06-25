@@ -23,8 +23,8 @@ npm ci                     # 依存をロックから復元
 
 ```bash
 npm run dev                # 開発サーバー(localhost:4321)
-npm run build              # 本番ビルド(OG画像73枚 + Pagefindインデックス生成、約2分)
-npm run test:e2e           # Playwright E2Eテスト(37テスト・8ファイル、ビルド後に実行)
+npm run build              # 本番ビルド(OG画像74枚 + Pagefindインデックス生成、約2分)
+npm run test:e2e           # Playwright E2Eテスト(42テスト・9ファイル、ビルド後に実行)
 npm run a11y:baseline      # axe-core で a11y 違反一覧を再生成(dev 起動後 `node scripts/a11y-baseline.mjs http://localhost:<port>`)
 npm run check              # Astro型チェック
 npm run check:text         # textlint日本語校正
@@ -35,8 +35,8 @@ npm run check:all          # 上記チェックを一括実行
 
 ## プロジェクト構造
 
-- `src/content/strategies/*.md` — 73の指導法(frontmatter + markdown body)
-- `src/content/columns/*.md` — コラム20本
+- `src/content/strategies/*.md` — 74の指導法(frontmatter + markdown body)
+- `src/content/columns/*.md` — コラム30本
 - `src/pages/` — Astroページ(ルーティング)
 - `src/components/StrategyRow.astro` — 戦略カードコンポーネント
 - `src/layouts/Layout.astro` — 共通レイアウト(ヘッダー・フッター・ツールチップJS)
