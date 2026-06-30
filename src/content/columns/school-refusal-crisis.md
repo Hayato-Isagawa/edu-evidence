@@ -44,7 +44,7 @@ charts:
 ただし、関連する知見はあります。
 
 - **[社会性と情動の学習(SEL)](/strategies/social-emotional-learning)** (+3ヶ月) — 自己理解・対人スキル・感情調整を育てるプログラムは、学校適応と学力の両方に正の効果がある
-- **[行動への働きかけ](/strategies/behaviour-interventions)** (+3ヶ月) — 特定の行動課題のある子に的を絞った介入(Tier 2/3)で効果が大きい
+- **[行動への働きかけ](/strategies/behaviour-interventions)** (+3ヶ月) — 特定の行動課題のある子に的を絞った介入で効果が大きい
 - **[教師と子どもの関係性](/strategies/teacher-student-relationships)** (+4ヶ月) — 「この先生は自分をわかってくれている」という感覚が学校適応を支える
 
 いずれも「不登校になった後の対処」ではなく、**「不登校を予防する学級環境づくり」**に関するエビデンスです。
