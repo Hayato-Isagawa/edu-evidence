@@ -14,8 +14,8 @@ evidence:
   eef:
     monthsGained: 3
     strength: 3
-    note: "EEF Toolkit で +3ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。対象を絞った介入(困難の大きい子への個別計画)で効果が大きい。"
-lastVerified: "2026-05-05"
+    note: "EEF Toolkit で +3ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。特定の行動課題のある児童に的を絞った介入(Tier 2/3)で効果が大きい。"
+lastVerified: "2026-06-30"
 methodology:
   studies: 249
   sampleSize: "K-12 の 249 研究(Wilson & Lipsey 2007 の Campbell/Cochrane レビュー)"
@@ -24,10 +24,10 @@ methodology:
     authors: "Wilson & Lipsey"
     year: 2007
     title: "School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis"
-    url: "https://doi.org/10.1016/j.amepre.2007.04.012"
+    url: "https://doi.org/10.1016/j.amepre.2007.04.011"
   limitations: "『行動への働きかけ』は校全体(SWPBIS 等)・学級・個別と階層が異なり、効果量も階層・対象層で変動。Marzano 2003 は学級経営全般の書籍的集約で独立したメタ分析ではない。Fryer 2011 は金銭的インセンティブの RCT で『行動』概念の広い枠組みのうち一領域にとどまる。"
 culturalContext: |
-  日本の生徒指導は 2022 年の『生徒指導提要』改訂で **発達支持的・課題予防的(未然防止/早期発見対応)・困難課題対応的** の 4 層からなる重層的支援構造が明確化された。EEF の知見は、**個別の支援が必要な児童への個別計画**の方が学級全体への一律介入より効率的であることを示しており、提要が示す「個別の支援」層と親和性が高い。報酬(シール・スタンプ)運用は広く行われているが、Fryer(2011)が示すように『行動(インプット)への報酬は効果があるが結果(アウトプット)への報酬は効果がない』点に注意。
+  日本の生徒指導は 2022 年の『生徒指導提要』改訂で **発達支持的・課題予防的(未然防止/早期発見対応)・困難課題対応的** の 4 層からなる重層的支援構造が明確化された。EEF の知見では、特定の行動課題のある児童に的を絞った介入(Tier 2/3)で効果が大きいとされ、提要が示す「困難課題対応的」「個別の支援」の層と親和性が高い。ただしこれは「誰を対象にするか」の話であり、学級全体への普遍的な働きかけ(学級経営の基盤づくり)と対立するものではない。報酬(シール・スタンプ)運用は広く行われているが、Fryer(2011)が示すように『行動(インプット)への報酬は効果があるが結果(アウトプット)への報酬は効果がない』点に注意。
 ---
 
 ## 一言でいうと
@@ -52,8 +52,8 @@ culturalContext: |
 ## 研究からわかっていること
 
 - 平均的に、学習は約3ヶ月分前進します。
-- 効果は、対象を絞った介入(個別の支援が必要な児童への個別計画)で特に大きくなります。
-- 学級全体への一律の介入より、必要な子に焦点を当てる方が効率的です。
+- 効果は、特定の行動課題のある児童に的を絞った介入(Tier 2/3)で特に大きくなります。
+- 介入は長く継続するほど、また学習面の要素やロールプレイ・リハーサルを伴うほど、効果が大きい傾向があります。
 
 ## 注意したいこと
 
@@ -63,8 +63,8 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Wilson, S. J., & Lipsey, M. W. (2007). [School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis](https://doi.org/10.1016/j.amepre.2007.04.012). *American Journal of Preventive Medicine*, 33(2), S130–S143. — 249 研究のメタ分析。攻撃的・破壊的行動への介入の平均効果量 d ≈ 0.21。特に Tier 2/3(対象を絞った介入)で効果が大きい。
-- [Improving Behaviour in Schools](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/behaviour). Education Endowment Foundation (2019, updated 2021), *Guidance Report*. — 学校全体の行動支援を 6 原則で整理。学級全体への画一的介入より、困難の大きい子への個別計画(個別の行動サポートプラン)が効率的と提言。
+- Wilson, S. J., & Lipsey, M. W. (2007). [School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis](https://doi.org/10.1016/j.amepre.2007.04.011). *American Journal of Preventive Medicine*, 33(2), S130–S143. — 249 研究のメタ分析。攻撃的・破壊的行動への介入の平均効果量 d ≈ 0.21。特に Tier 2/3(対象を絞った介入)で効果が大きい。
+- [Improving Behaviour in Schools](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/behaviour). Education Endowment Foundation (2019, updated 2021), *Guidance Report*. — 学校全体の行動支援を 6 つの提言にまとめたガイダンス。学級・学校全体での一貫した取り組みを基盤に、継続的な困難のある児童には個別のニーズに応じた支援を組み合わせる枠組みを示す。
 - Deci, E. L., Koestner, R., & Ryan, R. M. (1999). [A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation](https://doi.org/10.1037/0033-2909.125.6.627). *Psychological Bulletin*, 125(6), 627–668. — 128 研究のメタ分析。有形報酬(課題完了・成績達成連動)は内発的動機を損ないうる(d≒-0.36)が、**言語的称賛は内発的動機を高める**(エンハンシング効果、d=0.31)。報酬運用の条件依存性を示す代表文献。
 
 ### 関連読み物
