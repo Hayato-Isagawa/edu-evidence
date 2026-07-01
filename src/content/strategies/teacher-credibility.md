@@ -12,11 +12,11 @@ sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-l
 sourceTitle: "Visible Learning — Hattie Ranking: Teacher credibility"
 evidence:
   eef:
-    note: "EEF Toolkit に『教師の信頼性』の独立したエントリは無い。関連する概念として behaviour interventions(+4)や teacher-student-relationships(+4)がある。teacher self-efficacy に関する 2025 年のメタ分析では r=0.06-0.19 とかなり控えめな値が報告されている。"
+    note: "EEF Toolkit に『教師の信頼性』の独立したエントリは無い。関連する概念として behaviour interventions(+3)や teacher-student-relationships(+4)がある。teacher self-efficacy に関する 2025 年のメタ分析では r=0.06-0.19 とかなり控えめな値が報告されている。"
   hattie:
     cohensD: 0.90
     note: "Hattie の Visible Learning で d=0.90 と報告。Hattie の順位表でも上位だが、独立した大規模メタ分析での再現は限定的。教師の自己効力感(teacher self-efficacy)に関する 2025年の大規模メタ分析(71研究・25万人)では r=0.06-0.19 とかなり控えめな値が報告されている。"
-lastVerified: "2026-06-17"
+lastVerified: "2026-07-01"
 methodology:
   effectSize: "Hattie の集計では Cohen's d=0.90(visible-learning.org のランキング)〜1.20(同 MetaX データベース)と報告されるが、これらは Hattie が再集計した二次的な値で、プラットフォームや版によって異なる。いずれも Finn ら(2009)の単一のメタ分析に由来する。本サイトは独立した再現が限定的であることを踏まえ、控えめに+4ヶ月を代表値とする"
   primaryMetaAnalysis:

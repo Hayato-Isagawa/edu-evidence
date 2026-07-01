@@ -2,7 +2,7 @@
 title: 「グリット」は本当に大事なのか? — メタ分析以後の位置付け
 summary: 一時期もてはやされた「やり抜く力」は、2017 年以降のメタ分析で効果が限定的で、しかも既存の性格特性「誠実性」とほぼ重なることが示された。教育現場での扱い方を、エビデンスを踏まえて整理する。
 date: "2026-04-12"
-lastVerified: "2026-05-02"
+lastVerified: "2026-07-01"
 tags: ["非認知能力", "グリット", "心理学", "定説再検証"]
 relatedStrategies: ["metacognition", "growth-mindset", "social-emotional-learning"]
 series:
@@ -58,7 +58,7 @@ series:
 - グリットは **誠実性(Conscientiousness)とほぼ同じもの** を測っている可能性が高く(両者の相関 ρ ≈ 0.84 は非常に高い)、新しい構成概念として独自の予測力は小さい
 - 効果の大半は **「努力の継続」** に由来し、「興味の持続」の寄与は弱い(Lam & Zhou 2019、44 研究・60,133 人)
 - 介入で育てた効果の再現性は限定的
-- 学力への効果量で比べれば、[メタ認知の指導](/strategies/metacognition)(+8 ヶ月)や [社会性と情動の学習(SEL)](/strategies/social-emotional-learning)(+4 ヶ月)といった **具体的な指導法のエビデンス** の方が桁違いに大きい
+- 学力への効果量で比べれば、[メタ認知の指導](/strategies/metacognition)(+8 ヶ月)や [社会性と情動の学習(SEL)](/strategies/social-emotional-learning)(+3 ヶ月)といった **具体的な指導法のエビデンス** の方が桁違いに大きい
 
 ## 流行と科学のあいだで
 
