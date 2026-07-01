@@ -2,7 +2,7 @@
 title: 「体験格差」とエビデンス — 家庭・地域・学校の役割分担
 summary: 子どもの体験機会には家庭の経済状況や地域環境による格差がある。一義的な提供主体は家庭と地域・NPOであり、学校はその補完的な役割を担う。中室牧子氏らのプロジェクトと国内外の研究から、役割分担を整理する。
 date: "2026-04-18"
-lastVerified: "2026-05-02"
+lastVerified: "2026-07-01"
 tags: ["格差", "非認知能力", "特別活動"]
 relatedStrategies: ["social-emotional-learning", "outdoor-learning", "tokkatsu", "arts-participation", "early-years-intervention"]
 ---
@@ -44,7 +44,7 @@ relatedStrategies: ["social-emotional-learning", "outdoor-learning", "tokkatsu",
 
 | 戦略 | 効果量 | 備考 |
 |---|---|---|
-| [社会性と情動の学習(SEL)](/strategies/social-emotional-learning) | +4ヶ月 | Durlak et al.(2011)の 213 プログラム・270,034 人のメタ分析 |
+| [社会性と情動の学習(SEL)](/strategies/social-emotional-learning) | +3ヶ月 | Durlak et al.(2011)の 213 プログラム・270,034 人のメタ分析 |
 | [就学前教育への介入](/strategies/early-years-intervention) | +6ヶ月 | 特に社会経済的に不利な子どもで効果が大きい |
 | [屋外学習](/strategies/outdoor-learning) | +3ヶ月 | 冒険的活動・自然体験 |
 | [芸術活動への参加](/strategies/arts-participation) | +3ヶ月 | 音楽・美術・演劇の直接体験 |
@@ -97,7 +97,7 @@ SEL は学力にも波及するエビデンスがあり、Durlak et al.(2011)の
 - 体験格差は **家庭の経済構造と地域資源の偏在** に直接起因する現象
 - 一義的な提供主体は **家庭・地域コミュニティ・NPO**。中室牧子氏らのプロジェクト(2023 年発足、NPO・事業者・大学の連携)は、この主体の側での取り組みの代表例
 - 学校は **全員参加の基盤としての補完役**。家庭や地域の取り組みを代替する設計ではなく、学校時間中に意図的に多様な体験を織り込む役割を担う
-- エビデンスが支持する領域は SEL(+4)・就学前介入(+6)・屋外学習(+3)・芸術参加(+3)・特活(+2)
+- エビデンスが支持する領域は SEL(+3)・就学前介入(+6)・屋外学習(+3)・芸術参加(+3)・特活(+2)
 - 特別活動は日本独自の仕組み。JICA 経由でエジプトなどに輸出され、69 校の日本エジプト学校で実装されている
 - 「量より質」(中室, RIETI)の原則は学校の体験設計にも当てはまる
 
