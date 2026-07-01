@@ -2,7 +2,7 @@
 title: 「脳が腐る」は本当か — スクリーンタイム研究が見せる「小さいが確かな」負の効果
 summary: 2024年のオックスフォード「今年の言葉」に選ばれた「brain rot」。科学的に検証すると、効果量は小さいものの複数の縦断研究で負の関連が確認されている。福井大学2025年の新知見を含めて整理する。
 date: "2026-04-17"
-lastVerified: "2026-05-02"
+lastVerified: "2026-07-01"
 tags: ["デジタル", "健康", "研究紹介"]
 relatedStrategies: ["screen-time", "social-media-mental-health", "digital-technology"]
 series:
@@ -30,7 +30,7 @@ series:
 
 関連する複数の縦断研究・メタ分析が報告する効果量は **Cohen's d で概ね −0.15 前後** にとどまり、統計的には「小さい効果量」に分類される範囲です(効果量は研究対象・アウトカムにより幅があります)。
 
-心理学者 Orben & Przybylski(2019) は、SNS利用と幸福度の関連を3つの大規模データセット(計35万人以上)で再検証し、効果量は **r ≒ 0.05** とごく小さく、しかも「朝食を毎日食べること」と同程度の説明力しかないと示しました。「スクリーンタイム = 脳が腐る」という単純な図式は、エビデンスに対して誇張気味と言えます。
+心理学者 Orben & Przybylski(2019) は、SNS利用と幸福度の関連を3つの大規模データセット(計35万人以上)で再検証し、効果量は **r ≒ 0.05** とごく小さく、しかも「ジャガイモを食べること」と同程度の説明力しかないと示しました。「スクリーンタイム = 脳が腐る」という単純な図式は、エビデンスに対して誇張気味と言えます。
 
 一方、**「効果量が小さい = 無視してよい」ではない** ことも押さえておく必要があります。
 
@@ -102,7 +102,7 @@ series:
 ### 海外の研究
 
 - Madigan, S., Browne, D., Racine, N., Mori, C., & Tough, S. (2019). [Association between screen time and children's performance on a developmental screening test](https://jamanetwork.com/journals/jamapediatrics/fullarticle/2722666). *JAMA Pediatrics*, 173(3), 244–250. — 2〜5 歳の縦断コホート(2,441 人)。スクリーンタイムと発達スクリーニングテストの負の関連を確認。
-- Orben, A., & Przybylski, A. K. (2019). [The association between adolescent well-being and digital technology use](https://doi.org/10.1038/s41562-018-0506-1). *Nature Human Behaviour*, 3, 173–182. — 3 つの大規模データセット(計 355,358 人)の特定化曲線分析。デジタル技術使用が幸福度の分散を説明するのは最大でも 0.4%(r ≈ 0.05)で「朝食を毎日食べる」と同程度と示した。
+- Orben, A., & Przybylski, A. K. (2019). [The association between adolescent well-being and digital technology use](https://doi.org/10.1038/s41562-018-0506-1). *Nature Human Behaviour*, 3, 173–182. — 3 つの大規模データセット(計 355,358 人)の特定化曲線分析。デジタル技術使用が幸福度の分散を説明するのは最大でも 0.4%(r ≈ 0.05)で「ジャガイモを食べること」と同程度と示した。
 - Viner, R. M., et al. (2019). [Roles of cyberbullying, sleep, and physical activity in mediating the effects of social media use on mental health and wellbeing among young people in England](https://doi.org/10.1016/S2352-4642(19)30186-5). *The Lancet Child & Adolescent Health*, 3(10), 685–696. — Our Futures 研究(12,866 人・13〜16 歳)の縦断分析。SNS 利用と精神健康の関連は、サイバーいじめ・睡眠不足・身体活動減少を経由して媒介されていることを示した。
 
 ### 用語の出典
