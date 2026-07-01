@@ -20,7 +20,7 @@ evidence:
     strength: 3
     note: "松岡亮二(2015, 2019)は日本の縦断データで、保護者の教育的関与(学習時間管理・読み聞かせ・文化資本)が SES により大きく異なり、それが学力格差につながることを実証。耳塚寛明(2007)も小学校段階で既に文化的・経済的資本が学力と関連することを示した。"
     researcher: "松岡亮二(龍谷大学)、耳塚寛明(お茶の水女子大学)"
-lastVerified: "2026-05-05"
+lastVerified: "2026-06-30"
 methodology:
   studies: 51
   sampleSize: "都市部の就学前〜高校生(51 研究)"
@@ -88,7 +88,7 @@ culturalContext: |
 
 ## 日本の研究者による関連知見
 
-- 松岡亮二 (2015). [Emerging inequality in effort: A longitudinal investigation of parental involvement and early elementary school-aged children's learning time in Japan](https://doi.org/10.1016/j.ssresearch.2015.09.009). *Social Science Research*, 54, 159–176. — 日本の縦断データを分析し、保護者の関与(学習時間の管理・読み聞かせなど)がSESによって異なり、それが子どもの学習時間の格差につながることを実証した学術論文。
+- 松岡亮二 (2015). [Emerging inequality in effort: A longitudinal investigation of parental involvement and early elementary school-aged children's learning time in Japan](https://doi.org/10.1016/j.ssresearch.2015.06.009). *Social Science Research*, 54, 159–176. — 日本の縦断データを分析し、保護者の関与(学習時間の管理・読み聞かせなど)がSESによって異なり、それが子どもの学習時間の格差につながることを実証した学術論文。
 - 松岡亮二 (2019). 『教育格差――階層・地域・学歴』筑摩書房. — 保護者の教育的関与がSESに規定される構造を包括的に分析。「保護者と連携しましょう」という呼びかけだけでは格差は縮まらず、学校側からの積極的な情報提供が必要であることを示唆。
 
 - 耳塚寛明 (2007). [「小学校学力格差に挑む」](https://doi.org/10.11151/eds.80.23)『教育社会学研究』80, 23–39. — 保護者の文化的・経済的資本が子どもの学力に影響することを日本の大規模データで実証。「保護者との連携」が全ての家庭に等しく機能するわけではないことの根拠。

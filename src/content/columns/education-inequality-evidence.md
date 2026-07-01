@@ -2,7 +2,7 @@
 title: 教育格差はエビデンスでどこまで見えるのか — 松岡亮二・中室牧子の研究から
 summary: 日本の教育格差は小学校入学時に既にあり、6 年間の学校教育だけでは解消しきれない。松岡亮二氏・中室牧子氏の研究を軸に、学校・家庭・社会制度の役割分担とエビデンスを整理する。
 date: "2026-04-10"
-lastVerified: "2026-05-02"
+lastVerified: "2026-06-30"
 tags: ["格差", "SES", "日本研究", "政策"]
 relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-learning-loss", "social-emotional-learning", "feedback", "metacognition"]
 ---
@@ -26,7 +26,7 @@ relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-l
 
 ### 格差を生むメカニズム — Matsuoka, Nakamuro & Inui (2015)
 
-格差が生じるメカニズムについては、松岡亮二・中室牧子・乾友彦の三氏による縦断研究 [Matsuoka, Nakamuro & Inui (2015)](https://doi.org/10.1016/j.ssresearch.2015.09.009) が参考になります(『21 世紀出生児縦断調査』小 1〜小 4 の 4 波を分析)。大卒保護者は、読み聞かせや学習時間の管理など、子どもの学習時間を直接・間接に形づくる関わりを多く行っており、その結果として **同じ小学校に通っていても、家庭経由の「学習時間の格差」が蓄積していく** 構造を示しています。
+格差が生じるメカニズムについては、松岡亮二・中室牧子・乾友彦の三氏による縦断研究 [Matsuoka, Nakamuro & Inui (2015)](https://doi.org/10.1016/j.ssresearch.2015.06.009) が参考になります(『21 世紀出生児縦断調査』小 1〜小 4 の 4 波を分析)。大卒保護者は、読み聞かせや学習時間の管理など、子どもの学習時間を直接・間接に形づくる関わりを多く行っており、その結果として **同じ小学校に通っていても、家庭経由の「学習時間の格差」が蓄積していく** 構造を示しています。
 
 日本の大規模データで縦断的に追えるのはおおむねこのあたりまでですが、格差が中等教育の段階までどう累積し続けるのかという、より長い射程の問いには、英国の全国データ分析が手がかりを与えてくれます。本サイトの国際・縦断編コラム [学力格差はいつ生まれ、どう広がるのか](/columns/disadvantage-gap-growing-apart) では、就学前から GCSE(16 歳)までの格差の広がりを統計的に分解した英国 EPI/EEF「Growing Apart」(2026)を、本コラム(日本編・横断的)と対にして読み解いています。
 
@@ -74,7 +74,7 @@ relatedStrategies: ["early-years-intervention", "parental-engagement", "summer-l
 
 ### 日本の研究・公式資料
 
-- Matsuoka, R., Nakamuro, M., & Inui, T. (2015). [Emerging inequality in effort: A longitudinal investigation of parental involvement and early elementary school-aged children's learning time in Japan](https://doi.org/10.1016/j.ssresearch.2015.09.009). *Social Science Research*, 54, 159–176. — 『21 世紀出生児縦断調査』小 1〜小 4 の 4 波分析。SES により親の関わりが異なり、学習時間の格差につながる構造を実証。
+- Matsuoka, R., Nakamuro, M., & Inui, T. (2015). [Emerging inequality in effort: A longitudinal investigation of parental involvement and early elementary school-aged children's learning time in Japan](https://doi.org/10.1016/j.ssresearch.2015.06.009). *Social Science Research*, 54, 159–176. — 『21 世紀出生児縦断調査』小 1〜小 4 の 4 波分析。SES により親の関わりが異なり、学習時間の格差につながる構造を実証。
 - 耳塚寛明 (2007). [小学校学力格差に挑む — だれが学力を獲得するのか](https://doi.org/10.11151/eds.80.23). *教育社会学研究*, 80, 23–39. — 松岡の先行研究にあたる、日本の学力格差研究の嚆矢。
 - 『[教育格差 — 階層・地域・学歴](https://www.chikumashobo.co.jp/product/9784480072375/)』 松岡亮二 (2019), ちくま新書. — 全国大規模データで日本の教育格差を実証。学力格差が就学前から存在し、小学校の縮小機能が限定的であることを示す。
 - 『[「学力」の経済学](https://d21.co.jp/book/detail/978-4-7993-1685-6)』 中室牧子 (2015), ディスカヴァー・トゥエンティワン. — 教育経済学の観点から、非認知能力の重要性・少人数学級の費用対効果・行動への報酬など、何に予算を使うべきかを論じた 30 万部超のベストセラー。
