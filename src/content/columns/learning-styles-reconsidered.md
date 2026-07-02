@@ -2,7 +2,7 @@
 title: 「学習スタイル」は本当に効果があるのか? — VARK と meshing 仮説の現在地
 summary: 「視覚タイプの子には図、聴覚タイプの子には説明」という考え方は、2008 年に「適切なエビデンス基盤は存在しない」と結論されて以降、複数の RCT・系統的レビューで繰り返し否定されてきた。それでも世界の教員の 9 割が信じている現状を、エビデンスを踏まえて整理する。
 date: "2026-05-06"
-lastVerified: "2026-05-06"
+lastVerified: "2026-07-02"
 tags: ["神経神話", "VARK", "認知科学", "定説再検証"]
 relatedStrategies: ["learning-styles", "dual-coding", "metacognition", "individualised-instruction", "universal-design-learning"]
 series:
@@ -47,7 +47,7 @@ sourceUrl: https://journals.sagepub.com/doi/10.1111/j.1539-6053.2009.01038.x
 しかし、Pashler レビューから 15 年以上経っても、現場でも学術文献でも信仰はほとんど揺らいでいません。
 
 - [Dekker, Lee, Howard-Jones & Jolles (2012)](https://doi.org/10.3389/fpsyg.2012.00429) — 英国 137 名 / オランダ 105 名の現職教員のうち、「学習者の好みの感覚様式(視覚・聴覚・運動)に合わせて教えると効果が高まる」を信じる比率は **英国 93% / オランダ 96%**
-- [Newton (2015)](https://doi.org/10.3389/fpsyg.2015.01908) — ERIC・PubMed に登録された 2009–2015 年の高等教育関連論文 87 本を体系的に分析。**89% の論文** が学習スタイル理論の使用を肯定的な前提として扱っていた(Pashler レビュー以降も学術文献内で支持が継続)
+- [Newton (2015)](https://doi.org/10.3389/fpsyg.2015.01908) — ERIC・PubMed に登録された 2013–2015 年の高等教育関連論文 109 本を体系的に分析。**89% の論文** が、結論として学習スタイル理論の使用を肯定・支持していた(Pashler レビュー以降も学術文献内で支持が継続)
 - [Nancekivell, Shah & Gelman (2020)](https://doi.org/10.1037/edu0000366) — 米国成人 668 名のオンライン調査で、**90% 超** が学習スタイル理論を支持
 
 教育界に最も深く根付いた「**脳に関する誤った通説**(神経神話 / neuromyth)」の一つ、というのが研究者側の共通認識です。
@@ -129,7 +129,7 @@ Pashler 2008 以降も追試は続き、結論は変わっていません。
 - Pashler, H., McDaniel, M., Rohrer, D., & Bjork, R. (2008). [Learning styles: Concepts and evidence](https://doi.org/10.1111/j.1539-6053.2009.01038.x). *Psychological Science in the Public Interest*, 9(3), 105–119. — 学習スタイル理論を心理学者 4 名が系統的にレビューし、「適切なエビデンス基盤は存在しない」と結論。
 - Howard-Jones, P. A. (2014). [Neuroscience and education: Myths and messages](https://doi.org/10.1038/nrn3817). *Nature Reviews Neuroscience*, 15(12), 817–824. — 教育界に流通する neuromyths を体系的に整理。学習スタイル / VARK を最も影響力の大きな neuromyth として位置づけた。
 - Dekker, S., Lee, N. C., Howard-Jones, P., & Jolles, J. (2012). [Neuromyths in education: Prevalence and predictors of misconceptions among teachers](https://doi.org/10.3389/fpsyg.2012.00429). *Frontiers in Psychology*, 3, 429. — 英国 137 名 / オランダ 105 名の教員調査。学習スタイル仮説を信じる比率 93% / 96%。
-- Newton, P. M. (2015). [The learning styles myth is thriving in higher education](https://doi.org/10.3389/fpsyg.2015.01908). *Frontiers in Psychology*, 6, 1908. — ERIC・PubMed に登録された 2009–2015 年の高等教育関連論文 87 本を体系的に分析。89% の論文が学習スタイル理論の使用を肯定的な前提として扱っていた。
+- Newton, P. M. (2015). [The learning styles myth is thriving in higher education](https://doi.org/10.3389/fpsyg.2015.01908). *Frontiers in Psychology*, 6, 1908. — ERIC・PubMed に登録された 2013–2015 年の高等教育関連論文 109 本を体系的に分析。89% の論文が、結論として学習スタイル理論の使用を肯定・支持していた。
 - Nancekivell, S. E., Shah, P., & Gelman, S. A. (2020). [Maybe they're born with it, or maybe it's experience: Toward a deeper understanding of the learning style myth](https://doi.org/10.1037/edu0000366). *Journal of Educational Psychology*, 112(2), 221–235. — 米国成人 668 名の調査。90% 超が学習スタイル理論を信じる。
 - Husmann, P. R., & O'Loughlin, V. D. (2019). [Another nail in the coffin for learning styles? Disparities among undergraduate anatomy students' study strategies, class performance, and reported VARK learning styles](https://doi.org/10.1002/ase.1777). *Anatomical Sciences Education*, 12(1), 6–19. — 解剖学コース受講生 N = 426 の追跡調査。VARK スタイルに沿った学習行動を取っても成績に有意差なし。
 - Rogowsky, B. A., Calhoun, B. M., & Tallal, P. (2020). [Providing instruction based on students' learning style preferences does not improve learning](https://doi.org/10.3389/fpsyg.2020.00164). *Frontiers in Psychology*, 11, 164. — 学習スタイル整合提示で成績が伸びるかを検証した RCT。meshing 効果は確認されず。
