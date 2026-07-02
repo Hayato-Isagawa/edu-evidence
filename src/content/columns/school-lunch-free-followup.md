@@ -61,7 +61,7 @@ series:
 
 ### 英国: 全員一律化で小 1 の肥満率が下がった
 
-イングランドは 2014 年から **UIFSM**(Universal Infant Free School Meals、5–7 歳全員)を実施しています。Holford & Rabe (2024) の [*Journal of Health Economics*](https://www.sciencedirect.com/science/article/pii/S0167629624000821) は、政策前後の National Child Measurement Programme データを分析した研究です。UIFSM 導入後、小 1 で **BMI が約 0.041 SD 低下、肥満率が 0.7 ポイント低下** という結果です。SD は標準偏差換算の効果量で 0.2 程度から「小」が目安、0.041 SD は集団平均の微小な変化、0.7 ポイントは実数の有病率差です。低所得地域でより大きな改善が見られた点は重要です。
+イングランドは 2014 年から **UIFSM**(Universal Infant Free School Meals、5–7 歳全員)を実施しています。Holford & Rabe (2022) の [*Journal of Public Economics Plus*](https://www.sciencedirect.com/science/article/pii/S2666551422000031) は、政策前後の National Child Measurement Programme データを分析した研究です。UIFSM 導入後、小 1 で **BMI が約 0.043 SD 低下、肥満率が 0.7 ポイント低下** という結果です。SD は標準偏差換算の効果量で 0.2 程度から「小」が目安、0.043 SD は集団平均の微小な変化、0.7 ポイントは実数の有病率差です。
 
 ### 韓国: 生徒間の暴力行為が 35% 減った
 
@@ -149,7 +149,7 @@ series:
 
 - Babad, E. Y., Inbar, J., & Rosenthal, R. (1982). [Pygmalion, Galatea, and the Golem: Investigations of biased and unbiased teachers](https://doi.org/10.1037/0022-0663.74.4.459). *Journal of Educational Psychology*, 74(4), 459–474. — 教師期待バイアスの負の側面(ゴーレム効果)を実験的に検証した古典研究。
 - Lundborg, P., Rooth, D.-O., & Alex-Petersen, J. (2022). [Long-Term Effects of Childhood Nutrition: Evidence from a School Lunch Reform](https://doi.org/10.1093/restud/rdab028). *Review of Economic Studies*, 89(2), 876–908. — スウェーデン段階導入を自然実験として活用。生涯所得 +3%、低所得層 +6%、身長 +0.5〜0.7cm(性別差あり)、教育年数 +0.3 年。
-- Holford, A., & Rabe, B. (2024). [Universal free school meals and children's bodyweight. Impacts by age and duration of exposure](https://www.sciencedirect.com/science/article/pii/S0167629624000821). *Journal of Health Economics*, 98, 102937. — 英 UIFSM 導入で小 1 の BMI -0.041 SD、肥満率 -0.7pt。
+- Holford, A., & Rabe, B. (2022). [Going universal. The impact of free school lunches on child body weight outcomes](https://www.sciencedirect.com/science/article/pii/S2666551422000031). *Journal of Public Economics Plus*, 3, 100016. — 英 UIFSM 導入で小 1 の BMI -0.043 SD、肥満率 -0.7pt。
 - Altindag, D. T., Baek, D., Lee, H., & Merkle, J. (2020). [Free Lunch for All? The Impact of Universal School Lunch on Student Misbehavior](https://doi.org/10.1016/j.econedurev.2019.101945). *Economics of Education Review*, 74: 101945. — 韓国の Free School Meal Program 段階導入を自然実験として分析。無償給食対象校で生徒間の暴力行為(physical fights)が約 35% 減少。
 - Toossi, S. (2024). State Universal Free School Meal Policies Reduced Food Insufficiency Among Children in the 2022–2023 School Year. USDA Economic Research Service [*Amber Waves* (2024-06)](https://www.ers.usda.gov/amber-waves/2024/june/state-universal-free-school-meal-policies-reduced-food-insufficiency-among-children-in-the-2022-2023-school-year) によるレビュー. — CA・ME 等の州別恒久化による子どもの食料不足発生率の低下。
 - Patterson, E., & Schäfer Elinder, L. (2015). [Improvements in school meal quality in Sweden after the introduction of new legislation—a 2-year follow-up](https://doi.org/10.1093/eurpub/cku184). *European Journal of Public Health*, 25(4), 655–660. — スウェーデン栄養基準法制化(2011)前後 2 年で 4 項目を追跡し、有意改善は食物繊維(68% → 80%)と鉄(70% → 75%)の 2 項目のみ。脂質質・ビタミン D は変化なし。
