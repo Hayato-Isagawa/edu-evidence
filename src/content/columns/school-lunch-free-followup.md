@@ -2,7 +2,7 @@
 title: 給食無償化、日本は周回遅れ — 海外 80 年の実装データから見える期待と落とし穴
 summary: 2026 年 4 月、日本は公立小学校の給食を全国一律で無償化した。だがフィンランドは 1948 年から、スウェーデンは 1969 年完了、韓国は 2021 年全面と、多くの国は何十年も前から所得制限なしの給食無償化を実施している。海外の長期検証データを並べて、日本がこれから経験する効果と踏みやすい轍を整理する。
 date: "2026-04-25"
-lastVerified: "2026-05-02"
+lastVerified: "2026-07-02"
 tags: ["給食", "政策", "検証", "働き方改革"]
 relatedStrategies: ["breakfast-skipping", "early-years-intervention"]
 series:
@@ -67,9 +67,9 @@ series:
 
 韓国は 2010 年代初頭の給食無償化(Free School Meal Program、FSMP)拡大が自治体ごとに段階導入されたため、韓国の段階導入も、同じく自然実験として活用できます。Altindag, Baek, Lee, Merkle (2020) の [*Economics of Education Review* 74: 101945](https://doi.org/10.1016/j.econedurev.2019.101945) では、無償給食の対象になった学校で **生徒間の暴力行為(physical fights)が約 35% 減少** したと報告されています。「給食費の払える子・払えない子」の分断が消えたことのスティグマ削減効果と整合的な結果です。
 
-### 米国: 食料不足世帯が有意に減った
+### 米国: 子どもの食料不足が減った
 
-米国では 2021–2022 年から **州ごとに所得制限なしの一律無償化を恒久化** する動きが始まっています。Hecht et al. (2024) と USDA Economic Research Service の [Amber Waves(2024-06)](https://www.ers.usda.gov/amber-waves/2024/june/state-universal-free-school-meal-policies-reduced-food-insufficiency-among-children-in-the-2022-2023-school-year) は、CA・ME など継続実施州を非実施州と比較しました。**2022–23 学年で子どもの食料不足発生率が有意に低下** したと報告しています。
+米国では 2021–2022 年から **州ごとに所得制限なしの一律無償化を恒久化** する動きが始まっています。USDA Economic Research Service の [Amber Waves(2024-06)](https://www.ers.usda.gov/amber-waves/2024/june/state-universal-free-school-meal-policies-reduced-food-insufficiency-among-children-in-the-2022-2023-school-year)(Toossi 2024)は、CA・ME など継続実施州を非継続州と比較しました。**2022–23 学年で子どもの食料不足発生率が低下** したと報告しています(継続実施州は非継続州より 1.5 ポイント低い)。
 
 これらは別々の研究ですが、方向性は揃っています。**所得制限なしの一律給食無償化は、健康・行動・経済の各指標で小〜中の効果を出す。学力への直接効果は小さいが、生涯所得など長期成果には影響する**。日本でもこの方向に動くと予見するのが自然です。
 
@@ -149,9 +149,9 @@ series:
 
 - Babad, E. Y., Inbar, J., & Rosenthal, R. (1982). [Pygmalion, Galatea, and the Golem: Investigations of biased and unbiased teachers](https://doi.org/10.1037/0022-0663.74.4.459). *Journal of Educational Psychology*, 74(4), 459–474. — 教師期待バイアスの負の側面(ゴーレム効果)を実験的に検証した古典研究。
 - Lundborg, P., Rooth, D.-O., & Alex-Petersen, J. (2022). [Long-Term Effects of Childhood Nutrition: Evidence from a School Lunch Reform](https://doi.org/10.1093/restud/rdab028). *Review of Economic Studies*, 89(2), 876–908. — スウェーデン段階導入を自然実験として活用。生涯所得 +3%、低所得層 +6%、身長 +0.5〜0.7cm(性別差あり)、教育年数 +0.3 年。
-- Holford, A., & Rabe, B. (2024). [Universal Free School Meals and Child Outcomes](https://www.sciencedirect.com/science/article/pii/S0167629624000821). *Journal of Health Economics*. — 英 UIFSM 導入で小 1 の BMI -0.041 SD、肥満率 -0.7pt。
+- Holford, A., & Rabe, B. (2024). [Universal free school meals and children's bodyweight. Impacts by age and duration of exposure](https://www.sciencedirect.com/science/article/pii/S0167629624000821). *Journal of Health Economics*, 98, 102937. — 英 UIFSM 導入で小 1 の BMI -0.041 SD、肥満率 -0.7pt。
 - Altindag, D. T., Baek, D., Lee, H., & Merkle, J. (2020). [Free Lunch for All? The Impact of Universal School Lunch on Student Misbehavior](https://doi.org/10.1016/j.econedurev.2019.101945). *Economics of Education Review*, 74: 101945. — 韓国の Free School Meal Program 段階導入を自然実験として分析。無償給食対象校で生徒間の暴力行為(physical fights)が約 35% 減少。
-- Hecht, A. A., et al. (2024). State Universal Free School Meal Policies Reduced Food Insufficiency Among Children in the 2022–2023 School Year. USDA Economic Research Service [*Amber Waves* (2024-06)](https://www.ers.usda.gov/amber-waves/2024/june/state-universal-free-school-meal-policies-reduced-food-insufficiency-among-children-in-the-2022-2023-school-year) によるレビュー. — CA・ME 等の州別恒久化による食料不足世帯比率の有意低下。
+- Toossi, S. (2024). State Universal Free School Meal Policies Reduced Food Insufficiency Among Children in the 2022–2023 School Year. USDA Economic Research Service [*Amber Waves* (2024-06)](https://www.ers.usda.gov/amber-waves/2024/june/state-universal-free-school-meal-policies-reduced-food-insufficiency-among-children-in-the-2022-2023-school-year) によるレビュー. — CA・ME 等の州別恒久化による子どもの食料不足発生率の低下。
 - Patterson, E., & Schäfer Elinder, L. (2015). [Improvements in school meal quality in Sweden after the introduction of new legislation—a 2-year follow-up](https://doi.org/10.1093/eurpub/cku184). *European Journal of Public Health*, 25(4), 655–660. — スウェーデン栄養基準法制化(2011)前後 2 年で 4 項目を追跡し、有意改善は食物繊維(68% → 80%)と鉄(70% → 75%)の 2 項目のみ。脂質質・ビタミン D は変化なし。
 - ICF / Arad (2026). [Evaluation of the Welsh Government's Universal Primary Free School Meals Policy: Interim Report](https://www.gov.wales/sites/default/files/statistics-and-research/2026-02/evaluation-of-welsh-governments-universal-free-school-meals-policy-interim-report.pdf). Welsh Government. — 取り込み 69%、家計圧迫緩和、ただし pupil premium 申請低下による逆進的副作用を警告。
 - Kuusipalo, H., & Manninen, M. (2023). [School Meals in Finland: A Case Study](https://schoolmealscoalition.org/sites/default/files/2024-05/Kuusipalo_Manninen_2023_Food_Meals_Case_Study_Finland.pdf). School Meals Coalition. — 1948 年法以来 75 年以上の継続実施記録。
