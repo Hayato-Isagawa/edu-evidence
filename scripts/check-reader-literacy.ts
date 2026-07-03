@@ -40,7 +40,7 @@ const P2_ALLOWED_ABBREVS = new Set<string>([
   "BERD", "IIEP", "MSS",
   "ASCD", "IHMC", "UNESCO", "UCL", "UCLA", "JICA", "APS", "ERIC", "PTA",
   "NEA", "USDA", "NSLP",
-  "FIN", "NYC", "SYNODOS",
+  "FIN", "NYC", "SYNODOS", "TIMES",
   "SAS", "PNAE", "POSHAN", "UIFSM", "FSMP", "MINJI",
   "IEEE", "SAT", "NFER", "NELI", "DISS", "ICF", "SOS", "ISRN",
   "COCOLO",
