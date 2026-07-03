@@ -19,7 +19,7 @@ relatedStrategies: ["homework", "feedback", "individualised-instruction"]
 
 ## 研究が示していること
 
-Cooper et al. (2006) の約50研究のメタ分析では、宿題と学力の関係は以下の通りでした。
+Cooper et al. (2006) のメタ分析(宿題時間と学力の相関を分析した 32 研究)では、宿題と学力の関係は以下の通りでした。
 
 - **中学・高校** では宿題と学力に明確な正の相関
 - **小学校** では関係が弱く、効果が限定的

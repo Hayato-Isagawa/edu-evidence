@@ -78,7 +78,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Cooper, H., Robinson, J. C., & Patall, E. A. (2006). [Does homework improve academic achievement?](https://doi.org/10.3102/00346543076001001) *Review of Educational Research*, 76(1), 1–62. — 約50研究のメタ分析。宿題と学力の関係は正だが、小学校段階では中高に比べて効果が小さいことを示した。
+- Cooper, H., Robinson, J. C., & Patall, E. A. (2006). [Does homework improve academic achievement?](https://doi.org/10.3102/00346543076001001) *Review of Educational Research*, 76(1), 1–62. — 宿題時間と学力の相関を分析した 32 研究などを統合したメタ分析。宿題と学力の関係は正だが、小学校段階では中高に比べて効果が小さいことを示した。
 - Fan, H., Xu, J., Cai, Z., He, J., & Fan, X. (2017). [Homework and students' achievement in math and science](https://doi.org/10.1016/j.edurev.2016.11.003). *Educational Research Review*, 20, 35–54. — 数学・理科に限定したメタ分析。宿題の量より質(フィードバック付き)が重要であることを確認。
 - Fernández-Alonso, R., Suárez-Álvarez, J., & Muñiz, J. (2015). Adolescents' homework performance in mathematics and science. *Journal of Educational Psychology*, 107(4), 1075–1092. — 宿題の最適な時間は1日60〜70分程度で、それ以上は効果が頭打ちになることを示した。
 
