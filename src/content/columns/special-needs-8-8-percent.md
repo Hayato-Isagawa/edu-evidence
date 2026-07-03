@@ -27,7 +27,7 @@ relatedStrategies: ["scaffolding", "feedback", "metacognition", "universal-desig
 
 ## 受け皿の問題 — 特別支援学校の教室不足
 
-2026 年 3 月、文科省は令和 7 年(2025 年)10 月時点の **特別支援学校の不足教室数 3,192** と発表しました。前回比 −167 教室と改善傾向ではありますが、依然として深刻です。
+2026 年 4 月、文科省は令和 7 年(2025 年)10 月時点の **特別支援学校の不足教室数 3,192** と発表しました。前回比 −167 教室と改善傾向ではありますが、依然として深刻です。
 
 つまり構造として:
 
@@ -61,7 +61,7 @@ Five-a-day の各原則は、本サイトの戦略と次のように対応しま
 |---|---|---|
 | 明示的指導 | [直接教授法(明示的指導)](/strategies/direct-instruction) | +5ヶ月 |
 | メタ認知方略 | [メタ認知の指導](/strategies/metacognition) | +8ヶ月 |
-| 足場かけ | [足場かけ](/strategies/scaffolding) | +5ヶ月 |
+| 足場かけ | [足場かけ](/strategies/scaffolding) | +4ヶ月 |
 | 柔軟なグルーピング | [少人数指導](/strategies/small-group-tuition) / [個別指導](/strategies/one-to-one-tuition) | +4 / +5ヶ月 |
 | テクノロジー活用 | [ICT活用](/strategies/digital-technology) | +4ヶ月 |
 
