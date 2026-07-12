@@ -1,13 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const entries = [
+type ChangeType = "add" | "update" | "fix" | "remove";
+
+interface ChangelogLink {
+  label: string;
+  href: string;
+}
+
+interface ChangelogItem {
+  type: ChangeType;
+  text: string;
+  links?: ChangelogLink[];
+}
+
+interface ChangelogEntry {
+  date: string;
+  items: ChangelogItem[];
+}
+
+const entries: ChangelogEntry[] = [
+  {
+    date: "2026-07-12",
+    items: [
+      {
+        type: "add",
+        text: "更新履歴の各項目から、変更されたページへ直接たどれるリンクを追加しました",
+      },
+    ],
+  },
   {
     date: "2026-07-10",
     items: [
       {
         type: "update",
         text: "コラム「通常学級の 8.8%」に、EEF が 2026 年 7 月に公表した新しい手引き(Guide to Inclusive Teaching)を踏まえ、『配慮は足すより効かせる』ことを追記しました。課題を単純化しすぎるなど善意の配慮がかえって学習を妨げうること、効果的な配慮は特別扱いではなく通常授業に統合して指導の強度を上げることを整理しています",
+        links: [
+          {
+            label: "通常学級の 8.8%",
+            href: "/columns/special-needs-8-8-percent",
+          },
+        ],
       },
     ],
   },
@@ -17,6 +50,12 @@ const entries = [
       {
         type: "fix",
         text: "コラム「日本の少年非行の実像」で、戦後ピーク(昭和58年)からの減少水準を、比較可能な同一統計(法務省犯罪白書 資料3-1 の総数)で算出し直し、「1割弱(約8%)」を「1割強(約12%)」に訂正しました(分子と分母で集計範囲が異なる非可比な比較を是正)",
+        links: [
+          {
+            label: "日本の少年非行の実像",
+            href: "/columns/juvenile-delinquency-japan-reality",
+          },
+        ],
       },
     ],
   },
@@ -26,6 +65,12 @@ const entries = [
       {
         type: "fix",
         text: "コラム「フィンランド教育神話を冷静に見る」の PISA 数学スコア(2012年)を一次資料(OECD PISA 2022 Volume I)と再突合し、フィンランドの値を 524 から 519 に訂正しました(同年の読解スコアとの取り違えを是正)",
+        links: [
+          {
+            label: "フィンランド教育神話を冷静に見る",
+            href: "/columns/finland-education-myth",
+          },
+        ],
       },
     ],
   },
@@ -828,7 +873,18 @@ const typeLabel: Record<string, { label: string; color: string }> = {
                   >
                     {t.label}
                   </span>
-                  <span>{item.text}</span>
+                  <span>
+                    {item.text}
+                    {item.links && (
+                      <span class="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs">
+                        {item.links.map((l) => (
+                          <a href={l.href} class="link-underline">
+                            {l.label} <span aria-hidden="true">→</span>
+                          </a>
+                        ))}
+                      </span>
+                    )}
+                  </span>
                 </li>
               );
             })}
