@@ -92,6 +92,13 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
     {breadcrumbJsonLd && (
       <script type="application/ld+json" set:html={escapeLd(breadcrumbJsonLd)} />
     )}
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+      is:inline
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "14afdc722e86475ca003f42c859d679d"}'></script>
   </head>
   <body class="bg-[var(--color-bg)] text-[var(--color-ink)]" data-menu="closed">
     <a href="#main-content" class="skip-link">本文へスキップ</a>
