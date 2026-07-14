@@ -39,17 +39,31 @@ const articleJsonLd = {
   description: d.summary,
   datePublished: dateModified,
   dateModified,
-  author: { "@type": "Person", name: "Isagawa Hayato" },
+  author: {
+    "@type": "Person",
+    name: "Isagawa Hayato",
+    url: `${siteUrl}/about`,
+    sameAs: ["https://github.com/Hayato-Isagawa"],
+  },
   publisher: {
     "@type": "Organization",
     name: "EduEvidence JP",
     url: siteUrl,
+    logo: `${siteUrl}/logo.svg`,
+    sameAs: ["https://x.com/edu_evidence_jp"],
   },
   image: `${siteUrl}/og/${entry.id}.png`,
   mainEntityOfPage: pageUrl,
   url: pageUrl,
   inLanguage: "ja",
   keywords: d.tags.join(", "),
+  ...(d.sourceUrl && {
+    isBasedOn: {
+      "@type": "CreativeWork",
+      url: d.sourceUrl,
+      ...(d.sourceTitle && { name: d.sourceTitle }),
+    },
+  }),
 };
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
