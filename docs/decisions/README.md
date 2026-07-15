@@ -61,3 +61,6 @@
 - [0021. 用語集を src/data/glossary.ts 単一の source of truth に統合する](0021-glossary-single-source-of-truth.md)
 - [0022. Dependabot patch/minor 自動マージ運用と main ブランチ保護](0022-dependabot-auto-merge-policy.md)
 - [0023. changelog の文体(敬体)と粒度をファミリー統一する(edu-law ADR 0022 ミラー)](0023-unify-changelog-register-and-granularity.md)
+- [0024. ビジュアルリグレッションテスト(VRT)を視覚変更 PR に限定して導入](0024-visual-regression-testing.md)
+- [0025. content-reviewer の後段に独立反証ゲートを追加(2 段階 → 3 段階レビュー)](0025-adversarial-verification-gate.md)
+- [0026. Cloudflare Web Analytics を手動スニペット方式で導入し CSP を最小限緩和する](0026-web-analytics-beacon-and-csp.md)
