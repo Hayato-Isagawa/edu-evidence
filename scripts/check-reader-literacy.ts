@@ -36,7 +36,7 @@ const GLOSSARY_KEYS = new Set<string>(
 
 const P2_ALLOWED_ABBREVS = new Set<string>([
   "GIGA", "SNS", "WHO", "ADHD", "BMI", "CEO", "PDF", "GPS", "LINE", "NPO",
-  "ISBN", "NBER", "NCES", "NICHD", "IES", "RAND", "JAMA", "IZA", "RIETI",
+  "ISBN", "NBER", "NCES", "NICHD", "IES", "RAND", "JAMA", "IZA", "RIETI", "NTL",
   "BERD", "IIEP", "MSS",
   "ASCD", "IHMC", "UNESCO", "UCL", "UCLA", "JICA", "APS", "ERIC", "PTA",
   "NEA", "USDA", "NSLP",
