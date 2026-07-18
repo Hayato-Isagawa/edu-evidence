@@ -54,6 +54,7 @@ const KNOWN_BOT_PROTECTED_HOSTS: readonly string[] = [
   "link.springer.com",
   "onlinelibrary.wiley.com",
   "files.eric.ed.gov",
+  "www.pnas.org",
 ];
 
 function hostOf(url: string): string {
