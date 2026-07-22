@@ -18,15 +18,6 @@ updates:
     ignore:
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
-      # astro 7 は既定の Markdown プロセッサが "Sätteri" に切り替わり、
-      # @astrojs/markdown-remark を同梱しなくなるため、現行の
-      # markdown.remarkPlugins / rehypePlugins 設定を壊す
-      # (コンパイラも Rust 実装に移行済み)。移行方針を検討するまで、
-      # astro / @astrojs/react の major 更新を除外する。
-      - dependency-name: "astro"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@astrojs/react"
-        update-types: ["version-update:semver-major"]
     groups:
       astro-ecosystem:
         patterns:
