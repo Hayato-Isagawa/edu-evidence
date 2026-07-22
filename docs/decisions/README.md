@@ -64,3 +64,4 @@
 - [0024. ビジュアルリグレッションテスト(VRT)を視覚変更 PR に限定して導入](0024-visual-regression-testing.md)
 - [0025. content-reviewer の後段に独立反証ゲートを追加(2 段階 → 3 段階レビュー)](0025-adversarial-verification-gate.md)
 - [0026. Cloudflare Web Analytics を手動スニペット方式で導入し CSP を最小限緩和する](0026-web-analytics-beacon-and-csp.md)
+- [0027. Astro 7 へ移行し、Markdown は `processor: unified()` で従来パイプラインを維持する](0027-astro-7-migration.md)
