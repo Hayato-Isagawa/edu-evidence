@@ -15,7 +15,7 @@ relatedStrategies:
   - behaviour-interventions
   - social-emotional-learning
 charts:
-  postwarPeaks:
+  postwar-peaks:
     type: bar
     title: 戦後の少年非行 3 つのピーク
     xLabels: ["昭和26年", "昭和39年", "昭和58年"]
@@ -39,7 +39,7 @@ charts:
 
 法務省『犯罪白書(令和 7 年版)』第 3 編第 1 章第 1 節は、少年による刑法犯と危険運転致死傷・過失運転致死傷等を含む検挙人員の戦後の推移について、3 つの大きなピークを記録しています。
 
-{{chart:postwarPeaks}}
+{{chart:postwar-peaks}}
 
 - **昭和 26 年(第一の波)** 16 万 6,433 人 — 戦後混乱期の貧困を背景にした第一の波
 - **昭和 39 年(第二の波)** 23 万 8,830 人 — 高度経済成長期の都市流入と少年人口増加を背景にした第二の波

@@ -182,10 +182,10 @@ function renderAxisLabels(
     );
   }
   if (yAxisLabel) {
-    const cx = Y_AXIS_LABEL_X;
-    const cy = PADDING.top + innerH / 2;
+    const x = Y_AXIS_LABEL_X;
+    const y = PADDING.top + innerH / 2;
     parts.push(
-      `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="11" fill="var(--color-sub)" transform="rotate(-90 ${cx} ${cy})">${escapeHtml(yAxisLabel)}</text>`,
+      `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="11" fill="var(--color-sub)" style="writing-mode: vertical-rl; text-orientation: upright;">${escapeHtml(yAxisLabel)}</text>`,
     );
   }
   return parts.join("\n    ");
