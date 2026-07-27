@@ -2,7 +2,7 @@
 title: 「主体的・対話的で深い学び」は本当に効果があるのか? — 構成要素ごとのエビデンス
 summary: 学習指導要領が掲げる授業改善の柱を、構成要素(主体的/対話的/深い)ごとに分解して研究エビデンスで照合する。フレーズとして定量検証したメタ分析はなく、下位要素ごとに効果量は大きく異なる。
 date: "2026-04-11"
-lastVerified: "2026-04-21"
+lastVerified: "2026-07-27"
 tags: ["学習指導要領", "アクティブラーニング", "メタ認知", "協同学習"]
 relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classroom-discussion", "oral-language"]
 ---
@@ -33,7 +33,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 ### 口頭言語の指導(+6 ヶ月)とは
 
-本サイトの戦略ページ [口頭言語の指導](/strategies/oral-language) に詳述していますが、[EEF Toolkit の「Oral language interventions」](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions) は、**話す・聞く・語彙・構造化された話し合い** を授業の中で **明示的に指導する** 一連のアプローチを指します。読み書きだけでなく「聞いて理解し、話して説明する」力を計画的に育てる指導を授業に組み込むと、読解や教科学習にも波及するため、+6 ヶ月(幼児期 +7 / 小学校 +6 / 中学校 +5)の効果が報告されています。EEF の最新更新では 222 研究を含み、エビデンス強度は最高(★5)。既存カリキュラムに統合する形で実施されたときに効果が大きく、語彙の少ない子どもにも有効性が示唆されています。
+本サイトの戦略ページ [口頭言語の指導](/strategies/oral-language) に詳述していますが、[EEF Toolkit の「Oral language interventions」](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions) は、**話す・聞く・語彙・構造化された話し合い** を授業の中で **明示的に指導する** 一連のアプローチを指します。読み書きだけでなく「聞いて理解し、話して説明する」力を計画的に育てる指導を授業に組み込むと、読解や教科学習にも波及するため、+6 ヶ月の効果が報告されています。EEF の最新更新(2025年5月)では 188 研究を含み、エビデンス強度は最高(★5)。既存カリキュラムに統合する形で実施されたときに効果が大きく、語彙の少ない子どもにも有効性が示唆されています。
 
 ### プロジェクト型学習(PBL)とは、なぜ効果が限定的か
 
@@ -91,6 +91,6 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 - [Metacognition and self-regulation](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation). Education Endowment Foundation, *Teaching and Learning Toolkit*. — メタ認知と自己調整学習で +8 ヶ月(355 研究のメタ分析)。
 - [Collaborative learning approaches](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 構造化された協同学習で +5 ヶ月。
 - [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月。
-- [Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語介入で +6 ヶ月(小学校対象、34 研究が加わった更新版)。
+- [Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語介入で +6 ヶ月(188 研究)。
 - [Project Based Learning — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning). Education Endowment Foundation. — PBL の RCT。読み書きへの正の効果なし、FSM(Free School Meals)児童に負の影響を示唆(ただし学校脱落が多く、解釈には慎重さを要する)。
 - [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — 小学 5 年 78 校 RCT。英語・理科 +2 ヶ月、算数 +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月。

@@ -2,7 +2,7 @@
 title: 新任・若手の「どこから始めるか」— エビデンスから選ぶ最初の 3 つ
 summary: 73 の指導法の中から、新任・若手の先生が最初に取り組む価値のある 3 つを選ぶとしたら。「効果量 × エビデンス強度 × コスト」の 3 軸で絞り込むと、フィードバック・メタ認知・読解戦略が残る。
 date: "2026-04-18"
-lastVerified: "2026-04-21"
+lastVerified: "2026-07-27"
 tags: ["入門", "新任", "キャリア"]
 relatedStrategies: ["feedback", "metacognition", "teacher-student-relationships", "teacher-credibility", "reading-comprehension"]
 ---
@@ -104,7 +104,7 @@ EEF が強調するのは「**フィードバックの質**」(曖昧な称賛�
 5 つの ★5 × cost1 戦略(メタ認知・読解戦略・フィードバック・口頭言語・フォニックス)からエビデンス優先で選ぶなら、冒頭のフィードバック・メタ認知・読解戦略の 3 つが並びます。ただし **新人・若手の現場での実践しやすさ** を踏まえると、以下の調整が現実的だと考えます:
 
 - **読解戦略(+7 ヶ月 ★5)** は効果量上位だが、各教科の読解プロセス理解を要するため **2〜3 年目以降に加える** 方が現実的
-- **口頭言語の指導(+6 ヶ月 ★5)** は特に低学年・中学年で効果が大きい(幼児期 +7 / 小 +6 / 中 +5)
+- **口頭言語の指導(+6 ヶ月 ★5)** は学年段階による効果の差は大きくないとされ、研究の参加者に経済的に不利な家庭の子どもが多いほど効果が大きく見えたと報告されている
 - **フォニックス指導(+5 ヶ月 ★5)** は英語科・ローマ字指導で活用可能だが、日本語(かな)には直接適用できない
 
 したがって本コラムは、エビデンス上の最上位 2 つ(**フィードバック + メタ認知**)に、現場観点から **学級基盤となる 2 つ(関係性 + 信頼性)** を加えた計 4 つを「最初の 1 歩」として推奨します(#3 では関係性 + 信頼性を 1 セットで扱っているため、見出し上は「3 つ」構成を維持)。
@@ -152,7 +152,7 @@ EEF が強調するのは「**フィードバックの質**」(曖昧な称賛�
 - [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月(小学校 +7、中学校 +5)、エビデンス ★5(155 研究)。**口頭フィードバックは +7 ヶ月** で書面よりわずかに効果量が高く、EEF は「書面だけに限定せず、職員の負担を監視しながら運用すべき」と提言。
 - [Reading comprehension strategies](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reading-comprehension-strategies). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 読解戦略の明示的指導で +7 ヶ月、エビデンス ★5。本コラムでは 2〜3 年目以降の「次のステップ」として扱う。
 - [Visible Learning MetaX](https://www.visiblelearningmetax.com/). Hattie, J. 公開データベース. — 教師と子どもの関係性(d ≒ 0.72)・教師の信頼性(d ≒ 0.90)など、関係性 × 学習成果のエビデンスを網羅的に検索できる Hattie 監修の公開 DB。
-- [Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語の指導で +6 ヶ月(幼児期 +7・小 +6・中 +5)、エビデンス ★5。
+- [Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語の指導で +6 ヶ月、エビデンス ★5。
 - [Phonics](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/phonics). Education Endowment Foundation, *Teaching and Learning Toolkit*. — フォニックス指導で +5 ヶ月、エビデンス ★5(英語圏の読み書き初期指導での効果)。
 
 ### 関連読み物
