@@ -55,7 +55,7 @@ culturalContext: |
 - 効果は低学年・中学年で特に大きく、語彙の少ない子に対する効果も顕著です。
 - 構造化された活動(役割・手順がある)の方が、自由な会話より効果が大きい傾向があります。
 - 英国では、幼児(4〜5歳)向けの構造化された言語プログラム(NELI)を全国規模で実施した評価があります。参加した子どもの言語スキルはおよそ4ヶ月相当先に進み、社会経済的に不利な家庭の子どもではおよそ7ヶ月相当とさらに大きく伸びました。356校・約1万人規模の評価で、試験的な環境ではなく通常の実施でこの効果が保たれた点が重要です。
-- 就学前の個別プログラムでも独立した評価が積み重なっています。「NELI Preschool」は、3〜4歳のナーサリー向けに絵本の共有読みを通じて語彙を育てる20週間の言語プログラムで、参加児の言語をおよそ2ヶ月分前進させました。3〜5歳向けの「Talking Time」(小集団での言語活動と職員研修)はおよそ1ヶ月分でした。いずれも評価の確実性は高く、上記4〜5歳・全国規模の NELI 評価とは別の試験です。これらは個々のプログラムを対象にした評価の値で、見出しの「+6ヶ月」はこの領域の多数の研究を束ねた平均です。個別プログラムの月数が平均より小さくても、口頭言語の指導が効かないという意味ではありません。
+- 就学前の個別プログラムでも独立した評価が積み重なっています。「NELI Preschool」は、3〜4歳のナーサリー向けに絵本の共有読みを通じて語彙を育てる20週間の言語プログラムで、参加児の言語をおよそ2ヶ月分前進させました。3〜5歳向けの「Talking Time」(小集団での言語活動と職員研修)はおよそ1ヶ月分でした。いずれも評価の確実性は高く、上記4〜5歳・全国規模の NELI 評価とは別の試験です。3〜4歳向けの「Concept Cat」では、独立評価で概念語彙の理解がおよそ2ヶ月分前進しました。ただし評価の確実性は 5 段階中 3 で、上の 2 件ほど高くはありません。EYPP の対象児ではおよそ3ヶ月分と大きめでしたが、対象人数が少なく確実性は下がると評価されています。これらは個々のプログラムを対象にした評価の値で、見出しの「+6ヶ月」はこの領域の多数の研究を束ねた平均です。個別プログラムの月数が平均より小さくても、口頭言語の指導が効かないという意味ではありません。
 
 ## 注意したいこと
 
@@ -70,6 +70,7 @@ culturalContext: |
 - Smith, A., Staunton, R., Sahasranaman, A., & Worth, J. (2023). [Impact Evaluation of Nuffield Early Language Intervention (NELI) Wave Two](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/nuffield-early-language-intervention-scale-up-impact-evaluation). National Foundation for Educational Research / Education Endowment Foundation. — 全国規模(356校・10,759人)で実施した幼児向け構造化言語プログラムの評価。全児童で +4 ヶ月(効果量 0.29)、社会経済的に不利な層では +7 ヶ月(効果量 0.56)。評価の確実性は中〜高で、通常環境での大規模実施でも効果が維持された。
 - [NELI Preschool(2023–24 Trial)](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/neli-preschool-2023-24-trial). Education Endowment Foundation(独立評価: National Foundation for Educational Research)。— 3〜4歳のナーサリー向けに絵本の共有読みを通じて語彙を育てる20週間の言語プログラム。独立評価で全体 +2 ヶ月、評価の確実性は高い。上記 NELI Wave Two(4〜5歳・全国規模)とは別のトライアル。
 - [Talking Time(2023–24 Trial)](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/talking-time-2023-24-trial). Education Endowment Foundation(独立評価: National Institute of Economic and Social Research)。— 3〜5歳向けに小集団での言語活動と職員研修を組み合わせたプログラム。独立評価で +1 ヶ月、評価の確実性は高い。EYPP 対象児や英語を母語としない児では約2ヶ月分と大きめだったが、対象人数が少なく確実性は下がる。
+- [Concept Cat(2023–24 Trial)](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/concept-cat-2023-24-trial). Education Endowment Foundation(独立評価: RAND Europe・University of Leeds)。— 3〜4歳向けに概念語彙を育てるプログラム(1,080児・90施設)。独立評価で概念語彙の理解が +2 ヶ月、評価の確実性は 5 段階中 3。EYPP 対象児では +3 ヶ月だったが、対象人数が少なく確実性は下がる。
 
 ### 関連読み物
 
