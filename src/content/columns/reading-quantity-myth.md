@@ -111,7 +111,7 @@ relatedStrategies: ["morning-reading", "school-library", "reading-comprehension"
 
 ### 3. 読解戦略を教える
 
-本サイトの [読解戦略の指導](/strategies/reading-comprehension) は **+7ヶ月・★5**。読書量より、**読み方の明示的指導**の方がエビデンスが堅い。「自分で読む量」より「どう読むか」を教える時間を確保する方向が現実的です。
+本サイトの [読解戦略の指導](/strategies/reading-comprehension) は **+7ヶ月・★4**(EEF の確実性評価は 5 段階中 3)。読書量より、**読み方の明示的指導**の方がエビデンスが堅い。「自分で読む量」より「どう読むか」を教える時間を確保する方向が現実的です。
 
 ### 4. 冊数よりジャンルの多様性
 

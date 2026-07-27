@@ -13,8 +13,8 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Oral language interventions"
 evidence:
   eef:
     monthsGained: 6
-    strength: 5
-    note: "EEF Toolkit で +6ヶ月・エビデンス★5。学年段階による効果の差は大きくないとされる。話す・聞く・その組み合わせのいずれに焦点を当てた研究でも、学力への正の効果が報告されている。"
+    strength: 4
+    note: "EEF Toolkit で +6ヶ月。確実性評価は 5 段階中 4(high)で、独立評価でない研究の割合が高いため 1 段階下がっている。学年段階による効果の差は大きくないとされる。話す・聞く・その組み合わせのいずれに焦点を当てた研究でも、学力への正の効果が報告されている。"
 lastVerified: "2026-07-27"
 methodology:
   studies: 188
@@ -25,7 +25,7 @@ methodology:
     year: 2025
     title: "Oral language interventions — Technical Appendix"
     url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions/technical-appendix"
-  limitations: "含まれる研究の多くは英語圏で実施されており、日本語の言語指導に直接当てはめる際には語彙指導の内容・頻度・構造化の度合いを日本の文脈に合わせる必要がある。また『口頭言語介入』は語彙指導・談話スキル・ナラティブ指導など多様な活動を含む総称で、どの要素が特に効いているかは活動ごとに異なる。自由会話だけでは効果が小さく、構造化された介入の方が効果量が大きい傾向がある。"
+  limitations: "含まれる研究の多くは英語圏で実施されており、日本語の言語指導に直接当てはめる際には語彙指導の内容・頻度・構造化の度合いを日本の文脈に合わせる必要がある。また『口頭言語介入』は語彙指導・談話スキル・ナラティブ指導など多様な活動を含む総称で、どの要素が特に効いているかは活動ごとに異なる。自由会話だけでは効果が小さく、構造化された介入の方が効果量が大きい傾向がある。EEF は、独立評価でない研究の割合が高いことを理由に確実性評価を 1 段階下げている(開発団体自身による評価は効果が大きく出る傾向がある)。"
 culturalContext: |
   日本の「話す・聞くこと」の指導は、低学年国語・生活科・道徳など複数の場面で実践されているが、EEF が示す『会話を通じた明示的な語彙指導』『談話スキルの構造化された練習』までは踏み込まない場合がある。低学年の語彙基盤の差は後の読解・学力に直結するため、話す・聞くの指導を **意図的・継続的** に位置づける意味は大きい。
 ---
@@ -51,7 +51,7 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 平均的に、学習は約6ヶ月分前進します。エビデンスの強度は最も高い領域の一つです。
+- 平均的に、学習は約6ヶ月分前進します。EEF の確実性評価は 5 段階中 4(high)で、独立評価でない研究の割合が高いことを理由に 1 段階下げられています。
 - 効果は学年段階によって大きくは変わらないとされています(研究の数は幼児期・小学校で多く、中等教育では少なめです)。一方、経済的に不利な家庭の子どもにとって有効なアプローチになりうるとされ、研究の参加者に占める割合が高いほど効果が大きく見えたと報告されています。
 - 構造化された活動(役割・手順がある)の方が、自由な会話より効果が大きい傾向があります。
 - 英国では、幼児(4〜5歳)向けの構造化された言語プログラム(NELI)を全国規模で実施した評価があります。参加した子どもの言語スキルはおよそ4ヶ月相当先に進み、社会経済的に不利な家庭の子どもではおよそ7ヶ月相当とさらに大きく伸びました。356校・約1万人規模の評価で、試験的な環境ではなく通常の実施でこの効果が保たれた点が重要です。
@@ -66,7 +66,7 @@ culturalContext: |
 ## 主な参考研究
 
 - Law, J., Garrett, Z., & Nye, C. (2003). [Speech and language therapy interventions for children](https://doi.org/10.1002/14651858.CD004110). *Cochrane Database of Systematic Reviews*. — 口頭言語介入の効果を系統的にレビュー。語彙と表現に正の効果を確認。
-- [Oral Language Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語の指導で +6 ヶ月、エビデンス強度 ★5。構造化された対話活動の効果を集約。
+- [Oral Language Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語の指導で +6 ヶ月、確実性評価は 5 段階中 4(high)。構造化された対話活動の効果を集約。
 - Smith, A., Staunton, R., Sahasranaman, A., & Worth, J. (2023). [Impact Evaluation of Nuffield Early Language Intervention (NELI) Wave Two](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/nuffield-early-language-intervention-scale-up-impact-evaluation). National Foundation for Educational Research / Education Endowment Foundation. — 全国規模(356校・10,759人)で実施した幼児向け構造化言語プログラムの評価。全児童で +4 ヶ月(効果量 0.29)、社会経済的に不利な層では +7 ヶ月(効果量 0.56)。評価の確実性は中〜高で、通常環境での大規模実施でも効果が維持された。
 - [NELI Preschool(2023–24 Trial)](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/neli-preschool-2023-24-trial). Education Endowment Foundation(独立評価: National Foundation for Educational Research)。— 3〜4歳のナーサリー向けに絵本の共有読みを通じて語彙を育てる20週間の言語プログラム。独立評価で全体 +2 ヶ月、評価の確実性は高い。上記 NELI Wave Two(4〜5歳・全国規模)とは別のトライアル。
 - [Talking Time(2023–24 Trial)](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/talking-time-2023-24-trial). Education Endowment Foundation(独立評価: National Institute of Economic and Social Research)。— 3〜5歳向けに小集団での言語活動と職員研修を組み合わせたプログラム。独立評価で +1 ヶ月、評価の確実性は高い。EYPP 対象児や英語を母語としない児ではおよそ2ヶ月分と大きめだったが、対象人数が少なく確実性は下がる。
