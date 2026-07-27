@@ -14,14 +14,14 @@ evidence:
   eef:
     monthsGained: 6
     strength: 4
-    note: "EEF Oral Language Interventions は全体 +6ヶ月(幼児期 +7、小学校 +6、中学校 +5)。EEF が実施した Dialogic Teaching RCT(Alexander ら、小5対象、20週間)では、英語・理科で +2ヶ月、算数で +1ヶ月の効果を確認。"
+    note: "EEF Oral Language Interventions は全体 +6ヶ月。EEF が実施した Dialogic Teaching RCT(Alexander ら、小5対象、20週間)では、英語・理科で +2ヶ月、算数で +1ヶ月の効果を確認。"
   hattie:
     cohensD: 0.82
     note: "Hattie の Visible Learning では d=0.82(classroom discussion)と報告されているが、これは上端寄り。EEF の +6ヶ月の方が近年の大規模研究に基づく保守的な推定値。"
-lastVerified: "2026-04-17"
+lastVerified: "2026-07-27"
 methodology:
   sampleSize: "イングランド 78 校 / Year 5(小5相当)約 2,493 名を解析(EEF Dialogic Teaching RCT, 2014-17)"
-  effectSize: "+2ヶ月(英語・理科) / +1ヶ月(算数)。無償給食対象児は算数でも +2ヶ月。背景指標の EEF 口頭言語介入は +6ヶ月(222 研究)"
+  effectSize: "+2ヶ月(英語・理科) / +1ヶ月(算数)。無償給食対象児は算数でも +2ヶ月。背景指標の EEF 口頭言語介入は +6ヶ月(188 研究)"
   primaryMetaAnalysis:
     authors: "Alexander, Hardman ら(University of York)"
     year: 2017
