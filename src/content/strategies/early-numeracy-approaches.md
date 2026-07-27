@@ -21,7 +21,7 @@ evidence:
     strength: 1
     note: "幼児期の数量感覚に限定した効果量つきの国内 RCT・メタ分析は確認できていない。文部科学省の幼児教育に関する大規模縦断調査は 2023 年度予備調査・2024 年度本調査(第 1 年次)の報告が公表済みで、国内エビデンスの蓄積はこれから本格化する段階。"
     researcher: "文部科学省(東京大学 CEDEP 受託)"
-lastVerified: "2026-06-05"
+lastVerified: "2026-07-27"
 methodology:
   studies: 54
   sampleSize: "就学前児(3〜5歳)を中心とする 54 研究(EEF Early Years Toolkit)"
@@ -66,6 +66,9 @@ culturalContext: |
 ## 注意したいこと
 
 - EEF の確実性評価は 5 段階中 2(limited)です。独立評価でない研究の割合が高く、開発団体自身による評価は効果が大きく出る傾向が指摘されています。「+7ヶ月」は固い数値ではなく目安として読んでください
+- EEF がこの領域で独立評価した個別プログラムのうち、次の 2 件は +7ヶ月より小さい結果でした。3〜4歳向けの「The ONE Programme」(遊びを通して数量感覚と実行機能を一緒に育てる 12 週間のプログラム)では、算数の学力に差が出ませんでした(0ヶ月)。この結果の確実性は高いと評価されています。「Counting Collections」(学級全体で、ものを数えて記録する活動を週 1 回・20 週にわたって行う取り組み)は数の学力で +1ヶ月、確実性は 5 段階中 3 でした。ただし後者の対象は英国の Reception(4〜5歳)で、EEF はこの試験を Key Stage 1 に区分しています。このページが扱う就学前(Early Years)とは対象段階がずれます
+- 経済的に不利な家庭の子への効果は、試験によって向きが揃っていません。The ONE Programme では EYPP の対象児だけが +2ヶ月でしたが、Counting Collections では FSM(無償給食)対象児に差が出ませんでした。どちらも対象人数が少なく確実性は下がると評価されており、片方だけを取り出して「不利な家庭の子には効く」とも「効かない」とも読めません
+- 上の 2 件は特定のプログラムを対象にした個別の評価で、見出しの「+7ヶ月」は 54 研究を束ねた平均です。個別の試験の月数が平均より小さくても、この領域の取り組み全体が無効だという意味ではありません
 - 「数に触れる遊びなら何でも効く」わけではありません。色ゲームや円形ボードで効果が出なかったように、数の構造(順序・量・位置の対応)が子どもに見える設計かどうかが分かれ目です
 - 介入の多くは複数の要素を含み、どの要素が効果の中核かは特定しにくい状態です
 - 効果の推定は就学前の設定(園・家庭)に基づくもので、小学校の授業に持ち込んだ場合の効果は同じ形では検証されていません
@@ -88,6 +91,8 @@ culturalContext: |
 - Purpura, D. J., Napoli, A. R., Wehrspann, E. A., & Gold, Z. S. (2017). [Causal connections between mathematical language and mathematical knowledge: A dialogic reading intervention](https://doi.org/10.1080/19345747.2016.1204639). *Journal of Research on Educational Effectiveness*, 10(1), 116–137. — 数学的言語を組み込んだ絵本の対話的読み聞かせの RCT。
 - Papic, M. M., Mulligan, J. T., & Mitchelmore, M. C. (2011). [Assessing the development of preschoolers' mathematical patterning](https://doi.org/10.5951/jresematheduc.42.3.0237). *Journal for Research in Mathematics Education*, 42(3), 237–268. — 繰り返しパターンの 6 ヶ月介入。就学 1 年後のフォローでも介入群が上回った。
 - EEF (2020). [Improving Mathematics in the Early Years and Key Stage 1](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/early-maths). — 3〜7 歳の算数指導に関する EEF の実践ガイダンス。
+- [The ONE Programme(2022–23 Trial)](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/the-one-project-2022-23-trial). Education Endowment Foundation(独立評価: RAND Europe)。— 3〜4歳向けに、遊びを通して数量感覚と実行機能を一緒に育てる 12 週間のプログラム(2,250児・150施設)。独立評価で算数の学力に差はなく(0ヶ月)、この結果の確実性は高いと評価された。EYPP の対象児では +2ヶ月だったが、対象人数が少なく確実性は下がる。
+- [Counting Collections(2022–23 Efficacy Trial)](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/counting-collections-2022-23-efficacy-trial). Education Endowment Foundation(独立評価: Sheffield Hallam University)。— 学級全体で、ものを数えて記録する活動を週 1 回・20 週にわたって行う取り組み(3,600児・176校)。独立評価で数の学力 +1ヶ月、確実性は 5 段階中 3。FSM 対象児には差が出なかった。EEF は対象段階を Key Stage 1 に区分しており、このページが扱う Early Years とは異なる。
 
 ## 関連する学習指導要領
 

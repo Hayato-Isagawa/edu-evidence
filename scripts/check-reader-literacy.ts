@@ -45,6 +45,7 @@ const P2_ALLOWED_ABBREVS = new Set<string>([
   "IEEE", "SAT", "NFER", "NELI", "DISS", "ICF", "SOS", "ISRN",
   "COCOLO",
   "EPI", "NPD", "EYFS", "GCSE",
+  "ONE",
 ]);
 
 const MARKDOWN_LINK_PATTERN = /\[[^\]]*\]\([^)]*\)/g;
