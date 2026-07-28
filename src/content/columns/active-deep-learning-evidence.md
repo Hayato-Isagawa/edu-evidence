@@ -33,7 +33,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 ### 口頭言語の指導(+6 ヶ月)とは
 
-本サイトの戦略ページ [口頭言語の指導](/strategies/oral-language) に詳述していますが、[EEF Toolkit の「Oral language interventions」](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions) は、**話す・聞く・語彙・構造化された話し合い** を授業の中で **明示的に指導する** 一連のアプローチを指します。読み書きだけでなく「聞いて理解し、話して説明する」力を計画的に育てる指導を授業に組み込むと、読解や教科学習にも波及するため、+6 ヶ月の効果が報告されています。EEF の最新更新(2025年5月)では 188 研究を含み、エビデンス強度は最高(★5)。既存カリキュラムに統合する形で実施されたときに効果が大きく、語彙の少ない子どもにも有効性が示唆されています。
+本サイトの戦略ページ [口頭言語の指導](/strategies/oral-language) に詳述していますが、[EEF Toolkit の「Oral language interventions」](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions) は、**話す・聞く・語彙・構造化された話し合い** を授業の中で **明示的に指導する** 一連のアプローチを指します。読み書きだけでなく「聞いて理解し、話して説明する」力を計画的に育てる指導を授業に組み込むと、読解や教科学習にも波及するため、+6 ヶ月の効果が報告されています。EEF の最新更新(2025年5月)では 188 研究を含み、確実性評価は 5 段階中 4(high)。既存カリキュラムに統合する形で実施されたときに効果が大きく、語彙の少ない子どもにも有効性が示唆されています。
 
 ### プロジェクト型学習(PBL)とは、なぜ効果が限定的か
 

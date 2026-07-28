@@ -1,8 +1,8 @@
 ---
 title: 読解戦略の指導
-summary: 「予測する」「要約する」「質問する」など、読み方そのものを意識的に指導すること。EEF で +7ヶ月と高い効果が報告される。国語に限らず、全教科の文章理解に効く。
+summary: 「予測する」「要約する」「質問する」など、読み方そのものを意識的に指導すること。EEF で +7ヶ月と高い効果が報告される(確実性評価は 5 段階中 3)。国語に限らず、全教科の文章理解に効く。
 monthsGained: 7
-evidenceStrength: 5
+evidenceStrength: 4
 cost: 1
 subjects: ["国語", "全教科"]
 grades: ["中学年", "高学年"]
@@ -13,11 +13,11 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Reading comprehension strate
 evidence:
   eef:
     monthsGained: 7
-    strength: 5
-    note: "EEF Toolkit で +7ヶ月・エビデンス★5(最高ランク)。言語理解と意味構築を明示的に教える手法。『予測・質問・要約・関連付け』などの戦略を段階的に指導することが効果的。"
-lastVerified: "2026-05-06"
+    strength: 3
+    note: "EEF Toolkit で +7ヶ月(184 研究・2025年10月更新)。確実性評価は 5 段階中 3(moderate)。独立評価でない研究の割合が高いことと、結果のばらつきが大きく説明しきれていないことで、2 段階下がっている。言語理解と意味構築を明示的に教える手法。『予測・質問・要約・関連付け』などの戦略を段階的に指導することが効果的。"
+lastVerified: "2026-07-27"
 methodology:
-  studies: 60
+  studies: 184
   sampleSize: "小中学生を中心とした複数メタ分析"
   effectSize: "+7ヶ月(EEF Toolkit)"
   primaryMetaAnalysis:
@@ -25,7 +25,7 @@ methodology:
     year: 2021
     title: "Reading comprehension strategies: Evidence Review"
     url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reading-comprehension-strategies"
-  limitations: "戦略を『明示的に教える』ことが鍵で、単に文章を読ませても効果は出ない。小学校低学年より中学年以降で効果が大きい傾向。対象言語・テキストタイプにより効果量に幅がある。"
+  limitations: "戦略を『明示的に教える』ことが鍵で、単に文章を読ませても効果は出ない。小学校低学年より中学年以降で効果が大きい傾向。対象言語・テキストタイプにより効果量に幅がある。EEF は確実性評価を 2 段階下げており、理由は独立評価でない研究の割合が高いことと、研究間の結果のばらつきが大きく、文脈・方法・手法の違いでは説明しきれていないこと。"
 culturalContext: |
   日本の国語授業では「段落要約」「問いを立てる」「要点を見つける」などの読解戦略指導が既に広く行われている。EEF の +7ヶ月は英語圏での効果だが、同様の枠組みは日本でも機能すると考えられる。ただし、EEF が強調する『戦略を明示的に教える(メタ認知的に学習者が意識する)』ことと、日本の『漫然と読む → 教師が解釈を示す』パターンには差がある。「どう読むか」を子ども自身が言語化できる指導が、日本での追加の効果に繋がる可能性。
 ---
@@ -51,7 +51,7 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 平均的に、子どもの学習は約7ヶ月分前進します。エビデンスの強い領域です(EEF Toolkit +7, ★5)。
+- 平均的に、子どもの学習は約7ヶ月分前進します。ただし EEF の確実性評価は 5 段階中 3(moderate)で、独立評価でない研究が多いことと、研究間の結果のばらつきが説明しきれていないことを理由に 2 段階下げられています。
 - 効果は中学年・高学年で特に顕著ですが、低学年でも口頭での予測や要約は効きます。
 - 戦略を「教える」だけでなく「使い方を一緒に試す」段階が必須です。
 

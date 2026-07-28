@@ -13,19 +13,19 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Phonics"
 evidence:
   eef:
     monthsGained: 5
-    strength: 5
-    note: "EEF Toolkit で +5ヶ月・エビデンス★5(最高)。効果は読みの初期段階(就学前〜低学年、特に 4-7 歳)で最大。Ehri et al.(2001)の 66 研究メタ分析で d=0.44。アルファベット表記言語での強力なエビデンス。"
-lastVerified: "2026-04-14"
+    strength: 4
+    note: "EEF Toolkit で +5ヶ月(228 研究)。確実性評価は 5 段階中 4(high)で、独立評価でない研究の割合が高いため 1 段階下がっている。効果は読みの初期段階(就学前〜低学年、特に 4-7 歳)で最大。Ehri et al.(2001)のメタ分析(38 研究から導いた 66 の比較)では全体の効果量 d=0.41。アルファベット表記言語での強力なエビデンス。"
+lastVerified: "2026-07-28"
 methodology:
-  studies: 66
+  studies: 38
   sampleSize: "幼稚園〜6年生(就学前〜初等教育)"
-  effectSize: "d=0.44(Ehri et al. 2001)"
+  effectSize: "d=0.41(Ehri et al. 2001、38 研究 / 66 比較の全体値)"
   primaryMetaAnalysis:
     authors: "Ehri, Nunes, Stahl & Willows"
     year: 2001
     title: "Systematic phonics instruction helps students learn to read: Evidence from the National Reading Panel's meta-analysis"
     url: "https://doi.org/10.3102/00346543071003393"
-  limitations: "アルファベット表記言語を前提とした手法。日本語(かな)には直接適用できず、英語科・ローマ字指導の文脈で活用可能。読みの初期段階(4-7歳)で最大の効果。"
+  limitations: "アルファベット表記言語を前提とした手法。日本語(かな)には直接適用できず、英語科・ローマ字指導の文脈で活用可能。読みの初期段階(4-7歳)で最大の効果。EEF は、独立評価でない研究の割合が高いことを理由に確実性評価を 1 段階下げている(開発団体自身による評価は効果が大きく出る傾向がある)。"
 culturalContext: |
   **フォニックスは英語等のアルファベット表記言語向けに開発された手法**。日本語(かな)は既に『1 文字 = 1 音』のほぼ完全な対応関係を持つため、フォニックス的な明示指導をそのまま適用する必要性は低い。ただし、**外国語活動・英語科でのアルファベット学習**、および**ローマ字指導**の文脈ではフォニックスの考え方が有効に働く。EEF の +5 ヶ月の効果量は、主に英語圏の小学校 1-2 年生での値であり、日本の英語科(3-6 年)の短時間指導に直接当てはめることはできない点に注意。
 ---
@@ -51,7 +51,7 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 平均的に、学習は約5ヶ月分前進します。エビデンスの強度は最も高い領域の一つです。
+- 平均的に、学習は約5ヶ月分前進します。EEF の確実性評価は 5 段階中 4(high)で、独立評価でない研究の割合が高いことを理由に 1 段階下げられています。
 - 効果は読みの初期段階(就学前〜低学年)で最大になります。
 - すでに読める子には効果が小さくなります。
 
@@ -64,7 +64,7 @@ culturalContext: |
 ## 主な参考研究
 
 - National Reading Panel (2000). [*Teaching children to read*](https://www.nichd.nih.gov/publications/pubs/nrp/smallbook). NICHD. — 体系的なフォニックス指導が、幼稚園から6年生の子どもの読みの力を有意に向上させることを示した大規模レビュー。
-- Ehri, L. C., Nunes, S. R., Stahl, S. A., & Willows, D. M. (2001). [Systematic phonics instruction helps students learn to read](https://doi.org/10.3102/00346543071003393). *Review of Educational Research*, 71(3), 393–447. — 66研究のメタ分析。体系的フォニックスの効果量d=0.44。特に低学年・読みに困難を持つ子で効果大。
+- Ehri, L. C., Nunes, S. R., Stahl, S. A., & Willows, D. M. (2001). [Systematic phonics instruction helps students learn to read](https://doi.org/10.3102/00346543071003393). *Review of Educational Research*, 71(3), 393–447. — 38 研究から 66 の比較を導いたメタ分析。体系的フォニックスの全体の効果量は d=0.41。特に低学年・読みに困難を持つ子で効果大。
 - Torgerson, C., Brooks, G., & Hall, J. (2006). *A systematic review of the research literature on the use of phonics*. DfES. — 英国教育省のレビュー。フォニックスの効果は確認されるが、それ単独では十分でないことも指摘。
 
 ## 関連する学習指導要領
