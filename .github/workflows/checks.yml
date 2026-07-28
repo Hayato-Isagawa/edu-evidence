@@ -1,0 +1,60 @@
+name: Content Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Content and consistency checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v6
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # 以降は if: !cancelled() を付けて、1 本落ちても残りの結果が見えるようにする。
+      # 落ちたステップがあればジョブ全体は失敗する。
+      # リンク切れ検査(check:links / check:links:source)はネットワーク依存で
+      # 不安定なため、既存の link-check.yml(週次)に任せてここでは走らせない。
+
+      - name: Astro type check
+        run: npm run check
+
+      - name: textlint
+        if: ${{ !cancelled() }}
+        run: npm run check:text
+
+      - name: Reader literacy
+        if: ${{ !cancelled() }}
+        run: npm run check:reader-literacy
+
+      - name: Sentence length
+        if: ${{ !cancelled() }}
+        run: npm run check:sentence-length
+
+      - name: monthsGained consistency
+        if: ${{ !cancelled() }}
+        run: npm run check:consistency
+
+      - name: Evidence strength consistency
+        if: ${{ !cancelled() }}
+        run: npm run check:evidence-strength
+
+      - name: lastVerified staleness
+        if: ${{ !cancelled() }}
+        run: npm run check:stale

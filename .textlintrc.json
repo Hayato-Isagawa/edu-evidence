@@ -43,6 +43,7 @@
       "ja-space-around-strong": false,
       "ja-space-around-emphasis": false,
       "ja-no-space-around-parentheses": false,
+      "ja-no-space-around-slash": false,
       "ja-no-space-between-full-width": true,
       "ja-nakaguro-or-halfwidth-space-between-katakana": false
     },
