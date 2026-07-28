@@ -30,8 +30,9 @@ npm run a11y:baseline      # axe-core で a11y 違反一覧を再生成(dev 起�
 npm run check              # Astro型チェック
 npm run check:text         # textlint日本語校正
 npm run check:consistency  # monthsGained 整合性チェック
+npm run check:evidence-strength # エビデンス強度(★)整合性チェック
 npm run check:stale        # lastVerified 期限切れチェック
-npm run check:all          # 上記チェックを一括実行
+npm run check:all          # 上記チェックを一括実行(CI の Content Checks でも実行)
 ```
 
 ## プロジェクト構造
