@@ -63,6 +63,7 @@ jobs:
             --exclude 'educationendowmentfoundation\.org\.uk'
             --exclude 'nctm\.org'
             --exclude 'chikumashobo\.co\.jp'
+            --exclude 'sciencedirect\.com'
             --timeout 30
             --max-retries 2
             './dist/**/*.html'
