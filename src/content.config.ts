@@ -59,7 +59,7 @@ const strategies = defineCollection({
     // EEF 方式に倣い、戦略ページで「研究の詳細」セクションを表示
     methodology: z
       .object({
-        studies: z.number().optional(),           // メタ分析に含まれる研究数
+        studies: z.number().optional(),           // 主要レビューに含まれる研究数
         sampleSize: z.string().optional(),        // 総サンプルサイズ(例: "10,500人")
         effectSize: z.string().optional(),        // 効果量(例: "d=0.37, 95%CI [0.30, 0.44]")
         primaryMetaAnalysis: z
