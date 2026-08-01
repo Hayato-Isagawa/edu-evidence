@@ -93,10 +93,10 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
       >
         <a
           href="/concerns"
-          class="group inline-flex items-center justify-between gap-3 rounded-full border border-[var(--color-accent)] bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white motion-safe:transition motion-safe:duration-200 motion-safe:ease-out hover:bg-[var(--color-accent-hover)] hover:border-[var(--color-accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+          class="group inline-flex items-center justify-between gap-3 rounded-full border border-[var(--color-accent)] bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white dark:text-[var(--color-bg)] motion-safe:transition motion-safe:duration-200 motion-safe:ease-out hover:bg-[var(--color-accent-hover)] hover:border-[var(--color-accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
         >
-          <span class="text-white">全{totalConcerns}件の悩みを見る</span>
-          <span class="text-white motion-safe:transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+          <span class="text-white dark:text-[var(--color-bg)]">全{totalConcerns}件の悩みを見る</span>
+          <span class="text-white dark:text-[var(--color-bg)] motion-safe:transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -164,7 +164,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         </div>
         <div class="flex items-baseline gap-4">
           <span class="text-3xl font-black text-[var(--color-accent)]">+5<span class="text-base ml-1">ヶ月</span></span>
-          <span class="text-3xl font-black text-red-600">(<span class="text-base mr-0.5">-</span>5<span class="text-base ml-1">ヶ月</span>)</span>
+          <span class="text-3xl font-black text-[var(--color-chart-red)]">(<span class="text-base mr-0.5">-</span>5<span class="text-base ml-1">ヶ月</span>)</span>
         </div>
         <div class="text-xl text-amber-500">★★★★☆</div>
       </div>
@@ -174,7 +174,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         <p>
           <strong class="text-[var(--color-accent)]">+◯ヶ月(緑)</strong> =
           この指導法を取り入れた学級は、1年後に<strong class="text-[var(--color-ink)]">通常より◯ヶ月分先</strong>に進んだ。取り入れる価値のある指導法。<br />
-          <strong class="text-red-600">(-◯ヶ月)(赤)</strong> =
+          <strong class="text-[var(--color-chart-red)]">(-◯ヶ月)(赤)</strong> =
           逆に、<strong class="text-[var(--color-ink)]">◯ヶ月分遅れた</strong>。やらない方がよかった指導法。
         </p>
         <p>

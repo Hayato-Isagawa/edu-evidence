@@ -47,7 +47,7 @@ const effectColor =
     ? "text-[var(--color-accent)]"
     : monthsGained === 0
       ? "text-[var(--color-sub)]"
-      : "text-red-600";
+      : "text-[var(--color-chart-red)]";
 
 const effectBarMax = 9;
 const effectBarPct = Math.min(Math.abs(monthsGained), effectBarMax) / effectBarMax * 100;
