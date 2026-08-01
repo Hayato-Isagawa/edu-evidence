@@ -87,8 +87,8 @@ import Layout from "../../layouts/Layout.astro";
         <div class="space-y-3">
           <h3 class="font-bold">目安としての読み方</h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-center">
-            <div class="border border-red-600/30 rounded-lg p-4 space-y-1 bg-red-50/30">
-              <div class="text-2xl font-black text-red-600">-1 以下</div>
+            <div class="border border-red-600/30 dark:border-red-400/30 rounded-lg p-4 space-y-1 bg-red-50/30 dark:bg-red-400/10">
+              <div class="text-2xl font-black text-[var(--color-chart-red)]">-1 以下</div>
               <div class="text-[var(--color-sub)]">やらない方が<br />よかった領域</div>
             </div>
             <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
@@ -174,7 +174,7 @@ import Layout from "../../layouts/Layout.astro";
         <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">03</span>
         <h2 class="text-3xl font-black tracking-tight">導入コスト（¥）</h2>
       </div>
-      <div class="text-4xl text-emerald-700 tracking-widest">¥¥···</div>
+      <div class="text-4xl text-emerald-700 dark:text-emerald-300 tracking-widest">¥¥···</div>
       <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
         <p>
           その指導法を導入するのに、児童1人あたり年間どのくらいの<strong>金銭的コスト</strong>がかかるかの概算です。
@@ -187,35 +187,35 @@ import Layout from "../../layouts/Layout.astro";
           <h3 class="font-bold">¥の基準(児童1人あたり年間)</h3>
           <div class="space-y-3">
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0 font-mono">¥····</span>
+              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥····</span>
               <div>
                 <div><strong>0円〜約17,000円</strong>（EEF: £0–£80）</div>
                 <div class="text-[var(--color-sub)] text-sm">教師の工夫で始められる。特別な予算不要。例: フィードバック、メタ認知の指導、検索練習</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0 font-mono">¥¥···</span>
+              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥···</span>
               <div>
                 <div><strong>約17,000〜43,000円</strong>（EEF: £80–£200）</div>
                 <div class="text-[var(--color-sub)] text-sm">少額の教材費や短時間の研修。例: 協同学習、SEL、マスタリーラーニング</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0 font-mono">¥¥¥··</span>
+              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥¥··</span>
               <div>
                 <div><strong>約43,000〜150,000円</strong>（EEF: £200–£700）</div>
                 <div class="text-[var(--color-sub)] text-sm">まとまった教材費、定期的な研修、一部人員の確保。例: 少人数指導、保護者との連携プログラム</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0 font-mono">¥¥¥¥·</span>
+              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥¥¥·</span>
               <div>
                 <div><strong>約150,000〜258,000円</strong>（EEF: £700–£1,200）</div>
                 <div class="text-[var(--color-sub)] text-sm">専門スタッフの配置、大規模な研修、ICT環境整備。例: 個別指導、補助スタッフの活用</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 shrink-0 font-mono">¥¥¥¥¥</span>
+              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥¥¥¥</span>
               <div>
                 <div><strong>約258,000円以上</strong>（EEF: £1,200以上）</div>
                 <div class="text-[var(--color-sub)] text-sm">学級編成の変更、教員増員など、組織的・制度的投資。例: 学級規模の縮小、教科担任制</div>

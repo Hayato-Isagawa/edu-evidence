@@ -95,7 +95,7 @@ const effectColor =
     ? "text-[var(--color-accent)]"
     : d.monthsGained === 0
       ? "text-[var(--color-sub)]"
-      : "text-red-600";
+      : "text-[var(--color-chart-red)]";
 const effectNote =
   d.monthsGained > 0
     ? `3月時点で、通常より約${d.monthsGained}ヶ月先の学力水準に到達`
@@ -220,11 +220,11 @@ const effectNote =
 
         <div class="space-y-4">
           {d.evidence?.eef && (
-            <div class="border border-sky-700/30 rounded-xl p-5 space-y-2">
+            <div class="border border-sky-800/40 dark:border-sky-200/40 rounded-xl p-5 space-y-2">
               <div class="flex items-baseline gap-3">
-                <span class="font-mono text-xs uppercase tracking-widest text-sky-700">EEF Toolkit</span>
+                <span class="font-mono text-xs uppercase tracking-widest text-sky-800 dark:text-sky-200">EEF Toolkit</span>
                 {d.evidence.eef.monthsGained !== undefined && (
-                  <span class="font-black text-xl text-sky-700 tabular-nums">
+                  <span class="font-black text-xl text-sky-800 dark:text-sky-200 tabular-nums">
                     {d.evidence.eef.monthsGained > 0 ? "+" : ""}
                     {d.evidence.eef.monthsGained}
                     <span class="text-xs font-sans ml-1">ヶ月</span>
@@ -244,11 +244,11 @@ const effectNote =
           )}
 
           {d.evidence?.japan && (
-            <div class="border border-rose-600/30 rounded-xl p-5 space-y-2">
+            <div class="border border-rose-700/40 dark:border-rose-200/40 rounded-xl p-5 space-y-2">
               <div class="flex items-baseline gap-3 flex-wrap">
-                <span class="font-mono text-xs uppercase tracking-widest text-rose-600">日本研究</span>
+                <span class="font-mono text-xs uppercase tracking-widest text-rose-700 dark:text-rose-200">日本研究</span>
                 {d.evidence.japan.monthsGained !== undefined && (
-                  <span class="font-black text-xl text-rose-600 tabular-nums">
+                  <span class="font-black text-xl text-rose-700 dark:text-rose-200 tabular-nums">
                     {d.evidence.japan.monthsGained > 0 ? "+" : ""}
                     {d.evidence.japan.monthsGained}
                     <span class="text-xs font-sans ml-1">ヶ月</span>

@@ -54,11 +54,11 @@ function formatListDay(iso: string): string {
         data-filter="all"
         class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 transition cursor-pointer ${
           initialTag === ""
-            ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
+            ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white dark:text-[var(--color-bg)]"
             : "border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
         }`}
       >
-        すべて <span class="ml-1 opacity-70">{columns.length}</span>
+        すべて <span class="ml-1">{columns.length}</span>
       </button>
       {
         allTags.map(([tag, count]) => (
@@ -67,11 +67,11 @@ function formatListDay(iso: string): string {
             data-filter={tag}
             class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 transition cursor-pointer ${
               initialTag === tag
-                ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
+                ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white dark:text-[var(--color-bg)]"
                 : "border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
             }`}
           >
-            {tag} <span class="ml-1 opacity-70">{count}</span>
+            {tag} <span class="ml-1">{count}</span>
           </button>
         ))
       }
@@ -141,6 +141,7 @@ function formatListDay(iso: string): string {
       "border-[var(--color-accent)]",
       "bg-[var(--color-accent)]",
       "text-white",
+      "dark:text-[var(--color-bg)]",
     ];
     const inactiveClasses = [
       "border-[var(--color-line)]",

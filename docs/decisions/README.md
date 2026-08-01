@@ -28,9 +28,13 @@
 - 関連 PR: #N, #M
 
 ## 背景
+
 ## 検討した選択肢
+
 ## 決定
+
 ## 帰結
+
 ## 撤回 / 再検討の条件
 ```
 
@@ -44,7 +48,7 @@
 - [0004. 公開氏名表記を Isagawa Hayato に統一](0004-public-byline-isagawa-hayato.md)
 - [0005. 本体は非営利維持、収益化は別ブランド SaaS に分離](0005-non-commercial-with-saas-separation.md)
 - [0006. 反論型コラムを解説型に差し替える(前提検証ルール)](0006-rebuttal-column-replaced-with-explainer.md)
-- [0007. UI 状態はセマンティック属性(aria-* / data-*)で管理する](0007-semantic-attribute-state-management.md)
+- [0007. UI 状態はセマンティック属性(aria-_ / data-_)で管理する](0007-semantic-attribute-state-management.md)
 - [0008. 直線 3px アクセントバーは角張ったリスト要素のみに適用する](0008-linear-accent-bar-scope.md)
 - [0009. ファーストビュー(Hero)は縦積み + 大型 H1 を共通スタイルとする](0009-stacked-hero-with-large-h1.md)
 - [0010. 本文フォントはシステムフォントスタックに統一し Web フォントを廃止する](0010-system-font-stack-no-webfont.md)
@@ -67,3 +71,4 @@
 - [0027. Astro 7 へ移行し、Markdown は `processor: unified()` で従来パイプラインを維持する](0027-astro-7-migration.md)
 - [0028. Content Checks を main の required check に昇格する](0028-content-checks-required.md)
 - [0029. required check を classic ブランチ保護に一本化し、ruleset の重複を解消する](0029-required-checks-single-source.md)
+- [0030. a11y 監査を light/dark 両テーマで行い、label-content-name-mismatch は修正しない](0030-dark-mode-contrast-and-label-in-name.md)

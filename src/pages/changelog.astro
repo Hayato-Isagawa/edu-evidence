@@ -21,6 +21,19 @@ interface ChangelogEntry {
 
 const entries: ChangelogEntry[] = [
   {
+    date: "2026-08-01",
+    items: [
+      {
+        type: "fix",
+        text: "ダークモードで文字が背景に沈んで読みにくかった箇所を直しました。出典別エビデンスの「EEF Toolkit」「日本研究」の見出しと効果量、コストの「¥」表示、効果量がマイナスのときの月数、更新履歴のラベルなどが対象です",
+        links: [
+          { label: "出典別のエビデンス", href: "/strategies/feedback" },
+          { label: "指標の読み方", href: "/guide/indicators" },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-07-29",
     items: [
       {
@@ -958,9 +971,9 @@ const entries: ChangelogEntry[] = [
 ];
 
 const typeLabel: Record<string, { label: string; color: string }> = {
-  add: { label: "追加", color: "text-emerald-700" },
-  update: { label: "更新", color: "text-amber-600" },
-  fix: { label: "修正", color: "text-rose-600" },
+  add: { label: "追加", color: "text-emerald-700 dark:text-emerald-300" },
+  update: { label: "更新", color: "text-amber-800 dark:text-amber-200" },
+  fix: { label: "修正", color: "text-rose-700 dark:text-rose-200" },
   remove: { label: "削除", color: "text-[var(--color-sub)]" },
 };
 ---
