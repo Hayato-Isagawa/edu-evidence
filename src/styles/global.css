@@ -35,15 +35,15 @@
   --color-cost: oklch(50.8% 0.118 165.612);
   --color-rating: oklch(66.6% 0.179 58.318);
 
+  /* 派生値も @theme に置ける。ADR 0031 は「var() を含むため置けない」と    */
+  /* 書いたが誤りだった。実測では bg-accent-hover / border-accent-hover が  */
+  /* 生成され、[data-theme="dark"] の white 版への切替も効く。              */
+  --color-accent-hover: color-mix(in oklab, var(--color-accent) 85%, black);
+
   --leading-hero: 1.15;
 }
 
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
-:root {
-  /* 派生値。var() を含むため @theme には置けない。 */
-  --color-accent-hover: color-mix(in oklab, var(--color-accent) 85%, black);
-}
 
 [data-theme="dark"] {
   --color-bg: #16181d;

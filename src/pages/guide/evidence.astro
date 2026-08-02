@@ -4,15 +4,15 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="エビデンス入門 — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-accent">
       Guide — What is evidence?
     </p>
     <h1
       class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
     >
-      <span class="text-[var(--color-accent)]">エビデンス</span>入門
+      <span class="text-accent">エビデンス</span>入門
     </h1>
-    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base">
+    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
       <p>
         「エビデンスに基づく教育」の基本を、研究の読み方が分からなくても理解できるように解説します。
       </p>
@@ -22,12 +22,12 @@ import Layout from "../../layouts/Layout.astro";
   <section class="pb-24 space-y-20">
 
     <!-- 1. エビデンスとは -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">01</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">01</span>
         <h2 class="text-3xl font-black tracking-tight">エビデンスとは何か</h2>
       </div>
-      <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
+      <div class="space-y-4 leading-loose text-ink/90">
         <p>
           教育における「エビデンス」とは、<strong>研究で確かめられた知見</strong>のことです。
         </p>
@@ -45,73 +45,73 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 2. 研究の種類 -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">02</span>
         <h2 class="text-3xl font-black tracking-tight">研究にはレベルがある</h2>
       </div>
-      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+      <div class="leading-loose text-ink/90 space-y-6">
         <p>
           「研究で確かめた」と一口に言っても、研究の質はさまざまです。
           以下のように、エビデンスの信頼性には段階があります。
         </p>
         <div class="space-y-1">
-          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-xl p-5">
+          <div class="grid grid-cols-12 gap-4 border border-line rounded-xl p-5">
             <div class="col-span-3 md:col-span-2">
-              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">最も強い</div>
-              <div class="font-black text-lg text-[var(--color-accent)]">Level 5</div>
+              <div class="font-mono text-xs text-sub uppercase">最も強い</div>
+              <div class="font-black text-lg text-accent">Level 5</div>
             </div>
             <div class="col-span-9 md:col-span-10 space-y-1">
               <div class="font-bold">メタ分析・システマティックレビュー</div>
-              <div class="text-sm text-[var(--color-sub)]">
+              <div class="text-sm text-sub">
                 複数の研究を統合し、全体的な傾向を分析したもの。本サイトのデータは主にここから来ています。
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+          <div class="grid grid-cols-12 gap-4 border border-line rounded-lg p-5">
             <div class="col-span-3 md:col-span-2">
-              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">強い</div>
+              <div class="font-mono text-xs text-sub uppercase">強い</div>
               <div class="font-black text-lg">Level 4</div>
             </div>
             <div class="col-span-9 md:col-span-10 space-y-1">
               <div class="font-bold">ランダム化比較試験(RCT)</div>
-              <div class="text-sm text-[var(--color-sub)]">
+              <div class="text-sm text-sub">
                 対象者をランダムに2グループに分け、介入あり・なしの結果を比較する研究。因果関係を最も厳密に示せる。
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+          <div class="grid grid-cols-12 gap-4 border border-line rounded-lg p-5">
             <div class="col-span-3 md:col-span-2">
-              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">中程度</div>
+              <div class="font-mono text-xs text-sub uppercase">中程度</div>
               <div class="font-black text-lg">Level 3</div>
             </div>
             <div class="col-span-9 md:col-span-10 space-y-1">
               <div class="font-bold">準実験研究</div>
-              <div class="text-sm text-[var(--color-sub)]">
+              <div class="text-sm text-sub">
                 RCTほど厳密ではないが、介入群と比較群を設けた研究。現実的な制約の中で行われることが多い。
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+          <div class="grid grid-cols-12 gap-4 border border-line rounded-lg p-5">
             <div class="col-span-3 md:col-span-2">
-              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">弱い</div>
+              <div class="font-mono text-xs text-sub uppercase">弱い</div>
               <div class="font-black text-lg">Level 2</div>
             </div>
             <div class="col-span-9 md:col-span-10 space-y-1">
               <div class="font-bold">観察研究・相関研究</div>
-              <div class="text-sm text-[var(--color-sub)]">
+              <div class="text-sm text-sub">
                 介入は行わず、既存のデータの関連を分析する。因果関係の主張は難しい。
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-12 gap-4 border border-[var(--color-line)] rounded-lg p-5">
+          <div class="grid grid-cols-12 gap-4 border border-line rounded-lg p-5">
             <div class="col-span-3 md:col-span-2">
-              <div class="font-mono text-xs text-[var(--color-sub)] uppercase">最も弱い</div>
+              <div class="font-mono text-xs text-sub uppercase">最も弱い</div>
               <div class="font-black text-lg">Level 1</div>
             </div>
             <div class="col-span-9 md:col-span-10 space-y-1">
               <div class="font-bold">個人の経験・事例報告・専門家の意見</div>
-              <div class="text-sm text-[var(--color-sub)]">
+              <div class="text-sm text-sub">
                 参考にはなるが、一般化はできない。多くの「教育実践報告」はここに位置する。
               </div>
             </div>
@@ -121,12 +121,12 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 2.5 研究の質を決めるもの -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">02-b</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">02-b</span>
         <h2 class="text-3xl font-black tracking-tight">研究の質を決める3つの要素</h2>
       </div>
-      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+      <div class="leading-loose text-ink/90 space-y-6">
         <p>
           では、上のレベルを分けているのは何でしょうか。研究の質を決めるのは、主に以下の3つです。
         </p>
@@ -134,18 +134,18 @@ import Layout from "../../layouts/Layout.astro";
         <div class="space-y-2">
           <h3 class="font-bold">① 比較対象があるか</h3>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
-              <div class="text-[var(--color-chart-red)] font-bold">質が低い</div>
+            <div class="border border-line rounded-lg p-4 space-y-1">
+              <div class="text-chart-red font-bold">質が低い</div>
               <div>
                 「フィードバックをやったら成績が上がった」<br />
-                <span class="text-[var(--color-sub)]">→ 他の要因(季節・成長・別の指導)かもしれない</span>
+                <span class="text-sub">→ 他の要因(季節・成長・別の指導)かもしれない</span>
               </div>
             </div>
-            <div class="border border-[var(--color-accent)]/30 rounded-lg p-4 space-y-1">
-              <div class="text-[var(--color-accent)] font-bold">質が高い</div>
+            <div class="border border-accent/30 rounded-lg p-4 space-y-1">
+              <div class="text-accent font-bold">質が高い</div>
               <div>
                 「やった学級と、やらなかった学級を比べた」<br />
-                <span class="text-[var(--color-sub)]">→ 差があれば、介入が原因だと言いやすい</span>
+                <span class="text-sub">→ 差があれば、介入が原因だと言いやすい</span>
               </div>
             </div>
           </div>
@@ -154,22 +154,22 @@ import Layout from "../../layouts/Layout.astro";
         <div class="space-y-2">
           <h3 class="font-bold">② グループの分け方が公平か</h3>
           <div class="grid md:grid-cols-2 gap-4 text-sm">
-            <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
-              <div class="text-[var(--color-chart-red)] font-bold">質が低い</div>
+            <div class="border border-line rounded-lg p-4 space-y-1">
+              <div class="text-chart-red font-bold">質が低い</div>
               <div>
                 教師が「やりたい学級」を選んで介入<br />
-                <span class="text-[var(--color-sub)]">→ やる気のある学級だけが選ばれ、結果が歪む</span>
+                <span class="text-sub">→ やる気のある学級だけが選ばれ、結果が歪む</span>
               </div>
             </div>
-            <div class="border border-[var(--color-accent)]/30 rounded-lg p-4 space-y-1">
-              <div class="text-[var(--color-accent)] font-bold">質が高い(RCT)</div>
+            <div class="border border-accent/30 rounded-lg p-4 space-y-1">
+              <div class="text-accent font-bold">質が高い(RCT)</div>
               <div>
                 コイン投げやくじ引きでランダムに分ける<br />
-                <span class="text-[var(--color-sub)]">→ 両グループの条件がほぼ同じになる</span>
+                <span class="text-sub">→ 両グループの条件がほぼ同じになる</span>
               </div>
             </div>
           </div>
-          <p class="text-sm text-[var(--color-sub)]">
+          <p class="text-sm text-sub">
             これがRCTが「最も強い研究デザイン」とされる理由です。
           </p>
         </div>
@@ -178,15 +178,15 @@ import Layout from "../../layouts/Layout.astro";
           <h3 class="font-bold">③ 結果が繰り返されているか</h3>
           <div class="space-y-2 text-sm">
             <div class="flex gap-3 items-start">
-              <span class="text-[var(--color-sub)] shrink-0">1本の研究</span>
+              <span class="text-sub shrink-0">1本の研究</span>
               <span>「効果あり」→ まだ分からない。たまたまかもしれない</span>
             </div>
             <div class="flex gap-3 items-start">
-              <span class="text-[var(--color-sub)] shrink-0">10本の研究</span>
+              <span class="text-sub shrink-0">10本の研究</span>
               <span>全て「効果あり」→ かなり確からしい</span>
             </div>
             <div class="flex gap-3 items-start">
-              <span class="text-[var(--color-accent)] shrink-0 font-bold">メタ分析(50本統合)</span>
+              <span class="text-accent shrink-0 font-bold">メタ分析(50本統合)</span>
               <span>「効果あり」→ 強い確信が持てる</span>
             </div>
           </div>
@@ -212,12 +212,12 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 3. 効果量 -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">03</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">03</span>
         <h2 class="text-3xl font-black tracking-tight">効果量とは</h2>
       </div>
-      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+      <div class="leading-loose text-ink/90 space-y-4">
         <p>
           「効果があった」だけでは、どのくらい効いたのかが分かりません。
           <strong>効果量（effect size）</strong>は、その「どのくらい」を数値化した指標です。
@@ -226,17 +226,17 @@ import Layout from "../../layouts/Layout.astro";
           研究の世界では「コーエンのd」という指標がよく使われ、おおよそ以下のように解釈されます。
         </p>
         <div class="grid grid-cols-3 gap-4 text-sm text-center pt-2">
-          <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+          <div class="border border-line rounded-lg p-4 space-y-1">
             <div class="font-mono font-bold text-lg">d = 0.2</div>
-            <div class="text-[var(--color-sub)]">小さい効果</div>
+            <div class="text-sub">小さい効果</div>
           </div>
-          <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+          <div class="border border-line rounded-lg p-4 space-y-1">
             <div class="font-mono font-bold text-lg">d = 0.5</div>
-            <div class="text-[var(--color-sub)]">中程度の効果</div>
+            <div class="text-sub">中程度の効果</div>
           </div>
-          <div class="border border-[var(--color-line)] rounded-lg p-4 space-y-1">
+          <div class="border border-line rounded-lg p-4 space-y-1">
             <div class="font-mono font-bold text-lg">d = 0.8</div>
-            <div class="text-[var(--color-sub)]">大きい効果</div>
+            <div class="text-sub">大きい効果</div>
           </div>
         </div>
         <p>
@@ -247,12 +247,12 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 4. メタ分析 -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">04</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">04</span>
         <h2 class="text-3xl font-black tracking-tight">メタ分析とは</h2>
       </div>
-      <div class="space-y-4 leading-loose text-[var(--color-ink)]/90">
+      <div class="space-y-4 leading-loose text-ink/90">
         <p>
           本サイトの数値の多くは「メタ分析」と呼ばれる研究手法から得られています。
         </p>
@@ -274,12 +274,12 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 5. エビデンスの限界 -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">05</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">05</span>
         <h2 class="text-3xl font-black tracking-tight">エビデンスの限界</h2>
       </div>
-      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+      <div class="leading-loose text-ink/90 space-y-4">
         <p>
           エビデンスは万能ではありません。以下の限界を知った上で活用することが大切です。
         </p>
@@ -309,12 +309,12 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 6. エビデンスとの付き合い方 -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">06</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">06</span>
         <h2 class="text-3xl font-black tracking-tight">エビデンスとの付き合い方</h2>
       </div>
-      <div class="leading-loose text-[var(--color-ink)]/90 space-y-6">
+      <div class="leading-loose text-ink/90 space-y-6">
         <p>
           エビデンスに基づく教育は「数字に従え」ということではありません。
         </p>
@@ -322,21 +322,21 @@ import Layout from "../../layouts/Layout.astro";
           より正確には、<strong>3つの要素を組み合わせて判断する</strong>という考え方です。
         </p>
         <div class="grid md:grid-cols-3 gap-4">
-          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+          <div class="border border-line rounded-xl p-5 space-y-2">
             <div class="font-bold">① 研究のエビデンス</div>
-            <p class="text-sm text-[var(--color-sub)]">
+            <p class="text-sm text-sub">
               このサイトが提供する「研究ではこう言われている」という情報
             </p>
           </div>
-          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+          <div class="border border-line rounded-xl p-5 space-y-2">
             <div class="font-bold">② 教師の専門的判断</div>
-            <p class="text-sm text-[var(--color-sub)]">
+            <p class="text-sm text-sub">
               目の前の子ども・教室の状況を踏まえた、教師としての経験と直感
             </p>
           </div>
-          <div class="border border-[var(--color-line)] rounded-xl p-5 space-y-2">
+          <div class="border border-line rounded-xl p-5 space-y-2">
             <div class="font-bold">③ 学校・地域の文脈</div>
-            <p class="text-sm text-[var(--color-sub)]">
+            <p class="text-sm text-sub">
               自校の子どもの特性、地域の教育課題、学校の方針やリソース
             </p>
           </div>
@@ -352,46 +352,46 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 
     <!-- 7. もっと深く知るための参考図書 -->
-    <div class="border-t border-[var(--color-line)] pt-10 space-y-6">
+    <div class="border-t border-line pt-10 space-y-6">
       <div class="flex items-center gap-6">
-        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">07</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-sub">07</span>
         <h2 class="text-3xl font-black tracking-tight">もっと深く知るための参考図書</h2>
       </div>
-      <div class="leading-loose text-[var(--color-ink)]/90 space-y-4">
+      <div class="leading-loose text-ink/90 space-y-4">
         <p>
           エビデンスの読み方や、教育経済学の考え方をもう一歩踏み込んで学びたいときに参考になる書籍を紹介します。本サイトでも繰り返し引用しています。
         </p>
         <ul class="space-y-4 leading-loose">
           <li>
-            <strong>『<a href="https://d21.co.jp/book/detail/978-4-7993-1685-6" target="_blank" rel="noopener noreferrer" class="link-underline text-[var(--color-accent)]">「学力」の経済学</a>』</strong> — 中室牧子(2015)、ディスカヴァー・トゥエンティワン. 教育経済学の入門書として 30 万部超のベストセラー。非認知能力・少人数学級の費用対効果・行動への報酬など、「何に予算を使うべきか」を実証研究をもとに解説。
+            <strong>『<a href="https://d21.co.jp/book/detail/978-4-7993-1685-6" target="_blank" rel="noopener noreferrer" class="link-underline text-accent">「学力」の経済学</a>』</strong> — 中室牧子(2015)、ディスカヴァー・トゥエンティワン. 教育経済学の入門書として 30 万部超のベストセラー。非認知能力・少人数学級の費用対効果・行動への報酬など、「何に予算を使うべきか」を実証研究をもとに解説。
           </li>
           <li>
-            <strong>『<a href="https://www.diamond.co.jp/book/9784478039472.html" target="_blank" rel="noopener noreferrer" class="link-underline text-[var(--color-accent)]">「原因と結果」の経済学 — データから真実を見抜く思考法</a>』</strong> — 中室牧子・津川友介(2017)、ダイヤモンド社. 因果関係と相関関係の違い、ランダム化比較試験(RCT)・差の差分析・操作変数法などの因果推論の考え方を、医療・教育・経済の例を通して平易に解説。エビデンスを読むときの基本姿勢を学べる。
+            <strong>『<a href="https://www.diamond.co.jp/book/9784478039472.html" target="_blank" rel="noopener noreferrer" class="link-underline text-accent">「原因と結果」の経済学 — データから真実を見抜く思考法</a>』</strong> — 中室牧子・津川友介(2017)、ダイヤモンド社. 因果関係と相関関係の違い、ランダム化比較試験(RCT)・差の差分析・操作変数法などの因果推論の考え方を、医療・教育・経済の例を通して平易に解説。エビデンスを読むときの基本姿勢を学べる。
           </li>
           <li>
-            <strong>『<a href="https://www.diamond.co.jp/book/9784478121092.html" target="_blank" rel="noopener noreferrer" class="link-underline text-[var(--color-accent)]">科学的根拠(エビデンス)で子育て — 教育経済学の最前線</a>』</strong> — 中室牧子(2024)、ダイヤモンド社. 『「学力」の経済学』から 9 年ぶりの単著。最新のエビデンスを厳選して紹介し、保護者・教育関係者向けに「研究で確かめられている知見」を整理。
+            <strong>『<a href="https://www.diamond.co.jp/book/9784478121092.html" target="_blank" rel="noopener noreferrer" class="link-underline text-accent">科学的根拠(エビデンス)で子育て — 教育経済学の最前線</a>』</strong> — 中室牧子(2024)、ダイヤモンド社. 『「学力」の経済学』から 9 年ぶりの単著。最新のエビデンスを厳選して紹介し、保護者・教育関係者向けに「研究で確かめられている知見」を整理。
           </li>
           <li>
-            <strong>『<a href="https://www.ohmsha.co.jp/book/9784274065705/" target="_blank" rel="noopener noreferrer" class="link-underline text-[var(--color-accent)]">マンガでわかる 統計学</a>』</strong> — 高橋信 著、トレンド・プロ 漫画制作 (2004)、オーム社. 統計学の基礎(平均・分散・検定・回帰など)をマンガ形式で導入する入門書。エビデンスを読むときに登場する用語を物語の中で掴める。
+            <strong>『<a href="https://www.ohmsha.co.jp/book/9784274065705/" target="_blank" rel="noopener noreferrer" class="link-underline text-accent">マンガでわかる 統計学</a>』</strong> — 高橋信 著、トレンド・プロ 漫画制作 (2004)、オーム社. 統計学の基礎(平均・分散・検定・回帰など)をマンガ形式で導入する入門書。エビデンスを読むときに登場する用語を物語の中で掴める。
           </li>
           <li>
-            <strong>『<a href="https://bookstore.sunmark.co.jp/products/9784763138439" target="_blank" rel="noopener noreferrer" class="link-underline text-[var(--color-accent)]">米国最強経済学者にして 2 児の母が読み解く 子どもの育て方ベスト</a>』</strong> — エミリー・オスター 著、堀内久美子 訳 (2022)、サンマーク出版. ブラウン大学経済学部教授で 2 児の母である著者が、就学前期の子育てをめぐる通説を経済学・統計の手法でデータに基づき再検討した一般書。エビデンスを家庭の意思決定にどう生かすかの実例として読みやすい。
+            <strong>『<a href="https://bookstore.sunmark.co.jp/products/9784763138439" target="_blank" rel="noopener noreferrer" class="link-underline text-accent">米国最強経済学者にして 2 児の母が読み解く 子どもの育て方ベスト</a>』</strong> — エミリー・オスター 著、堀内久美子 訳 (2022)、サンマーク出版. ブラウン大学経済学部教授で 2 児の母である著者が、就学前期の子育てをめぐる通説を経済学・統計の手法でデータに基づき再検討した一般書。エビデンスを家庭の意思決定にどう生かすかの実例として読みやすい。
           </li>
           <li>
-            <strong>『<a href="https://www.keisoshobo.co.jp/book/b636200.html" target="_blank" rel="noopener noreferrer" class="link-underline text-[var(--color-accent)]">教育政策をめぐるエビデンス — 学力格差・学級規模・教師多忙とデータサイエンス</a>』</strong> — 中西啓喜(2023)、勁草書房. なぜエビデンスに基づく教育政策の議論は難しいのかを、少人数学級などを補助線に検討した教育社会学の一冊。エビデンスを「教育政策」と「教育実践」の 2 つの領域に整理し、階層の高いエビデンスに限らず、学校現場の意見を政策目的の発見に活かす方向を提起する。
+            <strong>『<a href="https://www.keisoshobo.co.jp/book/b636200.html" target="_blank" rel="noopener noreferrer" class="link-underline text-accent">教育政策をめぐるエビデンス — 学力格差・学級規模・教師多忙とデータサイエンス</a>』</strong> — 中西啓喜(2023)、勁草書房. なぜエビデンスに基づく教育政策の議論は難しいのかを、少人数学級などを補助線に検討した教育社会学の一冊。エビデンスを「教育政策」と「教育実践」の 2 つの領域に整理し、階層の高いエビデンスに限らず、学校現場の意見を政策目的の発見に活かす方向を提起する。
           </li>
         </ul>
       </div>
     </div>
 
     <!-- 導線 -->
-    <div class="border-t border-[var(--color-line)] pt-10 text-center space-y-6">
-      <p class="text-[var(--color-sub)] leading-loose">
+    <div class="border-t border-line pt-10 text-center space-y-6">
+      <p class="text-sub leading-loose">
         準備ができたら、具体的な指導法を見てみましょう。
       </p>
       <a
         href="/"
-        class="link-underline inline-block font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+        class="link-underline inline-block font-mono text-xs uppercase tracking-widest text-accent"
       >
         ← 指導法一覧へ戻る
       </a>

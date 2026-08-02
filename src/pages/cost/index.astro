@@ -41,13 +41,13 @@ const costGroups = [
 
 <Layout title="コストから探す — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-accent">
       Browse by cost
     </p>
     <h1 class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight">
       コストから探す
     </h1>
-    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base">
+    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
       <p>「お金をかけずに明日から」始められるものから探せます。</p>
     </div>
   </section>
@@ -65,11 +65,11 @@ const costGroups = [
               <div class="flex items-baseline gap-4 px-2">
                 <span class="text-xl font-black text-emerald-700 dark:text-emerald-300 tracking-widest">{group.yen}</span>
                 <h2 class="text-xl font-black tracking-tight">{group.label}</h2>
-                <span class="text-xs text-[var(--color-sub)]">{strategies.length}件</span>
+                <span class="text-xs text-sub">{strategies.length}件</span>
               </div>
-              <p class="text-sm text-[var(--color-sub)] px-2">{group.desc}</p>
+              <p class="text-sm text-sub px-2">{group.desc}</p>
             </div>
-            <div class="border-b border-[var(--color-line)]">
+            <div class="border-b border-line">
               {strategies.map((s, i) => (
                 <StrategyRow
                   index={i + 1}

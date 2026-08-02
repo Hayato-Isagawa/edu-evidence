@@ -21,7 +21,7 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
         data-toc
         data-toc-variant="sidebar"
       >
-        <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)] mb-3">
+        <p class="font-mono text-[10px] uppercase tracking-widest text-sub mb-3">
           目次
         </p>
         <ol class="space-y-1.5">
@@ -29,7 +29,7 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
             <li class={h.depth === 3 ? "pl-3" : ""}>
               <a
                 href={`#${h.slug}`}
-                class="toc-link block text-sm leading-snug text-[var(--color-sub)] hover:text-[var(--color-ink)] transition-colors"
+                class="toc-link block text-sm leading-snug text-sub hover:text-ink transition-colors"
                 data-toc-link
               >
                 {h.text}
@@ -40,12 +40,12 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
       </nav>
     ) : (
       <details
-        class="toc toc-mobile lg:hidden border border-[var(--color-line)] rounded-md mb-8"
+        class="toc toc-mobile lg:hidden border border-line rounded-md mb-8"
         data-toc
         data-toc-variant="mobile"
         data-state="closed"
       >
-        <summary class="cursor-pointer select-none flex items-center justify-between px-4 py-3 text-sm font-mono uppercase tracking-widest text-[var(--color-sub)]">
+        <summary class="cursor-pointer select-none flex items-center justify-between px-4 py-3 text-sm font-mono uppercase tracking-widest text-sub">
           <span>目次({items.length})</span>
           <svg
             class="toc-chevron w-4 h-4"
@@ -60,12 +60,12 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
             <path d="m6 9 6 6 6-6" />
           </svg>
         </summary>
-        <ol class="space-y-1.5 px-4 pb-4 pt-1 border-t border-[var(--color-line)]">
+        <ol class="space-y-1.5 px-4 pb-4 pt-1 border-t border-line">
           {items.map((h) => (
             <li class={h.depth === 3 ? "pl-3" : ""}>
               <a
                 href={`#${h.slug}`}
-                class="toc-link inline-block py-1 text-sm leading-snug text-[var(--color-sub)] hover:text-[var(--color-ink)] transition-colors"
+                class="toc-link inline-block py-1 text-sm leading-snug text-sub hover:text-ink transition-colors"
                 data-toc-link
               >
                 {h.text}

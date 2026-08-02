@@ -169,23 +169,23 @@ const comparisons = [
 ];
 
 const alignmentLabel: Record<string, { text: string; color: string }> = {
-  mostly: { text: "概ね整合", color: "text-[var(--color-accent)]" },
+  mostly: { text: "概ね整合", color: "text-accent" },
   partial: { text: "部分的に整合", color: "text-amber-600" },
-  limited: { text: "エビデンス不足", color: "text-[var(--color-sub)]" },
+  limited: { text: "エビデンス不足", color: "text-sub" },
 };
 ---
 
 <Layout title="政策とエビデンス — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-accent">
       Policy × Evidence
     </p>
     <h1
       class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
     >
-      政策と<span class="text-[var(--color-accent)]">エビデンス</span>
+      政策と<span class="text-accent">エビデンス</span>
     </h1>
-    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base">
+    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
       <p>
         教育委員会や文部科学省から推進される主な政策を、研究のエビデンスと照らし合わせます。
       </p>
@@ -194,7 +194,7 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
 
   <section class="pb-12">
     <div
-      class="border border-[var(--color-accent)] rounded-xl p-6 md:p-8 bg-[var(--color-accent)]/[0.03] max-w-3xl"
+      class="border border-accent rounded-xl p-6 md:p-8 bg-accent/[0.03] max-w-3xl"
     >
       <p class="text-sm leading-loose">
         <strong>このページの読み方</strong> ——
@@ -212,9 +212,9 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
       comparisons.map((c, i) => {
         const al = alignmentLabel[c.alignment] ?? alignmentLabel.limited;
         return (
-          <div class="border-t border-[var(--color-line)] py-10 md:py-12">
+          <div class="border-t border-line py-10 md:py-12">
             <div class="grid grid-cols-12 gap-6 px-2">
-              <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
+              <div class="col-span-2 md:col-span-1 font-mono text-sm text-sub">
                 {String(i + 1).padStart(2, "0")}
               </div>
 
@@ -232,13 +232,13 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
 
                 <div class="grid md:grid-cols-2 gap-6">
                   <div class="space-y-2">
-                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-sub)]">
+                    <div class="font-mono text-[11px] uppercase tracking-widest text-sub">
                       政策の前提
                     </div>
                     <p class="text-sm leading-relaxed">{c.assumption}</p>
                   </div>
                   <div class="space-y-2">
-                    <div class="font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)]">
+                    <div class="font-mono text-[11px] uppercase tracking-widest text-accent">
                       エビデンスが示すこと
                     </div>
                     <p class="text-sm leading-relaxed">{c.evidence}</p>
@@ -249,7 +249,7 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
                   {c.strategies.map((s) => (
                     <a
                       href={s.href}
-                      class="link-underline text-[var(--color-accent)]"
+                      class="link-underline text-accent"
                     >
                       {s.name} →
                     </a>
@@ -257,7 +257,7 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
                   {c.column && (
                     <a
                       href={c.column.href}
-                      class="link-underline text-[var(--color-ink)]"
+                      class="link-underline text-ink"
                     >
                       コラム: {c.column.name} →
                     </a>
@@ -269,6 +269,6 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
         );
       })
     }
-    <div class="border-t border-[var(--color-line)]"></div>
+    <div class="border-t border-line"></div>
   </section>
 </Layout>
