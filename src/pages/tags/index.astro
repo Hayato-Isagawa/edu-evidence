@@ -22,7 +22,7 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
 
 <Layout title="タグ一覧 — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-accent">
       Tags
     </p>
     <h1
@@ -30,7 +30,7 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
     >
       タグ一覧
     </h1>
-    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base space-y-2">
+    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base space-y-2">
       <p>
         指導法とコラムを関心のあるテーマから探すことができます。
       </p>
@@ -44,12 +44,12 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
         tags.map(([tag, count]) => (
           <a
             href={`/tags/${encodeURIComponent(tag)}`}
-            class="group border border-[var(--color-line)] rounded-full px-4 py-2 hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+            class="group border border-line rounded-full px-4 py-2 hover:border-accent hover:bg-card transition"
           >
-            <span class="font-bold text-sm group-hover:text-[var(--color-accent)] transition">
+            <span class="font-bold text-sm group-hover:text-accent transition">
               {tag}
             </span>
-            <span class="font-mono text-xs text-[var(--color-sub)] ml-2">{count}</span>
+            <span class="font-mono text-xs text-sub ml-2">{count}</span>
           </a>
         ))
       }

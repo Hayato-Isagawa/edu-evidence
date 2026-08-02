@@ -28,13 +28,13 @@ function formatMonths(m: number): string {
 
 <Layout title="悩みから探す — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-accent">
       Find by your concern
     </p>
     <h1 class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight">
-      <span class="text-[var(--color-accent)]">悩み</span>から探す
+      <span class="text-accent">悩み</span>から探す
     </h1>
-    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base space-y-2">
+    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base space-y-2">
       <p>
         現場でよくある悩みから、エビデンスに裏付けられた指導法・コラムに進めます。
       </p>
@@ -48,10 +48,10 @@ function formatMonths(m: number): string {
     {
       concernCategories.map((cat) => (
         <div class="space-y-6">
-          <div class="border-b border-[var(--color-line)] pb-3 flex items-baseline gap-4 flex-wrap relative pl-4">
+          <div class="border-b border-line pb-3 flex items-baseline gap-4 flex-wrap relative pl-4">
             <span
               aria-hidden="true"
-              class="absolute left-0 top-1 w-[3px] h-[calc(100%-1rem)] rounded-full bg-[var(--color-accent)]"
+              class="absolute left-0 top-1 w-[3px] h-[calc(100%-1rem)] rounded-full bg-accent"
             />
             <h2
               id={cat.id}
@@ -59,7 +59,7 @@ function formatMonths(m: number): string {
             >
               {cat.title}
             </h2>
-            <p class="text-sm text-[var(--color-sub)]">{cat.description}</p>
+            <p class="text-sm text-sub">{cat.description}</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -69,19 +69,19 @@ function formatMonths(m: number): string {
               return (
                 <article
                   id={concern.slug}
-                  class="border border-[var(--color-line)] rounded-xl p-5 md:p-6 bg-[var(--color-card)] space-y-4 motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out focus-within:border-[var(--color-accent)]"
+                  class="border border-line rounded-xl p-5 md:p-6 bg-card space-y-4 motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out focus-within:border-accent"
                 >
                   <h3 class="font-black text-lg md:text-xl leading-snug">
                     {concern.title}
                   </h3>
-                  <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+                  <p class="text-sm text-sub leading-relaxed">
                     {concern.diagnosis}
                   </p>
 
                   <div class="space-y-2">
                     <p
                       id={strategiesLabelId}
-                      class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]"
+                      class="font-mono text-[10px] uppercase tracking-widest text-sub"
                     >
                       関連する指導法
                     </p>
@@ -95,17 +95,17 @@ function formatMonths(m: number): string {
                         const monthsLabel = formatMonths(s.monthsGained);
                         const monthsClass =
                           s.monthsGained > 0
-                            ? "text-[var(--color-accent)]"
+                            ? "text-accent"
                             : s.monthsGained < 0
-                              ? "text-[var(--color-chart-red)]"
-                              : "text-[var(--color-sub)]";
+                              ? "text-chart-red"
+                              : "text-sub";
                         return (
                           <li>
                             <a
                               href={`/strategies/${slug}`}
-                              class="group inline-flex items-baseline gap-1.5 border border-[var(--color-line)] rounded-full px-3 min-h-[1.5rem] py-1 text-xs bg-[var(--color-bg)] motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] focus-visible:outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                              class="group inline-flex items-baseline gap-1.5 border border-line rounded-full px-3 min-h-[1.5rem] py-1 text-xs bg-bg motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out hover:border-accent hover:bg-card focus-visible:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                             >
-                              <span class="font-bold motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]">
+                              <span class="font-bold motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-accent group-focus-visible:text-accent">
                                 {s.title}
                               </span>
                               <span class={`font-mono text-[10px] font-bold ${monthsClass}`}>
@@ -122,7 +122,7 @@ function formatMonths(m: number): string {
                     <div class="space-y-2">
                       <p
                         id={columnsLabelId}
-                        class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]"
+                        class="font-mono text-[10px] uppercase tracking-widest text-sub"
                       >
                         関連コラム
                       </p>
@@ -137,15 +137,15 @@ function formatMonths(m: number): string {
                             <li>
                               <a
                                 href={`/columns/${slug}`}
-                                class="group inline-flex items-center gap-1.5 border border-[var(--color-line)] rounded-full px-3 min-h-[1.5rem] py-1 text-xs bg-[var(--color-bg)] motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] focus-visible:outline-none focus-visible:border-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                                class="group inline-flex items-center gap-1.5 border border-line rounded-full px-3 min-h-[1.5rem] py-1 text-xs bg-bg motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out hover:border-accent hover:bg-card focus-visible:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                               >
                                 <span
                                   aria-hidden="true"
-                                  class="font-mono text-[9px] uppercase tracking-widest text-[var(--color-sub)] motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]"
+                                  class="font-mono text-[9px] uppercase tracking-widest text-sub motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-accent group-focus-visible:text-accent"
                                 >
                                   Column
                                 </span>
-                                <span class="motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]">
+                                <span class="motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out group-hover:text-accent group-focus-visible:text-accent">
                                   {title}
                                 </span>
                               </a>

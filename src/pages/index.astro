@@ -40,22 +40,22 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
 
 <Layout>
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-accent">
       Evidence-based teaching for elementary schools
     </p>
-    <p class="mt-1 text-xs text-[var(--color-sub)]">
+    <p class="mt-1 text-xs text-sub">
       小学校教員のための教育エビデンス・ポータル
     </p>
     <h1
       class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
     >
-      <span class="text-[var(--color-accent)]">エビデンス</span>を、<br />
+      <span class="text-accent">エビデンス</span>を、<br />
       現場の指導へ。
     </h1>
     <div
-      class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base space-y-4"
+      class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base space-y-4"
     >
-      <p class="text-[var(--color-ink)] font-bold text-base sm:text-lg leading-snug">
+      <p class="text-ink font-bold text-base sm:text-lg leading-snug">
         経験と勘に、もうひとつの視点を。
       </p>
       <p>
@@ -69,12 +69,12 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
 
   <section
     aria-labelledby="concerns-cta-heading"
-    class="border-t border-[var(--color-line)] py-8 xs:py-10 sm:py-14"
+    class="border-t border-line py-8 xs:py-10 sm:py-14"
   >
     <div class="grid grid-cols-12 gap-6 mb-6">
       <div class="col-span-12 min-[900px]:col-span-8 space-y-2">
         <p
-          class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+          class="font-mono text-xs uppercase tracking-widest text-accent"
         >
           Find by your concern
         </p>
@@ -82,9 +82,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
           id="concerns-cta-heading"
           class="font-black text-3xl md:text-4xl tracking-tight leading-[1.2]"
         >
-          現場の<span class="text-[var(--color-accent)]">悩み</span>から、エビデンスを探す。
+          現場の<span class="text-accent">悩み</span>から、エビデンスを探す。
         </h2>
-        <p class="text-sm text-[var(--color-sub)] leading-relaxed pt-1">
+        <p class="text-sm text-sub leading-relaxed pt-1">
           指導法の一覧から入る前に、まず日々の悩みから関連するエビデンスをたどれます。
         </p>
       </div>
@@ -93,10 +93,10 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
       >
         <a
           href="/concerns"
-          class="group inline-flex items-center justify-between gap-3 rounded-full border border-[var(--color-accent)] bg-[var(--color-accent)] px-5 py-3 text-sm font-bold text-white dark:text-[var(--color-bg)] motion-safe:transition motion-safe:duration-200 motion-safe:ease-out hover:bg-[var(--color-accent-hover)] hover:border-[var(--color-accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+          class="group inline-flex items-center justify-between gap-3 rounded-full border border-accent bg-accent px-5 py-3 text-sm font-bold text-white dark:text-bg motion-safe:transition motion-safe:duration-200 motion-safe:ease-out hover:bg-accent-hover hover:border-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
         >
-          <span class="text-white dark:text-[var(--color-bg)]">全{totalConcerns}件の悩みを見る</span>
-          <span class="text-white dark:text-[var(--color-bg)] motion-safe:transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+          <span class="text-white dark:text-bg">全{totalConcerns}件の悩みを見る</span>
+          <span class="text-white dark:text-bg motion-safe:transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -113,30 +113,30 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
                 href={`/concerns#${concern.slug}`}
                 aria-labelledby={titleId}
                 data-concern-card
-                class="group block h-full rounded-xl border border-[var(--color-line)] bg-[var(--color-card)] p-5 space-y-3 motion-safe:transition motion-safe:duration-200 motion-safe:ease-out hover:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                class="group block h-full rounded-xl border border-line bg-card p-5 space-y-3 motion-safe:transition motion-safe:duration-200 motion-safe:ease-out hover:border-accent focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
-                <div class="font-mono text-[10px] tracking-widest uppercase text-[var(--color-sub)]">
+                <div class="font-mono text-[10px] tracking-widest uppercase text-sub">
                   {categoryTitle}
                 </div>
                 <h3
                   id={titleId}
-                  class="font-black text-base leading-snug motion-safe:transition group-hover:text-[var(--color-accent)] group-focus-visible:text-[var(--color-accent)]"
+                  class="font-black text-base leading-snug motion-safe:transition group-hover:text-accent group-focus-visible:text-accent"
                 >
                   {concern.title}
                 </h3>
-                <p class="text-xs text-[var(--color-sub)] leading-relaxed line-clamp-3">
+                <p class="text-xs text-sub leading-relaxed line-clamp-3">
                   {concern.diagnosis}
                 </p>
-                <div class="flex items-center gap-3 pt-1 text-[11px] text-[var(--color-sub)]">
+                <div class="flex items-center gap-3 pt-1 text-[11px] text-sub">
                   <span>
-                    <span class="font-bold text-[var(--color-ink)]">
+                    <span class="font-bold text-ink">
                       {strategyCount}
                     </span>
                     件の指導法
                   </span>
                   {columnCount > 0 && (
                     <span>
-                      <span class="font-bold text-[var(--color-ink)]">
+                      <span class="font-bold text-ink">
                         {columnCount}
                       </span>
                       件のコラム
@@ -151,70 +151,70 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
     </ul>
   </section>
 
-  <section class="border-t border-[var(--color-line)] py-5 xs:py-7 sm:py-10">
+  <section class="border-t border-line py-5 xs:py-7 sm:py-10">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 min-[900px]:col-span-3 space-y-3">
         <div class="space-y-1">
           <div
-            class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+            class="font-mono text-xs uppercase tracking-widest text-accent"
           >
             How to read
           </div>
-          <div class="text-xs text-[var(--color-sub)]">指標の読み方</div>
+          <div class="text-xs text-sub">指標の読み方</div>
         </div>
         <div class="flex items-baseline gap-4">
-          <span class="text-3xl font-black text-[var(--color-accent)]">+5<span class="text-base ml-1">ヶ月</span></span>
-          <span class="text-3xl font-black text-[var(--color-chart-red)]">(<span class="text-base mr-0.5">-</span>5<span class="text-base ml-1">ヶ月</span>)</span>
+          <span class="text-3xl font-black text-accent">+5<span class="text-base ml-1">ヶ月</span></span>
+          <span class="text-3xl font-black text-chart-red">(<span class="text-base mr-0.5">-</span>5<span class="text-base ml-1">ヶ月</span>)</span>
         </div>
         <div class="text-xl text-amber-500">★★★★☆</div>
       </div>
       <div
-        class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-[var(--color-sub)] leading-loose space-y-3"
+        class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-sub leading-loose space-y-3"
       >
         <p>
-          <strong class="text-[var(--color-accent)]">+◯ヶ月(緑)</strong> =
-          この指導法を取り入れた学級は、1年後に<strong class="text-[var(--color-ink)]">通常より◯ヶ月分先</strong>に進んだ。取り入れる価値のある指導法。<br />
-          <strong class="text-[var(--color-chart-red)]">(-◯ヶ月)(赤)</strong> =
-          逆に、<strong class="text-[var(--color-ink)]">◯ヶ月分遅れた</strong>。やらない方がよかった指導法。
+          <strong class="text-accent">+◯ヶ月(緑)</strong> =
+          この指導法を取り入れた学級は、1年後に<strong class="text-ink">通常より◯ヶ月分先</strong>に進んだ。取り入れる価値のある指導法。<br />
+          <strong class="text-chart-red">(-◯ヶ月)(赤)</strong> =
+          逆に、<strong class="text-ink">◯ヶ月分遅れた</strong>。やらない方がよかった指導法。
         </p>
         <p>
-          <span class="text-amber-500">★</span> は<strong class="text-[var(--color-ink)]">「その数字をどこまで信じていいか」</strong>を表します。<br />
+          <span class="text-amber-500">★</span> は<strong class="text-ink">「その数字をどこまで信じていいか」</strong>を表します。<br />
           ★が多い = 多くの質の高い研究で繰り返し確かめられている。<br />
           ★が少ない = 研究がまだ少なく、数字が変わる可能性がある。
         </p>
-        <p class="text-[var(--color-ink)] font-bold">
+        <p class="text-ink font-bold">
           月数と★をセットで見ることで、より確かな判断ができます。
         </p>
         <div class="grid grid-cols-2 gap-3 text-sm">
-          <div class="border border-[var(--color-line)] rounded-lg p-3">
-            <div class="font-bold text-[var(--color-ink)]">+5ヶ月 ★★☆☆☆</div>
-            <div class="text-[var(--color-sub)]">効果は大きいが研究が少ない。<br />過大評価の可能性あり</div>
+          <div class="border border-line rounded-lg p-3">
+            <div class="font-bold text-ink">+5ヶ月 ★★☆☆☆</div>
+            <div class="text-sub">効果は大きいが研究が少ない。<br />過大評価の可能性あり</div>
           </div>
-          <div class="border border-[var(--color-accent)]/30 rounded-lg p-3">
-            <div class="font-bold text-[var(--color-ink)]">+5ヶ月 ★★★★★</div>
-            <div class="text-[var(--color-sub)]">同じ+5でも<br /><strong class="text-[var(--color-ink)]">★が多い方が信頼できる</strong></div>
+          <div class="border border-accent/30 rounded-lg p-3">
+            <div class="font-bold text-ink">+5ヶ月 ★★★★★</div>
+            <div class="text-sub">同じ+5でも<br /><strong class="text-ink">★が多い方が信頼できる</strong></div>
           </div>
         </div>
         <p class="text-xs">
           ※ 月数は集団の平均値であり、個々の教室への効果を保証しません。
-          <a href="/guide/indicators" class="link-underline text-[var(--color-accent)]">指標の読み方 →</a>
+          <a href="/guide/indicators" class="link-underline text-accent">指標の読み方 →</a>
         </p>
-        <p class="text-xs text-[var(--color-sub)] bg-[var(--color-accent)]/5 border-l-2 border-[var(--color-accent)] pl-3 py-2">
-          <strong class="text-[var(--color-ink)]">【重要】</strong> この月数は<strong class="text-[var(--color-ink)]">テストで測れる学力</strong>への効果を示したものです。
+        <p class="text-xs text-sub bg-accent/5 border-l-2 border-accent pl-3 py-2">
+          <strong class="text-ink">【重要】</strong> この月数は<strong class="text-ink">テストで測れる学力</strong>への効果を示したものです。
           非認知能力・社会性・ウェルビーイングなど、学力以外の側面も教育では同じく大切です。月数が小さくても、そうした面で大きな価値を持つ指導法があります。
         </p>
       </div>
     </div>
   </section>
 
-  <section class="border-t border-[var(--color-line)] py-5 xs:py-7 sm:py-10">
+  <section class="border-t border-line py-5 xs:py-7 sm:py-10">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 min-[900px]:col-span-3 space-y-3">
         <div class="space-y-1">
-          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+          <div class="font-mono text-xs uppercase tracking-widest text-accent">
             Data source
           </div>
-          <div class="text-xs text-[var(--color-sub)]">データの出典</div>
+          <div class="text-xs text-sub">データの出典</div>
         </div>
         <div class="flex items-center gap-2">
           <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-sky-800 border-sky-800/40 bg-sky-50 dark:text-sky-200 dark:border-sky-200/40 dark:bg-sky-200/10">EEF</span>
@@ -222,21 +222,21 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
           <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-amber-800 border-amber-800/40 bg-amber-50 dark:text-amber-200 dark:border-amber-200/40 dark:bg-amber-200/10">Hattie</span>
         </div>
       </div>
-      <div class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-[var(--color-sub)] leading-loose space-y-3">
+      <div class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-sub leading-loose space-y-3">
         <p>
           このサイトの「+◯ヶ月」は主に
-          <strong class="text-[var(--color-ink)]">英国 Education Endowment Foundation（EEF）</strong>
-          の <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener" class="link-underline text-[var(--color-accent)]">Teaching and Learning Toolkit</a> に基づいています。
+          <strong class="text-ink">英国 Education Endowment Foundation（EEF）</strong>
+          の <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener" class="link-underline text-accent">Teaching and Learning Toolkit</a> に基づいています。
         </p>
         <p>
-          EEF は英国政府が設立した教育研究財団で、<strong class="text-[var(--color-ink)]">数百〜数千本の研究を統合したメタ分析</strong>をもとに、30以上の指導法を「効果」「信頼性」「コスト」の3指標で評価・公開しています。世界中の教育政策で参照される、最も体系的な教育エビデンスの一つです。
+          EEF は英国政府が設立した教育研究財団で、<strong class="text-ink">数百〜数千本の研究を統合したメタ分析</strong>をもとに、30以上の指導法を「効果」「信頼性」「コスト」の3指標で評価・公開しています。世界中の教育政策で参照される、最も体系的な教育エビデンスの一つです。
         </p>
         <p>
-          本サイトでは EEF のデータに加え、<strong class="text-[var(--color-ink)]">日本の研究者によるエビデンス</strong>（中室牧子・松岡亮二・赤林英夫 他）と、
-          <strong class="text-[var(--color-ink)]">Hattie の Visible Learning</strong> のデータを併記しています。
+          本サイトでは EEF のデータに加え、<strong class="text-ink">日本の研究者によるエビデンス</strong>（中室牧子・松岡亮二・赤林英夫 他）と、
+          <strong class="text-ink">Hattie の Visible Learning</strong> のデータを併記しています。
         </p>
         <p>
-          Visible Learning は、ジョン・ハッティが<strong class="text-[var(--color-ink)]">800以上のメタ分析を統合</strong>し、250以上の教育要因を効果量で順位づけした研究プロジェクトです。影響力は非常に大きいですが、<strong class="text-[var(--color-ink)]">効果量が楽観的に出やすい傾向</strong>があり、独立した研究で再現されない値もあります。本サイトでは EEF を主とし、Hattie は参考値として扱っています。
+          Visible Learning は、ジョン・ハッティが<strong class="text-ink">800以上のメタ分析を統合</strong>し、250以上の教育要因を効果量で順位づけした研究プロジェクトです。影響力は非常に大きいですが、<strong class="text-ink">効果量が楽観的に出やすい傾向</strong>があり、独立した研究で再現されない値もあります。本サイトでは EEF を主とし、Hattie は参考値として扱っています。
         </p>
         <p>
           各指導法に <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-sky-800 border-sky-800/40 bg-sky-50 dark:text-sky-200 dark:border-sky-200/40 dark:bg-sky-200/10">EEF</span>
@@ -246,23 +246,23 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         </p>
         <p class="text-xs">
           ※ EEF の数値は英国の学校を対象としたものです。日本の教室にそのまま当てはまるとは限りません。各指導法ページに「日本の文脈で考慮したいこと」を記載しています。
-          <a href="/guide/cultural-context" class="link-underline text-[var(--color-accent)]">エビデンスと文化的文脈 →</a>
+          <a href="/guide/cultural-context" class="link-underline text-accent">エビデンスと文化的文脈 →</a>
         </p>
       </div>
     </div>
   </section>
 
-  <section class="border-t border-[var(--color-line)] py-8 xs:py-10 sm:py-14">
+  <section class="border-t border-line py-8 xs:py-10 sm:py-14">
     <div class="flex items-baseline justify-between mb-6 flex-wrap gap-3">
       <div class="space-y-1">
-        <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent">
           Latest
         </p>
         <h2 class="font-black text-2xl md:text-3xl tracking-tight">最新の更新</h2>
       </div>
       <div class="flex items-center gap-4 text-xs">
-        <a href="/columns" class="link-underline text-[var(--color-sub)] hover:text-[var(--color-ink)] transition">コラム一覧 →</a>
-        <a href="/rss.xml" class="link-underline text-[var(--color-sub)] hover:text-[var(--color-ink)] transition">RSS 購読</a>
+        <a href="/columns" class="link-underline text-sub hover:text-ink transition">コラム一覧 →</a>
+        <a href="/rss.xml" class="link-underline text-sub hover:text-ink transition">RSS 購読</a>
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -270,18 +270,18 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         latestColumns.map((c) => (
           <a
             href={`/columns/${c.id}`}
-            class="group block border border-[var(--color-line)] rounded-xl p-5 bg-[var(--color-card)] hover:border-[var(--color-accent)] transition space-y-3"
+            class="group block border border-line rounded-xl p-5 bg-card hover:border-accent transition space-y-3"
           >
-            <div class="font-mono text-[10px] tracking-widest text-[var(--color-sub)]">
+            <div class="font-mono text-[10px] tracking-widest text-sub">
               {c.data.lastVerified ?? c.data.date}
               {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
-                <span class="ml-1 text-[var(--color-accent)]">(更新)</span>
+                <span class="ml-1 text-accent">(更新)</span>
               )}
             </div>
-            <h3 class="font-black text-base md:text-lg leading-snug group-hover:text-[var(--color-accent)] transition">
+            <h3 class="font-black text-base md:text-lg leading-snug group-hover:text-accent transition">
               {c.data.title}
             </h3>
-            <p class="text-xs text-[var(--color-sub)] leading-relaxed line-clamp-3">
+            <p class="text-xs text-sub leading-relaxed line-clamp-3">
               {c.data.summary}
             </p>
           </a>
@@ -294,84 +294,84 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
     <div class="flex flex-wrap gap-3">
       <a
         href="/subjects"
-        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
       >
-        <span class="font-bold">教科</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+        <span class="font-bold">教科</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/grades"
-        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
       >
-        <span class="font-bold">学年</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+        <span class="font-bold">学年</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/cost"
-        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
       >
-        <span class="font-bold">コスト</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+        <span class="font-bold">コスト</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/tags"
-        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
       >
-        <span class="font-bold">タグ</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+        <span class="font-bold">タグ</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/seasonal/july"
-        class="border border-[var(--color-line)] rounded-full px-4 py-2 text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-card)] transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
       >
-        <span class="font-bold">7月・学期末</span><span class="text-[var(--color-sub)] ml-1">から探す</span>
+        <span class="font-bold">7月・学期末</span><span class="text-sub ml-1">から探す</span>
       </a>
     </div>
 
     <div class="space-y-4">
       <div
-        class="flex items-baseline justify-between px-2 text-xs text-[var(--color-sub)]"
+        class="flex items-baseline justify-between px-2 text-xs text-sub"
       >
-        <span class="font-bold text-sm text-[var(--color-ink)]">エビデンス一覧</span>
+        <span class="font-bold text-sm text-ink">エビデンス一覧</span>
         <span id="count-display">{strategies.length}件</span>
       </div>
 
       <div class="flex flex-wrap items-center gap-2 px-2">
-        <span class="text-xs text-[var(--color-sub)]">カテゴリ</span>
-        <button data-category="all" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5 transition cursor-pointer">
+        <span class="text-xs text-sub">カテゴリ</span>
+        <button data-category="all" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-accent text-accent bg-accent/5 transition cursor-pointer">
           すべて
         </button>
-        <button data-category="指導法" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+        <button data-category="指導法" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
           指導法
         </button>
-        <button data-category="認知科学" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+        <button data-category="認知科学" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
           認知科学
         </button>
-        <button data-category="制度・環境" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+        <button data-category="制度・環境" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
           制度・環境
         </button>
-        <button data-category="知っておくべき知見" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+        <button data-category="知っておくべき知見" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
           知っておくべき知見
         </button>
-        <button data-category="家庭・外部" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer">
+        <button data-category="家庭・外部" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
           家庭・外部
         </button>
       </div>
 
       <div class="flex items-center gap-3 px-2">
-        <span class="text-xs text-[var(--color-sub)]">並び替え</span>
+        <span class="text-xs text-sub">並び替え</span>
         <button
           id="sort-effect"
-          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5 transition cursor-pointer"
+          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-accent text-accent bg-accent/5 transition cursor-pointer"
         >
           効果量順
         </button>
         <button
           id="sort-evidence"
-          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-[var(--color-line)] text-[var(--color-sub)] hover:border-[var(--color-accent)] transition cursor-pointer"
+          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer"
         >
           エビデンス強さ順
         </button>
       </div>
     </div>
 
-    <div id="strategy-list" class="border-b border-[var(--color-line)]">
+    <div id="strategy-list" class="border-b border-line">
       {
         strategies.map((s, i) => (
           <StrategyRow
@@ -393,8 +393,8 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
       const list = document.getElementById("strategy-list");
       const btnEffect = document.getElementById("sort-effect");
       const btnEvidence = document.getElementById("sort-evidence");
-      const active = "border-[var(--color-accent)] text-[var(--color-accent)] bg-[var(--color-accent)]/5";
-      const inactive = "border-[var(--color-line)] text-[var(--color-sub)]";
+      const active = "border-accent text-accent bg-accent/5";
+      const inactive = "border-line text-sub";
 
       function sortList(key: string) {
         if (!list) return;

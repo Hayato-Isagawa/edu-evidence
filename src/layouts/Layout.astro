@@ -109,32 +109,32 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "14afdc722e86475ca003f42c859d679d"}'></script>
   </head>
-  <body class="bg-[var(--color-bg)] text-[var(--color-ink)]" data-menu="closed">
+  <body class="bg-bg text-ink" data-menu="closed">
     <a href="#main-content" class="skip-link">本文へスキップ</a>
     <header class="site-header">
       <div
         class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between gap-4"
       >
         <a href="/" class="font-black text-lg sm:text-xl tracking-tight flex items-center gap-2 whitespace-nowrap shrink-0">
-          <span class="text-[var(--color-accent)] inline-flex shrink-0">
+          <span class="text-accent inline-flex shrink-0">
             <Logo class="w-7 h-7" />
           </span>
-          EduEvidence <span class="text-[var(--color-accent)]">JP</span>
+          EduEvidence <span class="text-accent">JP</span>
         </a>
-        <nav class="hidden lg:flex items-center text-xs gap-4 lg:gap-6 text-[var(--color-sub)]" aria-label="メインナビゲーション">
+        <nav class="hidden lg:flex items-center text-xs gap-4 lg:gap-6 text-sub" aria-label="メインナビゲーション">
           <a href="/" class="link-underline">ホーム</a>
           <a href="/concerns" class="link-underline">悩みから探す</a>
           <a href="/#strategy-list" class="link-underline">指導法から探す</a>
           <a href="/columns" class="link-underline">コラム</a>
           <a href="/guide" class="link-underline">ガイド</a>
           <a href="/about" class="link-underline">サイトについて</a>
-          <a href="/search" class="hover:text-[var(--color-ink)] transition" aria-label="検索">
+          <a href="/search" class="hover:text-ink transition" aria-label="検索">
             <svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           </a>
           <button
             id="theme-toggle"
             type="button"
-            class="theme-toggle relative flex items-center justify-center w-8 h-8 text-[var(--color-sub)] hover:text-[var(--color-ink)] transition-colors"
+            class="theme-toggle relative flex items-center justify-center w-8 h-8 text-sub hover:text-ink transition-colors"
             aria-label="ダークモードに切り替え"
             aria-pressed="false"
           >
@@ -162,9 +162,9 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           aria-expanded="false"
           aria-controls="mobile-menu"
         >
-          <span class="block w-6 h-[2px] bg-[var(--color-ink)] transition-transform duration-200 origin-center"></span>
-          <span class="block w-6 h-[2px] bg-[var(--color-ink)] transition-opacity duration-200"></span>
-          <span class="block w-6 h-[2px] bg-[var(--color-ink)] transition-transform duration-200 origin-center"></span>
+          <span class="block w-6 h-[2px] bg-ink transition-transform duration-200 origin-center"></span>
+          <span class="block w-6 h-[2px] bg-ink transition-opacity duration-200"></span>
+          <span class="block w-6 h-[2px] bg-ink transition-transform duration-200 origin-center"></span>
         </button>
       </div>
       <div
@@ -494,30 +494,30 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
       })();
     </script>
 
-    <footer class="border-t border-[var(--color-line)]">
+    <footer class="border-t border-line">
       <div
-        class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 py-6 xs:py-8 sm:py-12 grid md:grid-cols-4 gap-8 text-xs text-[var(--color-sub)] leading-relaxed"
+        class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 py-6 xs:py-8 sm:py-12 grid md:grid-cols-4 gap-8 text-xs text-sub leading-relaxed"
       >
         <!-- Column 1: ブランド + コンタクト + 購読 -->
         <div class="space-y-4">
-          <div class="font-black text-base text-[var(--color-ink)] flex items-center gap-2">
-            <span class="text-[var(--color-accent)] inline-flex">
+          <div class="font-black text-base text-ink flex items-center gap-2">
+            <span class="text-accent inline-flex">
               <Logo class="w-5 h-5" />
             </span>
-            EduEvidence <span class="text-[var(--color-accent)]">JP</span>
+            EduEvidence <span class="text-accent">JP</span>
           </div>
           <p class="leading-relaxed">
             教員一人ひとりが「研究で確かめられた知見」にアクセスできるように。<br />
             英国 EEF Toolkit を起点に、73の指導法を「効果」「信頼性」「コスト」「出典」の4指標で整理し、日本の小学校現場に合わせて翻案・公開しています。
           </p>
           <div class="space-y-1.5 pt-2">
-            <div class="font-mono uppercase tracking-widest text-[10px] text-[var(--color-ink)]">お問い合わせ</div>
+            <div class="font-mono uppercase tracking-widest text-[10px] text-ink">お問い合わせ</div>
             <div>
               <a href="mailto:info@edu-evidence.org" class="link-underline">info@edu-evidence.org</a>
             </div>
           </div>
           <div class="space-y-1.5">
-            <div class="font-mono uppercase tracking-widest text-[10px] text-[var(--color-ink)]">購読</div>
+            <div class="font-mono uppercase tracking-widest text-[10px] text-ink">購読</div>
             <div>
               <a href="/rss.xml" class="link-underline">RSS フィード</a>
             </div>
@@ -528,7 +528,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         <section aria-labelledby="footer-explore" class="space-y-3">
           <h2
             id="footer-explore"
-            class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+            class="font-mono uppercase tracking-widest text-ink text-xs"
           >
             Explore — 探す
           </h2>
@@ -546,7 +546,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         <section aria-labelledby="footer-learn" class="space-y-3">
           <h2
             id="footer-learn"
-            class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+            class="font-mono uppercase tracking-widest text-ink text-xs"
           >
             Learn — 学ぶ・読む
           </h2>
@@ -565,7 +565,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           <section aria-labelledby="footer-about" class="space-y-3">
             <h2
               id="footer-about"
-              class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+              class="font-mono uppercase tracking-widest text-ink text-xs"
             >
               About — サイトについて
             </h2>
@@ -578,13 +578,13 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           <section aria-labelledby="footer-sister" class="space-y-3">
             <h2
               id="footer-sister"
-              class="font-mono uppercase tracking-widest text-[var(--color-ink)] text-xs"
+              class="font-mono uppercase tracking-widest text-ink text-xs"
             >
               Sister Sites — 姉妹サイト
             </h2>
             <ul class="space-y-1.5">
               <li>
-                <span aria-current="page" class="text-[var(--color-ink)]">EduEvidence JP(このサイト)</span>
+                <span aria-current="page" class="text-ink">EduEvidence JP(このサイト)</span>
               </li>
               <li>
                 <a href="https://news.edu-evidence.org" class="link-underline">EduWatch JP — 教育ニュース</a>
@@ -596,7 +596,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           </section>
         </div>
       </div>
-      <div class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 pb-4 xs:pb-6 sm:pb-8 text-[10px] text-[var(--color-sub)] leading-relaxed">
+      <div class="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 md:px-10 pb-4 xs:pb-6 sm:pb-8 text-[10px] text-sub leading-relaxed">
         © 2026 EduEvidence JP. CC BY-SA 4.0. 英国 EEF
         <a
           class="link-underline"

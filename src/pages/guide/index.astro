@@ -31,7 +31,7 @@ const guides = [
 
 <Layout title="Guide — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+    <p class="font-mono text-xs uppercase tracking-widest text-accent">
       Guide
     </p>
     <h1
@@ -39,7 +39,7 @@ const guides = [
     >
       読み方ガイド
     </h1>
-    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base">
+    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
       <p>
         指導法の記事をより深く理解するための補助資料を揃えています。
       </p>
@@ -47,26 +47,26 @@ const guides = [
   </section>
 
   <section class="pb-24">
-    <div class="border-b border-[var(--color-line)]">
+    <div class="border-b border-line">
       {
         guides.map((g) => (
           <a
             href={g.href}
-            class="group block border-t border-[var(--color-line)] py-10 transition hover:bg-[var(--color-card)]"
+            class="group block border-t border-line py-10 transition hover:bg-card"
           >
             <div class="grid grid-cols-12 gap-4 items-baseline px-2">
-              <div class="col-span-2 md:col-span-1 font-mono text-sm text-[var(--color-sub)]">
+              <div class="col-span-2 md:col-span-1 font-mono text-sm text-sub">
                 {g.num}
               </div>
               <div class="col-span-10 md:col-span-8 space-y-2">
-                <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-[var(--color-accent)] transition">
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-accent transition">
                   {g.title}
                 </h3>
-                <p class="text-sm text-[var(--color-sub)] leading-relaxed">
+                <p class="text-sm text-sub leading-relaxed">
                   {g.desc}
                 </p>
               </div>
-              <div class="hidden md:block md:col-span-3 text-right text-[var(--color-sub)] text-xl transition group-hover:translate-x-1">
+              <div class="hidden md:block md:col-span-3 text-right text-sub text-xl transition group-hover:translate-x-1">
                 →
               </div>
             </div>

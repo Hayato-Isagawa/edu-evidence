@@ -36,16 +36,16 @@ const totalCount = strategies.length + columns.length;
 
 <Layout title={`${tag} — EduEvidence JP`}>
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-sub)]">
-      <a href="/tags" class="hover:text-[var(--color-ink)]">Tags</a> /
+    <p class="font-mono text-xs uppercase tracking-widest text-sub">
+      <a href="/tags" class="hover:text-ink">Tags</a> /
     </p>
-    <p class="mt-1 text-xs text-[var(--color-sub)]">タグから絞り込み</p>
+    <p class="mt-1 text-xs text-sub">タグから絞り込み</p>
     <h1
       class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
     >
-      <span class="text-[var(--color-accent)]">{tag}</span>
+      <span class="text-accent">{tag}</span>
     </h1>
-    <div class="mt-6 max-w-2xl text-[var(--color-sub)] leading-loose text-sm sm:text-base space-y-1">
+    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base space-y-1">
       <p>「{tag}」に関連するコンテンツ</p>
       <p class="text-xs">指導法 {strategies.length}件 / コラム {columns.length}件</p>
     </div>
@@ -55,12 +55,12 @@ const totalCount = strategies.length + columns.length;
     strategies.length > 0 && (
       <section class="pb-16 space-y-6">
         <div class="space-y-1">
-          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+          <div class="font-mono text-xs uppercase tracking-widest text-accent">
             Strategies
           </div>
           <h2 class="text-2xl font-black tracking-tight">関連する指導法</h2>
         </div>
-        <div class="border-b border-[var(--color-line)]">
+        <div class="border-b border-line">
           {strategies.map((s, i) => (
             <StrategyRow
               index={i + 1}
@@ -82,7 +82,7 @@ const totalCount = strategies.length + columns.length;
     columns.length > 0 && (
       <section class="pb-16 space-y-6">
         <div class="space-y-1">
-          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+          <div class="font-mono text-xs uppercase tracking-widest text-accent">
             Columns
           </div>
           <h2 class="text-2xl font-black tracking-tight">関連するコラム</h2>
@@ -92,21 +92,21 @@ const totalCount = strategies.length + columns.length;
             <li>
               <a
                 href={`/columns/${c.id}`}
-                class="group block border border-[var(--color-line)] rounded-xl p-5 transition hover:border-[var(--color-accent)] hover:bg-[var(--color-card)]"
+                class="group block border border-line rounded-xl p-5 transition hover:border-accent hover:bg-card"
               >
                 <div class="flex items-start justify-between gap-4">
                   <div class="flex-1 min-w-0 space-y-2">
-                    <h3 class="text-lg md:text-xl font-black tracking-tight leading-snug group-hover:text-[var(--color-accent)] transition">
+                    <h3 class="text-lg md:text-xl font-black tracking-tight leading-snug group-hover:text-accent transition">
                       {c.data.title}
                     </h3>
-                    <p class="text-sm text-[var(--color-sub)] leading-relaxed line-clamp-2">
+                    <p class="text-sm text-sub leading-relaxed line-clamp-2">
                       {c.data.summary}
                     </p>
-                    <div class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-sub)]">
+                    <div class="font-mono text-[10px] uppercase tracking-widest text-sub">
                       {c.data.date}
                     </div>
                   </div>
-                  <span class="shrink-0 text-[var(--color-sub)] transition group-hover:translate-x-1">→</span>
+                  <span class="shrink-0 text-sub transition group-hover:translate-x-1">→</span>
                 </div>
               </a>
             </li>
@@ -119,7 +119,7 @@ const totalCount = strategies.length + columns.length;
   {
     totalCount === 0 && (
       <section class="pb-24 max-w-2xl">
-        <p class="text-[var(--color-sub)] leading-relaxed">
+        <p class="text-sub leading-relaxed">
           このタグに対応するコンテンツはまだありません。
         </p>
       </section>
@@ -129,7 +129,7 @@ const totalCount = strategies.length + columns.length;
   <section class="pb-24">
     <a
       href="/tags"
-      class="link-underline font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]"
+      class="link-underline font-mono text-xs uppercase tracking-widest text-accent"
     >
       ← タグ一覧へ戻る
     </a>
