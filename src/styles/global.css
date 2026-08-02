@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
+/* トークンは @theme に置く。ここに置いて初めて Tailwind が text-ink /       */
+/* bg-card / border-line 等のユーティリティを生成する。:root に書いていた    */
+/* 間はユーティリティが無く、760 箇所が text-[var(--color-sub)] のような     */
+/* 任意値で書かれていた。                                                    */
+/* 名前と値は BRAND.md がファミリー 5 サイトで共有しているため変更しない。   */
 @theme {
   --breakpoint-xs: 30rem;
-}
 
-@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
-:root {
   --color-bg: #faf9f5;
   --color-ink: #1a1a1a;
   --color-sub: #6b6b66;
   --color-line: #e5e3da;
   --color-card: #ffffff;
   --color-accent: #2b5d3a;
-  --color-accent-hover: color-mix(in oklab, var(--color-accent) 85%, black);
 
   /* チャート系列の対比色(アクセント深緑と視認性を確保するため) */
   --color-chart-red: #c0392b;
@@ -21,6 +21,28 @@
   --font-serif: "Hiragino Mincho ProN", "Yu Mincho", serif;
   --font-sans: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Roboto Mono", monospace;
+
+  /* 出典系統・コスト・評価の色。ADR 0016 が「構造的なトークン化は将来課題」 */
+  /* として先送りしたもの。値は Tailwind パレットの実値をそのまま移してあり  */
+  /* 見た目は変わらない(sky-800 / rose-700 / amber-800 / emerald-700 /       */
+  /* amber-600)。境界色は各系統の 40% 混色で導出する。                       */
+  --color-source-eef: oklch(44.3% 0.11 240.79);
+  --color-source-eef-bg: oklch(97.7% 0.013 236.62);
+  --color-source-japan: oklch(51.4% 0.222 16.935);
+  --color-source-japan-bg: oklch(96.9% 0.015 12.422);
+  --color-source-hattie: oklch(47.3% 0.137 46.201);
+  --color-source-hattie-bg: oklch(98.7% 0.022 95.277);
+  --color-cost: oklch(50.8% 0.118 165.612);
+  --color-rating: oklch(66.6% 0.179 58.318);
+
+  --leading-hero: 1.15;
+}
+
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  /* 派生値。var() を含むため @theme には置けない。 */
+  --color-accent-hover: color-mix(in oklab, var(--color-accent) 85%, black);
 }
 
 [data-theme="dark"] {
@@ -32,6 +54,16 @@
   --color-accent: #6fbe87;
   --color-accent-hover: color-mix(in oklab, var(--color-accent) 85%, white);
   --color-chart-red: #f08070;
+
+  /* 出典系統の dark 変種。値は現行の dark: クラス(sky-200 / rose-200 /     */
+  /* amber-200 / emerald-300)と同一。背景は同系色の 10% 混色。              */
+  --color-source-eef: oklch(90.1% 0.058 230.902);
+  --color-source-eef-bg: color-mix(in oklab, var(--color-source-eef) 10%, transparent);
+  --color-source-japan: oklch(89.2% 0.058 10.001);
+  --color-source-japan-bg: color-mix(in oklab, var(--color-source-japan) 10%, transparent);
+  --color-source-hattie: oklch(92.4% 0.12 95.746);
+  --color-source-hattie-bg: color-mix(in oklab, var(--color-source-hattie) 10%, transparent);
+  --color-cost: oklch(84.5% 0.143 164.978);
 }
 
 html {
@@ -489,8 +521,10 @@ a {
 .line-chart {
   margin: 1.75rem 0;
   padding: 0.75rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  /* rgba(0,0,0,.06) をハードコードしていたため dark で実測 1.18:1 となり     */
+  /* 枠が完全に消えていた。トークンの線色に寄せて両テーマで見えるようにする。 */
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
 }
 .line-chart svg {
   width: 100%;
@@ -525,11 +559,11 @@ a {
 .line-chart .chart-data-table th,
 .line-chart .chart-data-table td {
   padding: 0.35rem 0.6rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--color-line);
   text-align: left;
 }
 .line-chart .chart-data-table th[scope="col"] {
-  background: rgba(0, 0, 0, 0.03);
+  background: var(--color-card);
   font-weight: 600;
 }
 
@@ -637,7 +671,10 @@ a {
   color: inherit;
   text-decoration-line: underline;
   text-decoration-style: dashed;
-  text-decoration-color: #2b5d3a;
+  /* light の accent をハードコードしていたため、dark では下線が背景に沈み  */
+  /* 実測 2.3:1(WCAG 1.4.11 の 3:1 未達)だった。トークン参照に変えて両テーマ */
+  /* で成立させる。                                                          */
+  text-decoration-color: var(--color-accent);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
   background-image: none;
@@ -646,7 +683,7 @@ a {
 }
 .glossary-tip:hover,
 .prose-article .glossary-tip:hover {
-  color: #2b5d3a;
+  color: var(--color-accent);
 }
 .glossary-bubble {
   position: fixed;
