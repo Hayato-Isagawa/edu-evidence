@@ -52,7 +52,7 @@
     "@axe-core/playwright": "^4.12.1",
     "@playwright/test": "^1.62.0",
     "gray-matter": "^4.0.3",
-    "linkinator": "^8.0.2",
+    "linkinator": "^8.0.3",
     "pagefind": "^1.5.2",
     "rehype-external-links": "^3.0.0",
     "textlint": "^15.7.1",
