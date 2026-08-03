@@ -37,7 +37,7 @@ const grades = [...gradeMap.entries()].sort(
         grades.map(([grade, count]) => (
           <a
             href={`/grades/${encodeURIComponent(grade)}`}
-            class="group block border border-line rounded-xl p-6 hover:border-accent hover:bg-card transition text-center space-y-2"
+            class="group block border border-line rounded-xl p-6 hover:border-accent hover:bg-card text-center space-y-2 motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
           >
             <div class="text-3xl font-black group-hover:text-accent transition">
               {grade}
