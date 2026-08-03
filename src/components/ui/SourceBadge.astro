@@ -1,0 +1,53 @@
+---
+/**
+ * 出典系統のバッジ。evidence オブジェクトのキーの有無で出し分ける
+ * (CLAUDE.md「ソースバッジの仕組み」。source フィールドは使わない)。
+ */
+interface Props {
+  evidence?: {
+    eef?: unknown;
+    japan?: unknown;
+    hattie?: unknown;
+  };
+  /**
+   * 詳細ページは横幅に余裕があるため日本のバッジを「日本研究」と表示する。
+   * 一覧では「日本」。同じ出典に 2 つの呼び名がある状態を prop として
+   * 明示している(統一するかは別途判断)。
+   */
+  variant?: "compact" | "full";
+}
+
+const { evidence, variant = "compact" } = Astro.props;
+
+const config = {
+  eef: {
+    label: "EEF",
+    color: "text-source-eef border-source-eef/40 bg-source-eef-bg",
+  },
+  japan: {
+    label: variant === "full" ? "日本研究" : "日本",
+    color: "text-source-japan border-source-japan/40 bg-source-japan-bg",
+  },
+  hattie: {
+    label: "Hattie",
+    color: "text-source-hattie border-source-hattie/40 bg-source-hattie-bg",
+  },
+} as const;
+
+const present = (["eef", "japan", "hattie"] as const).filter(
+  (k) => evidence?.[k]
+);
+// どの出典も持たない場合は EEF を出す。3 つの呼び出し元すべてが
+// 持っていた既存挙動。
+const keys = present.length > 0 ? present : (["eef"] as const);
+---
+
+{
+  keys.map((key) => (
+    <span
+      class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${config[key].color}`}
+    >
+      {config[key].label}
+    </span>
+  ))
+}

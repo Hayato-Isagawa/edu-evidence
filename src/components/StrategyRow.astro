@@ -1,4 +1,5 @@
 ---
+import SourceBadge from "./ui/SourceBadge.astro";
 interface EvidenceSource {
   monthsGained?: number;
   strength?: number;
@@ -25,19 +26,6 @@ const { index, href, title, monthsGained, evidenceStrength, evidence, category, 
   Astro.props;
 const num = String(index).padStart(2, "0");
 const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
-
-const badgeConfig = {
-  eef: { label: "EEF", color: "text-source-eef border-source-eef/40 bg-source-eef-bg" },
-  japan: { label: "日本", color: "text-source-japan border-source-japan/40 bg-source-japan-bg" },
-  hattie: { label: "Hattie", color: "text-source-hattie border-source-hattie/40 bg-source-hattie-bg" },
-} as const;
-
-type BadgeKey = keyof typeof badgeConfig;
-const badges: BadgeKey[] = [];
-if (evidence?.eef) badges.push("eef");
-if (evidence?.japan) badges.push("japan");
-if (evidence?.hattie) badges.push("hattie");
-if (badges.length === 0) badges.push("eef");
 
 const effectSign = monthsGained > 0 ? "+" : monthsGained === 0 ? "±" : "";
 const effectColor =
@@ -75,13 +63,7 @@ const effectBarSign =
         >
           {title}
         </h2>
-        {badges.map((key) => (
-          <span
-            class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${badgeConfig[key].color}`}
-          >
-            {badgeConfig[key].label}
-          </span>
-        ))}
+        <SourceBadge evidence={evidence} />
       </div>
       <div
         class="font-mono text-[11px] uppercase tracking-widest text-sub flex flex-wrap items-center gap-x-4 gap-y-1"

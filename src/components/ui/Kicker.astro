@@ -1,0 +1,27 @@
+---
+/**
+ * セクションの上に置く mono 大文字ラベル。ADR 0009 が FV の kicker として
+ * `font-mono text-xs uppercase tracking-widest text-accent` を決定値にしている。
+ */
+interface Props {
+  tone?: "accent" | "sub";
+  size?: "xs" | "2xs";
+  class?: string;
+}
+
+const { tone = "accent", size = "xs", class: className } = Astro.props;
+
+const sizes = { xs: "text-xs", "2xs": "text-[10px]" } as const;
+const tones = { accent: "text-accent", sub: "text-sub" } as const;
+---
+
+<p
+  class:list={[
+    "font-mono uppercase tracking-widest",
+    sizes[size],
+    tones[tone],
+    className,
+  ]}
+>
+  <slot />
+</p>

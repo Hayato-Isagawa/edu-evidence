@@ -1,4 +1,5 @@
 ---
+import Kicker from "./ui/Kicker.astro";
 interface Heading {
   depth: number;
   slug: string;
@@ -21,9 +22,9 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
         data-toc
         data-toc-variant="sidebar"
       >
-        <p class="font-mono text-[10px] uppercase tracking-widest text-sub mb-3">
+        <Kicker tone="sub" size="2xs" class="mb-3">
           目次
-        </p>
+        </Kicker>
         <ol class="space-y-1.5">
           {items.map((h) => (
             <li class={h.depth === 3 ? "pl-3" : ""}>
