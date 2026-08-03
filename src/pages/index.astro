@@ -166,7 +166,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
           <span class="text-3xl font-black text-accent">+5<span class="text-base ml-1">ヶ月</span></span>
           <span class="text-3xl font-black text-chart-red">(<span class="text-base mr-0.5">-</span>5<span class="text-base ml-1">ヶ月</span>)</span>
         </div>
-        <div class="text-xl text-amber-500">★★★★☆</div>
+        <div class="text-xl text-rating">★★★★☆</div>
       </div>
       <div
         class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-sub leading-loose space-y-3"
@@ -178,7 +178,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
           逆に、<strong class="text-ink">◯ヶ月分遅れた</strong>。やらない方がよかった指導法。
         </p>
         <p>
-          <span class="text-amber-500">★</span> は<strong class="text-ink">「その数字をどこまで信じていいか」</strong>を表します。<br />
+          <span class="text-rating">★</span> は<strong class="text-ink">「その数字をどこまで信じていいか」</strong>を表します。<br />
           ★が多い = 多くの質の高い研究で繰り返し確かめられている。<br />
           ★が少ない = 研究がまだ少なく、数字が変わる可能性がある。
         </p>
@@ -217,9 +217,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
           <div class="text-xs text-sub">データの出典</div>
         </div>
         <div class="flex items-center gap-2">
-          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-sky-800 border-sky-800/40 bg-sky-50 dark:text-sky-200 dark:border-sky-200/40 dark:bg-sky-200/10">EEF</span>
-          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-rose-700 border-rose-700/40 bg-rose-50 dark:text-rose-200 dark:border-rose-200/40 dark:bg-rose-200/10">日本</span>
-          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-amber-800 border-amber-800/40 bg-amber-50 dark:text-amber-200 dark:border-amber-200/40 dark:bg-amber-200/10">Hattie</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-eef border-source-eef/40 bg-source-eef-bg">EEF</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-japan border-source-japan/40 bg-source-japan-bg">日本</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-hattie border-source-hattie/40 bg-source-hattie-bg">Hattie</span>
         </div>
       </div>
       <div class="col-span-12 min-[900px]:col-span-9 text-sm md:text-base text-sub leading-loose space-y-3">
@@ -239,9 +239,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
           Visible Learning は、ジョン・ハッティが<strong class="text-ink">800以上のメタ分析を統合</strong>し、250以上の教育要因を効果量で順位づけした研究プロジェクトです。影響力は非常に大きいですが、<strong class="text-ink">効果量が楽観的に出やすい傾向</strong>があり、独立した研究で再現されない値もあります。本サイトでは EEF を主とし、Hattie は参考値として扱っています。
         </p>
         <p>
-          各指導法に <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-sky-800 border-sky-800/40 bg-sky-50 dark:text-sky-200 dark:border-sky-200/40 dark:bg-sky-200/10">EEF</span>
-          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-rose-700 border-rose-700/40 bg-rose-50 dark:text-rose-200 dark:border-rose-200/40 dark:bg-rose-200/10">日本</span>
-          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-amber-800 border-amber-800/40 bg-amber-50 dark:text-amber-200 dark:border-amber-200/40 dark:bg-amber-200/10">Hattie</span>
+          各指導法に <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-source-eef border-source-eef/40 bg-source-eef-bg">EEF</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-source-japan border-source-japan/40 bg-source-japan-bg">日本</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-1.5 py-0.5 text-source-hattie border-source-hattie/40 bg-source-hattie-bg">Hattie</span>
           のバッジがついており、どの出典に基づくかが一目でわかります。
         </p>
         <p class="text-xs">

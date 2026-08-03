@@ -87,7 +87,7 @@ import Layout from "../../layouts/Layout.astro";
         <div class="space-y-3">
           <h3 class="font-bold">目安としての読み方</h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-center">
-            <div class="border border-red-600/30 dark:border-red-400/30 rounded-lg p-4 space-y-1 bg-red-50/30 dark:bg-red-400/10">
+            <div class="border border-chart-red/30 rounded-lg p-4 space-y-1 bg-chart-red/10">
               <div class="text-2xl font-black text-chart-red">-1 以下</div>
               <div class="text-sub">やらない方が<br />よかった領域</div>
             </div>
@@ -125,7 +125,7 @@ import Layout from "../../layouts/Layout.astro";
         <span class="font-mono text-xs uppercase tracking-widest text-sub">02</span>
         <h2 class="text-3xl font-black tracking-tight">エビデンスの強さ（★）</h2>
       </div>
-      <div class="text-4xl text-amber-500">★★★★☆</div>
+      <div class="text-4xl text-rating">★★★★☆</div>
       <div class="leading-loose text-ink/90 space-y-6">
         <p>
           その効果が<strong>どれだけ信頼できる研究で確かめられているか</strong>を示します。
@@ -135,23 +135,23 @@ import Layout from "../../layouts/Layout.astro";
           <h3 class="font-bold">★の基準</h3>
           <div class="space-y-3">
             <div class="flex gap-4 items-start">
-              <span class="text-amber-500 shrink-0">★☆☆☆☆</span>
+              <span class="text-rating shrink-0">★☆☆☆☆</span>
               <span>研究は存在するが数が少なく、結論は初期段階のもの</span>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-amber-500 shrink-0">★★☆☆☆</span>
+              <span class="text-rating shrink-0">★★☆☆☆</span>
               <span>いくつかの研究はあるが、結果にばらつきがある</span>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-amber-500 shrink-0">★★★☆☆</span>
+              <span class="text-rating shrink-0">★★★☆☆</span>
               <span>一定数の質の良い研究があり、概ね一致した結果が出ている</span>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-amber-500 shrink-0">★★★★☆</span>
+              <span class="text-rating shrink-0">★★★★☆</span>
               <span>多数の質の高い研究で繰り返し確認されている</span>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-amber-500 shrink-0">★★★★★</span>
+              <span class="text-rating shrink-0">★★★★★</span>
               <span>大規模で堅牢な研究が蓄積しており、結果の信頼性が非常に高い</span>
             </div>
           </div>
@@ -174,7 +174,7 @@ import Layout from "../../layouts/Layout.astro";
         <span class="font-mono text-xs uppercase tracking-widest text-sub">03</span>
         <h2 class="text-3xl font-black tracking-tight">導入コスト（¥）</h2>
       </div>
-      <div class="text-4xl text-emerald-700 dark:text-emerald-300 tracking-widest">¥¥···</div>
+      <div class="text-4xl text-cost tracking-widest">¥¥···</div>
       <div class="leading-loose text-ink/90 space-y-6">
         <p>
           その指導法を導入するのに、児童1人あたり年間どのくらいの<strong>金銭的コスト</strong>がかかるかの概算です。
@@ -187,35 +187,35 @@ import Layout from "../../layouts/Layout.astro";
           <h3 class="font-bold">¥の基準(児童1人あたり年間)</h3>
           <div class="space-y-3">
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥····</span>
+              <span class="text-cost shrink-0 font-mono">¥····</span>
               <div>
                 <div><strong>0円〜約17,000円</strong>（EEF: £0–£80）</div>
                 <div class="text-sub text-sm">教師の工夫で始められる。特別な予算不要。例: フィードバック、メタ認知の指導、検索練習</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥···</span>
+              <span class="text-cost shrink-0 font-mono">¥¥···</span>
               <div>
                 <div><strong>約17,000〜43,000円</strong>（EEF: £80–£200）</div>
                 <div class="text-sub text-sm">少額の教材費や短時間の研修。例: 協同学習、SEL、マスタリーラーニング</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥¥··</span>
+              <span class="text-cost shrink-0 font-mono">¥¥¥··</span>
               <div>
                 <div><strong>約43,000〜150,000円</strong>（EEF: £200–£700）</div>
                 <div class="text-sub text-sm">まとまった教材費、定期的な研修、一部人員の確保。例: 少人数指導、保護者との連携プログラム</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥¥¥·</span>
+              <span class="text-cost shrink-0 font-mono">¥¥¥¥·</span>
               <div>
                 <div><strong>約150,000〜258,000円</strong>（EEF: £700–£1,200）</div>
                 <div class="text-sub text-sm">専門スタッフの配置、大規模な研修、ICT環境整備。例: 個別指導、補助スタッフの活用</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="text-emerald-700 dark:text-emerald-300 shrink-0 font-mono">¥¥¥¥¥</span>
+              <span class="text-cost shrink-0 font-mono">¥¥¥¥¥</span>
               <div>
                 <div><strong>約258,000円以上</strong>（EEF: £1,200以上）</div>
                 <div class="text-sub text-sm">学級編成の変更、教員増員など、組織的・制度的投資。例: 学級規模の縮小、教科担任制</div>
@@ -242,9 +242,9 @@ import Layout from "../../layouts/Layout.astro";
         <h2 class="text-3xl font-black tracking-tight">出典バッジ</h2>
       </div>
       <div class="flex flex-wrap gap-2">
-        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-sky-800 border-sky-800/40 bg-sky-50 dark:text-sky-200 dark:border-sky-200/40 dark:bg-sky-200/10">EEF</span>
-        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-rose-700 border-rose-700/40 bg-rose-50 dark:text-rose-200 dark:border-rose-200/40 dark:bg-rose-200/10">日本</span>
-        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-amber-800 border-amber-800/40 bg-amber-50 dark:text-amber-200 dark:border-amber-200/40 dark:bg-amber-200/10">Hattie</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-eef border-source-eef/40 bg-source-eef-bg">EEF</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-japan border-source-japan/40 bg-source-japan-bg">日本</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-hattie border-source-hattie/40 bg-source-hattie-bg">Hattie</span>
       </div>
       <div class="leading-loose text-ink/90 space-y-6">
         <p>
@@ -255,21 +255,21 @@ import Layout from "../../layouts/Layout.astro";
           <h3 class="font-bold">各バッジの意味</h3>
           <div class="space-y-3">
             <div class="flex gap-4 items-start">
-              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-sky-800 border-sky-800/40 bg-sky-50 dark:text-sky-200 dark:border-sky-200/40 dark:bg-sky-200/10 shrink-0 mt-1">EEF</span>
+              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-eef border-source-eef/40 bg-source-eef-bg shrink-0 mt-1">EEF</span>
               <div>
                 <div><strong>英国 Education Endowment Foundation</strong></div>
                 <div class="text-sub text-sm">Teaching and Learning Toolkit に基づく。数百〜数千本のメタ分析を統合。本サイトの主要参照元。</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-rose-700 border-rose-700/40 bg-rose-50 dark:text-rose-200 dark:border-rose-200/40 dark:bg-rose-200/10 shrink-0 mt-1">日本</span>
+              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-japan border-source-japan/40 bg-source-japan-bg shrink-0 mt-1">日本</span>
               <div>
                 <div><strong>日本国内の研究</strong></div>
                 <div class="text-sub text-sm">中室牧子・松岡亮二・赤林英夫・耳塚寛明 等による実証研究。日本の文脈に最も近い知見。</div>
               </div>
             </div>
             <div class="flex gap-4 items-start">
-              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-amber-800 border-amber-800/40 bg-amber-50 dark:text-amber-200 dark:border-amber-200/40 dark:bg-amber-200/10 shrink-0 mt-1">Hattie</span>
+              <span class="font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 text-source-hattie border-source-hattie/40 bg-source-hattie-bg shrink-0 mt-1">Hattie</span>
               <div>
                 <div><strong>Hattie の Visible Learning</strong></div>
                 <div class="text-sub text-sm">800以上のメタ分析を統合。影響力は大きいが、効果量が楽観的に出やすい傾向があり、参考値として扱う。</div>
