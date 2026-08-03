@@ -154,11 +154,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 min-[900px]:col-span-3 space-y-3">
         <div class="space-y-1">
-          <div
-            class="font-mono text-xs uppercase tracking-widest text-accent"
-          >
+          <Kicker as="div">
             How to read
-          </div>
+          </Kicker>
           <div class="text-xs text-sub">指標の読み方</div>
         </div>
         <div class="flex items-baseline gap-4">
@@ -210,9 +208,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 min-[900px]:col-span-3 space-y-3">
         <div class="space-y-1">
-          <div class="font-mono text-xs uppercase tracking-widest text-accent">
+          <Kicker as="div">
             Data source
-          </div>
+          </Kicker>
           <div class="text-xs text-sub">データの出典</div>
         </div>
         <div class="flex items-center gap-2">
@@ -269,7 +267,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         latestColumns.map((c) => (
           <a
             href={`/columns/${c.id}`}
-            class="group block border border-line rounded-xl p-5 bg-card hover:border-accent transition space-y-3"
+            class="group block border border-line rounded-xl p-5 bg-card hover:border-accent space-y-3 motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
           >
             <div class="font-mono text-[10px] tracking-widest text-sub">
               {c.data.lastVerified ?? c.data.date}
@@ -293,31 +291,31 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
     <div class="flex flex-wrap gap-3">
       <a
         href="/subjects"
-        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
       >
         <span class="font-bold">教科</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/grades"
-        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
       >
         <span class="font-bold">学年</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/cost"
-        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
       >
         <span class="font-bold">コスト</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/tags"
-        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
       >
         <span class="font-bold">タグ</span><span class="text-sub ml-1">から探す</span>
       </a>
       <a
         href="/seasonal/july"
-        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card transition"
+        class="border border-line rounded-full px-4 py-2 text-sm hover:border-accent hover:bg-card motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
       >
         <span class="font-bold">7月・学期末</span><span class="text-sub ml-1">から探す</span>
       </a>
@@ -336,19 +334,19 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         <button data-category="all" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-accent text-accent bg-accent/5 transition cursor-pointer">
           すべて
         </button>
-        <button data-category="指導法" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
+        <button data-category="指導法" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent cursor-pointer motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out">
           指導法
         </button>
-        <button data-category="認知科学" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
+        <button data-category="認知科学" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent cursor-pointer motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out">
           認知科学
         </button>
-        <button data-category="制度・環境" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
+        <button data-category="制度・環境" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent cursor-pointer motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out">
           制度・環境
         </button>
-        <button data-category="知っておくべき知見" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
+        <button data-category="知っておくべき知見" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent cursor-pointer motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out">
           知っておくべき知見
         </button>
-        <button data-category="家庭・外部" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer">
+        <button data-category="家庭・外部" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent cursor-pointer motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out">
           家庭・外部
         </button>
       </div>
@@ -363,7 +361,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         </button>
         <button
           id="sort-evidence"
-          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent transition cursor-pointer"
+          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent cursor-pointer motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
         >
           エビデンス強さ順
         </button>

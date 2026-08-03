@@ -6,16 +6,26 @@
 interface Props {
   tone?: "accent" | "sub";
   size?: "xs" | "2xs";
+  /**
+   * 出力要素。インライン文脈やフレックス子要素として置く箇所があり、
+   * そこで <p> を出すと不正な入れ子になる。
+   */
+  as?: "p" | "span" | "div";
   class?: string;
 }
 
-const { tone = "accent", size = "xs", class: className } = Astro.props;
+const {
+  tone = "accent",
+  size = "xs",
+  as: Tag = "p",
+  class: className,
+} = Astro.props;
 
 const sizes = { xs: "text-xs", "2xs": "text-[10px]" } as const;
 const tones = { accent: "text-accent", sub: "text-sub" } as const;
 ---
 
-<p
+<Tag
   class:list={[
     "font-mono uppercase tracking-widest",
     sizes[size],
@@ -24,4 +34,4 @@ const tones = { accent: "text-accent", sub: "text-sub" } as const;
   ]}
 >
   <slot />
-</p>
+</Tag>
