@@ -1,12 +1,13 @@
 ---
+import Kicker from "../components/ui/Kicker.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="現場の声 — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-accent">
+    <Kicker>
       Voices from the field
-    </p>
+    </Kicker>
     <h1
       class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
     >
@@ -33,9 +34,9 @@ import Layout from "../layouts/Layout.astro";
 
     <div class="border border-line rounded-xl p-8 md:p-12 space-y-8">
       <div class="text-center space-y-3">
-        <p class="font-mono text-xs uppercase tracking-widest text-accent">
+        <Kicker>
           Open call
-        </p>
+        </Kicker>
         <h2 class="font-black text-2xl md:text-3xl tracking-tight">
           現場からの声を募集しています
         </h2>
@@ -46,7 +47,7 @@ import Layout from "../layouts/Layout.astro";
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="border border-line rounded-lg p-5 space-y-2">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-accent">01 Practice</p>
+          <Kicker size="2xs">01 Practice</Kicker>
           <h3 class="font-bold">実践の報告</h3>
           <p class="text-xs text-sub leading-relaxed">
             本サイトの指導法を試したときの手応え・工夫・子どもの反応。
@@ -54,7 +55,7 @@ import Layout from "../layouts/Layout.astro";
           </p>
         </div>
         <div class="border border-line rounded-lg p-5 space-y-2">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-accent">02 Question</p>
+          <Kicker size="2xs">02 Question</Kicker>
           <h3 class="font-bold">現場の疑問</h3>
           <p class="text-xs text-sub leading-relaxed">
             「このテーマのエビデンスを知りたい」「この指導法は日本でも効くのか」など。
@@ -62,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
           </p>
         </div>
         <div class="border border-line rounded-lg p-5 space-y-2">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-accent">03 Info</p>
+          <Kicker size="2xs">03 Info</Kicker>
           <h3 class="font-bold">地域の施策・情報</h3>
           <p class="text-xs text-sub leading-relaxed">
             自治体・学校で進行中の施策、気になる研究や報告書の情報。

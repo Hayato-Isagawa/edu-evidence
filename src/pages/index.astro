@@ -1,4 +1,5 @@
 ---
+import Kicker from "../components/ui/Kicker.astro";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import StrategyRow from "../components/StrategyRow.astro";
@@ -40,9 +41,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
 
 <Layout>
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-accent">
+    <Kicker>
       Evidence-based teaching for elementary schools
-    </p>
+    </Kicker>
     <p class="mt-1 text-xs text-sub">
       小学校教員のための教育エビデンス・ポータル
     </p>
@@ -73,11 +74,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
   >
     <div class="grid grid-cols-12 gap-6 mb-6">
       <div class="col-span-12 min-[900px]:col-span-8 space-y-2">
-        <p
-          class="font-mono text-xs uppercase tracking-widest text-accent"
-        >
+        <Kicker>
           Find by your concern
-        </p>
+        </Kicker>
         <h2
           id="concerns-cta-heading"
           class="font-black text-3xl md:text-4xl tracking-tight leading-[1.2]"
@@ -255,9 +254,9 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
   <section class="border-t border-line py-8 xs:py-10 sm:py-14">
     <div class="flex items-baseline justify-between mb-6 flex-wrap gap-3">
       <div class="space-y-1">
-        <p class="font-mono text-xs uppercase tracking-widest text-accent">
+        <Kicker>
           Latest
-        </p>
+        </Kicker>
         <h2 class="font-black text-2xl md:text-3xl tracking-tight">最新の更新</h2>
       </div>
       <div class="flex items-center gap-4 text-xs">

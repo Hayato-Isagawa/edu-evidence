@@ -1,4 +1,5 @@
 ---
+import Kicker from "../components/ui/Kicker.astro";
 import Layout from "../layouts/Layout.astro";
 
 type ChangeType = "add" | "update" | "fix" | "remove";
@@ -998,9 +999,9 @@ const typeLabel: Record<string, { label: string; color: string }> = {
 
 <Layout title="更新履歴 — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-accent">
+    <Kicker>
       Changelog
-    </p>
+    </Kicker>
     <h1
       class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
     >

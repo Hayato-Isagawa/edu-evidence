@@ -1,4 +1,5 @@
 ---
+import Kicker from "../../components/ui/Kicker.astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import StrategyRow from "../../components/StrategyRow.astro";
@@ -41,9 +42,9 @@ const costGroups = [
 
 <Layout title="コストから探す — EduEvidence JP">
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <p class="font-mono text-xs uppercase tracking-widest text-accent">
+    <Kicker>
       Browse by cost
-    </p>
+    </Kicker>
     <h1 class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight">
       コストから探す
     </h1>

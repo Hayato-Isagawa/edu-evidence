@@ -1,4 +1,6 @@
 ---
+import Kicker from "../../components/ui/Kicker.astro";
+import SourceBadge from "../../components/ui/SourceBadge.astro";
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { annotateGlossaryTerms } from "../../lib/glossary-inline";
@@ -78,17 +80,6 @@ const breadcrumbJsonLd = {
 const stars = "★".repeat(d.evidenceStrength) + "☆".repeat(5 - d.evidenceStrength);
 const yen = "¥".repeat(d.cost) + "·".repeat(5 - d.cost);
 
-const badgeConfig = {
-  eef: { label: "EEF", color: "text-source-eef border-source-eef/40 bg-source-eef-bg" },
-  japan: { label: "日本研究", color: "text-source-japan border-source-japan/40 bg-source-japan-bg" },
-  hattie: { label: "Hattie", color: "text-source-hattie border-source-hattie/40 bg-source-hattie-bg" },
-} as const;
-type BadgeKey = keyof typeof badgeConfig;
-const badges: BadgeKey[] = [];
-if (d.evidence?.eef) badges.push("eef");
-if (d.evidence?.japan) badges.push("japan");
-if (d.evidence?.hattie) badges.push("hattie");
-if (badges.length === 0) badges.push("eef");
 const effectSign = d.monthsGained > 0 ? "+" : d.monthsGained === 0 ? "±" : "";
 const effectColor =
   d.monthsGained > 0
@@ -126,18 +117,10 @@ const effectNote =
     <div class="col-span-12 md:col-span-8 space-y-6">
       <div class="space-y-1">
         <div class="flex items-center gap-3">
-          <p
-            class="font-mono text-xs uppercase tracking-widest text-accent leading-none"
-          >
+          <Kicker class="leading-none">
             Strategy{d.lastVerified ? ` — 最終更新 ${d.lastVerified}` : ""}
-          </p>
-          {badges.map((key) => (
-            <span
-              class={`font-mono text-[10px] tracking-widest uppercase border rounded-full px-2 py-0.5 leading-none inline-flex items-center h-5 ${badgeConfig[key].color}`}
-            >
-              {badgeConfig[key].label}
-            </span>
-          ))}
+          </Kicker>
+          <SourceBadge evidence={d.evidence} variant="full" />
         </div>
         <p class="text-xs text-sub">指導法</p>
       </div>
