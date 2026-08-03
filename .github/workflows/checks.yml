@@ -51,6 +51,10 @@ jobs:
         if: ${{ !cancelled() }}
         run: npm run check:consistency
 
+      - name: Design token conventions
+        if: ${{ !cancelled() }}
+        run: npm run check:tokens
+
       - name: Evidence strength consistency
         if: ${{ !cancelled() }}
         run: npm run check:evidence-strength
