@@ -21,6 +21,24 @@ interface ChangelogEntry {
 
 const entries: ChangelogEntry[] = [
   {
+    date: "2026-08-03",
+    items: [
+      {
+        type: "fix",
+        text: "ダークモードで見えなくなっていた線を直しました。本文中の用語につく破線の下線と、グラフの上下の枠線が、暗い背景に溶けて判別できない状態でした",
+        links: [
+          { label: "用語つきの本文", href: "/strategies/feedback" },
+          { label: "グラフのあるコラム", href: "/columns/finland-education-myth" },
+        ],
+      },
+      {
+        type: "update",
+        text: "エビデンスの強さを示す★の色が、ページによって少し違っていたのを揃えました",
+        links: [{ label: "指標の読み方", href: "/guide/indicators" }],
+      },
+    ],
+  },
+  {
     date: "2026-08-01",
     items: [
       {
