@@ -282,12 +282,25 @@ a {
   .skip-link { transition: none; }
 }
 
+/*
+ * モバイルメニューは .site-header の子にある。header は backdrop-filter を
+ * 持つため fixed 要素の包含ブロックになり、bottom: 0 が「ビューポートの下端」
+ * ではなく「高さ 4rem の header の下端」を指す。結果 top: 4rem と噛み合って
+ * 高さが 0 になり、開いても何も見えなかった。
+ *
+ * 本番は minifier が標準の backdrop-filter を落として -webkit- だけ残すため
+ * 偶然動いていたが、dev では標準プロパティが残るので壊れる。minifier の挙動に
+ * 依存させない。
+ *
+ * 高さを明示すれば、包含ブロックが header でもビューポートでも同じ結果になる。
+ */
 .mobile-menu {
   position: fixed;
   top: 4rem;
   left: 0;
   right: 0;
-  bottom: 0;
+  height: calc(100vh - 4rem);
+  height: calc(100dvh - 4rem);
   z-index: 50;
   background: var(--color-bg);
   overflow-y: auto;
