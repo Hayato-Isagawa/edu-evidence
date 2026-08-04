@@ -3,6 +3,7 @@ import Kicker from "../../components/ui/Kicker.astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { concernCategories } from "../../data/concerns";
+import { effectColorClass } from "../../lib/effect-size";
 
 const strategies = await getCollection("strategies");
 const strategyMap = new Map(
@@ -94,12 +95,7 @@ function formatMonths(m: number): string {
                         const s = strategyMap.get(slug);
                         if (!s) return null;
                         const monthsLabel = formatMonths(s.monthsGained);
-                        const monthsClass =
-                          s.monthsGained > 0
-                            ? "text-accent"
-                            : s.monthsGained < 0
-                              ? "text-chart-red"
-                              : "text-sub";
+                        const monthsClass = effectColorClass(s.monthsGained);
                         return (
                           <li>
                             <a
