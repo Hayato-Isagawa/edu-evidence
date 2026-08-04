@@ -1,0 +1,24 @@
+---
+import Kicker from "../ui/Kicker.astro";
+
+/**
+ * ガイド記事の節見出し(連番 + h2)。
+ *
+ * `guide/evidence` `guide/cultural-context` `guide/indicators` の 3 ページに
+ * 完全に同じ形が 18 箇所あった。囲みの `flex items-center gap-6` から
+ * `Kicker as="span" tone="sub"` の属性まで一致していた。
+ */
+
+interface Props {
+  /** 節番号。"01" や "02-b" のように枝番も入る。 */
+  num: string;
+  title: string;
+}
+
+const { num, title } = Astro.props;
+---
+
+<div class="flex items-center gap-6">
+  <Kicker as="span" tone="sub">{num}</Kicker>
+  <h2 class="text-3xl font-black tracking-tight">{title}</h2>
+</div>

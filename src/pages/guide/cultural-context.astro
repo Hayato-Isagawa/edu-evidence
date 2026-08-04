@@ -1,6 +1,6 @@
 ---
+import SectionHeading from "../../components/blocks/SectionHeading.astro";
 import PageHero from "../../components/blocks/PageHero.astro";
-import Kicker from "../../components/ui/Kicker.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
@@ -16,10 +16,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <!-- 1. 前提 -->
     <div class="border-t border-line pt-10 space-y-6">
-      <div class="flex items-center gap-6">
-        <Kicker as="span" tone="sub">01</Kicker>
-        <h2 class="text-3xl font-black tracking-tight">エビデンスは文化依存である</h2>
-      </div>
+      <SectionHeading num="01" title="エビデンスは文化依存である" />
       <div class="leading-loose text-ink/90 space-y-4">
         <p>
           教育研究の多くは、英語圏(米国・英国・豪州・ニュージーランドなど)で行われています。これらの研究を <strong>日本の小学校にそのまま当てはめても、同じ効果が出るとは限りません</strong>。
@@ -32,10 +29,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <!-- 2. 具体例 -->
     <div class="border-t border-line pt-10 space-y-6">
-      <div class="flex items-center gap-6">
-        <Kicker as="span" tone="sub">02</Kicker>
-        <h2 class="text-3xl font-black tracking-tight">文化で効果が変わる例</h2>
-      </div>
+      <SectionHeading num="02" title="文化で効果が変わる例" />
       <div class="leading-loose text-ink/90 space-y-6">
         <p>
           海外で大きな効果が報告されていても、日本では効果が小さくなる(あるいはその逆の)代表例:
@@ -71,10 +65,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <!-- 3. 本サイトの出典階層 -->
     <div class="border-t border-line pt-10 space-y-6">
-      <div class="flex items-center gap-6">
-        <Kicker as="span" tone="sub">03</Kicker>
-        <h2 class="text-3xl font-black tracking-tight">本サイトの出典階層</h2>
-      </div>
+      <SectionHeading num="03" title="本サイトの出典階層" />
       <div class="leading-loose text-ink/90 space-y-6">
         <p>
           本サイトでは、各指導法のページに「代表値(月数)」を表示しています。この値は次の優先順位で決めています。
@@ -101,10 +92,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <!-- 4. なぜ日本の教育研究が限定的か -->
     <div class="border-t border-line pt-10 space-y-6">
-      <div class="flex items-center gap-6">
-        <Kicker as="span" tone="sub">04</Kicker>
-        <h2 class="text-3xl font-black tracking-tight">日本の教育研究が限定的な理由</h2>
-      </div>
+      <SectionHeading num="04" title="日本の教育研究が限定的な理由" />
       <div class="leading-loose text-ink/90 space-y-4">
         <p>
           「日本では効果を検証した研究があるはずだ」と思うかもしれませんが、実は日本発の大規模 RCT やメタ分析は非常に限られています。その理由は構造的なものです。
@@ -155,10 +143,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <!-- 5. 近年の前進 -->
     <div class="border-t border-line pt-10 space-y-6">
-      <div class="flex items-center gap-6">
-        <Kicker as="span" tone="sub">05</Kicker>
-        <h2 class="text-3xl font-black tracking-tight">それでも前進している</h2>
-      </div>
+      <SectionHeading num="05" title="それでも前進している" />
       <div class="leading-loose text-ink/90 space-y-4">
         <p>
           近年、日本発のエビデンスベース教育研究は着実に増えています。代表的な研究者と研究領域:
@@ -194,10 +179,7 @@ import Layout from "../../layouts/Layout.astro";
 
     <!-- 6. 読者へのお願い -->
     <div class="border-t border-line pt-10 space-y-6">
-      <div class="flex items-center gap-6">
-        <Kicker as="span" tone="sub">06</Kicker>
-        <h2 class="text-3xl font-black tracking-tight">読者の先生方へ</h2>
-      </div>
+      <SectionHeading num="06" title="読者の先生方へ" />
       <div class="leading-loose text-ink/90 space-y-4">
         <p>
           本サイトの数値は、**目の前の子どもたちに対する保証ではありません**。研究で確かめられた「平均的な傾向」と「日本の文脈で想定される注意点」を提示しているに過ぎません。
