@@ -258,8 +258,8 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         <h2 class="font-black text-2xl md:text-3xl tracking-tight">最新の更新</h2>
       </div>
       <div class="flex items-center gap-4 text-xs">
-        <a href="/columns" class="link-underline text-sub hover:text-ink transition">コラム一覧 →</a>
-        <a href="/rss.xml" class="link-underline text-sub hover:text-ink transition">RSS 購読</a>
+        <a href="/columns" class="link-underline text-sub hover:text-ink motion-safe:transition">コラム一覧 →</a>
+        <a href="/rss.xml" class="link-underline text-sub hover:text-ink motion-safe:transition">RSS 購読</a>
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -275,7 +275,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
                 <span class="ml-1 text-accent">(更新)</span>
               )}
             </div>
-            <h3 class="font-black text-base md:text-lg leading-snug group-hover:text-accent transition">
+            <h3 class="font-black text-base md:text-lg leading-snug group-hover:text-accent motion-safe:transition">
               {c.data.title}
             </h3>
             <p class="text-xs text-sub leading-relaxed line-clamp-3">
@@ -331,7 +331,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
 
       <div class="flex flex-wrap items-center gap-2 px-2">
         <span class="text-xs text-sub">カテゴリ</span>
-        <button data-category="all" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-accent text-accent bg-accent/5 transition cursor-pointer">
+        <button data-category="all" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-accent text-accent bg-accent/5 motion-safe:transition cursor-pointer">
           すべて
         </button>
         <button data-category="指導法" class="cat-btn font-mono text-[11px] tracking-widest px-3 py-1 rounded-full border border-line text-sub hover:border-accent cursor-pointer motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out">
@@ -355,7 +355,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         <span class="text-xs text-sub">並び替え</span>
         <button
           id="sort-effect"
-          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-accent text-accent bg-accent/5 transition cursor-pointer"
+          class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border border-accent text-accent bg-accent/5 motion-safe:transition cursor-pointer"
         >
           効果量順
         </button>
