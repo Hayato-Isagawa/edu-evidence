@@ -53,7 +53,7 @@ function formatListDay(iso: string): string {
       <button
         type="button"
         data-filter="all"
-        class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 transition cursor-pointer ${
+        class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 motion-safe:transition motion-safe:duration-200 motion-safe:ease-out cursor-pointer ${
           initialTag === ""
             ? "border-accent bg-accent text-white dark:text-bg"
             : "border-line text-sub hover:border-accent hover:text-accent"
@@ -66,7 +66,7 @@ function formatListDay(iso: string): string {
           <button
             type="button"
             data-filter={tag}
-            class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 transition cursor-pointer ${
+            class={`tag-chip font-mono text-[11px] uppercase tracking-widest border rounded-full px-3 py-1 motion-safe:transition motion-safe:duration-200 motion-safe:ease-out cursor-pointer ${
               initialTag === tag
                 ? "border-accent bg-accent text-white dark:text-bg"
                 : "border-line text-sub hover:border-accent hover:text-accent"
@@ -93,14 +93,14 @@ function formatListDay(iso: string): string {
               href={`/columns/${c.id}`}
               data-tags={JSON.stringify(c.data.tags)}
               data-hidden={matches ? undefined : "true"}
-              class="group block border-t border-line py-10 transition hover:bg-card data-[hidden=true]:hidden"
+              class="group block border-t border-line py-10 motion-safe:transition hover:bg-card data-[hidden=true]:hidden"
             >
               <div class="grid grid-cols-12 gap-4 items-baseline px-2">
                 <div class="col-span-2 md:col-span-1 font-mono text-sm text-sub">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div class="col-span-10 md:col-span-8 space-y-2">
-                  <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-accent transition">
+                  <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight group-hover:text-accent motion-safe:transition">
                     {c.data.title}
                   </h3>
                   <p class="text-sm text-sub leading-relaxed line-clamp-2">
@@ -117,7 +117,7 @@ function formatListDay(iso: string): string {
                       <span class="ml-1 text-accent">(更新)</span>
                     )}
                   </time>
-                  <span class="inline-block ml-3 transition group-hover:translate-x-1 text-sub">
+                  <span class="inline-block ml-3 motion-safe:transition group-hover:translate-x-1 text-sub">
                     →
                   </span>
                 </div>
