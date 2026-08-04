@@ -7,6 +7,21 @@ on:
       - "src/layouts/**"
       - "src/components/**"
       - "src/styles/**"
+      # 描画に効くのに対象外だった経路。#432(h2 のサイズ変更)は src/pages
+      # だけの変更だったため VRT が起動せず、見た目が変わるのにピクセル判定が
+      # 走らなかった。
+      #
+      # コンテンツは src/content にあるので、これらを足しても記事の追記・
+      # 修正では起動しない(直近 60 コミットで src/content 10 回に対し
+      # src/pages 29 回)。
+      - "src/pages/**"
+      # 更新履歴は PR ごとに 1 行増える(rule 8)。VRT の対象ページからは外して
+      # あるので(vrt/pages.spec.ts のコメント参照)、ここで走らせても得るものが
+      # 無い。直近 60 コミットのうち 10 件が changelog だけの変更だった。
+      - "!src/pages/changelog.astro"
+      - "src/data/**"
+      - "src/lib/**"
+      - "src/plugins/**"
       - "astro.config.*"
       - "vrt/**"
       - "playwright.vrt.config.ts"
