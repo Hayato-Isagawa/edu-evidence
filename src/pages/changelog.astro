@@ -1,5 +1,5 @@
 ---
-import Kicker from "../components/ui/Kicker.astro";
+import PageHero from "../components/blocks/PageHero.astro";
 import Layout from "../layouts/Layout.astro";
 
 type ChangeType = "add" | "update" | "fix" | "remove";
@@ -1028,21 +1028,12 @@ const typeLabel: Record<string, { label: string; color: string }> = {
 ---
 
 <Layout title="更新履歴 — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Changelog
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      更新履歴
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Changelog">
+    <Fragment slot="title">更新履歴</Fragment>
       <p>
         記事の追加・修正・改訂を時系列で記録しています。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24">
     {

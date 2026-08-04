@@ -1,24 +1,16 @@
 ---
+import PageHero from "../../components/blocks/PageHero.astro";
 import Kicker from "../../components/ui/Kicker.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="エビデンスと文化的文脈 — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Guide — Evidence in cultural context
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      エビデンスと<br /><span class="text-accent">文化的文脈</span>
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Guide — Evidence in cultural context">
+    <Fragment slot="title">エビデンスと<br /><span class="text-accent">文化的文脈</span></Fragment>
       <p>
         海外の教育研究は、そのまま日本に当てはまりません。本サイトがどう「出典と文化」を扱うかを説明します。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24 space-y-20">
 

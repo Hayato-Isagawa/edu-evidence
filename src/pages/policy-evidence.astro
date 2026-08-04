@@ -1,5 +1,5 @@
 ---
-import Kicker from "../components/ui/Kicker.astro";
+import PageHero from "../components/blocks/PageHero.astro";
 import Layout from "../layouts/Layout.astro";
 
 const comparisons = [
@@ -177,21 +177,12 @@ const alignmentLabel: Record<string, { text: string; color: string }> = {
 ---
 
 <Layout title="政策とエビデンス — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Policy × Evidence
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      政策と<span class="text-accent">エビデンス</span>
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Policy × Evidence">
+    <Fragment slot="title">政策と<span class="text-accent">エビデンス</span></Fragment>
       <p>
         教育委員会や文部科学省から推進される主な政策を、研究のエビデンスと照らし合わせます。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-12">
     <div

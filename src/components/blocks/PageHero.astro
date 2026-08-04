@@ -1,0 +1,46 @@
+---
+import Kicker from "../ui/Kicker.astro";
+
+/**
+ * ページ冒頭の FV(kicker + h1 + リード文)。
+ *
+ * ADR 0009 が余白・H1 の段階サイズ・行間・字送りを確定させており、実装も
+ * 21 ページで揃っている。揃っていること自体は良いが、値が 21 箇所に複製
+ * されているため、ADR を改訂しても追随漏れが起きうる状態だった。
+ *
+ * 見出しはマークアップを含む(`<span class="text-accent">` や `<br />`)ので
+ * スロットで受ける。kicker は全ページ プレーンテキストなので prop。
+ */
+
+interface Props {
+  kicker: string;
+  /** リード文が複数段落のとき、段落間に余白を入れる。 */
+  leadSpaced?: boolean;
+}
+
+const { kicker, leadSpaced = false } = Astro.props;
+const hasLead = Astro.slots.has("default");
+---
+
+<section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
+  <Kicker>
+    {kicker}
+  </Kicker>
+  <h1
+    class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
+  >
+    <slot name="title" />
+  </h1>
+  {
+    hasLead && (
+      <div
+        class:list={[
+          "mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base",
+          leadSpaced && "space-y-2",
+        ]}
+      >
+        <slot />
+      </div>
+    )
+  }
+</section>

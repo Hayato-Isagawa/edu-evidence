@@ -1,5 +1,5 @@
 ---
-import Kicker from "../../components/ui/Kicker.astro";
+import PageHero from "../../components/blocks/PageHero.astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
@@ -32,21 +32,12 @@ function formatListDay(iso: string): string {
 ---
 
 <Layout title="エビデンスで考える — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Columns — Think with evidence
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      <span class="text-accent">エビデンス</span>で考える
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Columns — Think with evidence">
+    <Fragment slot="title"><span class="text-accent">エビデンス</span>で考える</Fragment>
       <p>
         教育界で話題のテーマを、研究のエビデンスに照らして考えるコラムシリーズです。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-6" aria-label="タグで絞り込み">
     <div class="flex flex-wrap gap-2" data-tag-filter>

@@ -1,5 +1,5 @@
 ---
-import Kicker from "../../components/ui/Kicker.astro";
+import PageHero from "../../components/blocks/PageHero.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const guides = [
@@ -31,21 +31,12 @@ const guides = [
 ---
 
 <Layout title="Guide — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Guide
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      読み方ガイド
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Guide">
+    <Fragment slot="title">読み方ガイド</Fragment>
       <p>
         指導法の記事をより深く理解するための補助資料を揃えています。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24">
     <div class="border-b border-line">

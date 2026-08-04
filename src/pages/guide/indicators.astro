@@ -1,24 +1,16 @@
 ---
+import PageHero from "../../components/blocks/PageHero.astro";
 import Kicker from "../../components/ui/Kicker.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="指標の読み方 — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Guide — How to read
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      4つの指標の<br /><span class="text-accent">読み方</span>
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Guide — How to read">
+    <Fragment slot="title">4つの指標の<br /><span class="text-accent">読み方</span></Fragment>
       <p>
         本サイトの各指導法には4つの指標が付いています。ここでは、それぞれの意味と読み取り方を解説します。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24 space-y-20">
 

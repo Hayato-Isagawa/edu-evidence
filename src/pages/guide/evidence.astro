@@ -1,24 +1,16 @@
 ---
+import PageHero from "../../components/blocks/PageHero.astro";
 import Kicker from "../../components/ui/Kicker.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="エビデンス入門 — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Guide — What is evidence?
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      <span class="text-accent">エビデンス</span>入門
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Guide — What is evidence?">
+    <Fragment slot="title"><span class="text-accent">エビデンス</span>入門</Fragment>
       <p>
         「エビデンスに基づく教育」の基本を、研究の読み方が分からなくても理解できるように解説します。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24 space-y-20">
 

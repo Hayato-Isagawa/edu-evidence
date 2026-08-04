@@ -1,5 +1,5 @@
 ---
-import Kicker from "../../components/ui/Kicker.astro";
+import PageHero from "../../components/blocks/PageHero.astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
@@ -16,17 +16,10 @@ const subjects = [...subjectMap.entries()].sort((a, b) => b[1] - a[1]);
 ---
 
 <Layout title="教科から探す — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Browse by subject
-    </Kicker>
-    <h1 class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight">
-      教科から探す
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Browse by subject">
+    <Fragment slot="title">教科から探す</Fragment>
       <p>担当する教科に関連する指導法を見つけられます。</p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24">
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">

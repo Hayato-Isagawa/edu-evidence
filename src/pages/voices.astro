@@ -1,24 +1,16 @@
 ---
+import PageHero from "../components/blocks/PageHero.astro";
 import Kicker from "../components/ui/Kicker.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="現場の声 — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Voices from the field
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      現場の声
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Voices from the field">
+    <Fragment slot="title">現場の声</Fragment>
       <p>
         本サイトの情報を実際の教室で活用された先生方の声を掲載します。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-16 space-y-12">
     <div
