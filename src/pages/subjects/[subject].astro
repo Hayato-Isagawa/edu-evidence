@@ -1,8 +1,6 @@
 ---
-import Kicker from "../../components/ui/Kicker.astro";
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import StrategyRow from "../../components/StrategyRow.astro";
+import FacetStrategyPage from "../../components/FacetStrategyPage.astro";
 
 export async function getStaticPaths() {
   const strategies = await getCollection("strategies");
@@ -23,38 +21,4 @@ const strategies = allStrategies
   .sort((a, b) => b.data.monthsGained - a.data.monthsGained);
 ---
 
-<Layout title={`${subject} — EduEvidence JP`}>
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker tone="sub">
-      <a href="/subjects" class="hover:text-ink">Subjects</a> /
-    </Kicker>
-    <p class="mt-1 text-xs text-sub">教科で絞り込み</p>
-    <h1 class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight">
-      <span class="text-accent">{subject}</span>
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base space-y-1">
-      <p>「{subject}」に関連する指導法</p>
-      <p class="text-xs">{strategies.length}件</p>
-    </div>
-  </section>
-
-  <section class="pb-24 space-y-8">
-    <div class="border-b border-line">
-      {strategies.map((s, i) => (
-        <StrategyRow
-          index={i + 1}
-          href={`/strategies/${s.id}`}
-          title={s.data.title}
-          monthsGained={s.data.monthsGained}
-          evidenceStrength={s.data.evidenceStrength}
-          evidence={s.data.evidence}
-          subjects={s.data.subjects}
-          grades={s.data.grades}
-        />
-      ))}
-    </div>
-    <div>
-      <a href="/subjects" class="link-underline font-mono text-xs uppercase tracking-widest text-accent">← 教科一覧へ戻る</a>
-    </div>
-  </section>
-</Layout>
+<FacetStrategyPage kind="subject" value={subject} strategies={strategies} />
