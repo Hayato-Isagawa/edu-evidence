@@ -1,0 +1,97 @@
+---
+import Kicker from "./ui/Kicker.astro";
+import Layout from "../layouts/Layout.astro";
+import StrategyRow from "./StrategyRow.astro";
+import type { CollectionEntry } from "astro:content";
+
+/**
+ * 「教科で絞り込み」「学年で絞り込み」のページ本体。
+ *
+ * `subjects/[subject].astro` と `grades/[grade].astro` は 60 行中 26 行が
+ * 差分だったが、変数名と日本語ラベルを正規化すると実質の違いは 2 点しか
+ * 残らなかった。同じ見た目の変更を 2 箇所に入れる状態を解消する。
+ *
+ * 一覧ページ(`subjects/index` と `grades/index`)は共通化しない。
+ * 学年は固定順ソート・4 カラム・中央寄せ・文字サイズが違い、
+ * これは意図した差なので、揃えると薄い抽象になる。
+ */
+
+type Facet = "subject" | "grade";
+
+interface Props {
+  kind: Facet;
+  /** 絞り込みの値。教科名または学年名。 */
+  value: string;
+  strategies: CollectionEntry<"strategies">[];
+}
+
+const { kind, value, strategies } = Astro.props;
+
+const COPY: Record<
+  Facet,
+  { href: string; eyebrow: string; filter: string; lead: string; back: string }
+> = {
+  subject: {
+    href: "/subjects",
+    eyebrow: "Subjects",
+    filter: "教科で絞り込み",
+    lead: "に関連する指導法",
+    back: "教科一覧へ戻る",
+  },
+  grade: {
+    href: "/grades",
+    eyebrow: "Grades",
+    filter: "学年で絞り込み",
+    lead: "で活用できる指導法",
+    back: "学年一覧へ戻る",
+  },
+};
+
+const copy = COPY[kind];
+---
+
+<Layout title={`${value} — EduEvidence JP`}>
+  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
+    <Kicker tone="sub">
+      <a href={copy.href} class="hover:text-ink">{copy.eyebrow}</a> /
+    </Kicker>
+    <p class="mt-1 text-xs text-sub">{copy.filter}</p>
+    <h1
+      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
+    >
+      <span class="text-accent">{value}</span>
+    </h1>
+    <div
+      class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base space-y-1"
+    >
+      <p>「{value}」{copy.lead}</p>
+      <p class="text-xs">{strategies.length}件</p>
+    </div>
+  </section>
+
+  <section class="pb-24 space-y-8">
+    <div class="border-b border-line">
+      {
+        strategies.map((s, i) => (
+          <StrategyRow
+            index={i + 1}
+            href={`/strategies/${s.id}`}
+            title={s.data.title}
+            monthsGained={s.data.monthsGained}
+            evidenceStrength={s.data.evidenceStrength}
+            evidence={s.data.evidence}
+            subjects={s.data.subjects}
+            grades={s.data.grades}
+          />
+        ))
+      }
+    </div>
+    <div>
+      <a
+        href={copy.href}
+        class="link-underline font-mono text-xs uppercase tracking-widest text-accent"
+        >← {copy.back}</a
+      >
+    </div>
+  </section>
+</Layout>
