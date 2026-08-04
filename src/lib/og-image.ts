@@ -8,6 +8,12 @@ import {
   effectSign as toEffectSign,
   effectColorHex,
 } from "./effect-size";
+import { tokenHex } from "./css-color";
+
+// ★ の色。サイト本文は --color-rating を使っているが、ここは長く #d97706 が
+// 書かれていた。Tailwind が palette を oklch に移した際の取り残しで、
+// 実際の値は #e17100。OG 画像だけ別の橙になっていた。
+const ratingColor = tokenHex("--color-rating");
 
 interface OgParams {
   title: string;
@@ -141,7 +147,11 @@ export async function generateOgImage(params: OgParams): Promise<Buffer> {
                       {
                         type: "div",
                         props: {
-                          style: { fontSize: "28px", color: "#d97706", marginLeft: "24px" },
+                          style: {
+                            fontSize: "28px",
+                            color: ratingColor,
+                            marginLeft: "24px",
+                          },
                           children: stars,
                         },
                       },

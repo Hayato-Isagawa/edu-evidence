@@ -1,6 +1,4 @@
-// ?raw で CSS をそのまま文字列として取り込む。色の実値を持つのは global.css
-// だけにするため(src/pages/design-tokens.json.ts と同じ方式)。
-import css from "../styles/global.css?raw";
+import { tokenHex } from "./css-color";
 
 /**
  * 効果量(monthsGained)と エビデンス強度(evidenceStrength)の表示ロジック。
@@ -54,19 +52,8 @@ const TONE_TOKEN: Record<EffectTone, string> = {
   negative: "--color-chart-red",
 };
 
-function lightValue(token: string): string {
-  // dark ブロックを読まないよう、@theme の中だけを見る。コメントは先に落とす
-  // (日本語コメント中の「@theme」に正規表現がマッチする事故が実際にあった)。
-  const source = css.replace(/\/\*[\s\S]*?\*\//g, "");
-  for (const block of source.matchAll(/@theme[^{]*\{([^}]*)\}/g)) {
-    const m = block[1].match(new RegExp(`${token}\\s*:\\s*([^;]+);`));
-    if (m) return m[1].trim();
-  }
-  throw new Error(`global.css の @theme に ${token} が無い`);
-}
-
 export function effectColorHex(monthsGained: number): string {
-  return lightValue(TONE_TOKEN[effectTone(monthsGained)]);
+  return tokenHex(TONE_TOKEN[effectTone(monthsGained)]);
 }
 
 /**
