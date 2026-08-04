@@ -3,6 +3,7 @@ import Kicker from "../components/ui/Kicker.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import { annotateGlossaryTerms } from "../lib/glossary-inline";
+import { effectSign } from "../lib/effect-size";
 
 // 戦略データから動的に効果量を参照
 const strategies = await getCollection("strategies");
@@ -11,8 +12,7 @@ const strategyMap = new Map(strategies.map((s) => [s.id, s.data]));
 function months(slug: string): string {
   const s = strategyMap.get(slug);
   if (!s) throw new Error(`Strategy not found: ${slug}`);
-  const sign = s.monthsGained > 0 ? "+" : "";
-  return `${sign}${s.monthsGained}ヶ月`;
+  return `${effectSign(s.monthsGained)}${s.monthsGained}ヶ月`;
 }
 
 const faqSections = [
