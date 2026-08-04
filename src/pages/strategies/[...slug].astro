@@ -4,6 +4,11 @@ import SourceBadge from "../../components/ui/SourceBadge.astro";
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { annotateGlossaryTerms } from "../../lib/glossary-inline";
+import {
+  stars as toStars,
+  effectSign as toEffectSign,
+  effectColorClass,
+} from "../../lib/effect-size";
 import TableOfContents from "../../components/TableOfContents.astro";
 import RelatedStrategyCard from "../../components/RelatedStrategyCard.astro";
 
@@ -77,16 +82,11 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const stars = "★".repeat(d.evidenceStrength) + "☆".repeat(5 - d.evidenceStrength);
+const stars = toStars(d.evidenceStrength);
 const yen = "¥".repeat(d.cost) + "·".repeat(5 - d.cost);
 
-const effectSign = d.monthsGained > 0 ? "+" : d.monthsGained === 0 ? "±" : "";
-const effectColor =
-  d.monthsGained > 0
-    ? "text-accent"
-    : d.monthsGained === 0
-      ? "text-sub"
-      : "text-chart-red";
+const effectSign = toEffectSign(d.monthsGained);
+const effectColor = effectColorClass(d.monthsGained);
 const effectNote =
   d.monthsGained > 0
     ? `3月時点で、通常より約${d.monthsGained}ヶ月先の学力水準に到達`

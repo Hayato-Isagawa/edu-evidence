@@ -1,5 +1,11 @@
 ---
 import SourceBadge from "./ui/SourceBadge.astro";
+import {
+  stars as toStars,
+  effectSign as toEffectSign,
+  effectColorClass,
+  effectBar,
+} from "../lib/effect-size";
 interface EefEvidence {
   monthsGained?: number;
   strength?: number;
@@ -30,19 +36,11 @@ interface Props {
 const { href, title, summary, monthsGained, evidenceStrength, evidence } = Astro.props;
 
 
-const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
-const effectSign = monthsGained > 0 ? "+" : monthsGained === 0 ? "±" : "";
-const effectColor =
-  monthsGained > 0
-    ? "text-accent"
-    : monthsGained === 0
-      ? "text-sub"
-      : "text-chart-red";
+const stars = toStars(evidenceStrength);
+const effectSign = toEffectSign(monthsGained);
+const effectColor = effectColorClass(monthsGained);
 
-const effectBarMax = 9;
-const effectBarPct = Math.min(Math.abs(monthsGained), effectBarMax) / effectBarMax * 100;
-const effectBarSign =
-  monthsGained > 0 ? "positive" : monthsGained < 0 ? "negative" : "neutral";
+const { pct: effectBarPct, sign: effectBarSign } = effectBar(monthsGained);
 ---
 
 <a

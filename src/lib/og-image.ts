@@ -3,6 +3,11 @@ import type { ReactNode } from "react";
 import sharp from "sharp";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import {
+  stars as toStars,
+  effectSign as toEffectSign,
+  effectColorHex,
+} from "./effect-size";
 
 interface OgParams {
   title: string;
@@ -38,9 +43,9 @@ async function loadNotoSansJpFont(): Promise<ArrayBuffer> {
 export async function generateOgImage(params: OgParams): Promise<Buffer> {
   const { title, monthsGained, evidenceStrength, subjects } = params;
 
-  const effectSign = monthsGained > 0 ? "+" : monthsGained === 0 ? "±" : "";
-  const effectColor = monthsGained > 0 ? "#2b5d3a" : monthsGained === 0 ? "#6b6b66" : "#dc2626";
-  const stars = "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
+  const effectSign = toEffectSign(monthsGained);
+  const effectColor = effectColorHex(monthsGained);
+  const stars = toStars(evidenceStrength);
 
   const fontData = await loadNotoSansJpFont();
 
