@@ -1,5 +1,5 @@
 ---
-import Kicker from "../../components/ui/Kicker.astro";
+import PageHero from "../../components/blocks/PageHero.astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
@@ -22,22 +22,13 @@ const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
 ---
 
 <Layout title="タグ一覧 — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Tags
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      タグ一覧
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base space-y-2">
+  <PageHero kicker="Tags" leadSpaced>
+    <Fragment slot="title">タグ一覧</Fragment>
       <p>
         指導法とコラムを関心のあるテーマから探すことができます。
       </p>
       <p class="text-xs">{tags.length}タグ / 指導法 {strategies.length}件 / コラム {columns.length}件</p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24">
     <div class="flex flex-wrap gap-3">

@@ -1,5 +1,5 @@
 ---
-import Kicker from "../../components/ui/Kicker.astro";
+import PageHero from "../../components/blocks/PageHero.astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import StrategyRow from "../../components/StrategyRow.astro";
@@ -41,17 +41,10 @@ const costGroups = [
 ---
 
 <Layout title="コストから探す — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Browse by cost
-    </Kicker>
-    <h1 class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight">
-      コストから探す
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Browse by cost">
+    <Fragment slot="title">コストから探す</Fragment>
       <p>「お金をかけずに明日から」始められるものから探せます。</p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24 space-y-16">
     {

@@ -1,5 +1,5 @@
 ---
-import Kicker from "../../components/ui/Kicker.astro";
+import PageHero from "../../components/blocks/PageHero.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const scenes = [
@@ -104,22 +104,13 @@ const scenes = [
 ---
 
 <Layout title="7月・学期末の教室 — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Seasonal — July
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      7月・<span class="text-accent">学期末</span>の教室
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Seasonal — July">
+    <Fragment slot="title">7月・<span class="text-accent">学期末</span>の教室</Fragment>
       <p>
         通知表、夏休みの宿題、プール、個人面談——
         7月の教室で起きることを場面ごとに整理し、いま使えるエビデンスと公的情報への入口をまとめました。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-12">
     <div

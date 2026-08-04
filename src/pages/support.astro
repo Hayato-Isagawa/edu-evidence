@@ -1,24 +1,15 @@
 ---
-import Kicker from "../components/ui/Kicker.astro";
+import PageHero from "../components/blocks/PageHero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="運営を支援する — EduEvidence JP">
-  <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
-    <Kicker>
-      Support
-    </Kicker>
-    <h1
-      class="mt-5 font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight"
-    >
-      運営を<br /><span class="text-accent">支援</span>する
-    </h1>
-    <div class="mt-6 max-w-2xl text-sub leading-loose text-sm sm:text-base">
+  <PageHero kicker="Support">
+    <Fragment slot="title">運営を<br /><span class="text-accent">支援</span>する</Fragment>
       <p>
         EduEvidence JP は非営利で運営しています。広告を入れず、教員にとって信頼できる情報源であり続けるために。
       </p>
-    </div>
-  </section>
+  </PageHero>
 
   <section class="pb-24 space-y-16">
 
