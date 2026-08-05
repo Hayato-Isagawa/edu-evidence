@@ -98,9 +98,15 @@ npm run check:all          # 上記チェックを一括実行(CI の Content Ch
 
 ## ホスティング
 
-Cloudflare Pages(GitHub main ブランチ連携で自動デプロイ)。
+Cloudflare Workers の静的アセット配信(Workers Builds が GitHub main を監視して自動デプロイ)。
+設定は `wrangler.jsonc`。2026-08-05 に Cloudflare Pages から移行した(ADR 0032)。
 ドメイン: edu-evidence.org
-セキュリティヘッダー: `public/_headers`
+セキュリティヘッダー: `public/_headers`(Workers でもそのまま解釈される)
+リダイレクト: `public/_redirects`(同上)
+
+**Cloudflare のメールアドレス難読化は Workers では効かない**。Pages 配信時は `mailto:`
+が `/cdn-cgi/l/email-protection#…` に置換されていたが、Workers では生のアドレスが出る。
+不具合ではなく Scrape Shield の仕様で、受容すると決めている(ADR 0032)。
 ボット設定: `public/robots.txt`
 
 ## コンテキスト管理

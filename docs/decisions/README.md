@@ -72,3 +72,5 @@
 - [0028. Content Checks を main の required check に昇格する](0028-content-checks-required.md)
 - [0029. required check を classic ブランチ保護に一本化し、ruleset の重複を解消する](0029-required-checks-single-source.md)
 - [0030. a11y 監査を light/dark 両テーマで行い、label-content-name-mismatch は修正しない](0030-dark-mode-contrast-and-label-in-name.md)
+- [0031. 色トークンを `@theme` に移し、出典系統の色をトークン化する](0031-design-token-layer.md)
+- [0032. ホスティングを Cloudflare Pages から Workers static assets へ移す](0032-hosting-on-workers-static-assets.md)
