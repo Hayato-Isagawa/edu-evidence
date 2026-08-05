@@ -10,7 +10,7 @@
 
 ## 環境
 
-Node.js のバージョンは `.tool-versions` で固定している(`nodejs 24.17.0`)。[mise](https://mise.jdx.dev/) を使う前提。
+Node.js のバージョンは `.tool-versions` で固定している(`nodejs 24.19.0`)。[mise](https://mise.jdx.dev/) を使う前提。
 
 ```bash
 mise install               # .tool-versions に従って Node 24 を導入
@@ -22,7 +22,7 @@ npm ci                     # 依存をロックから復元
 ## ビルド・テスト
 
 ```bash
-npm run dev                # 開発サーバー(localhost:4321)
+npm run dev                # 開発サーバー(localhost:4322。ファミリー各リポで固定・4321 は未設定プロジェクト用に空けている)
 npm run build              # 本番ビルド(OG画像74枚 + Pagefindインデックス生成、約2分)
 npm run test:e2e           # Playwright E2Eテスト(42テスト・9ファイル、ビルド後に実行)
 npm run vrt                # ビジュアルリグレッションテスト(現 dist を撮影・比較。権威ある比較は CI、後述)
