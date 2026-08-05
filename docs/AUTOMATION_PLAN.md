@@ -29,7 +29,7 @@ CI(textlint / 整合性チェック / E2E)が通る
    ↓
 著者レビュー
    ↓
-Squash merge → main → Cloudflare Pages が自動デプロイ
+Squash merge → main → Workers Builds が自動デプロイ
 ```
 
 - 自動化ジョブが立てる PR は `auto/*` プレフィックスのブランチを使う
