@@ -20,14 +20,14 @@
 
 | 分類 | 技術 |
 |------|------|
-| フレームワーク | [Astro](https://astro.build/) 6 |
+| フレームワーク | [Astro](https://astro.build/) 7 |
 | UI | [React](https://react.dev/) 19 + [Tailwind CSS](https://tailwindcss.com/) 4 |
 | 言語 | TypeScript |
 | 検索 | [Pagefind](https://pagefind.app/) |
 | OG 画像 | [Satori](https://github.com/vercel/satori) + [Sharp](https://sharp.pixelplumbing.com/) |
 | テスト | [Playwright](https://playwright.dev/) (E2E 16 テスト) |
 | リンター | textlint (日本語校正) |
-| ホスティング | [Cloudflare Pages](https://pages.cloudflare.com/) |
+| ホスティング | [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)(静的アセット配信) |
 | ドメイン | edu-evidence.org (Cloudflare Registrar) |
 
 ## セットアップ
