@@ -1,6 +1,6 @@
 # EduEvidence JP
 
-日本の小学校教員向け教育エビデンスポータル。Astro 6 + React 19 + Tailwind 4 + TypeScript。
+日本の小学校教員向け教育エビデンスポータル。Astro 7 + React 19 + Tailwind 4 + TypeScript。
 
 ## ブランド
 
