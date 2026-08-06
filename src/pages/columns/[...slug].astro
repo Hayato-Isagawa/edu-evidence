@@ -31,6 +31,12 @@ const related = (d.relatedStrategies ?? [])
   .map((id) => strategyById.get(id))
   .filter((s): s is (typeof allStrategies)[number] => Boolean(s));
 
+// 出典の最終確認日は、公開日と違うときだけ並べて出す。
+// boolean ではなく値を保持する — boolean だとテンプレート側で
+// d.lastVerified の undefined が絞り込まれず formatDay に渡せない。
+const lastVerified =
+  d.lastVerified && d.lastVerified !== d.date ? d.lastVerified : null;
+
 const allColumns = await getCollection("columns");
 const seriesItems = d.series
   ? allColumns
@@ -95,10 +101,15 @@ const breadcrumbJsonLd = {
       {d.title}
     </h1>
     <p class="mt-3 text-sm text-sub font-mono tracking-wide">
-      <time datetime={d.date}>公開: {formatDay(d.date)}</time>
-      {d.lastVerified && d.lastVerified !== d.date && (
-        <span class="ml-3">
-          <time datetime={d.lastVerified}>最終更新: {formatDay(d.lastVerified)}</time>
+      {/* 余白は先頭側に持たせる。2 行に折り返したとき、後続ブロックの左端を
+          公開日と揃えるため(ml- を後続に付けるとぶら下がりインデントになる)。
+          inline-block はフレーズ途中で折れないようにするためのもの。 */}
+      <time datetime={d.date} class:list={[lastVerified && "mr-3"]}>
+        公開: {formatDay(d.date)}
+      </time>
+      {lastVerified && (
+        <span class="inline-block">
+          <time datetime={lastVerified}>出典の最終確認: {formatDay(lastVerified)}</time>
         </span>
       )}
     </p>

@@ -461,10 +461,15 @@ cost: 1〜5。導入コスト
 
 ### lastVerified の運用
 
-- 初回公開時は `lastVerified` を設定しない(公開日 = 最新検証日と見なす)
-- **公開後に実質的な内容更新** (引用の訂正・新規セクション追加・数値更新など) をした場合、frontmatter に `lastVerified: "YYYY-MM-DD"` を追加または更新する
-- 軽微な修正(誤字脱字・書式調整)は `lastVerified` を更新しない
-- `lastVerified` が `date` と異なる場合、コラム・戦略ページのヘッダーに「最終更新 YYYY-MM-DD」として表示される
+`lastVerified` は **一次ソースとの最終照合日** である(ADR 0033)。「本文を更新した日」ではない。
+
+- 初回公開時は `lastVerified` を設定しない(公開日 = 最新照合日と見なす)
+- **一次ソースに当たり直したら、本文が 1 文字も変わらなくても `lastVerified` を当日日付に更新する。** これが本フィールドの主用途で、`npm run check:stale` が 365 日を超えたエントリを検出する前提になっている(`scripts/check-stale.ts`)
+- 値や記述を更新した場合も、その照合をもって `lastVerified` を更新する
+- 一次ソースに当たっていない修正(誤字脱字・書式調整・内部リンクの張り替え)では **更新しない**
+- `lastVerified` が `date` と異なる場合、戦略ページは「最終確認 YYYY-MM-DD」、コラムは「出典の最終確認 YYYY-MM-DD」として表示される。**「最終更新」とは書かない** — 内容が変わっていない照合でも日付が動くため、読者に更新があったと誤解させる
+
+照合の具体的な手順は [`source-sync-protocol.md`](source-sync-protocol.md)、フィールド定義は [`CONTEXT.md`](CONTEXT.md) を参照。
 
 ---
 
