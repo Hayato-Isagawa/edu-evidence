@@ -53,7 +53,7 @@ CONTENT_GUIDELINES を正とし、`check-stale.ts` と `source-sync-protocol.md`
 - **読者への表示が実態と一致する。** 内容が変わっていない照合を「更新」と呼ばなくなる
 - `lastVerified` を持つ既存コンテンツの値は**変更しない**。意味の解釈が変わるだけで、記録されている日付はいずれも一次ソース照合時に打たれたもの
 - 表示文言が変わるが、`e2e/` `vrt/` `scripts/` に「最終更新」を前提としたアサーションは無いため、テストの追随は不要
-- **VRT は起動しない。** `vrt.yml` の `paths` は `src/layouts` / `src/components` / `src/styles` に限定されており、本変更は `src/pages` のみ。見た目が変わるのにピクセル判定が走らない既知の穴に該当するため、ローカル目視で確認する
+- **VRT は起動し、対象ページも撮っているが、この変更は検出しない。** `vrt.yml` の `paths` には `src/pages/**` が含まれており(ADR 0024 の穴を #433〜#435 で塞いだ結果)、`vrt/pages.spec.ts` は `/strategies/ai-in-education` と `/columns/active-deep-learning-evidence` の両方を撮っている。それでも pass するのは、**短いラベル文字列の差分がフルページ比の 1% (`maxDiffPixelRatio: 0.01`) に届かない**ため。VRT は「レイアウトが崩れていないこと」の保証であって、「文言が意図どおりであること」の保証ではない。文言の確認はローカル目視で行う
 
 ## 撤回 / 再検討の条件
 
