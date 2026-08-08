@@ -14,6 +14,12 @@ import path from "path";
 import matter from "gray-matter";
 
 const STRATEGIES_DIR = path.resolve("src/content/strategies");
+
+// 365 日。姉妹リポ edu-law の stale-check は 90 日で、4 倍の開きがあるが
+// 意図的なもの。あちらが追うのは法令と公式解説で、法改正・解説の新版・通知の
+// 追加発出によって実際に中身が変わる(edu-law ADR 0002 / docs/freshness-audit.md)。
+// こちらが追うのはメタ分析と RCT で、2010 年の効果量は 2026 年でも同じ数値。
+// 揃えるとどちらかが実態から外れる。
 const STALE_THRESHOLD_DAYS = 365;
 
 interface StaleEntry {
