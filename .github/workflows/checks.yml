@@ -62,3 +62,9 @@ jobs:
       - name: lastVerified staleness
         if: ${{ !cancelled() }}
         run: npm run check:stale
+
+      # 上の各ゲートが「壊れた入力で確実に落ちる」ことを固定する回帰テスト。
+      # ゲートは通れば成功に見えるので、検出部が死んでも気づけない。
+      - name: Check scripts regression tests
+        if: ${{ !cancelled() }}
+        run: npm run test:scripts
