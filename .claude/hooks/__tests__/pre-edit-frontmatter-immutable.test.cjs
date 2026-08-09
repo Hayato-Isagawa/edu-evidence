@@ -201,3 +201,109 @@ test('Other tool names ignored', () => {
   const out = run(JSON.stringify({ tool_name: 'Bash', tool_input: {} }));
   assert.equal(out.exitCode, 0);
 });
+
+// --- 実際の Edit が送る形（`---` フェンス無し） -------------------------
+//
+// 2026-08-09 の独立レビューで見つかった回帰。既存テストは全て
+// "---\nkey: v\n---" というフェンス付き文字列を与えていたため、
+// evaluatePair が extractFrontmatter の失敗時に [] を返していたことに
+// 誰も気づけなかった。実際の Edit の old_string / new_string は
+// 編集した数行だけで、フェンスを含まないのが普通なので、
+// **このガードは実運用でほぼ発火していなかった**。
+//
+// 姉妹リポの edu-watch は最初から fallback を持っていた。
+
+const { PROTECTED_KEYS } = require('../pre-edit-frontmatter-immutable.cjs');
+
+const editOn = (filePath, oldStr, newStr) =>
+  JSON.stringify({
+    tool_name: 'Edit',
+    tool_input: { file_path: filePath, old_string: oldStr, new_string: newStr },
+  });
+
+const STRATEGY = 'src/content/strategies/x.md';
+const fired = (out) =>
+  out.exitCode === 2 || Boolean(out.stdout && out.stdout.includes('permissionDecision'));
+
+test('フェンス無しの Edit チャンクでも保護フィールドの変更を検知する', () => {
+  assert.equal(fired(run(editOn(STRATEGY, 'monthsGained: 5', 'monthsGained: 9'))), true);
+});
+
+// 期待するキーはここに直書きする。PROTECTED_KEYS をそのまま回すと、
+// 実装からキーを 1 つ削っても for が短くなるだけでテストは緑のまま通る
+// (実測: sampleSize を消しても 41/41 緑だった)。
+const EXPECTED_PROTECTED_KEYS = [
+  'sourceUrl',
+  'monthsGained',
+  'evidenceStrength',
+  'cost',
+  'cohensD',
+  'strength',
+  'studies',
+  'sampleSize',
+  'effectSize',
+  'year',
+  'authors',
+  'url',
+];
+
+test('保護キーの一覧が意図どおり(増減したらここも直す)', () => {
+  assert.deepEqual([...PROTECTED_KEYS].sort(), [...EXPECTED_PROTECTED_KEYS].sort());
+});
+
+test('フェンス無しでも保護キー全てを検知する', () => {
+  // 1 つでも漏れると、そのキーだけ黙って書き換えられる。
+  for (const key of EXPECTED_PROTECTED_KEYS) {
+    const out = run(editOn(STRATEGY, `${key}: 111`, `${key}: 222`));
+    assert.equal(fired(out), true, `${key} が検知されていない`);
+  }
+});
+
+test('リスト項目の形（"- key: v"）でも検知する', () => {
+  assert.equal(fired(run(editOn(STRATEGY, '  - year: 2019', '  - year: 2021'))), true);
+});
+
+test('本文だけの編集は誤検知しない', () => {
+  const out = run(editOn(STRATEGY, 'この指導法は有効です。', 'この指導法は有効でした。'));
+  assert.equal(fired(out), false);
+});
+
+test('保護フィールドを含まない frontmatter の編集は誤検知しない', () => {
+  const out = run(editOn(STRATEGY, 'title: むかしの題', 'title: あたらしい題'));
+  assert.equal(fired(out), false);
+});
+
+test('対象外パスならフェンス無しでも素通りする', () => {
+  const out = run(editOn('src/lib/util.ts', 'monthsGained: 5', 'monthsGained: 9'));
+  assert.equal(fired(out), false);
+});
+
+// --- CLI 配線 -----------------------------------------------------------
+// run() の戻り値だけを見ていると、それが exit code と stdout になる経路が
+// 死んでも気づけない。フックは本番では子プロセスとして起動される。
+
+const { spawnSync } = require('node:child_process');
+const path = require('node:path');
+const HOOK = path.join(__dirname, '..', 'pre-edit-frontmatter-immutable.cjs');
+
+const runCli = (payload) =>
+  spawnSync(process.execPath, [HOOK], { input: payload, encoding: 'utf8' });
+
+test('CLI: 保護フィールドの変更で permissionDecision を stdout に出す', () => {
+  const res = runCli(editOn(STRATEGY, 'monthsGained: 5', 'monthsGained: 9'));
+  assert.equal(res.status, 0);
+  const parsed = JSON.parse(res.stdout);
+  assert.equal(parsed.hookSpecificOutput.permissionDecision, 'ask');
+  assert.match(parsed.hookSpecificOutput.permissionDecisionReason, /monthsGained/);
+});
+
+test('CLI: 変更が無ければ何も出さずに 0 で終わる', () => {
+  const res = runCli(editOn(STRATEGY, 'title: a', 'title: b'));
+  assert.equal(res.status, 0);
+  assert.equal(res.stdout.trim(), '');
+});
+
+test('CLI: 壊れた入力でも落ちない', () => {
+  assert.equal(runCli('{not json').status, 0);
+  assert.equal(runCli('').status, 0);
+});

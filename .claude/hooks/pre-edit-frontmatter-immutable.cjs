@@ -76,8 +76,14 @@ function diffMaps(beforeM, afterM) {
 }
 
 function evaluatePair(oldStr, newStr) {
-  const beforeFm = extractFrontmatter(oldStr);
-  const afterFm = extractFrontmatter(newStr);
+  // Edit chunks usually don't include the `---` delimiters; fall back to the
+  // whole chunk so single-line frontmatter edits ("monthsGained: 5") still get
+  // inspected. Without this the guard only fired when the edit happened to
+  // contain the fences, which real Edit calls almost never do — it was
+  // effectively dead. TARGET_PATH_RE keeps body-text false positives unlikely.
+  // (edu-watch has had this fallback since its own hook was written.)
+  const beforeFm = extractFrontmatter(oldStr) ?? (oldStr ?? '');
+  const afterFm = extractFrontmatter(newStr) ?? (newStr ?? '');
   if (!beforeFm && !afterFm) return [];
   return diffMaps(captureProtectedFields(beforeFm), captureProtectedFields(afterFm));
 }
