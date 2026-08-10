@@ -307,3 +307,65 @@ test('CLI: 壊れた入力でも落ちない', () => {
   assert.equal(runCli('{not json').status, 0);
   assert.equal(runCli('').status, 0);
 });
+
+// --------------------------------------------------------------- Write 対応
+//
+// Write は差分ではなくファイル全体が届くので、ディスク上の現物と突き合わせる。
+// これが無いと、Edit では捕捉される monthsGained / sourceUrl の改変が
+// 「全文書き換え」では一切検知されない(2026-08-10 の横断レビューで発覚)。
+
+const fs = require('node:fs');
+const os = require('node:os');
+
+let writeCounter = 0;
+/** TARGET_PATH_RE にマッチするパスで実ファイルを作る。 */
+function strategyFile(body) {
+  const dir = path.join(
+    fs.mkdtempSync(path.join(os.tmpdir(), `fm-write-${writeCounter++}-`)),
+    'src', 'content', 'strategies',
+  );
+  fs.mkdirSync(dir, { recursive: true });
+  const p = path.join(dir, 'x.md');
+  if (body !== undefined) fs.writeFileSync(p, body);
+  return p;
+}
+
+const BODY = '---\ntitle: a\nmonthsGained: 5\nsourceUrl: https://example.org/a\n---\n\n本文\n';
+const writeOn = (filePath, content) =>
+  run(JSON.stringify({ tool_name: 'Write', tool_input: { file_path: filePath, content } }));
+
+test('Write: 保護フィールドが変わったら確認を出す', () => {
+  const p = strategyFile(BODY);
+  const out = writeOn(p, BODY.replace('monthsGained: 5', 'monthsGained: 9'));
+  assert.ok(fired(out), 'Write による全文書き換えを検知できていない');
+  assert.match(out.stdout, /monthsGained/);
+});
+
+test('Write: sourceUrl の差し替えも検知する', () => {
+  const p = strategyFile(BODY);
+  const out = writeOn(p, BODY.replace('https://example.org/a', 'https://example.org/b'));
+  assert.ok(fired(out));
+});
+
+test('Write: 保護フィールドが同じなら素通りする', () => {
+  const p = strategyFile(BODY);
+  assert.equal(fired(writeOn(p, BODY.replace('本文', '本文を推敲した'))), false);
+});
+
+test('Write: 新規作成(ENOENT)は比較対象が無いので素通りする', () => {
+  const p = strategyFile(undefined); // ファイルを作らない
+  assert.equal(fired(writeOn(p, BODY)), false);
+});
+
+test('Write: 現物を読めないときは素通りさせず確認を出す(fail-safe)', () => {
+  const p = strategyFile(BODY);
+  fs.rmSync(p);
+  fs.mkdirSync(p); // 同じパスをディレクトリにして EISDIR を起こす
+  const out = writeOn(p, BODY);
+  assert.ok(fired(out), '読めないのに素通りしている');
+  assert.match(out.stdout, /unreadable/);
+});
+
+test('Write: 対象外のパスは見ない', () => {
+  assert.equal(fired(writeOn('/tmp/README.md', BODY)), false);
+});
