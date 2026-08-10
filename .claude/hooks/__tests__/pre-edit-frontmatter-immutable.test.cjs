@@ -278,6 +278,25 @@ test('対象外パスならフェンス無しでも素通りする', () => {
   assert.equal(fired(out), false);
 });
 
+// --- 探索コスト -----------------------------------------------------------
+//
+// settings.json の `timeout: 5`(秒)を超えるとプロセスが kill され、stdout が
+// 出ない = ガードが黙って素通りする。空白の多い入力で二次的に膨らむ書き方に
+// 戻っていないかを見る。
+//
+// **サイズと閾値は実測で決めた**(本機 Node 24、保護キー 12 本):
+//   32KB / 線形       1.6ms
+//   32KB / 全キー二次  20,376ms
+//   32KB / 1 キーだけ二次  1,696ms   ← 部分的な退行もこの閾値で捕まる
+// 16KB では 1 キーだけの退行が 423ms で閾値を割らない。逆に 256KB まで広げると
+// 検知力は変わらないまま、赤になるまでに 20 分かかる。
+test('空白の多い入力でも探索が線形にとどまる', () => {
+  const started = process.hrtime.bigint();
+  captureProtectedFields(' '.repeat(32 * 1024));
+  const ms = Number(process.hrtime.bigint() - started) / 1e6;
+  assert.ok(ms < 500, `32KB の空白に ${ms.toFixed(0)}ms かかった(二次挙動の疑い)`);
+});
+
 // --- CLI 配線 -----------------------------------------------------------
 // run() の戻り値だけを見ていると、それが exit code と stdout になる経路が
 // 死んでも気づけない。フックは本番では子プロセスとして起動される。
@@ -344,6 +363,25 @@ test('CLI: 判定が 64KB を超えても stdout が切れない', () => {
   assert.ok(
     Buffer.byteLength(res.stdout) > 65536,
     `フィクスチャがパイプバッファ(65536B)に届いていない(${Buffer.byteLength(res.stdout)}B)。url の本数を増やすこと`,
+  );
+});
+
+// stderr も同じ epilogue を通る。judgment そのものではないが、**この hook の
+// テストには stderr 側を通る CLI 検査が 1 本も無く**、`process.stderr.write` の行を
+// 消してもテストが 1 件も落ちなかった(2026-08-11 の変異試験で確認)。
+// 理由文が途中で切れると **何を確認すればよいか分からない ask** になるので固定する。
+test('CLI: 判定の理由は stderr にも出る', () => {
+  const res = runCli(editOn(STRATEGY, 'monthsGained: 5', 'monthsGained: 9'));
+  assert.match(res.stderr, /monthsGained/);
+  assert.match(res.stderr, /sourceUrl is primary research only\) before applying\.\n$/);
+});
+
+test('CLI: 64KB を超える判定は stderr 側も切れない', () => {
+  const res = runCli(editOn(STRATEGY, manyUrls('1111', 1200), manyUrls('2222', 1200)));
+  assert.match(res.stderr, /sourceUrl is primary research only\) before applying\.\n$/);
+  assert.ok(
+    Buffer.byteLength(res.stderr) > 65536,
+    `フィクスチャがパイプバッファ(65536B)に届いていない(${Buffer.byteLength(res.stderr)}B)。url の本数を増やすこと`,
   );
 });
 
