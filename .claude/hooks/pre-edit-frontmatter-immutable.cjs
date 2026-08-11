@@ -53,7 +53,23 @@ function captureProtectedFields(fm) {
   if (!fm) return new Map();
   const map = new Map();
   for (const key of PROTECTED_KEYS) {
-    const re = new RegExp(`^\\s*-?\\s*${key}:\\s*(.+?)\\s*$`, 'gm');
+    // 前置きを `[ \t]*(?:-[ \t]*)?` にしてある。以前の `\s*-?\s*` は
+    // **隣り合う 2 つの `*` が空白を分け合える**ため探索が O(N²) に落ちる。
+    // 実測(保護キー 12 本を走査、本機 Node 24):
+    //          4KB      16KB      32KB
+    //   旧    317ms   5,094ms  20,376ms
+    //   新    0.2ms     0.8ms    1.6ms
+    // `-` を伴う場合だけ 2 つ目の空白列を許すと分割の曖昧さが消えて線形になる。
+    // `\s` を `[ \t]` に置き換えるだけでは直らない(32KB で 19,392ms。分割の曖昧さが残る)。
+    // 抽出結果は実データで完全一致(strategies + columns 105 本 × 保護キー 12 本
+    // × frontmatter 窓 / 全文窓 = 2,520 比較で差分 0)。差が出るのは全角空白・NBSP・
+    // 垂直タブでインデントした行だけで、旧形はそれを `sourceUrl` として拾うが、
+    // YAML から見るとキー名自体が別物(`　sourceUrl`)なので拾わない方が正しい。
+    //
+    // 詰めておく理由: settings.json の `timeout: 5`(秒)を超えるとプロセスが
+    // kill され、stdout が出ない = ガードが黙って素通りする。旧形は 16KB の
+    // 空白で既にこれを超えていた。
+    const re = new RegExp(`^[ \\t]*(?:-[ \\t]*)?${key}:[ \\t]*(.+?)[ \\t]*$`, 'gm');
     const values = [...fm.matchAll(re)].map(m => m[1].replace(/^["']|["']$/g, ''));
     if (values.length) map.set(key, values);
   }
