@@ -13,7 +13,7 @@ EduEvidence JP への貢献に興味を持っていただきありがとうご�
 ### Pull Request を送る
 
 1. このリポジトリを Fork
-2. ブランチを作成 (`git checkout -b feat/my-change`)
+2. ブランチを作成 (`git switch -c feat/my-change --no-track origin/main`)
 3. 変更をコミット
 4. Push して Pull Request を作成
 
@@ -95,7 +95,7 @@ culturalContext: |
 `main` ブランチへの直接編集・直接コミットは禁止です。すべての変更はフィーチャーブランチを切ってから行い、PR 経由で `main` に取り込みます。
 
 ```bash
-git checkout -b <type>/<short-description>
+git switch -c <type>/<short-description> --no-track origin/main
 # 例: docs/jigsaw-update, fix/og-image-bug, chore/deps-bump
 ```
 
