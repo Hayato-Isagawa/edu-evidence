@@ -33,7 +33,33 @@ npm run check:consistency  # monthsGained 整合性チェック
 npm run check:evidence-strength # エビデンス強度(★)整合性チェック
 npm run check:stale        # lastVerified 期限切れチェック
 npm run check:all          # 上記チェックを一括実行(CI の Content Checks でも実行)
+npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:all に含む)
+npm run test:workflows     # link-check.yml の通知分岐の回帰テスト(下限つき・check:all に含む)
+npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・check:all に含む)
 ```
+
+`test:workflows` が見ているのは、`link-check.yml` に埋め込まれた「検出をどう届けるか」の判定。
+**壊れても静かに壊れる** — lychee は走り、レポートもアーティファクトに残り、job も緑のまま
+**通知だけ**が消える。姉妹リポ okinawa-in-data では、open な link-check Issue があると後続の
+検出を捨てており、2026-08-17 に見つかった 404 が 2 日間どこにも出なかった(okinawa-in-data
+#107 / #110。このリポも同じコードを共有していた)。テストはワークフローから `run:` ブロックを
+取り出して bash で走らせ、`gh` をスタブして渡された引数を全部記録する。**ワークフロー本体を取り出して走らせるので、
+ワークフロー側を変えるとテスト対象も変わる。** 上限バイト数とレポートのファイル名は
+ワークフローから読み取っていて、テストには写していない(写すとここだけ古くなる)。
+シェルからは見えない YAML の配線(通知ステップに `continue-on-error` が無いこと・`output:` と
+シェルが読むファイル名の一致など)も併せて固定している。
+
+置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
+(`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
+
+`test:workflows` / `test:hooks` は `assert-test-files.mjs` / `assert-test-results.mjs` を通している。
+`node --test` は「glob が 0 件」「中身が空」「全件 skip」のどれでも exit 0 で終わるので、
+守っているつもりのガードが no-op に落ちても気づけないため。`test:scripts` はこれを通して
+いないので、この穴が残っている。
+
+**下限の決め方は口ごとに違う。** `test:workflows` は実測ちょうど(余裕ゼロ)なので、
+**テストを足したら下限も上げること**。`test:hooks` の 40 は実数追随ではなく
+「1 ファイルを空にしても割る」境界値(`3d2afbe`)なので、実測 54 と離れていてよい。
 
 ## プロジェクト構造
 
