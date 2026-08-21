@@ -15,6 +15,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -68,3 +69,43 @@ gate("check-reader-literacy.ts", "reader-literacy", /jargon\.md/);
 gate("check-sentence-length.ts", "sentence-length", /critical:\s*1/);
 gate("check-tokens.ts", "tokens", /no-palette-literal/);
 gate("check-stale.ts", "stale", /stale-one\.md/);
+
+// --- ワークフロー側の口が CI から外れていないか ---
+//
+// **この 2 件をここに置くのは、自己参照では捕まらないから。**
+// `scripts/__tests__/workflows/` のテストは自分が CI に配線されているかを見ているが、
+// checks.yml からそのステップを消すと**そもそも実行されない**ので赤くならない。
+// このファイルは `test:scripts` 経由で checks.yml と check:all の両方に載っているので、
+// 向こうの口が外れたことをこちらから観測できる。
+
+const WORKFLOWS = path.resolve(REPO, ".github/workflows");
+const checksYml = () => fs.readFileSync(path.join(WORKFLOWS, "checks.yml"), "utf8");
+
+test("test:workflows の口が checks.yml に配線されている", () => {
+  const b = checksYml();
+  // ステップ名では探さない(改名だけで赤くなるため)。守りたいのは
+  // 「この run: が !cancelled() の下にある」こと。
+  assert.match(b, /^ {8}run: npm run test:workflows$/m, "checks.yml から外れている");
+  assert.match(
+    b,
+    /^ {8}if: \$\{\{ !cancelled\(\) \}\}\n {8}run: npm run test:workflows$/m,
+    "前段が落ちると走らない形になっている",
+  );
+});
+
+test("checks.yml は main 向けの PR で必ず起動する", () => {
+  // 不変条件「壊れたら PR の CI が赤くなる」は on: に依存しているのに、
+  // そこを見ているテストが無かった。paths フィルタが付くと、
+  // ワークフローだけを触った PR で検査が丸ごと skip されうる。
+  const b = checksYml();
+  assert.match(b, /^ {2}pull_request:\n {4}branches: \[main\]$/m, "PR トリガが変わっている");
+});
+
+test("check:all は CI が走らせる回帰テストを全部含む", () => {
+  // #453 が閉じた「手元の一括検査だけが緩い」状態を、口を足すたびに開け直さないため。
+  const pkg = JSON.parse(fs.readFileSync(path.join(REPO, "package.json"), "utf8"));
+  const all = pkg.scripts["check:all"];
+  for (const gate of ["test:scripts", "test:workflows", "test:hooks"]) {
+    assert.ok(all.includes(gate), `check:all に ${gate} が無い`);
+  }
+});

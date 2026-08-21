@@ -81,7 +81,10 @@ Git 運用を含む自動化は GitHub Actions 側で実装する。
 ### 4.1 リンク切れ週次検知 → 自動 Issue 化(実装済み)
 
 - 週次 cron で `.github/workflows/link-check.yml` が lychee を実行
-- 切れを検出したら `link-check` ラベル付き Issue を自動作成
+- 検出したら `link-check` ラベル付き Issue を自動作成。**open な Issue が既にあれば
+  そちらにコメント**する(捨てない)
+- **lychee が完走しなかった回も別タイトルで通知**する(何が切れたかは分からなくても、
+  分からないこと自体を届ける)
 - 関連: `npm run check:links:live`
 
 ### 4.2 `lastVerified` 期限切れ検知(実装済み)
