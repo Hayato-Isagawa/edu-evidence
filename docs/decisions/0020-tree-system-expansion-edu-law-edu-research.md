@@ -77,5 +77,5 @@
 ## References
 
 - `docs/BRAND.md`(同 PR で更新)
-- `~/.claude/projects/-Users-Hayato/memory/project_edu_law.md`(2026-05-06 構成確定)
-- `~/.claude/projects/-Users-Hayato/memory/project_edu_research.md`(2026-05-06 構成確定)
+- Claude Code のプロジェクトメモリ `project_edu_law.md`(2026-05-06 構成確定・非公開)
+- 同 `project_edu_research.md`(2026-05-06 構成確定・非公開)
