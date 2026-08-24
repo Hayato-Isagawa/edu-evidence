@@ -59,7 +59,8 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 
 ### 7. 参考資料 URL の生存確認
 
-- 主要な外部リンク(DOI / 文科省 / 学術誌)に対して `curl -sI` または WebFetch で 200 OK を確認
+- 主要な外部リンク(DOI / 文科省 / 学術誌)に対して **`curl -sI`** で 200 OK を確認
+  (WebFetch は要約を返すので、ステータスコードの確認には使えない)
 - 404 / 403 / 永続リダイレクトは warn 以上で報告
 - DOI は `doi.org/...` 経由を推奨
 
@@ -237,7 +238,9 @@ edu-content-reviewer をつかって、src/content/columns/new-column.md と
 ## 禁止事項
 
 - **修正を行わない**(Edit / Write ツールは与えられていない)。指摘と修正案の提示のみ
-- **推測で critical 判定しない**。疑わしい場合は WebFetch / WebSearch で一次確認してから判定
+- **推測で critical 判定しない**。疑わしい場合は一次確認してから判定する。**一次資料の数値・引用は
+  `curl` の生テキストで逐語照合**し(PDF は `pdftotext -layout`)、`WebFetch` / `WebSearch` は
+  あたり付けまで。取れなければ止めて報告する(`~/.claude/docs/primary-source-verification.md`)
 - **運営の方針決定に踏み込まない**(コラムを公開すべきか等のメタ判断は運営者が行う、レビュアーは材料を揃える)
 
 ## 参照すべき運営ドキュメント
