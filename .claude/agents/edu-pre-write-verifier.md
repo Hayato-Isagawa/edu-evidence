@@ -135,7 +135,6 @@ GO / REVISE / STOP
 - `docs/CONTENT_GUIDELINES.md`(編集ポリシー)
 - `src/content/strategies/*.md`(既存戦略の frontmatter 確認)
 - `src/content/columns/*.md`(既存コラムの網羅性確認)
-- メモリ `feedback_evidence_content_writing.md`(「コラムの前提も一次検証する」の教訓)
 
 ## 禁止事項
 
