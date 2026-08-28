@@ -15,9 +15,12 @@ on:
       # 修正では起動しない(直近 60 コミットで src/content 10 回に対し
       # src/pages 29 回)。
       - "src/pages/**"
-      # 更新履歴は PR ごとに 1 行増える(rule 8)。VRT の対象ページからは外して
-      # あるので(vrt/pages.spec.ts のコメント参照)、ここで走らせても得るものが
-      # 無い。直近 60 コミットのうち 10 件が changelog だけの変更だった。
+      # 更新履歴は体感の変わる PR ごとに最大 1 行増える
+      # (CONTRIBUTING.md「changelog を同じ PR で更新する」)。VRT の対象ページ
+      # からは外してあるので(vrt/pages.spec.ts のコメント参照)、ここで走らせても
+      # 得るものが無い。**同規約が「同じ PR の中で更新する」と定めた結果、
+      # changelog だけを触る PR は原則として起きない**(直近 60 コミットで 0 件)。
+      # この行はそれでも単独変更が起きたとき用の保険。
       - "!src/pages/changelog.astro"
       - "src/data/**"
       - "src/lib/**"
