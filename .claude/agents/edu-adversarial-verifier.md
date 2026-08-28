@@ -1,7 +1,7 @@
 ---
 name: edu-adversarial-verifier
 description: edu-evidence の「数値・効果量・一次出典への帰属」を含むコンテンツ(戦略ページ・数値/出典を伴うコラム)を公開する前に、`edu-content-reviewer` の **後段で独立に** 主張を一次資料から再検証する反証ゲート。content-reviewer の判定や運営者の結論を入力に含めず、コンテンツ本文と frontmatter と原典のみから数値・帰属をゼロから引き直し、反証(null/negative 結果・効果量の揺れ)を能動的に探す。2 段階レビュー(ADR 0003)を 3 段階目で補強する独立パス(ADR 0025)。**MUST BE USED before opening a content PR that includes effect sizes, statistics, or citations to primary research**.
-model: claude-opus-4-8
+model: opus
 effort: max
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 ---
