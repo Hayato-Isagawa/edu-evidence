@@ -6,7 +6,7 @@
  * src/content/strategies/*.md and src/content/columns/*.md.
  *
  * Protected fields (any value change → permissionDecision="ask"):
- *   - sourceUrl              (Rule 14: primary research only)
+ *   - sourceUrl              (CONTENT_GUIDELINES Rule 1.2b: primary research only)
  *   - monthsGained           (effect-size months)
  *   - evidenceStrength
  *   - cost
@@ -159,7 +159,7 @@ function buildReason(diffs, filePath) {
   lines.push('');
   lines.push('Frontmatter values back claims that readers act on (effect sizes,');
   lines.push('strengths, primary research URLs). Confirm a primary research source');
-  lines.push('(Rule 14: sourceUrl is primary research only) before applying.');
+  lines.push('(CONTENT_GUIDELINES Rule 1.2b: sourceUrl is primary research only) before applying.');
   return lines.join('\n');
 }
 

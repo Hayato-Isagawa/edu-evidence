@@ -139,7 +139,7 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
 
 毎年 4 月(年度初め)に全 22 件レビュー。学習指導要領改訂や全国学力調査結果の公表があった場合は中間で実施。
 
-### sourceUrl 制約(memory rule 14、CONTENT_GUIDELINES Rule 1.2b)
+### sourceUrl 制約(CONTENT_GUIDELINES Rule 1.2b)
 
 - 一次研究ドメインのみ: `nier.go.jp` / `mext.go.jp` / `*.ac.jp` / `doi.org` / `j-stage.go.jp`
 - NG: 教育新聞・朝日新聞・読売新聞・書籍紹介ページ・SNS
