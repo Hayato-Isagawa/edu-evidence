@@ -98,7 +98,7 @@
   reason: 専門用語、本サイト読者層では平易語が自然
 - term: 当方
   suggest: (削除)
-  reason: 自己言及表現、Rule 4 に抵触
+  reason: 自己言及表現、Rule 1.13 に抵触
 - term: 当サイト
   suggest: (削除 / 主語省略)
-  reason: 自己言及表現、Rule 4 に抵触
+  reason: 自己言及表現、Rule 1.13 に抵触
