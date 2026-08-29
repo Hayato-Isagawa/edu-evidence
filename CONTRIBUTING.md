@@ -154,7 +154,7 @@ Claude Code のサブエージェントを **作業フローの各段階に組�
 | 数値・帰属を含むコンテンツの **PR 作成前(content-reviewer の後)** | `edu-adversarial-verifier` | `.claude/agents/` | 「`src/content/strategies/xxx.md` の数値と出典帰属を独立検証して」 |
 
 - `edu-pre-write-verifier` は **執筆前** のゲート。「〜が拡散している」等の前提事実を WebSearch で一次検証し、GO / REVISE / STOP を判定。PR #102 の反省を直接反映
-- `edu-content-reviewer` は **執筆後・PR 前** に Rule 1.1 / 1.2a / 1.6 / 1.8 / 4、参考資料 URL の生存、相互リンクの実在、数値密度を機械チェック
+- `edu-content-reviewer` は **執筆後・PR 前** に Rule 1.1 / 1.2a / 1.6 / 1.8 / 1.13、参考資料 URL の生存、相互リンクの実在、数値密度を機械チェック
 - `edu-adversarial-verifier` は **数値・帰属を含むコンテンツの PR 前** に、content-reviewer の後段で **独立に** 数値・効果量・出典帰属を一次資料から再検証(反証)する 3 段階目のゲート(ADR 0025)。対象外のコンテンツは SKIP
 - いずれも `Edit` / `Write` を持たない **読み専用レビュアー**。運営者の判断で修正する設計
 
@@ -180,7 +180,7 @@ Claude Code のサブエージェントを **作業フローの各段階に組�
 
 ### 姉妹サイト(edu-watch)との扱い
 
-`edu-content-reviewer` / `edu-pre-write-verifier` は edu-evidence のルール(Rule 1.1〜1.8、Rule 4、`CONTENT_GUIDELINES`)に特化。edu-watch には週次ダイジェスト運用が始まる Sprint 4 頃に、同じ思想の `edu-watch-digest-editor` を別途配置する想定。現時点では edu-watch へのコピーは行わない。
+`edu-content-reviewer` / `edu-pre-write-verifier` は edu-evidence のルール(Rule 1.1〜1.8、Rule 1.13、`CONTENT_GUIDELINES`)に特化。edu-watch には週次ダイジェスト運用が始まる Sprint 4 頃に、同じ思想の `edu-watch-digest-editor` を別途配置する想定。現時点では edu-watch へのコピーは行わない。
 
 ## 行動規範
 

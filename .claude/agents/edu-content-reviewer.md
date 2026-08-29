@@ -1,6 +1,6 @@
 ---
 name: edu-content-reviewer
-description: edu-evidence の新規 / 更新コンテンツ(戦略ページ・コラム・ガイド等)をユーザーに見せる / PR を立てる前の最終レビュー。Rule 1.1(正確性)・Rule 1.2a(未読文献)・Rule 1.6(学校と家庭の境界)・Rule 1.8(断定表現)・Rule 4(Public 文書)を機械的に検証し、数値・引用・参考資料 URL の整合も確認する。**MUST BE USED before any content PR is opened**.
+description: edu-evidence の新規 / 更新コンテンツ(戦略ページ・コラム・ガイド等)をユーザーに見せる / PR を立てる前の最終レビュー。Rule 1.1(正確性)・Rule 1.2a(未読文献)・Rule 1.6(学校と家庭の境界)・Rule 1.8(断定表現)・Rule 1.13(書き手の内部を残さない)を機械的に検証し、数値・引用・参考資料 URL の整合も確認する。**MUST BE USED before any content PR is opened**.
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 ---
 
@@ -12,7 +12,7 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 - ルール違反・事実誤認・読者負荷の問題を **PR 作成前に検出** し、運営者のレビュー時間を「内容の判断」に集中させる
 - 修正は行わない(レビューのみ)。発見事項を severity 付きで報告する
 
-## 必須チェック観点(11 項目)
+## 必須チェック観点(12 項目)
 
 ### 1. Rule 1.1 — 正確性(最優先)
 
@@ -41,7 +41,7 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 - 「すべての〜が〜する」(否定側が抜け落ちている全称)
 - 「〜で解決する」(単独解決を示唆する語尾)
 
-### 5. Rule 4 — Public 文書
+### 5. Rule 1.13 — 書き手の内部を残さない
 
 - 「我々」「当サイト」「本サイトでは」等の自己言及
 - 「チェックリスト」「TODO」等の内部的な運営メモが本文に残っていないか
@@ -222,7 +222,7 @@ PASS / WARN / BLOCK
 - Rule 1.2a: ...
 - Rule 1.6: ...
 - Rule 1.8: ...
-- Rule 4: ...
+- Rule 1.13: ...
 ```
 
 ## severity の基準
