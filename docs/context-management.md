@@ -110,7 +110,7 @@ active.md がセッション履歴で肥大化すると、セッション開始�
 
 #### アーカイブ手順
 
-1. 切り出し位置を `grep -n '^\*\*直近の状態' .claude/state/active.md` で確認(このリポの書式は見出しでなく `**直近の状態(...)**` の強調行。`^## 直近の状態` では 1 件も一致しない)
+1. 切り出し位置を `grep -n '^\*\*直近の状態' .claude/state/active.md` で確認(active.md の書式は見出しでなく `**直近の状態(...)**` の強調行。`^## 直近の状態` では 1 件も一致しない)
 2. 残すブロックの境界となる「次に古いセッション開始行」を `TRIM_LINE` とする(その行の **前** までを残す)
 3. `mkdir -p .claude/state/archive` で archive ディレクトリ準備
 4. archive 作成: `{ printf 'header...'; sed -n "${TRIM_LINE},$p" active.md; } > archive/<NAME>.md`
