@@ -63,7 +63,7 @@ Claude Code とのセッションは context window の上限に達すると圧�
 
 ### 採択された規約 / 仕組み(本セッション内で確定)
 
-- **memory rule N**: 規約名と要点
+- **<規約名>**: 要点(番号ではなく規約の内容を書く)
 - **CONTENT_GUIDELINES Rule X.Y / ADR NNNN**: docs / ADR 化したもの
 
 ### サイト稼働状況
@@ -81,7 +81,7 @@ Claude Code とのセッションは context window の上限に達すると圧�
 - **本タスクで作成 / 変更**: PR 単位で記述。複数プロジェクトを並走したセッションでは `#### Project 1` のように 4 段見出しで分割可。
 - **検証**: 静的検証(textlint / consistency / build / test:e2e)+ 動的観測(本番 Lighthouse / cron 実行ログ等)を一覧。
 - **実装ノート(逸脱・判断・トレードオフ・未解決)**: Plan Mode で合意した仕様と実装中の判断の乖離を埋めるサブ節。Design decisions / Deviations / Tradeoffs / Open questions の 4 カテゴリを意識する。ADR ほど重くない判断を主対象とし、ADR で残すべき重大決定はそちらに昇格させる。逸脱なしの場合も「逸脱なし」と明示(空欄禁止)。由来は Anthropic Claude Code engineer Thariq Shihipar(@TRQ212)の 2026-05-18 X 投稿。
-- **採択された規約 / 仕組み**: memory rule、ADR、docs ガイドラインなど、後続セッションが参照する規約を明示する欄。なければ省略可。
+- **採択された規約 / 仕組み**: ADR・docs ガイドラインなど、後続セッションが参照する規約を明示する欄。なければ省略可。
 - **サイト稼働状況**: ページ数・コラム数・カバレッジ指標などスナップショット。本欄は edu-evidence でコンテンツ規模を可視化する目的、edu-watch では cron 稼働 / 記事収集状況に置き換える。
 - **Next Action**: 次セッションの起点。短期(優先順)/ 中長期 / 横断課題で分けてもよい。
 
@@ -110,7 +110,7 @@ active.md がセッション履歴で肥大化すると、セッション開始�
 
 #### アーカイブ手順
 
-1. 切り出し位置を `grep -n '^\*\*直近の状態' .claude/state/active.md` で確認(rule 15 の書式は見出しでなく `**直近の状態(...)**` の強調行。`^## 直近の状態` では 1 件も一致しない)
+1. 切り出し位置を `grep -n '^\*\*直近の状態' .claude/state/active.md` で確認(active.md の書式は見出しでなく `**直近の状態(...)**` の強調行。`^## 直近の状態` では 1 件も一致しない)
 2. 残すブロックの境界となる「次に古いセッション開始行」を `TRIM_LINE` とする(その行の **前** までを残す)
 3. `mkdir -p .claude/state/archive` で archive ディレクトリ準備
 4. archive 作成: `{ printf 'header...'; sed -n "${TRIM_LINE},$p" active.md; } > archive/<NAME>.md`
