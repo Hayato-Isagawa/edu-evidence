@@ -13,7 +13,7 @@ test.describe("用語ツールチップ", () => {
     const tip = page.locator(".glossary-tip").first();
     await tip.hover();
     await page.waitForTimeout(200);
-    const bubble = page.locator(".glossary-bubble.is-visible");
+    const bubble = page.locator('.glossary-bubble[data-state="visible"]');
     await expect(bubble).toBeVisible();
   });
 
@@ -23,7 +23,7 @@ test.describe("用語ツールチップ", () => {
     const expectedText = await tip.getAttribute("data-tip");
     await tip.hover();
     await page.waitForTimeout(200);
-    const bubble = page.locator(".glossary-bubble.is-visible");
+    const bubble = page.locator('.glossary-bubble[data-state="visible"]');
     await expect(bubble).toContainText(expectedText!);
   });
 });

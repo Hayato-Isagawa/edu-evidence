@@ -446,6 +446,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         var bubble = document.createElement("div");
         bubble.className = "glossary-bubble";
         bubble.setAttribute("aria-hidden", "true");
+        bubble.dataset.state = "hidden";
         document.body.appendChild(bubble);
         var hideTimer;
 
@@ -456,7 +457,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           bubble.textContent = tip;
           bubble.setAttribute("role", "tooltip");
           bubble.setAttribute("aria-hidden", "false");
-          bubble.classList.add("is-visible");
+          bubble.dataset.state = "visible";
           var rect = el.getBoundingClientRect();
           var bw = bubble.offsetWidth;
           var left = rect.left + rect.width / 2 - bw / 2;
@@ -469,7 +470,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
 
         function hide() {
           hideTimer = setTimeout(function () {
-            bubble.classList.remove("is-visible");
+            bubble.dataset.state = "hidden";
             bubble.removeAttribute("role");
             bubble.setAttribute("aria-hidden", "true");
           }, 100);
@@ -487,7 +488,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         document.addEventListener("click", function (e) {
           var el = e.target.closest(".glossary-tip");
           if (!el) return;
-          if (bubble.classList.contains("is-visible") && bubble.textContent === el.getAttribute("data-tip")) {
+          if (bubble.dataset.state === "visible" && bubble.textContent === el.getAttribute("data-tip")) {
             return; // 2回目のタップ: リンク先へ遷移を許可
           }
           e.preventDefault();
