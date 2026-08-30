@@ -71,7 +71,7 @@
 |---|---|
 | WebSearch 3/3 が同じ数値で一致 | 値更新可、`evidence.eef` 全フィールド追随 |
 | 2/3 一致 + 二次情報源 1 件以上で同値裏付け | 値更新可 |
-| それ未満 | **据え置き**、`lastVerified` のみ rolling(memory rule 2 厳格適用) |
+| それ未満 | **据え置き**、`lastVerified` のみ rolling(根拠の無い数値を書かない — `CONTENT_GUIDELINES.md` Rule 1.1 の厳格適用) |
 
 ### 出力
 
@@ -159,8 +159,8 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
    - `lastVerified` のみ rolling
 4. ローカル検証: `npm run check:all` を通す(`check:text` / `check:consistency` / `check:stale` / `check:links:source` / `astro check`)
 5. 別途 `npm run check:source-sync` で次回チェック対象を確認(本 PR の対象から外れているか)
-6. PR 作成(タイトル英語、本文日本語、memory rule 18)
-7. **マージしない**(memory rule 13、ユーザーレビュー待ち)
+6. PR 作成(タイトル英語、本文日本語 — `CONTRIBUTING.md`「コミットメッセージ / PR タイトル規約」)
+7. **マージしない**(マージは編集者が行う。ユーザーレビュー待ち)
 
 ### PR 本文に含める要素
 
