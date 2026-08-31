@@ -52,19 +52,22 @@ npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・ch
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
 (`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
 
-`test:workflows` / `test:hooks` は `assert-test-files.mjs` / `assert-test-results.mjs` を通している。
+`test:scripts` / `test:workflows` / `test:hooks` は `assert-test-files.mjs` / `assert-test-results.mjs` を通している。
 `node --test` は「glob が 0 件」「中身が空」「全件 skip」のどれでも exit 0 で終わるので、
-守っているつもりのガードが no-op に落ちても気づけないため。`test:scripts` はこれを通して
-いないので、この穴が残っている。
+守っているつもりのガードが no-op に落ちても気づけないため。
 
-**下限の決め方は口ごとに違う。** `test:workflows` は実測ちょうど(余裕ゼロ)なので、
-**テストを足したら下限も上げること**。`test:hooks` の 40 は実数追随ではなく
+**下限の決め方は口ごとに違う。** `test:workflows` の 47 と `test:scripts` の 21 は実測ちょうど
+(余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 40 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`3d2afbe`)なので、実測 54 と離れていてよい。
+
+`test:scripts` を余裕ゼロにしているのは、`check-consistency.ts` の検査が層ごとに 4 本の
+`gate()` に分かれており、1 行消すとその層が丸ごと無防備になるため。`gate()` は 1 本で
+2 テストなので、消えれば 21 を割る。
 
 ## プロジェクト構造
 
 - `src/content/strategies/*.md` — 74の指導法(frontmatter + markdown body)
-- `src/content/columns/*.md` — コラム30本
+- `src/content/columns/*.md` — コラム31本
 - `src/pages/` — Astroページ(ルーティング)
 - `src/components/StrategyRow.astro` — 戦略カードコンポーネント
 - `src/layouts/Layout.astro` — 共通レイアウト(ヘッダー・フッター・ツールチップJS)

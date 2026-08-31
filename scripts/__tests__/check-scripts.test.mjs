@@ -37,23 +37,50 @@ function run(script, fixture) {
   return { status: r.status, output: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 
+/** fixture ディレクトリ配下のファイル数。空の入力で緑になるのを防ぐ。 */
+function fixtureFileCount(dir) {
+  return fs
+    .readdirSync(path.join(HERE, "fixtures", dir), {
+      recursive: true,
+      withFileTypes: true,
+    })
+    .filter((e) => e.isFile()).length;
+}
+
 /**
  * @param script   scripts/ 配下のファイル名
  * @param fixture  fixtures/ 配下のディレクトリ名
- * @param expect   violating 側の出力に現れるべき文字列
+ * @param expect   violating 側の出力に現れるべき文字列。配列なら全部が現れること
  */
 function gate(script, fixture, expect) {
-  test(`${script} は違反を検出して落ちる`, () => {
+  const expected = Array.isArray(expect) ? expect : [expect];
+
+  test(`${script} は ${fixture} の違反を検出して落ちる`, () => {
+    // 入力が空でも「違反なし」で緑になるので、まず中身があることを確かめる。
+    assert.ok(
+      fixtureFileCount(`${fixture}/violating`) > 0,
+      `${fixture}/violating が空。検査対象 0 件でも exit 0 になる`,
+    );
     const r = run(script, `${fixture}/violating`);
     assert.notEqual(
       r.status,
       0,
       `違反入力を通してしまった。ゲートが素通りしている:\n${r.output}`,
     );
-    assert.match(r.output, expect, "違反箇所を出力していない");
+    // 全部を突き合わせる。1 つでも「非 0 で落ちたこと」に寄りかかると、
+    // 同じ fixture 内の別の検査が落ちているだけで緑になる。
+    // 行番号まで見るのは、ファイル名だけだと「錨が当たらなかった戦略」の
+    // 一覧に出た名前を不一致の報告と取り違えるため。
+    for (const e of expected) {
+      assert.match(r.output, e, `違反箇所を出力していない: ${e}`);
+    }
   });
 
-  test(`${script} は正常な入力を通す`, () => {
+  test(`${script} は ${fixture} の正常な入力を通す`, () => {
+    assert.ok(
+      fixtureFileCount(`${fixture}/clean`) > 0,
+      `${fixture}/clean が空。誤検出していなくても意味が無い`,
+    );
     const r = run(script, `${fixture}/clean`);
     assert.equal(
       r.status,
@@ -63,7 +90,22 @@ function gate(script, fixture, expect) {
   });
 }
 
-gate("check-consistency.ts", "consistency", /mismatch\.md/);
+// check-consistency.ts は検査の層ごとに fixture を分ける。1 つの fixture に
+// 全部を入れると、層を 1 つ壊しても別の層が非 0 で落ち続けるので殺せない。
+gate("check-consistency.ts", "consistency", /mismatch\.md:\d+/);
+gate("check-consistency.ts", "consistency-anchor", [
+  /anchor-spaced\.md:\d+/,
+  /anchor-negative\.md:\d+/,
+  /anchor-plain\.md:\d+/,
+]);
+gate("check-consistency.ts", "consistency-column", [
+  /name-ref-mismatch\.md:\d+/,
+  /link-ref-mismatch\.md:\d+/,
+]);
+gate("check-consistency.ts", "consistency-glossary", [
+  /glossary\.ts:\d+/,
+  /glossary\.astro:\d+/,
+]);
 gate("check-evidence-strength.ts", "evidence-strength", /star-mismatch\.md/);
 gate("check-reader-literacy.ts", "reader-literacy", /jargon\.md/);
 gate("check-sentence-length.ts", "sentence-length", /critical:\s*1/);
