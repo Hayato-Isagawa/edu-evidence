@@ -15,15 +15,15 @@ evidence:
     monthsGained: 7
     strength: 3
     note: "EEF Toolkit で +7ヶ月(184 研究・2025年10月更新)。確実性評価は 5 段階中 3(moderate)。独立評価でない研究の割合が高いことと、結果のばらつきが大きく説明しきれていないことで、2 段階下がっている。言語理解と意味構築を明示的に教える手法。『予測・質問・要約・関連付け』などの戦略を段階的に指導することが効果的。"
-lastVerified: "2026-07-27"
+lastVerified: "2026-08-31"
 methodology:
   studies: 184
   sampleSize: "小中学生を中心とした複数メタ分析"
   effectSize: "+7ヶ月(EEF Toolkit)"
   primaryMetaAnalysis:
-    authors: "EEF(Reading Comprehension Strategies Evidence Review)"
-    year: 2021
-    title: "Reading comprehension strategies: Evidence Review"
+    authors: "Education Endowment Foundation"
+    year: 2025
+    title: "Teaching and Learning Toolkit — Reading comprehension strategies(2025年10月更新・184研究)"
     url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reading-comprehension-strategies"
   limitations: "戦略を『明示的に教える』ことが鍵で、単に文章を読ませても効果は出ない。小学校低学年より中学年以降で効果が大きい傾向。対象言語・テキストタイプにより効果量に幅がある。EEF は確実性評価を 2 段階下げており、理由は独立評価でない研究の割合が高いことと、研究間の結果のばらつきが大きく、文脈・方法・手法の違いでは説明しきれていないこと。"
 culturalContext: |
@@ -58,14 +58,13 @@ culturalContext: |
 ## 注意したいこと
 
 - 戦略を一度紹介して終わり、では身につきません。繰り返し使う場面が必要です。
-- 戦略の数を増やしすぎると逆に混乱します。3〜4つに絞って深く使うのが効果的です。
 - 国語の時間だけでなく、社会・理科の文章にも転用できることを示すと、子どもの中で統合されます。
 
 ## 主な参考研究
 
 - National Reading Panel (2000). [*Teaching children to read*](https://www.nichd.nih.gov/publications/pubs/nrp/smallbook). National Institute of Child Health and Human Development. — 読解戦略指導の有効性を大規模に検証した米国の報告書。予測・要約・質問生成・構造の把握などの戦略が効果的であることを示した。
 - Shanahan, T., et al. (2010). Improving reading comprehension in kindergarten through 3rd grade. IES Practice Guide. — 読解力向上のための実践ガイド。語彙指導と読解戦略の明示的指導を推奨。
-- EEF (2021). Reading comprehension strategies: Evidence review. — 読解戦略指導の効果量+6ヶ月を算出。戦略の数は3〜4に絞ることを推奨。
+- [Reading comprehension strategies](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reading-comprehension-strategies). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(141研究)では効果量 +6ヶ月だったが、2025年10月の更新(184研究)で +7ヶ月に引き上げられた。
 
 ## 関連する学習指導要領
 
