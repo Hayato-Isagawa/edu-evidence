@@ -14,14 +14,14 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Reducing class size"
 evidence:
   eef:
     monthsGained: 1
-    strength: 3
-    note: "全体平均 +1ヶ月(算数 +2、読解 +1)。20人以下、特に15人以下まで減らさないと明確な効果は出にくい。教師が指導方法を変えられる場合に効果がある。"
+    strength: 1
+    note: "全体平均 +1ヶ月(算数 +2、読解 +1)。確実性評価は 5 段階中 1(very limited)で、ランダム化比較試験でない研究の割合が高いこと、独立評価でない研究の割合が高いこと、結果のばらつきが説明しきれていないことの 3 つで下がっている。20人以下、特に15人以下まで減らさないと明確な効果は出にくい。教師が指導方法を変えられる場合に効果がある。"
   japan:
     monthsGained: 2
     strength: 3
     note: "小学6年生の国語で正の効果を確認。ただし効果は裕福な地域の学校で大きく、学力格差の縮小にはつながらないことが示された。"
     researcher: "赤林英夫・中村亮介(2014, 慶應義塾大学)"
-lastVerified: "2026-06-11"
+lastVerified: "2026-08-31"
 methodology:
   studies: 127
   sampleSize: "組み入れ 127 研究(148 報告・41 か国、幼稚園〜第 12 学年)。うちメタ分析に使えたのは 10 研究で、大半は米テネシー州 STAR 実験(1980 年代・K-3)に由来"
@@ -58,7 +58,7 @@ culturalContext: |
 
 - 平均的に、学習は約1ヶ月分前進します(EEF Toolkit +1)。算数に限ると+2ヶ月。
 - 効果は、学級が大幅に縮小された場合(20人以下など)に明確に現れます。少しの縮小では効果が見えにくいです。
-- 低学年での効果がやや大きい傾向があります。
+- 低学年での効果は、現行の EEF では「英国の Reception(4〜5歳)・Key Stage 1 のうち、事前の学力が低く家庭が経済的に不利な子どもに効果が見えうる」という限定的な示唆にとどまります。年齢一般の記述は 2021 年時点の EEF にはありましたが、2025年10月の更新で削除されました。
 
 ## 注意したいこと
 
@@ -70,7 +70,7 @@ culturalContext: |
 
 - Finn, J. D., & Achilles, C. M. (1990). [Answers and questions about class size](https://doi.org/10.3102/00028312027003557). *American Educational Research Journal*, 27(3), 557–577. — 米国テネシー州STARプロジェクト(6,500人のRCT)。少人数学級(13〜17人)で学力が有意に向上。
 - Schanzenbach, D. W. (2014). [*Does class size matter?*](https://nepc.colorado.edu/publication/does-class-size-matter) National Education Policy Center. — STARプロジェクトの追跡データを分析。少人数学級の効果は長期的にも持続するが、コスト効率は他の介入に劣る。
-- EEF (2021). Reducing class size: Evidence review. — 効果量+2ヶ月。コスト(¥¥¥¥¥)対効果の観点では他の介入を優先すべきとの評価。
+- [Reducing class size](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(41研究)では効果量 +2ヶ月だったが、2025年10月の更新(63研究)で +1ヶ月に引き下げられ、教科別の向きも読解優位から算数優位に入れ替わった。コスト(¥¥¥¥¥)対効果の観点では他の介入を優先すべきとの評価。
 
 ## 関連する政策動向
 
