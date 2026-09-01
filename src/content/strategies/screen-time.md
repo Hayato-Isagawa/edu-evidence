@@ -24,7 +24,7 @@ methodology:
   studies: 58
   sampleSize: "系統的レビュー 58 横断研究・480,479 人(4〜18 歳)、うちメタ分析は 30 研究・106,653 人"
   effectSize: "総スクリーン時間は学業成績と非関連(ES = −0.29、95% CI −0.65〜0.08)。用途別ではテレビ視聴が総合 −0.19・言語 −0.18・数学 −0.25、ゲームが総合 −0.15 の負の関連。子どもより青年期で関連が強い"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Adelantado-Renau, Moliner-Urdiales, Cavero-Redondo, Beltran-Valls, Martínez-Vizcaíno & Álvarez-Bueno"
     year: 2019
     title: "Association Between Screen Media Use and Academic Performance Among Children and Adolescents: A Systematic Review and Meta-analysis"

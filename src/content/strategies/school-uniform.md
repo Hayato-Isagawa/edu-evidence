@@ -20,7 +20,7 @@ lastVerified: "2026-06-17"
 methodology:
   sampleSize: "EEF Teaching and Learning Toolkit が採択した7研究＋代表的実証研究 Gentile & Imberman (2012)(米南西部の大規模都市学区の生徒レベルのパネルデータ。学校が独立に制服を導入したかどうかの差を使い、学校・生徒の固定効果と学校別の線形時間トレンドを統制)"
   effectSize: "制服の採否は学校の自己選択(低学力・規律課題を抱える学校ほど導入しやすい等)や同時に行われる改善策と交絡しており、学力への因果効果の頑健な推定は困難。EEF は学力への効果のエビデンスを『極めて限定的(extremely limited)』と評価し、平均効果量(月数)を提示していない"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Gentile & Imberman"
     year: 2012
     title: "Dressed for success? The effect of school uniforms on student achievement and behavior"

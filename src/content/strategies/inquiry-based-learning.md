@@ -24,7 +24,7 @@ methodology:
   studies: 72
   sampleSize: "探究学習中のガイダンス(足場かけ)の効果を検証した 72 研究のメタ分析(年齢層・ガイダンス種別を比較)"
   effectSize: "ガイダンスの効果は学習活動 d = 0.66(95% CI 0.44〜0.88)、課題遂行 d = 0.71(0.52〜0.90)、学習成果 d = 0.50(0.37〜0.62)。ガイダンスの種類が効果を左右したのは課題遂行のみ"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Lazonder & Harmsen"
     year: 2016
     title: "Meta-Analysis of Inquiry-Based Learning: Effects of Guidance"

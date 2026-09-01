@@ -20,7 +20,7 @@ methodology:
   studies: 188
   sampleSize: "幼児〜中等教育(EEF Toolkit 188 研究・2025年5月更新)"
   effectSize: "+6ヶ月"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "EEF(Teaching and Learning Toolkit)"
     year: 2025
     title: "Oral language interventions — Technical Appendix"

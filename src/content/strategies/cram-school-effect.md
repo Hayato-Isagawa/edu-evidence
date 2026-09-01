@@ -21,7 +21,7 @@ lastVerified: "2026-06-17"
 methodology:
   sampleSize: "学習塾の効果は無作為化比較試験(RCT)ではなく、大規模調査データの観察研究で推定されてきた。Stevenson & Baker(1992)は日本の全国調査データで通塾と大学進学の関連を分析し『影の教育(shadow education)』概念を確立した社会学の基礎研究で、近年は PISA 等の国際大規模データや傾向スコアマッチング(PSM)で選択バイアスの統制が試みられている"
   effectSize: "通塾には研究間で一致した標準化効果量(Cohen's d 等)が存在しない。塾に通う子はもともと学力・学習意欲・家庭の教育関心が高い傾向(選択バイアス)があり、単純な『塾あり vs なし』比較は効果を過大評価する。逆に学力が低い子が補習目的で通うケースもあり、選択を統制しない観察データでは通塾と成績の関連が負に出ることさえある(PISA 2022 を用いた国際分析)。傾向スコアマッチング等で統制すると、効果は『正だが小さい』から『有意でない』まで研究により分かれる"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Stevenson & Baker"
     year: 1992
     title: "Shadow education and allocation in formal schooling: Transition to university in Japan"

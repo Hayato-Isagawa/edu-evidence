@@ -21,7 +21,7 @@ methodology:
   studies: 22
   sampleSize: "207 効果量 / 22 研究(1990〜2007、主に米国)"
   effectSize: "研究設計の質に依存。低質な研究は大きな負の効果、高質な研究では効果はゼロ近くまで小さくなる"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Allen, Chen, Willson & Hughes"
     year: 2009
     title: "Quality of Research Design Moderates Effects of Grade Retention on Achievement: A Meta-Analytic, Multilevel Analysis"

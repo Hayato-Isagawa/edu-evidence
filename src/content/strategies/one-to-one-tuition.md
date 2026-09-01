@@ -21,7 +21,7 @@ methodology:
   studies: 96
   sampleSize: "幼児〜高校生(preK-12)"
   effectSize: "d=0.37(Nickow et al. 2020)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Nickow, Oreopoulos & Quan"
     year: 2020
     title: "The Impressive Effects of Tutoring on PreK-12 Learning: A Systematic Review and Meta-Analysis"

@@ -20,7 +20,7 @@ methodology:
   studies: 26
   sampleSize: "メタ分析 26 介入研究・児童 10,205 人(4〜13 歳)。ランダム効果モデルでプール"
   effectSize: "身体活動介入のプール効果量(95%CI)は数学関連スキル 0.21〔0.09, 0.33〕・読解 0.13〔0.02, 0.24〕・総合スコア 0.26〔0.07, 0.45〕でいずれも有意。言語関連スキルは 0.16〔−0.06, 0.37〕で有意でなく、授業中の課題従事(on-task)時間は 0.77〔0.22, 1.32〕と最も大きい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Álvarez-Bueno, Pesce, Cavero-Redondo, Sánchez-López, Garrido-Miguel & Martínez-Vizcaíno"
     year: 2017
     title: "Academic Achievement and Physical Activity: A Meta-analysis"

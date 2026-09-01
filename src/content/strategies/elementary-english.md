@@ -23,7 +23,7 @@ lastVerified: "2026-06-18"
 methodology:
   sampleSize: "日本の小学校英語(外国語活動)を学力・到達度の統合効果量で測ったメタ分析や大規模 RCT は存在しない。根拠は海外の早期 EFL 研究と日本の個別実証からの類推に依拠する。代表的な実証は Larson-Hall(2008)で、日本の EFL 学習者を対象に最小インプット下での早期開始の便益を検討した。ほかにスイスの縦断研究 Pfenninger & Singleton(2017)、スペインの BAF プロジェクト Muñoz(2006)がある。"
   effectSize: "小学校英語に固有の標準化効果量(Cohen's d 等)は確立していない。週数時間の教室学習という条件では、年齢が低いほど有利とする臨界期仮説の支持は限定的である。Pfenninger & Singleton(2017)は遅い開始の学習者が後に追いつくと報告し、Larson-Hall(2008)は日本の最小インプット環境で早期開始の便益が小さいと報告している。効果は発音知覚や学習動機で現れやすく、文法・語彙・読解では小さい傾向がある。留学・イマージョン環境で報告される大きな効果量は、自然な接触量を前提とする別の構成概念であり、週数時間の授業には転用できない。"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Larson-Hall"
     year: 2008
     title: "Weighing the benefits of studying a foreign language at a younger starting age in a minimal input situation"

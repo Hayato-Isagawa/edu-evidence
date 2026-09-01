@@ -22,7 +22,7 @@ methodology:
   studies: 129
   sampleSize: "メタ分析 1(マインドセットと学力の関連): 129 研究・273 効果量・N=365,915 / メタ分析 2(介入効果): 29 研究・43 効果量・N=57,155"
   effectSize: "関連は r = .10(95% CI .08〜.13)、介入効果は d = 0.08(95% CI 0.02〜0.14)といずれも弱い。学業リスクの高い生徒(d = 0.19)・低 SES 家庭(d = 0.34)では相対的に大きい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Sisk, Burgoyne, Sun, Butler & Macnamara"
     year: 2018
     title: "To What Extent and Under Which Circumstances Are Growth Mind-Sets Important to Academic Achievement? Two Meta-Analyses"

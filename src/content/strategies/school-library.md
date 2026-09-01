@@ -24,7 +24,7 @@ lastVerified: "2026-06-17"
 methodology:
   sampleSize: "米ノースカロライナ州の小学4〜5年生を対象に、専任の認定司書がいる学校の児童と、いない学校の児童を、年齢・性別・民族・障害の有無・英語学習者・経済的困難の各属性でマッチングした準実験(ESSA が定義する matching design に準拠)。読解・算数の学年末州統一テスト(EOG)の14のデータベースを分析した(Wine 2020 博論)"
   effectSize: "14のデータベースすべてで、司書のいる学校の児童のスコアが統計的に有意に高かった(p<.001)。ただし効果量は Cohen's d=.08〜.25 と一貫して小さい(著者は『すべて小さな効果』と明記)。司書配置の変化を追った追加分析では、2年間司書を維持した19校・失った6校とも差の多くが非有意で、6校では読解のスコアが司書のいない期間の方が高い(p=.035)逆転も見られ、結果は一様でない"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Wine"
     year: 2020
     title: "Impact of School Librarians on Elementary Student Achievement"

@@ -22,7 +22,7 @@ methodology:
   studies: 41
   sampleSize: "学習者への選択(チョイス)提供の効果を検証した実験研究 41 件のメタ分析(子ども・成人を含む)"
   effectSize: "選択の提供は内発的動機づけ d = 0.30(k=46)・努力 d = 0.22・課題遂行 d = 0.32・有能感 d = 0.59 を高めるが、**その後の学習(subsequent learning)は d = 0.10(95% CI −0.02〜0.21)で有意でない**。2〜4 回の連続した選択で効果が最大、子どもは成人より効果が大きい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Patall, Cooper & Robinson"
     year: 2008
     title: "The Effects of Choice on Intrinsic Motivation and Related Outcomes: A Meta-Analysis of Research Findings"

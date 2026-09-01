@@ -20,7 +20,7 @@ methodology:
   studies: 108
   sampleSize: "108 の対照評価研究(対象は大学・高校・小学校高学年。うち 72 研究は大学での Keller 式 PSI)"
   effectSize: "試験成績を報告した 103 研究の平均 d = 0.52(SE 0.033)。学力下位層で効果が大きい傾向(M = 0.61 vs 上位層 0.40、ただし差は非有意)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Kulik, Kulik & Bangert-Drowns"
     year: 1990
     title: "Effectiveness of Mastery Learning Programs: A Meta-Analysis"

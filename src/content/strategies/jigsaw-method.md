@@ -19,7 +19,7 @@ methodology:
   studies: 43
   sampleSize: "43 実験研究(K-12 〜 高等教育、2020 年代のメタ分析)"
   effectSize: "Hedges' g = 0.77(95% CI [0.55, 0.98]、I² = 91.03%)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Cochon Drouet, Lentillon-Kaestner & Margas"
     year: 2023
     title: "Effects of the Jigsaw method on student educational outcomes: Systematic review and meta-analyses"

@@ -21,7 +21,7 @@ methodology:
   studies: 13
   sampleSize: "39 研究のナラティブレビューのうち直近 13 研究をメタ分析(米国の小中学生の標準学力テスト)"
   effectSize: "夏休みで学年換算約 1 か月分(春の得点比で約 0.1 SD)の低下。算数は読解より低下が大きく、算数の計算とスペリングで最大。読解認識は中流層が伸びる一方、低所得層は低下"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Cooper, Nye, Charlton, Lindsay & Greathouse"
     year: 1996
     title: "The Effects of Summer Vacation on Achievement Test Scores: A Narrative and Meta-Analytic Review"

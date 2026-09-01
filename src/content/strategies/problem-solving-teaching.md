@@ -22,7 +22,7 @@ methodology:
   studies: 487
   sampleSize: "問題解決研究 487 報告をメタ分析で統合(問題解決者の特性/問題の難易条件/指導法の効果/教室条件の 4 領域)"
   effectSize: "図・スケッチを添えた問題提示形式が成績と直接関連し、その表現スキルの訓練が最大の改善をもたらした。発見的方法(ヒューリスティクス)の訓練を受けた教師の指導は児童生徒の成績に正の効果(統合効果量の数値は Hembree (1992) 論文本文が有料アクセス(NCTM ジャーナル)のため記載見送り。EEF Toolkit は無料公開)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Hembree"
     year: 1992
     title: "Experiments and Relational Studies in Problem Solving: A Meta-Analysis"

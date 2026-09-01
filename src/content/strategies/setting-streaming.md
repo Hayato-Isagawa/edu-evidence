@@ -21,7 +21,7 @@ methodology:
   studies: 1
   sampleSize: "97 校 / Year 7-8 数学(11-13 歳)"
   effectSize: "学力進捗: 全体 -1 ヶ月(混合 vs 習熟度別編成)、事前学力上位の児童 -2 ヶ月、事前学力下位の児童・FSM 児童は両群同等。自己肯定感: 全体 small / FSM 児童 small / 事前学力下位の児童 中程度の負効果(いずれも混合校が高い)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Taylor & Hodgen"
     year: 2026
     title: "The Student Grouping Study: Evaluation Report"

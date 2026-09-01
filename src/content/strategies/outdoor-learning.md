@@ -20,7 +20,7 @@ methodology:
   studies: 96
   sampleSize: "冒険教育プログラムの 96 研究・151 独立サンプル・1,728 効果量のメタ分析"
   effectSize: "プログラム終了時の平均効果量 d = 0.34。多くの教育研究と対照的に、終了後の追跡期間にさらに +0.17 の上乗せ効果。効果はプログラムが長いほど・参加者の年齢が高いほど大きい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Hattie, Marsh, Neill & Richards"
     year: 1997
     title: "Adventure Education and Outward Bound: Out-of-Class Experiences That Make a Lasting Difference"

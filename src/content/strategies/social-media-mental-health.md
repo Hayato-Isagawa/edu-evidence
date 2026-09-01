@@ -20,7 +20,7 @@ methodology:
   studies: 12
   sampleSize: "Ivie et al. 2020 は青年期(11〜18 歳)対象の 12 研究。Vahedi & Zannella 2021 は全年齢の 55 独立標本・80,533 人"
   effectSize: "Ivie et al. 2020 は SNS 利用と抑うつ症状に小さいが有意な正の相関(r=.11, p<.01)。Vahedi & Zannella 2021 はより広い対象で r=.165。いずれも『抑うつ症状との正の相関＝精神健康との負の関連』であり、効果量は小さい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Ivie, Pettitt, Moses & Allen"
     year: 2020
     title: "A meta-analysis of the association between adolescent social media use and depressive symptoms"

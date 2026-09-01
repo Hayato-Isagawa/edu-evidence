@@ -20,7 +20,7 @@ methodology:
   studies: 184
   sampleSize: "小中学生を中心とした複数メタ分析"
   effectSize: "+7ヶ月(EEF Toolkit)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Education Endowment Foundation"
     year: 2025
     title: "Teaching and Learning Toolkit — Reading comprehension strategies(2025年10月更新・184研究)"

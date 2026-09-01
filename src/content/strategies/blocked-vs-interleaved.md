@@ -20,7 +20,7 @@ methodology:
   studies: 59
   sampleSize: "k=238 効果量、158 サンプル(就学前〜成人、絵画・数学・単語など素材横断)"
   effectSize: "全体で交互練習 Hedges' g = 0.42。材料別: 絵画 +0.67 / 数学 +0.34 / 単語 -0.39(単語暗記のみブロック練習が有利)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Brunmair & Richter"
     year: 2019
     title: "Similarity matters: A meta-analysis of interleaved learning and its moderators"

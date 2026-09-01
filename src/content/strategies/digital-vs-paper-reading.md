@@ -20,7 +20,7 @@ methodology:
   studies: 54
   sampleSize: "54 研究 / 171,055 名以上(2000〜2017、英語圏中心)"
   effectSize: "Hedges' g = −0.21(紙優位)。説明文・時間制約ありで差が拡大、ナラティブ(物語文)では差がない"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Delgado, Vargas, Ackerman & Salmerón"
     year: 2018
     title: "Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension"

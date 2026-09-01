@@ -20,7 +20,7 @@ methodology:
   studies: 249
   sampleSize: "K-12 の 249 研究(Wilson & Lipsey 2007 の Campbell/Cochrane レビュー)"
   effectSize: "攻撃的・破壊的行動への効果 d ≈ 0.21。対象を絞った介入で効果が大きい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Wilson & Lipsey"
     year: 2007
     title: "School-based interventions for aggressive and disruptive behavior: Update of a meta-analysis"

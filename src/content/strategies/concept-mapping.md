@@ -23,7 +23,7 @@ methodology:
   studies: 142
   sampleSize: "11,814人(独立効果量ベース、1972〜2014 年の研究を統合)"
   effectSize: "g=0.58(ランダム効果モデル)。作成 g=0.72 / 閲覧 g=0.43"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Schroeder, Nesbit, Anguiano & Adesope"
     year: 2018
     title: "Studying and Constructing Concept Maps: a Meta-Analysis"

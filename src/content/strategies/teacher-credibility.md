@@ -19,7 +19,7 @@ evidence:
 lastVerified: "2026-07-01"
 methodology:
   effectSize: "Hattie の集計では Cohen's d=0.90(visible-learning.org のランキング)〜1.20(同 MetaX データベース)と報告されるが、これらは Hattie が再集計した二次的な値で、プラットフォームや版によって異なる。いずれも Finn ら(2009)の単一のメタ分析に由来する。本サイトは独立した再現が限定的であることを踏まえ、控えめに+4ヶ月を代表値とする"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Finn, Schrodt, Witt, Elledge, Jernberg & Larson"
     year: 2009
     title: "A Meta-Analytical Review of Teacher Credibility and its Associations with Teacher Behaviors and Student Outcomes"

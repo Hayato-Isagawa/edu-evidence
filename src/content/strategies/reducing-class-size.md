@@ -26,7 +26,7 @@ methodology:
   studies: 127
   sampleSize: "組み入れ 127 研究(148 報告・55 集団・41 か国、幼稚園〜第 12 学年)。効果量を取り出せてデータ統合に進んだのは 10 研究で、そのうちメタ分析で合算(プール)されたのは読解 5 研究・算数 4 研究(フランス・オランダ・米国、いずれも幼稚園〜第 3 学年)。STAR 実験を分析した研究は 45 件あり、データ統合に進んだ 4 件も、同一データを扱うため事前に定めた選択規則が適用できず、合算されずに個別に報告されている"
   effectSize: "読解はランダム効果加重 SMD 0.11(95% CI 0.05〜0.16)の小さい正効果。算数は負だが統計的に非有意"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Filges, Sonne-Schmidt & Viinholt Nielsen"
     year: 2018
     title: "Small class sizes for improving student achievement in primary and secondary schools: A systematic review"
