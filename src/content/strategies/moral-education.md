@@ -20,7 +20,7 @@ methodology:
   studies: 55
   sampleSize: "道徳教育の効果に関する古典的メタ分析 Schlaefli, Rest & Thoma (1985) は、道徳判断力を育てる教育介入 55 件を統合した(対象は中高生・大学生・成人と幅広く、すべて Defining Issues Test を指標とする)。character education 全般では Johnson ら (2022) が K–12 の 64 研究・836 比較・96,930 人を統合している。いずれも日本の道徳科そのものを直接測定したものではない。"
   effectSize: "Schlaefli ら (1985) はジレンマ討議型・心理発達型のプログラムで控えめ(modest)な効果量を報告し、3〜12 週間の介入が最適で、効果量は成人(24 歳以上)で大きく学齢期では小さい(ただし全年齢層で有意)とした。character education 全般の Johnson ら (2022) は平均効果量 g = 0.33, 95%CI [0.21, 0.45]（小さいが有意）。いずれも日本の道徳科を直接測った値ではない。"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Schlaefli, Rest & Thoma"
     year: 1985
     title: "Does Moral Education Improve Moral Judgment? A Meta-Analysis of Intervention Studies Using the Defining Issues Test"

@@ -25,7 +25,7 @@ methodology:
   studies: 99
   sampleSize: "朝読書そのものを検証した無作為化比較試験(RCT)は国内外に存在せず、根拠は相関研究と観察データに依拠する。読書量と読解力の関連を体系的に示した代表的証拠は Mol & Bus(2011)の99研究・延べ7,669名(就学前〜大学生の余暇読書)のメタ分析。国内では文部科学省委託の静岡大学(2010)が全国学力・学習状況調査のデータを分析している"
   effectSize: "朝読書に固有の標準化効果量(Cohen's d 等)は確立していない。Mol & Bus(2011)では読書量(print exposure)と読解力・読字・綴りに中程度〜強い相関があり、読書量が言語・読解スキルの分散を学齢とともに約12%(就学前)〜34%(大学)説明するが、これは相関であって因果ではない。朝読書に相当する学校での自由読書(SSR/独立読書)を直接検証した介入研究では効果は小さい。構造的な工夫を加えた条件を扱うメタ分析もある(Merke, Ganushchak & van Steensel 2024)が、これは『自由読書への追加的工夫』の効果であり、朝読書の『ただ読むだけ』に当たる素の自由読書そのものの効果ではない。文部科学省委託調査(2010)では『読書が好き』は教科の学力と強く相関する一方、『平日の読書時間』は学力と単純には対応しない"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Mol & Bus"
     year: 2011
     title: "To read or not to read: A meta-analysis of print exposure from infancy to early adulthood"

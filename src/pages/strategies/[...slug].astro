@@ -299,17 +299,17 @@ const effectNote =
                 </div>
               )}
             </div>
-            {d.methodology.primaryMetaAnalysis && (
+            {d.methodology.primaryEvidenceReview && (
               <div class="space-y-1 border-t border-line pt-3">
                 <div class="text-xs text-sub">主要エビデンスレビュー</div>
                 <div class="text-sm">
-                  {d.methodology.primaryMetaAnalysis.authors} ({d.methodology.primaryMetaAnalysis.year}).{" "}
-                  {d.methodology.primaryMetaAnalysis.url ? (
-                    <a href={d.methodology.primaryMetaAnalysis.url} target="_blank" rel="noopener" class="link-underline text-accent">
-                      {d.methodology.primaryMetaAnalysis.title}
+                  {d.methodology.primaryEvidenceReview.authors} ({d.methodology.primaryEvidenceReview.year}).{" "}
+                  {d.methodology.primaryEvidenceReview.url ? (
+                    <a href={d.methodology.primaryEvidenceReview.url} target="_blank" rel="noopener" class="link-underline text-accent">
+                      {d.methodology.primaryEvidenceReview.title}
                     </a>
                   ) : (
-                    <span>{d.methodology.primaryMetaAnalysis.title}</span>
+                    <span>{d.methodology.primaryEvidenceReview.title}</span>
                   )}
                 </div>
               </div>

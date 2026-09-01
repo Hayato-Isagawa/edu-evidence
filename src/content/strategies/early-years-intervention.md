@@ -26,7 +26,7 @@ methodology:
   studies: 66
   sampleSize: "就学前〜小学校低学年(主要下位領域『コミュニケーションと言語』で 66 研究、『より早い開始年齢』で 41 研究)"
   effectSize: "+6ヶ月。下位領域別: コミュニケーションと言語 +7、親の関与 +5、早期リテラシー +4、追加の時間提供 +3"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "EEF(Early Years Toolkit)"
     year: 2025
     title: "Early Years Toolkit"

@@ -23,7 +23,7 @@ methodology:
   studies: 8
   sampleSize: "school refusal の児童・青少年 435 人(オーストラリア・米国・英国等、平均年齢 11.9 歳)。RCT および準実験(QED)を対象に、心理社会的治療(大半が認知行動療法)の効果を出席・不安の 2 つのアウトカムで検証"
   effectSize: "出席: 心理社会的治療 6 研究で Hedges' g = 0.54(95%CI [0.22, 0.86]、p < .01)= 正で有意。不安: 4 研究で g = 0.06(95%CI [-0.63, 0.75]、p = .86)= 有意差なし(研究間の異質性が大きい)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Maynard, Heyne, Brendel, Bulanda, Thompson & Pigott"
     year: 2018
     title: "Treatment for School Refusal Among Children and Adolescents: A Systematic Review and Meta-Analysis"

@@ -21,7 +21,7 @@ methodology:
   studies: 129
   sampleSize: "K-12 129 研究(3レベルメタ分析、多数の国際研究)"
   effectSize: "Hedges' g = 0.53(小〜中)。Låg & Sæle(2019, 高等教育中心)では g = 0.35"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Li, Fu, Liu & Hwang"
     year: 2025
     title: "Effectiveness of Flipped Classrooms for K-12 Students: Evidence From a Three-Level Meta-Analysis"

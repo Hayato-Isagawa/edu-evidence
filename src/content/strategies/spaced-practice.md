@@ -23,7 +23,7 @@ methodology:
   studies: 317
   sampleSize: "317 実験 / 184 論文 / 839 評価(幼児〜成人、言語記憶課題中心)"
   effectSize: "保持期間の長さに依存。最適な学習間隔は保持期間の 10〜20% 程度"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Cepeda, Pashler, Vul, Wixted & Rohrer"
     year: 2006
     title: "Distributed practice in verbal recall tasks: A review and quantitative synthesis"

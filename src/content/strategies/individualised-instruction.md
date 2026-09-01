@@ -20,7 +20,7 @@ methodology:
   studies: 21
   sampleSize: "1995 年以降の小学校での差別化(個別最適化)実践の実証研究 21 件・78 効果量のメタ分析(言語・算数の成績)"
   effectSize: "全体は d = +0.146(95% CI 0.066〜0.226)と小さい正効果。内訳は PC 支援の差別化 +0.290・包括的プログラム内の差別化 +0.296 が有意な正、学級間グループ化 −0.065・学級内グループ化 −0.007 は効果なし。等質の能力別グループ化は低学力層に有意な負効果(d = −0.195)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Deunk, Smale-Jacobse, de Boer, Doolaard & Bosker"
     year: 2018
     title: "Effective differentiation practices: A systematic review and meta-analysis of studies on the cognitive effects of differentiation practices in primary education"

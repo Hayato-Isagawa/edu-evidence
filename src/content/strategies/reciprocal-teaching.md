@@ -23,7 +23,7 @@ methodology:
   studies: 16
   sampleSize: "初等〜中等教育(16 実験研究、主に英語圏の読解)"
   effectSize: "中央値 — 標準化テスト 0.32、実験者開発テスト 0.88"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Rosenshine & Meister"
     year: 1994
     title: "Reciprocal Teaching: A Review of the Research"

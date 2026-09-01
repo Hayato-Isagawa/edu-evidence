@@ -20,7 +20,7 @@ methodology:
   studies: 75
   sampleSize: "160,927 名(75 研究 / 111 効果量、主に家庭での体罰を対象)"
   effectSize: "d = 0.33(95%CI 0.29〜0.38、不利な方向)。111 効果量の 99% が不利方向、71% が統計的有意"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Gershoff & Grogan-Kaylor"
     year: 2016
     title: "Spanking and Child Outcomes: Old Controversies and New Meta-Analyses"

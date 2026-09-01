@@ -20,7 +20,7 @@ methodology:
   studies: 32
   sampleSize: "32 メタ分析を統合(うち 20 は過去 10 年以内、幼児〜高校)"
   effectSize: "研究間で幅広い(d = 0.16 〜 1.6)。EEF 集約値で +4ヶ月"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Education Endowment Foundation"
     year: 2021
     title: "Using Digital Technology to Improve Learning: Guidance Report"

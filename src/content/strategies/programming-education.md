@@ -24,7 +24,7 @@ methodology:
   studies: 105
   sampleSize: "Scherer, Siddiq & Sánchez Viveros (2019) が 105 研究・539 効果量を3レベル・ランダム効果モデルでメタ分析(プログラミング学習の認知的転移効果)"
   effectSize: "全体的な転移効果 g=0.49 [0.37, 0.61](中程度)。近転移(プログラミングスキル自体)g=0.75 [0.39, 1.11]、遠転移(他の認知スキルへの転移)g=0.47 [0.35, 0.59]。遠転移の内訳は創造的思考 g=0.73・数学的スキル g=0.57・メタ認知 g=0.44・推論 g=0.37・空間 g=0.37 で、学業成績は g=0.28、読み書き(literacy)は g=-0.02(非有意)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Scherer, Siddiq & Sánchez Viveros"
     year: 2019
     title: "The cognitive benefits of learning computer programming: A meta-analysis of transfer effects"

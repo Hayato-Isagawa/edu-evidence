@@ -23,7 +23,7 @@ methodology:
   studies: 328
   sampleSize: "413 研究設計 / 約 4,000 効果(1966〜2016 の半世紀、幼児〜高校)"
   effectSize: "読み・算数・言語・スペリング・情意領域で g ≈ 0.4〜0.6 台の有意な正効果。介入終了後の維持期にも効果が続く"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Stockard, Wood, Coughlin & Rasplica Khoury"
     year: 2018
     title: "The Effectiveness of Direct Instruction Curricula: A Meta-Analysis of a Half Century of Research"

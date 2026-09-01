@@ -21,7 +21,7 @@ methodology:
   studies: 181
   sampleSize: "Cromley & Chen (2025) が Mayer のマルチメディア学習研究 92 論文・181 研究・591 効果(1990〜2022 年)をメタ分析(Hedges の g・多層回帰モデル)。全体効果量は g=0.37"
   effectSize: "『複数メディア(言葉+図)vs 単一メディア(言葉のみ)』のマルチメディア原理の効果量は g=0.68。言葉と図の組み合わせは、事実的・推論的・転移的な学習成果のいずれにおいても大きく一貫した効果を示した。一方、装飾的・冗長な設計を含む原理では効果が小さい、もしくは負だった"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Cromley & Chen"
     year: 2025
     title: "A Meta-Analysis of Richard Mayer's Multimedia Learning Research"

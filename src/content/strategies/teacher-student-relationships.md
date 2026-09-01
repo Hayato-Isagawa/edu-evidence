@@ -21,7 +21,7 @@ methodology:
   studies: 99
   sampleSize: "就学前〜高校(エンゲージメントとの関連 k=61・N=88,417、学業成績との関連 k=61・N=52,718)"
   effectSize: "学業成績: r≒0.16〜0.19(d≒0.32〜0.39、小〜中) / エンゲージメント: 中〜大"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Roorda, Koomen, Spilt & Oort"
     year: 2011
     title: "The Influence of Affective Teacher–Student Relationships on Students' School Engagement and Achievement: A Meta-Analytic Approach"

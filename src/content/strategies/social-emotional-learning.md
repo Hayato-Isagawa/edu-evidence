@@ -20,7 +20,7 @@ methodology:
   studies: 213
   sampleSize: "270,034 名(小学校 56% / 中学校 31% / 高校 他)"
   effectSize: "全体 d=0.30(学力は 11 パーセンタイル点の向上、社会性・態度・行動にも正の効果)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Durlak, Weissberg, Dymnicki, Taylor & Schellinger"
     year: 2011
     title: "The Impact of Enhancing Students' Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions"

@@ -21,7 +21,7 @@ methodology:
   studies: 65
   sampleSize: "初等〜高等教育(1995 年以降、実際の教室で実施された研究に限定)"
   effectSize: "学力・態度ともに正の効果。科学・数学で効果が大きい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Kyndt, Raes, Lismont, Timmers, Cascallar & Dochy"
     year: 2013
     title: "A meta-analysis of the effects of face-to-face cooperative learning"

@@ -20,7 +20,7 @@ methodology:
   studies: 38
   sampleSize: "幼稚園〜6年生(就学前〜初等教育)"
   effectSize: "d=0.41(Ehri et al. 2001、38 研究 / 66 比較の全体値)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Ehri, Nunes, Stahl & Willows"
     year: 2001
     title: "Systematic phonics instruction helps students learn to read: Evidence from the National Reading Panel's meta-analysis"

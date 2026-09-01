@@ -26,7 +26,7 @@ methodology:
   studies: 32
   sampleSize: "1987〜2003 年の米国研究の設計別統合。宿題時間×学力の相関 32 研究(69 相関・35 サンプル)+ 宿題の有無を操作した 5 研究"
   effectSize: "相関は全体で r = .24(95% CI .24〜.25)だが学年で大きく分かれ、中高(7〜12 年生)r = .25 に対し小学校(K〜6)はほぼゼロ(固定効果 −.04)。宿題を操作した 5 研究の平均は d = .60(95% CI .38〜.82)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Cooper, Robinson & Patall"
     year: 2006
     title: "Does Homework Improve Academic Achievement? A Synthesis of Research, 1987–2003"

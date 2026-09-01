@@ -22,7 +22,7 @@ methodology:
   studies: 118
   sampleSize: "118 独立研究 / 217 効果量(ラボ・教室両設定、幼児〜成人)"
   effectSize: "Hedges' g = 0.51 〜 0.61(分析条件による、中〜大)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Adesope, Trevisan & Sundararajan"
     year: 2017
     title: "Rethinking the Use of Tests: A Meta-Analysis of Practice Testing"

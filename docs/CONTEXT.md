@@ -29,7 +29,7 @@
 - `evidence.eef` / `evidence.japan` / `evidence.hattie` — 出典別詳細(併記用、optional)。バッジ表示は本オブジェクトの **キー有無** で動的描画
 - `culturalContext` — 日本文脈での効果差異 / 注記
 - `lastVerified` — 一次ソースとの最終照合日(YYYY-MM-DD)
-- `methodology` — Technical Appendix(`studies` / `sampleSize` / `effectSize` / `primaryMetaAnalysis` / `limitations`)
+- `methodology` — Technical Appendix(`studies` / `sampleSize` / `effectSize` / `primaryEvidenceReview` / `limitations`)
 
 ## 同義表現クラスタ(整合性 grep 用)
 

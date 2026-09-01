@@ -23,7 +23,7 @@ methodology:
   studies: 54
   sampleSize: "紙とデジタル端末で同等のテキストを読んだ際の読解力を比較した 54 研究(被験者間計画 38・被験者内計画 16)、計 171,055 名。2000〜2017 年に発表された研究を対象とする"
   effectSize: "読解では紙が画面より優位: 被験者間計画で Hedges' g = -0.21(95%CI [-0.28, -0.14])、被験者内計画で dc = -0.21(95%CI [-0.37, -0.06])。両計画とも同一の差で、Cohen の基準では小さいが有意(負値はデジタルが劣位)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Delgado, Vargas, Ackerman & Salmerón"
     year: 2018
     title: "Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension"

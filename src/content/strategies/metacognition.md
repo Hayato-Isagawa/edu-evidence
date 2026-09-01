@@ -21,7 +21,7 @@ methodology:
   studies: 355
   sampleSize: "小中学校の児童生徒対象"
   effectSize: "+8ヶ月(EEF Toolkit、2025年更新)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Muijs & Bokhove"
     year: 2020
     title: "Metacognition and Self-regulation: Evidence Review"

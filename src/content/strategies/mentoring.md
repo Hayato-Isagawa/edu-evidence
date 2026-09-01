@@ -21,7 +21,7 @@ methodology:
   studies: 73
   sampleSize: "1999〜2010 年に公表された青少年メンタリングプログラムの独立評価 73 件(行動・社会性・情動・学業の 4 領域を横断)"
   effectSize: "全領域・全研究を通算した平均効果量は 0.21(小さいが有意)。リスクを抱えた青少年を対象とするプログラムで相対的に大きい"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "DuBois, Portillo, Rhodes, Silverthorn & Valentine"
     year: 2011
     title: "How Effective Are Mentoring Programs for Youth? A Systematic Assessment of the Evidence"

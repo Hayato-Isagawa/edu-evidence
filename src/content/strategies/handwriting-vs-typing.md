@@ -24,7 +24,7 @@ methodology:
   studies: 24
   sampleSize: "Flanigan ら(2024)が大学生 3,005 名・24 研究(実験 22・準実験 2、21 論文、うち未公刊 6)を Hedges' g でメタ分析(講義ノートの手書き vs タイピング)。学力への効果は 49 効果量に基づく"
   effectSize: "学力(コース成績)への効果は Hedges' g=0.248 [0.181, 0.315](小)で手書きが優位。一方、ノートの記録量はタイピングが g=0.919 と大きい。手書きは『記録量は少ないが学力は高い』方向"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Flanigan, Wheeler, Colliot, Lu & Kiewra"
     year: 2024
     title: "Typed Versus Handwritten Lecture Notes and College Student Achievement: A Meta-Analysis"

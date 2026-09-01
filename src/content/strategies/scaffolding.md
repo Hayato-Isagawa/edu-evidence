@@ -19,7 +19,7 @@ methodology:
   studies: 144
   sampleSize: "144 実験研究 / 333 効果量(STEM 学習者、K-12〜高等教育)"
   effectSize: "Hedges' g = 0.46(小〜中)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Belland, Walker, Kim & Lefler"
     year: 2017
     title: "Synthesizing Results From Empirical Research on Computer-Based Scaffolding in STEM Education"

@@ -19,7 +19,7 @@ methodology:
   studies: 5
   sampleSize: "携帯電話・スマートフォン禁止の効果を扱った 5 研究(7 効果)を統合。最大の研究はノルウェーの約 151,925 観測(Abrahamsson)・イングランドの約 130,482 観測(Beland & Murphy)。いずれも中等教育(中学・高校)段階が中心"
   effectSize: "メタ分析の全体効果は d = 0.162(p < 0.05)だが、これは学力と社会的ウェルビーイングを合わせた値。**学力(performance)に限ると d = 0.05(95%CI [−0.04, 0.14]、有意でない)**、社会的ウェルビーイング(いじめ等)では d = 0.22(95%CI [0.11, 0.32]、p < 0.001)で、効果は主に社会面に現れる。個別研究ではイングランドの Beland & Murphy(2016)が試験成績 +6.41% SD(学力下位 1/4 層で +14.23% SD)を報告する一方、スウェーデンの Kessel et al.(2020)は有意な効果を見いだしていない(d = 0.01)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Böttger & Zierer"
     year: 2024
     title: "To Ban or Not to Ban? A Rapid Review on the Impact of Smartphone Bans in Schools on Social Well-Being and Academic Performance"

@@ -20,7 +20,7 @@ methodology:
   studies: 37
   sampleSize: "排除(停学・出席停止)削減を目的とした学校ベース介入の RCT 37 件(4〜18 歳、1980 年以降の介入、27 データベースの系統検索)"
   effectSize: "介入は導入後 6 か月時点で排除措置を有意に削減(SMD = 0.30、95% CI 0.20〜0.41、p < .001)。12 か月以降のフォローアップでは効果が半減し統計的に非有意"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Valdebenito, Eisner, Farrington, Ttofi & Sutherland"
     year: 2019
     title: "What can we do to reduce disciplinary school exclusion? A systematic review and meta-analysis"

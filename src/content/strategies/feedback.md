@@ -19,7 +19,7 @@ lastVerified: "2026-07-27"
 methodology:
   sampleSize: "幼児〜中等教育(EEF Toolkit は複数メタ分析を集約。Wisniewski 2020 は 435 研究、Kluger & DeNisi 1996 は 131 研究)"
   effectSize: "+6ヶ月(小学校 +7、中学校 +5)。Hattie & Timperley 2007 で d=0.70〜0.79、Kluger & DeNisi 1996 メタ分析で d=0.38(約 3 分の 1 で負効果)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Education Endowment Foundation"
     year: 2021
     title: "Teacher Feedback to Improve Pupil Learning: Guidance Report"

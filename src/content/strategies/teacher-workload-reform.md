@@ -21,7 +21,7 @@ methodology:
   studies: 14
   sampleSize: "教員 5,311 名・児童生徒 50,616 名"
   effectSize: "Madigan & Kim (2021) の系統的レビュー(メタ分析ではなく、統合した単一の効果量は算出していない)は、教員のバーンアウトと児童生徒の成果との関連を調べた 14 研究を統合した。教員のバーンアウトが高いほど学業成果が低く、学習動機の質も低いという『一定の証拠(some evidence)』が示された一方、児童生徒のウェルビーイングとの関連はほとんど見られなかった。著者らはこれを『予備的(preliminary)』な証拠と位置づけ、より頑健な研究設計が必要だと述べている。"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Madigan & Kim"
     year: 2021
     title: "Does teacher burnout affect students? A systematic review of its association with academic achievement and student-reported outcomes"

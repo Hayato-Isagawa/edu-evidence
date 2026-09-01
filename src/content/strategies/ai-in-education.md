@@ -22,7 +22,7 @@ methodology:
   studies: 35
   sampleSize: "ChatGPT を学習ツールとして用いた実験・準実験研究 35 件、計 4,193 名。2022〜2024 年に発表された査読付き論文を対象とする(PRISMA に基づく選定。特別支援教育・成人学習者は除外)"
   effectSize: "学習成果全体で中程度の正の効果: Hedges' g = 0.670(95%CI [0.495, 0.844]、ランダム効果モデル、p < 0.001)。ただし学齢別では高等教育(26 研究、g = 0.744)・中等教育(7 研究、g = 0.847)が中心で、小学校はわずか 2 研究、その効果(g = 0.824)は統計的に有意でなく(p = 0.114)、著者は解釈の正確性のため小学校群を分析から除外している"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Wu, Zhu, Zhang, Yin & Wang"
     year: 2026
     title: "ChatGPT's impact on student learning outcomes: a meta-analysis of 35 experimental studies"

@@ -26,7 +26,7 @@ methodology:
   studies: 54
   sampleSize: "就学前児(3〜5歳)を中心とする 54 研究(EEF Early Years Toolkit)"
   effectSize: "+7ヶ月(EEF Early Years Toolkit)。代表的 RCT では、直線型の数ボードゲームを合計約 1 時間プレイした就学前児で数量比較・数直線推定・数え上げ・数字認識が改善し、9 週間後も維持(Ramani & Siegler 2008)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "EEF(Early Years Toolkit)"
     year: 2025
     title: "Early numeracy approaches"

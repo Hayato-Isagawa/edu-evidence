@@ -22,7 +22,7 @@ lastVerified: "2026-07-01"
 methodology:
   sampleSize: "特別活動(学級活動・児童会・クラブ・学校行事)そのものの学力・非認知効果を直接検証したクリーンなメタ分析や大規模 RCT は確認されていない。効果量は構成要素である社会情動的学習(SEL)・協同学習の知見からの借用推定に依拠する。最も近い大規模証拠は、学校ベースの普遍的 SEL 介入を統合した Durlak et al.(2011)の213研究・延べ270,034名(幼稚園〜高校)のメタ分析。"
   effectSize: "特別活動に固有の標準化効果量(Cohen's d 等)は確立していない。最も近い大規模証拠である Durlak et al.(2011)の SEL 介入メタ分析では、学力到達度が約11パーセンタイルポイント向上し(効果量換算でおおむね d=0.3 弱)、社会情動的スキルや向社会的行動への効果はそれより大きいと報告されている。ただしこれらは特別活動を直接測定した値ではなく、自治・協働・集団活動という重なる構成要素からの借用推定である。本サイトの『+2ヶ月』はこの借用レンジの下限よりさらに保守的に置いた暫定値。"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Durlak et al."
     year: 2011
     title: "The Impact of Enhancing Students' Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions"

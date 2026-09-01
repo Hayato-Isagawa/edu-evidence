@@ -62,7 +62,7 @@ const strategies = defineCollection({
         studies: z.number().optional(),           // 主要レビューに含まれる研究数
         sampleSize: z.string().optional(),        // 総サンプルサイズ(例: "10,500人")
         effectSize: z.string().optional(),        // 効果量(例: "d=0.37, 95%CI [0.30, 0.44]")
-        primaryMetaAnalysis: z
+        primaryEvidenceReview: z
           .object({
             authors: z.string(),                  // 著者(例: "Nickow, Oreopoulos & Quan")
             year: z.number(),                     // 発表年

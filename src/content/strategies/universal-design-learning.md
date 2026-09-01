@@ -22,7 +22,7 @@ lastVerified: "2026-06-15"
 methodology:
   studies: 18
   sampleSize: "ピアレビュー誌に 2013〜2016 年に掲載された、事前事後テストを含む実証研究 18 件を対象としたメタ分析(対象は CAST が提唱する UDL の介入研究)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Capp"
     year: 2017
     title: "The effectiveness of universal design for learning: A meta-analysis of literature between 2013 and 2016"

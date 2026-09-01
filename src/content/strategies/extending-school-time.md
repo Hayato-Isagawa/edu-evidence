@@ -20,7 +20,7 @@ methodology:
   studies: 35
   sampleSize: "統制群・比較群を持つ放課後・夏季プログラム(OST)研究 35 件のメタ分析(低学力・at-risk の K-12 児童生徒対象、米国中心)"
   effectSize: "読解・算数とも小さいが統計的に有意な正の効果。前身レポート版(Lauer et al. 2004 更新版、53 研究)では全体 ES 読解 0.06〜0.13・算数 0.09〜0.17(統計モデルにより変動)、読解の 1 対 1 チュータリング型で最大 0.50"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Lauer, Akiba, Wilkerson, Apthorp, Snow & Martin-Glenn"
     year: 2006
     title: "Out-of-School-Time Programs: A Meta-Analysis of Effects for At-Risk Students"

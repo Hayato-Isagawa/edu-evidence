@@ -25,7 +25,7 @@ methodology:
   studies: 51
   sampleSize: "都市部の就学前〜高校生(51 研究)"
   effectSize: "全体 d ≈ 0.30。就学前・小学校 d ≈ 0.29、中等教育 d ≈ 0.35、親子対話型(shared reading)で d ≈ 0.51 と最大"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Jeynes"
     year: 2012
     title: "A Meta-Analysis of the Efficacy of Different Types of Parental Involvement Programs for Urban Students"

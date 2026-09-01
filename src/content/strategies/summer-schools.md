@@ -21,7 +21,7 @@ methodology:
   studies: 93
   sampleSize: "サマースクールの評価研究 93 件の統合(メタ分析+ナラティブレビュー、米国中心)"
   effectSize: "補習型・先取り型とも参加者の知識・技能に正の効果。補習型は小規模で個別化された指導ほど効果が大きく、読解より算数で効果が出やすい。全学年で効果があり、最低学年と中等段階で最大の可能性。EEF Toolkit は学校段階の平均を +3 か月と換算"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Cooper, Charlton, Valentine & Muhlenbruck"
     year: 2000
     title: "Making the Most of Summer School: A Meta-Analytic and Narrative Review"

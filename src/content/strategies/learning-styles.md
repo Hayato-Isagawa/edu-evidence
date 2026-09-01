@@ -21,7 +21,7 @@ lastVerified: "2026-04-18"
 methodology:
   sampleSize: "広範な実証研究のレビュー(Psychological Science in the Public Interest)"
   effectSize: "『学習スタイル × 指導法』の交互作用を示す質の高い研究は実質的に存在しない"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Pashler, McDaniel, Rohrer & Bjork"
     year: 2008
     title: "Learning Styles: Concepts and Evidence"

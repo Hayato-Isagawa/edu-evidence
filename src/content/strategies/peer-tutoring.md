@@ -20,7 +20,7 @@ methodology:
   studies: 26
   sampleSize: "26 単一被験体研究 / 938 名(Grade 1〜12)"
   effectSize: "TauU = 0.75(95%CI 0.71〜0.78、中〜大)"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Bowman-Perrott, Davis, Vannest, Williams, Greenwood & Parker"
     year: 2013
     title: "Academic Benefits of Peer Tutoring: A Meta-Analytic Review of Single-Case Research"

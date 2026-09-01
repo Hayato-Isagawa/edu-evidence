@@ -20,7 +20,7 @@ methodology:
   studies: 96
   sampleSize: "幼児〜高校生(PreK-12、96 件 RCT)"
   effectSize: "d ≈ 0.37(全体)。グループサイズ 2〜5 人で 1 対 1 に近い効果、6 人超で減衰"
-  primaryMetaAnalysis:
+  primaryEvidenceReview:
     authors: "Nickow, Oreopoulos & Quan"
     year: 2020
     title: "The Impressive Effects of Tutoring on PreK-12 Learning: A Systematic Review and Meta-Analysis"
