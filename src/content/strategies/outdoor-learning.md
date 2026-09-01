@@ -1,8 +1,8 @@
 ---
 title: 屋外学習
-summary: 自然や校外での体験を伴う学習。学力への直接効果は中程度だが、自己肯定感や協働性に好影響。
-monthsGained: 3
-evidenceStrength: 3
+summary: 自然や校外での体験を伴う学習。EEF は冒険的な屋外学習について、確実性不足として学力効果の月数を公表していない(社会科見学や森の学校は対象外)。自己肯定感や協働性への効果は報告されている。
+monthsGained: 0
+evidenceStrength: 2
 cost: 4
 subjects: ["生活", "理科", "社会"]
 grades: ["全学年"]
@@ -12,14 +12,12 @@ sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teachi
 sourceTitle: "EEF Teaching and Learning Toolkit — Outdoor adventure learning"
 evidence:
   eef:
-    monthsGained: 3
-    strength: 3
-    note: "EEF Toolkit の Outdoor adventure learning は +4ヶ月・エビデンス★3 だが、ここでは保守的に +3 として本文と整合。自己肯定感・協働性・チームワークへの効果が学力への効果より大きいことが一貫して報告される。Gutman & Schoon(2013)も非認知効果の優位性を指摘。"
-lastVerified: "2026-06-12"
+    note: "EEF が対象としているのは冒険的な屋外学習で、正規の学習活動を伴わないものを想定しているため、森の学校や社会科見学は対象に含まれていない。その範囲で、学力への効果について月数を公表していない。確実性評価が 5 段階中 0(extremely low)で、対象となった研究が 6 件しかなく、いずれも独立評価を受けていないため。EEF はこれを「効果が無い証拠ではなく、学力への効果について確かなエビデンスが無いということ」と明記している。月数の取り下げは 2021 年 7 月のレビュー(9 研究)からで、2025 年 10 月の更新では研究数が 6 件に減った。EEF は、学力への効果とは別に、自己効力感・動機づけ・チームワークといった成果への正の効果が報告されていると述べている。ただし効果の大きさはプログラムや測る成果の種類によって大きくばらつく。"
+lastVerified: "2026-09-01"
 methodology:
   studies: 96
   sampleSize: "冒険教育プログラムの 96 研究・151 独立サンプル・1,728 効果量のメタ分析"
-  effectSize: "プログラム終了時の平均効果量 d = 0.34。多くの教育研究と対照的に、終了後の追跡期間にさらに +0.17 の上乗せ効果。効果はプログラムが長いほど・参加者の年齢が高いほど大きい"
+  effectSize: "プログラム終了時の平均効果量 d = 0.34。多くの教育研究と対照的に、終了後の追跡期間にさらに +0.17 の上乗せ効果。効果はプログラムが長いほど・参加者の年齢が高いほど大きい。ただしこの 0.34 は自己概念・統制の所在・リーダーシップなど多様な成果を合算した平均であり、教科学力単独の効果量ではない"
   primaryEvidenceReview:
     authors: "Hattie, Marsh, Neill & Richards"
     year: 1997
@@ -33,12 +31,12 @@ culturalContext: |
 ## 一言でいうと
 
 教室を離れて自然や地域の中で学ぶ取り組みです。
-学力への直接効果は中程度ですが、自己肯定感や協働性、学習意欲への効果が報告されています。
+EEF は確かなエビデンスが無いとして学力への効果の月数を示していませんが、自己肯定感や協働性、学習意欲への効果は報告されています。
 
-## なぜ効果があるのか
+## なぜ非認知面に効くと考えられるのか
 
-教室で学んだ知識を、現実の場面で使う体験は、子どもの理解を立体的にします。
-また、普段とは違う環境で挑戦する経験は、自己肯定感や他者との協力する力を育てます。
+教室で学んだ知識を、現実の場面で使う体験は、子どもの理解を立体的にすると考えられています。
+また、普段とは違う環境で挑戦する経験は、自己肯定感や他者と協力する力を育てるとされています。
 教科書では出会えない学びの質があります。
 
 ## 日本の小学校で取り入れるヒント
@@ -51,9 +49,9 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 平均的に、学習は約3ヶ月分前進します。
-- 学力への効果は中程度ですが、非認知能力(粘り強さ・自信・協働性)への効果が報告されています。
-- 効果は、活動が単発ではなく、学級での学習と接続されているときに大きくなります。
+- 学力への効果について、EEF は確実性が足りないとして月数を公表していません。効果が無いという意味ではなく、確かなエビデンスが無いという意味です。
+- 非認知能力(粘り強さ・自信・協働性)への効果が報告されています。ただし効果の大きさはプログラムや測る成果の種類によって大きくばらつきます。
+- 効果は、プログラムが長いほど、参加者の年齢が高いほど大きいと報告されています。
 
 ## 注意したいこと
 
@@ -64,8 +62,8 @@ culturalContext: |
 ## 主な参考研究
 
 - Rickinson, M., et al. (2004). *A review of research on outdoor learning*. NFER & King's College London. — 屋外学習の効果を包括的にレビュー。認知・情意・社会性の各領域で正の効果を報告。
-- Becker, C., Lauterbach, G., Spengler, S., Dettweiler, U., & Mess, F. (2017). Effects of regular classes in outdoor education settings: A systematic review. *International Journal of Environmental Research and Public Health*, 14(10), 1078. — 屋外での定期的な授業が学力と非認知能力に与える効果を系統的にレビュー。
-- EEF (2021). Outdoor adventure learning: Evidence review. — 効果量+3ヶ月。自己肯定感への効果が特に注目される。
+- Becker, C., Lauterbach, G., Spengler, S., Dettweiler, U., & Mess, F. (2017). [Effects of regular classes in outdoor education settings: A systematic review on students' learning, social and health dimensions](https://doi.org/10.3390/ijerph14050485). *International Journal of Environmental Research and Public Health*, 14(5), 485. — 屋外での定期的な授業が学力と非認知能力に与える効果を系統的にレビュー。
+- [Outdoor adventure learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/outdoor-adventure-learning). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(9研究)以降、学力への効果について月数を公表していない。2025年10月の更新(6研究)でも確実性評価は 5 段階中 0(extremely low)のまま。学校生活の幅を広げる面での価値は、学力への効果とは別に述べられている。
 
 ## 関連する学習指導要領
 
