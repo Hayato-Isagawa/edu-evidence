@@ -159,7 +159,7 @@ export const concernCategories: ConcernCategory[] = [
         slug: "inequality",
         title: "家庭環境・体験格差への学校の役割",
         diagnosis:
-          "家庭ではまかないにくい経験を、特別活動・屋外学習・芸術・SEL で学校が提供する。エビデンスが後押しする学校の役割は大きい。",
+          "家庭ではまかないにくい経験を、特別活動・屋外学習・芸術・SEL で学校が提供する。学力への効果は領域によって差があるが、非認知面での学校の役割は大きい。",
         strategies: [
           "social-emotional-learning",
           "outdoor-learning",
