@@ -2,7 +2,7 @@
 title: 少人数学級にどれだけの効果があるか? — 費用対効果で見る「人数」と「指導」
 summary: 35 人学級の実現が進む中、学級人数を減らすだけで学力は上がるのか。テネシー STAR の古典的 RCT と EEF Toolkit のメタ分析を踏まえ、同じ予算を別の指導へ投じた場合との費用対効果を比較する。
 date: "2026-04-09"
-lastVerified: "2026-04-21"
+lastVerified: "2026-09-01"
 tags: ["学級規模", "制度", "費用対効果"]
 relatedStrategies: ["reducing-class-size", "small-group-tuition", "feedback", "metacognition"]
 ---
@@ -18,10 +18,10 @@ relatedStrategies: ["reducing-class-size", "small-group-tuition", "feedback", "m
 少人数学級の代表的な大規模 RCT は、米国テネシー州で 1985–1989 年に実施された **STAR プロジェクト(Student Teacher Achievement Ratio)** です([Finn & Achilles, 1990](https://doi.org/10.3102/00028312027003557) が初期結果を報告)。
 
 - 規模: 79 校、K〜3 学年、**4 年間で延べ約 11,600 人**(初期 K コホート 6,328 人が無作為割当)
-- 条件: 小規模学級(**13〜17 人**)、通常学級(22〜26 人)、通常学級 + 教員補助者
-- 結果: 小規模学級の子どもは通常学級の子どもより **有意に高い学力** を示し、特に読解で効果が大きかった
+- 条件: 小規模学級(**13〜17 人**)、通常学級(22〜25 人)、通常学級 + 教員補助者
+- 結果: 小規模学級の子どもは通常学級の子どもより **有意に高い学力** を示した。効果は読解と算数の両方に見られ、特にマイノリティの子どもで大きかった
 
-STAR は学級規模縮小の効果を「人数を減らせば伸びる」側で実証した最重要研究です。
+STAR は学級規模縮小の効果を「人数を減らせば伸びる」側で実証した代表的な研究です。ただし後述のとおり、この結果は後年の研究で再現されていません。
 
 ## EEF Toolkit の冷静な評価
 
@@ -72,7 +72,7 @@ EEF の費用対効果評価は **学力効果に対する評価** ですが、�
 
 ## まとめ
 
-- テネシー STAR(K〜3 の 4 年間・79 校・延べ約 11,600 人)では、**小規模学級(13〜17 人)の学力効果が有意に確認** された — 少人数学級そのものには効果がある
+- テネシー STAR(K〜3 の 4 年間・79 校・延べ約 11,600 人)では、**小規模学級(13〜17 人)の学力効果が有意に確認** された — ただし出版バイアスを補正した 2025 年のメタ分析は、この結果が他の研究で再現されていないと指摘している
 - ただし EEF Toolkit は他の多数の研究を統合した結果、**+1 ヶ月(コストは最大)** と費用対効果を低く評価
 - 同じ予算でフィードバック(+6 ヶ月)・メタ認知の指導(+8 ヶ月)・少人数指導(+4 ヶ月)に投じる方が効果が大きい
 - 35 人学級の意義は **教員の負担軽減** が中核。小学校ではテストの採点・指導要録・通知表・配布物処理など「1 人あたりの事務」が多く、人数減の体感効果は大きい
@@ -81,6 +81,7 @@ EEF の費用対効果評価は **学力効果に対する評価** ですが、�
 
 ## 参考資料
 
+- Opatrny, M., Havranek, T., Irsova, Z., & Scasny, M. (2025). [Publication bias and model uncertainty in measuring the effect of class size on achievement](https://doi.org/10.1086/737989). *Journal of Labor Economics*. — 66 件の研究から 2,819 の推定値を集めたメタ分析。出版バイアスの補正後、効果は STAR を分析した研究と 15 人未満の学級を除いてごく小さく、STAR 自体は追試で再現されていないとする。
 - Finn, J. D., & Achilles, C. M. (1990). [Answers and questions about class size: A statewide experiment](https://doi.org/10.3102/00028312027003557). *American Educational Research Journal*, 27(3), 557–577. — テネシー州 STAR 計画(大規模 RCT)の初期結果報告。小規模学級 13〜17 人の効果を実証した古典。
 - [Reducing class size](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/reducing-class-size). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 学級規模縮小は +1 ヶ月、コストに対して効果は限定的と評価。
 - [Small group tuition](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 特定の子を対象とした少人数指導は +4 ヶ月、学級全体の縮小より費用対効果が高い。
