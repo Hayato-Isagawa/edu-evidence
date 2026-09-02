@@ -305,7 +305,7 @@ const effectNote =
                 <div class="text-sm">
                   {d.methodology.primaryEvidenceReview.authors} ({d.methodology.primaryEvidenceReview.year}).{" "}
                   {d.methodology.primaryEvidenceReview.url ? (
-                    <a href={d.methodology.primaryEvidenceReview.url} target="_blank" rel="noopener" class="link-underline text-accent">
+                    <a href={d.methodology.primaryEvidenceReview.url} target="_blank" rel="noopener noreferrer" class="link-underline text-accent">
                       {d.methodology.primaryEvidenceReview.title}
                     </a>
                   ) : (
@@ -361,7 +361,7 @@ const effectNote =
             class="link-underline text-ink hover:text-accent"
             href={d.sourceUrl}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {d.sourceTitle ?? d.sourceUrl}
           </a>
