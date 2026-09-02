@@ -20,41 +20,52 @@ export function remarkGlossary() {
       if (parent.type === "link" || parent.type === "heading") return;
 
       const { value } = node;
-      let matched = false;
-      let result = value;
-      const replacements = [];
+
+      // **探索するのは常にテキスト全体。** 以前は用語を見つけるたびに探索対象を
+      // その後ろの尾部に狭めていたため、長い用語(先に処理される)より前に出ている
+      // 短い用語が探索範囲から外れてリンクされなかった(「効果量の話。標準偏差も。」で
+      // 「効果量」が落ちる。#510)。
+      // 位置だけを先に集め(claims)、既にリンクにした範囲と重なる出現は飛ばす
+      // (「クラスターRCT」の中の「RCT」)。長い用語を先に処理する並び順は、
+      // この重なり判定と対で意味を持つ。
+      const claims = [];
 
       for (const entry of sorted) {
         if (seen.has(entry.term)) continue;
-        const idx = result.indexOf(entry.term);
+
+        let idx = value.indexOf(entry.term);
+        while (idx !== -1) {
+          const end = idx + entry.term.length;
+          const at = idx;
+          if (!claims.some((c) => at < c.end && c.start < end)) break;
+          idx = value.indexOf(entry.term, idx + 1);
+        }
         if (idx === -1) continue;
 
         seen.add(entry.term);
-        matched = true;
-
-        // split around the first match
-        const before = result.slice(0, idx);
-        const after = result.slice(idx + entry.term.length);
-        replacements.push({ before, term: entry });
-        result = after;
+        claims.push({ start: idx, end: idx + entry.term.length, entry });
       }
 
-      if (!matched) return;
+      if (claims.length === 0) return;
+
+      claims.sort((a, b) => a.start - b.start);
 
       // Build new children
       const newChildren = [];
-      for (const r of replacements) {
-        if (r.before) {
-          newChildren.push({ type: "text", value: r.before });
+      let cursor = 0;
+      for (const claim of claims) {
+        if (claim.start > cursor) {
+          newChildren.push({ type: "text", value: value.slice(cursor, claim.start) });
         }
-        const anchor = r.term.term.replace(/[()（）]/g, "").replace(/\s+/g, "-");
+        const anchor = claim.entry.term.replace(/[()（）]/g, "").replace(/\s+/g, "-");
         newChildren.push({
           type: "html",
-          value: `<a class="glossary-tip" href="/guide/glossary#${encodeURIComponent(anchor)}" data-tip="${escapeAttr(r.term.short)}">${escapeHtml(r.term.term)}</a>`,
+          value: `<a class="glossary-tip" href="/guide/glossary#${encodeURIComponent(anchor)}" data-tip="${escapeAttr(claim.entry.short)}">${escapeHtml(claim.entry.term)}</a>`,
         });
+        cursor = claim.end;
       }
-      if (result) {
-        newChildren.push({ type: "text", value: result });
+      if (cursor < value.length) {
+        newChildren.push({ type: "text", value: value.slice(cursor) });
       }
 
       parent.children.splice(index, 1, ...newChildren);
