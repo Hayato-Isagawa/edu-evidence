@@ -78,12 +78,15 @@ jobs:
       # 「誰に」「何を」届けたかまで見る。シェルからは見えない YAML の配線
       # (通知ステップに continue-on-error が無いこと等)も併せて固定している。
       #
-      # 口を test:scripts と分けているのは、**test:scripts に下限が無い**から。
-      # あちらは `node --test` を直接叩いており、glob 0 件・中身が空・全件 skip の
-      # どれでも exit 0 で終わる。このテストは「壊れても静かに壊れる」ものを守るので、
-      # 下限つきの assert-test-* を通す口が要る。
+      # test:scripts / test:workflows / test:hooks はどれも下限つきの assert-test-* を
+      # 通している(`node --test` 単体は glob 0 件・中身が空・全件 skip のどれでも exit 0
+      # で終わるため)。口を test:scripts と分けているのは、下限の決め方が口ごとに違う
+      # から(この口は実測ちょうどで余裕ゼロ、test:hooks は境界値。詳細は CLAUDE.md)。
+      # 1 つの glob に混ぜると、どの口が何本失ったかを 1 つの数では追えない。
       # 置き場所を `scripts/__tests__/workflows/` にしたのはその帰結で、
       # `scripts/__tests__/*.test.mjs` がサブディレクトリを拾わない = 二重実行しない(実測)。
+      # 下限の値は package.json だけが持つ(ここに写すと、上げたときにここだけ古くなる)。
+      # テストを足したら package.json の下限も上げること。
       - name: Workflow logic regression tests
         if: ${{ !cancelled() }}
         run: npm run test:workflows
