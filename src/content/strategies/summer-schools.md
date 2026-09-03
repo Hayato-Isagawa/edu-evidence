@@ -2,7 +2,7 @@
 title: サマースクール(長期休暇中の学習支援)
 summary: 夏休み中に学校や地域で行う学習支援プログラム。平均で+3ヶ月だが、効果が出るのは学業の要素を持つものに限られ、参加の継続が課題になる。
 monthsGained: 3
-evidenceStrength: 3
+evidenceStrength: 2
 cost: 3
 subjects: ["全教科"]
 grades: ["全学年"]
