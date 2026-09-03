@@ -15,8 +15,8 @@ evidence:
   eef:
     monthsGained: 2
     strength: 3
-    note: "EEF Toolkit で +2ヶ月・エビデンス★3。学力への効果は小さいが、非認知スキル(自信・動機づけ・登校継続)への効果が報告される。Dubois et al.(2011)の 73 プログラムメタ分析でも学力効果は限定的だが、行動・情動面への効果は明確。"
-lastVerified: "2026-06-11"
+    note: "EEF Toolkit の 2025 年 5 月レビュー(64 研究)で +2ヶ月。確実性評価は 5 段階中 3。2021 年 7 月時点は 44 研究で、値と評価は変わっていない。小学校段階と中学校段階で効果は同程度。EEF は、相性の合わないメンターとの組み合わせには子どもへの害がありうるとし、全体として負の効果を報告する研究もあると明記している。構造と期待が明確で、メンターへの訓練と支援があり、志願者からメンターを募るプログラムほど良い結果と結びついている。学力への効果は小さいが、非認知スキル(自信・動機づけ・登校継続)への効果が報告される。Dubois et al.(2011)の 73 プログラムメタ分析でも学力効果は限定的だが、行動・情動面への効果は明確。"
+lastVerified: "2026-09-03"
 methodology:
   studies: 73
   sampleSize: "1999〜2010 年に公表された青少年メンタリングプログラムの独立評価 73 件(行動・社会性・情動・学業の 4 領域を横断)"
@@ -64,7 +64,7 @@ culturalContext: |
 ## 主な参考研究
 
 - DuBois, D. L., Portillo, N., Rhodes, J. E., Silverthorn, N., & Valentine, J. C. (2011). [How effective are mentoring programs for youth?](https://doi.org/10.1037/a0026316) *Psychological Bulletin*, 137(2), 202–235. — 73研究のメタ分析。全体の効果量d=0.21。構造化されたプログラムで効果が大きいことを示した。
-- EEF (2021). Mentoring: Evidence review. — 効果量+2ヶ月。学力よりも態度・行動面での効果が確認される。
+- [Mentoring](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mentoring). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2025年5月のレビュー(64研究)で+2ヶ月、確実性評価は 5 段階中 3。小学校段階と中学校段階で効果は同程度。相性の合わないペアには害がありうるとし、負の効果を報告する研究もあると明記している。
 
 ## 関連する学習指導要領
 

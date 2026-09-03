@@ -14,8 +14,8 @@ evidence:
   eef:
     monthsGained: 6
     strength: 4
-    note: "EEF Toolkit で +6ヶ月・エビデンス★4。Rohrbeck et al.(2003)の小学生対象メタ分析で加重 d=0.33、Bowman-Perrott et al.(2013)で d=0.75(ただし対象・手法に幅あり)。構造化(役割・手順明確)されたプログラムほど効果が大きい。"
-lastVerified: "2026-05-05"
+    note: "EEF Toolkit の 2025 年 5 月レビュー(145 研究)で +6ヶ月。確実性評価は 5 段階中 4 で、独立評価を受けていない研究の割合が高いことを理由に南京錠を 1 つ失っている。2021 年 6 月時点は +5ヶ月・127 研究だった。段階別では小学校 +5ヶ月・中学校 +7ヶ月。教える側と教わる側の双方に利益があり、学力下位の子どもと特別な支援を要する子どもで伸びが最も大きいという報告がある。Rohrbeck et al.(2003)の小学生対象メタ分析で加重 d=0.33、Bowman-Perrott et al.(2013)で d=0.75(ただし対象・手法に幅あり)。構造化(役割・手順明確)されたプログラムほど効果が大きい。"
+lastVerified: "2026-09-03"
 methodology:
   studies: 26
   sampleSize: "26 単一被験体研究 / 938 名(Grade 1〜12)"
@@ -65,7 +65,7 @@ culturalContext: |
 
 - Rohrbeck, C. A., Ginsburg-Block, M. D., Fantuzzo, J. W., & Miller, T. R. (2003). [Peer-assisted learning interventions with elementary school students](https://doi.org/10.1037/0022-0663.95.2.240). *Journal of Educational Psychology*, 95(2), 240–257. — 小学生を対象としたメタ分析。加重効果量d=0.33。低所得層・マイノリティの子どもで効果が大きい。
 - Bowman-Perrott, L., et al. (2013). [Academic benefits of peer tutoring](https://doi.org/10.1080/02796015.2013.12087490). *School Psychology Review*, 42(1), 39–55. — ピア・チュータリングの学力効果を包括的にレビュー。教える側・教わる側の双方に効果を確認。
-- EEF (2021). Peer tutoring: Evidence review. — 効果量+6ヶ月。構造化された設計の重要性を強調。
+- [Peer tutoring](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/peer-tutoring). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2025年5月のレビュー(145研究)で+6ヶ月、確実性評価は 5 段階中 4。小学校段階は+5ヶ月、中学校段階は+7ヶ月。週 4〜5 回・10 週までの頻度の高いプログラムが、頻度の低いものや長期のものより効果的としている。
 
 ## 関連する学習指導要領
 
