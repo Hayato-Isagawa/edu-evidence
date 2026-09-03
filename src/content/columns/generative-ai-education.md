@@ -2,7 +2,7 @@
 title: 生成AIは教育をどう変えるか？ — エビデンスはまだ追いついていない
 summary: ChatGPT 公開から約 3 年半。文科省ガイドライン Ver.2.0 が出たが、「効果があるのか」の問いに答える研究はほぼ皆無。現場に何ができるかを考える。
 date: "2026-04-13"
-lastVerified: "2026-04-22"
+lastVerified: "2026-09-03"
 tags: ["AI", "GIGA", "政策"]
 relatedStrategies: ["ai-in-education", "digital-technology", "metacognition"]
 ---
@@ -25,7 +25,7 @@ Ver.2.0 の重要な変化は、**教員の校務利用・児童生徒の学習�
 |---|---|---|
 | [ICT活用](/strategies/digital-technology) | +4ヶ月 | EEF。生成AI以前のデジタル教育全般 |
 | [メタ認知の指導](/strategies/metacognition) | +8ヶ月 | AIが教える側に回る場合に参考になる値 |
-| [個別化学習](/strategies/individualised-instruction) | +3ヶ月 | AIドリルが実現しようとしている領域 |
+| [個別化学習](/strategies/individualised-instruction) | +4ヶ月 | AIドリルが実現しようとしている領域 |
 | [フィードバック](/strategies/feedback) | +6ヶ月 | AIの即時フィードバックに重なる領域 |
 
 生成AIは「フィードバックの即時化」「個別最適化」「教師の校務負担軽減」という3つの経路で効果を発揮する**可能性がある**。しかし「可能性がある」と「効果が確認された」の間には、まだ大きな溝があります。
