@@ -1,8 +1,8 @@
 ---
 title: 習熟度別グループ編成
-summary: 学力レベルで子どもをグループ分けして指導する方法。日本の算数で広く実施されるが、効果は+1ヶ月と非常に小さい。
-monthsGained: 1
-evidenceStrength: 3
+summary: 学力レベルで子どもをグループ分けして指導する方法。日本の算数で広く実施されるが、EEF は学力への効果を 0ヶ月と報告している。
+monthsGained: 0
+evidenceStrength: 1
 cost: 2
 subjects: ["算数", "全教科"]
 grades: ["全学年"]
@@ -13,36 +13,36 @@ sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teachi
 sourceTitle: "EEF Teaching and Learning Toolkit — Setting and streaming"
 evidence:
   eef:
-    monthsGained: 1
-    strength: 3
-    note: "EEF Toolkit で +1ヶ月・エビデンス★3。**学力進捗** は全体平均で習熟度別編成がやや低く、事前学力上位の児童で約 2 ヶ月遅れる一方、事前学力下位の児童は習熟度別と混合で同等(習熟度別編成は学力面では害なし、利益も乏しい)。**FSM(就学援助相当)児童でも学力進捗に両群差はなく**、社会経済的に不利な児童が習熟度別編成でさらに不利になるとは言えない(EEF 2026 報告の強調点)。**自己肯定感** は混合校が有利で、特に事前学力下位の児童で中程度の負効果が観察される(UCL Student Grouping Study, Taylor & Hodgen 2026)。Francis et al.(2017)の英国縦断研究でも類似の不均衡が確認されている。"
-lastVerified: "2026-05-21"
+    monthsGained: 0
+    strength: 1
+    note: "EEF Toolkit の 2021 年 7 月レビュー(58 研究)で 0ヶ月。確実性評価は 5 段階中 1(very limited)で、最近の実践を反映した研究が少ないことと、無作為化比較試験でない研究が多いことを理由に南京錠を失っている。EEF は『事前学力下位の児童には小さな負、上位の児童には小さな正で、全体としては無視できる大きさ』と整理し、学力を上げる方法としては有効でないと述べている。下位児童への影響は出所によって結論が分かれる。英国の中学校 97 校を比較した UCL Student Grouping Study(Hodgen et al. 2026)は、混合編成を習熟度別編成と比べる向きで結果を報告しており、**学力進捗** は混合編成が全体で 1 ヶ月低く、事前学力上位の児童で 2 ヶ月低い一方、事前学力下位の児童・FSM(就学援助相当)児童は両群同等だった。学力差は『下位が下がる』のではなく『上位の伸びが鈍る』形で生じている。**自己肯定感** も混合編成の方が低く、事前学力下位の児童で中程度の負効果(一般的な自己肯定感 g = −0.13、算数の自己肯定感 g = −0.19)。著者らは『混合編成なら下位児童の自己肯定感が高くなる』という事前仮説が支持されなかったと明記している。"
+lastVerified: "2026-09-03"
 methodology:
   studies: 1
-  sampleSize: "97 校 / Year 7-8 数学(11-13 歳)"
-  effectSize: "学力進捗: 全体 -1 ヶ月(混合 vs 習熟度別編成)、事前学力上位の児童 -2 ヶ月、事前学力下位の児童・FSM 児童は両群同等。自己肯定感: 全体 small / FSM 児童 small / 事前学力下位の児童 中程度の負効果(いずれも混合校が高い)"
+  sampleSize: "混合編成 28 校 + マッチングされた習熟度別編成 69 校 = 97 校 / Year 7-8 数学(11-13 歳)。2022 年 9 月〜2024 年 7 月に実施"
+  effectSize: "いずれも『混合編成 − 習熟度別編成』の向き。学力進捗: 全体 -0.05(-1 ヶ月、p=.232)、事前学力上位の児童 -0.14(-2 ヶ月、p=.017)、事前学力下位の児童 0.04(0 ヶ月)・FSM 児童 0.01(0 ヶ月)で両群同等。自己肯定感(符号は逆コードを補正済み): 一般的な自己肯定感は全体 g=-0.07 / FSM g=-0.08 / 事前学力下位の児童 g=-0.13、算数の自己肯定感は全体 g=-0.06 / FSM g=-0.11 / 事前学力下位の児童 g=-0.19。いずれも混合編成の方が低い"
   primaryEvidenceReview:
-    authors: "Taylor & Hodgen"
+    authors: "Hodgen, Taylor, Tereshchenko, Anders, Jacques, Cockerill, Kwok, Sirl, Burn & Bretscher"
     year: 2026
     title: "The Student Grouping Study: Evaluation Report"
     url: "https://discovery.ucl.ac.uk/id/eprint/10224627/"
-  limitations: "英国 Year 7-8(中学校相当)数学の準実験的(quasi-experimental)マッチング比較で、無作為割付ではない。日本の小学校算数とは校種・教科の文脈が異なるため、自己肯定感への効果方向は参考に留め、学力進捗の小ささは Steenbergen-Hu et al. (2016) のメタ分析と整合的に受け取れる。"
+  limitations: "英国 Year 7-8(中学校相当)数学の準実験的(quasi-experimental)マッチング比較で、無作為割付ではない。日本の小学校算数とは校種・教科の文脈が異なる。学力進捗の差は全体では統計的に有意でなく(p=.232)、有意だったのは事前学力上位の児童だけ。EEF Toolkit が『事前学力下位の児童に小さな負』とするのに対し、本研究では下位・FSM 児童とも両群同等で、結論が一致していない。"
 culturalContext: |
-  **日本の算数で広く実施される『習熟度別少人数指導』は EEF の習熟度別編成カテゴリ(setting-streaming)に近い** 側面を持ち、効果が限定的であることを認識する必要がある。下位グループに固定される子どもの自己肯定感低下という負の効果は日本でも報告されている(松尾 2013 等)。EEF は **small-group-tuition(+4)** の方を推奨しており、**固定的な習熟度別編成ではなく、一時的・対象を絞った・流動的な少人数指導**が効果的。日本の現場でグループ編成を検討する際の重要な論点。
+  **日本の算数で広く実施される『習熟度別少人数指導』は EEF の習熟度別編成カテゴリ(setting-streaming)に近い** 側面を持ち、学力を上げる方法としては有効でないことを認識する必要がある。『下位グループに固定されると自信を失う』という懸念は日本でもよく語られるが、英国で両編成を直接比べた UCL Student Grouping Study はむしろ逆の結果を報告しており、この論点は決着していない。EEF は **small-group-tuition(+4)** の方を推奨しており、**固定的な習熟度別編成ではなく、一時的・対象を絞った・流動的な少人数指導**が効果的。日本の現場でグループ編成を検討する際の重要な論点。
 ---
 
 ## 一言でいうと
 
-子どもを学力レベルによってグループ分けし、それぞれの到達度に合わせて指導する方法です。日本では算数の「習熟度別指導」として広く実施されていますが、学力への効果は**+1ヶ月と非常に小さい**ことが研究で示されています。
+子どもを学力レベルによってグループ分けし、それぞれの到達度に合わせて指導する方法です。日本では算数の「習熟度別指導」として広く実施されていますが、EEF は学力への効果量を**0 ヶ月**と報告しています。
 
-## なぜ効果が小さいのか
+## なぜ学力が上がらないのか
 
-「レベルに合わせれば効率的に学べる」という直感に反して、効果が小さい理由は:
+「レベルに合わせれば効率的に学べる」という直感に反して、学力が上がらない理由は:
 
-- **学力進捗** では事前学力上位の児童はやや伸びるが、事前学力下位の児童は習熟度別編成と混合でほぼ差がない。全体としても +1 ヶ月と小さい
-- **自己肯定感** が混合校に比べて下がりやすく、特に下位グループに配置された子で中程度の負の影響が報告される(UCL Student Grouping Study, Taylor & Hodgen 2026)
+- **学力進捗** では、EEF は事前学力上位の児童にわずかな正、事前学力下位の児童にわずかな負を報告している。全体としては相殺されて 0 になる
 - グループが固定化されると、下位から上位への移動がほとんど起きない(ラベリング効果)
 - 教師の期待が無意識にグループによって変わってしまう
+- EEF は、社会経済的に不利な子どもほど下位グループに誤って配置されやすいこと、下位グループが経験の浅い教師に受け持たれやすいことを挙げている
 
 ## 日本の小学校で取り入れるヒント
 
@@ -52,28 +52,28 @@ culturalContext: |
 - 「できない子のグループ」というラベリングを避ける。名称と伝え方に配慮する
 - 下位グループの指導こそ、経験豊富な教師が担当する(逆になりがち)
 - 習熟度別の時間を限定し、異質グループでの学び合い(協同学習)と組み合わせる
-- 効果が+1ヶ月しかないことを踏まえ、他の介入(フィードバック、メタ認知)に時間を振る判断も重要
+- 学力への効果が示されていないことを踏まえ、他の介入(フィードバック、メタ認知)に時間を振る判断も重要
 
 ## 研究からわかっていること
 
-- メタ分析(Steenbergen-Hu et al. 2016)では学力効果量 +1 ヶ月。30 項目中で最も効果が小さい部類です
-- **学力進捗** は事前学力上位の児童にやや正、事前学力下位の児童・FSM(就学援助相当)児童は習熟度別編成と混合でほぼ同等(格差は『下位が下がる』ではなく『上位だけが乗る』形で広がる。EEF はこの「disadvantaged(社会経済的に不利な)児童に害なし」を 2026 報告で強調)
-- **自己肯定感** は混合校が有利で、UCL Student Grouping Study(Taylor & Hodgen 2026)では特に事前学力下位の児童で中程度の負効果が観察された
-- 学級内の一時的なグループ分けは、学級間の固定的な分けよりやや効果が大きい
-- 効果は教師の指導力と、グループの流動性に大きく依存します
+- EEF Toolkit の 58 研究のレビューでは、習熟度別編成の学力効果量は 0 ヶ月です。Steenbergen-Hu et al.(2016)のメタ分析も、学級間の固定的な能力別編成の効果は小さいと報告しています
+- **学力進捗の下位児童への影響は、出所によって結論が分かれます**。EEF Toolkit(58 研究)は事前学力下位の児童にわずかな負、上位にわずかな正としています。一方、英国の中学校 97 校を比べた UCL Student Grouping Study(Hodgen et al. 2026)では、事前学力下位の児童・FSM(就学援助相当)児童は両群同等で、差がついたのは事前学力上位の児童だけでした
+- **この UCL の研究では、学力進捗も自己肯定感も、混合編成の方がわずかに低いという結果でした**。自己肯定感の負の効果は事前学力下位の児童で中程度(g = −0.13 / −0.19)。著者らは「混合編成なら下位の子の自己肯定感が高くなる」という事前の仮説が支持されなかったと明記しています。日本で語られる「下位グループに固定されると自信を失う」という懸念を、この研究は裏づけていません
+- 学級内の一時的なグループ分けは、学級間の固定的な分けよりやや効果が大きいと報告されています(Steenbergen-Hu et al. 2016 では学級内 0.19〜0.30 に対し学級間 0.04〜0.06)
+- 流動的な運用と、下位グループへの経験豊富な教師の配置が、リスクを下げる要素として挙げられています
 
 ## 注意したいこと
 
 - 「習熟度別にすれば学力が上がる」という前提は研究と整合しません
-- **学力進捗** の格差は「下位が下がる」のではなく「上位だけが乗りやすい」形。下位の子に学力面の害はありませんが、メリットも乏しいことに注意が必要です
-- **自己肯定感** への負の影響(混合校に比べた事前学力下位の児童の中程度の負効果)が、固定的な習熟度別を選ぶ最大のコストです
+- **学力進捗** の下位児童への影響は出所によって分かれます。EEF はわずかな負、UCL Student Grouping Study は両群同等。どちらの読み方でも、下位の子にメリットが乏しい点は共通しています
+- **「習熟度別は下位の子の自己肯定感を下げる」という通説には注意が必要です。** 英国で両者を直接比べた UCL Student Grouping Study は逆の結果(混合編成の方が低い)を報告しており、この論点は決着していません
 - 日本の算数で広く実施されている実態を踏まえ、「やめるべき」ではなく「やり方を改善すべき」と捉えるのが現実的です
 
 ## 主な参考研究
 
-- Steenbergen-Hu, S., Makel, M. C., & Olszewski-Kubilius, P. (2016). [What one hundred years of research says about the effects of ability grouping and acceleration on K-12 students' academic achievement](https://doi.org/10.3102/0034654316675417). *Review of Educational Research*, 86(4), 849–899. — 100年分の研究を統合したメタ分析。能力別グループ編成の効果は全体的に小さいことを確認。
-- Taylor, B., & Hodgen, J. (2026). [The Student Grouping Study: Evaluation Report](https://discovery.ucl.ac.uk/id/eprint/10224627/). UCL Institute of Education / Education Endowment Foundation([EEF プロジェクトページ](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/student-grouping-study))。英国 97 校・Year 7-8 数学の準実験的評価(2019-2025)。学力進捗は混合がわずかに有利だが事前学力下位の児童・FSM(就学援助相当)児童は両群同等、自己肯定感は混合校が有利で特に事前学力下位の児童で中程度の負効果。
-- EEF (2021). Setting and streaming: Evidence review. — 効果量+1ヶ月。上位には正、下位には負の効果で相殺される構造を指摘。
+- Steenbergen-Hu, S., Makel, M. C., & Olszewski-Kubilius, P. (2016). [What one hundred years of research says about the effects of ability grouping and acceleration on K-12 students' academic achievement](https://doi.org/10.3102/0034654316675417). *Review of Educational Research*, 86(4), 849–899. — 約100年分の研究をカバーする13のメタ分析を統合した二次メタ分析。効果がほぼゼロだったのは学級間の能力別編成(0.04 ≤ g ≤ 0.06)で、学級内グループ化(0.19〜0.30)・学年横断の教科別グループ化(0.26)・才能児向け編成(0.37)は正の効果。効果は上位・中位・下位で変わらなかった。
+- Hodgen, J., Taylor, B., Tereshchenko, A., et al. (2026). [The Student Grouping Study: Evaluation Report](https://discovery.ucl.ac.uk/id/eprint/10224627/). UCL Institute of Education / Education Endowment Foundation([EEF プロジェクトページ](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/student-grouping-study))。混合編成28校とマッチングされた習熟度別編成69校・Year 7-8 数学の準実験的評価(2022年9月〜2024年7月実施)。混合編成を習熟度別編成と比べる向きで、学力進捗は全体 −1 ヶ月・事前学力上位の児童 −2 ヶ月で、事前学力下位の児童・FSM(就学援助相当)児童は両群同等。自己肯定感も混合編成の方が低く、事前学力下位の児童で中程度の負効果。
+- [Setting and streaming](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/setting-and-streaming). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(58研究)で効果は 0ヶ月。確実性評価は 5 段階中 1(very limited)。上位にはわずかに正、下位にはわずかに負で、全体としては無視できる大きさと整理している。
 - Ireson, J., & Hallam, S. (2001). *Ability grouping in education*. Paul Chapman Publishing. — 能力別グループ編成の教育社会学的分析。固定化のリスクを詳述。
 
 ## 関連する学習指導要領
