@@ -324,12 +324,12 @@ const effectNote =
         )}
 
         {d.culturalContext && (
-          <div class="border-l-4 border-accent pl-5 py-1 space-y-2">
+          <div class="border-l-4 border-accent bg-accent/5 pl-5 pr-5 py-4 space-y-2">
             <Kicker as="div">
               日本の文脈で考慮したいこと
             </Kicker>
             <p class="text-sm leading-loose" set:html={annotateGlossaryTerms(d.culturalContext)} />
-            <p class="text-xs text-sub">
+            <p class="text-xs text-sub leading-loose">
               なぜこの注記があるか:<a href="/guide/cultural-context" class="link-underline text-accent ml-1">エビデンスと文化的文脈</a>
             </p>
           </div>
