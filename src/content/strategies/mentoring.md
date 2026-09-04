@@ -63,7 +63,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- DuBois, D. L., Portillo, N., Rhodes, J. E., Silverthorn, N., & Valentine, J. C. (2011). [How effective are mentoring programs for youth? A systematic assessment of the evidence](https://doi.org/10.1177/1529100611414806). — 1999〜2010年に公表された青少年メンタリングプログラムの独立評価73件のメタ分析。平均効果量は0.21で、小さいが有意。構造化されたプログラムで効果が大きいことを示した。
+- DuBois, D. L., Portillo, N., Rhodes, J. E., Silverthorn, N., & Valentine, J. C. (2011). [How effective are mentoring programs for youth? A systematic assessment of the evidence](https://doi.org/10.1177/1529100611414806). *Psychological Science in the Public Interest*, 12(2), 57–91. — 1999〜2010年に公表された青少年メンタリングプログラムの独立評価73件のメタ分析。平均効果量は0.21で、小さいが有意。構造化されたプログラムで効果が大きいことを示した。
 - [Mentoring](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mentoring). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2025年5月のレビュー(64研究)で+2ヶ月、確実性評価は 5 段階中 3(moderate)。小学校段階と中学校段階で効果は同程度。うまくいかなかった組み合わせには害がありうるとし、負の効果を報告する研究もあると明記している。
 
 ## 関連する学習指導要領

@@ -24,7 +24,7 @@ methodology:
     authors: "Deunk, Smale-Jacobse, de Boer, Doolaard & Bosker"
     year: 2018
     title: "Effective differentiation practices: A systematic review and meta-analysis of studies on the cognitive effects of differentiation practices in primary education"
-    url: "https://doi.org/10.1016/j.edurev.2018.01.002"
+    url: "https://doi.org/10.1016/j.edurev.2018.02.002"
   limitations: "組み入れは 21 研究と少なく、能力グループ別のサブグループ分析は 6 研究に限られる。効果は差別化の方法で正負が分かれるため『個別化すれば効果がある』という一般化はできない。特に等質の能力別グループ化は低学力層に負の効果を持つ。EEF が効果を確かにするために挙げる 3 点(学習の到達点とつまずきの正確な把握・到達度に合った課題・教師や仲間からの個別のフィードバック)とも整合する。"
 culturalContext: |
   **日本の文脈で最も誤解されている EEF 項目の一つ**。文部科学省が掲げる『**個別最適な学び**』は EEF の Individualised instruction(+4)と AI ドリル(digital-technology +4)の両方を含む概念で、しばしば『GIGA 端末を配れば個別最適が実現する』と誤認される。EEF が効果を確かにするために挙げるのは『到達点とつまずきの正確な把握』『到達度に合った課題』『個別のフィードバック』の 3 点で、端末の配備そのものではない。ドリル学習の自動化だけでは +4 は達成できない可能性が高い。
