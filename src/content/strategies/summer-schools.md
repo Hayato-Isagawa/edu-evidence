@@ -65,7 +65,7 @@ culturalContext: |
 ## 主な参考研究
 
 - Cooper, H., Charlton, K., Valentine, J. C., & Muhlenbruck, L. (2000). Making the most of summer school. *Monographs of the Society for Research in Child Development*, 65(1). — サマースクールの評価研究 93 件を統合したメタ分析とナラティブレビュー。
-- Kim, J. S., & Quinn, D. M. (2013). The effects of summer reading on low-income children's literacy achievement. *Educational Evaluation and Policy Analysis*, 35(2), 126–148. — 低所得層向けサマーリーディングプログラムの効果を検証。
+- Kim, J. S., & Quinn, D. M. (2013). [The effects of summer reading on low-income children's literacy achievement from kindergarten to grade 8: A meta-analysis of classroom and home interventions](https://doi.org/10.3102/0034654313483906). *Review of Educational Research*, 83(3), 386–431. — 幼稚園〜8 年生向けサマーリーディングプログラム 41 件のメタ分析。低所得層の子どもで効果が大きいことを示した。
 - [Summer schools](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/summer-schools). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2025年5月のレビュー(69研究)で+3ヶ月、確実性評価は 5 段階中 2(low)。小集団・個別といった集中的な指導方法では+5ヶ月、明確な学習の要素を持たないプログラムは通常は学力の向上と結びつかない(ただし別の面での価値はありうる)としている。
 
 ## 関連する学習指導要領
