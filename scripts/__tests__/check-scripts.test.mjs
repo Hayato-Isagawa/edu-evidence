@@ -107,6 +107,21 @@ gate("check-consistency.ts", "consistency-glossary", [
   /glossary\.astro:\d+/,
 ]);
 gate("check-evidence-strength.ts", "evidence-strength", /star-mismatch\.md/);
+
+// 不変条件 A は strength を持つ出典が無いページを判定できず飛ばす。飛ばした事実を
+// 名前で出さないと、strength を外しただけでそのページは黙って保護範囲から抜ける
+// (2026-09 時点で 74 ページ中 23 がこの状態)。clean 側に置くのは、対象外は
+// 違反ではなく exit 0 のままであるべきだから。
+// 対象外は 2 種類(evidence はあるが strength が無い / evidence ブロック自体が無い)
+// で、片方だけ黙って飛ばす退行を捕まえるため両方を fixture に置く。
+// 件数は clean 側のファイル数に結合しているので、fixture を足したらここも直す。
+test("check-evidence-strength.ts は不変条件 A の対象外ページを件数と名前で出す", () => {
+  const r = run("check-evidence-strength.ts", "evidence-strength/clean");
+  assert.equal(r.status, 0, `対象外ページを違反として落としている:\n${r.output}`);
+  assert.match(r.output, /不変条件 A の対象外[^\n]*: 2 \/ 3/, "件数を出していない");
+  assert.match(r.output, /^\s+unrated\.md$/m, "対象外ページの名前を出していない");
+  assert.match(r.output, /^\s+no-evidence-block\.md$/m, "evidence 無しページの名前を出していない");
+});
 gate("check-reader-literacy.ts", "reader-literacy", /jargon\.md/);
 gate("check-sentence-length.ts", "sentence-length", /critical:\s*1/);
 gate("check-tokens.ts", "tokens", /no-palette-literal/);

@@ -56,13 +56,13 @@ npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・ch
 `node --test` は「glob が 0 件」「中身が空」「全件 skip」のどれでも exit 0 で終わるので、
 守っているつもりのガードが no-op に落ちても気づけないため。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 47 と `test:scripts` の 36 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 47 と `test:scripts` の 37 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 40 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`3d2afbe`)なので、実測 54 と離れていてよい。
 
 `test:scripts` を余裕ゼロにしているのは、`check-consistency.ts` の検査が層ごとに 4 本の
 `gate()` に分かれており、1 行消すとその層が丸ごと無防備になるため。`gate()` は 1 本で
-2 テストなので、消えれば 36 を割る。
+2 テストなので、消えれば 37 を割る。
 
 `glossary-inline.test.mjs` の 7 本と `remark-glossary.test.mjs` の 4 本も同じ下限に載っている。
 用語ツールチップの変換は **壊れても CI が全緑のまま**で(型検査は型しか見ず、textlint は

@@ -5,8 +5,12 @@
  *
  *   A. frontmatter の不変条件(戦略ページ)
  *      evidenceStrength(サイト独自の総合評価)が、出典別の評価
- *      evidence.{eef,japan,hattie}.strength のうち最も高いものに対して
+ *      evidence.{eef,japan}.strength のうち最も高いものに対して
  *      「同じ」か「1 段階上」であること。
+ *      strength を持つ出典が 1 つも無いページは判定できないので対象外にし、
+ *      件数と名前を毎回出す(黙って飛ばすと、緑が「整合している」なのか
+ *      「見ていない」なのか区別できない)。hattie は schema に strength を
+ *      持たないので出典に数えない。
  *      基準を最も強い出典に取るのは、日本の知見が弱くても EEF が強ければ
  *      総合が高いのは正しいため(例: early-years-intervention は
  *      総合 4 / eef 4 / japan 2 で、japan だけを基準にすると誤検出になる)。
@@ -30,7 +34,7 @@ import matter from "gray-matter";
 const STRATEGIES_DIR = path.resolve("src/content/strategies");
 const COLUMNS_DIR = path.resolve("src/content/columns");
 
-const EVIDENCE_SOURCES = ["eef", "japan", "hattie"] as const;
+const EVIDENCE_SOURCES = ["eef", "japan"] as const;
 
 interface Issue {
   file: string;
@@ -40,6 +44,10 @@ interface Issue {
 }
 
 const issues: Issue[] = [];
+
+// A の対象外になった戦略(strength を持つ出典が無い)。件数と名前を出力する
+const unratedStrategies: string[] = [];
+let invariantTargets = 0;
 
 // 行内の ★ を読み取る。「★5」の数字形と「★★★★☆」の記号形の両方に対応
 function extractStars(line: string): number[] {
@@ -89,18 +97,21 @@ function checkFrontmatterInvariant() {
     const { data } = matter(raw);
     const total = data.evidenceStrength;
     if (typeof total !== "number") continue;
+    invariantTargets++;
 
     const evidence = data.evidence as
       | Record<string, { strength?: number } | undefined>
       | undefined;
-    if (!evidence) continue;
 
     const rated: { src: string; strength: number }[] = [];
     for (const src of EVIDENCE_SOURCES) {
-      const strength = evidence[src]?.strength;
+      const strength = evidence?.[src]?.strength;
       if (typeof strength === "number") rated.push({ src, strength });
     }
-    if (rated.length === 0) continue;
+    if (rated.length === 0) {
+      unratedStrategies.push(file);
+      continue;
+    }
 
     const strongest = rated.reduce((a, b) => (b.strength > a.strength ? b : a));
     const diff = total - strongest.strength;
@@ -215,6 +226,15 @@ console.log("=== エビデンス強度(★)整合チェック開始 ===\n");
 const strategies = loadStrategies();
 
 checkFrontmatterInvariant();
+
+// 保護範囲の可視化。A は strength を持つ出典が無いページを判定できないので飛ばす。
+// 件数を出さないと、strength を外しただけでそのページが黙って対象外になっても気づけない。
+console.log(
+  `不変条件 A の対象外(strength を持つ出典が無い戦略): ${unratedStrategies.length} / ${invariantTargets}` +
+    (unratedStrategies.length > 0
+      ? `\n  ${unratedStrategies.sort().join("\n  ")}\n`
+      : "\n"),
+);
 
 for (const dir of [STRATEGIES_DIR, COLUMNS_DIR]) {
   if (!fs.existsSync(dir)) continue;
