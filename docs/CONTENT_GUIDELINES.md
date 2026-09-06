@@ -787,8 +787,9 @@ GitHub Actions で稼働中の自動化:
 - **観点 12.2 抽象修飾** — 「視点が必要です」「整合性が高い実践です」等の具体不足を grep
 - **観点 12.3 硬い・古い・施設用語** — `docs/style-dictionary.yaml` 辞書を grep
 - **観点 12.4 長文** — 1 文 100/150/200 字 3 段階 severity、読点 4 個以上は info
+- **観点 12.5 接続表現の反復** — AI が好む接続・談話標識(「だからこそ」「つまり」「大切なのは」等)の記事内反復を語別カウント。[deslop-checklist.md](./deslop-checklist.md) 項目 13 の検出器で、§9 の語彙規約ではなく構造・修辞側
 
-実行: `npm run check:sentence-length`(観点 12.4 のみ)/ edu-content-reviewer 起動(全 4 サブ観点)
+実行: `npm run check:sentence-length`(観点 12.4 のみ)/ edu-content-reviewer 起動(全 5 サブ観点)
 
 ---
 
