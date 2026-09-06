@@ -8,6 +8,7 @@ import {
   stars as toStars,
   effectSign as toEffectSign,
   effectColorClass,
+  UNMEASURED_LABEL,
 } from "../../lib/effect-size";
 import TableOfContents from "../../components/TableOfContents.astro";
 import RelatedStrategyCard from "../../components/RelatedStrategyCard.astro";
@@ -87,11 +88,13 @@ const yen = "¥".repeat(d.cost) + "·".repeat(5 - d.cost);
 
 const effectSign = toEffectSign(d.monthsGained);
 const effectColor = effectColorClass(d.monthsGained);
-const effectNote =
-  d.monthsGained > 0
+// 「測って 0 だった」と「月数で示せる研究が無い」は正反対なので文を分ける(#518)
+const effectNote = d.monthsUnmeasured
+  ? "学力への効果を月数で示せる研究がない"
+  : d.monthsGained > 0
     ? `3月時点で、通常より約${d.monthsGained}ヶ月先の学力水準に到達`
     : d.monthsGained === 0
-      ? "学力への効果は確認されていない"
+      ? "測った研究では、学力への効果は全体としてほぼゼロ"
       : `3月時点で、通常より約${Math.abs(d.monthsGained)}ヶ月分学力が低下する傾向`;
 ---
 
@@ -160,7 +163,11 @@ const effectNote =
         <div
           class={`text-4xl font-black tabular-nums ${effectColor}`}
         >
-          {effectSign}{d.monthsGained}<span class="text-base ml-1">ヶ月</span>
+          {d.monthsUnmeasured ? (
+            <span class="text-2xl font-sans">{UNMEASURED_LABEL}</span>
+          ) : (
+            <>{effectSign}{d.monthsGained}<span class="text-base ml-1">ヶ月</span></>
+          )}
         </div>
         <div class="normal-case tracking-normal text-sub leading-snug">
           {effectNote}
@@ -392,6 +399,7 @@ const effectNote =
                 title={s.data.title}
                 summary={s.data.summary}
                 monthsGained={s.data.monthsGained}
+                monthsUnmeasured={s.data.monthsUnmeasured}
                 evidenceStrength={s.data.evidenceStrength}
                 evidence={s.data.evidence}
               />

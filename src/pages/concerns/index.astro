@@ -3,13 +3,17 @@ import Kicker from "../../components/ui/Kicker.astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { concernCategories } from "../../data/concerns";
-import { effectColorClass } from "../../lib/effect-size";
+import { effectColorClass, effectLabel } from "../../lib/effect-size";
 
 const strategies = await getCollection("strategies");
 const strategyMap = new Map(
   strategies.map((s) => [
     s.id,
-    { title: s.data.title, monthsGained: s.data.monthsGained },
+    {
+      title: s.data.title,
+      monthsGained: s.data.monthsGained,
+      monthsUnmeasured: s.data.monthsUnmeasured,
+    },
   ])
 );
 
@@ -21,11 +25,6 @@ const totalConcerns = concernCategories.reduce(
   0
 );
 
-function formatMonths(m: number): string {
-  if (m > 0) return `+${m}ヶ月`;
-  if (m < 0) return `${m}ヶ月`;
-  return "±0ヶ月";
-}
 ---
 
 <Layout title="悩みから探す — EduEvidence JP">
@@ -94,7 +93,7 @@ function formatMonths(m: number): string {
                       {concern.strategies.map((slug) => {
                         const s = strategyMap.get(slug);
                         if (!s) return null;
-                        const monthsLabel = formatMonths(s.monthsGained);
+                        const monthsLabel = effectLabel(s.monthsGained, s.monthsUnmeasured);
                         const monthsClass = effectColorClass(s.monthsGained);
                         return (
                           <li>

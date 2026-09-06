@@ -6,6 +6,7 @@ import path from "node:path";
 import {
   stars as toStars,
   effectSign as toEffectSign,
+  UNMEASURED_LABEL,
   effectColorHex,
 } from "./effect-size";
 import { tokenHex } from "./css-color";
@@ -18,6 +19,7 @@ const ratingColor = tokenHex("--color-rating");
 interface OgParams {
   title: string;
   monthsGained: number;
+  monthsUnmeasured?: boolean;
   evidenceStrength: number;
   subjects: string[];
 }
@@ -47,7 +49,7 @@ async function loadNotoSansJpFont(): Promise<ArrayBuffer> {
 }
 
 export async function generateOgImage(params: OgParams): Promise<Buffer> {
-  const { title, monthsGained, evidenceStrength, subjects } = params;
+  const { title, monthsGained, monthsUnmeasured = false, evidenceStrength, subjects } = params;
 
   const effectSign = toEffectSign(monthsGained);
   const effectColor = effectColorHex(monthsGained);
@@ -130,18 +132,20 @@ export async function generateOgImage(params: OgParams): Promise<Buffer> {
                         type: "div",
                         props: {
                           style: {
-                            fontSize: "72px",
+                            fontSize: monthsUnmeasured ? "44px" : "72px",
                             fontWeight: 900,
                             color: effectColor,
                           },
-                          children: `${effectSign}${monthsGained}`,
+                          children: monthsUnmeasured
+                            ? UNMEASURED_LABEL
+                            : `${effectSign}${monthsGained}`,
                         },
                       },
                       {
                         type: "div",
                         props: {
                           style: { fontSize: "24px", color: effectColor },
-                          children: "ヶ月",
+                          children: monthsUnmeasured ? "" : "ヶ月",
                         },
                       },
                       {

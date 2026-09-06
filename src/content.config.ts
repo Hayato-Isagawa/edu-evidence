@@ -7,8 +7,11 @@ const strategies = defineCollection({
     title: z.string(),
     summary: z.string(),
     // プライマリ値: 読者に見せる代表値
-    // 決定順序: 日本研究(★3以上) > EEF > Hattie(注記付き) > 0(未証明)
+    // 決定順序: 日本研究(★3以上) > EEF > Hattie(注記付き) > 0 + monthsUnmeasured(未証明)
     monthsGained: z.number().min(-12).max(12),
+    // 学力効果を月数で示せる研究が無い(測っていない)ときだけ true。
+    // 「測って 0 だった」(monthsGained: 0 のまま false)と区別して描く(#518)
+    monthsUnmeasured: z.boolean().default(false),
     evidenceStrength: z.number().min(1).max(5),
     cost: z.number().min(1).max(5),
     subjects: z.array(z.string()).default(["全教科"]),
@@ -73,6 +76,15 @@ const strategies = defineCollection({
         limitations: z.string().optional(),       // エビデンスの限界
       })
       .optional(),
+  }).superRefine((d, ctx) => {
+    // 非ゼロの月数があるなら測っている。「測定なし」は 0 のときだけ
+    if (d.monthsUnmeasured && d.monthsGained !== 0) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["monthsUnmeasured"],
+        message: "monthsUnmeasured: true は monthsGained: 0 のときだけ使える",
+      });
+    }
   }),
 });
 

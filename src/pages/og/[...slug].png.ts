@@ -9,6 +9,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     props: {
       title: s.data.title,
       monthsGained: s.data.monthsGained,
+      monthsUnmeasured: s.data.monthsUnmeasured,
       evidenceStrength: s.data.evidenceStrength,
       subjects: s.data.subjects,
     },
@@ -19,6 +20,7 @@ export const GET: APIRoute = async ({ props }) => {
   const png = await generateOgImage(props as {
     title: string;
     monthsGained: number;
+    monthsUnmeasured?: boolean;
     evidenceStrength: number;
     subjects: string[];
   });

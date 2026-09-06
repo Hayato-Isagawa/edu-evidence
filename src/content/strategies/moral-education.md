@@ -2,6 +2,7 @@
 title: 道徳教育
 summary: 2018年に「特別の教科」となった道徳。「考え、議論する道徳」への転換が進む。効果の実証研究は発展途上。
 monthsGained: 0
+monthsUnmeasured: true
 evidenceStrength: 1
 cost: 1
 subjects: ["道徳"]
@@ -12,7 +13,6 @@ sourceUrl: https://doutoku.mext.go.jp/
 sourceTitle: "道徳教育アーカイブ — 文部科学省"
 evidence:
   japan:
-    monthsGained: 0
     strength: 1
     note: "2018 年に『特別の教科 道徳』として必修化。『考え、議論する道徳』への転換が図られるが、**学力・行動・道徳性の定量的な効果を測定した大規模研究はまだ無い**。評価方法(記述式)自体が数値化を避ける設計で、『効果量 +X ヶ月』という指標と整合しない。"
     researcher: "文部科学省"
@@ -26,7 +26,7 @@ methodology:
     title: "Does Moral Education Improve Moral Judgment? A Meta-Analysis of Intervention Studies Using the Defining Issues Test"
     url: "https://doi.org/10.3102/00346543055003319"
   limitations: "これらは欧米のメタ分析で、指標は Defining Issues Test(道徳判断)など特定の尺度に依存する。日本の道徳科は『考え、議論する道徳』へ転換したが、学力・行動・道徳性を定量化した大規模研究は国内に無く、評価も記述式の個人内評価が原則で数値指標と整合しない。Schlaefli ら(1985)の効果量は学齢期ほど小さく、学力向上の直接の根拠としては弱い。Johnson ら(2022)も一部の研究に報告バイアスの兆候があると述べる(バイアス補正後も結論は維持)。"
-lastVerified: "2026-06-19"
+lastVerified: "2026-09-06"
 culturalContext: |
   **道徳教育は学力向上を主目的とする領域ではない**ため、『効果量 +X ヶ月』の枠組みで論じること自体が不適切な側面がある。SEL(social-emotional-learning)・philosophy-for-children との関連項目で参照するのが適切。フロントマター +2 は根拠が薄いため **0 に調整** — 『学力効果を主張できる根拠が現時点で無い』という意味で、道徳教育そのものの価値を否定するものではない。『考え、議論する道徳』の実現は p4c(philosophy-for-children)のエビデンスが参考になる。
 ---
@@ -80,7 +80,7 @@ culturalContext: |
 
 ### 注記
 
-効果量は 0 ヶ月としています(学力向上を主張できる根拠が現時点で無いため)。道徳教育の効果を検証したメタ分析やRCTは世界的にも限られ、Schlaefli ら(1985)や character education のメタ分析(Johnson ら 2022)も日本の道徳科を直接測ったものではありません。日本では2018年の教科化後に効果検証が始まったばかりで、定量的なエビデンスの蓄積は今後の課題です。SELの知見が間接的な参考となっています。
+効果量は「測定なし」としています(学力向上を月数で示せる根拠が現時点で無いため)。道徳教育の効果を検証したメタ分析やRCTは世界的にも限られ、Schlaefli ら(1985)や character education のメタ分析(Johnson ら 2022)も日本の道徳科を直接測ったものではありません。日本では2018年の教科化後に効果検証が始まったばかりで、定量的なエビデンスの蓄積は今後の課題です。SELの知見が間接的な参考となっています。
 
 ## 関連する政策動向
 
