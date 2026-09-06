@@ -16,7 +16,7 @@ evidence:
     monthsGained: 2
     strength: 3
     note: "EEF Toolkit の 2025 年 5 月レビュー(64 研究)で +2ヶ月。確実性評価は 5 段階中 3(moderate)。2021 年 7 月時点は 44 研究で、値と評価は変わっていない。小学校段階と中学校段階で効果は同程度。EEF は、うまくいかなかったメンターとの組み合わせには子どもへの害がありうるとし、全体として負の効果を報告する研究もあると明記している。構造と期待が明確で、メンターへの訓練と支援があり、志願者からメンターを募るプログラムほど良い結果と結びついている。学力への効果は小さいが、非認知スキル(自信・動機づけ・登校継続)への効果が報告される。DuBois et al.(2011)の独立評価 73 件のメタ分析では、行動・社会性・情動・学業の各領域で効果が示されたが、通算した平均効果量は 0.21 と小さい。"
-lastVerified: "2026-09-03"
+lastVerified: "2026-09-06"
 methodology:
   studies: 73
   sampleSize: "1999〜2010 年に公表された青少年メンタリングプログラムの独立評価 73 件(行動・社会性・情動・学業の 4 領域を横断)"
@@ -63,7 +63,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- DuBois, D. L., Portillo, N., Rhodes, J. E., Silverthorn, N., & Valentine, J. C. (2011). [How effective are mentoring programs for youth? A systematic assessment of the evidence](https://doi.org/10.1177/1529100611414806). *Psychological Science in the Public Interest*, 12(2), 57–91. — 1999〜2010年に公表された青少年メンタリングプログラムの独立評価73件のメタ分析。平均効果量は0.21で、小さいが有意。構造化されたプログラムで効果が大きいことを示した。
+- DuBois, D. L., Portillo, N., Rhodes, J. E., Silverthorn, N., & Valentine, J. C. (2011). [How effective are mentoring programs for youth? A systematic assessment of the evidence](https://doi.org/10.1177/1529100611414806). *Psychological Science in the Public Interest*, 12(2), 57–91. — 1999〜2010年に公表された青少年メンタリングプログラムの独立評価73件のメタ分析。平均効果量は0.21で、小さいが有意。メンターに指導・アドボカシー(子どもの代弁)の役割を担わせるよう設計されたプログラムや、興味の共通性でマッチングしたプログラムで効果が大きかった。
 - [Mentoring](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mentoring). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2025年5月のレビュー(64研究)で+2ヶ月、確実性評価は 5 段階中 3(moderate)。小学校段階と中学校段階で効果は同程度。うまくいかなかった組み合わせには害がありうるとし、負の効果を報告する研究もあると明記している。
 
 ## 関連する学習指導要領
