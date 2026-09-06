@@ -97,7 +97,8 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 詳細な型定義は `src/content.config.ts` を参照。主要フィールド:
 
 - `title` / `summary` — 必須
-- `monthsGained` — 効果量(月数換算、整数)
+- `monthsGained` — 効果量(月数換算、整数)。0 は「測って効果ほぼゼロ」
+- `monthsUnmeasured` — 学力効果を月数で示せる研究が無いとき true(表示「測定なし」。`monthsGained: 0` のときだけ可)
 - `evidenceStrength` / `cost` — 段階評価
 - `subjects` / `grades` / `tags` — 分類
 - `category` — カテゴリ(指導法 / 制度・環境 / 知っておくべき知見 / 認知科学 / 家庭・外部)

@@ -24,6 +24,19 @@ export function effectSign(monthsGained: number): string {
   return tone === "positive" ? "+" : tone === "neutral" ? "±" : "";
 }
 
+/** 学力効果を月数で示せる研究が無いページ(monthsUnmeasured)の表示語。 */
+export const UNMEASURED_LABEL = "測定なし";
+
+/**
+ * 効果量の表示ラベル。「+3ヶ月」「±0ヶ月」「-2ヶ月」、測っていなければ「測定なし」。
+ * 「測って 0 だった」(±0ヶ月)と「測っていない」(測定なし)は正反対の意味なので
+ * 同じ見え方にしない(#518)。
+ */
+export function effectLabel(monthsGained: number, unmeasured = false): string {
+  if (unmeasured) return UNMEASURED_LABEL;
+  return `${effectSign(monthsGained)}${monthsGained}ヶ月`;
+}
+
 /** エビデンス強度の ★ 表示(5 段階)。 */
 export function stars(evidenceStrength: number): string {
   return "★".repeat(evidenceStrength) + "☆".repeat(5 - evidenceStrength);
