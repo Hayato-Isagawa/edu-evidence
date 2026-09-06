@@ -27,7 +27,7 @@
     "check:all": "npm run check && npm run check:text && npm run check:reader-literacy && npm run check:sentence-length && npm run check:tokens && npm run check:consistency && npm run check:evidence-strength && npm run check:links:source && npm run check:links && npm run test:scripts && npm run test:workflows && npm run test:hooks",
     "test:scripts": "node scripts/assert-test-files.mjs \"scripts/__tests__/*.test.mjs\" && node scripts/assert-test-results.mjs 37 \"scripts/__tests__/*.test.mjs\"",
     "test:workflows": "node scripts/assert-test-files.mjs \"scripts/__tests__/workflows/*.test.mjs\" && node scripts/assert-test-results.mjs 47 \"scripts/__tests__/workflows/*.test.mjs\"",
-    "test:hooks": "node scripts/assert-test-files.mjs \".claude/hooks/__tests__/*.test.cjs\" && node scripts/assert-test-results.mjs 40 \".claude/hooks/__tests__/*.test.cjs\"",
+    "test:hooks": "node scripts/assert-test-files.mjs \".claude/hooks/__tests__/*.test.cjs\" && node scripts/assert-test-results.mjs 56 \".claude/hooks/__tests__/*.test.cjs\"",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
     "vrt": "npx playwright test --config playwright.vrt.config.ts",
