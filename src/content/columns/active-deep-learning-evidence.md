@@ -43,21 +43,21 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 ## 解像度を上げる
 
-ここで大事なのは、「主体的・対話的で深い学び」を実施しているかではなく、**どの要素を、どう実施しているか** を問うことです。
+ここで大事なのは、**どの要素を、どう実施しているか** を問うことです。
 
 「対話的」と言っても中身で効果は変わります:
 
-- **構造のないペア学習** → 効果が小さい(おしゃべりに終わる)
-- **役割と目標が明確な協同学習** → +5 ヶ月
-- **教師が問いを工夫した学級全体の対話**([Dialogic Teaching の EEF 試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching): 78 校・小学 5 年対象の RCT で英語・理科に +2 ヶ月、算数に +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月)
+- 構造のないペア学習は効果が小さい(おしゃべりに終わる)
+- 役割と目標が明確な協同学習は +5 ヶ月
+- 教師が問いを工夫した学級全体の対話は、[Dialogic Teaching の EEF 試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching)(78 校・小学 5 年対象の RCT)で英語・理科に +2 ヶ月、算数に +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月
 
 「主体的」も同様:
 
-- **何でも子どもに選ばせる** → 効果が小さい、あるいは負の効果
-- **メタ認知スキルを明示的に教える** → +8 ヶ月
-- **形成的評価でフィードバックを返す** → +6 ヶ月
+- 何でも子どもに選ばせるやり方は効果が小さいか、負の効果
+- メタ認知スキルを明示的に教えると +8 ヶ月
+- 形成的評価でフィードバックを返すと +6 ヶ月
 
-つまり「主体的」「対話的」というラベルだけでは、効果の有無を判断できないということです。
+「主体的」「対話的」というラベルだけでは、効果の有無を判断できません。
 
 ## 政策と研究のギャップ
 
