@@ -70,7 +70,9 @@ function isKnownBotProtected(url: string): boolean {
 }
 
 // frontmatter やベタ URL を対象とする(markdown のリンクは balanced-paren で別抽出)
-const BARE_URL_REGEX = /(?<![(\["'])(https?:\/\/[^\s"'<>\]]+)/g;
+// 直前が `/` の `https?://` は別の URL の内側(Wayback の `…/web/<ts>/https://…` 形)なので拾わない。
+// 外側の URL は Markdown リンクとして別途抽出される。
+const BARE_URL_REGEX = /(?<![(\["'\/])(https?:\/\/[^\s"'<>\]]+)/g;
 
 // `[text](url)` のカッコ内 URL を balanced-paren で取得する
 // DOI など url 内に `(19)` を含むケースに対応
