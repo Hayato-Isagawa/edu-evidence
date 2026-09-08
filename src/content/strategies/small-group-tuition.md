@@ -1,6 +1,6 @@
 ---
 title: 少人数指導
-summary: 通常学級より小さな集団で行う指導。コストと効果のバランスが取れた介入として広く実施される。
+summary: 通常学級より小さな集団で行う指導。EEF は中程度の効果・低コストと評価しており、個別指導より効果は小さいが費用対効果の高い選択肢になりうるとしている。
 monthsGained: 4
 evidenceStrength: 4
 cost: 3
@@ -13,13 +13,13 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Small group tuition"
 evidence:
   eef:
     monthsGained: 4
-    strength: 4
-    note: "EEF Toolkit で +4ヶ月・エビデンス★4。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析で、2-5 人のグループでも 1 対 1 に近い効果が得られる。6 人を超えると効果が薄れる。"
-lastVerified: "2026-04-22"
+    strength: 3
+    note: "EEF Toolkit で +4ヶ月・エビデンス★3(62 研究、'based on moderate evidence')。EEF は 6〜7 人を超えると効果が落ちるとしている。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析は全体で d ≈ 0.37 を報告するが、6 人という閾値は分析していない。"
+lastVerified: "2026-09-08"
 methodology:
   studies: 96
   sampleSize: "幼児〜高校生(PreK-12、96 件 RCT)"
-  effectSize: "d ≈ 0.37(全体)。グループサイズ 2〜5 人で 1 対 1 に近い効果、6 人超で減衰"
+  effectSize: "d ≈ 0.37(全体)。1 対 1 が最も大きいが、1 対 1 を超える比率との差は統計的に有意でない(係数 −0.11、SE 0.070)。『6〜7 人を超えると効果が落ちる』は Nickow らではなく EEF Toolkit 側の記述"
   primaryEvidenceReview:
     authors: "Nickow, Oreopoulos & Quan"
     year: 2020
@@ -32,8 +32,8 @@ culturalContext: |
 
 ## 一言でいうと
 
-3〜5人程度の小グループで行う指導です。
-1対1の個別指導と通常の一斉指導の中間的な性質を持ち、コストと効果のバランスが良い介入とされています。
+2〜5人程度の小グループで行う指導です。
+1対1の個別指導と通常の一斉指導の中間的な性質を持ちます。EEF Teaching and Learning Toolkit は少人数指導を「中程度の効果・低コスト」と評価しています。
 
 ## なぜ効果があるのか
 
@@ -51,9 +51,9 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 平均的に、学習は約4ヶ月分前進します。
-- グループサイズが2〜5人のときに効果が大きくなる傾向があります。6人を超えると効果が薄れます。
-- 個別指導より効果は小さいものの、コスト効率は高いとされます。
+- 平均的に、学習は約4ヶ月分前進します。ただしこれは効力試験を中心とした平均です。イングランドの大規模実装(National Tutoring Programme)を独立評価した NFER の報告では、学校主導のチューターによる算数の改善は 1 か月程度にとどまり、学習メンターや個別指導事業者の経路では英語・算数とも改善の証拠が得られませんでした。
+- EEF は、グループサイズが2〜5人のときに効果が大きく、6〜7人を超えると効果が落ちるとしています。
+- EEF Toolkit では、少人数指導が +4 ヶ月・コスト評価「低」、[個別指導](/strategies/one-to-one-tuition) が +5 ヶ月・コスト評価「中」とされています。EEF は「補助スタッフによる指導や小集団での指導は、1 対 1 に比べると平均的な効果は小さいものの正の効果があり、的を絞った支援を届ける費用対効果の高い方法になりうる」と述べています。ただし両者を直接比較した研究の結果は一貫しておらず、読みでは小集団の方が上回る場合もあると注記されています。
 
 ## 注意したいこと
 
@@ -65,6 +65,7 @@ culturalContext: |
 
 - Nickow, A., Oreopoulos, P., & Quan, V. (2020). [The impressive effects of tutoring on preK-12 learning: A systematic review and meta-analysis of the experimental evidence](https://doi.org/10.3386/w27476). *NBER Working Paper* 27476. — 少人数指導を含む 96 件の RCT のメタ分析。小グループ(2〜5 人)でも 1 対 1 に近い効果が得られることを示した。
 - [Small group tuition](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 少人数指導の Toolkit ストランド。効果量 +4 ヶ月、グループサイズ 6 人以下で効果が大きい。
+- [Independent evaluation of the National Tutoring Programme: Year 2 impact evaluation](https://www.nfer.ac.uk/publications/independent-evaluation-of-the-national-tutoring-programme-year-2-impact-evaluation/). National Foundation for Educational Research (2023). — 英国政府委託の独立評価。学校主導のチューターによる算数の改善は 1 か月程度にとどまり、学習メンター・個別指導事業者の経路では英語・算数とも改善の証拠が得られなかった。
 - Slavin, R. E., Lake, C., Davis, S., & Madden, N. A. (2011). [Effective programs for struggling readers: A best-evidence synthesis](https://doi.org/10.1016/j.edurev.2010.07.002). *Educational Research Review*, 6(1), 1–26. — 読みに困難を持つ児童向けの指導プログラムを系統的に集約。構造化された少人数指導プログラム(1 対 1 または 2〜5 人)が効果的と報告。
 
 ## 関連する学習指導要領

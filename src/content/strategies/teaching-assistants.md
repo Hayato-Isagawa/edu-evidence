@@ -1,7 +1,7 @@
 ---
 title: 補助スタッフの活用
-summary: 学級担任を支える支援員・補助員の活用。配置だけでは効果が出ず、役割設計と訓練が鍵になる。
-monthsGained: 1
+summary: 学級担任を支える支援員・補助員の活用。EEF の平均は +4ヶ月だが、通常の教室に配置しただけでは正の効果は確認されておらず、役割設計と訓練が鍵になる。
+monthsGained: 4
 evidenceStrength: 3
 cost: 4
 subjects: ["全教科"]
@@ -9,19 +9,19 @@ grades: ["全学年"]
 tags: ["人員配置", "学級経営"]
 category: "制度・環境"
 source: eef
-sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistants
-sourceTitle: "EEF Teaching and Learning Toolkit — Teaching assistants"
+sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistant-interventions
+sourceTitle: "EEF Teaching and Learning Toolkit — Teaching Assistant Interventions"
 evidence:
   eef:
-    monthsGained: 1
+    monthsGained: 4
     strength: 3
-    note: "EEF Toolkit で +1ヶ月・エビデンス★3。単に補助員を配置するだけでは効果が出ないか、**負の効果すら報告される**(Blatchford et al. 2009 DISS プロジェクト)。役割を明確に定義し、訓練を受けた補助員が具体的な介入プログラムを実施したときにのみ +3〜+4ヶ月分(効果量 0.2〜0.3)の効果が確認される。"
-lastVerified: "2026-06-15"
+    note: "EEF Toolkit の Teaching Assistant Interventions で +4ヶ月・エビデンス★3(65 研究)。ただしこの平均の内訳は大きく割れており、EEF は「通常の教室環境への配置では学力への正の効果が示されていない」「訓練を受けたスタッフが構造化された介入を個別・小集団で実施した場合は 4〜6ヶ月分」と整理している。単に配置するだけでは **負の効果すら報告される**(Blatchford et al. 2009 DISS プロジェクト)。2021 年以前の旧ストランド Teaching assistants(+1ヶ月)は撤退し、URL も 404 になっている。"
+lastVerified: "2026-09-08"
 methodology:
   sampleSize: "EEF ガイダンス報告書『Making Best Use of Teaching Assistants』(Sharples, Webster & Blatchford 2015)が統合した DISS(支援スタッフの配置と影響)プロジェクトと介入研究レビュー。DISS は英国の学校で 2003〜2008 年、8,200 名の児童生徒の英語・算数・理科の学力進捗を、補助スタッフの支援量(教師評価と授業観察)と対応づけて 1 年間追跡した観察研究で、既習到達度や家庭背景などの要因を統制している"
-  limitations: "補助スタッフの配置そのものを対象とした公刊メタ分析は存在せず、本知見は観察研究(DISS)と介入研究レビューの統合に基づく。DISS では 21 の分析結果のうち 16 が負の方向で、どの教科・学年でも配置による正の効果は見られず、支援を最も多く受けた児童ほど進歩が小さかった(この傾向は特別な支援を要する児童で最も顕著)。一方、訓練を受けた補助スタッフが構造化された介入を 1 対 1・小集団で実施した場合は、約 3〜4 ヶ月分の追加的な進捗(効果量 0.2〜0.3)が一貫して報告されている。効果は配置の有無ではなく『どう活用するか』に決定的に左右される。"
+  limitations: "補助スタッフの配置そのものを対象とした公刊メタ分析は存在せず、本知見は観察研究(DISS)と介入研究レビューの統合に基づく。DISS では 21 の分析結果のうち 16 が負の方向で、どの教科・学年でも配置による正の効果は見られず、支援を最も多く受けた児童ほど進歩が小さかった(この傾向は特別な支援を要する児童で最も顕著)。一方、訓練を受けた補助スタッフが構造化された介入を 1 対 1・小集団で実施した場合は、EEF ガイダンス(2015)が約 3〜4 ヶ月分の追加的な進捗(効果量 0.2〜0.3)を、現行の Toolkit ストランドが 4〜6 ヶ月分を報告している。効果は配置の有無ではなく『どう活用するか』に決定的に左右される。"
 culturalContext: |
-  日本の『スクールサポートスタッフ』『学習支援員』『特別支援教育支援員』の配置拡大が進むが、EEF の知見が示すのは **配置=効果ではない** という点。**役割定義・研修・教師との連携プロトコル**が整わないと配置は形骸化する。『担任が手が回らないから補助員に任せる』という運用は逆効果の危険性がある。コスト(+4)が高いため、費用対効果の観点からも設計が重要。
+  日本の『スクールサポートスタッフ』『学習支援員』『特別支援教育支援員』の配置拡大が進むが、EEF の知見が示すのは **配置=効果ではない** という点。**役割定義・研修・教師との連携プロトコル**が整わないと配置は形骸化する。『担任が手が回らないから補助員に任せる』という運用は逆効果の危険性がある。コストが高いため、費用対効果の観点からも設計が重要。
 ---
 
 ## 一言でいうと
@@ -44,8 +44,9 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- ただ配置するだけでは、平均的な学習効果は約1ヶ月分にとどまります。
-- 構造化された介入(役割が明確で、訓練を受けた補助スタッフによる指導)では効果が大きくなります。
+- ストランド全体では、平均的に学習は約4ヶ月分前進します。ただしこの平均の内訳は大きく割れています。
+- 通常の教室にただ配置した場合、EEF は学力への正の効果が示されていないとしています。
+- 訓練を受けた補助スタッフが構造化された介入を個別・小集団で実施した場合は、4〜6ヶ月分の効果が報告されています。
 - 配置の有無より、活用の質が効果を大きく左右します。
 
 ## 注意したいこと
@@ -57,7 +58,7 @@ culturalContext: |
 ## 主な参考研究
 
 - [Making Best Use of Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/teaching-assistants). Education Endowment Foundation (2015, updated 2021), *Guidance Report*. — 補助スタッフの効果的な活用のための 7 つの推奨事項を提示した EEF 公式ガイダンス。DISS Project(Blatchford らによる英国の大規模研究)の知見を基礎に、「配置だけでは学力に負の効果が出る場合があり、役割設計が鍵」と整理。
-- [Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistants). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 構造化された介入を実施した場合、正の効果(+4 ヶ月)が出ることを報告。配置だけでは +1 ヶ月。
+- [Teaching Assistant Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistant-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 平均 +4 ヶ月(65 研究)。通常の教室への配置では正の効果が示されず、訓練を受けたスタッフによる構造化された介入では 4〜6 ヶ月分と整理。
 
 ### 関連読み物
 
