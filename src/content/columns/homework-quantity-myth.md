@@ -2,7 +2,7 @@
 title: 宿題は本当に学力を上げるのか？
 summary: 「家庭学習の充実」が推進される一方、研究は「量より質」を示している。政策と研究のギャップを考える。
 date: "2026-04-09"
-lastVerified: "2026-05-02"
+lastVerified: "2026-09-08"
 tags: ["宿題", "家庭学習", "政策", "定説再検証"]
 relatedStrategies: ["homework", "feedback", "individualised-instruction"]
 ---
@@ -11,7 +11,7 @@ relatedStrategies: ["homework", "feedback", "individualised-instruction"]
 
 小学校では「家庭学習の充実」の推進が広く言われ、「**学年×10分**」(3年生なら30分)といった家庭学習時間の目安が、学校や家庭で参照されることがあります。
 
-この目安の出自は、ハリス・クーパー(デューク大学)が1989年にまとめた宿題研究集成から導かれた [「10-minute rule」](https://files.ascd.org/staticfiles/ascd/pdf/journals/ed_lead/el198911_cooper.pdf) で、全米PTA・全米教育協会(NEA)が採用したものが日本でも広まった経緯があります。**日本の文部科学省や教育委員会が公式ガイドラインとして示しているわけではありません**。
+この目安に対応する米国の「10-minute rule」(学年 × 10 分)は、米国で広く使われている目安です。全米教育協会(NEA)は自サイトで、NEA と全米 PTA がこれを支持していると述べています。ただし [クーパー自身が 1989 年にまとめた研究集成](https://files.ascd.org/staticfiles/ascd/pdf/journals/ed_lead/el198911_cooper.pdf) の勧告は学年帯ごとの回数と所要時間(1〜3 年生は週 1〜3 回・各 15 分以内など)で、「学年 × 10 分」という表現は使われていません。日本の「学年×10分」がここから伝わったことを示す一次資料も確認できていません。**日本の文部科学省や教育委員会が公式ガイドラインとして示しているわけではありません**。
 
 日本の小学生の実態として、東京大学・社会科学研究所 × ベネッセ教育総合研究所の [2024年「子どもの生活と学び」調査](https://benesse.jp/berd/shotouchutou/research/pdf/oyako_tyosa_2024_0326.pdf) では、小4〜6の学校の宿題時間は平均 **34分/日** (2015年比で10分減少)と報告されています。「学年×10分」は現状の実態と大きく乖離はしませんが、これは **実態としての目安であって、効果の根拠ではありません**。
 
@@ -24,7 +24,7 @@ Cooper et al. (2006) のメタ分析(宿題時間と学力の相関を分析し�
 - **中学・高校** では宿題と学力に明確な正の相関
 - **小学校** では関係が弱く、効果が限定的
 
-EEF の集約値として [小学校段階の宿題](/strategies/homework) の効果は **+2 ヶ月**(中高より小さい)とされています。
+EEF の集約値として [小学校段階の宿題](/strategies/homework) の効果は **+3 ヶ月** で、中学・高校の +5 ヶ月より小さいとされています。
 
 さらに重要なのは、**量よりも質**が効果を決めるという知見です。
 
@@ -47,11 +47,15 @@ EEF の集約値として [小学校段階の宿題](/strategies/homework) の�
 
 宿題は家庭で実施されるため、**家庭の社会経済的地位(SES)によって支援の質と量が大きく異なります**。家庭の状況がそのまま学習成果に反映される構造は、教育格差を広げる方向に働きます。
 
-国際的な研究集成では、次のような傾向が一貫して報告されています。
+国際的なデータからは、次の傾向が指摘されています。
 
-- 高SES家庭の保護者は、宿題への直接支援・子どもとの対話・学習時間の確保などへの関与が多い
-- 低SES家庭では、保護者の労働時間・学歴・経済的制約などにより、宿題支援の時間と余裕が限られる
-- 結果として、宿題の頻度や量が増えるほど、**SESによる学力差が拡大する可能性** がある
+- OECD が PISA 2012 を分析した『Does homework perpetuate inequities in education?』(2014)によれば、参加したすべての国・地域で、社会経済的に恵まれた生徒の方が宿題に費やす時間が長く、OECD 平均で週 1.6 時間の差があります(5.7 時間対 4.1 時間)
+- 同レポートは、不利な立場の生徒には静かに学習できる場所や時間が不足しがちで、保護者も仕事や資源の制約から支援しにくい可能性を挙げ、宿題が意図せず学力差を広げるおそれがあるとしています
+- オランダの小学生を分析した Rønning (2011) は、全員に宿題が出るクラスの方が学力の格差が大きく、社会経済的に上位の児童だけが宿題から利益を得ていたと報告しています
+
+同じレポートは、宿題に費やす時間が長い生徒・学校ほど PISA の数学の成績が高いことも報告しており、格差の話だけを取り出すことはできません。対象は 15 歳で、小学校の知見でもありません。
+
+さらに Cooper, Robinson & Patall (2006) は、宿題と学力の関係を SES で切り分けた研究を 1 件も見つけられなかったと明記しています。この論点の証拠は、まだ薄い層にあります。
 
 日本の文脈でも、[松岡亮二氏(龍谷大学)『教育格差』(ちくま新書, 2019)](https://www.chikumashobo.co.jp/product/9784480072375/) は、家庭のSESが就学前から学力・学歴に強く影響することを実証しています。宿題そのものを直接扱った日本の実証研究は限られますが、「家庭学習の充実」政策は、**意図せず家庭環境の格差を学力差に変換する経路** になりうる点に注意が必要です。
 
@@ -96,5 +100,8 @@ EEF の集約値として [小学校段階の宿題](/strategies/homework) の�
 
 ### 海外の研究
 
+- [Does homework perpetuate inequities in education?](https://www.oecd.org/content/dam/oecd/en/publications/reports/2014/12/does-homework-perpetuate-inequities-in-education_g17a258a/5jxrhqhtx2xt-en.pdf). OECD (2014), *PISA in Focus* No. 46. — PISA 2012 の分析。恵まれた生徒の方が宿題時間が長く(OECD 平均で週 5.7 時間対 4.1 時間)、宿題が意図せず学力差を広げるおそれがあるとする。
 - Cooper, H., Robinson, J. C., & Patall, E. A. (2006). [Does homework improve academic achievement? A synthesis of research, 1987-2003](https://doi.org/10.3102/00346543076001001). *Review of Educational Research*, 76(1), 1–62. — 小学校では宿題量と学力に明確な関連がないと結論したメタ分析。
-- Cooper, H. (1989). [Synthesis of Research on Homework](https://files.ascd.org/staticfiles/ascd/pdf/journals/ed_lead/el198911_cooper.pdf). *Educational Leadership*. — 「10-minute rule」の根拠となった研究集成。小学校段階では宿題の量が学力に影響しないこと、および学習習慣・肯定的態度・家庭学習の認識が推奨の根拠であることを論じている。
+- Rønning, M. (2011). [Who benefits from homework assignments?](https://doi.org/10.1016/j.econedurev.2010.07.001). *Economics of Education Review*, 30(1), 55–64. — オランダの小学生を分析。全員に宿題が出るクラスの方が学力の格差が大きく、上位層のみが宿題から利益を得ていた。逐語の確認は Statistics Norway Discussion Paper 566 (2008) 版で行った。
+- Cooper, H. (1989). [Synthesis of Research on Homework](https://files.ascd.org/staticfiles/ascd/pdf/journals/ed_lead/el198911_cooper.pdf). *Educational Leadership*. — 小学校段階では宿題の量が学力に影響しないこと、および学習習慣・肯定的態度・家庭学習の認識が推奨の根拠であることを論じている。勧告は学年帯ごとの回数と所要時間で、「学年 × 10 分」という表現は使われていない。
+- [If Elementary Schools Say No to Homework, What Takes Its Place?](https://web.archive.org/web/20201024040658/https://www.nea.org/advocating-for-change/new-from-nea/if-elementary-schools-say-no-homework-what-takes-its-place). NEA Today, 2017-01-26. — NEA と全米 PTA が「10-minute rule」を支持していると記載。現行のページは 404 のため Internet Archive 版を参照。
