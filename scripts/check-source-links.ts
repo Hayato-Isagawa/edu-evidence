@@ -7,12 +7,19 @@
  * Rule 1.3 準拠の挙動:
  *   - 200                   → OK(非表示)
  *   - 403 / 429 / 5xx       → warning(ボット対策や一時障害、ブラウザで要確認)
- *   - 404                   → error(切れているので修正)
- *   - network error / timeout → error
+ *   - 404 / 410             → error(切れているので修正)
+ *   - network error / timeout → unreachable(報告のみ・失敗にしない)
+ *
+ * **network error を失敗にしない理由**: 一過性の到達不能を「確定した消滅」と同じ扱いにすると、
+ * 検査は非決定的になり、赤が意味を持たなくなる。2026-09-08 のある時点では、同じツリーで
+ * 3 回走らせて exit 1 / 0 / 1 と割れ、落ちたのは毎回 `eric.ed.gov` の別パスだった
+ * (404 / 410 は 0 件)。**これは 1 台・1 時刻のスナップショットで、回線が落ち着いていれば
+ * 3 回とも exit 0 になる**(PR 前レビューが別時刻に実測)。再現しないことは、この判定が
+ * 要らない証拠にはならない。到達不能そのものの追跡は週次の `link-check.yml`(lychee)が担当する。
  *
  * exit code:
- *   - 0 … 404 / 5xx / network error が 0 件
- *   - 1 … 壊れた URL あり
+ *   - 0 … 404 / 410 が 0 件(到達不能があっても 0)
+ *   - 1 … 404 / 410 あり
  *
  * 使い方: npx tsx scripts/check-source-links.ts
  *   環境変数 LINK_CHECK_CONCURRENCY (既定 20) で並列数を制御
@@ -224,8 +231,16 @@ async function fetchOnce(url: string): Promise<FetchOutcome> {
     }
     return { status: res.status };
   } catch (err: unknown) {
+    // `err.message` は到達不能なら常に "fetch failed" で、原因が読めない。
+    // **`cause.code` を残す** — `ENOTFOUND`(名前解決の失敗 = ドメインの打ち間違い・失効)は
+    // 恒久的な消滅で、タイムアウトのような一過性とは性質が違う。失敗にはしないが、
+    // 報告で区別が付かなければ目視でも拾えない。
     const message = err instanceof Error ? err.message : String(err);
-    return { status: 0, error: message };
+    const code =
+      err instanceof Error && err.cause && typeof (err.cause as { code?: unknown }).code === "string"
+        ? ((err.cause as { code: string }).code)
+        : undefined;
+    return { status: 0, error: code ? `${message} (${code})` : message };
   } finally {
     clearTimeout(timer);
   }
@@ -257,8 +272,8 @@ async function runWithConcurrency<T, R>(
   return results;
 }
 
-function categorize(status: number): "ok" | "warn" | "error" {
-  if (status === 0) return "error"; // network error / timeout
+function categorize(status: number): "ok" | "warn" | "error" | "unreachable" {
+  if (status === 0) return "unreachable"; // network error / timeout(一過性・失敗にしない)
   if (status >= 200 && status < 400) return "ok"; // 2xx, 3xx(リダイレクト追跡後)
   if (status === 404 || status === 410) return "error"; // 確定した消滅
   // 401/403/429/5xx/その他 → 一時的・認証・ボット対策の可能性、要目視
@@ -295,6 +310,7 @@ async function main() {
   });
 
   const errors: Result[] = [];
+  const unreachable: Result[] = []; // network error / timeout(報告のみ)
   const warningsActionable: Result[] = []; // 既知ボット対策ドメイン 以外 の warn(個別列挙)
   const warningsKnown: Result[] = []; // 既知ボット対策ドメインの warn(サマリ)
   for (const occ of allOccurrences) {
@@ -303,6 +319,8 @@ async function main() {
     const cat = categorize(s.status);
     if (cat === "error") {
       errors.push(result);
+    } else if (cat === "unreachable") {
+      unreachable.push(result);
     } else if (cat === "warn") {
       if (isKnownBotProtected(occ.url)) warningsKnown.push(result);
       else warningsActionable.push(result);
@@ -310,13 +328,43 @@ async function main() {
   }
 
   if (errors.length > 0) {
-    console.log(`## ❌ 壊れているリンク(404 / 410 / ネットワークエラー)`);
+    console.log(`## ❌ 壊れているリンク(404 / 410)`);
     console.log("");
     for (const e of errors) {
-      const detail = e.status === 0 ? `network error: ${e.error ?? "unknown"}` : `HTTP ${e.status}`;
-      console.log(`- ${rel(e.occurrence.file)}:${e.occurrence.line} — ${e.occurrence.url} → ${detail}`);
+      console.log(
+        `- ${rel(e.occurrence.file)}:${e.occurrence.line} — ${e.occurrence.url} → HTTP ${e.status}`,
+      );
     }
     console.log("");
+  }
+
+  if (unreachable.length > 0) {
+    // 名前解決の失敗を先に出す。失敗にはしないが、**恒久的な消滅である可能性が高い**ので
+    // 一過性のタイムアウトと同じ並びに埋めない。
+    const dns = unreachable.filter((u) => (u.error ?? "").includes("ENOTFOUND"));
+    const transient = unreachable.filter((u) => !(u.error ?? "").includes("ENOTFOUND"));
+
+    if (dns.length > 0) {
+      console.log(`## 🔎 名前解決に失敗したリンク(ドメインの誤り / 失効の可能性。失敗にはしない)`);
+      console.log("");
+      for (const u of dns) {
+        console.log(
+          `- ${rel(u.occurrence.file)}:${u.occurrence.line} — ${u.occurrence.url} → ${u.error ?? "unknown"}`,
+        );
+      }
+      console.log("");
+    }
+
+    if (transient.length > 0) {
+      console.log(`## 📡 到達できなかったリンク(ネットワークエラー / タイムアウト、失敗にしない)`);
+      console.log("");
+      for (const u of transient) {
+        console.log(
+          `- ${rel(u.occurrence.file)}:${u.occurrence.line} — ${u.occurrence.url} → network error: ${u.error ?? "unknown"}`,
+        );
+      }
+      console.log("");
+    }
   }
 
   if (warningsActionable.length > 0) {
@@ -347,12 +395,13 @@ async function main() {
   }
 
   const warnTotal = warningsActionable.length + warningsKnown.length;
-  const okCount = allOccurrences.length - errors.length - warnTotal;
+  const okCount = allOccurrences.length - errors.length - unreachable.length - warnTotal;
   console.log(`## 集計`);
   console.log(`- ✓ 2xx / 3xx: ${okCount}`);
   console.log(`- ⚠️ 要目視 (未登録ドメイン): ${warningsActionable.length}`);
   console.log(`- ℹ️ 既知ボット対策ドメイン: ${warningsKnown.length}`);
-  console.log(`- ❌ 404 / 410 / network error: ${errors.length}`);
+  console.log(`- 📡 到達できなかった (失敗にしない): ${unreachable.length}`);
+  console.log(`- ❌ 404 / 410: ${errors.length}`);
 
   if (errors.length > 0) {
     console.error(`\n壊れたリンクが ${errors.length} 件あります。修正してください。`);

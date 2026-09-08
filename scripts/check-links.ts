@@ -18,9 +18,14 @@
  *   - 2 … dist 不在 / 予期せぬ例外
  *
  * 使い方:
- *   npm run check:links      … 照合モード
- *   npm run links:baseline   … baseline 再生成(常に exit 0)
+ *   npm run check:links          … 照合モード(外部 URL を含む・非決定的)
+ *   npm run check:links:internal … 内部リンクだけ(外部 URL を skip・決定的)
+ *   npm run links:baseline       … baseline 再生成(常に exit 0)
  *   既知 broken は別 PR で順次解消し、再生成して baseline を縮める
+ *
+ * **`check:all` に載せているのは内部モードだけ。** 外部 URL を含めると母集団も判定も
+ * 実行ごとに変わり(実測 2026-09-08。詳細は docs/CONTENT_GUIDELINES.md)、赤が意味を失う。
+ * 内部モードはネットワークへ出ないので決定的で、リンク切れは常に本物。
  */
 
 import fs from "node:fs";
@@ -41,8 +46,16 @@ const CHECK_OPTIONS = {
   concurrency: 100,
 };
 
+// 内部モードの skip。**localhost / 127.0.0.1 を除外しない** — linkinator は dist を
+// ローカルサーバで配って辿るので、内部リンクはこのホストになる。ここを落とすと
+// 検査対象が 0 件になり、緑で通ってしまう。
+const INTERNAL_ONLY_SKIP = ["^https?://(?!localhost|127\\.0\\.0\\.1)|mailto:|^#"];
+
 // 「確定した消滅 / 到達不能」とみなす status。baseline 登録済みでも NEW 扱い。
-// (check-source-links.ts の categorize と同じ思想。0 = network error / timeout)
+// **`check-source-links.ts` の `categorize` とは意図的に違う。** あちらは `status 0` を
+// 「到達不能」として失敗にしない。こちらは外部込みで走らせたときだけ使われ、その用途では
+// baseline 登録済みの URL が本当に消えた場合を拾いたいので 0 を残してある。
+// `check:all` に載る内部モード（--internal-only）ではネットワークへ出ないので 0 は出ない。
 const HARD_BROKEN_STATUSES = new Set([404, 410, 0]);
 
 function hostOf(url: string): string {
@@ -68,8 +81,10 @@ interface ScanResult {
   skippedCount: number;
 }
 
-async function scan(): Promise<ScanResult> {
-  const result = await check(CHECK_OPTIONS);
+async function scan(internalOnly = false): Promise<ScanResult> {
+  const result = await check(
+    internalOnly ? { ...CHECK_OPTIONS, linksToSkip: INTERNAL_ONLY_SKIP } : CHECK_OPTIONS,
+  );
   // BROKEN は同一 URL が parent ごとに複数件返るため、URL でユニーク化する
   const broken = new Map<string, number>();
   let skippedCount = 0;
@@ -177,12 +192,19 @@ async function main(): Promise<number> {
   }
 
   const updateMode = process.argv.includes("--update-baseline");
+  const internalOnly = process.argv.includes("--internal-only");
+  if (updateMode && internalOnly) {
+    console.error("--update-baseline と --internal-only は同時に使えません。");
+    return 2;
+  }
 
   console.log(`=== check:links(linkinator + baseline 照合)===`);
-  console.log(`対象: dist / モード: ${updateMode ? "baseline 再生成" : "照合"}`);
+  console.log(
+    `対象: dist / モード: ${updateMode ? "baseline 再生成" : internalOnly ? "内部リンクのみ" : "照合"}`,
+  );
   console.log("");
 
-  const { broken, totalChecked, skippedCount } = await scan();
+  const { broken, totalChecked, skippedCount } = await scan(internalOnly);
   console.log(
     `検査リンク: ${totalChecked}(SKIPPED ${skippedCount} / BROKEN ユニーク ${broken.size})`,
   );
