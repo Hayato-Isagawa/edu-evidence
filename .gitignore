@@ -1,5 +1,10 @@
 node_modules
 dist
+
+# テスト fixture の dist は成果物ではなく入力なので追跡する。
+# 上の `dist` はパス区切りを含まないため、どの階層の dist/ にも当たる。
+!scripts/__tests__/fixtures/**/dist/
+!scripts/__tests__/fixtures/**/dist/**
 .astro
 .DS_Store
 *.log

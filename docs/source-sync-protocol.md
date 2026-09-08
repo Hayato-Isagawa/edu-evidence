@@ -157,7 +157,7 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
    - `culturalContext` に値変更の経緯を 1-2 行追記
 3. **値が変わらない場合**:
    - `lastVerified` のみ rolling
-4. ローカル検証: `npm run check:all` を通す(`check:text` / `check:consistency` / `check:stale` / `check:links:source` / `astro check`)
+4. ローカル検証: `npm run check:all` を通す(`astro check` / `check:text` / `check:consistency` / `check:links:source` / `check:links:internal` ほか。**`check:stale` は `check:all` に入っていない**ので、要るときは単体で走らせる)
 5. 別途 `npm run check:source-sync` で次回チェック対象を確認(本 PR の対象から外れているか)
 6. PR 作成(タイトル英語、本文日本語 — `CONTRIBUTING.md`「コミットメッセージ / PR タイトル規約」)
 7. **マージしない** — 編集者(ユーザー)のレビューを待つ

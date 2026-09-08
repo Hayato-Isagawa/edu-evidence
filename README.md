@@ -70,9 +70,10 @@ npm run test:e2e
 | `npm run check:text:fix` | textlint で自動修正 |
 | `npm run check:consistency` | monthsGained 整合性チェック |
 | `npm run check:stale` | lastVerified 期限切れチェック |
-| `npm run check:links` | ビルド後のローカルリンクチェック |
+| `npm run check:links` | ビルド後のローカルリンクチェック(外部込み。**`check:all` には含めない** — 実測で非決定的。理由は CONTENT_GUIDELINES) |
+| `npm run check:links:internal` | 内部リンクだけの走査(ネットワーク不要・決定的。`check:all` に含む) |
 | `npm run check:links:live` | 本番サイトのリンクチェック |
-| `npm run check:all` | check + check:text + check:consistency + check:links を一括実行 |
+| `npm run check:all` | 型 / 文章 / 整合性 / `check:links:source` / `check:links:internal` / 各テストを一括実行(外部込みの `check:links` は含めない) |
 | `npm run test:e2e` | Playwright E2E テスト |
 | `npm run test:e2e:ui` | Playwright UI モード |
 
