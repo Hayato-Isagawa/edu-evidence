@@ -23,7 +23,7 @@ Ver.2.0 の重要な変化は、**教員の校務利用・児童生徒の学習�
 
 | 関連するエビデンス | 効果量 | 注記 |
 |---|---|---|
-| [ICT活用](/strategies/digital-technology) | +4ヶ月 | EEF。生成AI以前のデジタル教育全般 |
+| [ICT活用](/strategies/digital-technology) | +3ヶ月 | EEF委託の2019年エビデンスレビュー。生成AI以前のデジタル教育全般 |
 | [メタ認知の指導](/strategies/metacognition) | +8ヶ月 | AIが教える側に回る場合に参考になる値 |
 | [個別化学習](/strategies/individualised-instruction) | +4ヶ月 | AIドリルが実現しようとしている領域 |
 | [フィードバック](/strategies/feedback) | +6ヶ月 | AIの即時フィードバックに重なる領域 |
@@ -79,5 +79,5 @@ Ver.2.0 の重要な変化は、**教員の校務利用・児童生徒の学習�
 
 - [初等中等教育段階における生成 AI の利活用に関するガイドライン(Ver.2.0)](https://www.mext.go.jp/content/20241226-mxt_shuukyo02-000030823_001.pdf). 文部科学省 (2024), 2024 年 12 月 26 日公表. — 教員の校務利用・児童生徒の学習活動・教育委員会の 3 領域に分けた指針。ハルシネーション、バイアス、思考の代替リスク等を明示。
 - [学校現場における生成 AI の利活用(パイロット校の取組)](https://www.mext.go.jp/zyoukatsu/ai/). 文部科学省 (2025). — パイロット校での実践事例と成果報告。
-- [Using Digital Technology to Improve Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital). Education Endowment Foundation (2021), *Guidance Report*. — デジタル技術の学習効果を包括的にレビューしたガイダンスレポート。技術そのものより「既存指導を補完する使い方」が効果を左右することを指摘。ICT 活用全般の集約値として +4 ヶ月だが、生成 AI 特化の値ではない点に注意。
+- [Using Digital Technology to Improve Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital). Education Endowment Foundation (2019), *Guidance Report*. — デジタル技術の学習効果を包括的にレビューしたガイダンスレポート。技術そのものより「既存指導を補完する使い方」が効果を左右することを指摘。効果の月数はこの文書には示されておらず、EEF が委託した 2019 年のエビデンスレビューでは平均 2 〜 3 ヶ月分とされている。いずれも生成 AI 特化の値ではない点に注意。
 - Barcaui, A. (2025). [ChatGPT as a cognitive crutch: Evidence from a randomized controlled trial on knowledge retention](https://www.sciencedirect.com/science/article/pii/S2590291125010186). *Social Sciences & Humanities Open*, 12, 102287. — 学部生 120 名の RCT。ChatGPT 使用群は 45 日後の保持テストで 11 ポイント低い (d=0.68)。認知的オフローディングの機構を示唆。
