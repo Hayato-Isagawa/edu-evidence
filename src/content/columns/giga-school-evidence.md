@@ -18,12 +18,12 @@ GIGAスクール構想により、日本中の小学校に1人1台の端末が�
 [Zheng, Warschauer, Lin, & Chang (2016) の 1 人 1 台端末環境のメタ分析・研究統合](https://journals.sagepub.com/doi/abs/10.3102/0034654316628645) は、10 件の統計分析対象研究で次の結果を報告しています。
 
 - **ライティング(書く力)** で有意な正の効果
-- **英語・数学・科学** でも有意な正の効果
+- **英語科・数学・科学** でも有意な正の効果(英語科は読解と作文を含む上位の区分)
 - **読解** では統計的に有意な効果は認められなかった
 
-[EEF の Using Digital Technology to Improve Learning(2019 ガイダンスレポート)](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital) は、テクノロジーを「補完」として使う条件を挙げています。ただしこれは指導全般についての一般化ではありません。EEF が「補完」と限定して述べているのはモデリング(Recommendation 2)とフィードバック(Recommendation 4)で、いずれも「他の形の代わりではなく、それに沿った補足として使うとき」と書かれています。
+[EEF の Using Digital Technology to Improve Learning(2019 ガイダンスレポート)](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital) は、テクノロジーを「補完」として使う条件を挙げています。Recommendation 1 に「テクノロジーが既存の指導を補完するのか、高めるのか、置き換えるのかを考える」という節があり、「これまでのところ、テクノロジーは指導を置き換えるためではなく、補完または強化するために使われたときに最も効果的だった」と書かれています。モデリング(Recommendation 2)とフィードバック(Recommendation 4)では、同じことがそれぞれの場面に即してさらに具体的に述べられています。
 
-少なくともこの 2 つの場面については、**「先生の代わりに ICT」ではなく「先生の指導に ICT を加える」** 形が支持されています。
+つまり、**「先生の代わりに ICT」ではなく「先生の指導に ICT を加える」** 形が支持されています。
 
 ## 日本での運用状況 — 進展と課題
 
@@ -66,7 +66,7 @@ GIGA 端末の家庭持ち帰りは、第 2 期でも論点の 1 つです。[�
 
 持ち帰り運用で触れたフィルタリング・ネット依存・利用時間の管理は、いずれも **「危険を避けるためのルール・マナー」を上から与える禁止型** の情報モラル教育に近い整理です。一方で 2020 年代以降の実践では、**「技術を主体的に使いこなし、社会に参加する市民を育てる」育成型のデジタルシティズンシップ教育** への重心移動が進んでいます。
 
-GIGA 端末そのものに +4 ヶ月の効果量を期待するのではなく、**端末を介した学びの場面で子ども自身が使い方・付き合い方を判断する力を育てる** と捉え直すと、端末活用の評価軸は「活用率」や「使用時間」から「主体性と判断力の育ち」へ移ります。本サイトでは同じ観点で以下のコラムも扱っています。
+GIGA 端末そのものに +3 ヶ月の効果量を期待するのではなく、**端末を介した学びの場面で子ども自身が使い方・付き合い方を判断する力を育てる** と捉え直すと、端末活用の評価軸は「活用率」や「使用時間」から「主体性と判断力の育ち」へ移ります。本サイトでは同じ観点で以下のコラムも扱っています。
 
 - 生成 AI との向き合い方: [生成 AI は教育をどう変えるか?](/columns/generative-ai-education) / [ChatGPT で勉強すると記憶が定着しない?](/columns/chatgpt-cognitive-crutch)
 - 子ども文化と学級対応: [『ブレインロットを盗む』が学級に来た日](/columns/brainrot-classroom-response)
@@ -85,8 +85,10 @@ GIGA 端末そのものに +4 ヶ月の効果量を期待するのではなく�
 
 ## まとめ
 
-- Zheng et al. (2016) のメタ分析では、1 人 1 台端末は **ライティング・英語・数学・科学** で有意な正の効果、**読解では有意差なし**
-- EEF の集約値として [ICT 活用](/strategies/digital-technology) は **+4 ヶ月**。EEF が「補完として使う」と限定して述べているのはモデリングとフィードバックについてで、指導全般の条件として書かれているわけではない
+- Zheng et al. (2016) のメタ分析では、1 人 1 台端末は **ライティング・英語科・数学・科学** で有意な正の効果、**読解では有意差なし**
+- 本サイトは [ICT 活用](/strategies/digital-technology) を **+3 ヶ月** としている。EEF が委託した 2019 年のエビデンスレビューが報告した「平均 2〜3 ヶ月分」から採った代表値で、レビュー自身が 3 と述べているわけではない
+- 2026-09-08 時点の EEF Toolkit の一覧に ICT の項目は見当たらない(EEF は Toolkit の小規模な編集作業中と告知している)。上の値は Toolkit ではなく同レビューに基づく
+- EEF は「置き換えるためではなく補完または強化するために使ったときに最も効果的だった」と、指導全般について述べている
 - 日本では ICT 機器活用率は小中とも 9 割超に達し、GIGA スクール構想第 2 期で「配備」から「活用の質」へ段階が移行
 - 観察研究では **ICT 活用の自信度と正答率に相関** があるが、学校全体の指導力との交絡が考えられるため因果は断定できない
 - 「使っている」頻度よりも **何のために使うか** が効果を決める
@@ -107,5 +109,5 @@ GIGA 端末そのものに +4 ヶ月の効果量を期待するのではなく�
 ### 海外の研究
 
 - [Students, Computers and Learning: Making the Connection](https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/09/students-computers-and-learning_g1g57f3a/9789264239555-en.pdf). OECD (2015), *PISA*. — PISA 2012 の分析。学校での ICT 利用が中程度の生徒は稀な生徒よりやや成績がよいが、非常に頻繁に使う生徒は多くの領域で成績が低い。ICT に多く投資した国で読解・数学・科学の成績改善は確認できなかった。
-- [Using Digital Technology to Improve Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital). Education Endowment Foundation (2019), *Guidance Report*. — デジタル技術の学習効果を包括的にレビュー。4 つの推奨事項を示し、モデリングとフィードバックについては、他の形を置き換えるのではなく補足として使うときに最も効果的でありうるとしています。
-- Zheng, B., Warschauer, M., Lin, C.-H., & Chang, C. (2016). [Learning in one-to-one laptop environments: A meta-analysis and research synthesis](https://doi.org/10.3102/0034654316628645). *Review of Educational Research*, 86(4), 1052–1084. — 65 論文 + 31 博士論文から 10 研究をメタ分析。ライティング・英語・数学・科学で有意な正効果、読解では有意差なし。
+- [Using Digital Technology to Improve Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital). Education Endowment Foundation (2019), *Guidance Report*. — デジタル技術の学習効果を包括的にレビュー。4 つの推奨事項を示し、Recommendation 1 で、テクノロジーは指導を置き換えるためではなく補完または強化するために使われたときに最も効果的だったとしています。
+- Zheng, B., Warschauer, M., Lin, C.-H., & Chang, C. (2016). [Learning in one-to-one laptop environments: A meta-analysis and research synthesis](https://doi.org/10.3102/0034654316628645). *Review of Educational Research*, 86(4), 1052–1084. — 65 論文 + 31 博士論文から 10 研究をメタ分析。作文・英語科・数学・科学で有意な正効果、読解では有意差なし。

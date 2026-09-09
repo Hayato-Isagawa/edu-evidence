@@ -73,6 +73,12 @@
 | 2/3 一致 + 二次情報源 1 件以上で同値裏付け | 値更新可 |
 | それ未満 | **据え置き**、`lastVerified` のみ rolling(`docs/CONTENT_GUIDELINES.md` Rule 1.1 を厳格適用 — 根拠の無い数値を書かない) |
 
+**Toolkit に strand が無い戦略は、この判定ロジックの対象外。** WebSearch は撤去済みの値を引用したままの二次サイトを拾うので、3/3 一致が成立してしまい、消えた値がそのまま戻る。現時点の該当は 1 件:
+
+| 戦略 | 照合先 |
+|---|---|
+| `digital-technology` | `education-evidence/evidence-reviews/digital-technology-2019`(EEF 委託レビュー)。Toolkit strand は 2026-09-08 時点の一覧に無い |
+
 ### 出力
 
 - 値更新がある場合: PR ドラフト(コミット粒度: 1 戦略 1 PR、または同 strand 複数戦略を 1 PR にまとめる)
