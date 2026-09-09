@@ -2,7 +2,7 @@
 title: ICT活用
 summary: タブレット・PC・デジタル教材の活用。EEF が委託した 2019 年のエビデンスレビューは平均 2〜3ヶ月分と報告している。「技術そのもの」より「どう使うか」が効果を決める。日本は GIGA スクール構想で環境は整ったが活用の質が課題。
 monthsGained: 3
-evidenceStrength: 2
+evidenceStrength: 3
 cost: 4
 subjects: ["全教科"]
 grades: ["全学年"]
@@ -12,20 +12,20 @@ sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/eviden
 sourceTitle: "EEF Evidence Review — Using Digital Technology to Improve Learning (2019)"
 evidence:
   eef:
-    note: "**EEF Toolkit に ICT 活用の項目は無い**(2026-09-08 時点の一覧に見当たらない。EEF は Toolkit の小規模な編集作業中と告知している)。以前掲げていた 4ヶ月は、かつて Toolkit にあった項目の値。現在 EEF が公表しているのは委託レビューで、2019 年版(Lewin ら)は英国の学校で行われた評価事業について「効果は小さいことが多く、平均すると 2〜3ヶ月分の学習の前倒しにあたる」と述べている。本サイトの 3ヶ月はこの範囲から採った代表値で、レビューが 3ヶ月と報告したわけではない。なお同名のガイダンスレポートに載っているのは EEF 出資の個別プロジェクトごとの月数で、ICT 全体を集約した月数ではない。効果は「既存の指導を置き換える」のではなく「補完する」形で使われたときに大きい。"
+    note: "**EEF Toolkit に ICT 活用の項目は無い**(2026-09-08 時点の一覧に見当たらない。EEF は Toolkit の小規模な編集作業中と告知している)。以前掲げていた 4ヶ月は、かつて Toolkit にあった項目の値。Toolkit の項目に代わって現在参照できるのは EEF の委託レビューで、2019 年版(Lewin ら)はイングランドの学校で行われた評価事業について「効果は小さいことが多く、平均すると 2〜3ヶ月分の学習の前倒しにあたる」と述べている。本サイトの 3ヶ月はこの範囲から採った代表値で、レビューが 3ヶ月と報告したわけではない。なお同名のガイダンスレポートに載っているのは EEF 出資の個別プロジェクトごとの月数で、ICT 全体を集約した月数ではない。効果は「既存の指導を置き換える」のではなく「補完する」形で使われたときに大きい。"
 lastVerified: "2026-09-08"
 methodology:
   studies: 24
-  sampleSize: "2012〜2018 年に発表されたメタ分析 24 件と、英国の学校で 2012〜2018 年に評価された 19 の介入(うち 16 件が無作為化デザイン)"
-  effectSize: "英国の学校で行われた評価事業では平均 2〜3ヶ月分。レビュー全体の整理では、教科別に算数 3〜4ヶ月分・読み書き 3ヶ月分・理科 5ヶ月分(理科は対象レビューがいずれも他教科を含むため確度が低いと注記)。前身の 2012 年レビュー(Higgins ら)は効果量を典型的に 0.3 〜 0.4 と報告したが、研究間の幅は -0.03 〜 1.05 と大きい"
+  sampleSize: "2012〜2018 年に発表されたメタ分析 24 件と、イングランドの学校で 2012〜2018 年に評価された 19 の介入(うち 16 件が無作為化デザイン)"
+  effectSize: "イングランドの学校で行われた評価事業では平均 2〜3ヶ月分。レビュー全体の整理では、教科別に算数 3〜4ヶ月分・読み書き 3ヶ月分・理科 5ヶ月分(理科は対象レビューがいずれも他教科を含むため確度が低いと注記)。前身の 2012 年レビュー(Higgins ら)は効果量を典型的に 0.3 〜 0.4 と報告したが、研究間の幅は -0.03 〜 1.05 と大きい"
   primaryEvidenceReview:
     authors: "Lewin, Smith, Morris & Craig"
     year: 2019
     title: "Using Digital Technology to Improve Learning: Evidence Review"
     url: "https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/digital-technology-2019"
-  limitations: "『デジタル技術』はタブレット・ソフト・プラットフォーム・ゲーム・VR など極めて多様で、効果は『技術そのもの』より『使い方』に左右される。既存指導を『補完』する使い方のほうが『置き換え』より効果大。**本サイトの評価が★2 なのは研究の量ではなく確からしさによる** —— レビューが採用した 24 件のメタ分析はいずれも結果の確度が『高い』とは評価されておらず、11 件は『低い』とされている。就学前についての証拠は効果量を報告した研究が 2 件しかなく極めて限定的で、対象研究は北米に偏っているとも明記されている。異質性が大きく単一の効果量に集約しにくい。GIGA 下の日本の文脈では、『端末を使っているか』より『何のために使っているか』が効果を大きく左右する。"
+  limitations: "『デジタル技術』はタブレット・ソフト・プラットフォーム・ゲーム・VR など極めて多様で、効果は『技術そのもの』より『使い方』に左右される。既存指導を『補完』する使い方のほうが『置き換え』より効果大。レビューが採用した 24 件のメタ分析は、結果の確からしさが『高い』と評価できたものが無く、13 件が『中程度』・11 件が『低い』。さらに『非常に低い』と評価した 8 件は最初から除外されている。出版バイアスの指摘もある —— 不利な立場の児童生徒を対象にしたメタ分析(Di Pietro & Castaño Muñoz 2025、72 研究・740 推定値)は、この分野の効果量の分布に大きな非対称があり、補正後の効果は正で統計的に有意なままだが値は小さくなると報告している。就学前についての証拠は効果量を報告した研究が 2 件しかなく極めて限定的で、対象研究は北米に偏っているとも明記されている。異質性が大きく単一の効果量に集約しにくい。GIGA 下の日本の文脈では、『端末を使っているか』より『何のために使っているか』が効果を大きく左右する。"
 culturalContext: |
-  日本の GIGA スクール構想(2020年度〜)で1人1台端末環境は整ったが、「使用頻度」と「学力向上」は別物。EEF の 2〜3ヶ月は英国の学校で行われた評価事業の平均値で、日本の文脈では「端末を使っているか」より「何のために使っているか(即時フィードバック、共有、個別最適化)」が効果を左右する。端末を配るだけでは効果は出ない、という EEF の知見は日本にも直接当てはまる。
+  日本の GIGA スクール構想(2020年度〜)で1人1台端末環境は整ったが、「使用頻度」と「学力向上」は別物。EEF の 2〜3ヶ月はイングランドの学校で行われた評価事業の平均値で、日本の文脈では「端末を使っているか」より「何のために使っているか(即時フィードバック、共有、個別最適化)」が効果を左右する。端末を配るだけでは効果は出ない、という EEF の知見は日本にも直接当てはまる。
 ---
 
 ## 一言でいうと
@@ -52,7 +52,8 @@ ICTは、紙では難しかった即時のフィードバック、個別最適�
 - EEF が委託した2019年のエビデンスレビューは、平均すると2〜3ヶ月分の前進と報告しています。本サイトはその代表値として、学習は約3ヶ月分前進すると見ています
 - 効果は、ICTが既存の指導を「置き換える」より「補完する」形で使われたときに大きくなります
 - 教員向けの研修が、介入がうまくいくかどうかの鍵になると指摘されています
-- ただし同レビューは、採用した24件のメタ分析のどれも結果の確からしさが高いとは評価できず、11件は低いとしています
+- ただし同レビューは、採用した24件のメタ分析について、結果の確からしさが高いと評価できたものは無く、13件が中程度・11件が低いとしています
+- この分野では、効果が出た研究ほど発表されやすいという偏りも指摘されています。偏りを補正しても効果は正のまま残りますが、値は小さくなると報告されています
 
 ## 注意したいこと
 
@@ -62,9 +63,10 @@ ICTは、紙では難しかった即時のフィードバック、個別最適�
 
 ## 主な参考研究
 
-- Zheng, B., et al. (2016). [Learning in one-to-one laptop environments](https://doi.org/10.3102/0034654316628645). *Review of Educational Research*, 86(4), 1052–1084. — 1人1台端末環境のメタ分析。ライティングで効果が最も大きく、数学は中程度。
-- Lewin, C., Smith, A., Morris, S., & Craig, E. (2019). [Using Digital Technology to Improve Learning: Evidence Review](https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/digital-technology-2019). London: Education Endowment Foundation. — EEF が委託した現行のエビデンスレビュー(著者はマンチェスター・メトロポリタン大学)。2012〜2018 年のメタ分析 24 件と、英国の学校で評価された 19 の介入を統合し、効果は小さく平均 2〜3 ヶ月分にとどまると報告している。
+- Zheng, B., et al. (2016). [Learning in one-to-one laptop environments](https://doi.org/10.3102/0034654316628645). *Review of Educational Research*, 86(4), 1052–1084. — 1人1台端末環境のメタ分析。全体の効果量は 0.16 で、領域別では理科 0.25・ライティング 0.20・算数 0.17・読み書き 0.15、読解 0.12 は有意でない(領域別の値は EEF 2019 レビューの整理による)。
+- Lewin, C., Smith, A., Morris, S., & Craig, E. (2019). [Using Digital Technology to Improve Learning: Evidence Review](https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/digital-technology-2019). London: Education Endowment Foundation. — EEF が委託した現行のエビデンスレビュー(著者はマンチェスター・メトロポリタン大学)。2012〜2018 年のメタ分析 24 件と、イングランドの学校で評価された 19 の介入を統合し、効果は小さく平均 2〜3 ヶ月分にとどまると報告している。
 - Higgins, S., Xiao, Z., & Katsipataki, M. (2012). [The Impact of Digital Technology on Learning: A Summary for the Education Endowment Foundation](https://eric.ed.gov/?id=ED612174). Education Endowment Foundation and Durham University. — 上記レビューの前身。効果量は典型的に 0.3 〜 0.4(多くは Cohen's d または Hedges' g)で、研究間の幅は -0.03 〜 1.05 と大きい。技術そのものより「使い方」が鍵と結論している。
+- Di Pietro, G., & Castaño Muñoz, J. (2025). [A meta-analysis on the effect of technology on the achievement of less advantaged students](https://doi.org/10.1016/j.compedu.2024.105197). *Computers & Education*, 226, 105197. — 不利な立場の児童生徒(途上国の全生徒と、先進国の不利な層)を対象にした 72 研究・740 推定値のメタ分析。効果量は 0.202 標準偏差だが、効果が出た研究ほど発表されやすい偏りが大きく、著者らはこれを「大きな非対称」と評価している。補正後も効果は正で統計的に有意なままだが、値は小さくなると報告している。
 - [Using Digital Technology to Improve Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital). Education Endowment Foundation (2019), *Guidance Report*. — 上記レビューを踏まえたガイダンス。代替ではなく補完として ICT を使うことの重要性を強調している。ICT 全体を集約した効果量の月数はこの文書には示されておらず、載っているのは EEF 出資の個別プロジェクトごとの月数。
 
 ## 関連する政策動向
