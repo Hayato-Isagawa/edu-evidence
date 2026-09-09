@@ -53,7 +53,7 @@ ICTは、紙では難しかった即時のフィードバック、個別最適�
 - 効果は、ICTが既存の指導を「置き換える」より「補完する」形で使われたときに大きくなります
 - 教員向けの研修が、介入がうまくいくかどうかの鍵になると指摘されています
 - ただし同レビューは、採用した24件のメタ分析について、結果の確からしさが高いと評価できたものは無く、13件が中程度・11件が低いとしています
-- この分野では、効果が出た研究ほど発表されやすいという偏りも指摘されています。偏りを補正しても効果は正のまま残りますが、値は小さくなると報告されています
+- 不利な立場の児童生徒を対象にした別のメタ分析では、効果が出た研究ほど発表されやすい偏りが大きいと指摘されています。偏りを補正しても効果は正のまま残りますが、値は補正前の 0.202 標準偏差から 0.006〜0.098 まで、手法によって大きく下がります
 
 ## 注意したいこと
 
@@ -63,10 +63,10 @@ ICTは、紙では難しかった即時のフィードバック、個別最適�
 
 ## 主な参考研究
 
-- Zheng, B., et al. (2016). [Learning in one-to-one laptop environments](https://doi.org/10.3102/0034654316628645). *Review of Educational Research*, 86(4), 1052–1084. — 1人1台端末環境のメタ分析。全体の効果量は 0.16 で、領域別では理科 0.25・ライティング 0.20・算数 0.17・読み書き 0.15、読解 0.12 は有意でない(領域別の値は EEF 2019 レビューの整理による)。
+- Zheng, B., et al. (2016). [Learning in one-to-one laptop environments](https://doi.org/10.3102/0034654316628645). *Review of Educational Research*, 86(4), 1052–1084. — 1人1台端末環境のメタ分析(10 研究・67 効果量)。全体の効果量は 0.16。領域別では理科 0.25(ただし 2 研究・3 効果量のみ)、ライティング 0.20、算数 0.16、読解 0.12 は有意でない。読解とライティングを含む上位区分の「英語科」は 0.15。領域別の値は EEF 2019 レビューの整理によるもので、同レビュー内でも算数は本文表が 0.17・付録が 0.16 と食い違うため小さい方を採った。
 - Lewin, C., Smith, A., Morris, S., & Craig, E. (2019). [Using Digital Technology to Improve Learning: Evidence Review](https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/digital-technology-2019). London: Education Endowment Foundation. — EEF が委託した現行のエビデンスレビュー(著者はマンチェスター・メトロポリタン大学)。2012〜2018 年のメタ分析 24 件と、イングランドの学校で評価された 19 の介入を統合し、効果は小さく平均 2〜3 ヶ月分にとどまると報告している。
 - Higgins, S., Xiao, Z., & Katsipataki, M. (2012). [The Impact of Digital Technology on Learning: A Summary for the Education Endowment Foundation](https://eric.ed.gov/?id=ED612174). Education Endowment Foundation and Durham University. — 上記レビューの前身。効果量は典型的に 0.3 〜 0.4(多くは Cohen's d または Hedges' g)で、研究間の幅は -0.03 〜 1.05 と大きい。技術そのものより「使い方」が鍵と結論している。
-- Di Pietro, G., & Castaño Muñoz, J. (2025). [A meta-analysis on the effect of technology on the achievement of less advantaged students](https://doi.org/10.1016/j.compedu.2024.105197). *Computers & Education*, 226, 105197. — 不利な立場の児童生徒(途上国の全生徒と、先進国の不利な層)を対象にした 72 研究・740 推定値のメタ分析。効果量は 0.202 標準偏差だが、効果が出た研究ほど発表されやすい偏りが大きく、著者らはこれを「大きな非対称」と評価している。補正後も効果は正で統計的に有意なままだが、値は小さくなると報告している。
+- Di Pietro, G., & Castaño Muñoz, J. (2025). [A meta-analysis on the effect of technology on the achievement of less advantaged students](https://doi.org/10.1016/j.compedu.2024.105197). *Computers & Education*, 226, 105197. — 不利な立場の児童生徒(途上国の全生徒と、先進国の不利な層)を対象にした 72 研究・740 推定値のメタ分析。効果量は 0.202 標準偏差だが、効果が出た研究ほど発表されやすい偏りが大きく、著者らはこれを「大きな非対称」と評価している。補正後も効果は正で統計的に有意なままだが、値は 0.006〜0.098(補正手法による)まで下がる。
 - [Using Digital Technology to Improve Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/digital). Education Endowment Foundation (2019), *Guidance Report*. — 上記レビューを踏まえたガイダンス。代替ではなく補完として ICT を使うことの重要性を強調している。ICT 全体を集約した効果量の月数はこの文書には示されておらず、載っているのは EEF 出資の個別プロジェクトごとの月数。
 
 ## 関連する政策動向
