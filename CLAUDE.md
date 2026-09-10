@@ -34,7 +34,7 @@ npm run check:evidence-strength # エビデンス強度(★)整合性チェッ�
 npm run check:stale        # lastVerified 期限切れチェック
 npm run check:all          # 上記チェックを一括実行(CI の Content Checks でも実行)
 npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:all に含む)
-npm run test:workflows     # link-check.yml の通知分岐の回帰テスト(下限つき・check:all に含む)
+npm run test:workflows     # link-check.yml の通知分岐と VRT の配線の回帰テスト(下限つき・check:all に含む)
 npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・check:all に含む)
 ```
 
@@ -49,6 +49,14 @@ npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・ch
 シェルからは見えない YAML の配線(通知ステップに `continue-on-error` が無いこと・`output:` と
 シェルが読むファイル名の一致など)も併せて固定している。
 
+同じ口に `vrt-baseline.test.mjs` が同居している。VRT のベースラインを「main のコード ×
+PR のコンテンツ」で撮る配線(ADR 0034)も、**壊れても CI は緑のまま**だから — 運ぶ素材を 1 つ
+落としても、テストは走り、多くのページは通る。**一番腐りやすいのは運ぶ素材の allowlist** なので、
+`src/` の実ディレクトリを走査して「運ぶ・`paths` で監視する・描画に入らないと明言する」の
+三択を強制している。degraded フォールバックの失敗許容が **ビルド 1 つに閉じている**ことも固定している
+(`||` の字面だけでなく `set +e` / `if !` の形も禁じている。字面だけだと、
+`set +e` で囲む変異が 10/10 緑で通った)。
+
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
 (`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
 
@@ -56,7 +64,7 @@ npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・ch
 `node --test` は「glob が 0 件」「中身が空」「全件 skip」のどれでも exit 0 で終わるので、
 守っているつもりのガードが no-op に落ちても気づけないため。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 47 と `test:scripts` の 42 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 60 と `test:scripts` の 42 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 56 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`3d2afbe`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 64 と離れていてよい。
 
@@ -129,9 +137,15 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
   一方 `h2` の `letter-spacing` を 0.06em 変える実験では、旧閾値 0.01 だと 30 件中 2 件しか
   落ちなかった(0.001 では 19 件)。**全画面撮影に対して 1% は緩すぎる**
 - **リトライは入れない**。差分が実測 0 なら、リトライは間欠的な問題を握り潰すだけになる
-- **対象**: `vrt/pages.spec.ts` がテンプレート代表 16 URL をフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する
-- **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts` に限定起動。`src/content/**` だけの PR では走らない(`workflow_dispatch` で手動実行可)
-- **比較方式(案A)**: CI 内で main と PR を両方ビルドし、同一 Linux 環境で撮影・比較する。ベースライン PNG はコミットしない(`vrt/__screenshots__/` は gitignore)。システムフォント描画の macOS↔Linux 差を回避するため
+- **対象**: `vrt/pages.spec.ts` がテンプレート代表 15 URL をフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する(`/changelog` は #433 で対象外。問題が現れたのは #428 で、理由は同ファイル冒頭)
+- **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`src/pages/**`(`changelog.astro` は除外)・`src/lib/**`・`src/plugins/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts`・自身に限定起動(`workflow_dispatch` で手動実行可)。
+  **`src/content/**` だけの PR では走らないが、「コンテンツ編集では起動しない」ではない** — 効果量の訂正は `faq.astro` などのテンプレートも同じ PR で触るので起動する。`src/data/**` は ADR 0034 でベースラインへ運ぶ素材にしたため、`paths` からは外してある
+- **比較方式(案A + コンテンツ中立)**: CI 内で main と PR を両方ビルドし、同一 Linux 環境で撮影・比較する。ベースライン PNG はコミットしない(`vrt/__screenshots__/` は gitignore)。システムフォント描画の macOS↔Linux 差を回避するため。
+  **main 側は「main のコード × PR のコンテンツ」でビルドする**(`src/content` / `src/data` / `src/content.config.ts` を運ぶ)。他ファイルのコンテンツ修正が波及しただけの赤を消すため(ADR 0034)。運ぶ素材の allowlist と degraded 経路は `scripts/__tests__/workflows/vrt-baseline.test.mjs` が固定している
+- **逃がし**: コンテンツ側の値の**描画幅**をわざと変えるとき(PR #540 の「測定なし」導入のように、
+  `+5ヶ月` → `測定なし` でバッジ幅と折り返しが変わる類)は、中立化すると両側に同じ文字列が入って
+  差分が出ない。そのときは Actions から VRT を `workflow_dispatch` で `neutral: false` にして
+  手動実行し、素の main ベースラインと撮り比べる
 - **ローカル**: `npm run vrt` で現在の `dist` を撮影・比較できる。権威ある 2 ビルド差分は CI 側
 - **required check 非対象**: 視覚変更 PR でしか起動しないため main 保護(ADR 0022)の required には含めない。マージ可否は編集者判断
 

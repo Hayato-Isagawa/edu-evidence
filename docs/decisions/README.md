@@ -77,3 +77,4 @@
 - [0031. 色トークンを `@theme` に移し、出典系統の色をトークン化する](0031-design-token-layer.md)
 - [0032. ホスティングを Cloudflare Pages から Workers static assets へ移す](0032-hosting-on-workers-static-assets.md)
 - [0033. `lastVerified` は「一次ソースとの最終照合日」である](0033-last-verified-is-a-source-check-date.md)
+- [0034. VRT のベースラインを「main のコード × PR のコンテンツ」で撮る](0034-content-neutral-vrt-baseline.md)
