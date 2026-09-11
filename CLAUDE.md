@@ -139,7 +139,8 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
   落ちなかった(0.001 では 19 件)。**全画面撮影に対して 1% は緩すぎる**
 - **リトライは入れない**。差分が実測 0 なら、リトライは間欠的な問題を握り潰すだけになる
 - **対象**: `vrt/pages.spec.ts` がテンプレート代表 15 URL をフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する(`/changelog` は #433 で対象外。問題が現れたのは #428 で、理由は同ファイル冒頭)
-- **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`src/pages/**`(`changelog.astro` は除外)・`src/lib/**`・`src/plugins/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts`・自身に限定起動(`workflow_dispatch` で手動実行可)。
+- **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`src/pages/**`(`changelog.astro` は除外)・`src/lib/**`・`src/plugins/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts`・`package-lock.json`・自身に限定起動(`workflow_dispatch` で手動実行可)。
+  `package-lock.json` は依存 bump で走らせるため(ADR 0035)。ただし auto-merge は required しか待たないので、非 major の bump では事後の記録にしかならない
   **`src/content/**` だけの PR では走らないが、「コンテンツ編集では起動しない」ではない** — 効果量の訂正は `guide/indicators.astro` などのテンプレートも同じ PR で触るので起動する(`faq.astro` / `policy-evidence.astro` の本文は `src/data/` に移したので、そちらの訂正では起動しない)。`src/data/**` は ADR 0034 でベースラインへ運ぶ素材にしたため、`paths` からは外してある
 - **比較方式(案A + コンテンツ中立)**: CI 内で main と PR を両方ビルドし、同一 Linux 環境で撮影・比較する。ベースライン PNG はコミットしない(`vrt/__screenshots__/` は gitignore)。システムフォント描画の macOS↔Linux 差を回避するため。
   **main 側は「main のコード × PR のコンテンツ」でビルドする**(`src/content` / `src/data` / `src/content.config.ts` を運ぶ)。他ファイルのコンテンツ修正が波及しただけの赤を消すため(ADR 0034)。運ぶ素材の allowlist と degraded 経路は `scripts/__tests__/workflows/vrt-baseline.test.mjs` が固定している
@@ -148,7 +149,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
   差分が出ない。そのときは Actions から VRT を `workflow_dispatch` で `neutral: false` にして
   手動実行し、素の main ベースラインと撮り比べる
 - **ローカル**: `npm run vrt` で現在の `dist` を撮影・比較できる。権威ある 2 ビルド差分は CI 側
-- **required check 非対象**: 視覚変更 PR でしか起動しないため main 保護(ADR 0022)の required には含めない。マージ可否は編集者判断
+- **required check 非対象**: `paths` で限定起動するため main 保護(ADR 0022)の required には含めない(required にすると起動しなかった PR が塞がる)。マージ可否は編集者判断
 
 ## ホスティング
 
