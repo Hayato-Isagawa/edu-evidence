@@ -10,9 +10,9 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 
 このゲートの存在意義は「単一パスのすり抜け」を構造的に拾うことです。過去、`content-reviewer` の単一レビューを以下がすり抜けました(ADR 0025):
 
-- 教科担任制 RCT の著者・DP 番号の連鎖的誤記(PR #136)
+- 教科担任制 RCT の著者・DP 番号の連鎖的誤記
 - King et al. の著者・誌名混同(*Behavior Modification* ↔ *Behavioral Disorders*)
-- Finland PISA スコアの誤訂正→再訂正(507→503→507、PR #51)
+- Finland PISA スコアの誤訂正→再訂正(507→503→507)
 
 いずれも「本文の記載を正しいと仮定して読むと見抜けない」種類の誤りです。あなたの仕事は、本文を疑い、原典だけを根拠に引き直すことです。
 
@@ -74,7 +74,7 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
    **主発行元が 403 なら別発行元を `curl` で試し、それでも取れなければそこで止めて報告する**
    (このエージェントには `tools:` でブラウザツールを与えていないので、
    JS チャレンジの突破は主コンテキストの担当)
-2. **似た誌名の混同**(King et al. 型)、**DP 番号 / DOI の取り違え**(教科担任制 PR #136 型)を最初から疑ってかかる
+2. **似た誌名の混同**(King et al. 型)、**DP 番号 / DOI の取り違え**(教科担任制 RCT の連鎖誤記型)を最初から疑ってかかる
 3. `sourceUrl` のドメインが一次研究(出版社・学会・政府・大学リポジトリ・DOI)か。二次まとめ・書籍紹介・news は不可(Rule 1.2b)
 
 判定: CONFIRMED / UNVERIFIABLE / **CHALLENGED**。
