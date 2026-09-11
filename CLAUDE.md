@@ -133,10 +133,12 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 
 共有レイアウト・コンポーネント・`global.css` の改修による視覚回帰を、目視に頼らず差分画像で検出する仕組み(ADR 0024)。機能テスト(`e2e/`)とは別系統で併走する:
 
-- **設定**: `playwright.vrt.config.ts`(`testDir: vrt/`、desktop 1280 / mobile 390 の 2 projects、`maxDiffPixelRatio: 0.001`、`retries: 0`、アニメーション無効)
+- **設定**: `playwright.vrt.config.ts`(`testDir: vrt/`、desktop 1280 / mobile 390 の 2 projects、`threshold: 0` + `maxDiffPixels: 0`、`retries: 0`、アニメーション無効)
 - **閾値は実測で決めている**。同一ビルド同士の撮り比べは差分 0(閾値 0 で 30 件全通過)。
   一方 `h2` の `letter-spacing` を 0.06em 変える実験では、旧閾値 0.01 だと 30 件中 2 件しか
-  落ちなかった(0.001 では 19 件)。**全画面撮影に対して 1% は緩すぎる**
+  落ちなかった(0.001 では 19 件)。**全画面撮影に対して 1% は緩すぎる**。
+  その後 ADR 0036 で比率そのものをやめた — 許容量がページの長さに比例して長いページほど甘く、
+  pixelmatch の既定 `threshold: 0.2` 未満の色差は比率を下げても数えられないため(edu-law の実測)
 - **リトライは入れない**。差分が実測 0 なら、リトライは間欠的な問題を握り潰すだけになる
 - **対象**: `vrt/pages.spec.ts` がテンプレート代表 15 URL をフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する(`/changelog` は #433 で対象外。問題が現れたのは #428 で、理由は同ファイル冒頭)
 - **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`src/pages/**`(`changelog.astro` は除外)・`src/lib/**`・`src/plugins/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts`・`package-lock.json`・自身に限定起動(`workflow_dispatch` で手動実行可)。
