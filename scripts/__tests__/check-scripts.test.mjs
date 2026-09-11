@@ -126,7 +126,11 @@ test("check-evidence-strength.ts は不変条件 A の対象外ページを件�
 });
 gate("check-reader-literacy.ts", "reader-literacy", /jargon\.md/);
 gate("check-sentence-length.ts", "sentence-length", /critical:\s*1/);
-gate("check-tokens.ts", "tokens", /no-palette-literal/);
+gate("check-tokens.ts", "tokens", [
+  /no-palette-literal/,
+  /src\/components\/Bad\.astro:3/,
+  /src\/data\/bad\.ts:2/,
+]);
 gate("check-stale.ts", "stale", /stale-one\.md/);
 
 // --- ワークフロー側の口が CI から外れていないか ---

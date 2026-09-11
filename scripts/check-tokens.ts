@@ -19,11 +19,19 @@ interface Finding {
   text: string;
 }
 
+/**
+ * `.astro` に加えて `src/data/` 配下の `.ts` も見る。faq.ts の回答文は HTML 断片で
+ * クラス属性を持つ(ADR 0034 の中立化に乗せるため `.astro` から移した)。`src/lib` は
+ * 含めない — あるのは satori 用の要素オブジェクト木で、クラス属性を持つ HTML 断片は無い。
+ */
+const DATA_DIR = join(SRC, "data");
+
 function walk(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
     const p = join(dir, entry);
     if (statSync(p).isDirectory()) walk(p, out);
     else if (p.endsWith(".astro")) out.push(p);
+    else if (p.endsWith(".ts") && p.startsWith(DATA_DIR + "/")) out.push(p);
   }
   return out;
 }

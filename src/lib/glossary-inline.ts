@@ -94,7 +94,7 @@ export function annotateGlossaryTerms(text: string): string {
   // `seen` は片をまたいで共有するので、「初出のみ」は文書順のまま保たれる。
   // 入力に元から入っている `<a>` の中は探索しない。中に用語リンクを挿すと
   // `<a>` が入れ子になり、ブラウザが外側を強制的に閉じてリンクのテキストが空になる
-  // (faq.astro の回答文には手書きの `<a>` が実在する)。markdown 経路の
+  // (`src/data/faq.ts` の回答文には手書きの `<a>` が実在する)。markdown 経路の
   // remark-glossary が `parent.type === "link"` で同じことをしている。
   let insideLink = false;
 

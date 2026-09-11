@@ -13,8 +13,9 @@ on:
       #
       # **「コンテンツは src/content にあるので記事の追記・修正では起動しない」は
       # 誤りだった。** 効果量の訂正は src/content と同じ PR で src/pages の
-      # テンプレートも触る(faq.astro / policy-evidence.astro / guide/indicators.astro)
-      # ので、実際には起動する。直近 20 実行のうち 15 が赤で、その全部が
+      # テンプレートも触る(guide/indicators.astro。faq.astro / policy-evidence.astro の
+      # 本文は src/data/ へ移したので、いまはこの経路に乗らない)ので、実際には
+      # 起動する。直近 20 実行のうち 15 が赤で、その全部が
       # `Compare PR against baseline` だった。
       #
       # 起動すること自体は正しい(#432 が示すとおり src/pages は描画に効く)。
@@ -33,7 +34,8 @@ on:
       # 差分が出ない」トリガになり、15 分の CI を空回りさせる。
       #
       # 代償として、concerns.ts の getAllConcerns / getConcernIndex や
-      # glossary.ts の tooltipTerms といった **データファイルの中のロジック**の
+      # glossary.ts の tooltipTerms、faq.ts の buildFaqSections といった
+      # **データファイルの中のロジック**の
       # 変更は VRT から見えなくなる。データとロジックを別ファイルに割れば
       # ロジック側をここへ戻せる(ADR 0034 の「受け入れた死角」)。
       - "src/lib/**"
