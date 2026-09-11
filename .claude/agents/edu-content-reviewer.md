@@ -100,9 +100,9 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 
 #### スクリプトが自動で拾う範囲(前提)
 
-- **P1 (critical)**: 英単語 + 漢字名詞混在(`FSM 児童` / `ChatGPT 群` 等)。対象名詞 12 種(児童・生徒・者・学習者・群・層・教師・教員・学校・学級・学年・授業)
-- **P2 (critical)**: 英略語 `[A-Z]{3,}` で glossary 未登録 + ALLOWED 27 件(`GIGA` / `SNS` / `COCOLO` 等)に該当しない
-- **P3 (warn)**: 統計用語 10 種(`quasi-experimental` / `cluster RCT` / `ANCOVA` / `ANOVA` / `d=` / `SD=` / `SE=` / `95% CI` / `OR=` / `p<`)の初出行に括弧説明(40 字以内)が無い
+- **P1 (critical)**: 英単語 + 漢字名詞混在(`FSM 児童` / `ChatGPT 群` 等)。対象名詞(児童・生徒・者・学習者・群・層・教師・教員・学校・学級・学年・授業。正典は `scripts/check-reader-literacy.ts` の `P1_NOUNS`)
+- **P2 (critical)**: 英略語 `[A-Z]{3,}` で glossary 未登録 + ALLOWED 集合(`GIGA` / `SNS` / `COCOLO` 等。正典は同スクリプトの `P2_ALLOWED_ABBREVS`)に該当しない
+- **P3 (warn)**: 統計用語(正典は同スクリプトの `P3_TERMS`。`quasi-experimental` / `cluster RCT` / `ANCOVA` / `ANOVA` / `d=` / `SD=` / `SE=` / `95% CI` / `OR=` / `p<`)の初出行に括弧説明(40 字以内)が無い
 
 採択済規約(PR #186):
 

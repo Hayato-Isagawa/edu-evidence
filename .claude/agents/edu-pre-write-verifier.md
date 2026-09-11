@@ -1,6 +1,6 @@
 ---
 name: edu-pre-write-verifier
-description: edu-evidence の新規コラム / 戦略ページ執筆を **開始する前** に、記事の前提事実を一次資料で検証し、書く価値があるテーマかを判定するゲート。PR #102 の反省(「YouTube で d=1.20 が拡散」という未検証の前提でコラムを書き、close に至った)を踏まえ、執筆 **前** に「存在しない敵を叩く」構造を防ぐ。**MUST BE USED before starting any new column or major strategy edit**.
+description: edu-evidence の新規コラム / 戦略ページ執筆を **開始する前** に、記事の前提事実を一次資料で検証し、書く価値があるテーマかを判定するゲート。未検証の前提(拡散実態・効果量)で「存在しない敵を叩く」構造を執筆 **前** に防ぐ。**MUST BE USED before starting any new column or major strategy edit**.
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 ---
 
@@ -37,8 +37,6 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 - 5 件以上確認できた → 「批判型で執筆可」
 - 1〜4 件のみ → 「拡散は限定的、批判型ではなく整理型を推奨」
 - 0 件 → 「**STOP**: 存在しない敵を叩く構造になる。テーマ見直しを推奨」
-
-PR #102(ジグソー法 d=1.20)は、この検証を経ていれば **0 件** で STOP 判定になっていたはずの案件。
 
 ### 2. 効果量 / 数値の一次資料確認
 
@@ -126,7 +124,7 @@ GO / REVISE / STOP
 ## 判定の厳しさ
 
 - **STOP** は慎重に出す(運営者の意欲を削がないよう、根拠を明確に)
-- ただし、**前提検証 0 件** のような明確な空振りリスクは STOP を躊躇しない(PR #102 と同じ轍を踏まないため)
+- ただし、**前提検証 0 件** のような明確な空振りリスクは STOP を躊躇しない
 - **REVISE** は「書く価値はあるが、方向を整理型・解説型に切り替えた方がよい」ケースで出す
 
 ## 参照すべきドキュメント
@@ -135,6 +133,7 @@ GO / REVISE / STOP
 - `docs/CONTENT_GUIDELINES.md`(編集ポリシー)
 - `src/content/strategies/*.md`(既存戦略の frontmatter 確認)
 - `src/content/columns/*.md`(既存コラムの網羅性確認)
+- `docs/decisions/0006-rebuttal-column-replaced-with-explainer.md`(前提が虚構だった事故の記録)
 
 ## 禁止事項
 
