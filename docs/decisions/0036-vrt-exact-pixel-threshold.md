@@ -40,7 +40,9 @@ ADR 0033 の「それでも pass するのは…0.01 に届かないため」は
 
 ### ノイズ測定（2026-09-11）
 
-（実装後に記入: run ID / 回数 / 通過数 / 収束失敗の件数 / 各 run の baseline `origin/main` SHA）
+`workflow_dispatch` で本ブランチの VRT を 3 回まわした（run 34581514173 / 34582030231 / 34582511483）。
+3 回とも `MODE: neutral`、ベースラインの `origin/main` は `1a6ea58` で不変、撮影 30 / 比較 30 が全通過、
+"Failed to take two consecutive stable screenshots" は 0 件。手元（macOS）でも同一 `dist` の撮り比べで 30 / 30。
 
 ## 帰結
 
