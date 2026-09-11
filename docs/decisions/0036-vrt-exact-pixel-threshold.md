@@ -60,6 +60,8 @@ ADR は不変とする運用のため、旧 ADR は書き換えず本 ADR で訂
 |---|---|
 | ADR 0024「`toHaveScreenshot` の差分閾値」／`CLAUDE.md` に残る「0.01 → 0.001」の経緯 | 比率そのものをやめた。0.001 は長さと色の 2 系統を取り逃がす |
 | ADR 0033「`maxDiffPixelRatio: 0.01` に届かないため」 | ADR 0034 が「現在 0.001」と注記済み。本 ADR 以降は比率ではない |
+| ADR 0034「閾値は現在 **0.001**（`playwright.vrt.config.ts`）」 | 本 ADR 以降は `threshold: 0` + `maxDiffPixels: 0` |
+| ADR 0034「`playwright.vrt.config.ts` のコメントは『portfolio で実施、36 件中 34 件が通った』と書いており」 | そのコメントは本 ADR で config から外した。実験の記録は `CLAUDE.md` の VRT 節に残る |
 
 ## 撤回 / 再検討の条件
 

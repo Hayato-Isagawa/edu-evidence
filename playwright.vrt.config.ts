@@ -7,7 +7,8 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   // リトライしない。同一ビルド同士の撮り比べで差分が 0 になることを実測して
-  // いる(閾値 0 で 30 件全通過 × 2 回)ので、落ちたのは基本的に本物である。
+  // いる(比率時代に maxDiffPixelRatio 0 で 30 件全通過 × 2 回。threshold 0 では
+  // CI で 3 run とも 30 件全通過・収束失敗 0。ADR 0036)ので、落ちたのは基本的に本物である。
   // リトライを入れると、間欠的に出る問題を握り潰す。
   retries: 0,
   workers: process.env.CI ? 1 : undefined,
