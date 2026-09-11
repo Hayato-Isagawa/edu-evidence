@@ -149,7 +149,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
   差分が出ない。そのときは Actions から VRT を `workflow_dispatch` で `neutral: false` にして
   手動実行し、素の main ベースラインと撮り比べる
 - **ローカル**: `npm run vrt` で現在の `dist` を撮影・比較できる。権威ある 2 ビルド差分は CI 側
-- **required check 非対象**: 視覚変更 PR でしか起動しないため main 保護(ADR 0022)の required には含めない。マージ可否は編集者判断
+- **required check 非対象**: `paths` で限定起動するため main 保護(ADR 0022)の required には含めない(required にすると起動しなかった PR が塞がる)。マージ可否は編集者判断
 
 ## ホスティング
 

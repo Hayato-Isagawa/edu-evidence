@@ -47,15 +47,15 @@ on:
       - ".github/workflows/vrt.yml"
       # 依存の更新も描画を変える。astro / tailwind の bump は package.json と
       # package-lock.json しか触らないので、ここに無いと VRT が一度も走らない
-      # (ADR 0035。直近 60 日の Dependabot PR 41 件はすべて対象外だった)。
+      # (ADR 0035。直近 60 日の Dependabot PR のうち npm の 39 件は対象外だった)。
       # lock はキャレット範囲内の更新も拾うので、package.json より広い。
       # ベースラインは lock を運ばないので、比較に残るのは依存の差だけになる。
       #
       # **ただし gate にはならない。** VRT は required check ではなく
       # (required は Content Checks と E2E)、dependabot-auto-merge.yml の
-      # `gh pr merge --auto` は required しか待たない。required は 1.5 分、
-      # VRT は 5 分前後なので、非 major の bump は VRT の結果が出る前に
-      # マージされる。得られるのは事後に check の色と(7 日間の)差分画像が
+      # `gh pr merge --auto` は required しか待たない。required は並列で各
+      # 1.5 分、VRT は 5 分前後なので、非 major の bump は VRT の結果が出る前に
+      # マージされる(#385 で実測)。得られるのは事後に check の色と(7 日間の)差分画像が
       # 残ることだけ。major はオートマージされないので、そこでは事前に効く。
       - "package-lock.json"
   workflow_dispatch:
