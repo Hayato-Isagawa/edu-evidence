@@ -31,7 +31,8 @@ on:
       - "!src/pages/changelog.astro"
       # **src/data/** は意図的に外してある。** ベースライン側へ運ぶ素材なので
       # (下の Build baseline ステップ)、ここに残すと「起動はするが構造上ぜったいに
-      # 差分が出ない」トリガになり、15 分の CI を空回りさせる。
+      # 差分が出ない」トリガになり、5 分前後の CI を空回りさせる(直近 30 run の
+      # 実測で 28 run が 4〜6 分。以前ここに書いてあった 15 分は再現しなかった)。
       #
       # 代償として、concerns.ts の getAllConcerns / getConcernIndex や
       # glossary.ts の tooltipTerms、faq.ts の buildFaqSections といった
@@ -44,6 +45,19 @@ on:
       - "vrt/**"
       - "playwright.vrt.config.ts"
       - ".github/workflows/vrt.yml"
+      # 依存の更新も描画を変える。astro / tailwind の bump は package.json と
+      # package-lock.json しか触らないので、ここに無いと VRT が一度も走らない
+      # (ADR 0035。直近 60 日の Dependabot PR 41 件はすべて対象外だった)。
+      # lock はキャレット範囲内の更新も拾うので、package.json より広い。
+      # ベースラインは lock を運ばないので、比較に残るのは依存の差だけになる。
+      #
+      # **ただし gate にはならない。** VRT は required check ではなく
+      # (required は Content Checks と E2E)、dependabot-auto-merge.yml の
+      # `gh pr merge --auto` は required しか待たない。required は 1.5 分、
+      # VRT は 5 分前後なので、非 major の bump は VRT の結果が出る前に
+      # マージされる。得られるのは事後に check の色と(7 日間の)差分画像が
+      # 残ることだけ。major はオートマージされないので、そこでは事前に効く。
+      - "package-lock.json"
   workflow_dispatch:
     inputs:
       neutral:
@@ -120,7 +134,8 @@ jobs:
           #   - src/lib / src/plugins / src/pages / src/components / src/layouts /
           #     astro.config.* — 検査対象そのもの
           #   - package.json / package-lock.json — 依存バンプの視覚影響は VRT が
-          #     見るべきもの(ADR 0027 が Astro 7 移行を VRT で検証した)
+          #     見るべきもの(ADR 0027 が Astro 7 移行を VRT で検証した)。上の
+          #     paths に lock を載せているのはそのため(ADR 0035)
           #   - public/ — `find src/content -type f ! -name "*.md"` が 0 件で、
           #     コンテンツ編集者が画像を持ち込む経路が無い。public にあるのは
           #     ブランド資産(logo.svg / og-image.png / favicon)と配信設定
