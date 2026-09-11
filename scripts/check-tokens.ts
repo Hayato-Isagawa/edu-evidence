@@ -19,11 +19,19 @@ interface Finding {
   text: string;
 }
 
+/**
+ * `.astro` に加えて `src/data/` 配下の `.ts` も見る。faq.ts / policy-evidence.ts の
+ * 本文は HTML 断片としてクラス属性を持つ(ADR 0034 の中立化に乗せるため `.astro`
+ * から移した)。`src/lib` は含めない — satori 用の JSX があり誤検知の面が広がる。
+ */
+const DATA_DIR = join(SRC, "data");
+
 function walk(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
     const p = join(dir, entry);
     if (statSync(p).isDirectory()) walk(p, out);
     else if (p.endsWith(".astro")) out.push(p);
+    else if (p.endsWith(".ts") && p.startsWith(DATA_DIR + "/")) out.push(p);
   }
   return out;
 }

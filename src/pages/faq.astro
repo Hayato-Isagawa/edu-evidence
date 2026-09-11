@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import { annotateGlossaryTerms } from "../lib/glossary-inline";
 import { effectLabel } from "../lib/effect-size";
+import { buildFaqSections } from "../data/faq";
 
 // 戦略データから動的に効果量を参照
 const strategies = await getCollection("strategies");
@@ -15,91 +16,7 @@ function months(slug: string): string {
   return effectLabel(s.monthsGained, s.monthsUnmeasured);
 }
 
-const faqSections = [
-  {
-    heading: "数値の読み方",
-    description: "サイトの指標をどう読み取るか",
-    items: [
-{
-    q: "「+◯ヶ月」とは何を意味しますか?",
-    a: `その指導法を1年間取り入れた学級の子どもが、取り入れなかった場合より約◯ヶ月先の学力水準に到達した、という意味です。例えば「+5ヶ月」なら、1年間で約1年半分の成長が得られたことになります。ただし集団の平均値であり、すべての子どもに同じ効果が出ることを保証するものではありません。計算の詳細は <a href="/guide/indicators" class="link-underline text-accent">指標の読み方</a> を参照してください。`,
-  },
-  {
-    q: "コスト(¥)には何が含まれていますか?",
-    a: `導入に必要な金銭的コスト(児童1人あたり年間)の概算です。EEF の £ 基準を日本円に換算しています(2026年4月時点、1£ ≒ 215円)。¥1つは「0〜17,000円/年/人」、¥5つは「258,000円以上」です。具体例は <a href="/guide/indicators" class="link-underline text-accent">指標の読み方</a> を参照してください。`,
-  },
-  {
-    q: "エビデンスの強さ(★)はどう決まっていますか?",
-    a: `EEF が用いている基準(研究の数、研究デザインの質、対象者の規模、結果の一貫性など)を参考に、<strong>本サイトが各指導法を総合的に評価したもの</strong>です。★が多いほど「多くの質の高い研究で繰り返し確かめられている」ことを意味します。日本の研究や Hattie を主な出典とする指導法にも同じ尺度で付けています。判定は本サイトのルーブリックによるため、<strong>EEF を出典とする指導法でも、EEF 自身の確実性評価とは一致しないことがあります</strong>。EEF を出典に含むページでは、EEF 自身の評価を「出典別のエビデンス」に EEF の値として別に表示しています。詳しくは <a href="/guide/indicators" class="link-underline text-accent">指標の読み方</a> の「エビデンスの強さ」セクションをご覧ください。`,
-  },
-  {
-    q: "出典バッジ(EEF・日本・Hattie)は何を意味していますか?",
-    a: `各指導法の効果量がどの研究ソースに基づいているかを示します。該当するものが複数あれば複数のバッジが表示されます。<strong>EEF</strong> は英国 Education Endowment Foundation の Teaching and Learning Toolkit、<strong>日本</strong> は中室牧子・松岡亮二・赤林英夫氏ら国内研究者の知見、<strong>Hattie</strong> は Visible Learning(参考値、上限寄りの傾向あり)を示します。詳細は <a href="/guide/indicators" class="link-underline text-accent">指標の読み方</a> の第4指標を参照してください。`,
-  },
-
-    ],
-  },
-  {
-    heading: "数値を鵜呑みにしないために",
-    description: "本サイトが読み手に伝えたい大切な視点",
-    items: [
-  {
-    q: "この数値は「学力」以外の効果も含んでいますか?",
-    a: `いいえ。主にテストで測定可能な学力(読解・算数等)への効果を示します。非認知能力・社会性・ウェルビーイングなど、教育にとって大切な他の側面はこの月数には反映されていません。月数の大小や、確かな数値があるかどうかとは別に、非認知面で大きな価値を持つ指導法があります(例: SEL、屋外学習、芸術活動)。EEF 自身も公式ガイドで同様の注意を示しています。`,
-  },
-  {
-    q: "海外の研究結果は、日本の教室にも当てはまりますか?",
-    a: `注意が必要です。EEF の数値は主に英語圏のランダム化比較試験やメタ分析に基づいています。教育制度・文化・学級規模が異なる日本で、効果の大きさがそのまま再現されるとは限りません。ただし、フィードバックやメタ認知のように「学習のメカニズム」に働きかける指導法は、文化を超えて効果が確認される傾向があります。各戦略ページに「日本の文脈で考慮したいこと」を記載しています。詳しくは <a href="/guide/cultural-context" class="link-underline text-accent">エビデンスと文化的文脈</a> を参照してください。`,
-  },
-  {
-    q: "+◯ヶ月が大きい指導法をやれば、それでいいのですか?",
-    a: "いいえ。数値はあくまで平均的な効果の大きさです。実際の教室では、子どもの状態・教科の特性・教師の強みによって、何が最も効くかは変わります。また、効果量の大きい指導法を機械的に重ねても、そのまま加算されるわけではありません。本サイトの情報は「選択肢を広げる」ためのものであり、「これだけやればよい」というリストではありません。",
-  },
-
-    ],
-  },
-  {
-    heading: "使い方・応用",
-    description: "実際にサイトを活用するために",
-    items: [
-  {
-    q: "どこから読み始めるのがおすすめですか?",
-    a: `まず <a href="/guide/indicators" class="link-underline text-accent">指標の読み方</a> で数値の意味を把握し、<a href="/guide/evidence" class="link-underline text-accent">エビデンス入門</a> でエビデンスの考え方を押さえるとスムーズです。その後、気になる指導法を効果量順または費用対効果で探してみてください。高効果・低コストの代表例は <a href="/strategies/feedback" class="link-underline text-accent">フィードバック(${months("feedback")})</a> と <a href="/strategies/metacognition" class="link-underline text-accent">メタ認知の指導(${months("metacognition")})</a> です。`,
-  },
-  {
-    q: "効果がマイナスの指導法はあるのですか?",
-    a: `あります。本サイトにも掲載しており、例えば <a href="/strategies/repeating-a-year" class="link-underline text-accent">留年(${months("repeating-a-year")})</a>、<a href="/strategies/corporal-punishment" class="link-underline text-accent">体罰(${months("corporal-punishment")})</a>、<a href="/strategies/suspension" class="link-underline text-accent">停学・出席停止(${months("suspension")})</a>、<a href="/strategies/learning-styles" class="link-underline text-accent">学習スタイルに合わせた指導(${months("learning-styles")})</a> などは、研究で負の効果または効果が確認されていないことが報告されています。エビデンスは「やるべきこと」だけでなく「避けるべきこと」も教えてくれます。`,
-  },
-  {
-    q: "特別支援教育にも当てはまりますか?",
-    a: `通常学級での指導を主に想定していますが、特別支援教育でも多くが参照できます。例えば <a href="/strategies/scaffolding" class="link-underline text-accent">足場かけ(${months("scaffolding")})</a>、<a href="/strategies/feedback" class="link-underline text-accent">フィードバック(${months("feedback")})</a>、<a href="/strategies/one-to-one-tuition" class="link-underline text-accent">個別指導(${months("one-to-one-tuition")})</a>、<a href="/strategies/universal-design-learning" class="link-underline text-accent">授業のユニバーサルデザイン(${months("universal-design-learning")})</a> は、通常学級の 8.8% とされる特別なニーズを持つ子どもにも有効と EEF の SEND ガイダンスで位置づけられています。`,
-  },
-  {
-    q: "カテゴリ(指導法 / 認知科学 / 制度・環境 等)はどう違うのですか?",
-    a: `サイト内の項目を 5 つに分類しています。<strong>指導法</strong>(教師が明日から授業で使えるもの)、<strong>認知科学</strong>(記憶・学習の原理に基づく学習法)、<strong>制度・環境</strong>(学校や自治体レベルの政策・構造)、<strong>知っておくべき知見</strong>(現象・リスク・神話など教員が知るべき事実)、<strong>家庭・外部</strong>(保護者や学校外の要因)。トップページの絞り込みボタンで切り替えられます。`,
-  },
-
-    ],
-  },
-  {
-    heading: "サイト運用・ライセンス",
-    description: "運営方針と二次利用について",
-    items: [
-  {
-    q: "記事の内容はどのくらいの頻度で更新されますか?",
-    a: `EEF が原典を更新した場合や、国内で重要な研究が公表された場合に、随時見直します。明らかな誤りが見つかった場合は速やかに修正します。更新の履歴は <a href="/changelog" class="link-underline text-accent">更新履歴</a> で公開しています。各指導法ページには「最終検証日」も記載しています。`,
-  },
-  {
-    q: "このサイトの内容を授業研究や校内研修で使ってもいいですか?",
-    a: "はい。本サイトは CC BY-SA 4.0 ライセンスで公開しています。出典を明記していただければ、コピー・印刷・配布・改変のいずれも自由です。校内研修の資料、授業研究のレジュメ、保護者向けのお便りなどにお使いいただけます。",
-  },
-  {
-    q: "自分の学校で実践した事例を共有したいのですが?",
-    a: `ぜひお寄せください。<a href="/voices" class="link-underline text-accent">現場の声</a> ページで実践事例を共有しています。匿名での掲載も可能です。<a href="mailto:info@edu-evidence.org" class="link-underline text-accent">info@edu-evidence.org</a> までご連絡ください。`,
-  },
-    ],
-  },
-];
+const faqSections = buildFaqSections(months);
 ---
 
 <Layout title="よくある質問 — EduEvidence JP">

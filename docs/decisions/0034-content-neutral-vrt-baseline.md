@@ -159,6 +159,30 @@ ADR は不変とする運用のため（ADR 0029 と同じ）、両者は書き�
 - `changelog.astro` はエントリが `.astro` にあるので中立化されない。VRT の対象から外している
   理由（#428）は本 ADR では変わらない
 
+### `.astro` の散文の移設(2026-09-11 追記)
+
+上の「受け入れた死角」の列挙は本 ADR 採用時(2026-09-10)の状態。その後、次の 2 本を `src/data/` へ移した:
+
+- `faq.astro` の `faqSections` → `src/data/faq.ts`
+- `policy-evidence.astro` の `comparisons` → `src/data/policy-evidence.ts`
+
+移設前後で `dist` の HTML は byte 一致(差分は `design-tokens.json` の `generatedAt` だけ)。
+残る同型の死角は `about.astro` と `guide/indicators.astro`(散文がマークアップ直書きで、
+データ定数を持たない)。
+
+移設に伴って変わる点:
+
+- `faq.ts` は `buildFaqSections(months)` という**関数**を持つので、「`src/data/` の中のロジック変更が
+  見えなくなる」の該当ファイルに加わる。ただし判断を持つ `months`(`getCollection` → `effectLabel`)は
+  `faq.astro` 側に残しており、関数の中身は回答文への補間だけ
+- degraded の例に挙げた「`faq.astro` の `months(slug)` が引けない戦略 md」は、slug の一覧が PR 側の
+  `faq.ts`(運ばれる側)から来るようになったので、その形では起きない。残るのは `faq.ts` の export の形を
+  main の `faq.astro` が読めなくなる型
+- `check:tokens` は `.astro` しか走査していなかったので、`src/data/` 配下の `.ts` も対象にした
+  (回答文の `class` 属性が検査から外れないように)
+
+なお本 ADR を確定した PR は #565。
+
 ## 参照
 
 - `.github/workflows/vrt.yml` / `scripts/__tests__/workflows/vrt-baseline.test.mjs`

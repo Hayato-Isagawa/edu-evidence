@@ -85,7 +85,7 @@ src/
 │   ├── strategies/    # 74 の指導法(Markdown + frontmatter)
 │   └── columns/       # コラム記事
 ├── components/        # Astro コンポーネント
-├── data/              # 用語集データ
+├── data/              # ページが読むデータ(用語集・悩み・FAQ・政策対照表)
 ├── layouts/           # レイアウト
 ├── lib/               # OG 画像生成・用語ツールチップ
 ├── pages/             # ルーティング

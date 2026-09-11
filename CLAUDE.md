@@ -85,6 +85,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 - `src/components/StrategyRow.astro` — 戦略カードコンポーネント
 - `src/layouts/Layout.astro` — 共通レイアウト(ヘッダー・フッター・ツールチップJS)
 - `src/data/glossary.ts` — 用語集データ(用語集ページ + ツールチップで共用)
+- `src/data/faq.ts` / `src/data/policy-evidence.ts` — FAQ と政策対照表の本文。データ定数として持つ本文は `src/data/` に置く(VRT のベースラインへ運ばれ、本文の編集が中立化される。ADR 0034)。`about.astro` / `guide/indicators.astro` の散文は未移設
 - `src/plugins/remark-glossary.mjs` — remarkプラグイン(markdown本文の用語自動リンク)
 - `src/lib/og-image.ts` — Satori + Sharp による動的OG画像生成
 - `src/lib/glossary-inline.ts` — frontmatter テキスト内の用語ツールチップ変換
@@ -139,7 +140,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 - **リトライは入れない**。差分が実測 0 なら、リトライは間欠的な問題を握り潰すだけになる
 - **対象**: `vrt/pages.spec.ts` がテンプレート代表 15 URL をフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する(`/changelog` は #433 で対象外。問題が現れたのは #428 で、理由は同ファイル冒頭)
 - **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`src/pages/**`(`changelog.astro` は除外)・`src/lib/**`・`src/plugins/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts`・自身に限定起動(`workflow_dispatch` で手動実行可)。
-  **`src/content/**` だけの PR では走らないが、「コンテンツ編集では起動しない」ではない** — 効果量の訂正は `faq.astro` などのテンプレートも同じ PR で触るので起動する。`src/data/**` は ADR 0034 でベースラインへ運ぶ素材にしたため、`paths` からは外してある
+  **`src/content/**` だけの PR では走らないが、「コンテンツ編集では起動しない」ではない** — 効果量の訂正は `guide/indicators.astro` などのテンプレートも同じ PR で触るので起動する(`faq.astro` / `policy-evidence.astro` の本文は `src/data/` に移したので、そちらの訂正では起動しない)。`src/data/**` は ADR 0034 でベースラインへ運ぶ素材にしたため、`paths` からは外してある
 - **比較方式(案A + コンテンツ中立)**: CI 内で main と PR を両方ビルドし、同一 Linux 環境で撮影・比較する。ベースライン PNG はコミットしない(`vrt/__screenshots__/` は gitignore)。システムフォント描画の macOS↔Linux 差を回避するため。
   **main 側は「main のコード × PR のコンテンツ」でビルドする**(`src/content` / `src/data` / `src/content.config.ts` を運ぶ)。他ファイルのコンテンツ修正が波及しただけの赤を消すため(ADR 0034)。運ぶ素材の allowlist と degraded 経路は `scripts/__tests__/workflows/vrt-baseline.test.mjs` が固定している
 - **逃がし**: コンテンツ側の値の**描画幅**をわざと変えるとき(PR #540 の「測定なし」導入のように、
