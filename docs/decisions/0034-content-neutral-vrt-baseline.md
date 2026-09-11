@@ -167,8 +167,10 @@ ADR は不変とする運用のため（ADR 0029 と同じ）、両者は書き�
 - `policy-evidence.astro` の `comparisons` → `src/data/policy-evidence.ts`
 
 移設前後で `dist` の HTML は byte 一致(差分は `design-tokens.json` の `generatedAt` だけ)。
-残る同型の死角は `about.astro` と `guide/indicators.astro`(散文がマークアップ直書きで、
-データ定数を持たない)。
+上で名指しした 4 本のうち残るのは `about.astro` と `guide/indicators.astro`(散文がマークアップ
+直書きで、データ定数を持たない)。上の列挙は直近 20 実行の赤から拾ったもので網羅ではなく、
+同型のデータ定数に散文を持つページは他にもある(`seasonal/july.astro` の `scenes`、
+`guide/index.astro` の `guides`。いずれも VRT 対象)。
 
 移設に伴って変わる点:
 

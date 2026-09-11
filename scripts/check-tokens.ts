@@ -20,9 +20,9 @@ interface Finding {
 }
 
 /**
- * `.astro` に加えて `src/data/` 配下の `.ts` も見る。faq.ts / policy-evidence.ts の
- * 本文は HTML 断片としてクラス属性を持つ(ADR 0034 の中立化に乗せるため `.astro`
- * から移した)。`src/lib` は含めない — satori 用の JSX があり誤検知の面が広がる。
+ * `.astro` に加えて `src/data/` 配下の `.ts` も見る。faq.ts の回答文は HTML 断片で
+ * クラス属性を持つ(ADR 0034 の中立化に乗せるため `.astro` から移した)。`src/lib` は
+ * 含めない — あるのは satori 用の要素オブジェクト木で、クラス属性を持つ HTML 断片は無い。
  */
 const DATA_DIR = join(SRC, "data");
 

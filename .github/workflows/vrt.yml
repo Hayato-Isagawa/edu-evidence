@@ -34,7 +34,8 @@ on:
       # 差分が出ない」トリガになり、15 分の CI を空回りさせる。
       #
       # 代償として、concerns.ts の getAllConcerns / getConcernIndex や
-      # glossary.ts の tooltipTerms といった **データファイルの中のロジック**の
+      # glossary.ts の tooltipTerms、faq.ts の buildFaqSections といった
+      # **データファイルの中のロジック**の
       # 変更は VRT から見えなくなる。データとロジックを別ファイルに割れば
       # ロジック側をここへ戻せる(ADR 0034 の「受け入れた死角」)。
       - "src/lib/**"

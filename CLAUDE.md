@@ -85,7 +85,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 - `src/components/StrategyRow.astro` — 戦略カードコンポーネント
 - `src/layouts/Layout.astro` — 共通レイアウト(ヘッダー・フッター・ツールチップJS)
 - `src/data/glossary.ts` — 用語集データ(用語集ページ + ツールチップで共用)
-- `src/data/faq.ts` / `src/data/policy-evidence.ts` — FAQ と政策対照表の本文。データ定数として持つ本文は `src/data/` に置く(VRT のベースラインへ運ばれ、本文の編集が中立化される。ADR 0034)。`about.astro` / `guide/indicators.astro` の散文は未移設
+- `src/data/faq.ts` / `src/data/policy-evidence.ts` — FAQ と政策対照表の本文。`.astro` から移したのは、VRT のベースラインへ運ばれる `src/data` に載せて本文の編集を中立化するため(ADR 0034)。同型で未移設: `seasonal/july.astro` の `scenes` / `guide/index.astro` の `guides`(データ定数)、`about.astro` / `guide/indicators.astro`(散文がマークアップ直書き)
 - `src/plugins/remark-glossary.mjs` — remarkプラグイン(markdown本文の用語自動リンク)
 - `src/lib/og-image.ts` — Satori + Sharp による動的OG画像生成
 - `src/lib/glossary-inline.ts` — frontmatter テキスト内の用語ツールチップ変換
