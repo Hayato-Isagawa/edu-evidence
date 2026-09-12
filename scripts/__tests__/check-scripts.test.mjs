@@ -16,7 +16,6 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { spawn, spawnSync } from "node:child_process";
 import fs from "node:fs";
-import http from "node:http";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -26,16 +25,12 @@ const REPO = path.resolve(HERE, "../..");
 
 /** fixture を cwd にして check スクリプトを実行する。 */
 function run(script, fixture) {
-  const r = spawnSync(
-    "npx",
-    ["tsx", path.join(REPO, "scripts", script)],
-    {
-      cwd: path.join(HERE, "fixtures", fixture),
-      encoding: "utf8",
-      env: { ...process.env, FORCE_COLOR: "0" },
-      timeout: 120_000,
-    },
-  );
+  const r = spawnSync("npx", ["tsx", path.join(REPO, "scripts", script)], {
+    cwd: path.join(HERE, "fixtures", fixture),
+    encoding: "utf8",
+    env: { ...process.env, FORCE_COLOR: "0" },
+    timeout: 120_000,
+  });
   return { status: r.status, output: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 
@@ -61,13 +56,13 @@ function gate(script, fixture, expect) {
     // 入力が空でも「違反なし」で緑になるので、まず中身があることを確かめる。
     assert.ok(
       fixtureFileCount(`${fixture}/violating`) > 0,
-      `${fixture}/violating が空。検査対象 0 件でも exit 0 になる`,
+      `${fixture}/violating が空。検査対象 0 件でも exit 0 になる`
     );
     const r = run(script, `${fixture}/violating`);
     assert.notEqual(
       r.status,
       0,
-      `違反入力を通してしまった。ゲートが素通りしている:\n${r.output}`,
+      `違反入力を通してしまった。ゲートが素通りしている:\n${r.output}`
     );
     // 全部を突き合わせる。1 つでも「非 0 で落ちたこと」に寄りかかると、
     // 同じ fixture 内の別の検査が落ちているだけで緑になる。
@@ -81,13 +76,13 @@ function gate(script, fixture, expect) {
   test(`${script} は ${fixture} の正常な入力を通す`, () => {
     assert.ok(
       fixtureFileCount(`${fixture}/clean`) > 0,
-      `${fixture}/clean が空。誤検出していなくても意味が無い`,
+      `${fixture}/clean が空。誤検出していなくても意味が無い`
     );
     const r = run(script, `${fixture}/clean`);
     assert.equal(
       r.status,
       0,
-      `正常な入力を落としてしまった。誤検出している:\n${r.output}`,
+      `正常な入力を落としてしまった。誤検出している:\n${r.output}`
     );
   });
 }
@@ -119,10 +114,26 @@ gate("check-evidence-strength.ts", "evidence-strength", /star-mismatch\.md/);
 // 件数は clean 側のファイル数に結合しているので、fixture を足したらここも直す。
 test("check-evidence-strength.ts は不変条件 A の対象外ページを件数と名前で出す", () => {
   const r = run("check-evidence-strength.ts", "evidence-strength/clean");
-  assert.equal(r.status, 0, `対象外ページを違反として落としている:\n${r.output}`);
-  assert.match(r.output, /不変条件 A の対象外[^\n]*: 2 \/ 3/, "件数を出していない");
-  assert.match(r.output, /^\s+unrated\.md$/m, "対象外ページの名前を出していない");
-  assert.match(r.output, /^\s+no-evidence-block\.md$/m, "evidence 無しページの名前を出していない");
+  assert.equal(
+    r.status,
+    0,
+    `対象外ページを違反として落としている:\n${r.output}`
+  );
+  assert.match(
+    r.output,
+    /不変条件 A の対象外[^\n]*: 2 \/ 3/,
+    "件数を出していない"
+  );
+  assert.match(
+    r.output,
+    /^\s+unrated\.md$/m,
+    "対象外ページの名前を出していない"
+  );
+  assert.match(
+    r.output,
+    /^\s+no-evidence-block\.md$/m,
+    "evidence 無しページの名前を出していない"
+  );
 });
 gate("check-reader-literacy.ts", "reader-literacy", /jargon\.md/);
 gate("check-sentence-length.ts", "sentence-length", /critical:\s*1/);
@@ -142,18 +153,48 @@ gate("check-stale.ts", "stale", /stale-one\.md/);
 // 向こうの口が外れたことをこちらから観測できる。
 
 const WORKFLOWS = path.resolve(REPO, ".github/workflows");
-const checksYml = () => fs.readFileSync(path.join(WORKFLOWS, "checks.yml"), "utf8");
+const checksYml = () =>
+  fs.readFileSync(path.join(WORKFLOWS, "checks.yml"), "utf8");
 
 test("test:workflows の口が checks.yml に配線されている", () => {
   const b = checksYml();
   // ステップ名では探さない(改名だけで赤くなるため)。守りたいのは
   // 「この run: が !cancelled() の下にある」こと。
-  assert.match(b, /^ {8}run: npm run test:workflows$/m, "checks.yml から外れている");
+  assert.match(
+    b,
+    /^ {8}run: npm run test:workflows$/m,
+    "checks.yml から外れている"
+  );
   assert.match(
     b,
     /^ {8}if: \$\{\{ !cancelled\(\) \}\}\n {8}run: npm run test:workflows$/m,
-    "前段が落ちると走らない形になっている",
+    "前段が落ちると走らない形になっている"
   );
+});
+
+test("oxlint と oxfmt の口が checks.yml に配線されている", () => {
+  // oxlint は warning でも exit 0、oxfmt --check は差分があれば exit 1。どちらも
+  // ワークフローから外れると黙って検査が消える(ADR 0037)。
+  const b = checksYml();
+  for (const script of ["lint", "format:check"]) {
+    assert.match(
+      b,
+      new RegExp(
+        `^ {8}if: \\$\\{\\{ !cancelled\\(\\) \\}\\}\\n {8}run: npm run ${script.replace(":", "\\:")}$`,
+        "m"
+      ),
+      `checks.yml に ${script} が無い、または前段が落ちると走らない形になっている`
+    );
+  }
+  const pkg = JSON.parse(
+    fs.readFileSync(path.join(REPO, "package.json"), "utf8")
+  );
+  assert.equal(
+    pkg.scripts.lint,
+    "oxlint --deny-warnings",
+    "warning で止まらない形になっている"
+  );
+  assert.equal(pkg.scripts["format:check"], "oxfmt --check");
 });
 
 test("checks.yml は main 向けの PR で必ず起動する", () => {
@@ -161,16 +202,29 @@ test("checks.yml は main 向けの PR で必ず起動する", () => {
   // そこを見ているテストが無かった。paths フィルタが付くと、
   // ワークフローだけを触った PR で検査が丸ごと skip されうる。
   const b = checksYml();
-  assert.match(b, /^ {2}pull_request:\n {4}branches: \[main\]$/m, "PR トリガが変わっている");
+  assert.match(
+    b,
+    /^ {2}pull_request:\n {4}branches: \[main\]$/m,
+    "PR トリガが変わっている"
+  );
 });
 
 test("check:all は CI が走らせる回帰テストを全部含む", () => {
   // #453 が閉じた「手元の一括検査だけが緩い」状態を、口を足すたびに開け直さないため。
-  const pkg = JSON.parse(fs.readFileSync(path.join(REPO, "package.json"), "utf8"));
+  const pkg = JSON.parse(
+    fs.readFileSync(path.join(REPO, "package.json"), "utf8")
+  );
   const all = pkg.scripts["check:all"];
   // check:links:source は今回「check:all に残る唯一のリンクゲート」になったので、
   // 配線が外れたら気づけるようにここへ足す（CI 側には無いので、外れても赤くならない）。
-  for (const gate of ["test:scripts", "test:workflows", "test:hooks", "check:links:source"]) {
+  for (const gate of [
+    "lint",
+    "format:check",
+    "test:scripts",
+    "test:workflows",
+    "test:hooks",
+    "check:links:source",
+  ]) {
     assert.ok(all.includes(gate), `check:all に ${gate} が無い`);
   }
 });
@@ -187,20 +241,36 @@ test("check:all は CI が走らせる回帰テストを全部含む", () => {
 test("check-source-links.ts は到達できない URL で落ちない", () => {
   assert.ok(
     fixtureFileCount("source-links-unreachable") > 0,
-    "fixture が空 — 0 件で緑になっている",
+    "fixture が空 — 0 件で緑になっている"
   );
   const r = run("check-source-links.ts", "source-links-unreachable");
   assert.equal(r.status, 0, `到達不能で落ちている:\n${r.output}`);
   // .invalid は名前解決に失敗する = ENOTFOUND なので、一過性ではなく DNS 側の節に出る。
-  assert.match(r.output, /🔎 名前解決に失敗したリンク/, "名前解決の失敗として報告していない");
-  assert.match(r.output, /ENOTFOUND/, "原因コードを出していない（cause.code を落としている）");
-  assert.match(r.output, /this-host-does-not-resolve\.invalid/, "該当 URL を挙げていない");
+  assert.match(
+    r.output,
+    /🔎 名前解決に失敗したリンク/,
+    "名前解決の失敗として報告していない"
+  );
+  assert.match(
+    r.output,
+    /ENOTFOUND/,
+    "原因コードを出していない（cause.code を落としている）"
+  );
+  assert.match(
+    r.output,
+    /this-host-does-not-resolve\.invalid/,
+    "該当 URL を挙げていない"
+  );
 });
 
 test("check-source-links.ts は到達不能を 404 / 410 の件数に数えない", () => {
   // 「落ちない」だけだと、分類ごと消して全部 ok にしても通る。件数の側も見る。
   const r = run("check-source-links.ts", "source-links-unreachable");
-  assert.match(r.output, /- 📡 到達できなかった \(失敗にしない\): 1$/m, "到達不能の件数が 1 でない");
+  assert.match(
+    r.output,
+    /- 📡 到達できなかった \(失敗にしない\): 1$/m,
+    "到達不能の件数が 1 でない"
+  );
   assert.match(r.output, /- ❌ 404 \/ 410: 0$/m, "404 / 410 の件数が 0 でない");
 });
 
@@ -231,10 +301,13 @@ test("check-source-links.ts は 404 を検出して落ちる", async () => {
       "const h=require('node:http');const s=h.createServer((q,r)=>{r.writeHead(404);r.end('gone')});" +
         "s.listen(0,'127.0.0.1',()=>console.log(s.address().port));",
     ],
-    { stdio: ["ignore", "pipe", "ignore"] },
+    { stdio: ["ignore", "pipe", "ignore"] }
   );
   const port = await new Promise((resolve, reject) => {
-    const timer = setTimeout(() => reject(new Error("404 サーバが起動しない")), 10_000);
+    const timer = setTimeout(
+      () => reject(new Error("404 サーバが起動しない")),
+      10_000
+    );
     server.stdout.once("data", (b) => {
       clearTimeout(timer);
       resolve(Number(String(b).trim()));
@@ -246,12 +319,16 @@ test("check-source-links.ts は 404 を検出して落ちる", async () => {
     fs.mkdirSync(md, { recursive: true });
     fs.writeFileSync(
       path.join(md, "dead-source.md"),
-      `---\ntitle: 消えた出典\nsummary: 404 を返す出典を持つ。\n---\n\n出典: <http://127.0.0.1:${port}/gone>\n`,
+      `---\ntitle: 消えた出典\nsummary: 404 を返す出典を持つ。\n---\n\n出典: <http://127.0.0.1:${port}/gone>\n`
     );
     const r = runIn("check-source-links.ts", dir);
     assert.equal(r.status, 1, `404 で落ちていない:\n${r.output}`);
     assert.match(r.output, /- ❌ 404 \/ 410: 1$/m, "404 の件数が 1 でない");
-    assert.match(r.output, /❌ 壊れているリンク/, "壊れているリンクとして報告していない");
+    assert.match(
+      r.output,
+      /❌ 壊れているリンク/,
+      "壊れているリンクとして報告していない"
+    );
   } finally {
     server.kill();
     fs.rmSync(dir, { recursive: true, force: true });
@@ -260,12 +337,16 @@ test("check-source-links.ts は 404 を検出して落ちる", async () => {
 
 /** 引数つきで check スクリプトを fixture 上で実行する。 */
 function runWithArgs(script, fixture, args) {
-  const r = spawnSync("npx", ["tsx", path.join(REPO, "scripts", script), ...args], {
-    cwd: path.join(HERE, "fixtures", fixture),
-    encoding: "utf8",
-    env: { ...process.env, FORCE_COLOR: "0" },
-    timeout: 120_000,
-  });
+  const r = spawnSync(
+    "npx",
+    ["tsx", path.join(REPO, "scripts", script), ...args],
+    {
+      cwd: path.join(HERE, "fixtures", fixture),
+      encoding: "utf8",
+      env: { ...process.env, FORCE_COLOR: "0" },
+      timeout: 120_000,
+    }
+  );
   return { status: r.status, output: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 
@@ -278,8 +359,13 @@ function runWithArgs(script, fixture, args) {
 //
 // 外部を skip するので**ネットワークへ出ない** = 決定的（実測 3/3 で 11669 リンク・約 7 秒）。
 test("check-links.ts --internal-only は死んだ内部リンクを検出して落ちる", () => {
-  assert.ok(fixtureFileCount("links-internal/violating") > 0, "fixture が空 — 0 件で緑になっている");
-  const r = runWithArgs("check-links.ts", "links-internal/violating", ["--internal-only"]);
+  assert.ok(
+    fixtureFileCount("links-internal/violating") > 0,
+    "fixture が空 — 0 件で緑になっている"
+  );
+  const r = runWithArgs("check-links.ts", "links-internal/violating", [
+    "--internal-only",
+  ]);
   assert.equal(r.status, 1, `死んだ内部リンクで落ちていない:\n${r.output}`);
   assert.match(r.output, /does-not-exist/, "該当リンクを挙げていない");
 });
@@ -287,7 +373,9 @@ test("check-links.ts --internal-only は死んだ内部リンクを検出して�
 test("check-links.ts --internal-only は生きている内部リンクを通す", () => {
   // 常に落ちるスクリプトも同じく壊れているので、clean 側も置く。
   assert.ok(fixtureFileCount("links-internal/clean") > 0, "fixture が空");
-  const r = runWithArgs("check-links.ts", "links-internal/clean", ["--internal-only"]);
+  const r = runWithArgs("check-links.ts", "links-internal/clean", [
+    "--internal-only",
+  ]);
   assert.equal(r.status, 0, `正常な内部リンクで落ちている:\n${r.output}`);
   assert.match(r.output, /検査リンク: [1-9]/, "リンクを 1 本も検査していない");
   // 外部 URL が SKIPPED に入っていること。ここを見ないと --internal-only を

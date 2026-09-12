@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": ["scripts/__tests__/fixtures/**"],
+  "rules": {
+    "no-irregular-whitespace": ["warn", { "skipComments": true }]
+  }
+}
