@@ -24,7 +24,10 @@ const targets = [
   { name: "トップページ", path: "/" },
   { name: "悩みから探す", path: "/concerns/" },
   { name: "戦略詳細(feedback)", path: "/strategies/feedback/" },
-  { name: "コラム(jigsaw-two-lineages)", path: "/columns/jigsaw-two-lineages/" },
+  {
+    name: "コラム(jigsaw-two-lineages)",
+    path: "/columns/jigsaw-two-lineages/",
+  },
   { name: "検索", path: "/search/" },
   { name: "用語集", path: "/guide/glossary/" },
   { name: "About", path: "/about/" },

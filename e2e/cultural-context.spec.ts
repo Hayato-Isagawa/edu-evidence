@@ -1,7 +1,9 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("戦略ページの culturalContext 太字描画", () => {
-  test("blocked-vs-interleaved で <strong> として描画される", async ({ page }) => {
+  test("blocked-vs-interleaved で <strong> として描画される", async ({
+    page,
+  }) => {
     await page.goto("/strategies/blocked-vs-interleaved/");
     const strong = page.locator("strong", { hasText: "望ましい難しさ" });
     await expect(strong).toBeVisible();

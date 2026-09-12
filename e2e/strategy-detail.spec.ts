@@ -13,8 +13,6 @@ test.describe("戦略詳細ページ", () => {
 
   test("culturalContext が表示される", async ({ page }) => {
     await page.goto("/strategies/metacognition/");
-    await expect(
-      page.getByText("日本の文脈で考慮したいこと")
-    ).toBeVisible();
+    await expect(page.getByText("日本の文脈で考慮したいこと")).toBeVisible();
   });
 });

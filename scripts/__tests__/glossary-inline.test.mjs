@@ -34,7 +34,7 @@ function render(payload) {
   assert.equal(
     r.status,
     0,
-    `用語変換を実行できませんでした:\n${r.stdout ?? ""}${r.stderr ?? ""}`,
+    `用語変換を実行できませんでした:\n${r.stdout ?? ""}${r.stderr ?? ""}`
   );
   return JSON.parse(r.stdout);
 }
@@ -95,16 +95,22 @@ const everyTerm = base.terms.join("と");
 // **markdown 側も同じ配列を通す。** 片方だけ全数走査にすると、走査している側の
 // エスケープが壊れたときだけ赤くなり、もう片方は同じ欠陥でも緑のまま通る(実測:
 // remark-glossary の escapeAttr から `<` を外しても 5 ケースでは検出できなかった)。
-const sweep = render({ inline: [...perTerm, everyTerm], markdown: [...perTerm, everyTerm] });
+const sweep = render({
+  inline: [...perTerm, everyTerm],
+  markdown: [...perTerm, everyTerm],
+});
 
 test("ツールチップ本文の中にリンクを挿し込まない", () => {
   const html = base.inline[0];
   assert.equal(
     corruptAttributes(html).length,
     0,
-    `属性値の中にタグが入っている:\n${html}`,
+    `属性値の中にタグが入っている:\n${html}`
   );
-  assert.match(html, /data-tip="データのばらつきを示す指標\(効果量計算でも使う\)"/);
+  assert.match(
+    html,
+    /data-tip="データのばらつきを示す指標\(効果量計算でも使う\)"/
+  );
 });
 
 test("リンク先 URL の中にリンクを挿し込まない", () => {
@@ -114,7 +120,10 @@ test("リンク先 URL の中にリンクを挿し込まない", () => {
 
   // encodeURIComponent("クラスターRCT") の末尾に残る `RCT`。
   assert.equal(corruptAttributes(base.inline[2]).length, 0, base.inline[2]);
-  assert.match(base.inline[2], /href="\/guide\/glossary#%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BCRCT"/);
+  assert.match(
+    base.inline[2],
+    /href="\/guide\/glossary#%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BCRCT"/
+  );
 });
 
 test("属性値に紛れ込んだ用語が本文側の初出を食い潰さない", () => {
@@ -125,7 +134,7 @@ test("属性値に紛れ込んだ用語が本文側の初出を食い潰さな�
   assert.match(
     html,
     /で示す。<a class="glossary-tip" href="\/guide\/glossary#%E5%8A%B9%E6%9E%9C%E9%87%8F"[^>]*>効果量<\/a>も見る。$/,
-    `本文側の初出がリンクされていない:\n${html}`,
+    `本文側の初出がリンクされていない:\n${html}`
   );
 
   // 同じことが href 側でも起きる。「クラスターRCT」の後の「RCT」。
@@ -140,9 +149,14 @@ test("用語集の全エントリを通しても属性値が壊れない", (t) =
   const broken = [];
   sweep.inline.forEach((html, i) => {
     const hits = corruptAttributes(html);
-    if (hits.length) broken.push(`${base.terms[i] ?? "(全用語)"}: ${hits.join(" / ")}`);
+    if (hits.length)
+      broken.push(`${base.terms[i] ?? "(全用語)"}: ${hits.join(" / ")}`);
   });
-  assert.deepEqual(broken, [], `属性値の中にタグが入っている:\n${broken.join("\n")}`);
+  assert.deepEqual(
+    broken,
+    [],
+    `属性値の中にタグが入っている:\n${broken.join("\n")}`
+  );
 });
 
 test("強調の中の用語もリンクされ、strong は保たれる", () => {
@@ -151,7 +165,7 @@ test("強調の中の用語もリンクされ、strong は保たれる", () => {
   assert.match(
     html,
     /^日本初の<strong><a class="glossary-tip"[^>]*>クラスターRCT<\/a><\/strong>/,
-    `強調の中の用語がリンクされていない:\n${html}`,
+    `強調の中の用語がリンクされていない:\n${html}`
   );
 });
 
@@ -164,7 +178,7 @@ test("markdown 本文の経路も属性値を壊さない", () => {
     assert.equal(
       corruptAttributes(html).length,
       0,
-      `markdown 経路で属性値が壊れた(case ${i}):\n${html}`,
+      `markdown 経路で属性値が壊れた(case ${i}):\n${html}`
     );
   });
   // 素通しではなくリンクが付いていることも見る(何もしない実装で緑にならないため)。
@@ -175,14 +189,21 @@ test("markdown 経路も用語集の全エントリで属性値が壊れない",
   // inline 側だけを全数走査していたとき、markdown 側の escapeAttr から `<` を
   // 外しても 5 ケースでは検出できなかった(実測)。2 経路は別々に壊れる。
   assert.ok(sweep.markdown.length > 0, "markdown 側の走査対象が 0 件");
-  t.diagnostic(`markdown 経路も用語 ${base.terms.length} 件 + 全用語連結を走査`);
+  t.diagnostic(
+    `markdown 経路も用語 ${base.terms.length} 件 + 全用語連結を走査`
+  );
 
   const broken = [];
   sweep.markdown.forEach((html, i) => {
     const hits = corruptAttributes(html);
-    if (hits.length) broken.push(`${base.terms[i] ?? "(全用語)"}: ${hits.join(" / ")}`);
+    if (hits.length)
+      broken.push(`${base.terms[i] ?? "(全用語)"}: ${hits.join(" / ")}`);
   });
-  assert.deepEqual(broken, [], `markdown 経路で属性値の中にタグが入っている:\n${broken.join("\n")}`);
+  assert.deepEqual(
+    broken,
+    [],
+    `markdown 経路で属性値の中にタグが入っている:\n${broken.join("\n")}`
+  );
 });
 
 test("入力に元からある a タグの中にはリンクを挿し込まない", () => {
@@ -191,16 +212,22 @@ test("入力に元からある a タグの中にはリンクを挿し込まな�
   // リンクのテキストが空**になり、クリックできずスクリーンリーダーからも名前が
   // 読めない(本番 /faq/ で 6 本。#505 のレビューが検出)。
   const [html] = render({
-    inline: ['詳しくは<a href="/guide/evidence" class="link">エビデンス入門</a>を参照。'],
+    inline: [
+      '詳しくは<a href="/guide/evidence" class="link">エビデンス入門</a>を参照。',
+    ],
     markdown: [],
   }).inline;
 
   assert.doesNotMatch(
     html,
     /<a\b[^>]*>[^<]*<a\b/,
-    `a タグが入れ子になっている:\n${html}`,
+    `a タグが入れ子になっている:\n${html}`
   );
-  assert.match(html, />エビデンス入門<\/a>/, `外側リンクのテキストが失われた:\n${html}`);
+  assert.match(
+    html,
+    />エビデンス入門<\/a>/,
+    `外側リンクのテキストが失われた:\n${html}`
+  );
 });
 
 test("生の不等号があってもリンクが止まらない", () => {
@@ -212,7 +239,11 @@ test("生の不等号があってもリンクが止まらない", () => {
     markdown: [],
   }).inline;
 
-  assert.match(html, /class="glossary-tip"[^>]*>効果量<\/a>/, `不等号の後の用語が落ちた:\n${html}`);
+  assert.match(
+    html,
+    /class="glossary-tip"[^>]*>効果量<\/a>/,
+    `不等号の後の用語が落ちた:\n${html}`
+  );
   assert.equal(corruptAttributes(html).length, 0, html);
 });
 
@@ -226,5 +257,9 @@ test("同じ用語は強調をまたいでも 1 回しかリンクされない",
   }).inline;
 
   const links = html.match(/class="glossary-tip"/g) ?? [];
-  assert.equal(links.length, 1, `同じ用語が ${links.length} 回リンクされた:\n${html}`);
+  assert.equal(
+    links.length,
+    1,
+    `同じ用語が ${links.length} 回リンクされた:\n${html}`
+  );
 });

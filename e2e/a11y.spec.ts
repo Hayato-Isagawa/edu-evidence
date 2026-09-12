@@ -56,7 +56,7 @@ test.describe("a11y: axe-core 自動監査", () => {
           .analyze();
 
         const blocking = results.violations.filter(
-          (v) => v.impact === "critical" || v.impact === "serious",
+          (v) => v.impact === "critical" || v.impact === "serious"
         );
         const allowed = new Set(known[path] ?? []);
         const newViolations = blocking.filter((v) => !allowed.has(v.id));
@@ -75,7 +75,7 @@ test.describe("a11y: axe-core 自動監査", () => {
         // 新規違反のみテスト失敗扱い(既知違反は別 PR で順次解消)
         expect(
           newViolations,
-          `新規 critical/serious 違反: ${newViolations.map((v) => v.id).join(", ")}`,
+          `新規 critical/serious 違反: ${newViolations.map((v) => v.id).join(", ")}`
         ).toEqual([]);
       });
     }

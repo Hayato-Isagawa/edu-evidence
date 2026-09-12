@@ -49,7 +49,9 @@ const CHECK_OPTIONS = {
 // 内部モードの skip。**localhost / 127.0.0.1 を除外しない** — linkinator は dist を
 // ローカルサーバで配って辿るので、内部リンクはこのホストになる。ここを落とすと
 // 検査対象が 0 件になり、緑で通ってしまう。
-const INTERNAL_ONLY_SKIP = ["^https?://(?!localhost|127\\.0\\.0\\.1)|mailto:|^#"];
+const INTERNAL_ONLY_SKIP = [
+  "^https?://(?!localhost|127\\.0\\.0\\.1)|mailto:|^#",
+];
 
 // 「確定した消滅 / 到達不能」とみなす status。baseline 登録済みでも NEW 扱い。
 // **`check-source-links.ts` の `categorize` とは意図的に違う。** あちらは `status 0` を
@@ -72,7 +74,10 @@ function statusLabel(status: number): string {
 
 function loadBaseline(): Record<string, number> {
   if (!fs.existsSync(BASELINE_PATH)) return {};
-  return JSON.parse(fs.readFileSync(BASELINE_PATH, "utf-8")) as Record<string, number>;
+  return JSON.parse(fs.readFileSync(BASELINE_PATH, "utf-8")) as Record<
+    string,
+    number
+  >;
 }
 
 interface ScanResult {
@@ -83,7 +88,9 @@ interface ScanResult {
 
 async function scan(internalOnly = false): Promise<ScanResult> {
   const result = await check(
-    internalOnly ? { ...CHECK_OPTIONS, linksToSkip: INTERNAL_ONLY_SKIP } : CHECK_OPTIONS,
+    internalOnly
+      ? { ...CHECK_OPTIONS, linksToSkip: INTERNAL_ONLY_SKIP }
+      : CHECK_OPTIONS
   );
   // BROKEN は同一 URL が parent ごとに複数件返るため、URL でユニーク化する
   const broken = new Map<string, number>();
@@ -100,27 +107,36 @@ async function scan(internalOnly = false): Promise<ScanResult> {
 
 function writeBaseline(broken: Map<string, number>) {
   const entries = [...broken.entries()].sort(([a], [b]) => a.localeCompare(b));
-  const hardBroken = entries.filter(([, status]) => HARD_BROKEN_STATUSES.has(status));
+  const hardBroken = entries.filter(([, status]) =>
+    HARD_BROKEN_STATUSES.has(status)
+  );
   const baseline = Object.fromEntries(
-    entries.filter(([, status]) => !HARD_BROKEN_STATUSES.has(status)),
+    entries.filter(([, status]) => !HARD_BROKEN_STATUSES.has(status))
   );
 
   fs.writeFileSync(BASELINE_PATH, JSON.stringify(baseline, null, 2) + "\n");
   console.log(
-    `Baseline written to ${path.relative(process.cwd(), BASELINE_PATH)} (${Object.keys(baseline).length} entries)`,
+    `Baseline written to ${path.relative(process.cwd(), BASELINE_PATH)} (${Object.keys(baseline).length} entries)`
   );
 
   if (hardBroken.length > 0) {
     console.error("");
-    console.error("⚠️ 以下は 404 / 410 / network error のため baseline に登録しませんでした。");
-    console.error("   本当に壊れている可能性が高いので、リンク自体を修正してください:");
+    console.error(
+      "⚠️ 以下は 404 / 410 / network error のため baseline に登録しませんでした。"
+    );
+    console.error(
+      "   本当に壊れている可能性が高いので、リンク自体を修正してください:"
+    );
     for (const [url, status] of hardBroken) {
       console.error(`   - ${url} → ${statusLabel(status)}`);
     }
   }
 }
 
-function reportAndJudge(broken: Map<string, number>, baseline: Record<string, number>): number {
+function reportAndJudge(
+  broken: Map<string, number>,
+  baseline: Record<string, number>
+): number {
   const newBroken: Array<[string, number]> = [];
   const knownBroken: Array<[string, number]> = [];
 
@@ -137,9 +153,13 @@ function reportAndJudge(broken: Map<string, number>, baseline: Record<string, nu
   if (newBroken.length > 0) {
     console.log(`## ❌ 新規 broken リンク(要対応)`);
     console.log("");
-    for (const [url, status] of newBroken.sort(([a], [b]) => a.localeCompare(b))) {
+    for (const [url, status] of newBroken.sort(([a], [b]) =>
+      a.localeCompare(b)
+    )) {
       const note =
-        url in baseline ? "(baseline 登録済みだが 404 / 410 / network error に変化)" : "";
+        url in baseline
+          ? "(baseline 登録済みだが 404 / 410 / network error に変化)"
+          : "";
       console.log(`- ${url} → ${statusLabel(status)}${note}`);
     }
     console.log("");
@@ -151,7 +171,9 @@ function reportAndJudge(broken: Map<string, number>, baseline: Record<string, nu
       const h = hostOf(url);
       byHost.set(h, (byHost.get(h) ?? 0) + 1);
     }
-    console.log(`## ℹ️ [known] 既知ボット対策ドメイン(baseline 登録済み、ブラウザでは通常 200)`);
+    console.log(
+      `## ℹ️ [known] 既知ボット対策ドメイン(baseline 登録済み、ブラウザでは通常 200)`
+    );
     console.log("");
     for (const [h, n] of [...byHost.entries()].sort((a, b) => b[1] - a[1])) {
       console.log(`- ${h}: ${n} 件`);
@@ -160,13 +182,17 @@ function reportAndJudge(broken: Map<string, number>, baseline: Record<string, nu
   }
 
   if (stale.length > 0) {
-    console.log(`## 🧹 stale エントリ(baseline 登録済みだが今回 broken でない)`);
+    console.log(
+      `## 🧹 stale エントリ(baseline 登録済みだが今回 broken でない)`
+    );
     console.log("");
     for (const url of stale) {
       console.log(`- ${url}`);
     }
     console.log("");
-    console.log("`npm run links:baseline` で再生成すると baseline を縮められます。");
+    console.log(
+      "`npm run links:baseline` で再生成すると baseline を縮められます。"
+    );
     console.log("");
   }
 
@@ -178,7 +204,7 @@ function reportAndJudge(broken: Map<string, number>, baseline: Record<string, nu
   if (newBroken.length > 0) {
     console.error(
       `\n新規 broken リンクが ${newBroken.length} 件あります。リンクを修正するか、` +
-        "ボット対策ドメインであれば `npm run links:baseline` で baseline を更新してください。",
+        "ボット対策ドメインであれば `npm run links:baseline` で baseline を更新してください。"
     );
     return 1;
   }
@@ -187,7 +213,9 @@ function reportAndJudge(broken: Map<string, number>, baseline: Record<string, nu
 
 async function main(): Promise<number> {
   if (!fs.existsSync(DIST_DIR)) {
-    console.error("dist/ がありません。先に `npm run build` を実行してください。");
+    console.error(
+      "dist/ がありません。先に `npm run build` を実行してください。"
+    );
     return 2;
   }
 
@@ -200,13 +228,13 @@ async function main(): Promise<number> {
 
   console.log(`=== check:links(linkinator + baseline 照合)===`);
   console.log(
-    `対象: dist / モード: ${updateMode ? "baseline 再生成" : internalOnly ? "内部リンクのみ" : "照合"}`,
+    `対象: dist / モード: ${updateMode ? "baseline 再生成" : internalOnly ? "内部リンクのみ" : "照合"}`
   );
   console.log("");
 
   const { broken, totalChecked, skippedCount } = await scan(internalOnly);
   console.log(
-    `検査リンク: ${totalChecked}(SKIPPED ${skippedCount} / BROKEN ユニーク ${broken.size})`,
+    `検査リンク: ${totalChecked}(SKIPPED ${skippedCount} / BROKEN ユニーク ${broken.size})`
   );
   console.log("");
 
