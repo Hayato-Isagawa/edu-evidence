@@ -79,7 +79,7 @@ function isKnownBotProtected(url: string): boolean {
 // frontmatter やベタ URL を対象とする(markdown のリンクは balanced-paren で別抽出)
 // 直前が `/` の `https?://` は別の URL の内側(Wayback の `…/web/<ts>/https://…` 形)なので拾わない。
 // 外側の URL は Markdown リンクとして別途抽出される。
-const BARE_URL_REGEX = /(?<![(\["'\/])(https?:\/\/[^\s"'<>\]]+)/g;
+const BARE_URL_REGEX = /(?<![(["'/])(https?:\/\/[^\s"'<>\]]+)/g;
 
 // `[text](url)` のカッコ内 URL を balanced-paren で取得する
 // DOI など url 内に `(19)` を含むケースに対応
@@ -237,8 +237,10 @@ async function fetchOnce(url: string): Promise<FetchOutcome> {
     // 報告で区別が付かなければ目視でも拾えない。
     const message = err instanceof Error ? err.message : String(err);
     const code =
-      err instanceof Error && err.cause && typeof (err.cause as { code?: unknown }).code === "string"
-        ? ((err.cause as { code: string }).code)
+      err instanceof Error &&
+      err.cause &&
+      typeof (err.cause as { code?: unknown }).code === "string"
+        ? (err.cause as { code: string }).code
         : undefined;
     return { status: 0, error: code ? `${message} (${code})` : message };
   } finally {
@@ -249,7 +251,8 @@ async function fetchOnce(url: string): Promise<FetchOutcome> {
 // 5xx / network error は一時障害の可能性が高いので 1 回リトライする
 async function checkUrl(url: string): Promise<FetchOutcome> {
   const first = await fetchOnce(url);
-  const shouldRetry = first.status === 0 || (first.status >= 500 && first.status < 600);
+  const shouldRetry =
+    first.status === 0 || (first.status >= 500 && first.status < 600);
   if (!shouldRetry) return first;
   await new Promise((r) => setTimeout(r, 1500));
   return fetchOnce(url);
@@ -258,16 +261,19 @@ async function checkUrl(url: string): Promise<FetchOutcome> {
 async function runWithConcurrency<T, R>(
   items: T[],
   limit: number,
-  worker: (item: T) => Promise<R>,
+  worker: (item: T) => Promise<R>
 ): Promise<R[]> {
-  const results: R[] = new Array(items.length);
+  const results: R[] = Array.from({ length: items.length });
   let cursor = 0;
-  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
-    while (cursor < items.length) {
-      const idx = cursor++;
-      results[idx] = await worker(items[idx]);
+  const workers = Array.from(
+    { length: Math.min(limit, items.length) },
+    async () => {
+      while (cursor < items.length) {
+        const idx = cursor++;
+        results[idx] = await worker(items[idx]);
+      }
     }
-  });
+  );
   await Promise.all(workers);
   return results;
 }
@@ -299,7 +305,9 @@ async function main() {
   const uniqueUrls = [...new Set(allOccurrences.map((o) => o.url))];
   console.log(`=== リンクチェック開始 ===`);
   console.log(`対象ファイル: ${files.length}`);
-  console.log(`URL 出現: ${allOccurrences.length}(ユニーク ${uniqueUrls.length})`);
+  console.log(
+    `URL 出現: ${allOccurrences.length}(ユニーク ${uniqueUrls.length})`
+  );
   console.log(`並列: ${CONCURRENCY} / timeout: ${TIMEOUT_MS}ms`);
   console.log("");
 
@@ -332,7 +340,7 @@ async function main() {
     console.log("");
     for (const e of errors) {
       console.log(
-        `- ${rel(e.occurrence.file)}:${e.occurrence.line} — ${e.occurrence.url} → HTTP ${e.status}`,
+        `- ${rel(e.occurrence.file)}:${e.occurrence.line} — ${e.occurrence.url} → HTTP ${e.status}`
       );
     }
     console.log("");
@@ -341,26 +349,34 @@ async function main() {
   if (unreachable.length > 0) {
     // 名前解決の失敗を先に出す。失敗にはしないが、**恒久的な消滅である可能性が高い**ので
     // 一過性のタイムアウトと同じ並びに埋めない。
-    const dns = unreachable.filter((u) => (u.error ?? "").includes("ENOTFOUND"));
-    const transient = unreachable.filter((u) => !(u.error ?? "").includes("ENOTFOUND"));
+    const dns = unreachable.filter((u) =>
+      (u.error ?? "").includes("ENOTFOUND")
+    );
+    const transient = unreachable.filter(
+      (u) => !(u.error ?? "").includes("ENOTFOUND")
+    );
 
     if (dns.length > 0) {
-      console.log(`## 🔎 名前解決に失敗したリンク(ドメインの誤り / 失効の可能性。失敗にはしない)`);
+      console.log(
+        `## 🔎 名前解決に失敗したリンク(ドメインの誤り / 失効の可能性。失敗にはしない)`
+      );
       console.log("");
       for (const u of dns) {
         console.log(
-          `- ${rel(u.occurrence.file)}:${u.occurrence.line} — ${u.occurrence.url} → ${u.error ?? "unknown"}`,
+          `- ${rel(u.occurrence.file)}:${u.occurrence.line} — ${u.occurrence.url} → ${u.error ?? "unknown"}`
         );
       }
       console.log("");
     }
 
     if (transient.length > 0) {
-      console.log(`## 📡 到達できなかったリンク(ネットワークエラー / タイムアウト、失敗にしない)`);
+      console.log(
+        `## 📡 到達できなかったリンク(ネットワークエラー / タイムアウト、失敗にしない)`
+      );
       console.log("");
       for (const u of transient) {
         console.log(
-          `- ${rel(u.occurrence.file)}:${u.occurrence.line} — ${u.occurrence.url} → network error: ${u.error ?? "unknown"}`,
+          `- ${rel(u.occurrence.file)}:${u.occurrence.line} — ${u.occurrence.url} → network error: ${u.error ?? "unknown"}`
         );
       }
       console.log("");
@@ -368,11 +384,13 @@ async function main() {
   }
 
   if (warningsActionable.length > 0) {
-    console.log(`## ⚠️ 新規に 401 / 403 / 429 / 5xx を返したリンク(未登録ドメイン、要目視)`);
+    console.log(
+      `## ⚠️ 新規に 401 / 403 / 429 / 5xx を返したリンク(未登録ドメイン、要目視)`
+    );
     console.log("");
     for (const w of warningsActionable) {
       console.log(
-        `- ${rel(w.occurrence.file)}:${w.occurrence.line} — ${w.occurrence.url} → HTTP ${w.status}`,
+        `- ${rel(w.occurrence.file)}:${w.occurrence.line} — ${w.occurrence.url} → HTTP ${w.status}`
       );
     }
     console.log("");
@@ -386,7 +404,9 @@ async function main() {
       byHost.set(h, (byHost.get(h) ?? 0) + 1);
     }
     const hosts = [...byHost.entries()].sort((a, b) => b[1] - a[1]);
-    console.log(`## ℹ️ 既知のボット対策ドメイン(ブラウザでは通常 200、サマリ表示)`);
+    console.log(
+      `## ℹ️ 既知のボット対策ドメイン(ブラウザでは通常 200、サマリ表示)`
+    );
     console.log("");
     for (const [h, n] of hosts) {
       console.log(`- ${h}: ${n} 件`);
@@ -395,7 +415,8 @@ async function main() {
   }
 
   const warnTotal = warningsActionable.length + warningsKnown.length;
-  const okCount = allOccurrences.length - errors.length - unreachable.length - warnTotal;
+  const okCount =
+    allOccurrences.length - errors.length - unreachable.length - warnTotal;
   console.log(`## 集計`);
   console.log(`- ✓ 2xx / 3xx: ${okCount}`);
   console.log(`- ⚠️ 要目視 (未登録ドメイン): ${warningsActionable.length}`);
@@ -404,7 +425,9 @@ async function main() {
   console.log(`- ❌ 404 / 410: ${errors.length}`);
 
   if (errors.length > 0) {
-    console.error(`\n壊れたリンクが ${errors.length} 件あります。修正してください。`);
+    console.error(
+      `\n壊れたリンクが ${errors.length} 件あります。修正してください。`
+    );
     process.exit(1);
   }
 }

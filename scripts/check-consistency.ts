@@ -61,15 +61,23 @@ const MONTH_UNIT = "[ヶヵかカ]";
 const ANCHORS: { re: RegExp; digits: number; sign: number | null }[] = [
   // A: 「約 X ヶ月分」「+X ヶ月分」。「分」が進捗量の単位であることを示す。
   // 符号を書かない形なので絶対値で比べる(減少側は「約 2 ヶ月分の学力低下」と書く)。
-  { re: new RegExp(`約\\s*(\\d+)\\s*${MONTH_UNIT}月分`, "dg"), digits: 1, sign: null },
-  { re: new RegExp(`\\+\\s*(\\d+)\\s*${MONTH_UNIT}月分`, "dg"), digits: 1, sign: null },
+  {
+    re: new RegExp(`約\\s*(\\d+)\\s*${MONTH_UNIT}月分`, "dg"),
+    digits: 1,
+    sign: null,
+  },
+  {
+    re: new RegExp(`\\+\\s*(\\d+)\\s*${MONTH_UNIT}月分`, "dg"),
+    digits: 1,
+    sign: null,
+  },
   // B1: 括弧で囲む形。括弧を使うときは「効果量」の直後でなければならない。
   // 間に語を挟めるようにすると「効果量はメタ認知の指導(+8 ヶ月)より小さい」で
   // 他戦略の括弧を掴む。
   {
     re: new RegExp(
       `効果量\\s*[（(]\\s*([+＋\\-−ー±]?)\\s*(\\d+)\\s*${MONTH_UNIT}月(?:分)?\\s*[）)]`,
-      "dg",
+      "dg"
     ),
     digits: 2,
     sign: 1,
@@ -80,7 +88,7 @@ const ANCHORS: { re: RegExp; digits: number; sign: number | null }[] = [
   {
     re: new RegExp(
       `効果量[^。、\\n0-9０-９（()）]{0,6}?([+＋\\-−ー±]?)\\s*(\\d+)\\s*${MONTH_UNIT}月(?:分)?`,
-      "dg",
+      "dg"
     ),
     digits: 2,
     sign: 1,
@@ -140,7 +148,7 @@ function normalizeSign(s: string): string {
 function contextAround(line: string, anchor: Anchor): string {
   return line.substring(
     Math.max(0, anchor.index - 20),
-    anchor.index + anchor.text.length + 5,
+    anchor.index + anchor.text.length + 5
   );
 }
 
@@ -235,7 +243,7 @@ const strategySlugMap = () => (slugMapCache ??= buildStrategySlugMap());
 function checkColumnStrategyLinks(
   filePath: string,
   lines: string[],
-  offset: number,
+  offset: number
 ) {
   const slugMap = strategySlugMap();
 
@@ -304,7 +312,10 @@ function checkColumnReferences(
     let match;
     while ((match = refPattern.exec(line)) !== null) {
       const refName = match[1].replace(/\*\*/g, "").trim();
-      const refValue = parseInt(normalizeSign(match[2].replace(/\s+/g, "")), 10);
+      const refValue = parseInt(
+        normalizeSign(match[2].replace(/\s+/g, "")),
+        10
+      );
 
       // 戦略マップで照合
       for (const [title, monthsGained] of strategyMap) {
@@ -362,10 +373,17 @@ function checkGlossaryFile(filePath: string) {
     let match;
     while ((match = refPattern.exec(line)) !== null) {
       const refName = match[1].replace(/\*\*/g, "").trim();
-      const refValue = parseInt(normalizeSign(match[2].replace(/\s+/g, "")), 10);
+      const refValue = parseInt(
+        normalizeSign(match[2].replace(/\s+/g, "")),
+        10
+      );
 
       for (const [title, monthsGained] of strategyMap) {
-        if (refName === title || refName.endsWith(title) || title.endsWith(refName)) {
+        if (
+          refName === title ||
+          refName.endsWith(title) ||
+          title.endsWith(refName)
+        ) {
           if (refValue !== monthsGained) {
             issues.push({
               file: path.basename(filePath),
@@ -402,7 +420,9 @@ if (issues.length === 0) {
   console.log(`✗ ${issues.length} 件の不一致が見つかりました:\n`);
   for (const issue of issues) {
     console.log(`  ${issue.file}:${issue.line}`);
-    console.log(`    期待値: ${issue.expected > 0 ? "+" : ""}${issue.expected}ヶ月`);
+    console.log(
+      `    期待値: ${issue.expected > 0 ? "+" : ""}${issue.expected}ヶ月`
+    );
     console.log(`    検出: ${issue.found}`);
     console.log(`    文脈: ${issue.context}`);
     console.log("");

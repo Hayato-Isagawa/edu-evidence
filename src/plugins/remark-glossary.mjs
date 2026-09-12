@@ -55,9 +55,14 @@ export function remarkGlossary() {
       let cursor = 0;
       for (const claim of claims) {
         if (claim.start > cursor) {
-          newChildren.push({ type: "text", value: value.slice(cursor, claim.start) });
+          newChildren.push({
+            type: "text",
+            value: value.slice(cursor, claim.start),
+          });
         }
-        const anchor = claim.entry.term.replace(/[()（）]/g, "").replace(/\s+/g, "-");
+        const anchor = claim.entry.term
+          .replace(/[()（）]/g, "")
+          .replace(/\s+/g, "-");
         newChildren.push({
           type: "html",
           value: `<a class="glossary-tip" href="/guide/glossary#${encodeURIComponent(anchor)}" data-tip="${escapeAttr(claim.entry.short)}">${escapeHtml(claim.entry.term)}</a>`,

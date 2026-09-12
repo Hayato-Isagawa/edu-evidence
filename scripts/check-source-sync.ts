@@ -97,7 +97,12 @@ function isTargetOf(section: Section, data: Record<string, unknown>): boolean {
 
 function collect(today: Date): Record<Section, SectionResult> {
   const sections: Record<Section, SectionResult> = {
-    eef: { section: "eef", threshold: THRESHOLDS.eef, totalTargets: 0, stale: [] },
+    eef: {
+      section: "eef",
+      threshold: THRESHOLDS.eef,
+      totalTargets: 0,
+      stale: [],
+    },
     hattie: {
       section: "hattie",
       threshold: THRESHOLDS.hattie,
@@ -193,9 +198,7 @@ function renderText(
       `- §1 EEF: ${e.stale.length} / ${e.totalTargets}  §2 Hattie: ${h.stale.length} / ${h.totalTargets}  §3 Japan: ${j.stale.length} / ${j.totalTargets}`
     );
     lines.push(
-      total === 0
-        ? "- すべて fresh"
-        : `- Total: ${total} 件が再検証推奨`
+      total === 0 ? "- すべて fresh" : `- Total: ${total} 件が再検証推奨`
     );
     lines.push("");
   }

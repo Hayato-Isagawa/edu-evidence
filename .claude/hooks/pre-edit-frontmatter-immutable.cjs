@@ -23,25 +23,26 @@
  * (Claude 4.6 Opus 26.9% rate) most often targets numeric/URL frontmatter.
  */
 
-'use strict';
+"use strict";
 
 const PROTECTED_KEYS = [
-  'sourceUrl',
-  'monthsGained',
-  'evidenceStrength',
-  'cost',
-  'cohensD',
-  'strength',
-  'studies',
-  'sampleSize',
-  'effectSize',
-  'year',
-  'authors',
-  'url',
+  "sourceUrl",
+  "monthsGained",
+  "evidenceStrength",
+  "cost",
+  "cohensD",
+  "strength",
+  "studies",
+  "sampleSize",
+  "effectSize",
+  "year",
+  "authors",
+  "url",
 ];
 
 const FRONTMATTER_RE = /^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)/;
-const TARGET_PATH_RE = /(?:^|\/)src\/content\/(strategies|columns)\/[^/]+\.(md|mdx)$/i;
+const TARGET_PATH_RE =
+  /(?:^|\/)src\/content\/(strategies|columns)\/[^/]+\.(md|mdx)$/i;
 
 function extractFrontmatter(s) {
   if (!s) return null;
@@ -74,8 +75,13 @@ function captureProtectedFields(fm) {
     // 詰めておく理由: settings.json の `timeout: 5`(秒)を超えるとプロセスが
     // kill され、stdout が出ない = ガードが黙って素通りする。旧形は 16KB の
     // 空白で既にこれを超えていた。
-    const re = new RegExp(`^[ \\t]*(?:-[ \\t]*)?${key}:[ \\t]*(.+?)[ \\t]*$`, 'gm');
-    const values = [...fm.matchAll(re)].map(m => m[1].replace(/^["']|["']$/g, ''));
+    const re = new RegExp(
+      `^[ \\t]*(?:-[ \\t]*)?${key}:[ \\t]*(.+?)[ \\t]*$`,
+      "gm"
+    );
+    const values = [...fm.matchAll(re)].map((m) =>
+      m[1].replace(/^["']|["']$/g, "")
+    );
     if (values.length) map.set(key, values);
   }
   return map;
@@ -103,10 +109,13 @@ function evaluatePair(oldStr, newStr) {
   // contain the fences, which real Edit calls almost never do — it was
   // effectively dead. TARGET_PATH_RE keeps body-text false positives unlikely.
   // (edu-watch has had this fallback since its own hook was written.)
-  const beforeFm = extractFrontmatter(oldStr) ?? (oldStr ?? '');
-  const afterFm = extractFrontmatter(newStr) ?? (newStr ?? '');
+  const beforeFm = extractFrontmatter(oldStr) ?? oldStr ?? "";
+  const afterFm = extractFrontmatter(newStr) ?? newStr ?? "";
   if (!beforeFm && !afterFm) return [];
-  return diffMaps(captureProtectedFields(beforeFm), captureProtectedFields(afterFm));
+  return diffMaps(
+    captureProtectedFields(beforeFm),
+    captureProtectedFields(afterFm)
+  );
 }
 
 // Write は差分ではなくファイル全体が届く。比較対象はディスク上の現物。
@@ -118,26 +127,38 @@ function evaluatePair(oldStr, newStr) {
 function evaluateWrite(filePath, content) {
   let current;
   try {
-    current = require('node:fs').readFileSync(filePath, 'utf8');
+    current = require("node:fs").readFileSync(filePath, "utf8");
   } catch (err) {
-    if (err && err.code === 'ENOENT') return [];
-    return [{ key: '__unreadable__', before: [String(err && err.code) || 'read error'], after: [] }];
+    if (err && err.code === "ENOENT") return [];
+    return [
+      {
+        key: "__unreadable__",
+        before: [String(err && err.code) || "read error"],
+        after: [],
+      },
+    ];
   }
-  return evaluatePair(current, content ?? '');
+  return evaluatePair(current, content ?? "");
 }
 
 function evaluatePayload(toolName, toolInput) {
-  if (toolName === 'Edit') {
-    return evaluatePair(toolInput?.old_string ?? '', toolInput?.new_string ?? '');
+  if (toolName === "Edit") {
+    return evaluatePair(
+      toolInput?.old_string ?? "",
+      toolInput?.new_string ?? ""
+    );
   }
-  if (toolName === 'Write') {
-    return evaluateWrite(String(toolInput?.file_path || ''), toolInput?.content ?? '');
+  if (toolName === "Write") {
+    return evaluateWrite(
+      String(toolInput?.file_path || ""),
+      toolInput?.content ?? ""
+    );
   }
-  if (toolName === 'MultiEdit') {
+  if (toolName === "MultiEdit") {
     const edits = Array.isArray(toolInput?.edits) ? toolInput.edits : [];
     const merged = [];
     for (const e of edits) {
-      merged.push(...evaluatePair(e?.old_string ?? '', e?.new_string ?? ''));
+      merged.push(...evaluatePair(e?.old_string ?? "", e?.new_string ?? ""));
     }
     return merged;
   }
@@ -145,39 +166,53 @@ function evaluatePayload(toolName, toolInput) {
 }
 
 function fmtVal(arr) {
-  if (!arr.length) return '∅';
-  return arr.map(v => (v.length > 60 ? v.slice(0, 57) + '...' : v)).join(' | ');
+  if (!arr.length) return "∅";
+  return arr
+    .map((v) => (v.length > 60 ? v.slice(0, 57) + "..." : v))
+    .join(" | ");
 }
 
 function buildReason(diffs, filePath) {
-  const lines = [`[frontmatter-immutable] Protected fields changed in ${filePath}:`];
+  const lines = [
+    `[frontmatter-immutable] Protected fields changed in ${filePath}:`,
+  ];
   for (const d of diffs) {
     lines.push(`  ${d.key}:`);
     lines.push(`    before: ${fmtVal(d.before)}`);
     lines.push(`    after:  ${fmtVal(d.after)}`);
   }
-  lines.push('');
-  lines.push('Frontmatter values back claims that readers act on (effect sizes,');
-  lines.push('strengths, primary research URLs). Confirm a primary research source');
-  lines.push('(CONTENT_GUIDELINES Rule 1.2b: sourceUrl is primary research only) before applying.');
-  return lines.join('\n');
+  lines.push("");
+  lines.push(
+    "Frontmatter values back claims that readers act on (effect sizes,"
+  );
+  lines.push(
+    "strengths, primary research URLs). Confirm a primary research source"
+  );
+  lines.push(
+    "(CONTENT_GUIDELINES Rule 1.2b: sourceUrl is primary research only) before applying."
+  );
+  return lines.join("\n");
 }
 
 function run(inputOrRaw, _options = {}) {
   let input;
   try {
-    input = typeof inputOrRaw === 'string'
-      ? (inputOrRaw.trim() ? JSON.parse(inputOrRaw) : {})
-      : (inputOrRaw || {});
+    input =
+      typeof inputOrRaw === "string"
+        ? inputOrRaw.trim()
+          ? JSON.parse(inputOrRaw)
+          : {}
+        : inputOrRaw || {};
   } catch {
     return { exitCode: 0 };
   }
 
-  const toolName = String(input?.tool_name || '');
-  if (!['Edit', 'Write', 'MultiEdit'].includes(toolName)) return { exitCode: 0 };
+  const toolName = String(input?.tool_name || "");
+  if (!["Edit", "Write", "MultiEdit"].includes(toolName))
+    return { exitCode: 0 };
 
   const toolInput = input?.tool_input || {};
-  const filePath = String(toolInput?.file_path || '');
+  const filePath = String(toolInput?.file_path || "");
   if (!TARGET_PATH_RE.test(filePath)) return { exitCode: 0 };
 
   const diffs = evaluatePayload(toolName, toolInput);
@@ -186,8 +221,8 @@ function run(inputOrRaw, _options = {}) {
   const reason = buildReason(diffs, filePath);
   const stdout = JSON.stringify({
     hookSpecificOutput: {
-      hookEventName: 'PreToolUse',
-      permissionDecision: 'ask',
+      hookEventName: "PreToolUse",
+      permissionDecision: "ask",
       permissionDecisionReason: reason,
     },
   });
@@ -205,13 +240,18 @@ module.exports = {
 };
 
 if (require.main === module) {
-  let data = '';
-  process.stdin.setEncoding('utf8');
-  process.stdin.on('data', c => { data += c; });
-  process.stdin.on('end', () => {
+  let data = "";
+  process.stdin.setEncoding("utf8");
+  process.stdin.on("data", (c) => {
+    data += c;
+  });
+  process.stdin.on("end", () => {
     const out = run(data);
     if (out.stdout) process.stdout.write(out.stdout);
-    if (out.stderr) process.stderr.write(out.stderr.endsWith('\n') ? out.stderr : out.stderr + '\n');
+    if (out.stderr)
+      process.stderr.write(
+        out.stderr.endsWith("\n") ? out.stderr : out.stderr + "\n"
+      );
     // **`process.exit()` にしないこと。** stdout がパイプのとき write は非同期なので、
     // 直後に exit すると書き残しが捨てられ、判定 JSON がちょうど 65536B
     // (パイプバッファ)で切れる。切れた JSON は誰もエラーにせず、global

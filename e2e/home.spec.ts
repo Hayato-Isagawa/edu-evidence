@@ -51,15 +51,20 @@ test.describe("トップページ", () => {
     expect(["positive", "negative", "neutral"]).toContain(firstSign);
   });
 
-  test("負の効果量を持つ戦略のバーは negative として描画される", async ({ page }) => {
+  test("負の効果量を持つ戦略のバーは negative として描画される", async ({
+    page,
+  }) => {
     await page.goto("/");
-    const rows = page.locator('#strategy-list > a[data-months]');
+    const rows = page.locator("#strategy-list > a[data-months]");
     const count = await rows.count();
     let foundNegative = false;
     for (let i = 0; i < count; i++) {
       const months = Number(await rows.nth(i).getAttribute("data-months"));
       if (months < 0) {
-        const sign = await rows.nth(i).locator("[data-effect-bar]").getAttribute("data-effect-sign");
+        const sign = await rows
+          .nth(i)
+          .locator("[data-effect-bar]")
+          .getAttribute("data-effect-sign");
         expect(sign).toBe("negative");
         foundNegative = true;
         break;

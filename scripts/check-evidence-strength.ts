@@ -136,7 +136,7 @@ function checkStarLinks(
   filePath: string,
   lines: string[],
   offset: number,
-  strategies: StrategyInfo[],
+  strategies: StrategyInfo[]
 ): Set<number> {
   const bySlug = new Map(strategies.map((s) => [s.slug, s]));
   const handled = new Set<number>();
@@ -182,7 +182,7 @@ function checkStarTitles(
   lines: string[],
   offset: number,
   strategies: StrategyInfo[],
-  handled: Set<number>,
+  handled: Set<number>
 ) {
   const fileName = path.basename(filePath);
   // 長いタイトルから先に照合し、短いタイトルの部分一致に負けないようにする
@@ -233,7 +233,7 @@ console.log(
   `不変条件 A の対象外(strength を持つ出典が無い戦略): ${unratedStrategies.length} / ${invariantTargets}` +
     (unratedStrategies.length > 0
       ? `\n  ${unratedStrategies.sort().join("\n  ")}\n`
-      : "\n"),
+      : "\n")
 );
 
 for (const dir of [STRATEGIES_DIR, COLUMNS_DIR]) {

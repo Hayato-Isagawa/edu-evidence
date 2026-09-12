@@ -24,7 +24,10 @@ export const comparisons: PolicyComparison[] = [
     evidence:
       "小学校段階では量と学力の関係は弱い。量よりも質(授業との連動・フィードバック付き)が効果を決める。",
     strategies: [{ name: "宿題(小学校)", href: "/strategies/homework" }],
-    column: { name: "宿題は本当に学力を上げるのか？", href: "/columns/homework-quantity-myth" },
+    column: {
+      name: "宿題は本当に学力を上げるのか？",
+      href: "/columns/homework-quantity-myth",
+    },
     alignment: "partial",
   },
   {
@@ -36,7 +39,10 @@ export const comparisons: PolicyComparison[] = [
       { name: "学級規模の縮小", href: "/strategies/reducing-class-size" },
       { name: "少人数指導", href: "/strategies/small-group-tuition" },
     ],
-    column: { name: "少人数学級にどれだけの効果があるか？", href: "/columns/class-size-cost-effectiveness" },
+    column: {
+      name: "少人数学級にどれだけの効果があるか？",
+      href: "/columns/class-size-cost-effectiveness",
+    },
     alignment: "partial",
   },
   {
@@ -48,7 +54,10 @@ export const comparisons: PolicyComparison[] = [
       { name: "ICT活用", href: "/strategies/digital-technology" },
       { name: "反転授業", href: "/strategies/flipped-classroom" },
     ],
-    column: { name: "GIGAスクール端末で何が変わったか？", href: "/columns/giga-school-evidence" },
+    column: {
+      name: "GIGAスクール端末で何が変わったか？",
+      href: "/columns/giga-school-evidence",
+    },
     alignment: "partial",
   },
   {
@@ -56,8 +65,13 @@ export const comparisons: PolicyComparison[] = [
     assumption: "専門の教員が教えれば学力が向上する",
     evidence:
       "日本初のクラスターRCT(伊芸・中室ら、RIETI DP 25-J-029、2025)で、ベテラン非常勤の理科専科を加配した群は理科 +0.17 SD・算数 +0.12 SD の有意な学力向上(担任の在校時間は不変)。算数専科の加配では有意な効果なし。「どの教科を専科化するか」で結果が分かれる。",
-    strategies: [{ name: "教科担任制", href: "/strategies/subject-specialist-teaching" }],
-    column: { name: "教科担任制は本当に学力を上げるのか？ — 日本初の RCT が出した答え", href: "/columns/subject-specialist-rct" },
+    strategies: [
+      { name: "教科担任制", href: "/strategies/subject-specialist-teaching" },
+    ],
+    column: {
+      name: "教科担任制は本当に学力を上げるのか？ — 日本初の RCT が出した答え",
+      href: "/columns/subject-specialist-rct",
+    },
     alignment: "mostly",
   },
   {
@@ -65,7 +79,9 @@ export const comparisons: PolicyComparison[] = [
     assumption: "プログラミングを学べば論理的思考力が育つ",
     evidence:
       "計算論的思考への正の効果は報告されているが、学力への直接的な因果効果を示すメタ分析はまだ限られている。エビデンスは蓄積中。",
-    strategies: [{ name: "プログラミング教育", href: "/strategies/programming-education" }],
+    strategies: [
+      { name: "プログラミング教育", href: "/strategies/programming-education" },
+    ],
     alignment: "limited",
   },
   {
@@ -78,7 +94,10 @@ export const comparisons: PolicyComparison[] = [
       { name: "協同学習", href: "/strategies/cooperative-learning" },
       { name: "探究学習", href: "/strategies/inquiry-based-learning" },
     ],
-    column: { name: "「主体的・対話的で深い学び」は本当に効果があるのか？", href: "/columns/active-deep-learning-evidence" },
+    column: {
+      name: "「主体的・対話的で深い学び」は本当に効果があるのか？",
+      href: "/columns/active-deep-learning-evidence",
+    },
     alignment: "mostly",
   },
   {
@@ -88,7 +107,10 @@ export const comparisons: PolicyComparison[] = [
       "「考え、議論する道徳」の方向性はSEL研究と整合する。ただし道徳教育そのものの効果を定量的に示すRCTやメタ分析は限られている。",
     strategies: [
       { name: "道徳教育", href: "/strategies/moral-education" },
-      { name: "社会性と情動の学習(SEL)", href: "/strategies/social-emotional-learning" },
+      {
+        name: "社会性と情動の学習(SEL)",
+        href: "/strategies/social-emotional-learning",
+      },
     ],
     alignment: "limited",
   },
@@ -97,7 +119,9 @@ export const comparisons: PolicyComparison[] = [
     assumption: "人手を増やせば学力が向上する",
     evidence:
       "ただ配置するだけでは+1ヶ月。役割設計と訓練を伴う構造化された活用では+4ヶ月。「いるだけ」では効果がなく、むしろ逆効果の報告もある。",
-    strategies: [{ name: "補助スタッフの活用", href: "/strategies/teaching-assistants" }],
+    strategies: [
+      { name: "補助スタッフの活用", href: "/strategies/teaching-assistants" },
+    ],
     alignment: "partial",
   },
   {
@@ -110,7 +134,10 @@ export const comparisons: PolicyComparison[] = [
       { name: "ICT活用", href: "/strategies/digital-technology" },
       { name: "協同学習", href: "/strategies/cooperative-learning" },
     ],
-    column: { name: "「学習スタイル」は本当に効果があるのか? — VARK と meshing 仮説の現在地", href: "/columns/learning-styles-reconsidered" },
+    column: {
+      name: "「学習スタイル」は本当に効果があるのか? — VARK と meshing 仮説の現在地",
+      href: "/columns/learning-styles-reconsidered",
+    },
     alignment: "partial",
   },
   {
@@ -118,13 +145,19 @@ export const comparisons: PolicyComparison[] = [
     assumption: "レベルに合わせた指導で効率よく学力が向上する",
     evidence:
       "EEF が報告する学力への効果は 0ヶ月。上位はわずかに伸びるが下位はわずかに下がり、全体としては相殺される構造。固定化を避け流動的に運用することが重要。",
-    strategies: [{ name: "習熟度別グループ編成", href: "/strategies/setting-streaming" }],
-    column: { name: "教育格差はエビデンスでどこまで見えるのか", href: "/columns/education-inequality-evidence" },
+    strategies: [
+      { name: "習熟度別グループ編成", href: "/strategies/setting-streaming" },
+    ],
+    column: {
+      name: "教育格差はエビデンスでどこまで見えるのか",
+      href: "/columns/education-inequality-evidence",
+    },
     alignment: "partial",
   },
   {
     policy: "「特別の教科 道徳」の記述評価化",
-    assumption: "数値評価ではなく記述で評価することで、子どもの内面の成長を捉えられる",
+    assumption:
+      "数値評価ではなく記述で評価することで、子どもの内面の成長を捉えられる",
     evidence:
       "記述評価そのものの効果を検証したRCTやメタ分析はほぼ存在しない。形成的評価(+8ヶ月)の枠組みでは「学習プロセスへのフィードバック」として記述が有効とされる一方、評価の信頼性・妥当性の確保は今後の課題。",
     strategies: [
@@ -135,20 +168,28 @@ export const comparisons: PolicyComparison[] = [
   },
   {
     policy: "不登校児童生徒への教育機会確保(教育機会確保法)",
-    assumption: "学校以外の場でも学習機会を保障することで、不登校児の学びと成長を支える",
+    assumption:
+      "学校以外の場でも学習機会を保障することで、不登校児の学びと成長を支える",
     evidence:
       "フリースクール・オルタナティブ教育の学力効果を検証したRCTは国際的にも限定的。一方、メンタリング(+2ヶ月)・SEL(+3ヶ月)・保護者との連携(+4ヶ月)といった構成要素には一定のエビデンスがある。学力よりも自己肯定感・社会的孤立の予防への効果が報告されている。",
     strategies: [
       { name: "メンタリング", href: "/strategies/mentoring" },
-      { name: "SEL(社会性と情動の学習)", href: "/strategies/social-emotional-learning" },
+      {
+        name: "SEL(社会性と情動の学習)",
+        href: "/strategies/social-emotional-learning",
+      },
       { name: "保護者との連携", href: "/strategies/parental-engagement" },
     ],
-    column: { name: "不登校35万人時代 — エビデンスで考える「学びの保障」", href: "/columns/school-refusal-crisis" },
+    column: {
+      name: "不登校35万人時代 — エビデンスで考える「学びの保障」",
+      href: "/columns/school-refusal-crisis",
+    },
     alignment: "limited",
   },
   {
     policy: "AIドリル・アダプティブ学習による個別最適化",
-    assumption: "AIが一人ひとりの理解度に合わせた問題を出題すれば学力が向上する",
+    assumption:
+      "AIが一人ひとりの理解度に合わせた問題を出題すれば学力が向上する",
     evidence:
       "個別化学習の効果は+4ヶ月(小学校段階は+3ヶ月)。EEF は一斉指導の置き換えではなく補完として使うことを勧めており、デジタル技術を使った個別化は使わない個別化と同程度の効果と報告している。デジタル技術を用いた介入の効果は+3ヶ月だが、教師の指導設計に組み込まれた場合に限られる。協同学習(+5ヶ月)との組み合わせが研究の示す方向。",
     strategies: [
@@ -156,12 +197,16 @@ export const comparisons: PolicyComparison[] = [
       { name: "ICT活用", href: "/strategies/digital-technology" },
       { name: "AIを活用した教育", href: "/strategies/ai-in-education" },
     ],
-    column: { name: "生成AIは教育をどう変えるか？ — エビデンスはまだ追いついていない", href: "/columns/generative-ai-education" },
+    column: {
+      name: "生成AIは教育をどう変えるか？ — エビデンスはまだ追いついていない",
+      href: "/columns/generative-ai-education",
+    },
     alignment: "partial",
   },
   {
     policy: "コミュニティ・スクール(学校運営協議会)制度",
-    assumption: "地域住民・保護者が学校運営に参画することで、子どもの学びと成長が豊かになる",
+    assumption:
+      "地域住民・保護者が学校運営に参画することで、子どもの学びと成長が豊かになる",
     evidence:
       "保護者の関与は+4ヶ月、地域連携を含む包括的支援は学力と社会性の双方に正の効果が報告されている。形式的な参画ではなく、具体的な役割設計と情報共有が効果の鍵。",
     strategies: [
@@ -179,7 +224,10 @@ export const comparisons: PolicyComparison[] = [
       { name: "補助スタッフの活用", href: "/strategies/teaching-assistants" },
       { name: "形成的評価とフィードバック", href: "/strategies/feedback" },
     ],
-    column: { name: "教員不足の現在地 — 年度初の欠員、学期途中の穴、悪循環のエビデンス", href: "/columns/teacher-shortage-evidence" },
+    column: {
+      name: "教員不足の現在地 — 年度初の欠員、学期途中の穴、悪循環のエビデンス",
+      href: "/columns/teacher-shortage-evidence",
+    },
     alignment: "partial",
   },
 ];

@@ -27,12 +27,15 @@ npm run build              # 本番ビルド(OG画像74枚 + Pagefindインデ�
 npm run test:e2e           # Playwright E2Eテスト(42テスト・9ファイル、ビルド後に実行)
 npm run vrt                # ビジュアルリグレッションテスト(現 dist を撮影・比較。権威ある比較は CI、後述)
 npm run a11y:baseline      # axe-core で a11y 違反一覧を再生成(dev 起動後 `node scripts/a11y-baseline.mjs http://localhost:<port>`)
+npm run lint               # oxlint(correctness ルール。warning でも止める。.astro は frontmatter と <script> を見る)
+npm run format             # oxfmt で整形(.ts/.js/.json 等。.astro / .md / .yml / .css / .html / wrangler.jsonc / テスト fixture は対象外。ADR 0037)
+npm run format:check       # 同上の差分検査(CI はこちら)
 npm run check              # Astro型チェック
 npm run check:text         # textlint日本語校正
 npm run check:consistency  # monthsGained 整合性チェック
 npm run check:evidence-strength # エビデンス強度(★)整合性チェック
 npm run check:stale        # lastVerified 期限切れチェック
-npm run check:all          # 上記チェックを一括実行(CI の Content Checks でも実行)
+npm run check:all          # 上記チェックを一括実行(手元用。CI の Content Checks は同じ script を個別 step で呼ぶ)
 npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:all に含む)
 npm run test:workflows     # link-check.yml の通知分岐と VRT の配線の回帰テスト(下限つき・check:all に含む)
 npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・check:all に含む)
@@ -64,13 +67,13 @@ PR のコンテンツ」で撮る配線(ADR 0034)も、**壊れても CI は緑�
 `node --test` は「glob が 0 件」「中身が空」「全件 skip」のどれでも exit 0 で終わるので、
 守っているつもりのガードが no-op に落ちても気づけないため。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 60 と `test:scripts` の 42 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 60 と `test:scripts` の 43 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 56 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`3d2afbe`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 64 と離れていてよい。
 
 `test:scripts` を余裕ゼロにしているのは、`check-consistency.ts` の検査が層ごとに 4 本の
 `gate()` に分かれており、1 行消すとその層が丸ごと無防備になるため。`gate()` は 1 本で
-2 テストなので、消えれば 42 を割る。
+2 テストなので、消えれば 43 を割る。
 
 `glossary-inline.test.mjs` の 7 本と `remark-glossary.test.mjs` の 4 本も同じ下限に載っている。
 用語ツールチップの変換は **壊れても CI が全緑のまま**で(型検査は型しか見ず、textlint は

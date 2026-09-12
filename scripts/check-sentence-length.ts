@@ -67,7 +67,7 @@ function isStructuralLine(line: string): boolean {
   if (/^\s*[-*+]\s/.test(line)) return true; // bullet
   if (/^\s*\d+\.\s/.test(line)) return true; // ordered list
   if (/^\s*\|/.test(line)) return true; // table
-  if (/^\s*<[a-zA-Z!\/]/.test(line)) return true; // HTML
+  if (/^\s*<[a-zA-Z!/]/.test(line)) return true; // HTML
   if (/^\s*>\s/.test(line)) return true; // blockquote
   return false;
 }
@@ -135,7 +135,7 @@ function checkFile(filePath: string): Hit[] {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    if (/^```/.test(line)) {
+    if (line.startsWith("```")) {
       flush();
       inCodeBlock = !inCodeBlock;
       continue;
@@ -182,11 +182,8 @@ function main(): void {
 
   for (const h of sorted) {
     const rel = path.relative(process.cwd(), h.file);
-    const tag =
-      h.reason === "comma" ? `読点${h.commas}個` : `${h.length}字`;
-    console.log(
-      `[${h.severity}] ${rel}:${h.startLine} (${tag}) ${h.text}...`,
-    );
+    const tag = h.reason === "comma" ? `読点${h.commas}個` : `${h.length}字`;
+    console.log(`[${h.severity}] ${rel}:${h.startLine} (${tag}) ${h.text}...`);
   }
 
   const critical = sorted.filter((h) => h.severity === "critical").length;

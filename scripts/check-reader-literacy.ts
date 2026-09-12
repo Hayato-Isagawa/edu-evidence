@@ -21,30 +21,86 @@ const STRATEGIES_DIR = path.resolve("src/content/strategies");
 const COLUMNS_DIR = path.resolve("src/content/columns");
 
 const P1_NOUNS = [
-  "児童", "生徒", "者", "学習者", "群", "層",
-  "教師", "教員", "学校", "学級", "学年", "授業",
+  "児童",
+  "生徒",
+  "者",
+  "学習者",
+  "群",
+  "層",
+  "教師",
+  "教員",
+  "学校",
+  "学級",
+  "学年",
+  "授業",
 ];
 const P1_PATTERN = new RegExp(
   `[a-zA-Z][a-zA-Z\\-]*\\s?(${P1_NOUNS.join("|")})`,
-  "g",
+  "g"
 );
 
 const P2_PATTERN = /\b[A-Z]{3,}\b/g;
-const GLOSSARY_KEYS = new Set<string>(
-  glossary.flatMap((t) => [t.term, t.en]),
-);
+const GLOSSARY_KEYS = new Set<string>(glossary.flatMap((t) => [t.term, t.en]));
 
 const P2_ALLOWED_ABBREVS = new Set<string>([
-  "GIGA", "SNS", "WHO", "ADHD", "BMI", "CEO", "PDF", "GPS", "LINE", "NPO",
-  "ISBN", "NBER", "NCES", "NICHD", "IES", "RAND", "JAMA", "IZA", "RIETI", "NTL",
-  "BERD", "IIEP", "MSS",
-  "ASCD", "IHMC", "UNESCO", "UCL", "UCLA", "JICA", "APS", "ERIC", "PTA",
-  "NEA", "USDA", "NSLP",
-  "FIN", "NYC", "SYNODOS", "TIMES",
-  "SAS", "PNAE", "POSHAN", "UIFSM", "FSMP", "MINJI",
-  "IEEE", "SAT", "NFER", "NELI", "DISS", "ICF", "SOS", "ISRN",
+  "GIGA",
+  "SNS",
+  "WHO",
+  "ADHD",
+  "BMI",
+  "CEO",
+  "PDF",
+  "GPS",
+  "LINE",
+  "NPO",
+  "ISBN",
+  "NBER",
+  "NCES",
+  "NICHD",
+  "IES",
+  "RAND",
+  "JAMA",
+  "IZA",
+  "RIETI",
+  "NTL",
+  "BERD",
+  "IIEP",
+  "MSS",
+  "ASCD",
+  "IHMC",
+  "UNESCO",
+  "UCL",
+  "UCLA",
+  "JICA",
+  "APS",
+  "ERIC",
+  "PTA",
+  "NEA",
+  "USDA",
+  "NSLP",
+  "FIN",
+  "NYC",
+  "SYNODOS",
+  "TIMES",
+  "SAS",
+  "PNAE",
+  "POSHAN",
+  "UIFSM",
+  "FSMP",
+  "MINJI",
+  "IEEE",
+  "SAT",
+  "NFER",
+  "NELI",
+  "DISS",
+  "ICF",
+  "SOS",
+  "ISRN",
   "COCOLO",
-  "EPI", "NPD", "EYFS", "GCSE",
+  "EPI",
+  "NPD",
+  "EYFS",
+  "GCSE",
   "ONE",
 ]);
 
@@ -62,7 +118,7 @@ function getLinkRanges(line: string): Array<[number, number]> {
 
 function isInRange(
   index: number,
-  ranges: ReadonlyArray<readonly [number, number]>,
+  ranges: ReadonlyArray<readonly [number, number]>
 ): boolean {
   return ranges.some(([s, e]) => index >= s && index < e);
 }
@@ -81,7 +137,12 @@ const P3_TERMS: RegExp[] = [
 ];
 
 const P3_OVERLAP_ABBREVS = new Set<string>([
-  "SD", "SE", "CI", "OR", "ANCOVA", "ANOVA",
+  "SD",
+  "SE",
+  "CI",
+  "OR",
+  "ANCOVA",
+  "ANOVA",
 ]);
 
 interface Issue {
@@ -102,9 +163,7 @@ function listMarkdownFiles(dir: string): string[] {
 }
 
 function sliceContext(line: string, index: number, length: number): string {
-  return line
-    .slice(Math.max(0, index - 20), index + length + 20)
-    .trim();
+  return line.slice(Math.max(0, index - 20), index + length + 20).trim();
 }
 
 function checkFile(filePath: string): Issue[] {
@@ -204,7 +263,7 @@ function main() {
   console.log();
 
   console.log(
-    `## P3: 統計用語の初出時括弧説明欠如 (${p3.length} 件・warning)\n`,
+    `## P3: 統計用語の初出時括弧説明欠如 (${p3.length} 件・warning)\n`
   );
   p3.forEach((i) => console.log(formatIssue(i)));
   console.log();

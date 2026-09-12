@@ -138,6 +138,8 @@ npm run check              # Astro 型チェック
 npm run check:text         # textlint 日本語校正
 npm run check:consistency  # monthsGained 整合性チェック
 npm run check:stale        # lastVerified 期限切れチェック
+npm run lint               # oxlint
+npm run format:check       # oxfmt の差分検査(整形は npm run format)
 npm run check:all          # 上記チェックを一括実行
 ```
 

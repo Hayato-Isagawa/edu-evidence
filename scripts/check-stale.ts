@@ -136,9 +136,7 @@ function main() {
     lines.push(`## lastVerified 形式不正 (${invalid.length} 件)`);
     lines.push("");
     for (const entry of invalid) {
-      lines.push(
-        `- \`strategies/${entry.file}\` — 値: \`${entry.value}\``
-      );
+      lines.push(`- \`strategies/${entry.file}\` — 値: \`${entry.value}\``);
     }
     lines.push("");
   }
@@ -146,9 +144,7 @@ function main() {
   const total = stale.length + missing.length + invalid.length;
 
   if (total === 0) {
-    lines.push(
-      `すべての戦略が ${STALE_THRESHOLD_DAYS} 日以内に検証済みです。`
-    );
+    lines.push(`すべての戦略が ${STALE_THRESHOLD_DAYS} 日以内に検証済みです。`);
     lines.push("");
   } else {
     lines.push("## 対応方法");

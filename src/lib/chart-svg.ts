@@ -45,7 +45,11 @@ const TITLE_Y = 28;
 const LEGEND_Y = 56; // title と描画領域の間に凡例を配置
 const Y_AXIS_LABEL_X = 16;
 const Y_TICK_LABEL_X_OFFSET = 8; // 目盛数字は PADDING.left - この値 に配置
-const FALLBACK_COLORS = ["var(--color-accent)", "var(--color-sub)", "var(--color-ink)"];
+const FALLBACK_COLORS = [
+  "var(--color-accent)",
+  "var(--color-sub)",
+  "var(--color-ink)",
+];
 
 const COLOR_MAP: Record<string, string> = {
   accent: "var(--color-accent)",
@@ -60,7 +64,10 @@ function resolveColor(color: string | undefined, fallback: string): string {
 }
 
 function seriesColor(series: ChartSeries, index: number): string {
-  return resolveColor(series.color, FALLBACK_COLORS[index % FALLBACK_COLORS.length]);
+  return resolveColor(
+    series.color,
+    FALLBACK_COLORS[index % FALLBACK_COLORS.length]
+  );
 }
 
 function escapeHtml(s: string | number): string {
@@ -74,7 +81,7 @@ function escapeHtml(s: string | number): string {
 
 function computeYAxis(
   values: number[],
-  spec: BaseChartSpec,
+  spec: BaseChartSpec
 ): { min: number; max: number; step: number; ticks: number[] } {
   const flat = values.filter((v) => Number.isFinite(v));
   const rawMin = flat.length ? Math.min(...flat) : 0;
@@ -137,7 +144,7 @@ function renderTitle(title: string | undefined): string {
 function renderYTicks(
   ticks: number[],
   yPos: (v: number) => number,
-  innerW: number,
+  innerW: number
 ): string {
   return ticks
     .map((t) => {
@@ -152,7 +159,7 @@ function renderYTicks(
 function renderXLabels(
   labels: (string | number)[],
   xPos: (i: number) => number,
-  innerH: number,
+  innerH: number
 ): string {
   return labels
     .map((label, i) => {
@@ -173,28 +180,25 @@ function renderAxisLabels(
   xAxisLabel: string | undefined,
   yAxisLabel: string | undefined,
   innerW: number,
-  innerH: number,
+  innerH: number
 ): string {
   const parts: string[] = [];
   if (xAxisLabel) {
     parts.push(
-      `<text x="${(PADDING.left + PADDING.left + innerW) / 2}" y="${HEIGHT - 18}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(xAxisLabel)}</text>`,
+      `<text x="${(PADDING.left + PADDING.left + innerW) / 2}" y="${HEIGHT - 18}" text-anchor="middle" font-size="11" fill="var(--color-sub)">${escapeHtml(xAxisLabel)}</text>`
     );
   }
   if (yAxisLabel) {
     const x = Y_AXIS_LABEL_X;
     const y = PADDING.top + innerH / 2;
     parts.push(
-      `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="11" fill="var(--color-sub)" style="writing-mode: vertical-rl; text-orientation: upright;">${escapeHtml(yAxisLabel)}</text>`,
+      `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="11" fill="var(--color-sub)" style="writing-mode: vertical-rl; text-orientation: upright;">${escapeHtml(yAxisLabel)}</text>`
     );
   }
   return parts.join("\n    ");
 }
 
-function renderLegend(
-  series: ChartSeries[],
-  variant: "line" | "bar",
-): string {
+function renderLegend(series: ChartSeries[], variant: "line" | "bar"): string {
   if (series.length <= 1) return "";
   const items = series
     .map((s, sIdx) => {
@@ -222,7 +226,9 @@ function renderLegend(
 function renderDataTable(spec: BaseChartSpec): string {
   const tableHeader =
     `<tr><th scope="col">${escapeHtml(spec.xAxisLabel ?? "項目")}</th>` +
-    spec.series.map((s) => `<th scope="col">${escapeHtml(s.name)}</th>`).join("") +
+    spec.series
+      .map((s) => `<th scope="col">${escapeHtml(s.name)}</th>`)
+      .join("") +
     `</tr>`;
   const tableRows = spec.xLabels
     .map((label, i) => {
@@ -249,7 +255,12 @@ interface AssembleArgs {
   innerSvg: string;
 }
 
-function assembleFigure({ spec, chartId, figureClass, innerSvg }: AssembleArgs): string {
+function assembleFigure({
+  spec,
+  chartId,
+  figureClass,
+  innerSvg,
+}: AssembleArgs): string {
   const captionMarkup = spec.caption
     ? `<figcaption class="chart-caption">${escapeHtml(spec.caption)}</figcaption>`
     : "";
@@ -273,18 +284,21 @@ function assembleFigure({ spec, chartId, figureClass, innerSvg }: AssembleArgs):
 function renderLineSeries(
   series: ChartSeries[],
   xPos: (i: number) => number,
-  yPos: (v: number) => number,
+  yPos: (v: number) => number
 ): string {
   return series
     .map((s, sIdx) => {
       const color = seriesColor(s, sIdx);
       const pathData = s.data
-        .map((v, i) => `${i === 0 ? "M" : "L"} ${xPos(i).toFixed(1)} ${yPos(v).toFixed(1)}`)
+        .map(
+          (v, i) =>
+            `${i === 0 ? "M" : "L"} ${xPos(i).toFixed(1)} ${yPos(v).toFixed(1)}`
+        )
         .join(" ");
       const dots = s.data
         .map(
           (v, i) =>
-            `<circle cx="${xPos(i).toFixed(1)}" cy="${yPos(v).toFixed(1)}" r="4" fill="${color}" stroke="var(--color-bg, #fff)" stroke-width="2" />`,
+            `<circle cx="${xPos(i).toFixed(1)}" cy="${yPos(v).toFixed(1)}" r="4" fill="${color}" stroke="var(--color-bg, #fff)" stroke-width="2" />`
         )
         .join("\n    ");
       return `
@@ -348,7 +362,10 @@ export function renderChartSVG(spec: ChartSpec, chartId: string): string {
   return renderLineChartSVG(spec, chartId);
 }
 
-export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string {
+export function renderLineChartSVG(
+  spec: LineChartSpec,
+  chartId: string
+): string {
   if (spec.type !== "line" || !spec.series?.length || !spec.xLabels?.length) {
     return "";
   }
@@ -356,7 +373,9 @@ export function renderLineChartSVG(spec: LineChartSpec, chartId: string): string
   const innerW = WIDTH - PADDING.left - PADDING.right;
   const innerH = HEIGHT - PADDING.top - PADDING.bottom;
 
-  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
+  const allValues = spec.series
+    .flatMap((s) => s.data)
+    .filter((v): v is number => v !== null);
   const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
 
   const xCount = spec.xLabels.length;
@@ -389,7 +408,9 @@ export function renderBarChartSVG(spec: BarChartSpec, chartId: string): string {
   const innerW = WIDTH - PADDING.left - PADDING.right;
   const innerH = HEIGHT - PADDING.top - PADDING.bottom;
 
-  const allValues = spec.series.flatMap((s) => s.data).filter((v): v is number => v !== null);
+  const allValues = spec.series
+    .flatMap((s) => s.data)
+    .filter((v): v is number => v !== null);
   const { min: yMin, max: yMax, ticks: yTicks } = computeYAxis(allValues, spec);
 
   const xCount = spec.xLabels.length;

@@ -6,7 +6,8 @@ export async function GET(context: APIContext) {
   const columns = await getCollection("columns");
   // 実効更新日(lastVerified があればそれ、無ければ公開日)の降順でソート
   // 更新記事が読者のフィードリーダーで再浮上するため
-  const freshnessDate = (c: typeof columns[number]) => c.data.lastVerified ?? c.data.date;
+  const freshnessDate = (c: (typeof columns)[number]) =>
+    c.data.lastVerified ?? c.data.date;
   columns.sort((a, b) => freshnessDate(b).localeCompare(freshnessDate(a)));
 
   return rss({

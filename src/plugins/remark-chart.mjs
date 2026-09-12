@@ -44,7 +44,9 @@ export function remarkChart() {
 
       const chartId = match[1];
       if (!charts || !charts[chartId]) {
-        console.warn(`[remark-chart] Chart definition not found: ${chartId} (file: ${file?.path ?? "unknown"})`);
+        console.warn(
+          `[remark-chart] Chart definition not found: ${chartId} (file: ${file?.path ?? "unknown"})`
+        );
         return;
       }
 

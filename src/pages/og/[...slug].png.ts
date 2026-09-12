@@ -17,13 +17,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const GET: APIRoute = async ({ props }) => {
-  const png = await generateOgImage(props as {
-    title: string;
-    monthsGained: number;
-    monthsUnmeasured?: boolean;
-    evidenceStrength: number;
-    subjects: string[];
-  });
+  const png = await generateOgImage(
+    props as {
+      title: string;
+      monthsGained: number;
+      monthsUnmeasured?: boolean;
+      evidenceStrength: number;
+      subjects: string[];
+    }
+  );
 
   return new Response(new Uint8Array(png), {
     headers: {

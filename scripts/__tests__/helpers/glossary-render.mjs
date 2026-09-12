@@ -28,7 +28,9 @@ import { glossary } from "../../../src/data/glossary.ts";
 function renderMarkdown(text) {
   const tree = {
     type: "root",
-    children: [{ type: "paragraph", children: [{ type: "text", value: text }] }],
+    children: [
+      { type: "paragraph", children: [{ type: "text", value: text }] },
+    ],
   };
   remarkGlossary()(tree);
   return tree.children[0].children.map((node) => node.value).join("");
@@ -43,5 +45,5 @@ process.stdout.write(
     inline: (input.inline ?? []).map(annotateGlossaryTerms),
     markdown: (input.markdown ?? []).map(renderMarkdown),
     terms: glossary.map((entry) => entry.term),
-  }),
+  })
 );
