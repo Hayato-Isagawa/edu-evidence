@@ -37,7 +37,7 @@ jobs:
         run: npm run check
 
       # oxlint / oxfmt(ADR 0037)。warning でも exit 0 なので --deny-warnings で止める。
-      # oxfmt は .astro を扱えない。.md / .yml / .html / wrangler.jsonc は
+      # oxfmt は .astro を扱えない。.md / .yml / .css / .html / wrangler.jsonc は
       # .oxfmtrc.json の ignorePatterns で外してある。
       - name: Lint (oxlint)
         if: ${{ !cancelled() }}

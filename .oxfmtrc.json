@@ -15,8 +15,5 @@
     "**/*.scss",
     "wrangler.jsonc",
     "scripts/__tests__/fixtures/**"
-  ],
-  "overrides": [
-    { "files": ["*.jsonc"], "options": { "trailingComma": "none" } }
   ]
 }

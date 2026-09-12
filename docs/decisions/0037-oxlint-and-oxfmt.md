@@ -30,15 +30,15 @@
 
 - `.oxlintrc.json`: 既定カテゴリ（correctness）。`no-irregular-whitespace` は `skipComments: true`（コメント内の
   全角空白は日本語の例示で、`.claude/hooks/pre-edit-frontmatter-immutable.cjs` に実在する）。`ignorePatterns` は
-  oxfmt と同じ
-- 導入時の warning は 7 件で、全部 `scripts/` 側（不要なエスケープ、未使用 import、`new Array(n)`、`/^…/.test` →
-  `startsWith`）。挙動を変えずに直した
+  テスト fixture だけ（`.md` / `.yml` / `.css` は oxlint の対象外なので、oxfmt 側の除外は要らない）
+- 導入時の warning は 7 件。1 件は上の hook のコメント内の全角空白で `skipComments` により除外。残る 6 件は全部
+  `scripts/` 側（不要なエスケープ、未使用 import、`new Array(n)`、`/^…/.test` → `startsWith`）で、挙動を変えずに直した
 - `npm run lint` = `oxlint --deny-warnings`。warning で止めないと CI で意味を持たない
 
 ### oxfmt
 
-- `.oxfmtrc.json`: `printWidth 80` / `semi` / ダブルクォート / `tabWidth 2` / `trailingComma es5`（姉妹リポ
-  isagawa-hayato-portfolio の prettier 設定と同じ値）。`sortPackageJson: false`（既定 true は `package.json` のキー順を
+- `.oxfmtrc.json`: `printWidth 80` / `semi` / ダブルクォート / `tabWidth 2` / `trailingComma es5`（姉妹サイトの
+  prettier 設定と同じ値）。`sortPackageJson: false`（既定 true は `package.json` のキー順を
   並べ替える。prettier に無い挙動で、`overrides` の並びが動く）
 - **対象は oxfmt が検出する言語のうち、次を除いたもの**（`ignorePatterns`）:
   - `**/*.md` — 本文と docs。frontmatter を守る hook があり、CJK の表パディングは見た目が揃わない
