@@ -144,14 +144,14 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 
 共有レイアウト・コンポーネント・`global.css` の改修による視覚回帰を、目視に頼らず差分画像で検出する仕組み(ADR 0024)。機能テスト(`e2e/`)とは別系統で併走する:
 
-- **設定**: `playwright.vrt.config.ts`(`testDir: vrt/`、desktop 1280 / mobile 390 の 2 projects、`threshold: 0` + `maxDiffPixels: 0`、`retries: 0`、アニメーション無効)
+- **設定**: `playwright.vrt.config.ts`(`testDir: vrt/`、desktop 1280 / mobile 390 × light / dark の 4 projects(テーマは `colorScheme` のエミュレーションで与える。理由は同ファイルのコメント)、`threshold: 0` + `maxDiffPixels: 0`、`retries: 0`、アニメーション無効)
 - **閾値は実測で決めている**。同一ビルド同士の撮り比べは差分 0(閾値 0 で 30 件全通過)。
   一方 `h2` の `letter-spacing` を 0.06em 変える実験では、旧閾値 0.01 だと 30 件中 2 件しか
   落ちなかった(0.001 では 19 件)。**全画面撮影に対して 1% は緩すぎる**。
   その後 ADR 0036 で比率そのものをやめた — 許容量がページの長さに比例して長いページほど甘く、
   Playwright が pixelmatch に渡す `threshold`(既定 0.2)未満の色差は比率を下げても数えられないため(edu-law の実測)
 - **リトライは入れない**。差分が実測 0 なら、リトライは間欠的な問題を握り潰すだけになる
-- **対象**: `vrt/targets.mjs` の 25 URL(`src/pages/` のテンプレート 26 本と 1 対 1。`/changelog` だけ #433 で対象外、問題が現れたのは #428 で理由は同ファイル冒頭)を `vrt/pages.spec.ts` がフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する — 忘れると `test:workflows` が赤にする。ダークテーマは撮っていない
+- **対象**: `vrt/targets.mjs` の 25 URL(`src/pages/` のテンプレート 26 本と 1 対 1。`/changelog` だけ #433 で対象外、問題が現れたのは #428 で理由は同ファイル冒頭)を `vrt/pages.spec.ts` がフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する — 忘れると `test:workflows` が赤にする。ダーク断面は #577 で追加(それまで 1 枚も撮っていなかった)
 - **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`src/pages/**`(`changelog.astro` は除外)・`src/lib/**`・`src/plugins/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts`・`package-lock.json`・自身に限定起動(`workflow_dispatch` で手動実行可)。
   `package-lock.json` は依存 bump で走らせるため(ADR 0035)。ただし auto-merge は required しか待たないので、非 major の bump では事後の記録にしかならない
   **`src/content/**` だけの PR では走らないが、「コンテンツ編集では起動しない」ではない** — 効果量の訂正は `guide/indicators.astro` などのテンプレートも同じ PR で触るので起動する(`faq.astro` / `policy-evidence.astro` の本文は `src/data/` に移したので、そちらの訂正では起動しない)。`src/data/**` は ADR 0034 でベースラインへ運ぶ素材にしたため、`paths` からは外してある
