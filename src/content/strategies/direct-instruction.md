@@ -1,24 +1,22 @@
 ---
 title: 直接教授法(明示的指導)
-summary: 学習目標を明確にし、教師がモデルを示し、段階的に子どもへ任せていく構造化された指導法。EEF で +5ヶ月、Hattie は d=0.59 と報告。
+summary: 学習目標を明確にし、教師がモデルを示し、段階的に子どもへ任せていく構造化された指導法。半世紀分のメタ分析で g≈0.4〜0.6、Hattie は d=0.59 と報告。
 monthsGained: 5
 evidenceStrength: 4
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 tags: ["一斉指導", "構造化"]
-source: eef
-sourceUrl: https://educationendowmentfoundation.org.uk/news/eef-blog-what-exactly-is-explicit-instruction
-sourceTitle: "EEF — What exactly is explicit instruction?"
+source: mixed
+sourceUrl: https://doi.org/10.3102/0034654317751919
+sourceTitle: "Stockard et al. (2018) The Effectiveness of Direct Instruction Curricula: A Meta-Analysis of a Half Century of Research"
 evidence:
   eef:
-    monthsGained: 5
-    strength: 4
-    note: "EEF では 'Explicit instruction' として +5ヶ月。小さなステップで教え、具体例と反例を用い、明確な言葉で説明し、よくある誤概念を想定し、重要な内容を強調する手法。SENDのある子どもにも効果的と報告。"
+    note: "EEF Toolkit に独立した項目は無い。EEF ブログ『What exactly is explicit instruction?』(2023 年 4 月)は 4 つの系統的レビュー・116 研究に基づき、小さなステップで教え、具体例と反例を用い、明確な言葉で説明し、よくある誤概念を想定し、重要な内容を強調する手法として explicit instruction を位置づけ、SEND のある子どもにも有効としているが、月数と確実性は公表していない。"
   hattie:
     cohensD: 0.59
-    note: "Hattie の Visible Learning ではより高い d=0.59 を報告しているが、EEF の +5ヶ月がより最近かつ保守的な推定値。"
-lastVerified: "2026-04-22"
+    note: "Hattie の Visible Learning では d=0.59 を報告。本ページの +5ヶ月は Stockard et al.(2018)の g≈0.4〜0.6 の中央に当たる控えめな換算(d=0.1≈1ヶ月)で、Hattie の値より低い側を採っている。"
+lastVerified: "2026-09-13"
 methodology:
   studies: 328
   sampleSize: "413 研究設計 / 約 4,000 効果(1966〜2016 の半世紀、幼児〜高校)"
@@ -30,6 +28,8 @@ methodology:
     url: "https://doi.org/10.3102/0034654317751919"
   limitations: "『Direct Instruction』は Engelmann 由来の体系化されたプログラム群(DISTAR 等)を含み、単なる『講義型』の同義語ではない。日本の『一斉指導』と完全には重ならない。教材のスクリプト化・反応確認・マスタリー前提の反復が本質で、この要素が薄いと効果は得にくい。"
 culturalContext: |
+  2026-09-13 の EEF 照合で、出典にしていた EEF ブログには月数も確実性も無いことを確認し、効果の目安の出典を Stockard et al.(2018)のメタ分析に付け替えた(月数は変えていない)。
+
   日本の一斉授業は「明示的指導」の要素を多く含んでいるが、EEF が定義する「モデル提示 → 段階的な移行(I do, We do, You do)」の明確な構造とは必ずしも一致しない。特に「よくある誤概念の想定」や「小さなステップへの分解」の意識が弱い場合がある。現在の一斉指導に EEF の原則を統合することで、追加の効果が期待できる可能性がある。
 ---
 

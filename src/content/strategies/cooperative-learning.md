@@ -1,8 +1,8 @@
 ---
 title: 協同学習
-summary: 子ども同士が小グループで協力して学び合う指導法。EEF で +5ヶ月と強いエビデンスがあるが、日本では既に班活動が広く実施されており「新しい介入」としての効果はそのまま出ない可能性がある。
+summary: 子ども同士が小グループで協力して学び合う指導法。EEF で +5ヶ月(確実性は 2/5 と限定的)だが、日本では既に班活動が広く実施されており「新しい介入」としての効果はそのまま出ない可能性がある。
 monthsGained: 5
-evidenceStrength: 4
+evidenceStrength: 3
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
@@ -14,9 +14,9 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Collaborative learning appro
 evidence:
   eef:
     monthsGained: 5
-    strength: 4
-    note: "小学校 +5ヶ月、中学校 +6ヶ月。算数 +5、理科 +10、国語 +3(教科差あり)。3〜5人の小グループで『共通の目標』があるときに効果が大きい。"
-lastVerified: "2026-04-18"
+    strength: 2
+    note: "小学校 +5ヶ月、中学校 +6ヶ月。算数 +5、理科 +10、国語 +3(教科差あり)。3〜5人の小グループで『共通の目標』があるときに効果が大きい。EEF の確実性評価は 5 段階中 2(limited evidence、Review last updated July 2021)。"
+lastVerified: "2026-09-13"
 methodology:
   studies: 65
   sampleSize: "初等〜高等教育(1995 年以降、実際の教室で実施された研究に限定)"
