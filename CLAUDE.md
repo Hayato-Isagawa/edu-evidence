@@ -60,6 +60,14 @@ PR のコンテンツ」で撮る配線(ADR 0034)も、**壊れても CI は緑�
 (`||` の字面だけでなく `set +e` / `if !` の形も禁じている。字面だけだと、
 `set +e` で囲む変異が 10/10 緑で通った)。
 
+`vrt-targets.test.mjs` も同じ口にある。VRT の撮影が**静かに減る**経路(対象を消す・ループを絞る・
+projects を削る・skip に落とす・`fullPage` を落とす・比較設定を緩める・比較ステップを撮り直しにする)は、
+VRT 自身では捕まえられない — VRT は `paths` に載る PR でしか起動せず、減った残りは緑のまま通る。
+撮影対象は `vrt/targets.mjs` にデータとして持ち、spec とテストが同じ配列を読む。件数は
+`playwright test --list` の実出力と突き合わせ、`src/pages/` のテンプレートと 1 対 1 で対応することを
+要求する(`/changelog` だけ除外)。**残る穴は spec の書き方そのもの**(`toHaveScreenshot` の第 2 引数での
+上書き・実行時 `test.skip(条件)`・import 元の差し替え)で、`vrt/pages.spec.ts` 冒頭に注意書きがある。
+
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
 (`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
 
@@ -67,7 +75,7 @@ PR のコンテンツ」で撮る配線(ADR 0034)も、**壊れても CI は緑�
 `node --test` は「glob が 0 件」「中身が空」「全件 skip」のどれでも exit 0 で終わるので、
 守っているつもりのガードが no-op に落ちても気づけないため。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 60 と `test:scripts` の 43 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 72 と `test:scripts` の 43 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 56 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`3d2afbe`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 64 と離れていてよい。
 
@@ -143,7 +151,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
   その後 ADR 0036 で比率そのものをやめた — 許容量がページの長さに比例して長いページほど甘く、
   Playwright が pixelmatch に渡す `threshold`(既定 0.2)未満の色差は比率を下げても数えられないため(edu-law の実測)
 - **リトライは入れない**。差分が実測 0 なら、リトライは間欠的な問題を握り潰すだけになる
-- **対象**: `vrt/pages.spec.ts` がテンプレート代表 15 URL をフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する(`/changelog` は #433 で対象外。問題が現れたのは #428 で、理由は同ファイル冒頭)
+- **対象**: `vrt/targets.mjs` の 25 URL(`src/pages/` のテンプレート 26 本と 1 対 1。`/changelog` だけ #433 で対象外、問題が現れたのは #428 で理由は同ファイル冒頭)を `vrt/pages.spec.ts` がフルページ撮影。テンプレートを追加したら代表 URL を 1 行追記する — 忘れると `test:workflows` が赤にする。ダークテーマは撮っていない
 - **ゲート**: `.github/workflows/vrt.yml` が `pull_request` の `paths` で `src/layouts/**`・`src/components/**`・`src/styles/**`・`src/pages/**`(`changelog.astro` は除外)・`src/lib/**`・`src/plugins/**`・`astro.config.*`・`vrt/**`・`playwright.vrt.config.ts`・`package-lock.json`・自身に限定起動(`workflow_dispatch` で手動実行可)。
   `package-lock.json` は依存 bump で走らせるため(ADR 0035)。ただし auto-merge は required しか待たないので、非 major の bump では事後の記録にしかならない
   **`src/content/**` だけの PR では走らないが、「コンテンツ編集では起動しない」ではない** — 効果量の訂正は `guide/indicators.astro` などのテンプレートも同じ PR で触るので起動する(`faq.astro` / `policy-evidence.astro` の本文は `src/data/` に移したので、そちらの訂正では起動しない)。`src/data/**` は ADR 0034 でベースラインへ運ぶ素材にしたため、`paths` からは外してある
