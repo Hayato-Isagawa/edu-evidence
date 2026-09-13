@@ -9,7 +9,7 @@
  * テンプレート(`src/pages/` の `.astro`)1 本につき代表 URL を 1 件。動的ルート
  * (`[grade]` / `[subject]` / `[tag]` / `[...slug]`)は実在する値を 1 つ代表にする。
  * テンプレートを足したら 1 行足す — 対応が崩れると `vrt-targets.test.mjs` が
- * required check「Build site」で赤にする。
+ * required check「Content and consistency checks」で赤にする。
  *
  * `/changelog` は対象に含めない。
  *

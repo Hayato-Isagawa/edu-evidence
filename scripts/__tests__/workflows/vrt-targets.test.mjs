@@ -3,7 +3,7 @@
 // **VRT の中には置けない。** VRT は required check ではなく、`vrt.yml` の `paths` に
 // 載る PR でしか起動しない。撮影を減らす変更が `vrt/**` に触れるとは限らない
 // (`playwright.vrt.config.ts` の projects を削るのがその例)し、そもそも VRT が走らない
-// PR では VRT の中のガードも走らない。ここは required check「Build site」の
+// PR では VRT の中のガードも走らない。ここは required check「Content and consistency checks」の
 // `test:workflows` ステップで常に走る(`vrt-baseline.test.mjs` と同じ口)。
 //
 // 撮影が減っても**表向きは何も起きない**。落ちるテストが 50 件から 25 件になるだけで、
@@ -295,7 +295,7 @@ test("比較設定が完全一致のまま固定されている", () => {
 
 test("比較設定が VRT ジョブの環境でも同じ値になる", async () => {
   // **import した時点の値を見るだけでは足りない。** config が実行環境で分岐すると、
-  // このガードが走る「Build site」(`VRT_DIST` 未設定)では厳格な値が見え、
+  // このガードが走る「Content and consistency checks」(`VRT_DIST` 未設定)では厳格な値が見え、
   // 実際に撮る VRT ジョブ(`VRT_DIST: dist-main` / `dist-pr`)では緩い値が使われる。
   // `VRT_DIST` はこの config が元から読んでいる変数なので、「CI では少し緩める」形の
   // 分岐が自然な修正として紛れ込みうる(edu-law の実測: 三項演算子 1 つで
