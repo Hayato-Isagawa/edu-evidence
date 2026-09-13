@@ -13,7 +13,7 @@ sourceUrl: https://doi.org/10.1007/BF02461477
 sourceTitle: "Clark & Paivio (1991) — Dual coding theory and education"
 evidence:
   eef:
-    note: "EEF Toolkit に二重符号化の独立したエントリは無いが、Metacognition and self-regulation(+8)・Digital technology(+4)の認知基盤として位置づく。"
+    note: "EEF Toolkit に二重符号化の独立したエントリは無いが、Metacognition and self-regulation(+8)の認知基盤として位置づく。"
   hattie:
     note: "Mayer(2009)のマルチメディア学習研究では『言葉+関連図』vs『言葉のみ』で一貫して正の効果。ただし『装飾的な図(内容と無関係)』はむしろ注意を散らす。初学者で効果が大きく、既有知識のある学習者では効果が減衰(expertise reversal effect)。"
 lastVerified: "2026-06-15"

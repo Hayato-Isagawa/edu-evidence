@@ -130,12 +130,12 @@ EEF が強調するのは「**フィードバックの質**」(曖昧な称賛�
 
 - [読解戦略の指導](/strategies/reading-comprehension)(+7 ヶ月・★4) — 教科の読解プロセス理解が進んだ 2〜3 年目以降から。国語だけでなく算数の文章題・社会・理科の資料読解にも効く土台(関連: [読書 100 冊目標は学力を上げるか](/columns/reading-quantity-myth))
 - [口頭言語の指導](/strategies/oral-language)(+6 ヶ月・★5) — どの単元で語彙・対話を扱うかを教材研究と組み合わせて設計できるようになってから。★5 × cost1 の 4 件のうち、時期の問題だけで見送った 1 つ
-- [協同学習](/strategies/cooperative-learning)(+5 ヶ月・★4)
+- [協同学習](/strategies/cooperative-learning)(+5 ヶ月・★3)
 - [分散学習(スペーシング)](/strategies/spaced-practice)(+5 ヶ月・★4)
 - [検索練習(テスト効果)](/strategies/retrieval-practice)(+5 ヶ月・★4)
 - [教室での対話・議論](/strategies/classroom-discussion)(+6 ヶ月・★4)
 
-いずれもコスト 1〜2 で、効果量もエビデンスもしっかりしています。
+いずれもコスト 1〜2 で、効果の目安は +5〜+7 ヶ月です。
 
 ## まとめ
 
