@@ -12,7 +12,7 @@ sourceUrl: https://doi.org/10.3102/00346543241261732
 sourceTitle: "Li, Fu, Liu & Hwang (2025) Effectiveness of Flipped Classrooms for K-12 Students: Evidence From a Three-Level Meta-Analysis"
 evidence:
   eef:
-    note: "EEF Toolkit には反転授業の独立した項目は無い。かつて参照していた『Digital technology』の項目は現行の Toolkit に存在せず、デジタル活用の知見はガイダンスレポート『Using digital technology to improve learning』に移っている。"
+    note: "EEF Toolkit には反転授業の独立した項目は無い。かつて参照していた『Digital technology』の項目は現行の Toolkit に存在しない。EEF のデジタル活用の知見は 2019 年のガイダンスレポート『Using Digital Technology to Improve Learning』にまとめられている。"
   hattie:
     cohensD: 0.53
     note: "Li et al.(2025)の K-12 129研究のメタ分析で g=0.53。Shi et al.(2020)等でも d=0.5 前後が報告されている。d=0.53 は『月数換算 +5』に対応。"
