@@ -38,3 +38,6 @@ NODEJS_AUDIT_RESULT_*.md
 
 # Cloudflare Workers のローカル状態
 .wrangler/
+
+# check-source-links.ts の Wayback 照会結果(30 日キャッシュ)
+.cache/
