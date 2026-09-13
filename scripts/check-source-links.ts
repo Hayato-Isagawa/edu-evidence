@@ -17,13 +17,37 @@
  * 3 回とも exit 0 になる**(PR 前レビューが別時刻に実測)。再現しないことは、この判定が
  * 要らない証拠にはならない。到達不能そのものの追跡は週次の `link-check.yml`(lychee)が担当する。
  *
+ * **既知ボット対策ドメインの 403 は Wayback で補助判定する。** EEF のように生存ページにも
+ * 撤退ページにも一律 403 を返すホストでは、ページが消えても「既知ボット対策ドメイン: N 件」に
+ * 数えられるだけで誰も気づけない(2026-09-08、404 の EEF ページを出典に掲げ続けていた)。
+ * そこで known の warn について Wayback CDX API から「200 / 404 / 410 に絞った最新の記録」を引き(それ以外の status は判定に使わない)、
+ * 404 / 410 が記録されていれば撤退とみなして失敗にする(`archivedGone`)。
+ *   - CDX が答えない(503 / 接続断 / タイムアウト / JSON でない)→ 失敗にしない(fail-open)。
+ *     照会できなかった件数だけを出す。手元専用の検査なので、IA の障害で `check:all` が
+ *     止まると人がこの検査を切る方向に倒れる。答えなかった分の埋め方は
+ *     docs/CONTENT_GUIDELINES.md §7
+ *   - 記録なし(`[]`)は「判別できない」であって障害ではない。known サマリに残す
+ *   - 答えた結果は `.cache/wayback-cdx.json`(gitignore)に保存し、30 日は再照会しない。
+ *     CDX は 1 件 7〜28 秒かかる(2026-09-13 実測)ので、初回は非 doi の既知 70 URL で約 7.5 分、
+ *     以後は新規 URL 分だけになる
+ *   - doi.org は照会しない。DOI 自体の消失は doi.org が 404 を返すので既に error になり、
+ *     CDX に doi.org の URL で記録されるのは 302 だけで判別に使えない
+ *   - 3xx は filter で除くので、「過去に 404 → その後 301 で移設」の URL は古い 404 で
+ *     失敗になりうる(偽陽性側に倒している)。逃がしは §7
+ *
  * exit code:
- *   - 0 … 404 / 410 が 0 件(到達不能があっても 0)
- *   - 1 … 404 / 410 あり
+ *   - 0 … 404 / 410 が 0 件、かつ Wayback に撤退の記録がある known リンクが 0 件
+ *          (到達不能・照会できずがあっても 0)
+ *   - 1 … 404 / 410 あり、または Wayback に撤退の記録あり
  *
  * 使い方: npx tsx scripts/check-source-links.ts
  *   環境変数 LINK_CHECK_CONCURRENCY (既定 20) で並列数を制御
  *   環境変数 LINK_CHECK_TIMEOUT_MS (既定 15000) でタイムアウトを制御
+ *   環境変数 LINK_CHECK_CDX=0 で Wayback 照会を無効化(既定は有効)
+ *   環境変数 LINK_CHECK_CDX_ENDPOINT で CDX のエンドポイントを差し替え(テスト用)
+ *   環境変数 LINK_CHECK_CDX_TIMEOUT_MS (既定 60000) で CDX のタイムアウトを制御
+ *   環境変数 LINK_CHECK_CDX_CACHE (既定 .cache/wayback-cdx.json) でキャッシュの置き場を制御
+ *   環境変数 LINK_CHECK_KNOWN_HOSTS_EXTRA で known ホストを追加(カンマ区切り。テスト用)
  */
 
 import fs from "fs";
@@ -37,6 +61,26 @@ const CONTENT_DIRS = [
 
 const CONCURRENCY = Number(process.env.LINK_CHECK_CONCURRENCY ?? 20);
 const TIMEOUT_MS = Number(process.env.LINK_CHECK_TIMEOUT_MS ?? 15000);
+
+// Wayback CDX の補助判定(ヘッダコメント参照)
+const CDX_ENABLED = process.env.LINK_CHECK_CDX !== "0";
+const CDX_ENDPOINT =
+  process.env.LINK_CHECK_CDX_ENDPOINT ??
+  "https://web.archive.org/cdx/search/cdx";
+// 200 応答でも 6.7〜27.6 秒かかる(11 回中 6 回が 15 秒超・2026-09-13)。
+// 本体の TIMEOUT_MS を流用すると成功応答の半分を abort して「照会できず」に数える。
+const CDX_TIMEOUT_MS = Number(process.env.LINK_CHECK_CDX_TIMEOUT_MS ?? 60000);
+// IA へのレート配慮。本体の 20 を流用しない。
+const CDX_CONCURRENCY = 3;
+// 連続してこの件数が答えなかったら残りを打ち切る(ブレーカー)
+const CDX_BREAKER_AFTER = 5;
+const CDX_CACHE_PATH = path.resolve(
+  process.env.LINK_CHECK_CDX_CACHE ?? ".cache/wayback-cdx.json"
+);
+const CDX_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+// DOI 自体の消失は doi.org が 404 を返すので本体で捕まる。CDX に doi.org の URL で
+// 記録されるのはリゾルバの 302 だけで、filter で落ちて「記録なし」にしかならない。
+const CDX_SKIP_HOSTS: readonly string[] = ["doi.org"];
 
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
@@ -72,8 +116,18 @@ function hostOf(url: string): string {
   }
 }
 
+// テストがローカルの stub(127.0.0.1)を known ホストとして通すための口。
+// 実ホスト名を /etc/hosts 無しでローカルに向ける手段が Node 標準には無い。
+const EXTRA_KNOWN_HOSTS = (process.env.LINK_CHECK_KNOWN_HOSTS_EXTRA ?? "")
+  .split(",")
+  .map((h) => h.trim().toLowerCase())
+  .filter(Boolean);
+
 function isKnownBotProtected(url: string): boolean {
-  return KNOWN_BOT_PROTECTED_HOSTS.includes(hostOf(url));
+  const host = hostOf(url);
+  return (
+    KNOWN_BOT_PROTECTED_HOSTS.includes(host) || EXTRA_KNOWN_HOSTS.includes(host)
+  );
 }
 
 // frontmatter やベタ URL を対象とする(markdown のリンクは balanced-paren で別抽出)
@@ -286,6 +340,170 @@ function categorize(status: number): "ok" | "warn" | "error" | "unreachable" {
   return "warn";
 }
 
+// ---------------------------------------------------------------------------
+// Wayback CDX の補助判定
+// ---------------------------------------------------------------------------
+
+type CdxAnswer =
+  | { kind: "gone"; status: number; timestamp: string }
+  | { kind: "alive"; status: number; timestamp: string }
+  | { kind: "none" };
+type CdxOutcome = CdxAnswer | { kind: "unavailable"; error: string };
+
+interface CdxCacheEntry {
+  checkedAt: string;
+  answer: CdxAnswer;
+}
+
+function loadCdxCache(): Record<string, CdxCacheEntry> {
+  try {
+    const parsed: unknown = JSON.parse(
+      fs.readFileSync(CDX_CACHE_PATH, "utf-8")
+    );
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
+      return {};
+    const now = Date.now();
+    const fresh: Record<string, CdxCacheEntry> = {};
+    for (const [url, entry] of Object.entries(
+      parsed as Record<string, unknown>
+    )) {
+      const e = entry as Partial<CdxCacheEntry>;
+      if (!e || typeof e.checkedAt !== "string" || !e.answer) continue;
+      const age = now - Date.parse(e.checkedAt);
+      if (!Number.isFinite(age) || age > CDX_CACHE_TTL_MS) continue;
+      fresh[url] = { checkedAt: e.checkedAt, answer: e.answer };
+    }
+    return fresh;
+  } catch {
+    // 無い / 壊れている → 作り直す
+    return {};
+  }
+}
+
+function saveCdxCache(cache: Record<string, CdxCacheEntry>): void {
+  try {
+    fs.mkdirSync(path.dirname(CDX_CACHE_PATH), { recursive: true });
+    fs.writeFileSync(CDX_CACHE_PATH, JSON.stringify(cache, null, 2) + "\n");
+  } catch (err: unknown) {
+    // キャッシュは速さのためのものなので、書けなくても判定は変えない
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`(Wayback キャッシュを書けなかった: ${message})`);
+  }
+}
+
+// 200 / 404 / 410 に絞った最新の記録 1 件を引く(それ以外の status は判定に使わない)。
+// filter は limit より先に効く(実測)。
+// Wayback 自身のクローラも 403 を記録することがあるので、403 を数えると
+// 「撤退の記録」が埋もれる。3xx も除くので、移設済みの URL が古い 404 で
+// 偽陽性になりうる(ヘッダコメント)。
+function cdxQueryUrl(url: string): string {
+  const params = new URLSearchParams({
+    url,
+    output: "json",
+    fl: "timestamp,statuscode",
+    filter: "statuscode:(200|404|410)",
+    limit: "-1",
+  });
+  return `${CDX_ENDPOINT}?${params.toString()}`;
+}
+
+async function queryCdxOnce(url: string): Promise<CdxOutcome> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CDX_TIMEOUT_MS);
+  try {
+    const res = await fetch(cdxQueryUrl(url), {
+      headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+      signal: controller.signal,
+    });
+    if (res.status !== 200) {
+      return { kind: "unavailable", error: `HTTP ${res.status}` };
+    }
+    // IA の障害ページや captive portal が 200 で HTML を返す経路がある。
+    // JSON.parse の例外は下の catch で unavailable にする(main().catch へ抜けると exit 2 =
+    // fail-closed に化ける)。
+    const rows: unknown = JSON.parse(await res.text());
+    if (!Array.isArray(rows)) {
+      return { kind: "unavailable", error: "not an array" };
+    }
+    // 記録なしは HTTP 200 / 本文 `[]`(実測)。障害ではない。
+    if (rows.length === 0) return { kind: "none" };
+    const last = rows[rows.length - 1];
+    if (!Array.isArray(last) || last.length < 2) {
+      return { kind: "unavailable", error: "unexpected row" };
+    }
+    const [timestamp, statusRaw] = last as [unknown, unknown];
+    const status = Number(statusRaw);
+    if (typeof timestamp !== "string" || !Number.isFinite(status)) {
+      return { kind: "unavailable", error: "unexpected row" };
+    }
+    if (status === 404 || status === 410) {
+      return { kind: "gone", status, timestamp };
+    }
+    if (status >= 200 && status < 300) {
+      return { kind: "alive", status, timestamp };
+    }
+    // filter の外の値が来たら判別に使わない
+    return { kind: "none" };
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    return { kind: "unavailable", error: message };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// 503(Temporarily Offline)は約 5.5 秒で返る(実測)ので、1 回のリトライは安い
+async function queryCdx(url: string): Promise<CdxOutcome> {
+  const first = await queryCdxOnce(url);
+  if (first.kind !== "unavailable") return first;
+  await new Promise((r) => setTimeout(r, 1500));
+  return queryCdxOnce(url);
+}
+
+// known の warn(doi.org を除く)を URL 単位で照会し、答えた分だけキャッシュに書く
+async function consultWayback(
+  urls: string[]
+): Promise<Map<string, CdxOutcome>> {
+  const outcomes = new Map<string, CdxOutcome>();
+  if (!CDX_ENABLED || urls.length === 0) return outcomes;
+
+  const cache = loadCdxCache();
+  const pending: string[] = [];
+  for (const url of urls) {
+    const hit = cache[url];
+    if (hit) outcomes.set(url, hit.answer);
+    else pending.push(url);
+  }
+
+  if (pending.length > 0) {
+    // IA が落ちている回は早く諦める。1 件あたり最大 2 × CDX_TIMEOUT_MS 待つので、
+    // 全断のまま 70 URL を回すと 1 時間近く止まる。連続で答えなかったら残りは
+    // 照会せず unavailable に数える(次回に再照会する)。
+    let consecutiveFailures = 0;
+    await runWithConcurrency(pending, CDX_CONCURRENCY, async (url) => {
+      if (consecutiveFailures >= CDX_BREAKER_AFTER) {
+        outcomes.set(url, { kind: "unavailable", error: "skipped: breaker" });
+        return;
+      }
+      const outcome = await queryCdx(url);
+      outcomes.set(url, outcome);
+      if (outcome.kind === "unavailable") consecutiveFailures++;
+      else consecutiveFailures = 0;
+    });
+    const checkedAt = new Date().toISOString();
+    let changed = false;
+    for (const url of pending) {
+      const outcome = outcomes.get(url);
+      // unavailable は保存しない(次回に再照会する)
+      if (!outcome || outcome.kind === "unavailable") continue;
+      cache[url] = { checkedAt, answer: outcome };
+      changed = true;
+    }
+    if (changed) saveCdxCache(cache);
+  }
+  return outcomes;
+}
+
 function rel(file: string): string {
   return path.relative(process.cwd(), file);
 }
@@ -335,12 +553,53 @@ async function main() {
     }
   }
 
+  // known の warn を Wayback で補助判定する(ヘッダコメント)。
+  // 撤退の記録がある URL は warningsKnown から抜いて archivedGone へ(二重計上しない)。
+  const cdxTargets = [
+    ...new Set(
+      warningsKnown
+        .map((w) => w.occurrence.url)
+        .filter((url) => !CDX_SKIP_HOSTS.includes(hostOf(url)))
+    ),
+  ];
+  const cdx = await consultWayback(cdxTargets);
+  const archivedGone: Result[] = [];
+  const stillKnown: Result[] = [];
+  for (const w of warningsKnown) {
+    const outcome = cdx.get(w.occurrence.url);
+    if (outcome?.kind === "gone") archivedGone.push(w);
+    else stillKnown.push(w);
+  }
+  warningsKnown.length = 0;
+  warningsKnown.push(...stillKnown);
+  const cdxUnavailableUrls = cdxTargets.filter(
+    (url) => cdx.get(url)?.kind === "unavailable"
+  );
+
   if (errors.length > 0) {
     console.log(`## ❌ 壊れているリンク(404 / 410)`);
     console.log("");
     for (const e of errors) {
       console.log(
         `- ${rel(e.occurrence.file)}:${e.occurrence.line} — ${e.occurrence.url} → HTTP ${e.status}`
+      );
+    }
+    console.log("");
+  }
+
+  if (archivedGone.length > 0) {
+    console.log(
+      `## ❌ Wayback に撤退の記録がある既知ボット対策ドメインのリンク(ブラウザで実見して差し替える)`
+    );
+    console.log("");
+    for (const g of archivedGone) {
+      const outcome = cdx.get(g.occurrence.url);
+      const record =
+        outcome && outcome.kind === "gone"
+          ? `Wayback ${outcome.timestamp} に HTTP ${outcome.status}`
+          : "Wayback に撤退の記録";
+      console.log(
+        `- ${rel(g.occurrence.file)}:${g.occurrence.line} — ${g.occurrence.url} → HTTP ${g.status}(${record})`
       );
     }
     console.log("");
@@ -397,37 +656,69 @@ async function main() {
   }
 
   if (warningsKnown.length > 0) {
-    // ホスト別サマリ
-    const byHost = new Map<string, number>();
+    // ホスト別サマリ。Wayback の内訳(生存 / 記録なし / 照会できず)を添える
+    type HostTally = {
+      total: number;
+      alive: number;
+      none: number;
+      unavail: number;
+    };
+    const byHost = new Map<string, HostTally>();
     for (const w of warningsKnown) {
       const h = hostOf(w.occurrence.url);
-      byHost.set(h, (byHost.get(h) ?? 0) + 1);
+      const t = byHost.get(h) ?? { total: 0, alive: 0, none: 0, unavail: 0 };
+      t.total++;
+      const outcome = cdx.get(w.occurrence.url);
+      if (outcome?.kind === "alive") t.alive++;
+      else if (outcome?.kind === "none") t.none++;
+      else if (outcome?.kind === "unavailable") t.unavail++;
+      byHost.set(h, t);
     }
-    const hosts = [...byHost.entries()].sort((a, b) => b[1] - a[1]);
+    const hosts = [...byHost.entries()].sort((a, b) => b[1].total - a[1].total);
     console.log(
       `## ℹ️ 既知のボット対策ドメイン(ブラウザでは通常 200、サマリ表示)`
     );
     console.log("");
-    for (const [h, n] of hosts) {
-      console.log(`- ${h}: ${n} 件`);
+    for (const [h, t] of hosts) {
+      const detail =
+        t.alive + t.none + t.unavail > 0
+          ? `(Wayback 生存 ${t.alive} / 記録なし ${t.none} / 照会できず ${t.unavail})`
+          : "";
+      console.log(`- ${h}: ${t.total} 件${detail}`);
     }
     console.log("");
   }
 
-  const warnTotal = warningsActionable.length + warningsKnown.length;
+  if (cdxUnavailableUrls.length > 0) {
+    // fail-open: この回は判別していないことを明示する。exit code は変えない(ヘッダコメント)
+    console.log(
+      `## 🔎 Wayback に照会できなかった URL(この回は撤退の判別をしていない。失敗にはしない)`
+    );
+    console.log("");
+    console.log(
+      `- ${cdxUnavailableUrls.length} 件。再実行すればキャッシュ済みの分は減る。それでも答えない URL はブラウザで実見する(docs/CONTENT_GUIDELINES.md §7)`
+    );
+    console.log("");
+  }
+
+  const warnTotal =
+    warningsActionable.length + warningsKnown.length + archivedGone.length;
   const okCount =
     allOccurrences.length - errors.length - unreachable.length - warnTotal;
   console.log(`## 集計`);
   console.log(`- ✓ 2xx / 3xx: ${okCount}`);
   console.log(`- ⚠️ 要目視 (未登録ドメイン): ${warningsActionable.length}`);
   console.log(`- ℹ️ 既知ボット対策ドメイン: ${warningsKnown.length}`);
+  console.log(
+    `- 🔎 Wayback に照会できなかった (失敗にしない): ${cdxUnavailableUrls.length}`
+  );
   console.log(`- 📡 到達できなかった (失敗にしない): ${unreachable.length}`);
   console.log(`- ❌ 404 / 410: ${errors.length}`);
+  console.log(`- ❌ Wayback に撤退の記録あり: ${archivedGone.length}`);
 
-  if (errors.length > 0) {
-    console.error(
-      `\n壊れたリンクが ${errors.length} 件あります。修正してください。`
-    );
+  const broken = errors.length + archivedGone.length;
+  if (broken > 0) {
+    console.error(`\n壊れたリンクが ${broken} 件あります。修正してください。`);
     process.exit(1);
   }
 }
