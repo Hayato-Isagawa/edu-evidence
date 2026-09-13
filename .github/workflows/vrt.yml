@@ -31,8 +31,9 @@ on:
       - "!src/pages/changelog.astro"
       # **src/data/** は意図的に外してある。** ベースライン側へ運ぶ素材なので
       # (下の Build baseline ステップ)、ここに残すと「起動はするが構造上ぜったいに
-      # 差分が出ない」トリガになり、5 分前後の CI を空回りさせる(直近 30 run の
-      # 実測で 28 run が 4〜6 分。以前ここに書いてあった 15 分は再現しなかった)。
+      # 差分が出ない」トリガになり、10 分を超える CI を空回りさせる(30 枚時代は直近
+      # 30 run 中 28 run が 4〜6 分。50 枚で 7 分 53 秒。100 枚〈#577〉では撮影 2 ステップだけで
+      # 13 分前後の見込みで、PR の run で実測する)。
       #
       # 代償として、concerns.ts の getAllConcerns / getConcernIndex や
       # glossary.ts の tooltipTerms、faq.ts の buildFaqSections といった
@@ -54,7 +55,7 @@ on:
       # **ただし gate にはならない。** VRT は required check ではなく
       # (required は Content Checks と E2E)、dependabot-auto-merge.yml の
       # `gh pr merge --auto` は required しか待たない。required は並列で各
-      # 1.5 分、VRT は 5 分前後なので、非 major の bump は VRT の結果が出る前に
+      # 1.5 分、VRT は 100 枚で 15 分前後なので、非 major の bump は VRT の結果が出る前に
       # マージされる(#385 で実測)。得られるのは事後に check の色と(7 日間の)差分画像が
       # 残ることだけ。major はオートマージされないので、そこでは事前に効く。
       - "package-lock.json"
