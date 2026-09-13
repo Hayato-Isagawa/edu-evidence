@@ -1,6 +1,6 @@
 ---
 title: 直接教授法(明示的指導)
-summary: 学習目標を明確にし、教師がモデルを示し、段階的に子どもへ任せていく構造化された指導法。半世紀分のメタ分析で g≈0.4〜0.6、Hattie は d=0.59 と報告。
+summary: 学習目標を明確にし、教師がモデルを示し、段階的に子どもへ任せていく構造化された指導法。半世紀分のメタ分析で総合 d=0.54(調整後 0.60)、Hattie は d=0.59 と報告。
 monthsGained: 5
 evidenceStrength: 4
 cost: 1
@@ -12,24 +12,22 @@ sourceUrl: https://doi.org/10.3102/0034654317751919
 sourceTitle: "Stockard et al. (2018) The Effectiveness of Direct Instruction Curricula: A Meta-Analysis of a Half Century of Research"
 evidence:
   eef:
-    note: "EEF Toolkit に独立した項目は無い。EEF ブログ『What exactly is explicit instruction?』(2023 年 4 月)は 4 つの系統的レビュー・116 研究に基づき、小さなステップで教え、具体例と反例を用い、明確な言葉で説明し、よくある誤概念を想定し、重要な内容を強調する手法として explicit instruction を位置づけ、SEND のある子どもにも有効としているが、月数と確実性は公表していない。"
+    note: "EEF Toolkit に独立した項目は無い。EEF ブログ『What exactly is explicit instruction?』(2023 年 4 月)は、4 つの系統的レビュー・116 研究に基づき explicit instruction を SEND のある子どもにも有効な手法として位置づけている。挙げている要素は、小さなステップで教える・具体例と反例を用いる・明確な言葉で説明する・よくある誤概念を想定する・重要な内容を強調する、の 5 つ。月数と確実性は公表していないため、2026-09-13 に効果の目安の出典を Stockard et al.(2018)のメタ分析に改めた(月数は変えていない)。"
   hattie:
     cohensD: 0.59
-    note: "Hattie の Visible Learning では d=0.59 を報告。本ページの +5ヶ月は Stockard et al.(2018)の g≈0.4〜0.6 の中央に当たる控えめな換算(d=0.1≈1ヶ月)で、Hattie の値より低い側を採っている。"
+    note: "Hattie の Visible Learning では d=0.59 を報告。本ページの +5ヶ月は Stockard et al.(2018)の総合推定値 d=0.54(95% CI 0.49〜0.59)の換算(d=0.1≈1ヶ月)で、調整後の 0.60 や Hattie の 0.59 より低い側を採っている。"
 lastVerified: "2026-09-13"
 methodology:
   studies: 328
   sampleSize: "413 研究設計 / 約 4,000 効果(1966〜2016 の半世紀、幼児〜高校)"
-  effectSize: "読み・算数・言語・スペリング・情意領域で g ≈ 0.4〜0.6 台の有意な正効果。介入終了後の維持期にも効果が続く"
+  effectSize: "総合 d=0.54(95% CI 0.49〜0.59)。読み・算数・言語・スペリングで 0.5〜0.7 前後(調整後は 0.4〜1.1)の有意な正効果。情意面は有意でない。介入終了後の維持期にも効果が続く"
   primaryEvidenceReview:
     authors: "Stockard, Wood, Coughlin & Rasplica Khoury"
     year: 2018
     title: "The Effectiveness of Direct Instruction Curricula: A Meta-Analysis of a Half Century of Research"
     url: "https://doi.org/10.3102/0034654317751919"
-  limitations: "『Direct Instruction』は Engelmann 由来の体系化されたプログラム群(DISTAR 等)を含み、単なる『講義型』の同義語ではない。日本の『一斉指導』と完全には重ならない。教材のスクリプト化・反応確認・マスタリー前提の反復が本質で、この要素が薄いと効果は得にくい。"
+  limitations: "『Direct Instruction』は Engelmann 由来の体系化されたプログラム群(DISTAR 等)を含み、単なる『講義型』の同義語ではない。日本の『一斉指導』と完全には重ならない。教材のスクリプト化・反応確認・マスタリー前提の反復が本質で、この要素が薄いと効果は得にくい。著者らはこの論文の一部を National Institute for Direct Instruction に非常勤で雇用されていた期間に執筆している(原典の注記)。"
 culturalContext: |
-  2026-09-13 の EEF 照合で、出典にしていた EEF ブログには月数も確実性も無いことを確認し、効果の目安の出典を Stockard et al.(2018)のメタ分析に付け替えた(月数は変えていない)。
-
   日本の一斉授業は「明示的指導」の要素を多く含んでいるが、EEF が定義する「モデル提示 → 段階的な移行(I do, We do, You do)」の明確な構造とは必ずしも一致しない。特に「よくある誤概念の想定」や「小さなステップへの分解」の意識が弱い場合がある。現在の一斉指導に EEF の原則を統合することで、追加の効果が期待できる可能性がある。
 ---
 
