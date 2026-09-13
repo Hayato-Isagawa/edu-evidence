@@ -66,7 +66,7 @@ VRT 自身では捕まえられない — VRT は `paths` に載る PR でしか
 撮影対象は `vrt/targets.mjs` にデータとして持ち、spec とテストが同じ配列を読む。件数は
 `playwright test --list` の実出力と突き合わせ、`src/pages/` のテンプレートと 1 対 1 で対応することを
 要求する(`/changelog` だけ除外)。**残る穴は spec の書き方そのもの**(`toHaveScreenshot` の第 2 引数での
-上書き・実行時 `test.skip(条件)`・import 元の差し替え)で、`vrt/pages.spec.ts` 冒頭に注意書きがある。
+上書き・実行時 `test.skip(条件)`・import 元の差し替え・`emulateMedia` でのテーマ上書き)で、`vrt/pages.spec.ts` 冒頭に注意書きがある。
 
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
 (`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
