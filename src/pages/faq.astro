@@ -19,8 +19,9 @@ function months(slug: string): string {
 const faqSections = buildFaqSections(months);
 
 // FAQPage の JSON-LD。回答は本文と同じ HTML 断片をそのまま載せる(schema.org の Answer.text は
-// a / strong / p 等の限られたタグを許容し、faq.ts の回答はその範囲に収まっている)。
-// 用語ツールチップの span は人間向けの装飾なので載せない(annotateGlossaryTerms を通さない)。
+// Text 型で、faq.ts の回答が使うタグは a / strong だけ)。用語ツールチップの span は人間向けの
+// 装飾なので載せない(annotateGlossaryTerms を通さない)。Google の FAQ リッチリザルトは
+// 2026-05 に終了しているので、狙いは検索結果の装飾ではなく機械可読な Q&A の提供。
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
