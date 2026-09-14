@@ -237,6 +237,7 @@ test("check:all は CI が走らせる回帰テストを全部含む", () => {
   for (const gate of [
     "lint",
     "format:check",
+    "test:gate",
     "test:scripts",
     "test:workflows",
     "test:hooks",
@@ -697,7 +698,7 @@ const WORKFLOW_TEST_FILES = [
 ];
 
 /** `test:workflows` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const WORKFLOW_TESTS = 77;
+const WORKFLOW_TESTS = 79;
 
 test("test:workflows の口にあるテストファイルが 3 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても

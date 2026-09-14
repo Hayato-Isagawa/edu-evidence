@@ -75,6 +75,13 @@ jobs:
         if: ${{ !cancelled() }}
         run: npm run check:stale
 
+      # 下の 3 つの口が通す判定器(assert-test-files / assert-test-results)そのものの検証。
+      # 判定器を通す口に置くと、判定器が壊れたときは自己検証の失敗も一緒に握り潰される
+      # ので、この step だけは判定器を通さず node --test に明示パスで渡す(詳細は CLAUDE.md)。
+      - name: Test-gate self check
+        if: ${{ !cancelled() }}
+        run: npm run test:gate
+
       # 上の各ゲートが「壊れた入力で確実に落ちる」ことを固定する回帰テスト。
       # ゲートは通れば成功に見えるので、検出部が死んでも気づけない。
       - name: Check scripts regression tests
@@ -91,7 +98,7 @@ jobs:
       #
       # test:scripts / test:workflows / test:hooks はどれも下限つきの assert-test-* を
       # 通している(`node --test` 単体は glob 0 件・中身が空・全件 skip のどれでも exit 0
-      # で終わるため)。口を test:scripts と分けているのは、下限の決め方が口ごとに違う
+      # で終わるため。test:gate だけは上記の理由で通さない)。口を test:scripts と分けているのは、下限の決め方が口ごとに違う
       # から(この口は実測ちょうどで余裕ゼロ、test:hooks は境界値。詳細は CLAUDE.md)。
       # 1 つの glob に混ぜると、どの口が何本失ったかを 1 つの数では追えない。
       # 置き場所を `scripts/__tests__/workflows/` にしたのはその帰結で、
