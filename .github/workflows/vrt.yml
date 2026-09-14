@@ -31,9 +31,9 @@ on:
       - "!src/pages/changelog.astro"
       # **src/data/** は意図的に外してある。** ベースライン側へ運ぶ素材なので
       # (下の Build baseline ステップ)、ここに残すと「起動はするが構造上ぜったいに
-      # 差分が出ない」トリガになり、10 分を超える CI を空回りさせる(30 枚時代は直近
-      # 30 run 中 28 run が 4〜6 分。50 枚で 7 分 53 秒。100 枚〈#577〉では撮影 2 ステップだけで
-      # 13 分前後の見込みで、PR の run で実測する)。
+      # 差分が出ない」トリガになり、15 分近い CI を空回りさせる(job 全体の実測は 30 枚で
+      # 5 分 32 秒・50 枚で 7 分 53 秒・100 枚〈#580〉で 14 分 31 秒。撮影 2 ステップは 100 枚で
+      # 403 秒 + 398 秒 ≈ 13.4 分、1 枚 ≈ 4.0 秒で線形〈workers: 1〉。#583)。
       #
       # 代償として、concerns.ts の getAllConcerns / getConcernIndex や
       # glossary.ts の tooltipTerms、faq.ts の buildFaqSections といった
@@ -55,7 +55,7 @@ on:
       # **ただし gate にはならない。** VRT は required check ではなく
       # (required は Content Checks と E2E)、dependabot-auto-merge.yml の
       # `gh pr merge --auto` は required しか待たない。required は並列で各
-      # 1.5 分、VRT は 100 枚で 15 分前後なので、非 major の bump は VRT の結果が出る前に
+      # 1.5 分、VRT は 100 枚で 14 分 31 秒(実測)なので、非 major の bump は VRT の結果が出る前に
       # マージされる(#385 で実測)。得られるのは事後に check の色と(7 日間の)差分画像が
       # 残ることだけ。major はオートマージされないので、そこでは事前に効く。
       - "package-lock.json"
@@ -77,10 +77,13 @@ jobs:
   vrt:
     name: Visual Regression
     runs-on: ubuntu-latest
-    # 律速はテストではなく Playwright / apt のインストール。平常時は 20〜30 秒だが、
+    # 平常時の律速は撮影(100 枚で 2 ステップ ≈ 13.4 分。上の paths コメント参照)で、
+    # Playwright / apt のインストールは 20〜30 秒。ただしインストールは
     # 2026-08-19 の実測ではファミリー横断で遅延し、portfolio の同じステップが
     # 28.45 分動いてなお完了しなかった(concurrency で cancel)。成功実行でも
-    # portfolio 15.35 分 / edu-evidence 13.6 分。テストの実行時間から決めない。
+    # portfolio 15.35 分 / edu-evidence 13.6 分(いずれも E2E job)。45 分(#470)は
+    # このインストール遅延だけを見て置いた値だが、100 枚の撮影 13.4 分を足した
+    # 最悪例 28 分 + 13.4 分 ≈ 42 分もまだ収まる。テストの実行時間だけから決めない。
     timeout-minutes: 45
     steps:
       - name: Checkout PR
