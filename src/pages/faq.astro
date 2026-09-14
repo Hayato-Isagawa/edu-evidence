@@ -17,9 +17,25 @@ function months(slug: string): string {
 }
 
 const faqSections = buildFaqSections(months);
+
+// FAQPage の JSON-LD。回答は本文と同じ HTML 断片をそのまま載せる(schema.org の Answer.text は
+// Text 型で、faq.ts の回答が使うタグは a / strong だけ)。用語ツールチップの span は人間向けの
+// 装飾なので載せない(annotateGlossaryTerms を通さない)。Google の FAQ リッチリザルトは
+// 2026-05 に終了しているので、狙いは検索結果の装飾ではなく機械可読な Q&A の提供。
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqSections.flatMap((section) =>
+    section.items.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    }))
+  ),
+};
 ---
 
-<Layout title="よくある質問 — EduEvidence JP">
+<Layout title="よくある質問 — EduEvidence JP" pageJsonLd={faqJsonLd}>
   <section class="pt-10 sm:pt-14 md:pt-20 lg:pt-28 pb-10 sm:pb-14 md:pb-20">
     <Kicker>
       Frequently asked questions

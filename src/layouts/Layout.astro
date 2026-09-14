@@ -9,6 +9,8 @@ interface Props {
   ogVersion?: string;
   articleJsonLd?: object;
   breadcrumbJsonLd?: object;
+  /** ページ種別ごとの JSON-LD(FAQPage 等)。Article / Breadcrumb と同じく head に 1 本追加する */
+  pageJsonLd?: object;
   longForm?: boolean;
 }
 const {
@@ -18,6 +20,7 @@ const {
   ogVersion,
   articleJsonLd,
   breadcrumbJsonLd,
+  pageJsonLd,
   longForm = false,
 } = Astro.props;
 const siteUrl = "https://edu-evidence.org";
@@ -102,6 +105,9 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
     )}
     {breadcrumbJsonLd && (
       <script type="application/ld+json" set:html={escapeLd(breadcrumbJsonLd)} />
+    )}
+    {pageJsonLd && (
+      <script type="application/ld+json" set:html={escapeLd(pageJsonLd)} />
     )}
 
     <!-- Cloudflare Web Analytics -->
