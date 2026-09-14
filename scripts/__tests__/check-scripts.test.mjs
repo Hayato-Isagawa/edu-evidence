@@ -170,6 +170,15 @@ test("test:workflows の口が checks.yml に配線されている", () => {
     /^ {8}if: \$\{\{ !cancelled\(\) \}\}\n {8}run: npm run test:workflows$/m,
     "前段が落ちると走らない形になっている"
   );
+  // continue-on-error が付くと赤が job に伝わらない。キーとして探す(字面だと
+  // ステップに掛かるコメントで偽陽性になる)。
+  const step = b
+    .split(/^ {6}(?=- name: )/m)
+    .find((s) => s.includes("run: npm run test:workflows"));
+  assert.ok(
+    step && !/^\s+continue-on-error:/m.test(step),
+    "test:workflows のステップに continue-on-error が付いている"
+  );
 });
 
 test("oxlint と oxfmt の口が checks.yml に配線されている", () => {
@@ -671,4 +680,62 @@ test("check-source-links.ts は Wayback が連続して答えないと残りの�
   } finally {
     stub.close();
   }
+});
+
+// ---------------------------------------------------------------------------
+// もう一方の口(`test:workflows`)の npm script と下限を固定する。自分自身を縛ると、
+// ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:scripts` / `test:hooks`)は
+// `scripts/__tests__/workflows/vrt-targets.test.mjs` にある。edu-law の同型を移植。
+//
+// **塞げるのは「片方だけを静かに薄める」まで**(限界は CLAUDE.md「下限の決め方」)。
+// ---------------------------------------------------------------------------
+
+const WORKFLOW_TEST_FILES = [
+  "link-check-workflow.test.mjs",
+  "vrt-baseline.test.mjs",
+  "vrt-targets.test.mjs",
+];
+
+/** `test:workflows` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
+const WORKFLOW_TESTS = 77;
+
+test("test:workflows の口にあるテストファイルが 3 本である", () => {
+  // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
+  // 下限つきの口は緑のまま通った)。消したときは下の完全一致も ENOENT で落ちるが、
+  // **足したときに落ちるのはここだけ**。
+  const files = fs
+    .readdirSync(path.join(REPO, "scripts/__tests__/workflows"), {
+      withFileTypes: true,
+    })
+    .filter((e) => e.isFile() && e.name.endsWith(".test.mjs"))
+    .map((e) => e.name)
+    .sort();
+  assert.deepEqual(files, WORKFLOW_TEST_FILES);
+});
+
+test("npm script test:workflows が、実測ちょうどの下限で 2 段を通す", () => {
+  // **完全一致で縛る。** `match` だと ` || true` を後ろに足すだけで恒久 no-op に
+  // でき、下限も 1 まで静かに下げられる(`assert-test-results.mjs` は 1 以上しか
+  // 要求しない)。
+  //
+  // **下限を守る対象から導出しない。** ファイルの `test(` を数えて突き合わせる形だと、
+  // 中身を消せば数も一緒に下がるので、`中身を空にする + 下限を巻き戻す` の 2 手が
+  // 素通りする(edu-law の実測)。**塞いでいるのは、この定数がここに直接書いてあること**。
+  // 静的数との照合は「テストを足したのに定数を上げていない」を赤にするためにある。
+  // テストを足したら npm script とこの定数の両方を直す。
+  const measured = WORKFLOW_TEST_FILES.map((name) =>
+    fs.readFileSync(
+      path.join(REPO, "scripts/__tests__/workflows", name),
+      "utf8"
+    )
+  ).reduce((sum, text) => sum + (text.match(/^test\(/gm) ?? []).length, 0);
+  assert.equal(measured, WORKFLOW_TESTS, "実測と定数がずれている");
+  const pkg = JSON.parse(
+    fs.readFileSync(path.join(REPO, "package.json"), "utf8")
+  );
+  assert.equal(
+    pkg.scripts["test:workflows"],
+    'node scripts/assert-test-files.mjs "scripts/__tests__/workflows/*.test.mjs" && ' +
+      `node scripts/assert-test-results.mjs ${WORKFLOW_TESTS} "scripts/__tests__/workflows/*.test.mjs"`
+  );
 });
