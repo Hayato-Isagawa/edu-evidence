@@ -77,7 +77,7 @@ jobs:
 
       # 下の 3 つの口が通す判定器(assert-test-files / assert-test-results)そのものの検証。
       # 判定器を通す口に置くと、判定器が壊れたときは自己検証の失敗も一緒に握り潰される
-      # ので、この step だけは判定器を通さず node --test に明示パスで渡す(詳細は CLAUDE.md)。
+      # ので、この step だけは判定器も node --test の親も通さず node で直接実行する(詳細は CLAUDE.md)。
       - name: Test-gate self check
         if: ${{ !cancelled() }}
         run: npm run test:gate

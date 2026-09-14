@@ -685,7 +685,7 @@ test("check-source-links.ts は Wayback が連続して答えないと残りの�
 
 // ---------------------------------------------------------------------------
 // もう一方の口(`test:workflows`)の npm script と下限を固定する。自分自身を縛ると、
-// ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:scripts` / `test:hooks`)は
+// ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:scripts` / `test:hooks` / `test:gate`)は
 // `scripts/__tests__/workflows/vrt-targets.test.mjs` にある。edu-law の同型を移植。
 //
 // **塞げるのは「片方だけを静かに薄める」まで**(限界は CLAUDE.md「下限の決め方」)。

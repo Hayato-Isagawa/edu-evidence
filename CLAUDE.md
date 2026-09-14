@@ -80,12 +80,15 @@ VRT 自身では捕まえられない — VRT は `paths` に載る PR でしか
 fixture を一時ディレクトリに作って判定器を spawn し、fail 1 件 / 下限割れ / skip / todo で exit 1、
 空ファイルは pass 1 と数える、glob 0 件は assert-test-files が exit 1、を固定する)。
 `if (problems.length)` を `if (false)` にする 1 行で 3 口とも恒久 exit 0 になっていた(実測)。
-**この口だけは判定器を通さない** — 判定器を通す口に置くと、判定器が壊れたとき自己検証の失敗も
-同じ判定器に握り潰される。`node --test` に明示パスで渡し(パスが無ければ exit 1)、判定器が塞ぐ
-「中身が空」は `test:workflows` の口が行頭 `test(` の静的数で、「全件 skip」(`{ skip: true }` /
-`t.skip()` / `NODE_OPTIONS=--test-skip-pattern` は静的数を変えずに 0 本実行にできる)は gate ファイル内の
-自己計数(走った本数 ≠ 定数なら非 0 終了)で塞ぐ。fixture の spawn では `NODE_TEST_CONTEXT` /
-`NODE_TEST_WORKER_ID` を落とす(継承すると内側の `node --test` が「再帰呼び出し」として 0 件実行になる)。
+**この口だけは判定器を通さず、`node --test` の親も挟まない** — 判定器を通す口に置くと、判定器が
+壊れたとき自己検証の失敗も同じ判定器に握り潰され、`node --test` の親を挟むと、親が `t.skip()` /
+`{ todo: true }` 付きの失敗を skip / todo として集計し子の非 0 終了も落として exit 0 にする(実測)。
+`node` でファイルを直接実行し(パスが無ければ exit 1)、判定器が塞ぐ「中身が空」は `test:workflows` の口が
+行頭 `test(` の静的数で、「全件 skip」(`{ skip: true }` / `t.skip()` / `NODE_OPTIONS=--test-skip-pattern`
+は静的数を変えずに 0 本実行にできる)は gate ファイル内の自己計数(末尾まで走った本数 ≠ 定数なら非 0
+終了)で塞ぐ。自己計数の登録より前の `process.exit(0)` は自己計数では止まらないので、字面を
+`test:workflows` の口が禁じる。fixture の spawn では `NODE_TEST_CONTEXT` / `NODE_TEST_WORKER_ID` を
+落とす(`node --test` 配下で継承すると内側の `node --test` が「再帰呼び出し」として 0 件実行になる)。
 **残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
 

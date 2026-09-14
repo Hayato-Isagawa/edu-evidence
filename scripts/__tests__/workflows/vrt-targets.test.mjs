@@ -377,7 +377,7 @@ test("npm run vrt が VRT の config を指している", () => {
 });
 
 // ---------------------------------------------------------------------------
-// 他の口(`test:scripts` / `test:hooks`)の npm script と下限を固定する。自分自身を
+// 他の口(`test:scripts` / `test:hooks`、末尾で `test:gate`)の npm script と下限を固定する。自分自身を
 // 縛ると、ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:workflows`)は
 // `scripts/__tests__/check-scripts.test.mjs` にある。edu-law の同名テストと同型。
 //
@@ -519,19 +519,27 @@ const GATE_FILE = "scripts/__tests__/gate/assert-test-scripts.test.mjs";
 const GATE_TESTS = 11;
 
 test("test:gate の口にあるテストファイルが 1 本である", () => {
-  // 明示パスで走らせるので囮を足しても実行数は変わらないが、gate/ に別ファイルが
+  // 1 ファイルを直接実行するので囮を足しても実行数は変わらないが、gate/ に別ファイルが
   // 増えると「どれが走っているか」が名前でしか分からなくなる。1 本に固定する。
   assert.deepEqual(listTestFiles("scripts/__tests__/gate", ".test.mjs"), [
     path.basename(GATE_FILE),
   ]);
 });
 
-test("npm script test:gate が、判定器を通さず明示パスで走る", () => {
-  // **完全一致で縛る。** glob に変えると「0 件で exit 0」が復活し、判定器を挟むと
-  // 判定器の故障で自己検証も黙る。` || true` は他の口と同じ。
+test("npm script test:gate が、判定器もテストランナーの親も通さず直接走る", () => {
+  // **完全一致で縛る。** 判定器を挟むと判定器の故障で自己検証も黙る。`node --test` を
+  // 挟むと、親が skip / todo 付きの失敗を集計から落として exit 0 にする(実測)。
+  // ` || true` は他の口と同じ。
   const own = read(GATE_FILE);
   assert.equal(countTopLevelTests(own), GATE_TESTS, "実測と定数がずれている");
   // gate ファイル内の自己計数の定数も同じ値でなければ、走った本数の照合が空振りする。
   assert.match(own, new RegExp(`^const GATE_TESTS = ${GATE_TESTS};$`, "m"));
-  assert.equal(PKG.scripts["test:gate"], `node --test ${GATE_FILE}`);
+  // 自己計数の登録より前に `process.exit(0)` を置くと何にも止められない(実測)ので、
+  // 字面ごと禁じる。冒頭コメントの言及は `//` 行なので当たらない。
+  assert.doesNotMatch(
+    own,
+    /^\s*process\.exit\(/m,
+    "gate ファイルに process.exit( がある"
+  );
+  assert.equal(PKG.scripts["test:gate"], `node ${GATE_FILE}`);
 });

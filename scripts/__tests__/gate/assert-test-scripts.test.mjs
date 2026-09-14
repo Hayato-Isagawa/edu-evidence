@@ -6,16 +6,21 @@
 // する 1 行で、3 口ともテストが落ちていようが恒久 exit 0 になる(実測)。
 //
 // **この口は判定器を通さない。** 判定器を通す口に置くと、判定器が壊れているときは
-// ここで出る `not ok` も同じ判定器に握り潰される。`npm run test:gate` は `node --test` に
-// このファイルを明示パスで直接渡す(パスが無ければ exit 1、失敗があれば exit 1)。
+// ここで出る `not ok` も同じ判定器に握り潰される。`npm run test:gate` は `node` で
+// このファイルを**直接**実行する(パスが無ければ exit 1、失敗があれば exit 1)。
+// **`node --test` の親も挟まない** — 親は `t.skip()` / `{ todo: true }` の付いたテストの失敗を
+// skip / todo として集計し、子の非 0 終了も報告から落として exit 0 にする(実測)。
 // 判定器の外に出た代償として、判定器が塞いでいる「中身が空 / 全件 skip で exit 0」を
-// 自分で塞ぐ必要がある — 空ファイル化は `test:workflows` の口(`vrt-targets.test.mjs`)が
-// 行頭 `test(` の静的数で止め、skip 系は下の自己計数で止める。
+// 自分で塞ぐ必要がある — skip 系は下の自己計数で止める。空ファイル化と `process.exit(` の
+// 混入は静的にしか止められないので、2026-09-14 時点では `test:workflows` の口
+// (`vrt-targets.test.mjs`)に置いた。
 //
 // **fixture の spawn では `NODE_TEST_CONTEXT` / `NODE_TEST_WORKER_ID` を落とす。**
-// `node --test` 配下の子プロセスはこの 2 つを継承し、判定器がさらに起動する内側の
-// `node --test` が「run() is being called recursively … skipping running files」で
-// 0 件実行に落ちる(実測。落とさないと results 系が全部「TAP の集計行を読めませんでした」)。
+// `node --test` 配下で走らせると子プロセスがこの 2 つを継承し、判定器がさらに起動する
+// 内側の `node --test` が「run() is being called recursively … skipping running files」で
+// 0 件実行に落ちる(実測。落とさないと results 系のうち判定器を spawn する 7 本が
+// 「TAP の集計行を読めませんでした」)。直接実行では未設定だが、手元で `node --test` に
+// 渡しても壊れないよう落としておく。
 //
 // **fixture は問題が 1 つだけ出る形にし、stderr の行を完全一致で見る。** fail だけの
 // fixture だと「pass 0 件が下限 1 を下回る」も同時に出て、skip / todo の検査を外す変異が
@@ -35,16 +40,18 @@ const FILES = path.join(REPO, "scripts/assert-test-files.mjs");
 
 // ---------------------------------------------------------------------------
 // 自己計数。`{ skip: true }` / `t.skip()` / `NODE_OPTIONS=--test-skip-pattern` /
-// `import` の差し替え / 先頭の `process.exit(0)` は、どれも行頭 `test(` の本数を変えずに
-// 0 本実行・exit 0 にできる(実測)。各テスト本体の**末尾**で数え、走った本数が定数と
-// 違えば非 0 で終わる — 親の `node --test` は子の非 0 終了をこのファイルの fail と数える。
+// `import` の差し替えは、どれも行頭 `test(` の本数を変えずに 0 本実行・exit 0 にできる
+// (実測)。各テスト本体の**末尾**で数え、末尾まで走った本数が定数と違えば非 0 で終わる。
+// `process.exit(0)` をこの登録より前に置くと止められない(字面の禁止は冒頭のとおり別の口)。
 // 定数は `vrt-targets.test.mjs` の `GATE_TESTS` と同じ値(あちらが静的数と突き合わせる)。
 // ---------------------------------------------------------------------------
 const GATE_TESTS = 11;
 let ran = 0;
+const tmpDirs = [];
 process.on("exit", () => {
+  for (const dir of tmpDirs) fs.rmSync(dir, { recursive: true, force: true });
   if (ran !== GATE_TESTS) {
-    console.error(`[gate] ran ${ran} of ${GATE_TESTS} tests`);
+    console.error(`[gate] ${ran} of ${GATE_TESTS} tests ran to the end`);
     process.exitCode = 1;
   }
 });
@@ -66,6 +73,7 @@ function run(script, args, cwd) {
 /** fixture のテストファイル群を一時ディレクトリに書く。{ name: 本文 } */
 function fixture(files) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "assert-test-"));
+  tmpDirs.push(dir);
   for (const [name, body] of Object.entries(files)) {
     fs.writeFileSync(path.join(dir, name), body);
   }
