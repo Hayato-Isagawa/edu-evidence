@@ -375,3 +375,133 @@ test("npm run vrt が VRT の config を指している", () => {
     "npx playwright test --config playwright.vrt.config.ts"
   );
 });
+
+// ---------------------------------------------------------------------------
+// 他の口(`test:scripts` / `test:hooks`)の npm script と下限を固定する。自分自身を
+// 縛ると、ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:workflows`)は
+// `scripts/__tests__/check-scripts.test.mjs` にある。edu-law の同名テストと同型。
+//
+// **塞げるのは「片方だけを静かに薄める」まで**(限界は CLAUDE.md「下限の決め方」)。
+// ---------------------------------------------------------------------------
+
+/** `.test.mjs` / `.test.cjs` で終わるファイル名を昇順で返す(ディレクトリは除く) */
+function listTestFiles(dir, ext) {
+  return fs
+    .readdirSync(path.join(ROOT, dir), { withFileTypes: true })
+    .filter((e) => e.isFile() && e.name.endsWith(ext))
+    .map((e) => e.name)
+    .sort();
+}
+
+/** 行頭の `test(` の本数。テストは全部トップレベルに書かれている(実測と一致) */
+const countTopLevelTests = (text) => (text.match(/^test\(/gm) ?? []).length;
+
+/** `test:scripts` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
+const SCRIPT_TESTS = 51;
+
+test("test:scripts の口にあるテストファイルが 3 本である", () => {
+  // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
+  // 下限つきの口は緑のまま通った)。囮を 1 本足してから本体を薄める経路も、ここで赤になる。
+  // `fixtures/` `helpers/` `workflows/` はディレクトリなので一覧に入らない。
+  assert.deepEqual(listTestFiles("scripts/__tests__", ".test.mjs"), [
+    "check-scripts.test.mjs",
+    "glossary-inline.test.mjs",
+    "remark-glossary.test.mjs",
+  ]);
+});
+
+test("npm script test:scripts が、実測ちょうどの下限で 2 段を通す", () => {
+  // **完全一致で縛る。** `match` だと ` || true` を後ろに足すだけで恒久 no-op に
+  // でき、下限も 1 まで静かに下げられる(`assert-test-results.mjs` は 1 以上しか
+  // 要求しない)。
+  //
+  // **下限を守る対象から導出しない。** ファイルの `test(` を数えて突き合わせる形だと、
+  // 中身を消せば数も一緒に下がるので、`中身を空にする + 下限を巻き戻す` の 2 手が
+  // 素通りする(edu-law の実測)。**塞いでいるのは、この定数がここに直接書いてあること**。
+  // 静的数との照合は「テストを足したのに定数を上げていない」を赤にするためにある。
+  // テストを足したら npm script とこの定数の両方を直す。
+  //
+  // `check-scripts.test.mjs` の `gate()` は 1 呼び出しで 2 テスト(違反 / 正常)を登録する。
+  const own = read("scripts/__tests__/check-scripts.test.mjs");
+  const measured =
+    countTopLevelTests(own) +
+    (own.match(/^gate\(/gm) ?? []).length * 2 +
+    countTopLevelTests(read("scripts/__tests__/glossary-inline.test.mjs")) +
+    countTopLevelTests(read("scripts/__tests__/remark-glossary.test.mjs"));
+  assert.equal(measured, SCRIPT_TESTS, "実測と定数がずれている");
+  assert.equal(
+    PKG.scripts["test:scripts"],
+    'node scripts/assert-test-files.mjs "scripts/__tests__/*.test.mjs" && ' +
+      `node scripts/assert-test-results.mjs ${SCRIPT_TESTS} "scripts/__tests__/*.test.mjs"`
+  );
+});
+
+const HOOK_TEST_FILES = [
+  "branch-guard.test.cjs",
+  "post-edit-roundtrip-spot-check.test.cjs",
+  "pre-edit-frontmatter-immutable.test.cjs",
+];
+
+/**
+ * `test:hooks` の下限。実数追随ではなく「どの 1 ファイルを空にしても割る」境界値
+ * (`総数 − 最小ファイルの本数 + 2`。空ファイルも `node --test` は 1 pass と数える)。
+ * **守る対象から導出しない**(理由は `SCRIPT_TESTS` と同じ)。
+ */
+const HOOK_TESTS_FLOOR = 56;
+
+test("test:hooks の口にあるテストファイルが 3 本である", () => {
+  assert.deepEqual(
+    listTestFiles(".claude/hooks/__tests__", ".test.cjs"),
+    HOOK_TEST_FILES
+  );
+});
+
+test("npm script test:hooks が、境界値の下限で 2 段を通す", () => {
+  // 境界値の式を機械で固定する。最小ファイル**以外**にテストを足すと総数だけが
+  // 増えて式が動くので、定数を再導出しないと赤になる。**最小ファイルの増減には
+  // 不変**(総数と最小が同じだけ動く)で、それは境界値の設計どおり — 最小ファイルを
+  // 丸ごと空にする経路は `assert-test-results.mjs` の下限そのものが止める。
+  const counts = HOOK_TEST_FILES.map((name) =>
+    countTopLevelTests(read(`.claude/hooks/__tests__/${name}`))
+  );
+  const total = counts.reduce((sum, n) => sum + n, 0);
+  assert.equal(
+    total - Math.min(...counts) + 2,
+    HOOK_TESTS_FLOOR,
+    "境界値(総数 − 最小ファイルの本数 + 2)と定数がずれている"
+  );
+  assert.equal(
+    PKG.scripts["test:hooks"],
+    'node scripts/assert-test-files.mjs ".claude/hooks/__tests__/*.test.cjs" && ' +
+      `node scripts/assert-test-results.mjs ${HOOK_TESTS_FLOOR} ".claude/hooks/__tests__/*.test.cjs"`
+  );
+});
+
+test("test:scripts と test:hooks の口が checks.yml に配線されている", () => {
+  // 逆向きの縛り(`check-scripts.test.mjs` が `test:workflows` を固定する)は、
+  // `test:scripts` のステップが checks.yml から外れると CI で一度も走らない
+  // (`check:all` は CI から呼ばれていない)。相互固定が片肺にならないよう、
+  // 相手のホストの配線をこちらから見る。`test:hooks` は誰も配線を見ていなかった。
+  // ステップ名では探さない(改名だけで赤くなるため)。
+  const b = read(".github/workflows/checks.yml");
+  for (const script of ["test:scripts", "test:hooks"]) {
+    assert.match(
+      b,
+      new RegExp(
+        `^ {8}if: \\$\\{\\{ !cancelled\\(\\) \\}\\}\\n {8}run: npm run ${script}$`,
+        "m"
+      ),
+      `checks.yml に ${script} が無い、または前段が落ちると走らない形になっている`
+    );
+    // continue-on-error が付くと赤が job に伝わらない。**キーとして**探す —
+    // 字面で探すと、次のステップに掛かるコメント(「continue-on-error が無いこと」)が
+    // このステップの塊に入って偽陽性になる(実測)。
+    const step = b
+      .split(/^ {6}(?=- name: )/m)
+      .find((s) => s.includes(`run: npm run ${script}`));
+    assert.ok(
+      step && !/^\s+continue-on-error:/m.test(step),
+      `${script} のステップに continue-on-error が付いている`
+    );
+  }
+});

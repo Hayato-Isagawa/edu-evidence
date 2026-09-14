@@ -96,8 +96,10 @@ jobs:
       # 1 つの glob に混ぜると、どの口が何本失ったかを 1 つの数では追えない。
       # 置き場所を `scripts/__tests__/workflows/` にしたのはその帰結で、
       # `scripts/__tests__/*.test.mjs` がサブディレクトリを拾わない = 二重実行しない(実測)。
-      # 下限の値は package.json だけが持つ(ここに写すと、上げたときにここだけ古くなる)。
-      # テストを足したら package.json の下限も上げること。
+      # 下限の値はここに写さない(上げたときにここだけ古くなる)。持っているのは package.json と、
+      # もう一方の口のテストにある定数(scripts/__tests__/workflows/vrt-targets.test.mjs と
+      # scripts/__tests__/check-scripts.test.mjs)で、ずれると相手の口が赤になる。
+      # テストを足したら package.json の下限とその定数の両方を上げること。
       - name: Workflow logic regression tests
         if: ${{ !cancelled() }}
         run: npm run test:workflows
