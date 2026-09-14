@@ -393,11 +393,40 @@ function listTestFiles(dir, ext) {
     .sort();
 }
 
-/** 行頭の `test(` の本数。テストは全部トップレベルに書かれている(実測と一致) */
+/** 行頭の `test(` の本数。行頭以外に書かないことは `nonTopLevelTestCalls` が固定している */
 const countTopLevelTests = (text) => (text.match(/^test\(/gm) ?? []).length;
 
+/**
+ * 行頭以外の `test(` 呼び出し(トリム済みの行)。静的数は行頭しか数えないので、ブロック・
+ * ループ・1 行 `for` の中の `test(`、`t.test(` の subtest、`test.only(` / `test.it(` /
+ * `test.describe(` は実行数(`# pass`)だけを増やし、下限も定数も動かさない(#592。
+ * `test.only(` は `--test-only` 無しでも走る)。除外はコメント行と、正規表現リテラル直後の
+ * `.test(`(`/re/flags.test(`)だけ。引用符の中も区別しない — 直前が空白・記号なら赤
+ * (安全側)、`\ntest(` のように英数字が直前なら見えない。この関数自身が相手の口に
+ * 走査されるので、パターンは文字列でなく正規表現リテラルで書く。
+ */
+function nonTopLevelTestCalls(text) {
+  return (
+    text
+      .split("\n")
+      // 除くのは行コメント・`*` で続くブロックコメント・同じ行で閉じないブロックコメントの
+      // 開始行・空行。同じ行で閉じる `/* c */ test(` や `*/ test(` は除かない(素通りした実測あり)。
+      .filter((line) => !/^\s*(\/\/|\*(?!\/)|\/\*(?!.*\*\/)|$)/.test(line))
+      .filter((line) => {
+        // インデントを見る前にトリムすると、ブロック内の `test(` が行頭に化ける
+        const rest = line.replace(/^test\(/, "");
+        return (
+          /(?<![\w`.])test\(/.test(rest) ||
+          /(?<!\/[a-z]*)\.test\(/.test(rest) ||
+          /\btest\.(only|it|describe)\(/.test(rest)
+        );
+      })
+      .map((line) => line.trim())
+  );
+}
+
 /** `test:scripts` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const SCRIPT_TESTS = 51;
+const SCRIPT_TESTS = 52;
 
 test("test:scripts の口にあるテストファイルが 3 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
@@ -549,4 +578,36 @@ test("npm script test:gate が、判定器もテストランナーの親も通�
     "process.exitCode = 1",
   ]);
   assert.equal(PKG.scripts["test:gate"], `node ${GATE_FILE}`);
+});
+
+test("test:scripts / test:hooks / test:gate の口で、テストの登録は行頭にしか書かれていない", () => {
+  // 静的数と定数の照合(上)は行頭の `test(` しか見ない。行頭以外に書けば実行数だけが
+  // 増え、以後その 1 本ぶんの削除が無音になる(#592 で実測)。`check-scripts.test.mjs` の
+  // `gate()` 本体にある 2 本だけを既知として、行のテキストで固定する(3 本目を足せば
+  // `^gate(` × 2 の前提が崩れるので、ここで赤にする)。テスト名・メッセージ・既知の行に
+  // `test(` の字面を書くと、この検査自身が相手の口で赤になるので、既知の行は正規表現で持つ。
+  const GATE_BODY = [
+    /^test\(`\$\{script\} は \$\{fixture\} の違反を検出して落ちる`, \(\) => \{$/,
+    /^test\(`\$\{script\} は \$\{fixture\} の正常な入力を通す`, \(\) => \{$/,
+  ];
+  const files = [
+    ...listTestFiles("scripts/__tests__", ".test.mjs").map(
+      (name) => `scripts/__tests__/${name}`
+    ),
+    ...HOOK_TEST_FILES.map((name) => `.claude/hooks/__tests__/${name}`),
+    GATE_FILE,
+  ];
+  for (const rel of files) {
+    const found = nonTopLevelTestCalls(read(rel));
+    const known =
+      rel === "scripts/__tests__/check-scripts.test.mjs" ? GATE_BODY : [];
+    assert.equal(
+      found.length,
+      known.length,
+      `${rel} に行頭以外のテスト登録がある: ${found.join(" / ")}`
+    );
+    known.forEach((re, i) =>
+      assert.match(found[i], re, `${rel} の既知の行とずれている`)
+    );
+  }
 });
