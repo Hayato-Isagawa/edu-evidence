@@ -535,11 +535,18 @@ test("npm script test:gate が、判定器もテストランナーの親も通�
   // gate ファイル内の自己計数の定数も同じ値でなければ、走った本数の照合が空振りする。
   assert.match(own, new RegExp(`^const GATE_TESTS = ${GATE_TESTS};$`, "m"));
   // 自己計数の登録より前に `process.exit(0)` を置くと何にも止められない(実測)ので、
-  // 字面ごと禁じる。冒頭コメントの言及は `//` 行なので当たらない。
+  // `//` 行以外の `process.exit(` を禁じる(行頭に限ると `if (x) process.exit(0)` が通る)。
   assert.doesNotMatch(
     own,
-    /^\s*process\.exit\(/m,
+    /^(?!\s*\/\/).*\bprocess\.exit\(/m,
     "gate ファイルに process.exit( がある"
   );
+  // 直接実行では最終 exitCode がすべてなので、後から登録した exit ハンドラで
+  // `process.exitCode = 0` にすれば失敗も自己計数も上書きできる(実測)。ハンドラは
+  // 自己計数の 1 つだけ、exitCode への代入は `= 1` の 1 回だけに固定する。
+  assert.equal((own.match(/process\.on\("exit"/g) ?? []).length, 1);
+  assert.deepEqual(own.match(/process\.exitCode\b[^;\n]*/g), [
+    "process.exitCode = 1",
+  ]);
   assert.equal(PKG.scripts["test:gate"], `node ${GATE_FILE}`);
 });

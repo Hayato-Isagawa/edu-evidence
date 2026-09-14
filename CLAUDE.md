@@ -86,8 +86,9 @@ fixture を一時ディレクトリに作って判定器を spawn し、fail 1 �
 `node` でファイルを直接実行し(パスが無ければ exit 1)、判定器が塞ぐ「中身が空」は `test:workflows` の口が
 行頭 `test(` の静的数で、「全件 skip」(`{ skip: true }` / `t.skip()` / `NODE_OPTIONS=--test-skip-pattern`
 は静的数を変えずに 0 本実行にできる)は gate ファイル内の自己計数(末尾まで走った本数 ≠ 定数なら非 0
-終了)で塞ぐ。自己計数の登録より前の `process.exit(0)` は自己計数では止まらないので、字面を
-`test:workflows` の口が禁じる。fixture の spawn では `NODE_TEST_CONTEXT` / `NODE_TEST_WORKER_ID` を
+終了)で塞ぐ。自己計数の登録より前の `process.exit(0)` と、後から登録した exit ハンドラでの
+`process.exitCode = 0` は自己計数では止まらないので、`test:workflows` の口が字面で禁じる(禁じているのは
+列挙した形だけ)。fixture の spawn では `NODE_TEST_CONTEXT` / `NODE_TEST_WORKER_ID` を
 落とす(`node --test` 配下で継承すると内側の `node --test` が「再帰呼び出し」として 0 件実行になる)。
 **残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
