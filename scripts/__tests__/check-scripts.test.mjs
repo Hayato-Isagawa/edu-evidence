@@ -698,7 +698,7 @@ const WORKFLOW_TEST_FILES = [
 ];
 
 /** `test:workflows` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const WORKFLOW_TESTS = 79;
+const WORKFLOW_TESTS = 80;
 
 test("test:workflows の口にあるテストファイルが 3 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
@@ -739,4 +739,48 @@ test("npm script test:workflows が、実測ちょうどの下限で 2 段を通
     'node scripts/assert-test-files.mjs "scripts/__tests__/workflows/*.test.mjs" && ' +
       `node scripts/assert-test-results.mjs ${WORKFLOW_TESTS} "scripts/__tests__/workflows/*.test.mjs"`
   );
+});
+
+/**
+ * 行頭以外の `test(` 呼び出し(トリム済みの行)。`vrt-targets.test.mjs` の同名関数の複製 —
+ * 共有ヘルパにすると 1 編集で両口を同時に無力化できるので、相互固定の対称性のまま
+ * 各口に置く。除外と限界も同じ(コメント行と正規表現リテラル直後の `.test(` だけ除外、
+ * 引用符内も区別しない、パターンは正規表現リテラルで書く)。
+ */
+function nonTopLevelTestCalls(text) {
+  return (
+    text
+      .split("\n")
+      // 除くのは行コメント・`*` で続くブロックコメント・同じ行で閉じないブロックコメントの
+      // 開始行・空行。同じ行で閉じる `/* c */ test(` や `*/ test(` は除かない(素通りした実測あり)。
+      .filter((line) => !/^\s*(\/\/|\*(?!\/)|\/\*(?!.*\*\/)|$)/.test(line))
+      .filter((line) => {
+        // インデントを見る前にトリムすると、ブロック内の `test(` が行頭に化ける
+        const rest = line.replace(/^test\(/, "");
+        return (
+          /(?<![\w`.])test\(/.test(rest) ||
+          /(?<!\/[a-z]*)\.test\(/.test(rest) ||
+          /\btest\.(only|it|describe)\(/.test(rest)
+        );
+      })
+      .map((line) => line.trim())
+  );
+}
+
+test("test:workflows の口で、テストの登録は行頭にしか書かれていない", () => {
+  // 静的数と定数の照合(上)は行頭の `test(` しか見ない。行頭以外(ブロック・ループ・
+  // `t.test(` の subtest・`test.only(`)に書けば実行数だけが増え、以後その 1 本ぶんの
+  // 削除が無音になる(#592 で実測)。テスト名・メッセージに `test(` の字面を書くと、この
+  // 検査自身が相手の口で赤になる。
+  for (const name of WORKFLOW_TEST_FILES) {
+    const text = fs.readFileSync(
+      path.join(REPO, "scripts/__tests__/workflows", name),
+      "utf8"
+    );
+    assert.deepEqual(
+      nonTopLevelTestCalls(text),
+      [],
+      `${name} に行頭以外のテスト登録がある`
+    );
+  }
 });
