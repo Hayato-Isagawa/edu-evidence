@@ -36,6 +36,7 @@ npm run check:consistency  # monthsGained 整合性チェック
 npm run check:evidence-strength # エビデンス強度(★)整合性チェック
 npm run check:stale        # lastVerified 期限切れチェック
 npm run check:all          # 上記チェックを一括実行(手元用。CI の Content Checks は同じ script を個別 step で呼ぶ)
+npm run test:gate          # 下 3 つの口が通す判定器(assert-test-*.mjs)自身の検証(判定器を通さない・check:all に含む)
 npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:all に含む)
 npm run test:workflows     # link-check.yml の通知分岐と VRT の配線の回帰テスト(下限つき・check:all に含む)
 npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・check:all に含む)
@@ -75,12 +76,29 @@ VRT 自身では捕まえられない — VRT は `paths` に載る PR でしか
 `node --test` は「glob が 0 件」「中身が空」「全件 skip」のどれでも exit 0 で終わるので、
 守っているつもりのガードが no-op に落ちても気づけないため。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 77 と `test:scripts` の 51 は実測ちょうど
+**その判定器自身は `test:gate` が検証する**(`scripts/__tests__/gate/assert-test-scripts.test.mjs`。
+fixture を一時ディレクトリに作って判定器を spawn し、fail 1 件 / 下限割れ / skip / todo で exit 1、
+空ファイルは pass 1 と数える、glob 0 件は assert-test-files が exit 1、を固定する)。
+`if (problems.length)` を `if (false)` にする 1 行で 3 口とも恒久 exit 0 になっていた(実測)。
+**この口だけは判定器を通さず、`node --test` の親も挟まない** — 判定器を通す口に置くと、判定器が
+壊れたとき自己検証の失敗も同じ判定器に握り潰され、`node --test` の親を挟むと、親が `t.skip()` /
+`{ todo: true }` 付きの失敗を skip / todo として集計し子の非 0 終了も落として exit 0 にする(実測)。
+`node` でファイルを直接実行し(パスが無ければ exit 1)、判定器が塞ぐ「中身が空」は `test:workflows` の口が
+行頭 `test(` の静的数で、「全件 skip」(`{ skip: true }` / `t.skip()` / `NODE_OPTIONS=--test-skip-pattern`
+は静的数を変えずに 0 本実行にできる)は gate ファイル内の自己計数(末尾まで走った本数 ≠ 定数なら非 0
+終了)で塞ぐ。自己計数の登録より前の `process.exit(0)` と、後から登録した exit ハンドラでの
+`process.exitCode = 0` は自己計数では止まらないので、`test:workflows` の口が字面で禁じる(禁じているのは
+列挙した形だけ)。fixture の spawn では `NODE_TEST_CONTEXT` / `NODE_TEST_WORKER_ID` を
+落とす(`node --test` 配下で継承すると内側の `node --test` が「再帰呼び出し」として 0 件実行になる)。
+**残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
+実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
+
+**下限の決め方は口ごとに違う。** `test:workflows` の 79 と `test:scripts` の 51 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 56 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 64 と離れていてよい。
 
 **npm script の文字列と下限は、もう一方の口のテストが定数で完全一致固定している**
-(`test:scripts` / `test:hooks` は `scripts/__tests__/workflows/vrt-targets.test.mjs`、
+(`test:scripts` / `test:hooks` / `test:gate` は `scripts/__tests__/workflows/vrt-targets.test.mjs`、
 `test:workflows` は `scripts/__tests__/check-scripts.test.mjs`。自分自身を縛ると、ファイルごと
 消えたときに縛りも消える)。定数は守る対象から導出せず直接書いてある — ファイルの `test(` を
 数えて突き合わせる形だと、中身を空にして下限を巻き戻す 2 手が素通りする。**テストを足したら

@@ -377,7 +377,7 @@ test("npm run vrt が VRT の config を指している", () => {
 });
 
 // ---------------------------------------------------------------------------
-// 他の口(`test:scripts` / `test:hooks`)の npm script と下限を固定する。自分自身を
+// 他の口(`test:scripts` / `test:hooks`、末尾で `test:gate`)の npm script と下限を固定する。自分自身を
 // 縛ると、ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:workflows`)は
 // `scripts/__tests__/check-scripts.test.mjs` にある。edu-law の同名テストと同型。
 //
@@ -402,7 +402,7 @@ const SCRIPT_TESTS = 51;
 test("test:scripts の口にあるテストファイルが 3 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
   // 下限つきの口は緑のまま通った)。囮を 1 本足してから本体を薄める経路も、ここで赤になる。
-  // `fixtures/` `helpers/` `workflows/` はディレクトリなので一覧に入らない。
+  // `fixtures/` `gate/` `helpers/` `workflows/` はディレクトリなので一覧に入らない。
   assert.deepEqual(listTestFiles("scripts/__tests__", ".test.mjs"), [
     "check-scripts.test.mjs",
     "glossary-inline.test.mjs",
@@ -477,14 +477,15 @@ test("npm script test:hooks が、境界値の下限で 2 段を通す", () => {
   );
 });
 
-test("test:scripts と test:hooks の口が checks.yml に配線されている", () => {
+test("test:scripts / test:hooks / test:gate の口が checks.yml に配線されている", () => {
   // 逆向きの縛り(`check-scripts.test.mjs` が `test:workflows` を固定する)は、
   // `test:scripts` のステップが checks.yml から外れると CI で一度も走らない
   // (`check:all` は CI から呼ばれていない)。相互固定が片肺にならないよう、
   // 相手のホストの配線をこちらから見る。`test:hooks` は誰も配線を見ていなかった。
+  // `test:gate` は判定器の外で走る口なので、外れると判定器の故障を誰も見なくなる。
   // ステップ名では探さない(改名だけで赤くなるため)。
   const b = read(".github/workflows/checks.yml");
-  for (const script of ["test:scripts", "test:hooks"]) {
+  for (const script of ["test:scripts", "test:hooks", "test:gate"]) {
     assert.match(
       b,
       new RegExp(
@@ -504,4 +505,48 @@ test("test:scripts と test:hooks の口が checks.yml に配線されている"
       `${script} のステップに continue-on-error が付いている`
     );
   }
+});
+
+// ---------------------------------------------------------------------------
+// 判定器の自己検証の口(`test:gate`)を固定する。あちらは判定器を通さないので、
+// 「中身が空で exit 0」を判定器が止めてくれない — 空ファイル化はここが静的数で止め、
+// skip 系はあちらの自己計数が止める(理由は gate ファイル冒頭)。
+// ---------------------------------------------------------------------------
+
+const GATE_FILE = "scripts/__tests__/gate/assert-test-scripts.test.mjs";
+
+/** `test:gate` で走るべきテストの総数。**守る対象から導出しない**(`SCRIPT_TESTS` と同じ理由) */
+const GATE_TESTS = 11;
+
+test("test:gate の口にあるテストファイルが 1 本である", () => {
+  // 1 ファイルを直接実行するので囮を足しても実行数は変わらないが、gate/ に別ファイルが
+  // 増えると「どれが走っているか」が名前でしか分からなくなる。1 本に固定する。
+  assert.deepEqual(listTestFiles("scripts/__tests__/gate", ".test.mjs"), [
+    path.basename(GATE_FILE),
+  ]);
+});
+
+test("npm script test:gate が、判定器もテストランナーの親も通さず直接走る", () => {
+  // **完全一致で縛る。** 判定器を挟むと判定器の故障で自己検証も黙る。`node --test` を
+  // 挟むと、親が skip / todo 付きの失敗を集計から落として exit 0 にする(実測)。
+  // ` || true` は他の口と同じ。
+  const own = read(GATE_FILE);
+  assert.equal(countTopLevelTests(own), GATE_TESTS, "実測と定数がずれている");
+  // gate ファイル内の自己計数の定数も同じ値でなければ、走った本数の照合が空振りする。
+  assert.match(own, new RegExp(`^const GATE_TESTS = ${GATE_TESTS};$`, "m"));
+  // 自己計数の登録より前に `process.exit(0)` を置くと何にも止められない(実測)ので、
+  // `//` 行以外の `process.exit(` を禁じる(行頭に限ると `if (x) process.exit(0)` が通る)。
+  assert.doesNotMatch(
+    own,
+    /^(?!\s*\/\/).*\bprocess\.exit\(/m,
+    "gate ファイルに process.exit( がある"
+  );
+  // 直接実行では最終 exitCode がすべてなので、後から登録した exit ハンドラで
+  // `process.exitCode = 0` にすれば失敗も自己計数も上書きできる(実測)。ハンドラは
+  // 自己計数の 1 つだけ、exitCode への代入は `= 1` の 1 回だけに固定する。
+  assert.equal((own.match(/process\.on\("exit"/g) ?? []).length, 1);
+  assert.deepEqual(own.match(/process\.exitCode\b[^;\n]*/g), [
+    "process.exitCode = 1",
+  ]);
+  assert.equal(PKG.scripts["test:gate"], `node ${GATE_FILE}`);
 });

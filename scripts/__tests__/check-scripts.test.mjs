@@ -237,6 +237,7 @@ test("check:all は CI が走らせる回帰テストを全部含む", () => {
   for (const gate of [
     "lint",
     "format:check",
+    "test:gate",
     "test:scripts",
     "test:workflows",
     "test:hooks",
@@ -684,7 +685,7 @@ test("check-source-links.ts は Wayback が連続して答えないと残りの�
 
 // ---------------------------------------------------------------------------
 // もう一方の口(`test:workflows`)の npm script と下限を固定する。自分自身を縛ると、
-// ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:scripts` / `test:hooks`)は
+// ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:scripts` / `test:hooks` / `test:gate`)は
 // `scripts/__tests__/workflows/vrt-targets.test.mjs` にある。edu-law の同型を移植。
 //
 // **塞げるのは「片方だけを静かに薄める」まで**(限界は CLAUDE.md「下限の決め方」)。
@@ -697,7 +698,7 @@ const WORKFLOW_TEST_FILES = [
 ];
 
 /** `test:workflows` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const WORKFLOW_TESTS = 77;
+const WORKFLOW_TESTS = 79;
 
 test("test:workflows の口にあるテストファイルが 3 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
