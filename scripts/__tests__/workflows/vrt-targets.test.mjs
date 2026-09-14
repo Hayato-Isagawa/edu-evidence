@@ -686,7 +686,11 @@ const countTopLevelTests = (text) => (text.match(/^test\(/gm) ?? []).length;
  * 行頭以外の `test(` 呼び出し(トリム済みの行)。静的数は行頭しか数えないので、ブロック・
  * ループ・1 行 `for` の中の `test(`、`t.test(` の subtest、`test.only(` / `test.it(` /
  * `test.describe(` は実行数(`# pass`)だけを増やし、下限も定数も動かさない(#592。
- * `test.only(` は `--test-only` 無しでも走る)。除外はコメント行と、正規表現リテラル直後の
+ * `test.only(` は `--test-only` 無しでも走る)。間接呼び出し(`(test)(` / `(0, test)(` /
+ * `test?.(` / `test.call(` / `test.apply(` / `test.bind(`)と、既定の 2 形以外での
+ * `node:test` の取り込み(`import { it, describe }` / `import * as` / `import t from` /
+ * 分割代入の `require`)も同じ理由で赤にする(#596。`it(` / `describe(` は行頭でも
+ * 静的数に載らない)。除外はコメント行と、正規表現リテラル直後の
  * `.test(`(`/re/flags.test(`)だけ。引用符の中も区別しない — 直前が空白・記号なら赤
  * (安全側)、`\ntest(` のように英数字が直前なら見えない。この関数自身が相手の口に
  * 走査されるので、パターンは文字列でなく正規表現リテラルで書く。
@@ -704,7 +708,15 @@ function nonTopLevelTestCalls(text) {
         return (
           /(?<![\w`.])test\(/.test(rest) ||
           /(?<!\/[a-z]*)\.test\(/.test(rest) ||
-          /\btest\.(only|it|describe)\(/.test(rest)
+          /\btest\.(only|it|describe|call|apply|bind)\(/.test(rest) ||
+          /(?<![\w`.])test\)\(/.test(rest) ||
+          /(?<![\w`.])test\?\.\(/.test(rest) ||
+          // `node:test` を取り込む宣言行は、既定の 2 形と完全一致しなければ赤(`import` /
+          // `const` 等で始まらない fixture 文字列の行は見ない)
+          (/node:test/.test(line) &&
+            /^\s*(import|const|let|var)\b/.test(line) &&
+            !/^import test from "node:test";$/.test(line) &&
+            !/^const test = require\("node:test"\);$/.test(line))
         );
       })
       .map((line) => line.trim())

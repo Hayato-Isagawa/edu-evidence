@@ -760,7 +760,15 @@ function nonTopLevelTestCalls(text) {
         return (
           /(?<![\w`.])test\(/.test(rest) ||
           /(?<!\/[a-z]*)\.test\(/.test(rest) ||
-          /\btest\.(only|it|describe)\(/.test(rest)
+          /\btest\.(only|it|describe|call|apply|bind)\(/.test(rest) ||
+          /(?<![\w`.])test\)\(/.test(rest) ||
+          /(?<![\w`.])test\?\.\(/.test(rest) ||
+          // `node:test` を取り込む宣言行は、既定の 2 形と完全一致しなければ赤(`import` /
+          // `const` 等で始まらない fixture 文字列の行は見ない)
+          (/node:test/.test(line) &&
+            /^\s*(import|const|let|var)\b/.test(line) &&
+            !/^import test from "node:test";$/.test(line) &&
+            !/^const test = require\("node:test"\);$/.test(line))
         );
       })
       .map((line) => line.trim())
