@@ -24,7 +24,7 @@ npm ci                     # 依存をロックから復元
 ```bash
 npm run dev                # 開発サーバー(localhost:4322。ファミリー各リポで固定・4321 は未設定プロジェクト用に空けている)
 npm run build              # 本番ビルド(OG画像74枚 + Pagefindインデックス生成、約2分)
-npm run test:e2e           # Playwright E2Eテスト(53テスト・10ファイル=`playwright test --list` の数、ビルド後に実行)
+npm run test:e2e           # Playwright E2Eテスト(58テスト・11ファイル=`playwright test --list` の数、ビルド後に実行)
 npm run vrt                # ビジュアルリグレッションテスト(現 dist を撮影・比較。権威ある比較は CI、後述)
 npm run a11y:baseline      # axe-core で a11y 違反一覧を再生成(dev 起動後 `node scripts/a11y-baseline.mjs http://localhost:<port>`)
 npm run lint               # oxlint(correctness ルール。warning でも止める。.astro は frontmatter と <script> を見る)
