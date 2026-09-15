@@ -12,6 +12,7 @@ import {
 } from "../../lib/effect-size";
 import TableOfContents from "../../components/TableOfContents.astro";
 import RelatedStrategyCard from "../../components/RelatedStrategyCard.astro";
+import CitationCopy from "../../components/CitationCopy.astro";
 
 export async function getStaticPaths() {
   const strategies = await getCollection("strategies");
@@ -378,6 +379,15 @@ const effectNote = d.monthsUnmeasured
       </section>
     )
   }
+
+  {/* EEF の帰属は source: eef のページだけ。evidence.eef の有無で決めると、
+      「Toolkit に独立したエントリは無い」と note に書いたページにも帰属が付く */}
+  <CitationCopy
+    title={d.title}
+    url={`${pageUrl}/`}
+    lastVerified={d.lastVerified}
+    adaptedFromEef={d.source === "eef"}
+  />
 
   {
     relatedStrategyEntries.length > 0 && (
