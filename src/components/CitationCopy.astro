@@ -1,5 +1,5 @@
 ---
-import { formatCitation } from "../lib/citation";
+import { DATE_PLACEHOLDER, formatCitation } from "../lib/citation";
 
 interface Props {
   title: string;
@@ -21,6 +21,9 @@ const citation = formatCitation({ title, url, published, lastVerified, adaptedFr
   >
     {citation}
   </p>
+  <noscript>
+    <p class="text-sm text-sub">「{DATE_PLACEHOLDER}」は閲覧した日に置き換えてください。</p>
+  </noscript>
   <div class="flex flex-wrap items-center gap-3">
     <button
       type="button"
