@@ -1,0 +1,70 @@
+---
+import { formatCitation } from "../lib/citation";
+
+interface Props {
+  title: string;
+  url: string;
+  published?: string | null;
+  lastVerified?: string | null;
+  adaptedFromEef?: boolean;
+}
+
+const { title, url, published, lastVerified, adaptedFromEef } = Astro.props;
+const citation = formatCitation({ title, url, published, lastVerified, adaptedFromEef });
+---
+
+<section class="pt-10 mt-10 border-t border-line max-w-2xl space-y-2" data-citation>
+  <div class="text-xs text-sub">このページを引用するときの表記例</div>
+  <p
+    id="citation-text"
+    class="select-all break-words rounded-xl border border-line bg-card px-4 py-3 text-sm leading-relaxed text-ink"
+  >
+    {citation}
+  </p>
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      type="button"
+      id="citation-copy"
+      hidden
+      aria-describedby="citation-text"
+      data-copy="idle"
+      class="font-mono text-[11px] uppercase tracking-widest text-sub border border-line rounded-full px-3 py-1 hover:border-accent hover:text-accent data-[copy=done]:border-accent data-[copy=done]:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
+    >
+      出典表記をコピー(参照日つき)
+    </button>
+    <p id="citation-status" role="status" aria-live="polite" class="text-sm text-sub"></p>
+  </div>
+</section>
+
+<script>
+  import { DATE_PLACEHOLDER, todayIso } from "../lib/citation";
+
+  // JS 無効環境では select-all の例文を手動コピーできる(漸進的強化)。
+  // 状態は属性で持ち、見た目は data-[copy=…] の variant が追従する(ADR 0007)
+  const button = document.getElementById("citation-copy") as HTMLButtonElement | null;
+  const text = document.getElementById("citation-text");
+  const status = document.getElementById("citation-status");
+  if (button && text && status && navigator.clipboard) {
+    button.hidden = false;
+    let timer: number | undefined;
+    const setState = (state: "idle" | "done" | "failed", message: string) => {
+      button.dataset.copy = state;
+      status.textContent = message;
+    };
+    button.addEventListener("click", async () => {
+      // プレースホルダは末尾の日付欄にあるので、題名に同じ字面があっても最後の 1 つだけ置き換える
+      const shown = (text.textContent ?? "").trim();
+      const at = shown.lastIndexOf(DATE_PLACEHOLDER);
+      const citation =
+        at === -1 ? shown : shown.slice(0, at) + todayIso() + shown.slice(at + DATE_PLACEHOLDER.length);
+      window.clearTimeout(timer);
+      try {
+        await navigator.clipboard.writeText(citation);
+        setState("done", "コピーしました");
+        timer = window.setTimeout(() => setState("idle", ""), 2000);
+      } catch {
+        setState("failed", "コピーできませんでした。表記例を選択してコピーしてください");
+      }
+    });
+  }
+</script>

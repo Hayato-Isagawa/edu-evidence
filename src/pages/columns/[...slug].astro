@@ -4,6 +4,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import RelatedStrategyCard from "../../components/RelatedStrategyCard.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
+import CitationCopy from "../../components/CitationCopy.astro";
 
 export async function getStaticPaths() {
   const columns = await getCollection("columns");
@@ -239,6 +240,13 @@ const breadcrumbJsonLd = {
       </section>
     )
   }
+
+  <CitationCopy
+    title={d.title}
+    url={`${pageUrl}/`}
+    published={d.date}
+    lastVerified={lastVerified}
+  />
 
   <div class="pt-10 mt-10 border-t border-line max-w-2xl">
     <a
