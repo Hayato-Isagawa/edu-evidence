@@ -730,3 +730,109 @@ a {
     transition: none;
   }
 }
+
+/* 印刷(研修資料としての持ち出し)。edu-law ADR 0029 のミラー(ADR 0038)。テンプレは触らず、
+   ここ 1 ブロックで全ページに効かせる。ここは unlayered なので Tailwind の全ユーティリティに
+   勝つ — 素の要素セレクタ(a 等)は書かない。
+   トークンは :root にだけ書く。[data-theme="dark"] のブロックを増やすと
+   src/pages/design-tokens.json.ts がそれも dark 値として集約し、公開 JSON が壊れる。
+   同じ詳細度で後置なので :root だけで dark の上書きに勝つ。 */
+@media print {
+  :root {
+    color-scheme: light;
+    --color-bg: #ffffff;
+    --color-ink: #000000;
+    --color-sub: #333333;
+    --color-line: #999999;
+    --color-card: #ffffff;
+    --color-accent: #2b5d3a;
+    --color-accent-hover: #2b5d3a;
+    --color-chart-red: #c0392b;
+    --color-source-eef: oklch(44.3% 0.11 240.79);
+    --color-source-eef-bg: oklch(97.7% 0.013 236.62);
+    --color-source-japan: oklch(51.4% 0.222 16.935);
+    --color-source-japan-bg: oklch(96.9% 0.015 12.422);
+    --color-source-hattie: oklch(47.3% 0.137 46.201);
+    --color-source-hattie-bg: oklch(98.7% 0.022 95.277);
+    --color-cost: oklch(50.8% 0.118 165.612);
+  }
+  @page {
+    margin: 12mm;
+  }
+  html {
+    font-size: 11pt;
+  }
+  body {
+    line-height: 1.6;
+  }
+  /* 本文は px 固定なので html の pt では縮まない */
+  .prose-article p,
+  .prose-article li {
+    font-size: 11pt;
+  }
+
+  .site-header {
+    position: static;
+    background: var(--color-bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .site-header nav,
+  #menu-toggle,
+  #mobile-menu,
+  .skip-link,
+  #reading-progress,
+  #back-to-top,
+  .glossary-bubble,
+  .toc,
+  #citation-copy,
+  #citation-status {
+    display: none;
+  }
+  /* TOC サイドバーの列を空けたままにしない */
+  main div:has(> aside .toc-sidebar) {
+    display: block;
+  }
+
+  /* サイトフッターは説明文・購読・探す・学ぶ・サイトについて・姉妹サイトを落とし、
+     お問い合わせと © 行(CC BY-SA・EEF 帰属)は配布物に残す。 */
+  main {
+    padding-bottom: 0;
+  }
+  body > footer > div:first-child {
+    display: block;
+    padding-block: 0.5rem;
+  }
+  body > footer > div:first-child > div:first-child > p,
+  body > footer > div:first-child > div:first-child > div:last-child,
+  body > footer section[aria-labelledby="footer-explore"],
+  body > footer section[aria-labelledby="footer-learn"],
+  body > footer > div:first-child > div:last-child {
+    display: none;
+  }
+
+  /* 本文リンク。既存の .prose-article a:not(.glossary-tip) と同じ詳細度で後置して勝たせる */
+  .link-underline,
+  .prose-article a:not(.glossary-tip) {
+    color: inherit;
+    text-decoration: underline;
+  }
+  /* 外部リンクは紙から辿れるよう URL を併記する */
+  main a[target="_blank"]::after {
+    content: " (" attr(href) ")";
+    overflow-wrap: anywhere;
+  }
+  .prose-article a[href^="http"] {
+    overflow-wrap: anywhere;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  li,
+  blockquote,
+  tr {
+    break-inside: avoid;
+  }
+}
