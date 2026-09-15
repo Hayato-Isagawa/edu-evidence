@@ -18,6 +18,21 @@ test.describe("トップページ", () => {
     expect(count).toBeGreaterThanOrEqual(70);
   });
 
+  test("フッターの CC BY-SA 4.0 がライセンスの説明ページへ別タブでリンクしている", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const link = page
+      .locator("footer")
+      .getByRole("link", { name: "CC BY-SA 4.0" });
+    await expect(link).toHaveAttribute(
+      "href",
+      "https://creativecommons.org/licenses/by-sa/4.0/deed.ja"
+    );
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", "noopener noreferrer");
+  });
+
   test("EEF 説明セクションが存在する", async ({ page }) => {
     await page.goto("/");
     await expect(
