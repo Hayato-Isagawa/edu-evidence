@@ -113,8 +113,11 @@ npm script と、もう一方の口にある定数の両方を直す**(ずれる
 `gate()` 本体 2 行だけ既知)。除外はコメント行(同じ行で閉じる `/* c */ test(` は除かない)と
 正規表現**リテラル**直後の `.test(` だけ。**引用符の中も区別しない** — 直前が空白・記号なら赤
 (安全側。テスト名・メッセージに字面を書かない)、`\ntest(` のように英数字が直前なら見えない。
-残る穴の例: `test ("x")` の空白入り(`oxfmt --check` が止める)/ `it` `describe` の名前付き import /
-`test` の別名(`const t = test`・`(0, test)(`・`test.call(`)。変数の正規表現 `RE.test(x)` は偽陽性で赤。
+**`node:test` の取り込みは `import test from "node:test";` / `const test = require("node:test");` の
+2 形だけ** — `it` / `describe` の名前付き import・`import * as`・`import t from`・分割代入の `require` は
+同じ検査が赤にする(`it(` は行頭に書いても静的数に載らない)。間接呼び出し(`(test)(`・`(0, test)(`・
+`test?.(`・`test.call(` / `.apply(` / `.bind(`)も赤(#596)。残る穴の例: `test ("x")` の空白入り
+(`oxfmt --check` が止める)/ 代入の別名(`const t = test; t(`)。変数の正規表現 `RE.test(x)` は偽陽性で赤。
 
 この相互固定で塞げるのは「片方だけを静かに薄める」までで、限界が 2 つある: 相手側の定数まで
 書き換える 3 手目を足せば通る / 相互固定している 2 つの口の script に同時に ` || true` を足せば

@@ -750,6 +750,12 @@ test("npm script test:workflows が、実測ちょうどの下限で 2 段を通
 function nonTopLevelTestCalls(text) {
   return (
     text
+      // oxfmt は 80 桁を超える取り込み文を複数行に折る(`import {\n  it,\n} from` /
+      // `} =\n  require(`)ので、宣言を 1 行に戻してから見る。引用符・`;` は越えない
+      .replace(/\bimport\b[^;'"`]*?\bfrom\b/g, (m) => m.replace(/\s+/g, " "))
+      .replace(/\{[^}]*\}\s*=\s*(await\s+import|require)\s*\(/g, (m) =>
+        m.replace(/\s+/g, " ")
+      )
       .split("\n")
       // 除くのは行コメント・`*` で続くブロックコメント・同じ行で閉じないブロックコメントの
       // 開始行・空行。同じ行で閉じる `/* c */ test(` や `*/ test(` は除かない(素通りした実測あり)。
@@ -760,7 +766,15 @@ function nonTopLevelTestCalls(text) {
         return (
           /(?<![\w`.])test\(/.test(rest) ||
           /(?<!\/[a-z]*)\.test\(/.test(rest) ||
-          /\btest\.(only|it|describe)\(/.test(rest)
+          /\btest\.(only|it|describe|call|apply|bind)\(/.test(rest) ||
+          /(?<![\w`.])test\)\(/.test(rest) ||
+          /(?<![\w`.])test\?\.\(/.test(rest) ||
+          // `node:test` を取り込む宣言行は、既定の 2 形と完全一致しなければ赤(`import` /
+          // `const` 等で始まらない fixture 文字列の行は見ない)
+          (/node:test/.test(line) &&
+            /^\s*(import|const|let|var)\b/.test(line) &&
+            !/^import test from "node:test";$/.test(line) &&
+            !/^const test = require\("node:test"\);$/.test(line))
         );
       })
       .map((line) => line.trim())
