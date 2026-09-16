@@ -43,7 +43,9 @@ test.describe("印刷スタイル", () => {
       await expect(
         page.locator('body > footer section[aria-labelledby="footer-learn"]')
       ).toBeHidden();
-      await expect(footerTop.getByText("姉妹サイト")).toBeHidden();
+      // サイトについて / 姉妹サイトは 1 つの wrapper で落とす。片方の見出しだけ見ると、
+      // 規則を section 単位に狭めた後退が通る
+      await expect(footerTop.locator("> div:last-child")).toBeHidden();
       // 出所・出典表記・ライセンス表示は残る。toContainText は textContent を読むので
       // display:none でも通ってしまう — 描画されていることを見る
       await expect(
