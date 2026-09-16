@@ -86,7 +86,9 @@ test.describe("印刷スタイル", () => {
       expect(after).toContain(href!);
     });
 
-    test(`${path} は 320px でも横に溢れず、メニューも消える`, async ({ page }) => {
+    test(`${path} は 320px でも横に溢れず、メニューも消える`, async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 320, height: 800 });
       await page.goto(path);
       // A4 幅(794px)は lg 未満なので、印刷側の規則が無いとメニューボタンが紙に出る。
