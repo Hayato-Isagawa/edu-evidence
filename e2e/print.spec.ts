@@ -93,8 +93,11 @@ test.describe("印刷スタイル", () => {
       await page.goto(path);
       // A4 幅(794px)は lg 未満なので、印刷側の規則が無いとメニューボタンが紙に出る。
       // 閉じた #mobile-menu は opacity 0 だが bounding box を持つので、display: none で
-      // 落ちていることを toBeHidden で区別できる
+      // 落ちていることを toBeHidden で区別できる。その前提(画面では bounding box を持つ)
+      // も固定する — 実装が display: none / hidden 属性で閉じる形に変わると、print 規則が
+      // 無くても toBeHidden が通ってしまう
       await expect(page.locator("#menu-toggle")).toBeVisible();
+      await expect(page.locator("#mobile-menu")).toBeVisible();
       await page.emulateMedia({ media: "print" });
       await expect(page.locator("#menu-toggle")).toBeHidden();
       await expect(page.locator("#mobile-menu")).toBeHidden();
