@@ -25,7 +25,7 @@
 | 言語 | TypeScript |
 | 検索 | [Pagefind](https://pagefind.app/) |
 | OG 画像 | [Satori](https://github.com/vercel/satori) + [Sharp](https://sharp.pixelplumbing.com/) |
-| テスト | [Playwright](https://playwright.dev/) (E2E 59 テスト) |
+| テスト | [Playwright](https://playwright.dev/) (E2E 60 テスト) |
 | リンター | textlint (日本語校正) |
 | ホスティング | [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)(静的アセット配信) |
 | ドメイン | edu-evidence.org (Cloudflare Registrar) |
