@@ -9,7 +9,7 @@ grades: ["低学年"]
 tags: ["幼小接続", "就学前", "数量感覚"]
 category: "家庭・外部"
 source: eef
-sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/early-years-toolkit/early-numeracy-approaches
+sourceUrl: https://educationendowmentfoundation.org.uk/early-years/toolkit/early-numeracy-approaches
 sourceTitle: "EEF Early Years Toolkit"
 evidence:
   eef:
@@ -21,16 +21,16 @@ evidence:
     strength: 1
     note: "幼児期の数量感覚に限定した効果量つきの国内 RCT・メタ分析は確認できていない。文部科学省の幼児教育に関する大規模縦断調査は 2023 年度予備調査・2024 年度本調査(第 1 年次)の報告が公表済みで、国内エビデンスの蓄積はこれから本格化する段階。"
     researcher: "文部科学省(東京大学 CEDEP 受託)"
-lastVerified: "2026-07-27"
+lastVerified: "2026-09-17"
 methodology:
   studies: 54
   sampleSize: "就学前児(3〜5歳)を中心とする 54 研究(EEF Early Years Toolkit)"
   effectSize: "+7ヶ月(EEF Early Years Toolkit)。代表的 RCT では、直線型の数ボードゲームを合計約 1 時間プレイした就学前児で数量比較・数直線推定・数え上げ・数字認識が改善し、9 週間後も維持(Ramani & Siegler 2008)"
   primaryEvidenceReview:
     authors: "EEF(Early Years Toolkit)"
-    year: 2025
+    year: 2023
     title: "Early numeracy approaches"
-    url: "https://educationendowmentfoundation.org.uk/education-evidence/early-years-toolkit/early-numeracy-approaches"
+    url: "https://educationendowmentfoundation.org.uk/early-years/toolkit/early-numeracy-approaches"
   limitations: "EEF の確実性評価は 5 段階中 2(limited)。独立評価でない研究の割合が高く、開発団体自身による評価は効果が大きく出る傾向がある。介入が複数要素を含むことが多く、どの要素が効果の中核かを特定しにくい。効果の推定は就学前の設定(園・家庭)に基づき、小学校の授業での再現は同じ形では検証されていない。"
 culturalContext: |
   日本には「すごろく」「かるた」など、数や順序に自然に触れる遊びの文化資源が豊富にある。代表的な RCT が用いた「直線型の数ボードゲーム」は日本のすごろくとほぼ同じ構造で、家庭・園・入学期の教室に低コストで取り入れやすい。幼稚園教育要領は領域「環境」に **数量や図形などへの関心・感覚** を位置づけており、遊びを通した数量感覚づくりは日本の幼児教育の設計思想とも親和的。小学校側では、入学時点の数量感覚の個人差を前提に、スタートカリキュラムや低学年の算数導入期で遊び由来の数量活動を補完的に使える。

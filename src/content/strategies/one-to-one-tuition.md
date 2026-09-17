@@ -14,9 +14,9 @@ sourceTitle: "EEF Teaching and Learning Toolkit — One to one tuition"
 evidence:
   eef:
     monthsGained: 5
-    strength: 4
-    note: "EEF Toolkit で +5ヶ月・エビデンス★4。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析で d=0.37。教師が行う指導の効果が最も大きく、パラプロフェッショナル・親・ボランティアの順に効果が小さくなる。短期集中(8〜12週)で効果が出やすい。"
-lastVerified: "2026-04-22"
+    strength: 3
+    note: "EEF Toolkit の 2021 年 7 月レビュー(123 研究)で +5ヶ月。確実性評価は 5 段階中 3(moderate)。Nickow, Oreopoulos & Quan(2020)の 96 件 RCT メタ分析で d=0.37。教師が行う指導の効果が最も大きく、パラプロフェッショナル・親・ボランティアの順に効果が小さくなる。短期集中(8〜12週)で効果が出やすい。"
+lastVerified: "2026-09-17"
 methodology:
   studies: 96
   sampleSize: "幼児〜高校生(preK-12)"

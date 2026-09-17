@@ -15,7 +15,7 @@ evidence:
     monthsGained: 3
     strength: 3
     note: "EEF Toolkit で +3ヶ月・エビデンス★3(中)。Wilson & Lipsey(2007)の 249 研究メタ分析で d=0.21。特定の行動課題のある児童に的を絞った介入で効果が大きい。"
-lastVerified: "2026-06-30"
+lastVerified: "2026-09-17"
 methodology:
   studies: 249
   sampleSize: "K-12 の 249 研究(Wilson & Lipsey 2007 の Campbell/Cochrane レビュー)"

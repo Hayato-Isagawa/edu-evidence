@@ -13,9 +13,9 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Mastery learning"
 evidence:
   eef:
     monthsGained: 5
-    strength: 3
-    note: "EEF Toolkit で +5ヶ月・エビデンス★3(中)。Kulik, Kulik & Bangert-Drowns(1990)の 108 研究メタ分析で d=0.52。ただし研究の多くが 1970-80 年代と古く、近年の質の高い RCT は限定的。到達度確認と再指導の仕組みがあるときに効果が出る。"
-lastVerified: "2026-06-11"
+    strength: 2
+    note: "EEF Toolkit の 2021 年 9 月レビュー(80 研究)で +5ヶ月。確実性評価は 5 段階中 2(limited)。Kulik, Kulik & Bangert-Drowns(1990)の 108 研究メタ分析で d=0.52。ただし研究の多くが 1970-80 年代と古く、近年の質の高い RCT は限定的。到達度確認と再指導の仕組みがあるときに効果が出る。"
+lastVerified: "2026-09-17"
 methodology:
   studies: 108
   sampleSize: "108 の対照評価研究(対象は大学・高校・小学校高学年。うち 72 研究は大学での Keller 式 PSI)"
@@ -25,7 +25,7 @@ methodology:
     year: 1990
     title: "Effectiveness of Mastery Learning Programs: A Meta-Analysis"
     url: "https://doi.org/10.3102/00346543060002265"
-  limitations: "108 研究中 72 は大学での Keller 式 PSI(自己ペース型)で、小学校の通常学級に直接当てはまる証拠は限られる。効果は教師作成・局所テストで大きく、標準化テストでは小さい。収録研究の多くは 1970〜80 年代と古く、近年の質の高い RCT は限定的。EEF Toolkit は +5 か月・エビデンス強度は中(★3)と評価し、到達度確認と再指導の仕組みを伴う場合に効果が出やすいとする。"
+  limitations: "108 研究中 72 は大学での Keller 式 PSI(自己ペース型)で、小学校の通常学級に直接当てはまる証拠は限られる。効果は教師作成・局所テストで大きく、標準化テストでは小さい。収録研究の多くは 1970〜80 年代と古く、近年の質の高い RCT は限定的。EEF Toolkit は +5 か月・確実性評価は 5 段階中 2(limited)とし、到達度確認と再指導の仕組みを伴う場合に効果が出やすいとする。"
 culturalContext: |
   日本の算数教育では「習熟度別指導」や「チェックテスト後の補充」として類似の考え方が広く実践されている。ただし、EEF のマスタリーラーニングの本質は『**全員が到達するまで進まない**』という時間の可変性にあり、日本の学年制・時数固定のカリキュラムとは構造的に相性が悪い面がある。単元内の形成的評価と再指導の組み合わせとして取り入れやすい。
 ---
