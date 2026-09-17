@@ -1,7 +1,7 @@
 ---
 title: 就学前教育への介入
-summary: 幼児期に質の高い教育・保育を提供すること。EEF で +6ヶ月。Heckman 等の経済学研究が長期的なリターン(就学・学歴・収入)を実証した代表領域。
-monthsGained: 6
+summary: 幼児期に質の高い教育・保育を提供すること。EEF Teaching and Learning Toolkit(2018 年版 strand)で +5ヶ月。Heckman 等の経済学研究が長期的なリターン(就学・学歴・収入)を実証した代表領域。
+monthsGained: 5
 evidenceStrength: 4
 cost: 4
 subjects: ["全教科"]
@@ -9,13 +9,13 @@ grades: ["低学年"]
 tags: ["幼小接続", "就学前"]
 category: "家庭・外部"
 source: eef
-sourceUrl: https://educationendowmentfoundation.org.uk/early-years/toolkit
-sourceTitle: "EEF Early Years Toolkit"
+sourceUrl: https://web.archive.org/web/20201030074005/https://educationendowmentfoundation.org.uk/evidence-summaries/teaching-learning-toolkit/early-years-intervention/
+sourceTitle: "EEF Teaching and Learning Toolkit: Early years interventions(2018 年 11 月更新・2020 年 10 月時点のアーカイブ)"
 evidence:
   eef:
-    monthsGained: 6
+    monthsGained: 5
     strength: 4
-    note: "EEF Early Years Toolkit で +6ヶ月。質の高い就学前教育は社会経済的に不利な子どもに特に大きな効果。構成要素ごとでは、コミュニケーションと言語が +7、親の関与が +5、追加の時間提供 +4、早期リテラシー +4。"
+    note: "EEF Teaching and Learning Toolkit の Early years interventions(2018 年 11 月更新の strand。2021 年の Toolkit 改訂で Early Years Toolkit へ移管され総合値は廃止。出典は 2020 年 10 月時点のアーカイブに固定し、値は凍結)で +5ヶ月・南京錠 4。現行の Early Years Toolkit には就学前教育全体にあたる strand が見当たらず、構成要素ごとに、コミュニケーションと言語が +7、親の関与が +5、追加の時間提供 +4、早期リテラシー +4(2023 年 2 月更新)。EEF は低所得家庭の子どもに特に有益としている。"
   japan:
     monthsGained: 0
     strength: 2
@@ -23,22 +23,22 @@ evidence:
     researcher: "赤林英夫(慶應義塾大学)、文部科学省"
 lastVerified: "2026-09-17"
 methodology:
-  studies: 66
-  sampleSize: "就学前〜小学校低学年(主要下位領域『コミュニケーションと言語』で 66 研究、『より早い開始年齢』で 41 研究)"
-  effectSize: "+6ヶ月。下位領域別: コミュニケーションと言語 +7、親の関与 +5、早期リテラシー +4、追加の時間提供 +4"
+  studies: 11
+  sampleSize: "+5ヶ月は 11 本のメタ分析の総合(2018 年 Technical Appendix。プールした効果量は 0.15〜0.55)。現行 Early Years Toolkit の下位領域では『コミュニケーションと言語』66 研究、『より早い開始年齢』41 研究"
+  effectSize: "+5ヶ月(2018 年版 Teaching and Learning Toolkit の総合値)。現行 Early Years Toolkit の下位領域別: コミュニケーションと言語 +7、親の関与 +5、早期リテラシー +4、追加の時間提供 +4"
   primaryEvidenceReview:
-    authors: "EEF(Early Years Toolkit)"
-    year: 2023
-    title: "Early Years Toolkit"
-    url: "https://educationendowmentfoundation.org.uk/early-years/toolkit"
-  limitations: "就学前教育の効果は『どのようなプログラムか』『子どもの背景』『家庭環境』により大きく変動する。EEF の +6ヶ月は複数の下位領域の総合推定で、単一介入の効果ではない。日本の幼児教育は海外モデルと設計思想が異なり、保育所・幼稚園・認定こども園でカリキュラム幅が広い。赤林英夫らによる日本のエビデンス蓄積はこれから本格化する段階。"
+    authors: "EEF(Teaching and Learning Toolkit)"
+    year: 2018
+    title: "Early years interventions — Technical Appendix"
+    url: "https://web.archive.org/web/20201115022511/https://educationendowmentfoundation.org.uk/evidence-summaries/teaching-learning-toolkit/early-years-intervention/technical-appendix/"
+  limitations: "就学前教育の効果は『どのようなプログラムか』『子どもの背景』『家庭環境』により大きく変動する。EEF の +5ヶ月は多要素の就学前プログラムをまとめたメタ分析 11 本の総合推定で、単一介入の効果ではない。日本の幼児教育は海外モデルと設計思想が異なり、保育所・幼稚園・認定こども園でカリキュラム幅が広い。赤林英夫らによる日本のエビデンス蓄積はこれから本格化する段階。"
 culturalContext: |
-  日本の就学前教育(幼稚園・保育園)は国際的に質が高いと評価される一方、**家庭背景による質の差** は存在する。Heckman の経済学研究(ノーベル賞受賞者)は、「幼児期の投資が最もリターンが大きい」ことを実証した。日本でも文部科学省が大規模縦断調査を進めており(予備調査・本調査第 1 年次の報告書公表済み)、今後日本独自のエビデンスが蓄積される見込み。幼保一元化・幼小接続・家庭支援などの政策議論の文脈でも、EEF の +6ヶ月は重要な参照値となる。
+  日本の就学前教育(幼稚園・保育園)は国際的に質が高いと評価される一方、**家庭背景による質の差** は存在する。Heckman の経済学研究(ノーベル賞受賞者)は、「幼児期の投資が最もリターンが大きい」ことを実証した。日本でも文部科学省が大規模縦断調査を進めており(予備調査・本調査第 1 年次の報告書公表済み)、今後日本独自のエビデンスが蓄積される見込み。幼保一元化・幼小接続・家庭支援などの政策議論の文脈でも、EEF の +5ヶ月は重要な参照値となる。本サイトが掲げていた +6ヶ月は EEF が 2015 年時点で示していた旧値で、EEF は 2017 年までに +5ヶ月へ改めていた。本サイトは 2026 年 9 月にこの改訂を追随し、移管前の最終値 +5ヶ月に改めた。
 ---
 
 ## 一言でいうと
 
-就学前(幼稚園・保育所・認定こども園)の段階で質の高い教育・保育を提供することで、小学校入学後の学力・社会性・行動面に長期的な好影響を与える取り組みです。効果量+6ヶ月と非常に大きく、特に家庭環境に恵まれない子どもへの効果が顕著です。
+就学前(幼稚園・保育所・認定こども園)の段階で質の高い教育・保育を提供することで、小学校入学後の学力・社会性・行動面に好影響を与える取り組みです。効果量は+5ヶ月(中程度〜大きな効果)で、EEF は特に低所得家庭の子どもに有益とみています。
 
 ## なぜ効果があるのか
 
@@ -55,15 +55,16 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 就学前教育への介入の効果は平均+6ヶ月。特に語彙・数概念・社会性で効果が大きい
+- 就学前教育への介入の効果は平均+5ヶ月(EEF Teaching and Learning Toolkit 2018 年版)。特に低所得家庭の子どもで効果が大きい
 - 米国のペリー就学前プロジェクト(1962-67)では、就学前教育を受けた子は40歳時点でも収入・学歴・犯罪率で有意な差が確認された
-- 効果は家庭環境が不利な子どもで最も大きい(格差縮小効果)
+- 効果は家庭環境が不利な子どもで特に大きいとみられる(EEF。格差縮小効果)
 - 日本では文部科学省が大規模縦断調査を 2024 年度から実施しており、予備調査(2023 年度)と本調査第 1 年次(2024 年度)の報告書が公表されている
 - 英国 EPI/EEF の縦断分析「Growing Apart」(2026)は、思春期(GCSE)の学力格差の **44%** が 5・7・11 歳という早い段階の学力で説明され、早期の学力が後の格差拡大に対する **「防御因子(protective factor)」** として働きうることを全国データの統計分解で示した。早期に学力を高めておくことには、その時点の格差を縮める効果だけでなく、後の段階での格差拡大を抑える効果も期待できる(英国データであり、日本にそのまま当てはまるものではない。詳しくは [学力格差はいつ生まれ、どう広がるのか](/columns/disadvantage-gap-growing-apart))
 
 ## 注意したいこと
 
 - 就学前教育の「質」が効果を大きく左右し、ただ預ける時間を増やすだけでは効果が出ません
+- 学力への効果は多くの研究で時間とともに小さくなり、それだけでは後の学年で格差が再び開くのを防げない(EEF)。英国の Sure Start の評価も一貫した正の効果を示していない。米国テネシー州の州規模 pre-K の無作為化研究(Durkin ら 2022)では、3〜6 年生時点の州テストで参加群が対照群を下回った
 - 小学校教員が直接介入できる領域は限られますが、幼小接続の設計は大きな影響を持ちます
 - 就学前の経験の差を「入学後に取り戻す」ことは可能ですが、早期の介入の方が費用対効果が高い
 - 日本の幼児教育の質は国際的に評価されていますが、地域や施設による差は存在します
@@ -81,8 +82,10 @@ culturalContext: |
 
 ## 主な参考研究
 
+- Education Endowment Foundation (2018). [Early years interventions](https://web.archive.org/web/20201030074005/https://educationendowmentfoundation.org.uk/evidence-summaries/teaching-learning-toolkit/early-years-intervention/). *Teaching and Learning Toolkit*(2018 年 11 月 13 日更新。2020 年 10 月 30 日時点のアーカイブ). — +5ヶ月・南京錠 4。この strand は 2021 年の Toolkit 改訂で [Early Years Toolkit](https://educationendowmentfoundation.org.uk/early-years/toolkit) へ移管され、以後は構成要素ごとの扱いで総合値は無い。2015 年時点の同 strand は +6ヶ月(High impact)で、2017 年までに +5ヶ月へ改訂されている。
 - Schweinhart, L. J., et al. (2005). *Lifetime effects: The High/Scope Perry Preschool Study through age 40*. High/Scope Press. — 就学前教育の長期効果を実証した歴史的研究。40歳時点での収入・学歴・社会適応に有意差。
 - Heckman, J. J. (2006). [Skill formation and the economics of investing in disadvantaged children](https://doi.org/10.1126/science.1128898). *Science*, 312(5782), 1900–1902. — 幼児期の投資のリターンが最も高いことを経済学的に示したノーベル賞受賞者の論文。
+- Durkin, K., Lipsey, M. W., Farran, D. C., & Wiesen, S. E. (2022). [Effects of a statewide pre-kindergarten program on children's achievement and behavior through sixth grade](https://doi.org/10.1037/dev0001301). *Developmental Psychology*, 58(3), 470–484. — 低所得家庭の 2,990 人を無作為に割り付けた州規模 pre-K の追跡。3〜6 年生時点の州テストで参加群が対照群を下回り、6 年生で負の効果が最大。就学前教育の効果が「質」と「その後の学校教育」に依存することを示す反証例。
 - 文部科学省 (2024). [幼児教育に関する大規模縦断調査](https://www.mext.go.jp/a_menu/shotou/youchien/1412261_00001.htm). — 2024 年度の 5 歳児を対象とした 5 年間の追跡調査(全国 75 市町村から無作為抽出)。2023 年度予備調査・2024 年度本調査(第 1 年次)の報告書が公表されている。
 
 ## 関連する学習指導要領
