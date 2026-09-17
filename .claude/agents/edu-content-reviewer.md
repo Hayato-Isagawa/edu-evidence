@@ -20,7 +20,7 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 - 引用研究の **著者・発行年・ジャーナル名・巻号・ページ** が原典と一致するか
   (書誌は逐語なので、`WebSearch` で当たりを付けたうえで**原典の生テキストで照合する**)
 - **コラムの前提事実**(「SNS で〜が拡散している」「〜が話題になっている」等)が一次検証されているか。未検証なら critical
-- `evidence.eef.note` で「EEF Toolkit にエントリ無し」と自認しているのに `evidence.eef` を持っているような構造的矛盾
+- `evidence.eef.note` で「EEF Toolkit にエントリ無し」と自認しているのに `evidence.eef` を持っているような構造的矛盾(ただし `evidence.eef.archivedAt` を持つ凍結出典 — strand 廃止後に Wayback へ固定した値 — は正当な形で、矛盾ではない)
 
 ### 2. Rule 1.2a — 未読文献の分離
 

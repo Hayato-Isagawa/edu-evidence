@@ -13,6 +13,7 @@ sourceUrl: https://web.archive.org/web/20201030074005/https://educationendowment
 sourceTitle: "EEF Teaching and Learning Toolkit: Early years interventions(2018 年 11 月更新・2020 年 10 月時点のアーカイブ)"
 evidence:
   eef:
+    archivedAt: "2020-10-30"
     monthsGained: 5
     strength: 4
     note: "EEF Teaching and Learning Toolkit の Early years interventions(2018 年 11 月更新の strand。2021 年の Toolkit 改訂で Early Years Toolkit へ移管され総合値は廃止。出典は 2020 年 10 月時点のアーカイブに固定し、値は凍結)で +5ヶ月・南京錠 4。現行の Early Years Toolkit には就学前教育全体にあたる strand が見当たらず、構成要素ごとに、コミュニケーションと言語が +7、親の関与が +5、追加の時間提供 +4、早期リテラシー +4(2023 年 2 月更新)。EEF は低所得家庭の子どもに特に有益としている。"

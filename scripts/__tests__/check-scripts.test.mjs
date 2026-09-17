@@ -368,6 +368,52 @@ function runWithArgs(script, fixture, args) {
   return { status: r.status, output: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 
+// `check-source-sync.ts` は `evidence.<出典>.archivedAt` を持つ出典を同期対象から外す(#618)。
+// 出典側で値が固定された(strand 廃止で Wayback に固定した)ものは同期しようがなく、
+// 30 日ごとに stale として列挙され続けていた。外したものは黙って消さず「凍結」として
+// 列挙する — 対象から外す判定が広がっても、レポートを読めば気づけるようにするため。
+test("check-source-sync.ts は archivedAt を持つ出典を対象数から外し、frozen に載せる", () => {
+  assert.ok(
+    fixtureFileCount("source-sync-frozen") > 0,
+    "fixture が空 — 0 件で緑になっている"
+  );
+  const r = runWithArgs("check-source-sync.ts", "source-sync-frozen", [
+    "--section",
+    "eef",
+    "--json",
+  ]);
+  const eef = JSON.parse(r.output).sections.eef;
+  assert.deepEqual(
+    eef.frozen.map((e) => e.file),
+    ["frozen.md"]
+  );
+  assert.deepEqual(
+    eef.stale.map((e) => e.file),
+    ["stale.md"]
+  );
+  assert.equal(eef.totalTargets, 1);
+  // exit code は stale の合計のまま(凍結は数えない)
+  assert.equal(r.status, 1);
+});
+
+test("check-source-sync.ts は凍結した出典を text 出力に列挙する(黙って消さない)", () => {
+  assert.ok(
+    fixtureFileCount("source-sync-frozen") > 0,
+    "fixture が空 — 0 件で緑になっている"
+  );
+  const r = runWithArgs("check-source-sync.ts", "source-sync-frozen", [
+    "--section",
+    "eef",
+  ]);
+  assert.match(r.output, /^凍結\(対象外\): 1 件$/m);
+  assert.match(
+    r.output,
+    /^- `strategies\/frozen\.md` — archivedAt 2020-01-01$/m
+  );
+  // stale 側の見出しは凍結を数えない(計 1 件 = stale.md だけ)
+  assert.match(r.output, /^## §1 EEF \(30 日超過: 1 件 \/ 計 1 件\)$/m);
+});
+
 // 内部リンク切れを per-PR で見る口はこれだけ。
 //
 // `check:links`（外部込み）を `check:all` から外したとき、内部リンクを見るものも一緒に
