@@ -27,6 +27,7 @@
 - `sourceUrl` — 一次研究ドメインのみ(`docs/CONTENT_GUIDELINES.md` Rule 1.2b)。news / まとめページ / 書籍紹介ページは置かない
 - `sourceTitle` — 一次研究のタイトル
 - `evidence.eef` / `evidence.japan` / `evidence.hattie` — 出典別詳細(併記用、optional)。バッジ表示は本オブジェクトの **キー有無** で動的描画
+- `evidence.eef.archivedAt` — 出典側で値が固定された日(`YYYY-MM-DD`、optional)。`check:source-sync` はこれを持つ出典を同期対象から外して「凍結」として列挙する(`docs/source-sync-protocol.md` §1)
 - `culturalContext` — 日本文脈での効果差異 / 注記
 - `lastVerified` — 一次ソースとの最終照合日(YYYY-MM-DD)
 - `methodology` — Technical Appendix(`studies` / `sampleSize` / `effectSize` / `primaryEvidenceReview` / `limitations`)

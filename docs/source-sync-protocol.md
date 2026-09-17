@@ -33,7 +33,7 @@
 
 | セクション | 対象判定 | しきい値 | 頻度 |
 |---|---|---|---|
-| §1 EEF | `source === 'eef'` または `evidence.eef` 併記 | 30 日 | 月次 |
+| §1 EEF | `source === 'eef'` または `evidence.eef` 併記。ただし `evidence.eef.archivedAt` を持つものは除く(下記「凍結した出典」) | 30 日 | 月次 |
 | §2 Hattie | `source === 'hattie'` または `evidence.hattie` 併記 | 365 日 | 年次(1 月) |
 | §3 Japan | `source === 'japan'` または `evidence.japan` 併記 | 365 日 | 年次(4 月) |
 
@@ -49,8 +49,12 @@
 ### 対象数
 
 - `source: eef` 28 件
-- `evidence.eef` 併記分(`source: mixed` 等から 22 件)
-- 合計: 約 50 件
+- `evidence.eef` 併記分(`source: mixed` 等から 23 件)
+- 合計: 51 件、うち凍結 1 件(`early-years-intervention`)を除いた 50 件が対象(2026-09-17 の `check:source-sync` 実測)
+
+### 凍結した出典(`evidence.eef.archivedAt`)
+
+EEF 側で値が固定され、更新される経路が無い出典(strand が廃止され、`sourceUrl` を Wayback のスナップショットに固定した等)は、`evidence.eef.archivedAt: "YYYY-MM-DD"`(固定したスナップショットの日付)を書く。`check:source-sync` はこれを持つ出典を対象数から外し、レポートの各 § に「凍結(対象外): N 件」として列挙する(外したことを黙って消さない)。凍結した出典には優先度 0 の CDX を掛けない(`sourceUrl` が既に Wayback の URL)。**`check:stale` の 365 日は対象のまま** — スナップショットが生きていることの確認は年 1 回残す。現時点の該当は `early-years-intervention`(2020-10-30、#617 / #618)。
 
 ### 主情報源の優先順位
 

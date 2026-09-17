@@ -38,11 +38,18 @@ interface StaleEntry {
   daysSinceVerified: number;
 }
 
+interface FrozenEntry {
+  file: string;
+  archivedAt: string;
+}
+
 interface SectionResult {
   section: Section;
   threshold: number;
   totalTargets: number;
   stale: StaleEntry[];
+  /** `evidence.<出典>.archivedAt` を持つ凍結出典。対象数に数えないが、黙って消さず列挙する */
+  frozen: FrozenEntry[];
 }
 
 interface CliArgs {
@@ -86,6 +93,16 @@ function daysBetween(from: Date, to: Date): number {
   return Math.floor(ms / (1000 * 60 * 60 * 24));
 }
 
+function archivedAtOf(
+  section: Section,
+  data: Record<string, unknown>
+): string | null {
+  const evidence = data.evidence as Record<string, unknown> | undefined;
+  const entry = evidence?.[section] as Record<string, unknown> | undefined;
+  const value = entry?.archivedAt;
+  return typeof value === "string" && parseDate(value) ? value : null;
+}
+
 function isTargetOf(section: Section, data: Record<string, unknown>): boolean {
   if (data.source === section) return true;
   const evidence = data.evidence as Record<string, unknown> | undefined;
@@ -102,18 +119,21 @@ function collect(today: Date): Record<Section, SectionResult> {
       threshold: THRESHOLDS.eef,
       totalTargets: 0,
       stale: [],
+      frozen: [],
     },
     hattie: {
       section: "hattie",
       threshold: THRESHOLDS.hattie,
       totalTargets: 0,
       stale: [],
+      frozen: [],
     },
     japan: {
       section: "japan",
       threshold: THRESHOLDS.japan,
       totalTargets: 0,
       stale: [],
+      frozen: [],
     },
   };
 
@@ -132,6 +152,13 @@ function collect(today: Date): Record<Section, SectionResult> {
 
     for (const section of ["eef", "hattie", "japan"] as Section[]) {
       if (!isTargetOf(section, data)) continue;
+      // 出典側で値が固定された(strand 廃止で Wayback に固定した等)ものは同期しようがない。
+      // 対象数から外すが、外したことはレポートに残す(#618)
+      const archivedAt = archivedAtOf(section, data);
+      if (archivedAt) {
+        sections[section].frozen.push({ file, archivedAt });
+        continue;
+      }
       sections[section].totalTargets++;
 
       if (!verifiedAt || typeof lastVerifiedRaw !== "string") continue;
@@ -183,6 +210,11 @@ function renderText(
           `- \`strategies/${e.file}\` — lastVerified ${e.lastVerified} (${e.daysSinceVerified} 日経過)`
         );
       }
+    }
+    lines.push("");
+    lines.push(`凍結(対象外): ${r.frozen.length} 件`);
+    for (const e of r.frozen) {
+      lines.push(`- \`strategies/${e.file}\` — archivedAt ${e.archivedAt}`);
     }
     lines.push("");
   }

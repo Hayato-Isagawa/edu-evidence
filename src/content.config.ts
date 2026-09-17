@@ -40,6 +40,12 @@ const strategies = defineCollection({
               monthsGained: z.number().optional(),
               strength: z.number().min(1).max(5).optional(),
               note: z.string().optional(),
+              // 出典側で値が固定された日(strand 廃止で Wayback に固定した等)。
+              // check:source-sync はこれを持つ出典を同期対象から外す
+              archivedAt: z
+                .string()
+                .regex(/^\d{4}-\d{2}-\d{2}$/)
+                .optional(),
             })
             .optional(),
           japan: z
