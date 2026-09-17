@@ -13,9 +13,9 @@ sourceTitle: "EEF Teaching and Learning Toolkit — Social and emotional learnin
 evidence:
   eef:
     monthsGained: 3
-    strength: 4
-    note: "EEF Toolkit で +3ヶ月・エビデンス★4。Durlak et al.(2011)の 213 プログラム(270,034 人)メタ分析で、学力が平均 11 パーセンタイル向上、社会性・態度・行動にも正の効果。Taylor et al.(2017)が効果の持続も確認。"
-lastVerified: "2026-05-05"
+    strength: 3
+    note: "EEF Toolkit の 2025 年 5 月レビュー(119 研究)で +3ヶ月。確実性評価は 5 段階中 3(moderate)。Durlak et al.(2011)の 213 プログラム(270,034 人)メタ分析で、学力が平均 11 パーセンタイル向上、社会性・態度・行動にも正の効果。Taylor et al.(2017)が効果の持続も確認。"
+lastVerified: "2026-09-17"
 methodology:
   studies: 213
   sampleSize: "270,034 名(小学校 56% / 中学校 31% / 高校 他)"

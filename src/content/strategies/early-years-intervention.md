@@ -9,28 +9,28 @@ grades: ["低学年"]
 tags: ["幼小接続", "就学前"]
 category: "家庭・外部"
 source: eef
-sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/early-years-toolkit
+sourceUrl: https://educationendowmentfoundation.org.uk/early-years/toolkit
 sourceTitle: "EEF Early Years Toolkit"
 evidence:
   eef:
     monthsGained: 6
     strength: 4
-    note: "EEF Early Years Toolkit で +6ヶ月。質の高い就学前教育は社会経済的に不利な子どもに特に大きな効果。構成要素ごとでは、コミュニケーションと言語が +7、親の関与が +5、追加の時間提供 +3、早期リテラシー +4。"
+    note: "EEF Early Years Toolkit で +6ヶ月。質の高い就学前教育は社会経済的に不利な子どもに特に大きな効果。構成要素ごとでは、コミュニケーションと言語が +7、親の関与が +5、追加の時間提供 +4、早期リテラシー +4。"
   japan:
     monthsGained: 0
     strength: 2
     note: "赤林英夫(慶應義塾大学)らが日本の幼児教育の経済分析を行っているが、EEF のような体系的な効果量推定は限定的。文部科学省の幼児教育に関する大規模縦断調査は 2023 年度予備調査・2024 年度本調査(第 1 年次)の報告書が公表済みで、国内エビデンスの蓄積はこれから本格化する段階。"
     researcher: "赤林英夫(慶應義塾大学)、文部科学省"
-lastVerified: "2026-06-06"
+lastVerified: "2026-09-17"
 methodology:
   studies: 66
   sampleSize: "就学前〜小学校低学年(主要下位領域『コミュニケーションと言語』で 66 研究、『より早い開始年齢』で 41 研究)"
-  effectSize: "+6ヶ月。下位領域別: コミュニケーションと言語 +7、親の関与 +5、早期リテラシー +4、追加の時間提供 +3"
+  effectSize: "+6ヶ月。下位領域別: コミュニケーションと言語 +7、親の関与 +5、早期リテラシー +4、追加の時間提供 +4"
   primaryEvidenceReview:
     authors: "EEF(Early Years Toolkit)"
-    year: 2025
+    year: 2023
     title: "Early Years Toolkit"
-    url: "https://educationendowmentfoundation.org.uk/education-evidence/early-years-toolkit"
+    url: "https://educationendowmentfoundation.org.uk/early-years/toolkit"
   limitations: "就学前教育の効果は『どのようなプログラムか』『子どもの背景』『家庭環境』により大きく変動する。EEF の +6ヶ月は複数の下位領域の総合推定で、単一介入の効果ではない。日本の幼児教育は海外モデルと設計思想が異なり、保育所・幼稚園・認定こども園でカリキュラム幅が広い。赤林英夫らによる日本のエビデンス蓄積はこれから本格化する段階。"
 culturalContext: |
   日本の就学前教育(幼稚園・保育園)は国際的に質が高いと評価される一方、**家庭背景による質の差** は存在する。Heckman の経済学研究(ノーベル賞受賞者)は、「幼児期の投資が最もリターンが大きい」ことを実証した。日本でも文部科学省が大規模縦断調査を進めており(予備調査・本調査第 1 年次の報告書公表済み)、今後日本独自のエビデンスが蓄積される見込み。幼保一元化・幼小接続・家庭支援などの政策議論の文脈でも、EEF の +6ヶ月は重要な参照値となる。
