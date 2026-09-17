@@ -285,6 +285,7 @@ const EXPECTED_PROTECTED_KEYS = [
   "year",
   "authors",
   "url",
+  "archivedAt",
 ];
 
 test("保護キーの一覧が意図どおり(増減したらここも直す)", () => {
@@ -300,6 +301,14 @@ test("フェンス無しでも保護キー全てを検知する", () => {
     const out = run(editOn(STRATEGY, `${key}: 111`, `${key}: 222`));
     assert.equal(fired(out), true, `${key} が検知されていない`);
   }
+});
+
+test("archivedAt を新たに足す編集(前に無い)も検知する", () => {
+  // 値の書き換えではなく追加。before 側にキーが無くても diff に出ること。
+  const out = run(
+    editOn(STRATEGY, "    strength: 4\n", '    strength: 4\n    archivedAt: "2020-10-30"\n')
+  );
+  assert.equal(fired(out), true);
 });
 
 test('リスト項目の形（"- key: v"）でも検知する', () => {

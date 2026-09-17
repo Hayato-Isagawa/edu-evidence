@@ -780,7 +780,7 @@ const HOOK_TEST_FILES = [
  * (`総数 − 最小ファイルの本数 + 2`。空ファイルも `node --test` は 1 pass と数える)。
  * **守る対象から導出しない**(理由は `SCRIPT_TESTS` と同じ)。
  */
-const HOOK_TESTS_FLOOR = 56;
+const HOOK_TESTS_FLOOR = 57;
 
 test("test:hooks の口にあるテストファイルが 3 本である", () => {
   assert.deepEqual(

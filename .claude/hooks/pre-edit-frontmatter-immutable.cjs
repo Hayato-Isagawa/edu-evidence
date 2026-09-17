@@ -18,6 +18,7 @@
  *   - year                   (methodology.primaryMetaAnalysis.year)
  *   - authors                (methodology.primaryMetaAnalysis.authors)
  *   - url                    (methodology.primaryMetaAnalysis.url)
+ *   - archivedAt             (evidence.eef.archivedAt: freezes the source out of check:source-sync)
  *
  * Backed by DELEGATE-52 (arxiv 2604.15597) — sparse silent corruption
  * (Claude 4.6 Opus 26.9% rate) most often targets numeric/URL frontmatter.
@@ -38,6 +39,9 @@ const PROTECTED_KEYS = [
   "year",
   "authors",
   "url",
+  // 1 行足すだけで月次の check:source-sync の対象から外れる(docs/source-sync-protocol.md
+  // 「凍結した出典」)。外したことはレポートに列挙されるが、足す瞬間にも確認を出す。
+  "archivedAt",
 ];
 
 const FRONTMATTER_RE = /^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)/;
