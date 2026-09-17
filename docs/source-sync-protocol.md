@@ -42,7 +42,7 @@
 ### 自動化の境界
 
 - **自動**: 対象戦略の列挙(`scripts/check-source-sync.ts`、しきい値超過分を出典別に出力)
-- **対話**: WebSearch / WebFetch / 値判定は Claude Code セッションで人間が判断する(機械的には決定できないため)
+- **対話**: curl(Wayback)/ WebSearch / WebFetch / 値判定は Claude Code セッションで人間が判断する(機械的には決定できないため)
 
 ## §1 EEF Toolkit 整合性チェック(月次運用)
 
@@ -56,6 +56,7 @@
 
 | 優先度 | 経路 | 用途 |
 |---|---|---|
+| 0 | **Wayback Machine の生バイト**: CDX(`https://web.archive.org/cdx/search/cdx?url=<sourceUrl>&output=json&filter=statuscode:200&from=<年>`)で timestamp を取り、`curl -sL --compressed "https://web.archive.org/web/<TS>id_/<sourceUrl>"` で生 HTML を得る | 一次資料そのもの。月数は `Impact (months)` 直後の `+N`、確実性は `Evidence strength` 直後に並ぶ `inline-flex` 5 個のうち `opacity-20` を持たないものの数(散文 `based on <level> evidence` と突き合わせる)、研究数は `Number of studies`、レビュー月は `Review last updated`。Internet Archive は断続的に 503 / 429 / "Temporarily Offline" を返すのでリトライする。200 の記録が無ければ `filter` を外して 301 を確かめ、sourceUrl が 301 なら転送先で引き直して `sourceUrl` も付け替える |
 | 1 | **WebSearch** で `EEF Toolkit <strand 名> months progress` 等のクエリを **3 種類の角度** で実行 | 実質的に EEF 公式本文の数値を取得可能 |
 | 2 | **二次情報源 WebFetch**: Headteacher Update / InnerDrive / Bromley / R.I.S.E. 等の英国系教育レビューサイト | 1 の裏付け |
 | 3 | **CDN 直 WebFetch**: `d10a08pz293654.cloudfront.net` / `d2tic4wvo1iusb.cloudfront.net` | explainer / Toolkit guide PDF を取得(Technical Appendix の各 strand ファイル名は不明、上位ガイドのみ) |
@@ -63,12 +64,13 @@
 ### 機械的に取れない経路(避ける)
 
 - `curl` / `WebFetch` 直で `educationendowmentfoundation.org.uk/education-evidence/...` → 403 全滅(UA 偽装 / apiv3 / api / Googlebot / レガシーパスすべて不可)
-- `archive.ph` / Bing cache / Wayback Machine → 取得不可
+- `archive.ph` / Bing cache → 取得不可。Wayback Machine は `id_` の生バイト取得なら通る(上表の優先度 0。#612 / #613 の照合で実測)
 
 ### 判定ロジック
 
 | 条件 | 取り扱い |
 |---|---|
+| Wayback 生 HTML(優先度 0)で月数・南京錠・散文が読め、南京錠の計数と散文が一致 | 値更新可、`evidence.eef` 全フィールド追随。WebSearch の裏付けは不要 |
 | WebSearch 3/3 が同じ数値で一致 | 値更新可、`evidence.eef` 全フィールド追随 |
 | 2/3 一致 + 二次情報源 1 件以上で同値裏付け | 値更新可 |
 | それ未満 | **据え置き**、`lastVerified` のみ rolling(`docs/CONTENT_GUIDELINES.md` Rule 1.1 を厳格適用 — 根拠の無い数値を書かない) |
@@ -172,7 +174,7 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
 
 - 対象 strand / 対象戦略リスト
 - 各戦略の旧値 → 新値(値更新時)
-- 検証経路: WebSearch クエリ / 二次情報源 URL / 判定根拠(3/3 or 2/3 + secondary)
+- 検証経路: Wayback の timestamp(優先度 0)/ WebSearch クエリ / 二次情報源 URL / 判定根拠(優先度 0 の一致 or 3/3 or 2/3 + secondary)
 - `npm run check:all` の結果(0 errors)
 
 ### 据え置きで `lastVerified` 単独 rolling する場合
