@@ -54,7 +54,7 @@
 
 ### 凍結した出典(`evidence.eef.archivedAt`)
 
-EEF 側で値が固定され、更新される経路が無い出典(strand が廃止され、`sourceUrl` を Wayback のスナップショットに固定した等)は、`evidence.eef.archivedAt: "YYYY-MM-DD"`(固定したスナップショットの日付)を書く。`check:source-sync` はこれを持つ出典を対象数から外し、レポートの各 § に「凍結(対象外): N 件」として列挙する(外したことを黙って消さない)。凍結した出典には優先度 0 の CDX を掛けない(`sourceUrl` が既に Wayback の URL)。**`check:stale` の 365 日は対象のまま** — スナップショットが生きていることの確認は年 1 回残す。現時点の該当は `early-years-intervention`(2020-10-30、#617 / #618)。
+EEF 側で値が固定され、更新される経路が無い出典(strand が廃止され、`sourceUrl` を Wayback のスナップショットに固定した等)は、`evidence.eef.archivedAt: "YYYY-MM-DD"`(固定したスナップショットの日付)を書く。`check:source-sync` はこれを持つ出典を対象数から外し、レポートの各 § に「凍結(対象外): N 件」として列挙する(外したことを黙って消さない)。`archivedAt` を足す・変える編集は `.claude/hooks/pre-edit-frontmatter-immutable.cjs` の保護キーに入っているので確認が出る(#621)。凍結した出典には優先度 0 の CDX を掛けない(`sourceUrl` が既に Wayback の URL)。**`check:stale` の 365 日は対象のまま** — スナップショットが生きていることの確認は年 1 回残す。現時点の該当は `early-years-intervention`(2020-10-30、#617 / #618)。
 
 ### 主情報源の優先順位
 
