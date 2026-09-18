@@ -306,7 +306,11 @@ test("フェンス無しでも保護キー全てを検知する", () => {
 test("archivedAt を新たに足す編集(前に無い)も検知する", () => {
   // 値の書き換えではなく追加。before 側にキーが無くても diff に出ること。
   const out = run(
-    editOn(STRATEGY, "    strength: 4\n", '    strength: 4\n    archivedAt: "2020-10-30"\n')
+    editOn(
+      STRATEGY,
+      "    strength: 4\n",
+      '    strength: 4\n    archivedAt: "2020-10-30"\n'
+    )
   );
   assert.equal(fired(out), true);
 });
