@@ -368,7 +368,7 @@ function runWithArgs(script, fixture, args) {
   return { status: r.status, output: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 
-// `check-source-sync.ts` は `evidence.<出典>.archivedAt` を持つ出典を同期対象から外す(#618)。
+// `check-source-sync.ts` は `evidence.eef.archivedAt` を持つ出典を同期対象から外す(#618)。
 // 出典側で値が固定された(strand 廃止で Wayback に固定した)ものは同期しようがなく、
 // 30 日ごとに stale として列挙され続けていた。外したものは黙って消さず「凍結」として
 // 列挙する — 対象から外す判定が広がっても、レポートを読めば気づけるようにするため。
@@ -412,6 +412,27 @@ test("check-source-sync.ts は凍結した出典を text 出力に列挙する(�
   );
   // stale 側の見出しは凍結を数えない(計 1 件 = stale.md だけ)
   assert.match(r.output, /^## §1 EEF \(30 日超過: 1 件 \/ 計 1 件\)$/m);
+});
+
+// 凍結を読むのは eef だけ(#620。理由は `check-source-sync.ts` の `archivedAtOf` 直前)。
+// 他の § でも読むと、schema に無い凍結が報告に出て対象数が静かに減る。
+test("check-source-sync.ts は evidence.hattie.archivedAt を凍結として読まない", () => {
+  assert.ok(
+    fixtureFileCount("source-sync-frozen") > 0,
+    "fixture が空 — 0 件で緑になっている"
+  );
+  const r = runWithArgs("check-source-sync.ts", "source-sync-frozen", [
+    "--section",
+    "hattie",
+    "--json",
+  ]);
+  const hattie = JSON.parse(r.output).sections.hattie;
+  assert.deepEqual(hattie.frozen, []);
+  assert.deepEqual(
+    hattie.stale.map((e) => e.file),
+    ["hattie-archived.md"]
+  );
+  assert.equal(hattie.totalTargets, 1);
 });
 
 // 内部リンク切れを per-PR で見る口はこれだけ。
