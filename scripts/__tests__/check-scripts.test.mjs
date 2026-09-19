@@ -838,8 +838,12 @@ function nonTopLevelTestCalls(text) {
   return (
     text
       // oxfmt は 80 桁を超える取り込み文を複数行に折る(`import {\n  it,\n} from` /
-      // `} =\n  require(`)ので、宣言を 1 行に戻してから見る。引用符・`;` は越えない
-      .replace(/\bimport\b[^;'"`]*?\bfrom\b/g, (m) => m.replace(/\s+/g, " "))
+      // `} =\n  require(`)ので、宣言を 1 行に戻してから見る。引用符・`;` は越えない。
+      // 起点は行頭の `import` に限る — コメント中の語 `import` から本物の `from` までを
+      // 潰すと、取り込み行がコメント行に吸われて除外され、既定形でない取り込みが見えなくなる(実測)
+      .replace(/^[ \t\uFEFF]*import\b[^;'"`]*?\bfrom\b/gm, (m) =>
+        m.replace(/\s+/g, " ")
+      )
       .replace(/\{[^}]*\}\s*=\s*(await\s+import|require)\s*\(/g, (m) =>
         m.replace(/\s+/g, " ")
       )
@@ -881,7 +885,7 @@ test("test:workflows の口で、テストの登録は行頭にしか書かれ�
     assert.deepEqual(
       nonTopLevelTestCalls(text),
       [],
-      `${name} に行頭以外のテスト登録がある`
+      `${name} に行頭以外のテスト登録か、既定形でない node:test の取り込みがある`
     );
   }
 });
