@@ -48,7 +48,7 @@ interface SectionResult {
   threshold: number;
   totalTargets: number;
   stale: StaleEntry[];
-  /** `evidence.<出典>.archivedAt` を持つ凍結出典。対象数に数えないが、黙って消さず列挙する */
+  /** `evidence.eef.archivedAt` を持つ凍結出典。対象数に数えないが、黙って消さず列挙する */
   frozen: FrozenEntry[];
 }
 
@@ -93,10 +93,15 @@ function daysBetween(from: Date, to: Date): number {
   return Math.floor(ms / (1000 * 60 * 60 * 24));
 }
 
+// 凍結を読むのは `evidence.eef.archivedAt` だけ。2026-09-19 時点で `src/content.config.ts` が
+// 宣言していたのも eef の下だけで、他の § に書いた `archivedAt` は Astro が黙って捨てていた
+// (`astro sync` は通る)。script だけが 3 § で読むと schema に無い凍結が報告に出る(#620)。
+// 他の § に凍結を足すときは schema・`docs/source-sync-protocol.md` §0・ここを一緒に広げる
 function archivedAtOf(
   section: Section,
   data: Record<string, unknown>
 ): string | null {
+  if (section !== "eef") return null;
   const evidence = data.evidence as Record<string, unknown> | undefined;
   const entry = evidence?.[section] as Record<string, unknown> | undefined;
   const value = entry?.archivedAt;
