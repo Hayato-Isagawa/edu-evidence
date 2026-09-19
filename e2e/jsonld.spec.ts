@@ -111,9 +111,10 @@ const nodeShapes: Record<string, string[]> = {
 };
 
 // `host` はポート込み(`law.edu-evidence.org:8443` は終端一致しない。zod の .url() はポートを
-// 通す)なので、URL を受けて `hostname` で見る
+// 通す)なので、URL を受けて `hostname` で見る。末尾ドット付きの FQDN(`law.edu-evidence.org.`)は
+// hostname にドットが残って終端一致しないので、落としてから比べる(zod はこの形も通す)
 function isFamilyHost(url: URL) {
-  const host = url.hostname;
+  const host = url.hostname.replace(/\.+$/, "");
   return host === siteHost || host.endsWith(`.${siteHost}`);
 }
 
