@@ -435,6 +435,26 @@ test("check-source-sync.ts は evidence.hattie.archivedAt を凍結として読�
   assert.equal(hattie.totalTargets, 1);
 });
 
+// hattie 側だけ固定すると「hattie だけ読まない(japan は読む)」への書き換えが緑のまま通る(#626)
+test("check-source-sync.ts は evidence.japan.archivedAt を凍結として読まない", () => {
+  assert.ok(
+    fixtureFileCount("source-sync-frozen") > 0,
+    "fixture が空 — 0 件で緑になっている"
+  );
+  const r = runWithArgs("check-source-sync.ts", "source-sync-frozen", [
+    "--section",
+    "japan",
+    "--json",
+  ]);
+  const japan = JSON.parse(r.output).sections.japan;
+  assert.deepEqual(japan.frozen, []);
+  assert.deepEqual(
+    japan.stale.map((e) => e.file),
+    ["japan-archived.md"]
+  );
+  assert.equal(japan.totalTargets, 1);
+});
+
 // 内部リンク切れを per-PR で見る口はこれだけ。
 //
 // `check:links`（外部込み）を `check:all` から外したとき、内部リンクを見るものも一緒に

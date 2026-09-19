@@ -30,7 +30,7 @@
     "format:check": "oxfmt --check",
     "check:all": "npm run lint && npm run format:check && npm run check && npm run check:text && npm run check:reader-literacy && npm run check:sentence-length && npm run check:tokens && npm run check:consistency && npm run check:evidence-strength && npm run check:links:source && npm run check:links:internal && npm run test:gate && npm run test:scripts && npm run test:workflows && npm run test:hooks",
     "test:gate": "node scripts/__tests__/gate/assert-test-scripts.test.mjs",
-    "test:scripts": "node scripts/assert-test-files.mjs \"scripts/__tests__/*.test.mjs\" && node scripts/assert-test-results.mjs 55 \"scripts/__tests__/*.test.mjs\"",
+    "test:scripts": "node scripts/assert-test-files.mjs \"scripts/__tests__/*.test.mjs\" && node scripts/assert-test-results.mjs 56 \"scripts/__tests__/*.test.mjs\"",
     "test:workflows": "node scripts/assert-test-files.mjs \"scripts/__tests__/workflows/*.test.mjs\" && node scripts/assert-test-results.mjs 80 \"scripts/__tests__/workflows/*.test.mjs\"",
     "test:hooks": "node scripts/assert-test-files.mjs \".claude/hooks/__tests__/*.test.cjs\" && node scripts/assert-test-results.mjs 57 \".claude/hooks/__tests__/*.test.cjs\"",
     "test:e2e": "npx playwright test",
