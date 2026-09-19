@@ -62,7 +62,7 @@ Git 運用を含む自動化は GitHub Actions 側で実装する。
   - 該当があれば `src/content/columns/` に下書き md 作成
   - `auto/column-draft-YYYY-MM-DD` ブランチで PR
 - **既存戦略の更新候補検出**
-  - 73 戦略について新研究が出ていないか定期チェック
+  - 全戦略について新研究が出ていないか定期チェック
   - あれば `evidence.japan.note` 更新候補として Issue 化
 - **EEF Toolkit 本家の更新監視**
   - EEF が Toolkit を更新したら差分を検知
