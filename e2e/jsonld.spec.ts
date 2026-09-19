@@ -110,7 +110,10 @@ const nodeShapes: Record<string, string[]> = {
   WebSite: ["@context", "@type", "description", "inLanguage", "name", "url"],
 };
 
-function isFamilyHost(host: string) {
+// `host` はポート込み(`law.edu-evidence.org:8443` は終端一致しない。zod の .url() はポートを
+// 通す)なので、URL を受けて `hostname` で見る
+function isFamilyHost(url: URL) {
+  const host = url.hostname;
   return host === siteHost || host.endsWith(`.${siteHost}`);
 }
 
@@ -126,28 +129,31 @@ function parseUrlValue(value: string) {
 
 // JSON-LD の全ノードを形で検査する。URL 値(sameAs と @context 以外)は自サイトを指すこと —
 // 姉妹サイトを WebSite ノードや文字列値で書く形を止める。例外は CreativeWork.url(isBasedOn の
-// 一次出典。外部ドメインであることが正で、家族ドメインは禁止)
-function checkNodeShapes(value: unknown, where = "$") {
+// 一次出典。外部ドメインであることが正で、家族ドメインは禁止)。`label` は失敗メッセージの
+// 先頭に付ける呼び出し元の名前(dist 走査ではファイル名)。`where` は JSON 内の位置で、
+// @context の位置検査に使うので label と混ぜない
+function checkNodeShapes(value: unknown, where = "$", label = "") {
   if (Array.isArray(value)) {
-    value.forEach((v, i) => checkNodeShapes(v, `${where}[${i}]`));
+    value.forEach((v, i) => checkNodeShapes(v, `${where}[${i}]`, label));
     return;
   }
   if (!value || typeof value !== "object") return;
   const obj = value as Record<string, unknown>;
   const type = obj["@type"];
-  expect(typeof type, `${where}: @type の無いノード`).toBe("string");
+  const at = `${label}${where}`;
+  expect(typeof type, `${at}: @type の無いノード`).toBe("string");
   const shape = nodeShapes[type as string];
   expect(
     shape,
-    `${where}: 形を決めていない @type ${JSON.stringify(type)}`
+    `${at}: 形を決めていない @type ${JSON.stringify(type)}`
   ).toBeTruthy();
   for (const [key, v] of Object.entries(obj)) {
-    expect(shape, `${where}.${key}: ${type} に許していないキー`).toContain(key);
+    expect(shape, `${at}.${key}: ${type} に許していないキー`).toContain(key);
     if (key === "@context") {
       // @context をオブジェクトにすると型名やキーを別名化できる。文字列 1 形に固定し、
       // トップレベルのブロックにしか置かない
-      expect(v, `${where}.@context`).toBe("https://schema.org");
-      expect(where, "@context は入れ子のノードに置かない").toMatch(
+      expect(v, `${at}.@context`).toBe("https://schema.org");
+      expect(where, `${at}: @context は入れ子のノードに置かない`).toMatch(
         /^\$\[\d+\]$/
       );
       continue;
@@ -155,14 +161,14 @@ function checkNodeShapes(value: unknown, where = "$") {
     if (key === "sameAs") {
       // sameAs は http(s) の URL 文字列の配列。Organization の値は呼び出し側が固定する。
       // Person(著者)のファミリードメインは許す — 同一人物のページなので定義どおり(edu-watch ADR 0071)
-      expect(Array.isArray(v), `${where}.sameAs は配列`).toBe(true);
+      expect(Array.isArray(v), `${at}.sameAs は配列`).toBe(true);
       for (const u of v as unknown[]) {
-        expect(typeof u, `${where}.sameAs の要素は文字列`).toBe("string");
+        expect(typeof u, `${at}.sameAs の要素は文字列`).toBe("string");
         // mailto: / javascript: / data: も URL.canParse は通すので、スキームを http(s) に限る
         expect(
           /^https?:\/\//i.test((u as string).trim()) &&
             URL.canParse((u as string).trim()),
-          `${where}.sameAs が http(s) の URL でない: ${u}`
+          `${at}.sameAs が http(s) の URL でない: ${u}`
         ).toBe(true);
       }
       continue;
@@ -174,36 +180,36 @@ function checkNodeShapes(value: unknown, where = "$") {
       for (const [i, item] of v.entries()) {
         expect(
           item !== null && typeof item === "object" && !Array.isArray(item),
-          `${where}.${key}[${i}]: sameAs 以外の配列はオブジェクトの並びに限る`
+          `${at}.${key}[${i}]: sameAs 以外の配列はオブジェクトの並びに限る`
         ).toBe(true);
       }
     }
     if (typeof v === "string") {
       const url = parseUrlValue(v);
       if (type === "CreativeWork" && key === "url") {
-        // 一次出典は http(s) の URL に限る(zod の .url() は mailto: も通す)
+        // 一次出典は http(s) スキームの URL に限る(zod の .url() は mailto: も通す)。
+        // parseUrlValue は `//host` も URL に読むので、スキームは sameAs と同じ字面で別に見る
         expect(
-          url,
-          `${where}.${key} の一次出典が http(s) でない: ${v}`
+          /^https?:\/\//i.test(v.trim()) && url,
+          `${at}.${key} の一次出典が http(s) でない: ${v}`
         ).toBeTruthy();
       }
       if (url === undefined) {
-        expect(false, `${where}.${key} が URL として読めない: ${v}`).toBe(true);
+        expect(false, `${at}.${key} が URL として読めない: ${v}`).toBe(true);
       } else if (url !== null) {
         if (type === "CreativeWork" && key === "url") {
           expect(
-            isFamilyHost(url.host),
-            `${where}.${key} の一次出典が家族ドメインを指している: ${v}`
+            isFamilyHost(url),
+            `${at}.${key} の一次出典が家族ドメインを指している: ${v}`
           ).toBe(false);
         } else {
-          expect(
-            url.host,
-            `${where}.${key} が自サイトを指していない: ${v}`
-          ).toBe(siteHost);
+          expect(url.host, `${at}.${key} が自サイトを指していない: ${v}`).toBe(
+            siteHost
+          );
         }
       }
     }
-    checkNodeShapes(v, `${where}.${key}`);
+    checkNodeShapes(v, `${where}.${key}`, label);
   }
 }
 
@@ -216,7 +222,7 @@ function checkPage(scripts: unknown[], topLevelTypes: string[], where = "") {
       `${where}JSON-LD に見ていない @type: ${JSON.stringify(type)}`
     ).toContain(type);
   }
-  checkNodeShapes(scripts);
+  checkNodeShapes(scripts, "$", where);
   expect(
     scripts.map((s) => (s as Record<string, unknown>)?.["@type"]),
     `${where}トップレベルの JSON-LD の列`
@@ -287,7 +293,7 @@ test("戦略詳細の JSON-LD の形と一次出典(isBasedOn)", async ({ page }
   expect(article.isBasedOn?.["@type"]).toBe("CreativeWork");
   const source = new URL(String(article.isBasedOn.url));
   expect(source.protocol).toBe("https:");
-  expect(isFamilyHost(source.host)).toBe(false);
+  expect(isFamilyHost(source)).toBe(false);
 });
 
 test("コラムの JSON-LD の形(isBasedOn / image を持たない)", async ({
