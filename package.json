@@ -62,7 +62,7 @@
     "@playwright/test": "^1.63.0",
     "gray-matter": "^4.0.3",
     "linkinator": "^8.1.0",
-    "oxfmt": "^0.67.0",
+    "oxfmt": "^0.68.0",
     "oxlint": "^1.82.0",
     "pagefind": "^1.5.2",
     "rehype-external-links": "^3.0.0",
