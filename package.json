@@ -74,7 +74,7 @@
     "textlint-rule-prh": "^6.1.0",
     "tsx": "^4.23.13",
     "typescript": "^5.0.0",
-    "wrangler": "^4.131.0"
+    "wrangler": "^4.134.0"
   },
   "overrides": {
     "vite": "^8.0.0",
