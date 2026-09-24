@@ -1,6 +1,6 @@
 ---
 title: 教室での対話・議論
-summary: 教師と子ども、子ども同士が考えを言葉で交わし合う活動。EEF の口頭言語介入は +6ヶ月、Alexander らの dialogic teaching RCT(英国)は英語・理科で +2ヶ月の正効果。「対話的な学び」の直接的なエビデンス。
+summary: 教師と子ども、子ども同士が考えを言葉で交わし合う活動。EEF の口頭言語介入は +6ヶ月。Alexander が開発した dialogic teaching の EEF 試験(英国)は英語・理科で +2ヶ月だった(統計的に有意だったのは理科のみ)。「対話的な学び」に直接かかわるエビデンス。
 monthsGained: 6
 evidenceStrength: 4
 cost: 1
@@ -14,7 +14,7 @@ evidence:
   eef:
     monthsGained: 6
     strength: 4
-    note: "EEF Oral Language Interventions は全体 +6ヶ月。EEF が実施した Dialogic Teaching RCT(Alexander ら、Year 5〔9〜10 歳〕対象、20週間)では、英語・理科で +2ヶ月、算数で +1ヶ月の効果を確認。"
+    note: "EEF Oral Language Interventions は全体 +6ヶ月。EEF の Dialogic Teaching RCT(Jay ら 2017、Year 5〔9〜10 歳〕対象、20週間)では英語・理科で +2ヶ月、算数で +1ヶ月。統計的に有意だったのは理科のみ(英語 p=0.051、算数 p=0.19)。"
   hattie:
     cohensD: 0.82
     note: "Hattie の Visible Learning では d=0.82(classroom discussion)と報告されているが、これは上端寄り。EEF の +6ヶ月の方が近年の大規模研究に基づく保守的な推定値。"
@@ -23,7 +23,7 @@ methodology:
   sampleSize: "イングランドの小学校 76 校を割り付け(介入 38 校・対照 38 校)、解析は 69 校・3,912 名(介入 1,832 名・対照 2,080 名)。対象は Year 5(9〜10 歳)(EEF Dialogic Teaching RCT, 2014-17)"
   effectSize: "+2ヶ月(英語・理科) / +1ヶ月(算数)。無償給食対象児は算数でも +2ヶ月。背景指標の EEF 口頭言語介入は +6ヶ月(188 研究)"
   primaryEvidenceReview:
-    authors: "Alexander, Hardman ら(University of York)"
+    authors: "Jay, Willis, Thomas ら(Sheffield Hallam University)"
     year: 2017
     title: "Dialogic Teaching — EEF Evaluation Report"
     url: "https://files.eric.ed.gov/fulltext/ED581114.pdf"
@@ -51,7 +51,8 @@ culturalContext: |
 ## 研究からわかっていること
 
 - Hattieのメタ分析で効果量d=0.82(d=0.8 以上は効果大の目安)。非常に高い効果
-- EEF の Dialogic Teaching RCT(Alexander ら、小 5 対象・20 週間)では、対話型教授法(dialogic teaching)が英語・理科の学力を +2 ヶ月、算数を +1 ヶ月有意に向上させた
+- EEF の Dialogic Teaching RCT(Jay ら 2017、Year 5〔9〜10 歳〕対象・20 週間)では、Alexander が開発した対話型教授法(dialogic teaching)で英語・理科が +2 ヶ月、算数が +1 ヶ月だった。統計的に有意だったのは理科のみで、英語(p=0.051)と算数(p=0.19)は偶然の可能性を排除できない
+- 同じ試験の翌年の全国テスト(KS2)を追った追補報告(2019)では、効果は確認されなかった。ただし EEF は、多くの学校が最終学年(Year 6)で実践を続けていなかった可能性を指摘している
 - 効果は対話の質に依存する
 - 教師の問いかけの質が対話の質を決定づける
 
@@ -64,7 +65,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — 小 5 対象 78 校の RCT。英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月の正効果を確認。
+- [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — Year 5(9〜10 歳)・76 校を割り付けた RCT。英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月(FSM 児童は人数が少なく確実性が低い)。
 
 ### 関連読み物
 
