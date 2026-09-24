@@ -8,17 +8,16 @@ subjects: ["全教科"]
 grades: ["中学年", "高学年"]
 source: mixed
 tags: ["思考力", "対話"]
-sourceUrl: https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/philosophy-for-children
-sourceTitle: "EEF (2015) Philosophy for Children: Evaluation Report"
+sourceUrl: https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/philosophy-for-children-effectiveness-trial
+sourceTitle: "EEF (2021) Philosophy for Children - second trial"
 evidence:
   eef:
     monthsGained: 0
-    strength: 3
-    note: "EEF の効力試験(Gorard, Siddiqui & See 2015、48 校・3,159 人)では読解 +2ヶ月・算数 +2ヶ月・書く力 0ヶ月(FSM〔就学援助相当〕層では読解 +4・算数 +3・書く力 +2)。**しかし 2021 年公表の大規模再試験(Lord et al.、75 介入校 + 123 対照校)では読解・算数とも全体 / FSM 層のどちらも効果が確認されず、児童サーベイによる社会的・コミュニケーションスキルにも効果のエビデンスなし(教師の評価は肯定的)。EEF はこの結果を受けて P4C を Promising Projects リストから除外した**。なお自己報告のコミュニケーション +0.10・チームワークとレジリエンス +0.15 は、2015 年チームによる別の準実験(Siddiqui et al. 2017、Nuffield 資金)の値。"
+    note: "0ヶ月は 2021 年の大規模再試験(多くの学校で通常の条件のもとで行う効果検証試験)の値で、EEF の確実性評価は 5 段階中 5。2015 年の最初の試験(+2ヶ月)は 5 段階中 3。EEF の効力試験(Gorard, Siddiqui & See 2015、48 校・3,159 人)では読解 +2ヶ月・算数 +2ヶ月・書く力 0ヶ月(FSM〔就学援助相当〕層では読解 +4・算数 +3・書く力 +2)。**しかし 2021 年公表の大規模再試験(Lord et al.、75 介入校 + 123 対照校)では読解・算数とも全体 / FSM 層のどちらも効果が確認されず、児童サーベイによる社会的・コミュニケーションスキルにも効果のエビデンスなし(教師の評価は肯定的)。EEF はこの結果を受けて P4C を Promising Projects リストから除外した**。なお自己報告のコミュニケーション +0.10・チームワークとレジリエンス +0.15 は、2015 年チームによる別の準実験(Siddiqui et al. 2017、Nuffield 資金)の値。"
   hattie:
     cohensD: 0.25
     note: "Trickey & Topping(2004)のレビューで批判的思考の効果量 d≒0.43、Topping & Trickey(2007)の追跡で 2 年後も効果が持続。学力への効果は 2015 年 EEF RCT(+2)と 2021 年再試験(0)で結果が分かれている。"
-lastVerified: "2026-06-12"
+lastVerified: "2026-09-24"
 methodology:
   sampleSize: "EEF 効力試験(Gorard, Siddiqui & See 2015): 英国の小学校 48 校・4〜5 年生 3,159 人・約 1 年(2013 年 1〜12 月)の介入(クラスター RCT)"
   effectSize: "全体で読解 +0.12(+2 か月)・算数 +0.10(+2 か月)・書く力 +0.03(0 か月)。FSM 層では読解 +0.29(+4 か月)・算数 +0.20(+3 か月)・書く力 +0.17(+2 か月)"
