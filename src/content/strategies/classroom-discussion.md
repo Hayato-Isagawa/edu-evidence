@@ -65,7 +65,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — Year 5(9〜10 歳)・76 校を割り付けた RCT。英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月(FSM 児童は人数が少なく確実性が低い)。
+- [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — Year 5(9〜10 歳)・76 校を割り付けた RCT。英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月(FSM の対象となる児童は人数が少なく確実性が低い)。
 
 ### 関連読み物
 
