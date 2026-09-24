@@ -12,6 +12,7 @@ sourceUrl: https://educationendowmentfoundation.org.uk/projects-and-evaluation/p
 sourceTitle: "EEF (2021) Philosophy for Children - second trial"
 evidence:
   eef:
+    kind: trial
     monthsGained: 0
     note: "0ヶ月は 2021 年の大規模再試験(多くの学校で通常の条件のもとで行う効果検証試験)の値で、EEF の確実性評価は 5 段階中 5。2015 年の最初の試験(+2ヶ月)は 5 段階中 3。EEF の効力試験(Gorard, Siddiqui & See 2015、48 校・3,159 人)では読解 +2ヶ月・算数 +2ヶ月・書く力 0ヶ月(FSM〔就学援助相当〕層では読解 +4・算数 +3・書く力 +2)。**しかし 2021 年公表の大規模再試験(Lord et al.、75 介入校 + 123 対照校)では読解・算数とも全体 / FSM 層のどちらも効果が確認されず、児童サーベイによる社会的・コミュニケーションスキルにも効果のエビデンスなし(教師の評価は肯定的)。EEF はこの結果を受けて P4C を Promising Projects リストから除外した**。なお自己報告のコミュニケーション +0.10・チームワークとレジリエンス +0.15 は、2015 年チームによる別の準実験(Siddiqui et al. 2017、Nuffield 資金)の値。"
   hattie:

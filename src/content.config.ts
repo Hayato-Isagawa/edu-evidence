@@ -37,6 +37,16 @@ const strategies = defineCollection({
         .object({
           eef: z
             .object({
+              // 値の出所。省略時は Teaching and Learning Toolkit の strand。
+              // 戦略ページの EEF カードの見出しを切り替える
+              kind: z
+                .enum([
+                  "toolkit",
+                  "early-years-toolkit",
+                  "trial",
+                  "evidence-review",
+                ])
+                .optional(),
               monthsGained: z.number().optional(),
               strength: z.number().min(1).max(5).optional(),
               note: z.string().optional(),

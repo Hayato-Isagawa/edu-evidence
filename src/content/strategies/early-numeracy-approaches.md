@@ -13,6 +13,7 @@ sourceUrl: https://educationendowmentfoundation.org.uk/early-years/toolkit/early
 sourceTitle: "EEF Early Years Toolkit"
 evidence:
   eef:
+    kind: early-years-toolkit
     monthsGained: 7
     strength: 2
     note: "EEF Early Years Toolkit で +7ヶ月(コストは最小水準)。54 研究に基づくが、確実性評価は 5 段階中 2 の『limited(限定的)』。独立評価でない研究の割合が高く、効果はアプローチ間でばらつく。"

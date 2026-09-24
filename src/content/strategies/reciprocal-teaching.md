@@ -12,8 +12,6 @@ sourceUrl: https://doi.org/10.3102/00346543064004479
 sourceTitle: "Rosenshine & Meister (1994) Reciprocal teaching: A review of the research. Review of Educational Research, 64(4)"
 evidence:
   eef:
-    monthsGained: 0
-    strength: 3
     note: "EEF Toolkit に相互教授法の独立したエントリは無い。関連する読解戦略指導(+7)の中核的手法として位置づけられる。"
   hattie:
     cohensD: 0.74
