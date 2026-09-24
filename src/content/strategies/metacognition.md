@@ -22,10 +22,10 @@ methodology:
   sampleSize: "就学前から中等教育までの子ども・生徒対象"
   effectSize: "+8ヶ月(EEF Toolkit、2025年更新)"
   primaryEvidenceReview:
-    authors: "Muijs & Bokhove"
-    year: 2020
-    title: "Metacognition and Self-regulation: Evidence Review"
-    url: "https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/metacognition-and-self-regulation"
+    authors: "Education Endowment Foundation"
+    year: 2025
+    title: "Teaching and Learning Toolkit — Metacognition and self-regulation(2025年5月更新・355研究)"
+    url: "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"
   limitations: "効果量は教科文脈や実施の質に大きく依存する。『何となく振り返らせる』だけでは効果が出にくい。構造化された方略指導(計画・モニタリング・評価の明示)が鍵。EEF は、独立評価でない研究の割合が高いことを理由に確実性評価を 1 段階下げている(開発団体自身による評価は効果が大きく出る傾向がある)。"
 culturalContext: |
   日本の小学校では「振り返り(リフレクション)」として既に実践されている部分がある。ただし、EEF が指す「メタ認知」は単なる『今日の授業どうだった?』ではなく、『この問題を解くとき、自分はどの方略を使ったか』『次は何を変えるか』を明示的に指導することを意味する。「めあて」→「活動」→「振り返り」の『振り返り』段階を、子どもの内部プロセスに焦点を当てて深める余地がある。
@@ -66,7 +66,7 @@ culturalContext: |
 
 - Dignath, C., & Büttner, G. (2008). [Components of fostering self-regulated learning among students](https://doi.org/10.1007/s11409-008-9029-x). *Metacognition and Learning*, 3, 231–264. — 小学生49研究・中学生35研究のメタ分析。自己調整学習介入の平均効果量d=0.69。小学校段階でも十分に効果があることを示した。
 - [Metacognition and Self-regulated Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition). Education Endowment Foundation (2018), *Guidance Report*. — メタ認知指導を 7 つの推奨事項に整理したガイダンスレポート。教科の文脈に組み込むことの重要性を強調。
-- Muijs, D., & Bokhove, C. (2020). [Metacognition and Self-regulation: Evidence Review](https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/metacognition-and-self-regulation). Education Endowment Foundation. — EEF Toolkit の根拠となる最新のエビデンスレビュー。多数の研究を統合して平均効果量 +7 ヶ月を算出(2025 年の Toolkit 更新で +8 ヶ月に引き上げ)。
+- Muijs, D., & Bokhove, C. (2020). [Metacognition and Self-regulation: Evidence Review](https://educationendowmentfoundation.org.uk/education-evidence/evidence-reviews/metacognition-and-self-regulation). Education Endowment Foundation. — EEF がガイダンスレポート(Metacognition and Self-regulated Learning)の初版のために委託したエビデンスレビュー。Toolkit の効果量(+8 ヶ月)は、Toolkit が特定した 355 研究を統合した値。
 
 ## 関連する政策動向
 

@@ -49,7 +49,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 - 構造のないペア学習は効果が小さい(おしゃべりに終わる)
 - 役割と目標が明確な協同学習は +5 ヶ月
-- 教師が問いを工夫した学級全体の対話は、[Dialogic Teaching の EEF 試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching)(78 校・小学 5 年対象の RCT)で英語・理科に +2 ヶ月、算数に +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月
+- 教師が問いを工夫した学級全体の対話は、[Dialogic Teaching の EEF 試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching)(76 校を割り付けた Year 5〔9〜10 歳〕対象の RCT)で英語・理科に +2 ヶ月、算数に +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月
 
 「主体的」も同様:
 
@@ -76,7 +76,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 - 「主体的・対話的で深い学び」というフレーズ全体を検証した研究は存在しない(日本独自の政策用語)
 - 構成要素ごとの効果量: メタ認知 **+8 ヶ月**、協同学習 **+5 ヶ月**、口頭言語の指導 **+6 ヶ月**、フィードバック **+6 ヶ月**、探究 / PBL は **限定的〜条件により負**
 - EEF の PBL 試験は、読み書きで正の効果を確認できず、就学援助対象の児童に負の影響を示唆
-- EEF の Dialogic Teaching RCT(小学 5 年 78 校)は **英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月** と正の効果を確認
+- EEF の Dialogic Teaching RCT(Year 5〔9〜10 歳〕・76 校を割り付け)は **英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月** と報告(FSM の対象となる児童の結果は人数が少なく確実性が低い)。全体では統計的に有意だったのは理科のみで、翌年の全国テスト(KS2)の追跡では効果が確認されなかった
 - 抽象的な呼びかけでなく、**構成要素の質** を高める具体的指導が学びに直結する
 
 ## 考えたいこと
@@ -93,4 +93,4 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 - [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月。
 - [Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語介入で +6 ヶ月(188 研究)。
 - [Project Based Learning — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning). Education Endowment Foundation. — PBL の RCT。読み書きへの正の効果なし、FSM(Free School Meals)児童に負の影響を示唆(ただし学校脱落が多く、解釈には慎重さを要する)。
-- [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — 小学 5 年 78 校 RCT。英語・理科 +2 ヶ月、算数 +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月。
+- [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — Year 5(9〜10 歳)・76 校を割り付けた RCT。英語・理科 +2 ヶ月、算数 +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月。
