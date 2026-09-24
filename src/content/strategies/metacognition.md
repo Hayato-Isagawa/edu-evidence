@@ -15,11 +15,11 @@ evidence:
   eef:
     monthsGained: 8
     strength: 4
-    note: "2025年のEEF Toolkit 更新で +7 → +8ヶ月に引き上げ(107の新しい研究を追加し 355 研究)。確実性評価は 5 段階中 4(high)で、独立評価でない研究の割合が高いため 1 段階下がっている。小学校で特に大きな効果。『思考について考える』を明示的に教えることが鍵。"
-lastVerified: "2026-07-27"
+    note: "2025年のEEF Toolkit 更新で +7 → +8ヶ月に引き上げ(研究数は 246 → 355)。確実性評価は 5 段階中 4(high)で、独立評価でない研究の割合が高いため 1 段階下がっている。効果は年齢段階を問わず同程度で、就学前・初等教育・中等教育のいずれでも高い。『思考について考える』を明示的に教えることが鍵。"
+lastVerified: "2026-09-24"
 methodology:
   studies: 355
-  sampleSize: "小中学校の児童生徒対象"
+  sampleSize: "就学前から中等教育までの子ども・生徒対象"
   effectSize: "+8ヶ月(EEF Toolkit、2025年更新)"
   primaryEvidenceReview:
     authors: "Muijs & Bokhove"

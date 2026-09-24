@@ -15,7 +15,7 @@ evidence:
     monthsGained: 6
     strength: 4
     note: "EEF Toolkit で +6ヶ月。確実性評価は 5 段階中 4(high)で、独立評価でない研究の割合が高いため 1 段階下がっている。学年段階による効果の差は大きくないとされる。話す・聞く・その組み合わせのいずれに焦点を当てた研究でも、学力への正の効果が報告されている。"
-lastVerified: "2026-07-29"
+lastVerified: "2026-09-24"
 methodology:
   studies: 188
   sampleSize: "幼児〜中等教育(EEF Toolkit 188 研究・2025年5月更新)"
