@@ -12,8 +12,6 @@ sourceUrl: https://link.springer.com/article/10.1007/s10648-017-9403-9
 sourceTitle: "Studying and Constructing Concept Maps: a Meta-Analysis (Schroeder et al., 2018)"
 evidence:
   eef:
-    monthsGained: 0
-    strength: 3
     note: "EEF Toolkit にコンセプトマップの独立したエントリは無いが、複数の独立した教育心理学メタ分析で効果が確認されている。"
   hattie:
     cohensD: 0.64

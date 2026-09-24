@@ -12,8 +12,6 @@ sourceUrl: https://journals.sagepub.com/doi/abs/10.3102/0034654315627366
 sourceTitle: "Meta-Analysis of Inquiry-Based Learning — Lazonder & Harmsen, 2016"
 evidence:
   eef:
-    monthsGained: 0
-    strength: 2
     note: "EEF が実施した Project-Based Learning 試験では学力への正の効果は確認されず、低所得層には負の影響も報告された。EEF Toolkit に Inquiry-Based Learning の独立したエントリは無く、関連手法として Metacognition(+8) が推奨されている。"
   japan:
     monthsGained: 5

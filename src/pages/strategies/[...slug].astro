@@ -97,6 +97,13 @@ const effectNote = d.monthsUnmeasured
     : d.monthsGained === 0
       ? "測った研究では、学力への効果は全体としてほぼゼロ"
       : `3月時点で、通常より約${Math.abs(d.monthsGained)}ヶ月分学力が低下する傾向`;
+
+const eefLabel = {
+  toolkit: "EEF Toolkit",
+  "early-years-toolkit": "EEF Early Years Toolkit",
+  trial: "EEF 試験評価",
+  "evidence-review": "EEF エビデンスレビュー",
+}[d.evidence?.eef?.kind ?? "toolkit"];
 ---
 
 <Layout
@@ -213,7 +220,7 @@ const effectNote = d.monthsUnmeasured
           {d.evidence?.eef && (
             <div class="border border-source-eef/40 rounded-xl p-5 space-y-2">
               <div class="flex items-baseline gap-3">
-                <span class="font-mono text-xs uppercase tracking-widest text-source-eef">EEF Toolkit</span>
+                <span class="font-mono text-xs uppercase tracking-widest text-source-eef">{eefLabel}</span>
                 {d.evidence.eef.monthsGained !== undefined && (
                   <span class="font-black text-xl text-source-eef tabular-nums">
                     {d.evidence.eef.monthsGained > 0 ? "+" : ""}

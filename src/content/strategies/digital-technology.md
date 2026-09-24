@@ -12,6 +12,7 @@ sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/eviden
 sourceTitle: "EEF Evidence Review — Using Digital Technology to Improve Learning (2019)"
 evidence:
   eef:
+    kind: evidence-review
     note: "**EEF Toolkit に ICT 活用の項目は無い**(2026-09-08 時点の一覧に見当たらない。EEF は Toolkit の小規模な編集作業中と告知している)。以前掲げていた 4ヶ月は、かつて Toolkit にあった項目の値。Toolkit の項目に代わって現在参照できるのは EEF の委託レビューで、2019 年版(Lewin ら)はイングランドの学校で行われた評価事業について「効果は小さいことが多く、平均すると 2〜3ヶ月分の学習の前倒しにあたる」と述べている。本サイトの 3ヶ月はこの範囲から採った代表値で、レビューが 3ヶ月と報告したわけではない。なお同名のガイダンスレポートに載っているのは EEF 出資の個別プロジェクトごとの月数で、ICT 全体を集約した月数ではない。効果は「既存の指導を置き換える」のではなく「補完する」形で使われたときに大きい。"
 lastVerified: "2026-09-08"
 methodology:
