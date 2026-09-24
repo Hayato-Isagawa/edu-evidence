@@ -1,6 +1,6 @@
 ---
 title: 探究学習
-summary: 子どもが自ら問いを持ち、調べ、考え、まとめ、表現する学習。教師の適切なガイダンスがある場合 +5ヶ月(Lazonder & Harmsen 2016, d=0.50)。ただし EEF の PBL 試験では放任型は正効果を示さず、低所得層には負効果の報告もある。
+summary: 子どもが自ら問いを持ち、調べ、考え、まとめ、表現する学習。教師の適切なガイダンスがある場合 +5ヶ月(Lazonder & Harmsen 2016, d=0.50)。ただし EEF の英国での PBL 試験では、教師が計画した構造化された PBL でも読み書きの力への明確な効果は確認されなかった(確実性は低い)。
 monthsGained: 5
 evidenceStrength: 3
 cost: 2
@@ -12,12 +12,13 @@ sourceUrl: https://journals.sagepub.com/doi/abs/10.3102/0034654315627366
 sourceTitle: "Meta-Analysis of Inquiry-Based Learning — Lazonder & Harmsen, 2016"
 evidence:
   eef:
-    note: "EEF が実施した Project-Based Learning 試験では学力への正の効果は確認されず、低所得層には負の影響も報告された。EEF Toolkit に Inquiry-Based Learning の独立したエントリは無く、関連手法として Metacognition(+8) が推奨されている。"
+    kind: trial
+    note: "EEF が実施した Project Based Learning 試験(英国の Year 7〔11〜12 歳〕、24 校。教師が計画し、外部のコーチが支援する構造化された PBL)では、読み書きの力への明確な効果は確認されなかった(−2ヶ月、確実性は 5 段階中 1)。FSM〔就学援助相当〕の生徒には負の影響の可能性が示されたが、EEF はこの結果を慎重に解釈すべきとしている。EEF Toolkit に Inquiry-Based Learning の独立したエントリは無く、関連手法として Metacognition(+8) が推奨されている。"
   japan:
     monthsGained: 5
     strength: 3
     note: "日本の『総合的な学習の時間』は探究学習の一形態。Lazonder & Harmsen の国際メタ分析(72研究、d=0.50)は、ガイダンス付きの探究が学力に正の効果を持つことを示している。「放任」ではなく「足場かけ」が鍵。"
-lastVerified: "2026-06-11"
+lastVerified: "2026-09-24"
 methodology:
   studies: 72
   sampleSize: "探究学習中のガイダンス(足場かけ)の効果を検証した 72 研究のメタ分析(年齢層・ガイダンス種別を比較)"
@@ -27,9 +28,9 @@ methodology:
     year: 2016
     title: "Meta-Analysis of Inquiry-Based Learning: Effects of Guidance"
     url: "https://doi.org/10.3102/0034654315627366"
-  limitations: "このメタ分析が比較したのは『探究 vs 一斉指導』ではなく『ガイダンスの多い探究 vs 少ない探究』で、d = 0.50 は探究にガイダンスを加えることの効果。研究数の制約から年齢差は確定的な結論が出ていない。EEF の Project-Based Learning 試験では学力への正の効果が確認されず低所得層への負の影響も報告されており、放任型の探究を支持するエビデンスではない。"
+  limitations: "このメタ分析が比較したのは『探究 vs 一斉指導』ではなく『ガイダンスの多い探究 vs 少ない探究』で、d = 0.50 は探究にガイダンスを加えることの効果。研究数の制約から年齢差は確定的な結論が出ていない。EEF の Project Based Learning 試験(構造化された PBL、確実性は 5 段階中 1)でも読み書きの力への明確な効果は確認されておらず、探究型の授業を取り入れるだけで学力が上がるとは言えない。"
 culturalContext: |
-  日本の「総合的な学習の時間」は世界的にも先進的な探究学習の枠組みだが、『放任』と『ガイダンス付きの探究』の区別が曖昧な実践も多い。Lazonder & Harmsen のメタ分析が示すように、**教師のガイダンス(問いの立て方、調査方法、結果のまとめ方)の質が効果を決める**。EEF の PBL 試験が示す負の効果も、構造化されていない自由探究に起因する。「子どもに任せる」のではなく「探究の方法を明示的に教える」姿勢が必要。
+  日本の「総合的な学習の時間」は世界的にも先進的な探究学習の枠組みだが、『放任』と『ガイダンス付きの探究』の区別が曖昧な実践も多い。Lazonder & Harmsen のメタ分析が示すように、**教師のガイダンス(問いの立て方、調査方法、結果のまとめ方)の質が効果を決める**。なお EEF の PBL 試験は構造化された PBL で行われたが、それでも読み書きの力への明確な効果は見られなかった(脱落が多く、確実性は低い)。「子どもに任せる」のではなく「探究の方法を明示的に教える」姿勢が必要。
 ---
 
 ## 一言でいうと
@@ -67,6 +68,10 @@ culturalContext: |
 
 - Lazonder, A. W., & Harmsen, R. (2016). [Meta-analysis of inquiry-based learning](https://doi.org/10.3102/0034654315627366). *Review of Educational Research*, 86(3), 681–718. — 72研究のメタ分析。ガイド付き探究がパフォーマンス成功(d=0.71)と学習成果(d=0.50)に正の効果。
 - Furtak, E. M., et al. (2012). [Experimental and quasi-experimental studies of inquiry-based science teaching](https://doi.org/10.3102/0034654312457206). *Review of Educational Research*, 82(3), 300–329. — 37研究のメタ分析。探究型理科授業の効果量d=0.50。
+
+### EEF の試験
+
+- Education Endowment Foundation (2016). [Project Based Learning](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning). — 英国の Year 7(24 校)の RCT。読み書きの力は −2ヶ月で明確な効果なし(確実性 5 段階中 1)。FSM〔就学援助相当〕の生徒への負の影響の可能性は、EEF 自身が慎重な解釈を求めている。
 
 ### 日本の研究・公式資料
 

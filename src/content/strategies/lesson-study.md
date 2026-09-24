@@ -1,6 +1,6 @@
 ---
 title: 研究授業(Lesson Study)
-summary: 教師が協働で授業を計画・観察・検討する日本発の研修手法。Lewis & Perry (2017) の米国 RCT では、分数学習で教師と児童双方の学力に正の効果を確認(What Works Clearinghouse 基準を満たした数少ない研究の一つ)。
+summary: 教師が協働で授業を計画・観察・検討する日本発の研修手法。Lewis & Perry (2017) の米国 RCT では、分数学習で教師と児童双方の学力に正の効果を確認(What Works Clearinghouse 基準を満たした数少ない研究の一つ)。一方、英国の EEF の大規模試験(181 校)では学力への効果は確認されなかった。
 monthsGained: 3
 evidenceStrength: 3
 cost: 1
@@ -17,12 +17,14 @@ evidence:
     note: "日本発の実践で、日本の小学校の約 99% で実施されている。秋田喜代美らによる理論化と国際展開。ただし日本国内で効果量を検証した RCT は極めて限定的。"
     researcher: "秋田喜代美(東京大学)ほか"
   eef:
-    note: "EEF Toolkit に Lesson Study の独立したエントリは無い(プロフェッショナル・ディベロップメントの一環として扱われる)。"
+    kind: trial
+    monthsGained: 0
+    note: "EEF が英国で行った Lesson Study 試験(181 校・約 12,700 人。Year 4〜5 の教員が参加し、児童を Year 6 末まで追跡)では、算数・読解の学力に効果は確認されなかった(0ヶ月、確実性は 5 段階中 5)。比較校の一部も授業観察など似た取り組みをしており、評価チームは、そうした取り組みがない学校に導入した場合の効果を過小評価している可能性にも触れている。EEF Toolkit に Lesson Study の独立した項目は無い。"
 methodology:
   sampleSize: "米国の 39 教育者チーム・213 名(87% が小学校教員)を 3 条件に無作為割付(分数教材キット付き授業研究 73 名/通常の研修 67 名/テーマ自由選択の授業研究 73 名)。約 3 か月の自己管理型介入。児童の分析対象は 1,059 人(66 教育者・38 チーム)"
   effectSize: "児童の分数知識 +0.49 SD(係数 0.492、p < .001。見慣れた形式 0.44/見慣れない形式 0.52)・教師の分数知識 +0.19 SD(統計的に有意。いずれも HLM)"
   limitations: "単一の RCT でありメタ分析ではない。検証されたのは『分数教材キット付き授業研究』という複合介入で、日本の校内研究そのものの効果検証ではない(米国・分数単元・約 3 か月)。対照 2 条件のうち 1 つはテーマ自由選択の授業研究であり、『授業研究 vs 研修なし』の比較ではない。日本国内で授業研究の効果を検証した RCT は存在しない。"
-lastVerified: "2026-06-13"
+lastVerified: "2026-09-24"
 culturalContext: |
   Lesson Study は **日本から世界に輸出された数少ない教育実践** で、シンガポール・米国・英国などでも研修手法として採用されている。Lewis & Perry (2017) の米国 RCT(39 教育者チーム)は、分数指導に特化した形で Lesson Study の効果を検証し、教師と児童双方の学力向上を確認した。What Works Clearinghouse の厳格な基準を満たした数少ない研究の一つ。ただし、日本国内では「校内研究」として広く実施されているにもかかわらず、その効果を RCT で検証した研究は極めて限定的で、「当然の実践」として効果量の定量化が遅れている状況にある。「+3ヶ月」は Lewis & Perry の分数指導研究からの暫定換算値で、全教科全般の効果ではない。
 ---
@@ -33,7 +35,7 @@ culturalContext: |
 
 ## なぜ効果があるのか
 
-研究授業が効くのは、教師が「教え方」を外から学ぶのではなく、自分の教室の中で改善を積み重ねるからです。同僚の目を通して授業を見ることで、教師1人では気づかない子どもの反応や指導の改善点が見えるようになります。教師の指導力が高まることで、結果的に子どもの学力も伸びます。
+研究授業が効くのは、教師が「教え方」を外から学ぶのではなく、自分の教室の中で改善を積み重ねるからです。同僚の目を通して授業を見ることで、教師1人では気づかない子どもの反応や指導の改善点が見えるようになります。教師の指導力が高まることで、子どもの学力も伸びることが期待されます。ただし、英国の大規模試験では学力への効果は確認されていません。
 
 ## 日本の小学校で取り入れるヒント
 
@@ -47,6 +49,7 @@ culturalContext: |
 
 - 米国のRCTでは、分数の理解に関するLesson Studyの効果が統計的に有意に確認され、What Works Clearinghouseの厳格な基準を満たしました
 - 643件の数学授業改善研究のレビューで、正の効果が確認されたのは2手法のみ。そのうちの1つがLesson Studyでした
+- 英国のEEFの大規模試験(181校)では、Talk for Literacy / Numeracy の指導を届ける手段としてLesson Studyを使い、学力への効果は確認されませんでした(確実性は5段階中5)。比較校の一部も授業観察など似た取り組みをしていたため、評価チームは効果を過小評価している可能性にも触れています
 - 効果の大きさは実施の質(事後検討の深さ、継続性)に大きく依存します
 
 ## 注意したいこと
@@ -60,6 +63,7 @@ culturalContext: |
 
 ### 海外の研究(効果量の根拠)
 
+- Education Endowment Foundation (2017). [Lesson Study](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/lesson-study). — 英国の 181 校・約 12,700 人の RCT(評価は London School of Economics)。算数・読解とも効果なし(0ヶ月、確実性 5 段階中 5)。
 - Lewis, C., & Perry, R. (2017). [Lesson study to scale up research-based knowledge: A randomized, controlled trial of fractions learning](https://eric.ed.gov/?id=EJ1141508). *Journal for Research in Mathematics Education*, 48(3), 261–299. — 分数の学習におけるLesson Studyの効果をRCTで検証。What Works Clearinghouseの厳格な基準を満たした数少ない研究の一つ。
 - Gersten, R., Taylor, M. J., Keys, T. D., Rolfhus, E., & Newman-Gonchar, R. (2014). Summary of research on the effectiveness of math professional development approaches. IES. — 643件の数学授業改善研究のレビュー。正の効果が確認されたのは2手法のみで、その1つがLesson Study。
 
