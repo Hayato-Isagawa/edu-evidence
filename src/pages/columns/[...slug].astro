@@ -32,7 +32,7 @@ const related = (d.relatedStrategies ?? [])
   .map((id) => strategyById.get(id))
   .filter((s): s is (typeof allStrategies)[number] => Boolean(s));
 
-// 出典の最終確認日は、公開日と違うときだけ並べて出す。
+// 主な出典の最終確認日は、公開日と違うときだけ並べて出す。
 // boolean ではなく値を保持する — boolean だとテンプレート側で
 // d.lastVerified の undefined が絞り込まれず formatDay に渡せない。
 const lastVerified =
@@ -110,7 +110,7 @@ const breadcrumbJsonLd = {
       </time>
       {lastVerified && (
         <span class="inline-block">
-          <time datetime={lastVerified}>出典の最終確認: {formatDay(lastVerified)}</time>
+          <time datetime={lastVerified}>主な出典の最終確認: {formatDay(lastVerified)}</time>
         </span>
       )}
     </p>

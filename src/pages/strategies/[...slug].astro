@@ -129,7 +129,11 @@ const eefLabel = {
       <div class="space-y-1">
         <div class="flex items-center gap-3">
           <Kicker class="leading-none">
-            Strategy{d.lastVerified ? ` — 最終確認 ${d.lastVerified}` : ""}
+            Strategy{d.lastVerified && (
+              <>
+                {" — "}<span class="whitespace-nowrap">出典の最終確認</span>{" "}<span class="whitespace-nowrap">{d.lastVerified}</span>
+              </>
+            )}
           </Kicker>
           <SourceBadge evidence={d.evidence} variant="full" />
         </div>
