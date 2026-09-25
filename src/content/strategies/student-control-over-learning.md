@@ -57,7 +57,7 @@ culturalContext: |
 ## 研究からわかっていること
 
 - Hattieのメタ分析では効果量d=0.02で、ほぼ効果がありません
-- 探究学習のメタ分析（Lazonder & Harmsen, 2016）でも、ガイド付き探究（d=0.71）に対し、ガイドなし探究は効果が大幅に低下します
+- 探究学習のメタ分析（Lazonder & Harmsen, 2016）では、探究にガイダンスを加えると学習成果が高まりました（d=0.50）。比べているのは「ガイダンスの多い探究」と「少ない探究」で、探究と一斉指導の比較ではありません
 - Kirschner, Sweller & Clark (2006) は、最小限のガイダンスしかない指導は「ほぼ全ての学習者にとって効果的でない」と結論しています
 - 効果が出るのは、子どもの自己決定と教師のガイダンスが**適切に組み合わされた**場合に限られます
 
@@ -71,7 +71,7 @@ culturalContext: |
 ## 主な参考研究
 
 - Kirschner, P. A., Sweller, J., & Clark, R. E. (2006). [Why minimal guidance during instruction does not work](https://doi.org/10.1207/s15326985ep4102_1). *Educational Psychologist*, 41(2), 75–86. — 最小限のガイダンスによる指導が効果的でないことを認知負荷理論から説明した重要論文。
-- Lazonder, A. W., & Harmsen, R. (2016). [Meta-analysis of inquiry-based learning](https://doi.org/10.3102/0034654315627366). *Review of Educational Research*, 86(3), 681–718. — ガイド付き探究 vs ガイドなし探究の効果差を実証。
+- Lazonder, A. W., & Harmsen, R. (2016). [Meta-analysis of inquiry-based learning](https://doi.org/10.3102/0034654315627366). *Review of Educational Research*, 86(3), 681–718. — 72 研究のメタ分析。探究にガイダンスを加えると学習成果が高まる（d=0.50）。
 - [Visible Learning MetaX — Student Control Over Learning](https://www.visiblelearningmetax.com/). Hattie, J. 公開データベース. — Hattie の Visible Learning で student control over learning は d ≒ 0.02 とほぼ効果なしに分類される。
 
 ### 関連読み物
