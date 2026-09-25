@@ -774,6 +774,7 @@ test("npm script test:scripts が、実測ちょうどの下限で 2 段を通�
 });
 
 const HOOK_TEST_FILES = [
+  "bash-frontmatter-guard.test.cjs",
   "branch-guard.test.cjs",
   "post-edit-roundtrip-spot-check.test.cjs",
   "pre-edit-frontmatter-immutable.test.cjs",
@@ -784,9 +785,9 @@ const HOOK_TEST_FILES = [
  * (`総数 − 最小ファイルの本数 + 2`。空ファイルも `node --test` は 1 pass と数える)。
  * **守る対象から導出しない**(理由は `SCRIPT_TESTS` と同じ)。
  */
-const HOOK_TESTS_FLOOR = 57;
+const HOOK_TESTS_FLOOR = 75;
 
-test("test:hooks の口にあるテストファイルが 3 本である", () => {
+test("test:hooks の口にあるテストファイルが 4 本である", () => {
   assert.deepEqual(
     listTestFiles(".claude/hooks/__tests__", ".test.cjs"),
     HOOK_TEST_FILES

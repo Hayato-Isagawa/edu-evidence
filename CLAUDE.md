@@ -104,8 +104,8 @@ fixture を一時ディレクトリに作って判定器を spawn し、fail 1 �
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
 
 **下限の決め方は口ごとに違う。** `test:workflows` の 102 と `test:scripts` の 56 は実測ちょうど
-(余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 57 は実数追随ではなく
-「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 65 と離れていてよい。
+(余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 75 は実数追随ではなく
+「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 83 と離れていてよい。
 
 **npm script の文字列と下限は、もう一方の口のテストが定数で完全一致固定している**
 (`test:scripts` / `test:hooks` / `test:gate` は `scripts/__tests__/workflows/vrt-targets.test.mjs`、
