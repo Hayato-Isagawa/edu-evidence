@@ -188,6 +188,91 @@ test("Pre: 読むだけのコマンドと無関係なコマンドは ask しな�
   }
 });
 
+test("Pre: 判定の境界(引用符の中の改行・open の空白と mode・入れ子の write_text)", () => {
+  for (const cmd of [
+    // sed / perl の直後の空白の連続と、フラグの直前の 1 文字は改行でもよい
+    `bash -c "sed x\n-i s/a/b/ ${X}"`,
+    `bash -c "sed a sed\n\n-i s/a/b/ ${X}"`,
+    `bash -c "perl x\n-pi -e s/a/b/ ${X}"`,
+    `python3 -c "p='${X}'; open(p , 'w').write('x')"`,
+    `python3 -c "open(p, mode='a')" ${X}`,
+    // 書き込みでないモードの一致が、引用符の中の次の open( を飲み込まない
+    `python3 -c "open(p, 'open(q, 'w')')" ${X}`,
+    `python3 -c "import os; from pathlib import Path; Path(os.path.join('src/content/columns','y.md')).write_text('x')"`,
+  ]) {
+    assert.equal(guard.looksLikeContentWrite(cmd), true, cmd);
+  }
+  for (const cmd of [
+    // フラグまでの間に改行を挟む(空白の連続の後)
+    `bash -c "sed x\n\ny -i ${X}"`,
+    `python3 -c "open( '/tmp/x' , 'w')" ${X}`,
+    `python3 -c "open(p, 'r')" ${X}`,
+  ]) {
+    assert.equal(guard.looksLikeContentWrite(cmd), false, cmd);
+  }
+});
+
+test("Pre: 長いコマンドでも判定が線形時間で終わる", () => {
+  // settings.json の `timeout: 5`(秒)を超えると kill され、ask が出ない。
+  // 正規表現の量指定子が重なると、sed + 空白 40k 字で 2.8 秒(2 乗)、
+  // open( + 空白 2k 字で 4.3 秒(3 乗)かかっていた。
+  // 3 乗の形は 64k 字だと数十分かかり、赤にならずに固まる。先に小さい入力で落とす
+  const small = `python3 -c 'open(${" ".repeat(2048)}x)' ${X}`;
+  const s0 = process.hrtime.bigint();
+  guard.looksLikeContentWrite(small);
+  const smallMs = Number(process.hrtime.bigint() - s0) / 1e6;
+  assert.ok(
+    smallMs < 500,
+    `open( + 空白 2k 字に ${smallMs.toFixed(0)}ms かかった`
+  );
+
+  const n = 64 * 1024;
+  const starts = [
+    "sed ",
+    "perl ",
+    "python3 -c 'open(",
+    "python3 -c 'x.write_text(",
+    "python3 -c '",
+    "node -e 'writeFileSync(",
+    "tee ",
+    "echo >",
+    "git -C ",
+    "mv ",
+    "cat <<A\n",
+  ];
+  const fills = [" ", "\t", "a", ".", "(", "-", "'", "a(", "-i", "\n"];
+  const slow = [];
+  for (const start of starts) {
+    for (const fill of fills) {
+      const run = fill.repeat(Math.ceil(n / fill.length));
+      for (const cmd of [`${start}${run} ${X}`, `${start} ${X} ${run}`]) {
+        const t0 = process.hrtime.bigint();
+        guard.looksLikeContentWrite(cmd);
+        const ms = Number(process.hrtime.bigint() - t0) / 1e6;
+        if (ms >= 500)
+          slow.push(
+            `${JSON.stringify(start)} × ${JSON.stringify(fill)}: ${ms.toFixed(0)}ms`
+          );
+      }
+    }
+  }
+  const k = 16 * 1024;
+  for (const [label, cmd] of [
+    ["70k 字 + リダイレクト", `echo ${" ".repeat(70000)} > ${X}`],
+    // 入れ子の受け手を 1 つずつ後ろへ辿ると 2 乗になる
+    [
+      "入れ子の write_text",
+      `python3 -c '${"(".repeat(k)}p${").write_text()".repeat(k)}' ${X}`,
+    ],
+  ]) {
+    const t0 = process.hrtime.bigint();
+    guard.looksLikeContentWrite(cmd);
+    const ms = Number(process.hrtime.bigint() - t0) / 1e6;
+    if (ms >= 500) slow.push(`${label}: ${ms.toFixed(0)}ms`);
+  }
+  assert.deepEqual(slow, []);
+});
+
 // --- 事後照合: 書き方に依存しない本命の網 --------------------------------
 
 /** Pre → (Bash の実行を模して) mutate → Post の順に走らせ、Post の出力を返す */

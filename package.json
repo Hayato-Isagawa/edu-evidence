@@ -33,7 +33,7 @@
     "test:gate": "node scripts/__tests__/gate/assert-test-scripts.test.mjs",
     "test:scripts": "node scripts/assert-test-files.mjs \"scripts/__tests__/*.test.mjs\" && node scripts/assert-test-results.mjs 59 \"scripts/__tests__/*.test.mjs\"",
     "test:workflows": "node scripts/assert-test-files.mjs \"scripts/__tests__/workflows/*.test.mjs\" && node scripts/assert-test-results.mjs 102 \"scripts/__tests__/workflows/*.test.mjs\"",
-    "test:hooks": "node scripts/assert-test-files.mjs \".claude/hooks/__tests__/*.test.cjs\" && node scripts/assert-test-results.mjs 75 \".claude/hooks/__tests__/*.test.cjs\"",
+    "test:hooks": "node scripts/assert-test-files.mjs \".claude/hooks/__tests__/*.test.cjs\" && node scripts/assert-test-results.mjs 79 \".claude/hooks/__tests__/*.test.cjs\"",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
     "vrt": "npx playwright test --config playwright.vrt.config.ts",

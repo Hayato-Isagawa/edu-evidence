@@ -118,7 +118,7 @@ git switch -c <type>/<short-description> --no-track origin/main
 
 この規約は二段のフックで自動的に強制されます。
 
-- **Claude Code 経由の編集**: `.claude/hooks/branch-guard.sh` が `Edit` / `Write` / `MultiEdit` の前に発動し、現ブランチが `main` / `master` のときに編集を拒否
+- **Claude Code 経由の編集**: `.claude/hooks/branch-guard.sh` が `Edit` / `Write` / `MultiEdit` の前に発動し、現ブランチが `main` / `master` のときに編集を拒否。このリポの `.claude/settings.json` には配線していないため、発火するのはメンテナの環境だけ(グローバルなディスパッチャから呼ぶ)
 - **任意のツール経由のコミット**: `.githooks/pre-commit` が `main` / `master` への直接コミットを拒否
 
 `.githooks/` は `npm install` 時に `package.json` の `prepare` スクリプトで自動的に有効化されるため、特別なセットアップは不要です。手動で確認したい場合:

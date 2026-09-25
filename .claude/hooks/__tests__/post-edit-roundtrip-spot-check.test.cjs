@@ -236,3 +236,28 @@ test("CLI: 付随出力が 64KB を超えても stdout が切れない", () => {
     `フィクスチャがパイプバッファ(65536B)に届いていない(${Buffer.byteLength(res.stdout)}B)。編集の本数を増やすこと`
   );
 });
+
+const fs = require("node:fs");
+
+test("settings.json が PostToolUse の Edit / MultiEdit にこのチェックを配線している", () => {
+  // 配線が消えるとチェック全体が黙って無効になるが、他のどのテストも赤にならない。
+  // 実装が見るのは Edit / MultiEdit だけなので、その 2 つを要求する
+  const settings = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "..", "..", "settings.json"), "utf8")
+  );
+  const wired = (settings.hooks?.PostToolUse ?? []).some(
+    (group) =>
+      ["Edit", "MultiEdit"].every((tool) =>
+        String(group.matcher ?? "")
+          .split("|")
+          .includes(tool)
+      ) &&
+      (group.hooks ?? []).some(
+        (h) =>
+          h.type === "command" &&
+          h.command ===
+            'node "$CLAUDE_PROJECT_DIR"/.claude/hooks/post-edit-roundtrip-spot-check.cjs'
+      )
+  );
+  assert.ok(wired);
+});

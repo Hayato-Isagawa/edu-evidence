@@ -11,10 +11,9 @@
  *   - PreToolUse で全 worktree の保護キーを控え、PostToolUse / PostToolUseFailure で
  *     比べて、変化を Claude(additionalContext)とユーザー(systemMessage)へ出す(本命)
  *
- * `~` 起点のセッションではこのリポの settings.json が読まれない。その経路は dotclaude の
- * dispatch-repo-guards.cjs からこのファイルを呼ぶ形で塞ぐ(#666 の 2 本目の PR。本ファイルを
- * 書いた 2026-09-25 時点では未配線)。require を組み込みに限っているのは、ディスパッチャの
- * sha256 ピンが実行する 1 ファイルしか照合しないため。
+ * `~` 起点のセッションではこのリポの settings.json が読まれない。その経路では、ユーザー環境の
+ * グローバルなディスパッチャがこのファイルを呼ぶ。require を組み込みに限っているのは、
+ * ディスパッチャの sha256 ピンが実行する 1 ファイルしか照合しないため。
  *
  * 既知の限界:
  *   - Post が発火しない経路(権限拒否。ユーザーによる中断では PostToolUse は発火しない)では
@@ -95,29 +94,60 @@ const CONTENT_WORD = String.raw`["']?[^\s"'|;&<>]*content\/(?:strategies|columns
 // インタプリタはパスを読むだけのことも多い。書き込み API の呼び出しがあり、その書き込み先が
 // コンテンツ外の文字列リテラルと読めないときだけ書き換えの形とみなす。
 const INTERPRETER_RE = /\b(?:python3?|node|ruby|deno|bun)\b/;
-// 書き込み先が第 1 引数(open は第 2 引数が書き込みモードのときだけ)
+// 書き込み先が第 1 引数(open は第 2 引数が書き込みモードのときだけ。モードは 2 番目の捕獲)。
+// 量指定子を隣り合わせない — 重なると長い空白で 2 乗・3 乗になり、5 秒のタイムアウトで ask が消える。
+// open は先読みで捕獲し `open(` だけを消費する(モードの文字列の中にある次の open( を飲み込まない)。
 const WRITE_TARGET_RES = [
-  /\bopen\(\s*([^,()]*?)\s*,\s*(?:mode\s*=\s*)?["'][^"']*[wax+][^"']*["']/g,
+  /\bopen\((?=([^,()]*),\s*(?:mode\s*=\s*)?["']([^"']*)["'])/g,
   /\b(?:writeFileSync|writeFile|appendFileSync|appendFile|createWriteStream)\(\s*([^,()]*)/g,
   /\bFile\.write\(\s*([^,()]*)/g,
-  // write_text / write_bytes は受け手が書き込み先
-  /((?:[\w.]+\([^()]*\)|[\w.]+))\.write_(?:text|bytes)\(/g,
 ];
 // 書き込み先を字面から取れない API(移動・置換の宛先が第 2 引数)
 const OPAQUE_WRITE_RE =
   /\b(?:os\.replace|os\.rename|shutil\.(?:move|copy\w*))\(/;
 
+/**
+ * write_text / write_bytes の受け手(書き込み先)。呼び出し位置から後ろ向きに切り出す。
+ * 受け手が `)` で終わるなら対応する `(` まで戻り(入れ子も数える)、その前の名前を含める。
+ * 対応が取れない・名前が無いときは受け手とみなさない。
+ */
+function writeTextReceivers(segment) {
+  const calls = [...segment.matchAll(/\.write_(?:text|bytes)\(/g)];
+  if (!calls.length) return [];
+  // 閉じ括弧ごとの対応する開き括弧を 1 回の走査で求める(呼び出しごとに後ろへ辿ると、
+  // 入れ子の受け手で 2 乗になる)
+  const openOf = new Map();
+  const stack = [];
+  for (let k = 0; k < segment.length; k++) {
+    if (segment[k] === "(") stack.push(k);
+    else if (segment[k] === ")" && stack.length) openOf.set(k, stack.pop());
+  }
+  const receivers = [];
+  for (const m of calls) {
+    let j = m.index;
+    if (segment[j - 1] === ")") {
+      if (!openOf.has(j - 1)) continue;
+      j = openOf.get(j - 1);
+    }
+    let start = j;
+    while (start > 0 && /[\w.]/.test(segment[start - 1])) start--;
+    if (start < j) receivers.push(segment.slice(start, m.index));
+  }
+  return receivers;
+}
+
 function interpreterMayWriteContent(segment) {
   if (OPAQUE_WRITE_RE.test(segment)) return true;
+  const targets = writeTextReceivers(segment);
   for (const re of WRITE_TARGET_RES) {
     for (const m of segment.matchAll(re)) {
-      const target = m[1];
-      const outsideLiteral =
-        /["']/.test(target) && !CONTENT_PATH_RE.test(target);
-      if (!outsideLiteral) return true;
+      if (m[2] !== undefined && !/[wax+]/.test(m[2])) continue;
+      targets.push(m[1].trim());
     }
   }
-  return false;
+  return targets.some(
+    (target) => !(/["']/.test(target) && !CONTENT_PATH_RE.test(target))
+  );
 }
 
 /**
@@ -184,9 +214,45 @@ function splitSegments(command) {
   return segments.map((s) => s.trim()).filter(Boolean);
 }
 
+/**
+ * `sed` / `perl` の in-place 編集。正規表現にすると
+ * `/\bsed\s+(?:[^|;&\n]*\s)?(?:-[A-Za-z]*i|--in-place)/` で、`\s+` と `[^|;&\n]*` が重なり
+ * 長い空白で 2 乗になる。同じ集合を 1 回の走査で判定する: コマンド名の後の空白の連続の
+ * 末尾 p から見て、直前が空白のフラグ f があり、[p, f-1) に | ; & 改行を含まない。
+ */
+function hasInPlaceFlag(segment, name, allowLong) {
+  const starts = [
+    ...segment.matchAll(new RegExp(String.raw`\b${name}(?=\s)`, "g")),
+  ];
+  if (!starts.length) return false;
+  const n = segment.length;
+  const isSpace = (c) => /\s/.test(c);
+  const isLetter = (c) => /[A-Za-z]/.test(c);
+  // 後ろから: 英字の連続に i があるか / 次のフラグ / 次の区切り
+  const hasI = new Uint8Array(n + 1);
+  const nextFlag = new Int32Array(n + 1).fill(-1);
+  const nextBarrier = new Int32Array(n + 1).fill(n);
+  for (let k = n - 1; k >= 0; k--) {
+    const c = segment[k];
+    hasI[k] = isLetter(c) && (c === "i" || hasI[k + 1]) ? 1 : 0;
+    const flag =
+      c === "-" &&
+      k > 0 &&
+      isSpace(segment[k - 1]) &&
+      (hasI[k + 1] === 1 || (allowLong && segment.startsWith("--in-place", k)));
+    nextFlag[k] = flag ? k : nextFlag[k + 1];
+    nextBarrier[k] = "|;&\n".includes(c) ? k : nextBarrier[k + 1];
+  }
+  for (const m of starts) {
+    let p = m.index + name.length;
+    while (p < n && isSpace(segment[p])) p++;
+    const f = nextFlag[p];
+    if (f !== -1 && nextBarrier[p] >= f - 1) return true;
+  }
+  return false;
+}
+
 const WRITE_FORMS = [
-  /\bsed\s+(?:[^|;&\n]*\s)?(?:-[A-Za-z]*i|--in-place)/,
-  /\bperl\s+(?:[^|;&\n]*\s)?-[A-Za-z]*i/,
   new RegExp(String.raw`\btee\s+(?:-\S+\s+)*${CONTENT_WORD}`),
   new RegExp(String.raw`>>?\s*${CONTENT_WORD}`),
   /\bgit\s+(?:-C\s+\S+\s+)?(?:checkout|restore|apply)\b/,
@@ -212,7 +278,9 @@ function looksLikeContentWrite(command) {
   return splitSegments(command).some(
     (seg) =>
       CONTENT_PATH_RE.test(seg) &&
-      (WRITE_FORMS.some((re) => re.test(seg)) ||
+      (hasInPlaceFlag(seg, "sed", true) ||
+        hasInPlaceFlag(seg, "perl", false) ||
+        WRITE_FORMS.some((re) => re.test(seg)) ||
         (INTERPRETER_RE.test(seg) && interpreterMayWriteContent(seg)) ||
         movesIntoContent(seg))
   );
