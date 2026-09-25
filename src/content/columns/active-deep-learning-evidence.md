@@ -29,7 +29,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 | 対話的に学ぶ | [協同学習](/strategies/cooperative-learning) | **+5 ヶ月** |
 | 対話的に学ぶ | [口頭言語の指導](/strategies/oral-language)(後述) | **+6 ヶ月** |
 | フィードバック | [フィードバック](/strategies/feedback)(形成的評価を含む) | **+6 ヶ月**(エビデンスが堅牢) |
-| 深い学び | [探究学習](/strategies/inquiry-based-learning) / プロジェクト型学習(PBL、後述) | **限定的、条件によっては負の影響** |
+| 深い学び | [探究学習](/strategies/inquiry-based-learning) / プロジェクト型学習(PBL、後述) | **限定的**(PBL の試験は確実性が低い。後述) |
 
 ### 口頭言語の指導(+6 ヶ月)とは
 
@@ -39,7 +39,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 **プロジェクト型学習(Project Based Learning、PBL)** は、ひとつのテーマや「問い」を長期のプロジェクトとして探究し、成果物(レポート・展示・発表など)を作る学習形式です。日本の総合的な学習の時間や教科横断型の探究活動とも重なる概念です。
 
-「主体的」と「対話的」を支える指導法には比較的強いエビデンスがある一方で、**「深い学び」を「探究学習」や PBL と直結させると、研究的な裏付けは弱くなる** 点に注意が必要です。EEF が実施した [Project Based Learning のランダム化比較試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning) では、学力(読み書き)への正の効果は確認されず、**就学援助対象児童(FSM: Free School Meals)には負の影響が報告** されました(なお学校の中途脱落が多く、結果の解釈には慎重さが必要)。「深い学び」は、形式としての探究ではなく **メタ認知や知識の転移** の側面で実現される方が、エビデンスと整合します。
+「主体的」と「対話的」を支える指導法には比較的強いエビデンスがある一方で、**「深い学び」を「探究学習」や PBL と直結させると、研究的な裏付けは弱くなる** 点に注意が必要です。EEF が構造化された PBL を検証した [Project Based Learning のランダム化比較試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning) では、読み書きの力への明確な効果は確認されず、**就学援助対象の生徒(FSM: Free School Meals)には負の影響の可能性** が示されました。ただし脱落が多く確実性は低いうえ、評価報告書はこの負の影響を慎重に解釈すべきとしています。「深い学び」は、形式としての探究ではなく **メタ認知や知識の転移** の側面で実現される方が、エビデンスと整合します。
 
 ## 解像度を上げる
 
@@ -74,8 +74,8 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 ## まとめ
 
 - 「主体的・対話的で深い学び」というフレーズ全体を検証した研究は存在しない(日本独自の政策用語)
-- 構成要素ごとの効果量: メタ認知 **+8 ヶ月**、協同学習 **+5 ヶ月**、口頭言語の指導 **+6 ヶ月**、フィードバック **+6 ヶ月**、探究 / PBL は **限定的〜条件により負**
-- EEF の PBL 試験は、読み書きで正の効果を確認できず、就学援助対象の児童に負の影響を示唆
+- 構成要素ごとの効果量: メタ認知 **+8 ヶ月**、協同学習 **+5 ヶ月**、口頭言語の指導 **+6 ヶ月**、フィードバック **+6 ヶ月**、探究 / PBL は **限定的**(EEF の PBL 試験は確実性が低い)
+- EEF の PBL 試験(構造化された PBL)は、読み書きで明確な効果を確認できず、就学援助対象の生徒への負の影響の可能性を示した。ただし介入群の 47% が分析から外れて確実性は低く、評価報告書もこの負の影響は慎重に解釈すべきとしている
 - EEF の Dialogic Teaching RCT(Year 5〔9〜10 歳〕・76 校を割り付け)は **英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月** と報告(FSM の対象となる児童の結果は人数が少なく確実性が低い)。全体では統計的に有意だったのは理科のみで、翌年の全国テスト(KS2)の追跡では効果が確認されなかった
 - 抽象的な呼びかけでなく、**構成要素の質** を高める具体的指導が学びに直結する
 
