@@ -12,6 +12,7 @@
 // リファクタすると、ゲートを壊すリスクを自分で作ることになる。
 //
 // clean 側のケースも必ず置く。常に落ちるスクリプトも同じく壊れているため。
+// 落ちない前提のスクリプト（check-connectors.ts）は、落ちることの代わりに報告の中身を固定する。
 import test from "node:test";
 import assert from "node:assert/strict";
 import { spawn, spawnSync } from "node:child_process";
@@ -144,6 +145,49 @@ gate("check-tokens.ts", "tokens", [
 ]);
 gate("check-stale.ts", "stale", /stale-one\.md/);
 
+// check-connectors.ts(観点 12.5)は info / warn しか持たず常に exit 0 なので、
+// gate() の「違反で落ちる」では縛れない。代わりに報告の中身を固定する。
+// violating は判定の分岐ごとに 1 ファイル、clean は各語 1 回・合計 3 の境界ちょうどで、
+// frontmatter に対象語を置いて除外を見る。
+test("check-connectors.ts は connectors の各判定を報告し、exit 0 で終わる", () => {
+  assert.ok(
+    fixtureFileCount("connectors/violating") > 0,
+    "connectors/violating が空。検査対象 0 件でも報告 0 件になる"
+  );
+  const r = run("check-connectors.ts", "connectors/violating");
+  assert.equal(r.status, 0, `観点 12.5 は落とさない前提:\n${r.output}`);
+  assert.match(r.output, /\[warn\] \S*same-word-warn\.md \(つまり×3 /);
+  // strategies 側にも 1 本置き、両ディレクトリを走査していることを見る。
+  assert.match(
+    r.output,
+    /\[info\] \S*strategies\/same-word-info\.md \(だからこそ×2 /
+  );
+  assert.match(
+    r.output,
+    /\[info\] \S*total-info\.md .*本当の意味で×1 \/ 合計 4\)/
+  );
+  // 行頭と「。」直後の「そして」は数え、「、そして」は数えない。
+  assert.match(r.output, /\[info\] \S*soshite\.md \(そして×2 \/ 合計 2\)/);
+  assert.match(
+    r.output,
+    /\[warn\] \S*consecutive-heads\.md .*連続段落頭 L\d+-L\d+/
+  );
+  // 「、そして」の列挙は数えない。数えると 3 回で warn になる。
+  assert.doesNotMatch(r.output, /enumeration\.md/);
+  assert.match(r.output, /warn:\s+2\n/);
+  assert.match(r.output, /info:\s+3\n/);
+});
+
+test("check-connectors.ts は connectors の境界ちょうどの入力を報告しない", () => {
+  assert.ok(
+    fixtureFileCount("connectors/clean") > 0,
+    "connectors/clean が空。誤検出していなくても意味が無い"
+  );
+  const r = run("check-connectors.ts", "connectors/clean");
+  assert.equal(r.status, 0, r.output);
+  assert.match(r.output, /total:\s+0\n/, `誤検出している:\n${r.output}`);
+});
+
 // --- ワークフロー側の口が CI から外れていないか ---
 //
 // **この 2 件をここに置くのは、自己参照では捕まらないから。**
@@ -242,6 +286,8 @@ test("check:all は CI が走らせる回帰テストを全部含む", () => {
     "test:workflows",
     "test:hooks",
     "check:links:source",
+    // check:connectors も CI に無い。reviewer が手元で走らせる口なので、配線だけここで見る。
+    "check:connectors",
   ]) {
     assert.ok(all.includes(gate), `check:all に ${gate} が無い`);
   }
