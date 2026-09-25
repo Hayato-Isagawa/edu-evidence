@@ -1,19 +1,17 @@
 ---
 title: 研究授業(Lesson Study)
 summary: 教師が協働で授業を計画・観察・検討する日本発の研修手法。Lewis & Perry (2017) の米国 RCT では、分数学習で教師と児童双方の学力に正の効果を確認(What Works Clearinghouse 基準を満たした数少ない研究の一つ)。一方、英国の EEF の大規模試験(181 校)では学力への効果は確認されなかった。
-monthsGained: 3
-evidenceStrength: 3
+monthsGained: 0
+evidenceStrength: 2
 cost: 1
 subjects: ["全教科"]
 grades: ["全学年"]
 source: japan
 tags: ["教師の学び", "校内研修", "日本発"]
-sourceUrl: https://pubs.nctm.org/view/journals/jrme/48/3/article-p261.xml
-sourceTitle: "Lewis & Perry (2017) — Lesson Study RCT, Journal for Research in Mathematics Education"
+sourceUrl: https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/lesson-study
+sourceTitle: "EEF (2017) Lesson Study"
 evidence:
   japan:
-    monthsGained: 3
-    strength: 3
     note: "日本発の実践で、日本の小学校の約 99% で実施されている。秋田喜代美らによる理論化と国際展開。ただし日本国内で効果量を検証した RCT は極めて限定的。"
     researcher: "秋田喜代美(東京大学)ほか"
   eef:
@@ -23,10 +21,10 @@ evidence:
 methodology:
   sampleSize: "米国の 39 教育者チーム・213 名(87% が小学校教員)を 3 条件に無作為割付(分数教材キット付き授業研究 73 名/通常の研修 67 名/テーマ自由選択の授業研究 73 名)。約 3 か月の自己管理型介入。児童の分析対象は 1,059 人(66 教育者・38 チーム)"
   effectSize: "児童の分数知識 +0.49 SD(係数 0.492、p < .001。見慣れた形式 0.44/見慣れない形式 0.52)・教師の分数知識 +0.19 SD(統計的に有意。いずれも HLM)"
-  limitations: "単一の RCT でありメタ分析ではない。検証されたのは『分数教材キット付き授業研究』という複合介入で、日本の校内研究そのものの効果検証ではない(米国・分数単元・約 3 か月)。対照 2 条件のうち 1 つはテーマ自由選択の授業研究であり、『授業研究 vs 研修なし』の比較ではない。日本国内で授業研究の効果を検証した RCT は存在しない。"
+  limitations: "ページ上部の効果の目安(0ヶ月)はこの RCT ではなく、EEF の Lesson Study 試験(英国 181 校・確実性 5 段階中 5)の値に合わせている。この RCT は単一の RCT でありメタ分析ではない。検証されたのは『分数教材キット付き授業研究』という複合介入で、日本の校内研究そのものの効果検証ではない(米国・分数単元・約 3 か月)。対照 2 条件のうち 1 つはテーマ自由選択の授業研究であり、『授業研究 vs 研修なし』の比較ではない。日本国内で授業研究の効果を検証した RCT は存在しない。"
 lastVerified: "2026-09-24"
 culturalContext: |
-  Lesson Study は **日本から世界に輸出された数少ない教育実践** で、シンガポール・米国・英国などでも研修手法として採用されている。Lewis & Perry (2017) の米国 RCT(39 教育者チーム)は、分数指導に特化した形で Lesson Study の効果を検証し、教師と児童双方の学力向上を確認した。What Works Clearinghouse の厳格な基準を満たした数少ない研究の一つ。ただし、日本国内では「校内研究」として広く実施されているにもかかわらず、その効果を RCT で検証した研究は極めて限定的で、「当然の実践」として効果量の定量化が遅れている状況にある。「+3ヶ月」は Lewis & Perry の分数指導研究からの暫定換算値で、全教科全般の効果ではない。
+  Lesson Study は **日本から世界に輸出された数少ない教育実践** で、シンガポール・米国・英国などでも研修手法として採用されている。Lewis & Perry (2017) の米国 RCT(39 教育者チーム)は、分数指導に特化した形で Lesson Study の効果を検証し、教師と児童双方の学力向上を確認した。What Works Clearinghouse の厳格な基準を満たした数少ない研究の一つ。ただし、日本国内では「校内研究」として広く実施されているにもかかわらず、その効果を RCT で検証した研究は極めて限定的で、「当然の実践」として効果量の定量化が遅れている状況にある。総合の効果の目安は、確実性の最も高い英国の大規模試験(0ヶ月)に合わせて 0 とした。Lewis & Perry の分数指導研究は、教材キット付きの形で正の効果を報告したが、Lewis らも加わった後続の RCT(Schoen ほか 2024、80 チーム)では児童の平均的な成績に差は出なかった。
 ---
 
 ## 一言でいうと
@@ -48,7 +46,7 @@ culturalContext: |
 ## 研究からわかっていること
 
 - 米国のRCTでは、分数の理解に関するLesson Studyの効果が統計的に有意に確認され、What Works Clearinghouseの厳格な基準を満たしました
-- 643件の数学授業改善研究のレビューで、正の効果が確認されたのは2手法のみ。そのうちの1つがLesson Studyでした
+- 643件の数学授業改善研究のレビューで、正の効果が確認されたのは2手法のみ。そのうちの1つがLesson Studyでした(上の米国RCTと同じ試験)
 - 英国のEEFの大規模試験(181校)では、Talk for Literacy / Numeracy の指導を届ける手段としてLesson Studyを使い、学力への効果は確認されませんでした(確実性は5段階中5)。比較校の一部も授業観察など似た取り組みをしていたため、評価チームは効果を過小評価している可能性にも触れています
 - 効果の大きさは実施の質(事後検討の深さ、継続性)に大きく依存します
 
@@ -65,6 +63,7 @@ culturalContext: |
 
 - Education Endowment Foundation (2017). [Lesson Study](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/lesson-study). — 英国の 181 校・約 12,700 人の RCT(評価は London School of Economics)。算数・読解とも効果なし(0ヶ月、確実性 5 段階中 5)。
 - Lewis, C., & Perry, R. (2017). [Lesson study to scale up research-based knowledge: A randomized, controlled trial of fractions learning](https://eric.ed.gov/?id=EJ1141508). *Journal for Research in Mathematics Education*, 48(3), 261–299. — 分数の学習におけるLesson Studyの効果をRCTで検証。What Works Clearinghouseの厳格な基準を満たした数少ない研究の一つ。
+- Schoen, R. C., Lewis, C. C., Rhoads, C., Lai, K., & Riddell, C. M. (2024). [Impact of lesson study and fractions resources on instruction and student learning](https://eric.ed.gov/?id=EJ1410626). *Journal of Experimental Education*, 92(2), 225–246. — 米国の 80 チームの RCT(3〜4 年生)。分数の授業の質は教材を受けた 2 条件で改善したが、児童の分数テストの平均はどの介入条件でも比較群を上回らなかった。
 - Gersten, R., Taylor, M. J., Keys, T. D., Rolfhus, E., & Newman-Gonchar, R. (2014). Summary of research on the effectiveness of math professional development approaches. IES. — 643件の数学授業改善研究のレビュー。正の効果が確認されたのは2手法のみで、その1つがLesson Study。
 
 ### 日本の研究・公式資料
@@ -73,7 +72,7 @@ culturalContext: |
 
 ### 注記
 
-効果量(+3ヶ月)は米国のRCT(Lewis & Perry, 2017)に基づいています。日本は研究授業の発祥国であり広範な実践がありますが、日本国内で実施された定量的なRCTは存在しません。秋田(2008)は日本における研究授業の理論的整理であり、効果量の根拠ではありません。
+効果量(0ヶ月)は、確実性の最も高い英国のEEFの大規模試験(181校、確実性は5段階中5)に合わせた保守的な目安です。米国のRCT(Lewis & Perry, 2017)では、分数の教材キットを使った形で正の効果が報告されました。ただし、Lewis らも加わった80チームの後続のRCT(Schoen ほか 2024)では、児童の平均的な成績は比較群を上回りませんでした。効果の可能性が示されたのは、対象の半分を占める1つの州だけです。日本は研究授業の発祥国であり広範な実践がありますが、日本国内で実施された定量的なRCTは存在しません。秋田(2008)は日本における研究授業の理論的整理であり、効果量の根拠ではありません。
 
 ## 関連する学習指導要領
 

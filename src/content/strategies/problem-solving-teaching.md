@@ -12,7 +12,7 @@ sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-l
 sourceTitle: "Visible Learning — Problem solving teaching"
 evidence:
   eef:
-    note: "EEF Toolkit に『Problem-solving teaching』の独立したエントリは無い。関連する Project-Based Learning の EEF 試験では正の効果が確認されなかった。探究学習(+5、ガイダンス付き)や直接教授(+5)の方が堅牢なエビデンス。"
+    note: "EEF Toolkit に『Problem-solving teaching』の独立したエントリは無い。関連する Project-Based Learning の EEF 試験では正の効果が確認されなかった。関連する指導法として、ガイダンス付きの探究学習(+3)や直接教授(+5)がある。"
   hattie:
     cohensD: 0.68
     note: "Hattie の Visible Learning で d=0.68。ただし『問題解決型学習』の操作的定義は幅広く、純粋な放任型と構造化された指導型の両方が含まれる。後者の方が効果的。"

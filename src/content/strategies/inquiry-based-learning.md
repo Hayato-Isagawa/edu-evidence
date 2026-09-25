@@ -1,23 +1,21 @@
 ---
 title: 探究学習
-summary: 子どもが自ら問いを持ち、調べ、考え、まとめ、表現する学習。教師の適切なガイダンスがある場合 +5ヶ月(Lazonder & Harmsen 2016, d=0.50)。ただし EEF の英国での PBL 試験では、教師が計画した構造化された PBL でも読み書きの力への明確な効果は確認されなかった(確実性は低い)。
-monthsGained: 5
-evidenceStrength: 3
+summary: 子どもが自ら問いを持ち、調べ、考え、まとめ、表現する学習。ガイダンスを付けた探究は他の指導法より +3ヶ月(Alfieri ほか 2011, d=0.30)、ガイダンスのない発見学習は明示的な指導を下回る。ただし EEF の英国での試験は結果が分かれ、小規模な試験で +3ヶ月だった理科の探究型プログラムも、規模を広げた 2 つの試験では効果が確認されなかった。
+monthsGained: 3
+evidenceStrength: 2
 cost: 2
 subjects: ["総合", "理科", "社会", "全教科"]
 grades: ["中学年", "高学年"]
 source: mixed
 tags: ["探究", "主体的な学び", "問い"]
-sourceUrl: https://journals.sagepub.com/doi/abs/10.3102/0034654315627366
-sourceTitle: "Meta-Analysis of Inquiry-Based Learning — Lazonder & Harmsen, 2016"
+sourceUrl: https://doi.org/10.1037/a0021017
+sourceTitle: "Alfieri, Brooks, Aldrich & Tenenbaum (2011) Does discovery-based instruction enhance learning? Journal of Educational Psychology, 103(1)"
 evidence:
   eef:
     kind: trial
     note: "EEF が実施した Project Based Learning 試験(英国の Year 7〔11〜12 歳〕、24 校。教師が計画し、外部のコーチが支援する構造化された PBL)では、読み書きの力への明確な効果は確認されなかった(−2ヶ月、確実性は 5 段階中 1)。FSM〔就学援助相当〕の生徒には負の影響の可能性が示されたが、EEF はこの結果を慎重に解釈すべきとしている。EEF Toolkit に Inquiry-Based Learning の独立したエントリは無く、関連手法として Metacognition(+8) が推奨されている。"
   japan:
-    monthsGained: 5
-    strength: 3
-    note: "日本の『総合的な学習の時間』は探究学習の一形態。Lazonder & Harmsen の国際メタ分析(72研究、d=0.50)は、ガイダンス付きの探究が学力に正の効果を持つことを示している。「放任」ではなく「足場かけ」が鍵。"
+    note: "日本の『総合的な学習の時間』は探究学習の一形態。日本国内で探究学習の学力への効果を検証した RCT は無い。海外のメタ分析(Lazonder & Harmsen、72 研究)は、探究にガイダンスを加えると学習成果が高まる(d=0.50)ことを示しており、「放任」ではなく「足場かけ」が鍵。"
 lastVerified: "2026-09-24"
 methodology:
   studies: 72
@@ -28,7 +26,7 @@ methodology:
     year: 2016
     title: "Meta-Analysis of Inquiry-Based Learning: Effects of Guidance"
     url: "https://doi.org/10.3102/0034654315627366"
-  limitations: "このメタ分析が比較したのは『探究 vs 一斉指導』ではなく『ガイダンスの多い探究 vs 少ない探究』で、d = 0.50 は探究にガイダンスを加えることの効果。研究数の制約から年齢差は確定的な結論が出ていない。EEF の Project Based Learning 試験(構造化された PBL、確実性は 5 段階中 1)でも読み書きの力への明確な効果は確認されておらず、探究型の授業を取り入れるだけで学力が上がるとは言えない。"
+  limitations: "ページ上部の効果の目安(+3ヶ月)はこのメタ分析ではなく、ガイダンス付きの探究を他の指導法と比べた Alfieri ほか(2011)の d=0.30 による。Alfieri の値は成人を対象にした研究や運動技能など教科以外の課題の研究も含み、成人の方が子どもより効果が大きく、理科に限ると d=0.11 と小さい。このメタ分析が比較したのは『探究 vs 一斉指導』ではなく『ガイダンスの多い探究 vs 少ない探究』で、d = 0.50 は探究にガイダンスを加えることの効果。研究数の制約から年齢差は確定的な結論が出ていない。EEF の Project Based Learning 試験(構造化された PBL、確実性は 5 段階中 1)でも読み書きの力への明確な効果は確認されておらず、探究型の授業を取り入れるだけで学力が上がるとは言えない。"
 culturalContext: |
   日本の「総合的な学習の時間」は世界的にも先進的な探究学習の枠組みだが、『放任』と『ガイダンス付きの探究』の区別が曖昧な実践も多い。Lazonder & Harmsen のメタ分析が示すように、**教師のガイダンス(問いの立て方、調査方法、結果のまとめ方)の質が効果を決める**。なお EEF の PBL 試験は構造化された PBL で行われたが、それでも読み書きの力への明確な効果は見られなかった(脱落が多く、確実性は低い)。「子どもに任せる」のではなく「探究の方法を明示的に教える」姿勢が必要。
 ---
@@ -51,9 +49,10 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- Lazonder & Harmsen (2016)のメタ分析では、探究学習のガイド付き介入の効果量はd≈0.50と報告されており、約5ヶ月分の学習効果に相当します
+- ガイダンスを付けた探究を他の指導法と比べたメタ分析(Alfieri ほか 2011、360比較)では効果量 d=0.30 で、約3ヶ月分の学習効果に相当します。一方、ガイダンスのない発見学習は明示的な指導を下回りました(d=−0.38)
+- Lazonder & Harmsen (2016)のメタ分析では、探究にガイダンスを加えると学習成果が高まりました(d=0.50)。これは「ガイダンスの多い探究」と「少ない探究」の比較で、探究と一斉指導の比較ではありません
 - ガイド(足場かけ)を伴う探究の方が、完全に自由な探究より効果が大きい傾向があります
-- 効果は理科で最も多く検証されていますが、社会科や総合的な学習でも確認されています
+- 効果の検証は理科と算数・数学が中心です(Lazonder & Harmsen のメタ分析は数学・理科の研究のみ)。Alfieri ほか(2011)では、理科に限ると効果は小さくなります(d=0.11)
 
 ## 注意したいこと
 
@@ -66,12 +65,17 @@ culturalContext: |
 
 ### 海外のメタ分析(効果量の根拠)
 
+- Alfieri, L., Brooks, P. J., Aldrich, N. J., & Tenenbaum, H. R. (2011). [Does discovery-based instruction enhance learning?](https://doi.org/10.1037/a0021017) *Journal of Educational Psychology*, 103(1), 1–18. — 164 研究のメタ分析。ガイダンスのない発見学習は明示的な指導を下回り(d=−0.38、108 研究・580 比較)、ガイダンスを付けた探究は他の指導法を上回った(d=0.30、56 研究・360 比較)。
 - Lazonder, A. W., & Harmsen, R. (2016). [Meta-analysis of inquiry-based learning](https://doi.org/10.3102/0034654315627366). *Review of Educational Research*, 86(3), 681–718. — 72研究のメタ分析。ガイド付き探究がパフォーマンス成功(d=0.71)と学習成果(d=0.50)に正の効果。
 - Furtak, E. M., et al. (2012). [Experimental and quasi-experimental studies of inquiry-based science teaching](https://doi.org/10.3102/0034654312457206). *Review of Educational Research*, 82(3), 300–329. — 37研究のメタ分析。探究型理科授業の効果量d=0.50。
 
 ### EEF の試験
 
 - Education Endowment Foundation (2016). [Project Based Learning](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning). — 英国の Year 7(24 校)の RCT。読み書きの力は −2ヶ月で明確な効果なし(確実性 5 段階中 1)。FSM〔就学援助相当〕の生徒への負の影響の可能性は、EEF 自身が慎重な解釈を求めている。
+- Education Endowment Foundation. [Thinking, Doing, Talking Science](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/thinking-doing-talking-science). — Year 5・約 40 校の効力試験。理科で +3ヶ月(確実性 5 段階中 3)。
+- Education Endowment Foundation. [Thinking, Doing, Talking Science — effectiveness trial](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/thinking-doing-talking-science-effectiveness-trial). — 205 校に広げた試験。0ヶ月(確実性 5 段階中 4)。
+- Education Endowment Foundation. [Thinking, Doing, Talking Science — third trial](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/thinking-doing-talking-science-third-trial). — 180 校の試験。0ヶ月(確実性 5 段階中 4)。
+- OECD (2018). [The science of teaching science: An exploration of science teaching practices in PISA 2015](https://doi.org/10.1787/f5bd9e57-en). *OECD Education Working Papers*, No. 188. — PISA 2015 の分析。探究型の理科の授業を受ける頻度と理科の得点の負の関連は、68 か国・地域のうち 51 で統計的に有意(弱い関連で、相関にとどまる)。
 
 ### 日本の研究・公式資料
 
@@ -81,7 +85,7 @@ culturalContext: |
 
 ### 注記
 
-効果量(+5ヶ月)は海外のメタ分析(Lazonder & Harmsen 2016, d=0.50)に基づいています。日本の「総合的な学習の時間」そのものの効果を厳密に検証したRCTは存在しません。ただし、全国学力調査の質問紙データでは、探究的な学習に取り組んでいる児童の学力が高いという相関が繰り返し確認されています。
+効果量(+3ヶ月)は、ガイダンス付きの探究を他の指導法と比べた海外のメタ分析(Alfieri ほか 2011, d=0.30)に基づいています。英国の EEF の試験は結果が分かれているため、エビデンスの確からしさは5段階中2としています。理科の Thinking, Doing, Talking Science は約 40 校の試験で +3ヶ月でしたが、205 校・180 校に広げた試験ではいずれも 0ヶ月、PBL は −2ヶ月でした。これらは個別のプログラムの結果で、探究学習という手法そのものの効果量ではないため、月数はメタ分析の値を採っています。日本の「総合的な学習の時間」そのものの効果を厳密に検証したRCTは存在しません。ただし、全国学力調査の質問紙データでは、探究的な学習に取り組んでいる児童の学力が高いという相関が繰り返し確認されています。一方、国際調査の PISA 2015 では、探究型の理科の授業を多く受けている生徒ほど理科の得点が低いという逆向きの相関が報告されています(いずれも相関で、因果関係を示すものではありません)。
 
 ## 関連する学習指導要領
 
