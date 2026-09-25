@@ -242,8 +242,8 @@ export const glossary: GlossaryTerm[] = [
   {
     term: "PISA",
     en: "Programme for International Student Assessment",
-    short: "OECDの国際学力調査(15歳対象・3年ごと)",
-    def: "OECDが3年ごとに実施する国際学力調査。15歳(日本では高1)を対象に、読解力・数学的リテラシー・科学的リテラシーを測定。日本の教育政策に大きな影響を与える。",
+    short: "OECDの国際学力調査(15歳対象)",
+    def: "OECDが2000年から実施している国際学力調査。2025年まではおおむね3年ごとに実施され、次回は2029年の予定。15歳(日本では高1)を対象に、読解力・数学的リテラシー・科学的リテラシー(2025年調査から科学コンピテンシーに改称)を測定。日本の教育政策に大きな影響を与える。",
     category: "japan_context",
   },
   {
