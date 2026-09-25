@@ -21,7 +21,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 
 ## 構成要素ごとに見るとエビデンスは異なる
 
-フレーズを **構成要素に分解** すると、要素ごとにエビデンスの強さはかなり違います(EEF Toolkit で集約された効果量)。
+フレーズを **構成要素に分解** すると、要素ごとにエビデンスの強さはかなり違います(探究学習以外は EEF Toolkit で集約された効果量)。
 
 | 要素 | 関連する指導法 | 効果量 |
 |---|---|---|
@@ -29,17 +29,17 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 | 対話的に学ぶ | [協同学習](/strategies/cooperative-learning) | **+5 ヶ月** |
 | 対話的に学ぶ | [口頭言語の指導](/strategies/oral-language)(後述) | **+6 ヶ月** |
 | フィードバック | [フィードバック](/strategies/feedback)(形成的評価を含む) | **+6 ヶ月**(エビデンスが堅牢) |
-| 深い学び | [探究学習](/strategies/inquiry-based-learning) / プロジェクト型学習(PBL、後述) | **限定的**(PBL の試験は確実性が低い。後述) |
+| 深い学び | [探究学習](/strategies/inquiry-based-learning) / プロジェクト型学習(PBL、後述) | 探究学習は **+3 ヶ月**(ガイダンス付き、海外のメタ分析)。PBL は試験によって結果が分かれる(後述) |
 
 ### 口頭言語の指導(+6 ヶ月)とは
 
 本サイトの戦略ページ [口頭言語の指導](/strategies/oral-language) に詳述していますが、[EEF Toolkit の「Oral language interventions」](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions) は、**話す・聞く・語彙・構造化された話し合い** を授業の中で **明示的に指導する** 一連のアプローチを指します。読み書きだけでなく「聞いて理解し、話して説明する」力を計画的に育てる指導を授業に組み込むと、読解や教科学習にも波及するため、+6 ヶ月の効果が報告されています。EEF の最新更新(2025年5月)では 188 研究を含み、確実性評価は 5 段階中 4(high)。既存カリキュラムに統合する形で実施されたときに効果が大きく、語彙の少ない子どもにも有効性が示唆されています。
 
-### プロジェクト型学習(PBL)とは、なぜ効果が限定的か
+### プロジェクト型学習(PBL)とは、試験で何が分かったか
 
 **プロジェクト型学習(Project Based Learning、PBL)** は、ひとつのテーマや「問い」を長期のプロジェクトとして探究し、成果物(レポート・展示・発表など)を作る学習形式です。日本の総合的な学習の時間や教科横断型の探究活動とも重なる概念です。
 
-「主体的」と「対話的」を支える指導法には比較的強いエビデンスがある一方で、**「深い学び」を「探究学習」や PBL と直結させると、研究的な裏付けは弱くなる** 点に注意が必要です。EEF が構造化された PBL を検証した [Project Based Learning のランダム化比較試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning) では、読み書きの力への明確な効果は確認されず、**就学援助対象の生徒(FSM: Free School Meals)には負の影響の可能性** が示されました。ただし脱落が多く確実性は低いうえ、評価報告書はこの負の影響を慎重に解釈すべきとしています。「深い学び」は、形式としての探究ではなく **メタ認知や知識の転移** の側面で実現される方が、エビデンスと整合します。
+「主体的」と「対話的」を支える指導法には比較的強いエビデンスがある一方で、**「深い学び」を「探究学習」や PBL と直結させると、研究的な裏付けは弱くなる** 点に注意が必要です。EEF が構造化された PBL を検証した [Project Based Learning のランダム化比較試験](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning) では、読み書きの力への明確な効果は確認されず、**就学援助対象の生徒(FSM: Free School Meals)には負の影響の可能性** が示されました。ただし脱落が多く確実性は低いうえ、評価報告書はこの負の影響を慎重に解釈すべきとしています。一方、米国の小学校ではクラスター RCT(学校や学級の単位でくじ引きで割り付ける RCT)が行われています。PBL の単元に教材と教員研修を組み合わせた介入で、小学 3 年の理科の標準化テストの得点が比較群より高くなりました(46 校)。社会経済的に不利な学区の小学 2 年を対象にした別の試験では、社会科の伸びが比較群を上回りました。説明文の読解もやや上回りましたが、差は小さく、統計的にもはっきりしませんでした(どちらも研究チームが作成したテストで測定)。3 つの試験は学年・教科・設計が異なり、結果も分かれています。どの違いが効いたのかは、これらの試験からは分かりません。「深い学び」は、形式としての探究ではなく **メタ認知や知識の転移** の側面で実現される方が、エビデンスと整合します。
 
 ## 解像度を上げる
 
@@ -74,7 +74,7 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 ## まとめ
 
 - 「主体的・対話的で深い学び」というフレーズ全体を検証した研究は存在しない(日本独自の政策用語)
-- 構成要素ごとの効果量: メタ認知 **+8 ヶ月**、協同学習 **+5 ヶ月**、口頭言語の指導 **+6 ヶ月**、フィードバック **+6 ヶ月**、探究 / PBL は **限定的**(EEF の PBL 試験は確実性が低い)
+- 構成要素ごとの効果量: メタ認知 **+8 ヶ月**、協同学習 **+5 ヶ月**、口頭言語の指導 **+6 ヶ月**、フィードバック **+6 ヶ月**、探究学習は **+3 ヶ月**(ガイダンス付き)、PBL は試験によって結果が分かれる
 - EEF の PBL 試験(構造化された PBL)は、読み書きで明確な効果を確認できず、就学援助対象の生徒への負の影響の可能性を示した。ただし介入群の 47% が分析から外れて確実性は低く、評価報告書もこの負の影響は慎重に解釈すべきとしている
 - EEF の Dialogic Teaching RCT(Year 5〔9〜10 歳〕・76 校を割り付け)は **英語・理科で +2 ヶ月、算数で +1 ヶ月、FSM(Free School Meals)児童には 3 科目すべてで +2 ヶ月** と報告(FSM の対象となる児童の結果は人数が少なく確実性が低い)。全体では統計的に有意だったのは理科のみで、翌年の全国テスト(KS2)の追跡では効果が確認されなかった
 - 抽象的な呼びかけでなく、**構成要素の質** を高める具体的指導が学びに直結する
@@ -93,4 +93,6 @@ relatedStrategies: ["metacognition", "cooperative-learning", "feedback", "classr
 - [Feedback](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 形成的評価・フィードバックで +6 ヶ月。
 - [Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 口頭言語介入で +6 ヶ月(188 研究)。
 - [Project Based Learning — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/project-based-learning). Education Endowment Foundation. — PBL の RCT。読み書きへの正の効果なし、FSM(Free School Meals)児童に負の影響を示唆(ただし学校脱落が多く、解釈には慎重さを要する)。
+- Krajcik, J., Schneider, B., Miller, E. A., et al. (2023). [Assessing the effect of project-based learning on science learning in elementary schools](https://doi.org/10.3102/00028312221129247). *American Educational Research Journal*, 60(1), 70–102. — 米国ミシガン州の小学 3 年、46 校・2,371 人のクラスター RCT。PBL の理科単元を受けた子どもは、標準化された理科テストの得点が比較群より標準偏差の約 0.28 倍高かった。
+- Duke, N. K., Halvorsen, A.-L., Strachan, S. L., Kim, J., & Konstantopoulos, S. (2021). [Putting PjBL to the test: The impact of project-based learning on second graders' social studies and literacy learning and motivation in low-SES school settings](https://doi.org/10.3102/0002831220929638). *American Educational Research Journal*, 58(1), 160–200. — PjBL はプロジェクト型学習のこと。社会経済的に不利な学区の小学 2 年を対象としたクラスター RCT(48 人の教員を学校内のペアで割り付け)。社会科は比較群より伸びが大きかった(効果量 0.48)。説明文の読解の差は小さく(0.18、統計的にははっきりしない)、作文と意欲には差が見られなかった。測定は研究チームが作成したテスト。
 - [Dialogic Teaching — trial report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching). Education Endowment Foundation. — Year 5(9〜10 歳)・76 校を割り付けた RCT。英語・理科 +2 ヶ月、算数 +1 ヶ月、FSM(Free School Meals)児童は 3 科目すべて +2 ヶ月。

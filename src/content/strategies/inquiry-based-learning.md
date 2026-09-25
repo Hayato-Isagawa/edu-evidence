@@ -28,7 +28,7 @@ methodology:
     url: "https://doi.org/10.3102/0034654315627366"
   limitations: "ページ上部の効果の目安(+3ヶ月)はこのメタ分析ではなく、ガイダンス付きの探究を他の指導法と比べた Alfieri ほか(2011)の d=0.30 による。Alfieri の値は成人を対象にした研究や運動技能など教科以外の課題の研究も含み、成人の方が子どもより効果が大きく、理科に限ると d=0.11 と小さい。このメタ分析が比較したのは『探究 vs 一斉指導』ではなく『ガイダンスの多い探究 vs 少ない探究』で、d = 0.50 は探究にガイダンスを加えることの効果。研究数の制約から年齢差は確定的な結論が出ていない。EEF の Project Based Learning 試験(構造化された PBL、確実性は 5 段階中 1)でも読み書きの力への明確な効果は確認されておらず、探究型の授業を取り入れるだけで学力が上がるとは言えない。"
 culturalContext: |
-  日本の「総合的な学習の時間」は世界的にも先進的な探究学習の枠組みだが、『放任』と『ガイダンス付きの探究』の区別が曖昧な実践も多い。Lazonder & Harmsen のメタ分析が示すように、**教師のガイダンス(問いの立て方、調査方法、結果のまとめ方)の質が効果を決める**。なお EEF の PBL 試験は構造化された PBL で行われたが、それでも読み書きの力への明確な効果は見られなかった(脱落が多く、確実性は低い)。「子どもに任せる」のではなく「探究の方法を明示的に教える」姿勢が必要。
+  日本の「総合的な学習の時間」は世界的にも先進的な探究学習の枠組みだが、『放任』と『ガイダンス付きの探究』の区別が曖昧な実践も多い。Lazonder & Harmsen のメタ分析が示すように、**探究にガイダンス(問いの立て方や調査の進め方への支援など。教師が出すものに限らず、教材やソフトウェアに組み込まれたものも含む)を加えると学習成果が高まる**。なお EEF の PBL 試験は構造化された PBL で行われたが、それでも読み書きの力への明確な効果は見られなかった(脱落が多く、確実性は低い)。「子どもに任せる」のではなく「探究の方法を明示的に教える」姿勢が必要。
 ---
 
 ## 一言でいうと
@@ -66,7 +66,7 @@ culturalContext: |
 ### 海外のメタ分析(効果量の根拠)
 
 - Alfieri, L., Brooks, P. J., Aldrich, N. J., & Tenenbaum, H. R. (2011). [Does discovery-based instruction enhance learning?](https://doi.org/10.1037/a0021017) *Journal of Educational Psychology*, 103(1), 1–18. — 164 研究のメタ分析。ガイダンスのない発見学習は明示的な指導を下回り(d=−0.38、108 研究・580 比較)、ガイダンスを付けた探究は他の指導法を上回った(d=0.30、56 研究・360 比較)。
-- Lazonder, A. W., & Harmsen, R. (2016). [Meta-analysis of inquiry-based learning](https://doi.org/10.3102/0034654315627366). *Review of Educational Research*, 86(3), 681–718. — 72研究のメタ分析。ガイド付き探究がパフォーマンス成功(d=0.71)と学習成果(d=0.50)に正の効果。
+- Lazonder, A. W., & Harmsen, R. (2016). [Meta-analysis of inquiry-based learning](https://doi.org/10.3102/0034654315627366). *Review of Educational Research*, 86(3), 681–718. — 72研究のメタ分析。ガイダンスは課題遂行(d=0.71)と学習成果(d=0.50)を高めた。
 - Furtak, E. M., et al. (2012). [Experimental and quasi-experimental studies of inquiry-based science teaching](https://doi.org/10.3102/0034654312457206). *Review of Educational Research*, 82(3), 300–329. — 37研究のメタ分析。探究型理科授業の効果量d=0.50。
 
 ### EEF の試験
