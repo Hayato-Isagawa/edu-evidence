@@ -839,7 +839,7 @@ GitHub Actions で稼働中の自動化:
 - **観点 12.4 長文** — 1 文 100/150/200 字 3 段階 severity、読点 4 個以上は info
 - **観点 12.5 接続表現の反復** — AI が好む接続・談話標識(「だからこそ」「つまり」「大切なのは」等)の記事内反復を語別カウント([deslop-checklist.md](./deslop-checklist.md) 項目 13 の検出器)
 
-実行: `npm run check:sentence-length`(観点 12.4)/ `npm run check:connectors`(観点 12.5 の計数。常に exit 0)/ edu-content-reviewer 起動(全 5 サブ観点)
+実行: `npm run check:sentence-length`(観点 12.4)/ `npm run check:connectors`(観点 12.5 の計数。検出では exit 0、対象 0 件なら exit 1)/ edu-content-reviewer 起動(全 5 サブ観点)
 
 ---
 

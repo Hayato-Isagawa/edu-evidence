@@ -205,7 +205,7 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 
 「だからこそ」「つまり」「大切なのは」など、生成文が好む接続・談話標識が 1 本の記事の中で繰り返されるパターン。1 回なら問題ないが、同じ語が戻ってくる・何種類も集まる・段落の頭に並ぶと、読者は機械的な文と感じる。`docs/deslop-checklist.md` 項目 13 の検出器で、textlint の `no-doubled-conjunction`(同一段落内の直前接続詞との一致のみ)では拾えない記事単位の反復を見る。
 
-**機械検出(記事ごとに語別カウント)**: reviewer が `npm run check:connectors`(`scripts/check-connectors.ts`)を **自分で実行** し、その結果を前提にする(常に exit 0 なので、`check:all` の通過では結果が見えない)。スクリプトの対象は `src/content/strategies` と `src/content/columns` だけなので、それ以外のレビュー対象(`src/pages/` のガイド等)は同じ基準で語ごとに `LC_ALL=C grep -oF "<語>" | wc -l` で数えて合算する。
+**機械検出(記事ごとに語別カウント)**: reviewer が `npm run check:connectors`(`scripts/check-connectors.ts`)を **自分で実行** し、その結果を前提にする(検出があっても exit 0 なので、`check:all` の通過では結果が見えない。対象の Markdown が 0 件なら exit 1 で止まるので、そのときは cwd を確かめる。出力の行番号は frontmatter を含む実ファイルの行)。スクリプトの対象は `src/content/strategies` と `src/content/columns` だけなので、それ以外のレビュー対象(`src/pages/` のガイド等)は同じ基準で語ごとに `LC_ALL=C grep -oF "<語>" | wc -l` で数えて合算する。
 
 - 対象は frontmatter とコードブロック(行頭の ``` で囲んだもの)を除く本文(見出し・リストの行の中の語も数える。ただし「そして」は下の規則のとおり)
 - 対象語: `(^|。)そして` / `だからこそ` / `つまり` / `言い換えれば` / `大切なのは` / `重要なのは` / `本当の意味で`

@@ -12,7 +12,7 @@
 // リファクタすると、ゲートを壊すリスクを自分で作ることになる。
 //
 // clean 側のケースも必ず置く。常に落ちるスクリプトも同じく壊れているため。
-// 落ちない前提のスクリプト（check-connectors.ts）は、落ちることの代わりに報告の中身を固定する。
+// 検出では落ちないスクリプト（check-connectors.ts）は、落ちることの代わりに報告の中身を固定する。
 import test from "node:test";
 import assert from "node:assert/strict";
 import { spawn, spawnSync } from "node:child_process";
@@ -145,14 +145,14 @@ gate("check-tokens.ts", "tokens", [
 ]);
 gate("check-stale.ts", "stale", /stale-one\.md/);
 
-// check-connectors.ts(観点 12.5)は info / warn しか持たず常に exit 0 なので、
+// check-connectors.ts(観点 12.5)は info / warn しか持たず、検出では exit 0 なので、
 // gate() の「違反で落ちる」では縛れない。代わりに報告の中身を固定する。
 // violating は判定の分岐ごとに 1 ファイル、clean は各語 1 回・合計 3 の境界ちょうどで、
 // frontmatter に対象語を置いて除外を見る。
 test("check-connectors.ts は connectors の各判定を報告し、exit 0 で終わる", () => {
   assert.ok(
     fixtureFileCount("connectors/violating") > 0,
-    "connectors/violating が空。検査対象 0 件でも報告 0 件になる"
+    "connectors/violating が空。何も検出できない入力になる"
   );
   const r = run("check-connectors.ts", "connectors/violating");
   assert.equal(r.status, 0, `観点 12.5 は落とさない前提:\n${r.output}`);
@@ -170,12 +170,13 @@ test("check-connectors.ts は connectors の各判定を報告し、exit 0 で�
   assert.match(r.output, /\[info\] \S*soshite\.md \(そして×2 \/ 合計 2\)/);
   assert.match(
     r.output,
-    /\[warn\] \S*consecutive-heads\.md .*連続段落頭 L\d+-L\d+/
+    /\[warn\] \S*consecutive-heads\.md .*連続段落頭 L5-L7$/m
   );
   // 「、そして」の列挙は数えない。数えると 3 回で warn になる。
   assert.doesNotMatch(r.output, /enumeration\.md/);
   assert.match(r.output, /warn:\s+2\n/);
   assert.match(r.output, /info:\s+3\n/);
+  assert.match(r.output, /files:\s+6 \(strategies 1 \/ columns 5\)\n/);
 });
 
 test("check-connectors.ts は connectors の境界ちょうどの入力を報告しない", () => {
@@ -186,6 +187,18 @@ test("check-connectors.ts は connectors の境界ちょうどの入力を報告
   const r = run("check-connectors.ts", "connectors/clean");
   assert.equal(r.status, 0, r.output);
   assert.match(r.output, /total:\s+0\n/, `誤検出している:\n${r.output}`);
+  // 走査していなくても total は 0 になるので、読んだ本数も見る。
+  assert.match(r.output, /files:\s+1 \(strategies 0 \/ columns 1\)\n/);
+});
+
+// cwd を誤ると対象 0 件になり、報告 0 件と見分けが付かない。検出では落とさないが、
+// 何も読まなかったときだけは落とす。
+test("check-connectors.ts は対象の Markdown が 0 件なら exit 1 で終わる", () => {
+  // cwd は src/ を持たない fixtures/connectors。リポの外(os.tmpdir() 等)で npx を起動すると、
+  // lockfile の tsx ではなくレジストリから取得した tsx が走り、.npmrc の ignore-scripts も効かない。
+  const r = run("check-connectors.ts", "connectors");
+  assert.equal(r.status, 1, r.output);
+  assert.match(r.output, /対象の Markdown が 0 件/);
 });
 
 // --- ワークフロー側の口が CI から外れていないか ---

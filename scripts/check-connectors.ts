@@ -9,8 +9,10 @@
  *   - info: 同一語が 2 回、または対象語の合計が 4 回以上
  *   - warn: 同一語が 3 回以上、または連続する 2 段落の頭がともに対象語
  *
- * exit code: 常に 0(観点 12.5 は info / warn のみ。reviewer が結果を前提に判断する)
+ * exit code: 検出結果では常に 0(観点 12.5 は info / warn のみ。reviewer が結果を前提に判断する)。
+ *   対象の Markdown が 0 件なら 1(cwd の誤りを「報告 0 件」と取り違えないため)
  * 使い方: npx tsx scripts/check-connectors.ts
+ * 行番号は frontmatter を含む実ファイルの行
  *
  * Markdown 構造の扱い:
  *   - frontmatter とコードブロック(```) 内は対象外
@@ -72,6 +74,8 @@ function checkFile(filePath: string): Hit | null {
   const raw = fs.readFileSync(filePath, "utf8");
   const { content } = matter(raw);
   const lines = content.split("\n");
+  // 報告する行番号を実ファイルの行に合わせる(frontmatter の行数を足す)
+  const lineOffset = raw.split("\n").length - lines.length;
 
   const bodyLines: string[] = [];
   const blocks: Block[] = [];
@@ -92,7 +96,10 @@ function checkFile(filePath: string): Hit | null {
     }
     bodyLines.push(line);
     if (!inBlock) {
-      blocks.push({ startLine: i + 1, firstLine: line.trimStart() });
+      blocks.push({
+        startLine: i + 1 + lineOffset,
+        firstLine: line.trimStart(),
+      });
       inBlock = true;
     }
   }
@@ -135,7 +142,15 @@ function listMarkdown(dir: string): string[] {
 }
 
 function main(): void {
-  const files = [...listMarkdown(STRATEGIES_DIR), ...listMarkdown(COLUMNS_DIR)];
+  const strategies = listMarkdown(STRATEGIES_DIR);
+  const columns = listMarkdown(COLUMNS_DIR);
+  const files = [...strategies, ...columns];
+  if (files.length === 0) {
+    console.error(
+      `対象の Markdown が 0 件です。リポジトリのルートで実行してください(cwd: ${process.cwd()})`
+    );
+    process.exit(1);
+  }
   const hits = files.map(checkFile).filter((h): h is Hit => h !== null);
 
   const order: Severity[] = ["warn", "info"];
@@ -164,6 +179,9 @@ function main(): void {
   console.log(`warn:     ${warn}`);
   console.log(`info:     ${info}`);
   console.log(`total:    ${hits.length}`);
+  console.log(
+    `files:    ${files.length} (strategies ${strategies.length} / columns ${columns.length})`
+  );
 }
 
 main();
