@@ -542,3 +542,25 @@ test("Write: 現物を読めないときは素通りさせず確認を出す(fai
 test("Write: 対象外のパスは見ない", () => {
   assert.equal(fired(writeOn("/tmp/README.md", BODY)), false);
 });
+
+test("settings.json が PreToolUse の Edit / Write / MultiEdit にこのガードを配線している", () => {
+  // 配線が消えるとガード全体が黙って無効になるが、他のどのテストも赤にならない
+  const settings = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "..", "..", "settings.json"), "utf8")
+  );
+  const wired = (settings.hooks?.PreToolUse ?? []).some(
+    (group) =>
+      ["Edit", "Write", "MultiEdit"].every((tool) =>
+        String(group.matcher ?? "")
+          .split("|")
+          .includes(tool)
+      ) &&
+      (group.hooks ?? []).some(
+        (h) =>
+          h.type === "command" &&
+          h.command ===
+            'node "$CLAUDE_PROJECT_DIR"/.claude/hooks/pre-edit-frontmatter-immutable.cjs'
+      )
+  );
+  assert.ok(wired);
+});
