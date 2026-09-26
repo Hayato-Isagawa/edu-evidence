@@ -95,7 +95,11 @@ function gate(script, fixture, expect) {
 
 // check-consistency.ts は検査の層ごとに fixture を分ける。1 つの fixture に
 // 全部を入れると、層を 1 つ壊しても別の層が非 0 で落ち続けるので殺せない。
-gate("check-consistency.ts", "consistency", /mismatch\.md:\d+/);
+// mismatch-dashes.md は frontmatter の値に --- を含む。行番号は実ファイルの行(9 行目)。
+gate("check-consistency.ts", "consistency", [
+  /mismatch\.md:\d+/,
+  /mismatch-dashes\.md:9\n/,
+]);
 gate("check-consistency.ts", "consistency-anchor", [
   /anchor-spaced\.md:\d+/,
   /anchor-negative\.md:\d+/,
@@ -109,7 +113,12 @@ gate("check-consistency.ts", "consistency-glossary", [
   /glossary\.ts:\d+/,
   /glossary\.astro:\d+/,
 ]);
-gate("check-evidence-strength.ts", "evidence-strength", /star-mismatch\.md/);
+// star-link-dashes.md は frontmatter の値に --- を含む。行番号は実ファイルの行(6 行目)。
+gate("check-evidence-strength.ts", "evidence-strength", [
+  // 不変条件 A の報告(行番号なし)。star-link-dashes.md の報告文も star-mismatch.md を含むので行で縛る
+  /^  star-mismatch\.md\n/m,
+  /star-link-dashes\.md:6\n/,
+]);
 
 // 不変条件 A は strength を持つ出典が無いページを判定できず飛ばす。飛ばした事実を
 // 名前で出さないと、strength を外しただけでそのページは黙って保護範囲から抜ける
