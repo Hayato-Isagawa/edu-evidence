@@ -46,6 +46,8 @@ test("保護キーの抽出が実データ全件で Edit 側ガードと一致�
     "sourceUrl:\nmonthsGained: 5",
     "　sourceUrl: https://example.org/a\ncost: 2",
     "monthsGained: 5\r\nsourceUrl: 'https://example.org/q'\r\n",
+    // 値の前後の空白・空白だけの値・空の値(値の取り方は valueAfterColon の複製が決める)
+    "url: a  b \t\nsourceUrl:  \t\ncost:\nyear:'2020'",
   ]) {
     assert.deepEqual(
       guard.captureProtectedFields(fm),
@@ -396,11 +398,15 @@ test("settings.json が Bash の 3 イベントにこのガードを配線して
         (group.hooks ?? []).some(
           (h) =>
             h.type === "command" &&
+            h.timeout === 5 &&
+            h.async !== true &&
             h.command ===
               'node "$CLAUDE_PROJECT_DIR"/.claude/hooks/bash-frontmatter-guard.cjs'
         )
     );
     assert.ok(wired, event);
+    // 全フックを止める設定があると、配線が残っていても何も走らない
+    assert.notEqual(settings.disableAllHooks, true);
   }
 });
 
@@ -481,6 +487,13 @@ test("実データの控えが 500ms に収まる", () => {
   guard.captureProtectedFields(" ".repeat(32 * 1024));
   const ws = Number(process.hrtime.bigint() - t0) / 1e6;
   assert.ok(ws < 500, `32KB の空白に ${ws.toFixed(0)}ms かかった`);
+  const t1 = process.hrtime.bigint();
+  guard.captureProtectedFields(`url: a${" ".repeat(32 * 1024)}b`);
+  const inLine = Number(process.hrtime.bigint() - t1) / 1e6;
+  assert.ok(
+    inLine < 500,
+    `値の中の 32KB の空白に ${inLine.toFixed(0)}ms かかった`
+  );
 });
 
 const HOOK = path.join(__dirname, "..", "bash-frontmatter-guard.cjs");

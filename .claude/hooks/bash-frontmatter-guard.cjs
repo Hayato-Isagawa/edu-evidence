@@ -54,9 +54,9 @@ const PROTECTED_KEYS = [
 const CONTENT_DIRS = ["src/content/strategies", "src/content/columns"];
 const CONTENT_FILE_RE = /\.(md|mdx)$/i;
 
-// 抽出の 2 関数も pre-edit-frontmatter-immutable.cjs の複製(前置きの正規表現を
-// `[ \t]*(?:-[ \t]*)?` にしている理由は向こうのコメントにある)。一致はテストが
-// 実データ全件で固定している。
+// 抽出の 3 関数(extractFrontmatter / valueAfterColon / captureProtectedFields)も
+// pre-edit-frontmatter-immutable.cjs の複製(前置きの正規表現を `[ \t]*(?:-[ \t]*)?` に
+// している理由は向こうのコメントにある)。一致はテストが実データ全件と合成入力で固定している。
 const FRONTMATTER_RE = /^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)/;
 
 function extractFrontmatter(s) {
@@ -65,17 +65,30 @@ function extractFrontmatter(s) {
   return m ? m[1] : null;
 }
 
+// 保護キーの値。旧 `key:[ \t]*(.+?)[ \t]*$` と同じ値を線形で取る: 前後の [ \t] を落とし、
+// 空白だけの値は最後の 1 文字、空なら値なし。正規表現で `(.+?)` と `[ \t]*$` を隣り合わせると、
+// 値の途中の長い空白で 2 乗になる(32KB で 2.3〜2.6 秒)。
+function valueAfterColon(rest) {
+  if (!rest) return null;
+  const isBlank = (c) => c === " " || c === "\t";
+  let i = 0;
+  while (i < rest.length && isBlank(rest[i])) i++;
+  if (i === rest.length) return rest[rest.length - 1];
+  let j = rest.length;
+  while (j > i && isBlank(rest[j - 1])) j--;
+  return rest.slice(i, j);
+}
+
 function captureProtectedFields(fm) {
   if (!fm) return new Map();
   const map = new Map();
   for (const key of PROTECTED_KEYS) {
-    const re = new RegExp(
-      `^[ \\t]*(?:-[ \\t]*)?${key}:[ \\t]*(.+?)[ \\t]*$`,
-      "gm"
-    );
-    const values = [...fm.matchAll(re)].map((m) =>
-      m[1].replace(/^["']|["']$/g, "")
-    );
+    const re = new RegExp(`^[ \\t]*(?:-[ \\t]*)?${key}:(.*)$`, "gm");
+    const values = [];
+    for (const m of fm.matchAll(re)) {
+      const v = valueAfterColon(m[1]);
+      if (v !== null) values.push(v.replace(/^["']|["']$/g, ""));
+    }
     if (values.length) map.set(key, values);
   }
   return map;
