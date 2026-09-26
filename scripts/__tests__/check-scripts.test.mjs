@@ -20,9 +20,14 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, "../..");
+// リポの外を cwd にするときは npx を使わない。npx は lockfile の tsx ではなくレジストリから取得した
+// tsx を走らせ、.npmrc の ignore-scripts も効かないため。
+// 解決はモジュール解決に任せる(worktree のように node_modules が親にある配置でも見つかる)。
+const TSX_CLI = createRequire(import.meta.url).resolve("tsx/cli");
 
 /** fixture を cwd にして check スクリプトを実行する。 */
 function run(script, fixture) {
@@ -136,7 +141,11 @@ test("check-evidence-strength.ts は不変条件 A の対象外ページを件�
     "evidence 無しページの名前を出していない"
   );
 });
-gate("check-reader-literacy.ts", "reader-literacy", /jargon\.md/);
+// 行番号は frontmatter を含む実ファイルの行(P1 は 9 行目、P2 は 11 行目)。
+gate("check-reader-literacy.ts", "reader-literacy", [
+  /jargon\.md:9`/,
+  /jargon\.md:11`/,
+]);
 gate("check-sentence-length.ts", "sentence-length", /critical:\s*1/);
 gate("check-tokens.ts", "tokens", [
   /no-palette-literal/,
@@ -353,12 +362,16 @@ test("check-source-links.ts は到達不能を 404 / 410 の件数に数えな�
 
 /** 任意のディレクトリを cwd にして check スクリプトを実行する（一時 fixture 用）。 */
 function runIn(script, cwd) {
-  const r = spawnSync("npx", ["tsx", path.join(REPO, "scripts", script)], {
-    cwd,
-    encoding: "utf8",
-    env: { ...process.env, FORCE_COLOR: "0" },
-    timeout: 120_000,
-  });
+  const r = spawnSync(
+    process.execPath,
+    [TSX_CLI, path.join(REPO, "scripts", script)],
+    {
+      cwd,
+      encoding: "utf8",
+      env: { ...process.env, FORCE_COLOR: "0" },
+      timeout: 120_000,
+    }
+  );
   return { status: r.status, output: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 
@@ -626,12 +639,16 @@ async function startCdxStub() {
 
 /** 任意の cwd と環境変数で check スクリプトを実行する。 */
 function runInWithEnv(script, cwd, env) {
-  const r = spawnSync("npx", ["tsx", path.join(REPO, "scripts", script)], {
-    cwd,
-    encoding: "utf8",
-    env: { ...process.env, FORCE_COLOR: "0", ...env },
-    timeout: 120_000,
-  });
+  const r = spawnSync(
+    process.execPath,
+    [TSX_CLI, path.join(REPO, "scripts", script)],
+    {
+      cwd,
+      encoding: "utf8",
+      env: { ...process.env, FORCE_COLOR: "0", ...env },
+      timeout: 120_000,
+    }
+  );
   return { status: r.status, output: `${r.stdout ?? ""}${r.stderr ?? ""}` };
 }
 

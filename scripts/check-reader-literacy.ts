@@ -169,10 +169,10 @@ function sliceContext(line: string, index: number, length: number): string {
 function checkFile(filePath: string): Issue[] {
   const raw = fs.readFileSync(filePath, "utf-8");
   const { content } = matter(raw);
-  const frontmatterLines = raw.split("---")[1]?.split("\n").length ?? 0;
-  const offset = frontmatterLines + 2;
   const relPath = path.relative(process.cwd(), filePath);
   const lines = content.split("\n");
+  // 0 始まりの本文の行 i を、frontmatter を含む実ファイルの行番号にする
+  const offset = raw.split("\n").length - lines.length + 1;
   const issues: Issue[] = [];
 
   lines.forEach((line, i) => {
