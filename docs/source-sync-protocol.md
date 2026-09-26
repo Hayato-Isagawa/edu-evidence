@@ -21,7 +21,8 @@
 - `monthsGained`(整数、月換算)
 - `evidenceStrength`
 - `sourceUrl` / `sourceTitle`
-- `evidence.{eef,japan,hattie}.{monthsGained,evidenceStrength,summary,citation,sourceUrl}` 併記
+- `evidence.eef.{monthsGained,strength,note,kind,archivedAt}` / `evidence.japan.{monthsGained,strength,note,researcher}` / `evidence.hattie.{cohensD,note}` 併記
+- 同期で書き換える `methodology.{studies,effectSize}`
 
 ### 非対象
 
@@ -77,7 +78,9 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 | Wayback 生 HTML(優先度 0)で月数・南京錠・散文が読め、南京錠の計数と散文が一致 | 値更新可、`evidence.eef` 全フィールド追随。WebSearch の裏付けは不要 |
 | WebSearch 3/3 が同じ数値で一致 | 値更新可、`evidence.eef` 全フィールド追随 |
 | 2/3 一致 + 二次情報源 1 件以上で同値裏付け | 値更新可 |
-| それ未満 | **据え置き**、`lastVerified` のみ rolling(`docs/CONTENT_GUIDELINES.md` Rule 1.1 を厳格適用 — 根拠の無い数値を書かない) |
+| それ未満 | **据え置き**(`docs/CONTENT_GUIDELINES.md` Rule 1.1 を厳格適用 — 根拠の無い数値を書かない)。取れた結果が**すべて**現在の値と一致するなら `lastVerified` のみ rolling。1 件でも現在と違う値を示す結果が出た、または何も取れなかったときは `lastVerified` も更新せず、次回の照合に回す |
+
+「値更新可」に当たり、現在と違う値が確定したら「食い違いが見つかった」に当たる。値をその PR で直すなら `lastVerified` も更新する。直さないなら更新せず、issue に回す(`CONTENT_GUIDELINES.md`「lastVerified の運用」)。§2・§3 も同じ扱い。ここでいう「更新しない」は、この節の照合だけで `lastVerified` を進めないという意味で、同じ PR で他のページの出典に当たり直して一致した場合の更新までは打ち消さない(打ち消すのは、確定した食い違いを直さない場合だけ)。
 
 **Toolkit に strand が無い戦略は、この判定ロジックの対象外。** WebSearch は撤去済みの値を引用したままの二次サイトを拾うので、3/3 一致が成立してしまい、消えた値がそのまま戻る。現時点の該当は 1 件:
 
@@ -88,7 +91,7 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 ### 出力
 
 - 値更新がある場合: PR ドラフト(コミット粒度: 1 戦略 1 PR、または同 strand 複数戦略を 1 PR にまとめる)
-- 値更新が無い場合: `lastVerified` 単独 rolling PR(前例: PR #166 reading-comprehension)
+- 値更新が無い場合: 照合結果がすべて現在の値と一致した戦略だけを `lastVerified` 単独の rolling PR にする(前例: PR #166 の reading-comprehension)。結果が割れた、または取れなかった戦略は PR に含めない(#166 の Phonics)
 
 ### ローテーション
 
@@ -116,7 +119,7 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 - 1+2 で同値裏付け → 値更新可
 - 1 のみ + 二次源 1 件以上 → 値更新可
-- それ未満 → 据え置き
+- それ未満 → 据え置き(`lastVerified` の扱いも §1 の表の最下行と同じ)
 
 ### タイミング
 
@@ -162,13 +165,13 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
 
 ### 手順
 
-1. 対象戦略の `lastVerified` を当日日付に更新(`YYYY-MM-DD` 形式)
+1. 照合結果がすべて現在の値と一致したか、食い違いをこの PR で直す場合に、対象戦略の `lastVerified` を当日日付に更新する(`YYYY-MM-DD` 形式)。それ以外は更新しない
 2. **値が変わった場合**:
    - frontmatter `monthsGained` / `evidenceStrength` / `evidence.<src>.monthsGained` 等を更新
    - 本文中の数値表記も追随(例: 「約 5 ヶ月」「+5 ヶ月」)
    - `culturalContext` に値変更の経緯を 1-2 行追記
 3. **値が変わらない場合**:
-   - `lastVerified` のみ rolling
+   - 照合結果がすべて現在の値と一致したときだけ、`lastVerified` のみ rolling
 4. ローカル検証: `npm run check:all` を通す(`astro check` / `check:text` / `check:consistency` / `check:links:source` / `check:links:internal` ほか。**`check:stale` は `check:all` に入っていない**ので、要るときは単体で走らせる)
 5. 別途 `npm run check:source-sync` で次回チェック対象を確認(本 PR の対象から外れているか)
 6. PR 作成(タイトル英語、本文日本語 — `CONTRIBUTING.md`「コミットメッセージ / PR タイトル規約」)
@@ -190,7 +193,8 @@ chore(strategies): roll lastVerified for <strategy-slug> after EEF Phase X cross
 
 PR 本文には:
 
-- なぜ据え置きと判断したか(2/3 で +5、1/3 で +6 等の分裂結果)
+- 照合結果がすべて現在の値と一致した根拠
+- 「スコープに含めなかったもの」: 結果が割れた、または取れなかった戦略とその結果(#166 では、2/3 が +5・1/3 が +6 と割れた Phonics を含めず、`lastVerified` も動かしていない)
 - 次回再検証の予定時期
 
 を明記する。
