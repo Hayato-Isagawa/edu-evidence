@@ -52,7 +52,7 @@
     "astro": "^7.3.3",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "satori": "^0.33.4",
+    "satori": "^0.33.5",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.2.2",
     "unist-util-visit": "^5.1.0"
