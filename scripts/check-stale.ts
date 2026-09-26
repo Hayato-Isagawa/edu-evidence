@@ -149,13 +149,20 @@ function main() {
   } else {
     lines.push("## 対応方法");
     lines.push("");
-    lines.push("1. 各戦略の一次研究(メタ分析・RCT)を確認");
     lines.push(
-      "2. 変更がなければ frontmatter の `lastVerified` を今日の日付に更新"
+      "1. 各戦略のページの出典(`sourceUrl`・`evidence` の各出典・`methodology.primaryEvidenceReview`)のどれかに当たり直す"
     );
     lines.push(
-      "3. 変更があれば本文・`evidence` フィールドを更新した上で `lastVerified` を更新"
+      "2. 取れた結果がすべて現在の値と一致すれば、frontmatter の `lastVerified` を今日の日付に更新"
     );
+    lines.push(
+      "3. 現在と違う値が確定したら、値(`monthsGained`・`evidenceStrength`・`evidence`・`methodology` など)と本文を直した上で `lastVerified` を更新。その場で直さない場合は `lastVerified` を更新せず、別の issue に起票"
+    );
+    lines.push(
+      "4. 現在と違う値を示す結果が出たが確定できない、または何も取れなかった場合は、値も `lastVerified` も変えない"
+    );
+    lines.push("");
+    lines.push("(詳細は docs/CONTENT_GUIDELINES.md「lastVerified の運用」)");
     lines.push("");
   }
 
