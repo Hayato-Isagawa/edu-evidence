@@ -361,6 +361,29 @@ test("空白の多い入力でも探索が線形にとどまる", () => {
     ms < 500,
     `32KB の空白に ${ms.toFixed(0)}ms かかった(二次挙動の疑い)`
   );
+
+  // 値の途中に長い空白を挟む行。値の捕獲と行末の空白が重なると 2 乗になる(32KB で 2.3〜2.6 秒)
+  const t0 = process.hrtime.bigint();
+  captureProtectedFields(`url: a${" ".repeat(32 * 1024)}b`);
+  const inLine = Number(process.hrtime.bigint() - t0) / 1e6;
+  assert.ok(
+    inLine < 500,
+    `値の中の 32KB の空白に ${inLine.toFixed(0)}ms かかった`
+  );
+
+  // 線形にしても値の取り方は変えない: 前後の空白を落とす・空白だけなら最後の 1 文字・空なら値なし
+  assert.deepEqual(
+    [
+      ...captureProtectedFields(
+        "url: a  b \t\nsourceUrl:  \t\ncost:\nyear:'2020'"
+      ),
+    ],
+    [
+      ["sourceUrl", ["\t"]],
+      ["year", ["2020"]],
+      ["url", ["a  b"]],
+    ]
+  );
 });
 
 // --- CLI 配線 -----------------------------------------------------------
@@ -558,9 +581,13 @@ test("settings.json が PreToolUse の Edit / Write / MultiEdit にこのガー�
       (group.hooks ?? []).some(
         (h) =>
           h.type === "command" &&
+          h.timeout === 5 &&
+          h.async !== true &&
           h.command ===
             'node "$CLAUDE_PROJECT_DIR"/.claude/hooks/pre-edit-frontmatter-immutable.cjs'
       )
   );
   assert.ok(wired);
+  // 全フックを止める設定があると、配線が残っていても何も走らない
+  assert.notEqual(settings.disableAllHooks, true);
 });

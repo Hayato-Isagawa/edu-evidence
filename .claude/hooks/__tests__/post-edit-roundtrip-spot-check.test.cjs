@@ -255,9 +255,13 @@ test("settings.json が PostToolUse の Edit / MultiEdit にこのチェック�
       (group.hooks ?? []).some(
         (h) =>
           h.type === "command" &&
+          h.timeout === 5 &&
+          h.async !== true &&
           h.command ===
             'node "$CLAUDE_PROJECT_DIR"/.claude/hooks/post-edit-roundtrip-spot-check.cjs'
       )
   );
   assert.ok(wired);
+  // 全フックを止める設定があると、配線が残っていても何も走らない
+  assert.notEqual(settings.disableAllHooks, true);
 });
