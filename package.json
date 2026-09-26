@@ -67,7 +67,7 @@
     "mdast-util-gfm": "^3.1.0",
     "micromark-extension-gfm": "^3.0.0",
     "oxfmt": "^0.70.0",
-    "oxlint": "^1.83.0",
+    "oxlint": "^1.85.0",
     "pagefind": "^1.5.2",
     "rehype-external-links": "^3.0.0",
     "serve": "^14.2.6",
