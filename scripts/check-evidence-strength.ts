@@ -60,11 +60,10 @@ function extractStars(line: string): number[] {
   return stars;
 }
 
-// frontmatter の行数から本文の行番号オフセットを求める
-// (raw の先頭 `---` 行 + frontmatter 本体 + 閉じ `---` 行 を数え、本文 1 行目の行番号にする)
-function bodyOffset(raw: string): number {
-  const frontmatterLines = raw.split("---")[1]?.split("\n").length ?? 0;
-  return frontmatterLines + 1;
+// 0 始まりの本文の行 i を、frontmatter を含む実ファイルの行番号にするオフセット。
+// raw と本文の行数の差で数えるので、frontmatter の値に --- があっても数え違えない
+function bodyOffset(raw: string, lines: string[]): number {
+  return raw.split("\n").length - lines.length + 1;
 }
 
 interface StrategyInfo {
@@ -214,7 +213,7 @@ function checkBody(filePath: string, strategies: StrategyInfo[]) {
   const raw = fs.readFileSync(filePath, "utf-8");
   const { content } = matter(raw);
   const lines = content.split("\n");
-  const offset = bodyOffset(raw);
+  const offset = bodyOffset(raw, lines);
 
   const handled = checkStarLinks(filePath, lines, offset, strategies);
   checkStarTitles(filePath, lines, offset, strategies, handled);

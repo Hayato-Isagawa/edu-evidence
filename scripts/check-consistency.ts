@@ -159,11 +159,9 @@ function checkFile(filePath: string, isColumn = false) {
   const monthsGained = data.monthsGained as number | undefined;
   const lines = content.split("\n");
 
-  // frontmatter 行数のオフセットを計算。split("---")[1] は前後の改行を含むので
-  // 要素数は「frontmatter の行数 + 2」になり、本文 1 行目のファイル行番号は
-  // 開始/終了の --- を足した frontmatterLines + 1 と一致する。
-  const frontmatterLines = raw.split("---")[1]?.split("\n").length ?? 0;
-  const offset = frontmatterLines + 1;
+  // 0 始まりの本文の行 i を、frontmatter を含む実ファイルの行番号にする。
+  // raw と本文の行数の差で数えるので、frontmatter の値に --- があっても数え違えない
+  const offset = raw.split("\n").length - lines.length + 1;
 
   // コラム→戦略の照合は、コラム自身の monthsGained を必要としない。
   // 下の early return より後ろに置くと、コラムは monthsGained を持たないので
