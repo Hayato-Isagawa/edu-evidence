@@ -155,7 +155,11 @@ gate("check-reader-literacy.ts", "reader-literacy", [
   /jargon\.md:9`/,
   /jargon\.md:11`/,
 ]);
-gate("check-sentence-length.ts", "sentence-length", /critical:\s*1/);
+// 行番号は frontmatter を含む実ファイルの行で、文を含む段落の開始行(9 行目)。
+gate("check-sentence-length.ts", "sentence-length", [
+  /critical:\s*1/,
+  /long-sentence\.md:9 /,
+]);
 gate("check-tokens.ts", "tokens", [
   /no-palette-literal/,
   /src\/components\/Bad\.astro:3/,
@@ -165,8 +169,13 @@ gate("check-stale.ts", "stale", /stale-one\.md/);
 
 // check-connectors.ts(観点 12.5)は info / warn しか持たず、検出では exit 0 なので、
 // gate() の「違反で落ちる」では縛れない。代わりに報告の中身を固定する。
-// violating は判定の分岐ごとに 1 ファイル、clean は各語 1 回・合計 3 の境界ちょうどで、
-// frontmatter に対象語を置いて除外を見る。
+// violating は判定の分岐と Markdown の構造(フェンスの形・段落の区切り)ごとに 1 ファイル。
+// clean の edge.md は各語 1 回・合計 3 の境界ちょうどで、frontmatter に対象語を置いて除外を見る。
+// clean の fences.md は数えない範囲(フェンスの各形・字下げのコード・インラインコード・コメント)に
+// 語を 2 回ずつ置く(コメントは comments.md で、> を含む形・複数行の形・タグと混ざった形)。残りの clean は
+// 連続を切るもの(見出し・コード・表・水平線・<hr>)・段落頭にならないもの(インラインコードで始まる段落)・脚注・
+// インラインコードの直後の「そして」・画像の代替テキストを見る。
+// unclosed-fence.md は、サイトと同じく閉じ忘れのフェンスが末尾までコードになることを見る。
 test("check-connectors.ts は connectors の各判定を報告し、exit 0 で終わる", () => {
   assert.ok(
     fixtureFileCount("connectors/violating") > 0,
@@ -184,7 +193,7 @@ test("check-connectors.ts は connectors の各判定を報告し、exit 0 で�
     r.output,
     /\[info\] \S*total-info\.md .*本当の意味で×1 \/ 合計 4\)/
   );
-  // 行頭と「。」直後の「そして」は数え、「、そして」は数えない。
+  // 段落のテキストの先頭と「。」直後の「そして」は数え、「、そして」は数えない。
   assert.match(r.output, /\[info\] \S*soshite\.md \(そして×2 \/ 合計 2\)/);
   assert.match(
     r.output,
@@ -192,9 +201,39 @@ test("check-connectors.ts は connectors の各判定を報告し、exit 0 で�
   );
   // 「、そして」の列挙は数えない。数えると 3 回で warn になる。
   assert.doesNotMatch(r.output, /enumeration\.md/);
-  assert.match(r.output, /warn:\s+2\n/);
-  assert.match(r.output, /info:\s+3\n/);
-  assert.match(r.output, /files:\s+6 \(strategies 1 \/ columns 5\)\n/);
+  // フェンスの形(~~~・字下げ・リスト記号と同じ行・4 連バッククォート・項目内の閉じ忘れ・CRLF)と
+  // 全角スペースで始まる ``` の行のあとでも、後ろの本文を数えること(サイトの描画と同じ)。
+  assert.match(r.output, /\[info\] \S*after-fences\.md \(つまり×2 \/ 合計 2\)/);
+  assert.match(
+    r.output,
+    /\[info\] \S*after-fence-crlf\.md \(だからこそ×2 \/ 合計 2\)/
+  );
+  // 段落は構文木の段落。見出しの直後の本文も別の段落、リスト項目・引用の段落も段落頭になり、
+  // 強調で始まってもテキストで判定する。コメントは連続を切らない。コメント以外の HTML の文字は数える。
+  for (const re of [
+    /\[warn\] \S*heading-then-text\.md \(つまり×2 \/ 合計 2\) 連続段落頭 L6-L8$/m,
+    /\[warn\] \S*list-heads\.md \(だからこそ×1 つまり×1 \/ 合計 2\) 連続段落頭 L5-L6$/m,
+    /\[warn\] \S*quote-heads\.md \(つまり×1 大切なのは×1 \/ 合計 2\) 連続段落頭 L5-L7$/m,
+    /\[warn\] \S*soshite-list\.md \(そして×2 \/ 合計 2\) 連続段落頭 L5-L6$/m,
+    /\[warn\] \S*emphasis-head\.md \(つまり×1 言い換えれば×1 \/ 合計 2\) 連続段落頭 L5-L7$/m,
+    /\[warn\] \S*comment-transparent\.md \(つまり×1 重要なのは×1 \/ 合計 2\) 連続段落頭 L5-L9$/m,
+    /\[info\] \S*html-visible\.md \(本当の意味で×2 \/ 合計 2\)$/m,
+    // 脚注とリンク定義は連続を切らない。表のセル・見出し・脚注の中の語は数える。
+    // 「。」のあとで改行した「そして」と、HTML の見える文字の先頭の「そして」も数える。
+    // 脚注は GFM が無いとリンク定義になり、中の語を数えなくなる。
+    /\[warn\] \S*footnote-transparent\.md \(だからこそ×1 つまり×1 \/ 合計 2\) 連続段落頭 L5-L9$/m,
+    /\[warn\] \S*definition-transparent\.md \(だからこそ×1 つまり×1 \/ 合計 2\) 連続段落頭 L5-L9$/m,
+    /\[info\] \S*table-cells\.md \(重要なのは×2 \/ 合計 2\)$/m,
+    /\[info\] \S*heading-soshite\.md \(そして×2 \/ 合計 2\)$/m,
+    /\[info\] \S*footnote-words\.md \(言い換えれば×2 \/ 合計 2\)$/m,
+    /\[info\] \S*softbreak-soshite\.md \(そして×2 \/ 合計 2\)$/m,
+    /\[info\] \S*html-soshite\.md \(そして×2 \/ 合計 2\)$/m,
+  ]) {
+    assert.match(r.output, re);
+  }
+  assert.match(r.output, /warn:\s+10\n/);
+  assert.match(r.output, /info:\s+11\n/);
+  assert.match(r.output, /files:\s+22 \(strategies 1 \/ columns 21\)\n/);
 });
 
 test("check-connectors.ts は connectors の境界ちょうどの入力を報告しない", () => {
@@ -206,7 +245,7 @@ test("check-connectors.ts は connectors の境界ちょうどの入力を報告
   assert.equal(r.status, 0, r.output);
   assert.match(r.output, /total:\s+0\n/, `誤検出している:\n${r.output}`);
   // 走査していなくても total は 0 になるので、読んだ本数も見る。
-  assert.match(r.output, /files:\s+1 \(strategies 0 \/ columns 1\)\n/);
+  assert.match(r.output, /files:\s+13 \(strategies 0 \/ columns 13\)\n/);
 });
 
 // cwd を誤ると対象 0 件になり、報告 0 件と見分けが付かない。検出では落とさないが、

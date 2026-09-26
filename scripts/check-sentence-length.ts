@@ -11,6 +11,7 @@
  *
  * exit code: critical 1 件以上 → 1、それ以外 → 0(reviewer 補完前提)
  * 使い方: npx tsx scripts/check-sentence-length.ts
+ * 行番号は frontmatter を含む実ファイルの行で、文を含む段落の開始行(文そのものの行ではない)
  *
  * Markdown 構造の扱い:
  *   - frontmatter は対象外(gray-matter で剥がす)
@@ -120,6 +121,8 @@ function checkFile(filePath: string): Hit[] {
   const raw = fs.readFileSync(filePath, "utf8");
   const { content } = matter(raw);
   const lines = content.split("\n");
+  // 報告する行番号を実ファイルの行に合わせる(frontmatter の行数を足す)
+  const lineOffset = raw.split("\n").length - lines.length;
   const hits: Hit[] = [];
 
   let inCodeBlock = false;
@@ -147,7 +150,7 @@ function checkFile(filePath: string): Hit[] {
       continue;
     }
 
-    if (!buffer) bufferStartLine = i + 1;
+    if (!buffer) bufferStartLine = i + 1 + lineOffset;
     buffer += (buffer ? " " : "") + line;
   }
   flush();

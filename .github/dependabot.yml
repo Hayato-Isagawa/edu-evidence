@@ -23,6 +23,12 @@ updates:
         patterns:
           - "astro"
           - "@astrojs/*"
+          # scripts/check-connectors.ts が使う Markdown パーサ。サイトの描画(@astrojs/markdown-remark
+          # 経由の remark-parse / remark-gfm)と同じパッケージなので、astro と同じ PR で上げる
+          # (グループは PR をまとめるだけで版は連動しない。版が分かれたら lockfile で揃える)
+          - "mdast-util-from-markdown"
+          - "mdast-util-gfm"
+          - "micromark-extension-gfm"
       react-ecosystem:
         patterns:
           - "react"

@@ -5,7 +5,8 @@
  *
  * 検出基準(`.claude/agents/edu-content-reviewer.md` 観点 12.5 参照):
  *   - 対象語: 文頭の「そして」/ だからこそ / つまり / 言い換えれば / 大切なのは / 重要なのは / 本当の意味で
- *   - 「そして」は行頭か「。」の直後だけを数える(「A、B、そして C」の列挙は数えない)
+ *   - 「そして」は数える文字(段落・見出し・表のセル・HTML の見える文字)の先頭か「。」の直後だけを数える
+ *     (間の改行・空白は無視。「A、B、そして C」の列挙は数えない)
  *   - info: 同一語が 2 回、または対象語の合計が 4 回以上
  *   - warn: 同一語が 3 回以上、または連続する 2 段落の頭がともに対象語
  *
@@ -14,17 +15,22 @@
  * 使い方: npx tsx scripts/check-connectors.ts
  * 行番号は frontmatter を含む実ファイルの行
  *
- * Markdown 構造の扱い:
- *   - frontmatter とコードブロック(```) 内は対象外
- *   - 見出し・リスト等の行も数える(対象語はリスト行にも現れる)
- *   - 段落 = 空行で区切ったブロック。コードブロックも区切りになる。
- *     見出しやリストのブロックも 1 段落として数えるので、連続判定を切る
- *   - 段落頭 = ブロック先頭行の行頭が対象語で始まること
+ * Markdown 構造の扱い(サイトと同じく mdast + GFM の構文木で読む):
+ *   - 数えない: frontmatter・コードブロック(フェンス・字下げ)・インラインコード・HTML コメントの中・画像の代替テキスト。
+ *     コメント以外の HTML の中の文字は数える(サイトで表示されるため)
+ *   - 段落 = 構文木の段落。リスト項目・引用の中の段落も含み、並びは文書順(リストや引用の出入りでは切れない)
+ *   - 段落頭 = 段落のテキストが対象語で始まること(強調は無視、インラインコードで始まる段落は段落頭にしない)
+ *   - 連続を切る: 見出し・コードブロック・表・水平線・コメントだけではない HTML(<hr> や <img> も)
+ *   - 連続に関わらない: コメントだけの HTML・リンク定義・脚注(脚注はページ末尾に出る)
+ *   - 行番号は段落の開始行
  */
 
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { fromMarkdown } from "mdast-util-from-markdown";
+import { gfmFromMarkdown } from "mdast-util-gfm";
+import { gfm } from "micromark-extension-gfm";
 
 const STRATEGIES_DIR = path.resolve("src/content/strategies");
 const COLUMNS_DIR = path.resolve("src/content/columns");
@@ -39,7 +45,8 @@ const WORDS = [
   "本当の意味で",
 ];
 const HEAD_WORDS = [SOSHITE, ...WORDS];
-const SOSHITE_PATTERN = /(^|。)そして/g;
+// 「。」と「そして」の間の改行・空白は無視する(段落の途中で改行して書く記事がある)
+const SOSHITE_PATTERN = /(^|。\s*)そして/g;
 
 const SAME_WORD_INFO = 2;
 const SAME_WORD_WARN = 3;
@@ -47,9 +54,18 @@ const TOTAL_INFO = 4;
 
 type Severity = "info" | "warn";
 
+/** 構文木のノード(使う分だけ) */
+interface MdNode {
+  type: string;
+  value?: string;
+  children?: MdNode[];
+  position?: { start: { line: number } };
+}
+
+/** 段落の並びの 1 要素。段落頭になりうるのは段落だけで、それ以外は連続を切る */
 interface Block {
   startLine: number;
-  firstLine: string;
+  isHead: boolean;
 }
 
 interface Hit {
@@ -59,6 +75,8 @@ interface Hit {
   total: number;
   consecutiveHeads: [number, number][];
 }
+
+const COMMENT = /<!--[\s\S]*?(?:-->|$)/g;
 
 function countOccurrences(text: string, word: string): number {
   let n = 0;
@@ -70,53 +88,96 @@ function countOccurrences(text: string, word: string): number {
   return n;
 }
 
+/**
+ * テキストノードを集める。インラインコードは中身を数えず位置に印を残す
+ * (コードで始まる段落を段落頭にせず、コードの直後の「そして」も数えないため)
+ */
+function textOf(node: MdNode): string {
+  if (node.type === "text") return node.value ?? "";
+  if (node.type === "inlineCode") return "\uFFFC";
+  if (node.type === "html") return "";
+  return (node.children ?? []).map(textOf).join("");
+}
+
+/** HTML のうち読者に見える文字(コメントとタグを除いたもの) */
+function visibleHtml(value: string): string {
+  return value.replace(COMMENT, "").replace(/<[^>]*>/g, "");
+}
+
 function checkFile(filePath: string): Hit | null {
   const raw = fs.readFileSync(filePath, "utf8");
   const { content } = matter(raw);
-  const lines = content.split("\n");
   // 報告する行番号を実ファイルの行に合わせる(frontmatter の行数を足す)
-  const lineOffset = raw.split("\n").length - lines.length;
+  const lineOffset = raw.split("\n").length - content.split("\n").length;
+  const tree = fromMarkdown(content, {
+    extensions: [gfm()],
+    mdastExtensions: [gfmFromMarkdown()],
+  }) as MdNode;
 
-  const bodyLines: string[] = [];
+  // 語を数える単位(段落・見出し・表のセルのテキストと、HTML の見える文字)
+  const units: string[] = [];
   const blocks: Block[] = [];
-  let inCodeBlock = false;
-  let inBlock = false;
+  const lineOf = (n: MdNode) => (n.position?.start.line ?? 0) + lineOffset;
 
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (line.startsWith("```")) {
-      inCodeBlock = !inCodeBlock;
-      inBlock = false;
-      continue;
+  const walk = (node: MdNode, inFootnote: boolean): void => {
+    switch (node.type) {
+      case "paragraph": {
+        const text = textOf(node).trimStart();
+        units.push(text);
+        // 脚注はページ末尾に出るので、段落の並びには入れない
+        if (!inFootnote) {
+          blocks.push({
+            startLine: lineOf(node),
+            isHead: HEAD_WORDS.some((w) => text.startsWith(w)),
+          });
+        }
+        return;
+      }
+      case "heading":
+      case "tableCell":
+        units.push(textOf(node).trimStart());
+        if (node.type === "heading" && !inFootnote) {
+          blocks.push({ startLine: lineOf(node), isHead: false });
+        }
+        return;
+      case "html": {
+        const value = node.value ?? "";
+        // コメントだけの HTML は読者に見えないので、語も数えず連続も切らない。
+        // それ以外(<hr> や <img> のように文字を持たないものも)は連続を切る
+        if (value.replace(COMMENT, "").trim() === "") return;
+        units.push(visibleHtml(value).trimStart());
+        if (!inFootnote)
+          blocks.push({ startLine: lineOf(node), isHead: false });
+        return;
+      }
+      case "code":
+      case "thematicBreak":
+        if (!inFootnote)
+          blocks.push({ startLine: lineOf(node), isHead: false });
+        return;
+      case "table":
+        if (!inFootnote)
+          blocks.push({ startLine: lineOf(node), isHead: false });
+        break;
+      case "definition":
+        return;
     }
-    if (inCodeBlock) continue;
-    if (line.trim() === "") {
-      inBlock = false;
-      continue;
-    }
-    bodyLines.push(line);
-    if (!inBlock) {
-      blocks.push({
-        startLine: i + 1 + lineOffset,
-        firstLine: line.trimStart(),
-      });
-      inBlock = true;
-    }
-  }
+    const footnote = inFootnote || node.type === "footnoteDefinition";
+    for (const child of node.children ?? []) walk(child, footnote);
+  };
+  walk(tree, false);
 
   const counts = new Map<string, number>();
-  const body = bodyLines.join("\n");
   counts.set(
     SOSHITE,
-    bodyLines.reduce((n, l) => n + (l.match(SOSHITE_PATTERN) ?? []).length, 0)
+    units.reduce((n, u) => n + (u.match(SOSHITE_PATTERN) ?? []).length, 0)
   );
+  const body = units.join("\n");
   for (const w of WORDS) counts.set(w, countOccurrences(body, w));
 
-  const isHead = (b: Block) =>
-    HEAD_WORDS.some((w) => b.firstLine.startsWith(w));
   const consecutiveHeads: [number, number][] = [];
   for (let i = 1; i < blocks.length; i++) {
-    if (isHead(blocks[i - 1]) && isHead(blocks[i])) {
+    if (blocks[i - 1].isHead && blocks[i].isHead) {
       consecutiveHeads.push([blocks[i - 1].startLine, blocks[i].startLine]);
     }
   }
