@@ -115,7 +115,8 @@ gate("check-consistency.ts", "consistency-glossary", [
 ]);
 // star-link-dashes.md は frontmatter の値に --- を含む。行番号は実ファイルの行(6 行目)。
 gate("check-evidence-strength.ts", "evidence-strength", [
-  /star-mismatch\.md/,
+  // 不変条件 A の報告(行番号なし)。star-link-dashes.md の報告文も star-mismatch.md を含むので行で縛る
+  /^  star-mismatch\.md\n/m,
   /star-link-dashes\.md:6\n/,
 ]);
 
