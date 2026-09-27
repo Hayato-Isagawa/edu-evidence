@@ -179,7 +179,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 - `source` / `sourceUrl` / `sourceTitle` — 出典
 - `evidence.{eef,japan,hattie}` — 出典別の詳細(併記用、オプション)
 - `culturalContext` — 日本の文脈での注記
-- `lastVerified` — 最終検証日(YYYY-MM-DD)
+- `lastVerified` — ページの出典との最終照合日(YYYY-MM-DD)。公開日・更新日としては使わない(ADR 0041)
 - `methodology` — 研究詳細(Technical Appendix、オプション)
 
 ## ソースバッジの仕組み

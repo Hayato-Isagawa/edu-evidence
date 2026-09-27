@@ -10,6 +10,7 @@ import {
   effectColorClass,
   UNMEASURED_LABEL,
 } from "../../lib/effect-size";
+import { ogParamsOf, ogVersion } from "../../lib/og-image";
 import TableOfContents from "../../components/TableOfContents.astro";
 import RelatedStrategyCard from "../../components/RelatedStrategyCard.astro";
 import CitationCopy from "../../components/CitationCopy.astro";
@@ -40,14 +41,11 @@ const relatedStrategyEntries = [...new Set([...forwardIds, ...backwardIds])]
 
 const siteUrl = "https://edu-evidence.org";
 const pageUrl = `${siteUrl}/strategies/${entry.id}`;
-const dateModified = d.lastVerified ?? "2026-04-01";
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: d.title,
   description: d.summary,
-  datePublished: dateModified,
-  dateModified,
   author: {
     "@type": "Person",
     name: "Isagawa Hayato",
@@ -110,7 +108,7 @@ const eefLabel = {
   title={`${d.title} — EduEvidence JP`}
   description={d.summary}
   ogImagePath={`/og/${entry.id}.png`}
-  ogVersion={entry.data.lastVerified?.replaceAll("-", "")}
+  ogVersion={ogVersion(ogParamsOf(d))}
   articleJsonLd={articleJsonLd}
   breadcrumbJsonLd={breadcrumbJsonLd}
   longForm

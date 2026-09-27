@@ -80,7 +80,6 @@ const nodeShapes: Record<string, string[]> = {
     "@context",
     "@type",
     "author",
-    "dateModified",
     "datePublished",
     "description",
     "headline",
@@ -295,6 +294,8 @@ test("戦略詳細の JSON-LD の形と一次出典(isBasedOn)", async ({ page }
   const source = new URL(String(article.isBasedOn.url));
   expect(source.protocol).toBe("https:");
   expect(isFamilyHost(source)).toBe(false);
+  // 戦略には公開日のフィールドが無く、lastVerified は照合日なので日付を載せない(ADR 0041)
+  expect(article).not.toHaveProperty("datePublished");
 });
 
 test("コラムの JSON-LD の形(isBasedOn / image を持たない)", async ({

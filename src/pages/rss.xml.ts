@@ -4,11 +4,9 @@ import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
   const columns = await getCollection("columns");
-  // 実効更新日(lastVerified があればそれ、無ければ公開日)の降順でソート
-  // 更新記事が読者のフィードリーダーで再浮上するため
-  const freshnessDate = (c: (typeof columns)[number]) =>
-    c.data.lastVerified ?? c.data.date;
-  columns.sort((a, b) => freshnessDate(b).localeCompare(freshnessDate(a)));
+  // 公開日の降順。lastVerified は照合日なので、照合しただけの記事を新着として
+  // フィードに再浮上させない(ADR 0041)
+  columns.sort((a, b) => b.data.date.localeCompare(a.data.date));
 
   return rss({
     title: "EduEvidence JP — エビデンスで考える",
@@ -18,7 +16,7 @@ export async function GET(context: APIContext) {
     items: columns.map((c) => ({
       title: c.data.title,
       description: c.data.summary,
-      pubDate: new Date(freshnessDate(c)),
+      pubDate: new Date(c.data.date),
       link: `/columns/${c.id}/`,
       categories: c.data.tags,
     })),

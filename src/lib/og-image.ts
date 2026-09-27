@@ -1,6 +1,7 @@
 import satori from "satori";
 import type { ReactNode } from "react";
 import sharp from "sharp";
+import { createHash } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import {
@@ -16,13 +17,13 @@ import { tokenHex } from "./css-color";
 // 実際の値は #e17100。OG 画像だけ別の橙になっていた。
 const ratingColor = tokenHex("--color-rating");
 
-interface OgParams {
+export type OgParams = {
   title: string;
   monthsGained: number;
   monthsUnmeasured?: boolean;
   evidenceStrength: number;
   subjects: string[];
-}
+};
 
 // build 時にリポジトリ同梱のフォントを読み込む。
 // ADR 0017 で Google Fonts / jsDelivr への build-time 依存を排除し、
@@ -48,7 +49,22 @@ async function loadNotoSansJpFont(): Promise<ArrayBuffer> {
   return data;
 }
 
-export async function generateOgImage(params: OgParams): Promise<Buffer> {
+/**
+ * OG 画像に描く値。画像と `?v=` の両方をこの関数の戻り値から作ると、
+ * 描く値と版の元になる値の集合がずれない(ADR 0041)
+ */
+export function ogParamsOf(data: OgParams): OgParams {
+  return {
+    title: data.title,
+    monthsGained: data.monthsGained,
+    monthsUnmeasured: data.monthsUnmeasured,
+    evidenceStrength: data.evidenceStrength,
+    subjects: data.subjects,
+  };
+}
+
+/** satori に渡す要素ツリー。色はトークンから解決済みの値が入る */
+export function buildOgElement(params: OgParams) {
   const {
     title,
     monthsGained,
@@ -61,9 +77,7 @@ export async function generateOgImage(params: OgParams): Promise<Buffer> {
   const effectColor = effectColorHex(monthsGained);
   const stars = toStars(evidenceStrength);
 
-  const fontData = await loadNotoSansJpFont();
-
-  const element = {
+  return {
     type: "div",
     props: {
       style: {
@@ -184,6 +198,22 @@ export async function generateOgImage(params: OgParams): Promise<Buffer> {
       ],
     },
   };
+}
+
+/**
+ * OG 画像の `?v=`(ADR 0041)。描く要素ツリーのハッシュなので、値・レイアウト・色の
+ * どれが変わっても変わる。フォントファイルと satori の版だけの変更では変わらない
+ */
+export function ogVersion(params: OgParams): string {
+  return createHash("sha256")
+    .update(JSON.stringify(buildOgElement(params)))
+    .digest("hex")
+    .slice(0, 8);
+}
+
+export async function generateOgImage(params: OgParams): Promise<Buffer> {
+  const element = buildOgElement(params);
+  const fontData = await loadNotoSansJpFont();
 
   const svg = await satori(element as unknown as ReactNode, {
     width: 1200,

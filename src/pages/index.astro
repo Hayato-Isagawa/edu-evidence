@@ -12,10 +12,9 @@ const strategies = await getCollection("strategies");
 strategies.sort((a, b) => b.data.monthsGained - a.data.monthsGained);
 
 const allColumns = await getCollection("columns");
-// 実効更新日(lastVerified があればそれ、無ければ公開日)の降順でソート
-const columnFreshnessDate = (c: typeof allColumns[number]) => c.data.lastVerified ?? c.data.date;
+// 公開日の降順。lastVerified は照合日で、本文の更新日ではないので使わない(ADR 0041)
 const latestColumns = [...allColumns]
-  .sort((a, b) => columnFreshnessDate(b).localeCompare(columnFreshnessDate(a)))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
   .slice(0, 3);
 
 const totalConcerns = getAllConcerns(concernCategories).length;
@@ -255,7 +254,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
         <Kicker>
           Latest
         </Kicker>
-        <h2 class="font-black text-2xl md:text-3xl tracking-tight">最新の更新</h2>
+        <h2 class="font-black text-2xl md:text-3xl tracking-tight">新着コラム</h2>
       </div>
       <div class="flex items-center gap-4 text-xs">
         <a href="/columns" class="link-underline text-sub hover:text-ink motion-safe:transition">コラム一覧 →</a>
@@ -270,10 +269,7 @@ const featuredConcerns = featuredConcernSlugs.map((slug) => {
             class="group block border border-line rounded-xl p-5 bg-card hover:border-accent space-y-3 motion-safe:transition-colors motion-safe:duration-200 motion-safe:ease-out"
           >
             <div class="font-mono text-[10px] tracking-widest text-sub">
-              {c.data.lastVerified ?? c.data.date}
-              {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
-                <span class="ml-1 text-accent">(更新)</span>
-              )}
+              {c.data.date}
             </div>
             <h3 class="font-black text-base md:text-lg leading-snug group-hover:text-accent motion-safe:transition">
               {c.data.title}

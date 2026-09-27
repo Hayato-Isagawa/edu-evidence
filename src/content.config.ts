@@ -78,7 +78,7 @@ const strategies = defineCollection({
       // 文化的注記: 日本文脈での効果の差異や注意点
       culturalContext: z.string().optional(),
 
-      // 最終検証日: 一次ソースとの照合日
+      // 最終検証日: ページの出典との最終照合日(docs/CONTENT_GUIDELINES.md「lastVerified の運用」)
       lastVerified: z.string().optional(),
 
       // Technical Appendix: 計算根拠の構造化データ(オプション)
