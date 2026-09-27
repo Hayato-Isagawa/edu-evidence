@@ -13,16 +13,18 @@
  * 使い方: npx tsx scripts/check-sentence-length.ts
  * 行番号は frontmatter を含む実ファイルの行で、文を含む段落の開始行(文そのものの行ではない)
  *
- * Markdown 構造の扱い:
+ * Markdown 構造の扱い(サイトと同じく mdast + GFM の構文木で読む):
  *   - frontmatter は対象外(gray-matter で剥がす)
- *   - コードブロック(```) 内は対象外
- *   - 見出し / リスト / table / HTML 行は対象外(本文段落のみ評価)
- *   - URL / インラインコード / Markdown リンクは字数カウント時に正規化
+ *   - 評価するのは最上位の段落だけ。コードブロック(フェンスの各形・字下げ)・見出し・リスト・引用・表・HTML・脚注は対象外
+ *   - 段落の字数は段落のソースの文字で数える。URL / インラインコード / Markdown リンクは字数カウント時に正規化
  */
 
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { fromMarkdown } from "mdast-util-from-markdown";
+import { gfmFromMarkdown } from "mdast-util-gfm";
+import { gfm } from "micromark-extension-gfm";
 
 const STRATEGIES_DIR = path.resolve("src/content/strategies");
 const COLUMNS_DIR = path.resolve("src/content/columns");
@@ -34,6 +36,16 @@ const COMMA_INFO_THRESHOLD = 4;
 
 type Severity = "info" | "warn" | "critical";
 type Reason = "length" | "comma";
+
+/** 構文木のノード(使う分だけ) */
+interface MdNode {
+  type: string;
+  children?: MdNode[];
+  position?: {
+    start: { line: number; offset?: number };
+    end: { offset?: number };
+  };
+}
 
 interface Hit {
   file: string;
@@ -61,16 +73,6 @@ function classifyLength(length: number): Severity | null {
   if (length > LENGTH_WARN) return "warn";
   if (length > LENGTH_INFO) return "info";
   return null;
-}
-
-function isStructuralLine(line: string): boolean {
-  if (/^#{1,6}\s/.test(line)) return true; // 見出し
-  if (/^\s*[-*+]\s/.test(line)) return true; // bullet
-  if (/^\s*\d+\.\s/.test(line)) return true; // ordered list
-  if (/^\s*\|/.test(line)) return true; // table
-  if (/^\s*<[a-zA-Z!/]/.test(line)) return true; // HTML
-  if (/^\s*>\s/.test(line)) return true; // blockquote
-  return false;
 }
 
 function analyzeBuffer(file: string, buffer: string, startLine: number): Hit[] {
@@ -120,40 +122,22 @@ function analyzeBuffer(file: string, buffer: string, startLine: number): Hit[] {
 function checkFile(filePath: string): Hit[] {
   const raw = fs.readFileSync(filePath, "utf8");
   const { content } = matter(raw);
-  const lines = content.split("\n");
   // 報告する行番号を実ファイルの行に合わせる(frontmatter の行数を足す)
-  const lineOffset = raw.split("\n").length - lines.length;
+  const lineOffset = raw.split("\n").length - content.split("\n").length;
+  const tree = fromMarkdown(content, {
+    extensions: [gfm()],
+    mdastExtensions: [gfmFromMarkdown()],
+  }) as MdNode;
   const hits: Hit[] = [];
 
-  let inCodeBlock = false;
-  let buffer = "";
-  let bufferStartLine = 0;
-
-  const flush = () => {
-    if (!buffer) return;
-    hits.push(...analyzeBuffer(filePath, buffer, bufferStartLine));
-    buffer = "";
-  };
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-
-    if (line.startsWith("```")) {
-      flush();
-      inCodeBlock = !inCodeBlock;
-      continue;
-    }
-    if (inCodeBlock) continue;
-
-    if (line.trim() === "" || isStructuralLine(line)) {
-      flush();
-      continue;
-    }
-
-    if (!buffer) bufferStartLine = i + 1 + lineOffset;
-    buffer += (buffer ? " " : "") + line;
+  for (const node of tree.children ?? []) {
+    if (node.type !== "paragraph" || !node.position) continue;
+    const source = content
+      .slice(node.position.start.offset, node.position.end.offset)
+      .replace(/\n/g, " ");
+    const startLine = node.position.start.line + lineOffset;
+    hits.push(...analyzeBuffer(filePath, source, startLine));
   }
-  flush();
 
   return hits;
 }

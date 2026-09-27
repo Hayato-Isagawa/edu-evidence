@@ -156,9 +156,12 @@ gate("check-reader-literacy.ts", "reader-literacy", [
   /jargon\.md:11`/,
 ]);
 // 行番号は frontmatter を含む実ファイルの行で、文を含む段落の開始行(9 行目)。
+// after-fences.md はフェンスの後の本文を読むこと、clean の fences.md / unclosed-fence.md は
+// フェンスの各形・字下げのコードを読まないこと、structures.md は最上位の段落以外を読まないことを見る。
 gate("check-sentence-length.ts", "sentence-length", [
-  /critical:\s*1/,
+  /critical:\s*2/,
   /long-sentence\.md:9 /,
+  /after-fences\.md:14 /,
 ]);
 gate("check-tokens.ts", "tokens", [
   /no-palette-literal/,
