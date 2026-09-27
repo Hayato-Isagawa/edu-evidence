@@ -159,7 +159,7 @@ function main() {
       "3. 現在と違う値が確定したら、値(`monthsGained`・`evidenceStrength`・`evidence`・`methodology` など)と本文を直した上で `lastVerified` を更新。その場で直さない場合は `lastVerified` を更新せず、別の issue に起票"
     );
     lines.push(
-      "4. 結果が割れて値が確定せず、現在と違う値を示す結果がある、または何も取れなかった場合は、値も `lastVerified` も変えない"
+      "4. 値が確定せず、現在と違う値を示す結果が 1 件でもある場合、または何も取れなかった場合は、値も `lastVerified` も変えない"
     );
     lines.push("");
     lines.push("(詳細は docs/CONTENT_GUIDELINES.md「lastVerified の運用」)");
