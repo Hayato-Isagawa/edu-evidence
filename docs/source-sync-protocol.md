@@ -92,7 +92,20 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 |---|---|
 | `digital-technology` | `education-evidence/evidence-reviews/digital-technology-2019`(EEF 委託レビュー)。Toolkit strand は 2026-09-08 時点の一覧に無い |
 
-`kind: trial` の戦略も Toolkit の strand を出典にしていないが、§1 の対象のままで、照合の手順はまだ決めていない。
+**`evidence.eef.kind: trial` の戦略(EEF の試験報告を出典にしたもの)は §1 の月次の対象で、上の表の代わりに次の手順で照合する。** EEF は同じ取り組みの追試を公表することがある(`reciprocal-teaching` の 2 本目は 2026 年 2 月、`philosophy-for-children` の再試験は 2021 年)ので、月次の対象に残す。
+
+1. 下の表の試験ページを、優先度 0 と同じく Wayback の CDX でスナップショットを探し、`id_` の生 HTML で読む。月数は `Impact (months)` の説明文の直後に出る値(例: `0 months`)で、`evidence.eef.monthsGained`(無ければ `evidence.eef.note` に書いた値)と照合する
+2. 同じ取り組みの新しい試験のページが無いかを、CDX の前方一致(`url=educationendowmentfoundation.org.uk/projects-and-evaluation/projects/&matchType=prefix`)を取り組みの名前で絞って確かめる
+3. 最新のスナップショットが試験の公表より前で値が無いときは、ブラウザで実見する(`CONTENT_GUIDELINES.md` §7 と同じ扱い)。WebSearch の 3/3 の判定は使わない
+
+値が一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。該当は次の 4 件(スナップショットの値は 2026-09-28 に確認)。いずれも `projects-and-evaluation/projects/` の下のページ:
+
+| 戦略 | 照合先 | 最新のスナップショットの値 |
+|---|---|---|
+| `lesson-study` | `lesson-study` | 0 months(2026-09-07) |
+| `philosophy-for-children` | `philosophy-for-children-effectiveness-trial`(再試験。本サイトの値)。最初の試験は `philosophy-for-children`(+2 months) | 0 months(2026-08-11) |
+| `inquiry-based-learning` | `project-based-learning` | −2 months(2026-08-02) |
+| `reciprocal-teaching` | `fft-reciprocal-reading-2023-24-trial`(2 本目。本サイトの値)。1 本目は `reciprocal-reading`(+2 months) | 値なし。最新は公表前の 2025-10-09 なので、手順 3 で照合する |
 
 ### 出力
 
@@ -213,7 +226,7 @@ PR 本文には:
 
 ### CI 化(将来案)
 
-GitHub Actions schedule で月次に `npm run check:source-sync` を回し、検出があれば issue を立てる仕組みは別 PR で扱う(本 PR の対象外)。
+GitHub Actions schedule で月次に `npm run check:source-sync` を回す仕組みは別 PR で扱う(本 PR の対象外)。§1 は 30 日を超えた戦略が常に残る運用なので(§1「ローテーション」)、「検出があれば issue を立てる」形にすると毎月 issue が立つ。立てるなら、その月に照合する候補の一覧として立てる。
 
 ## 関連ドキュメント
 
