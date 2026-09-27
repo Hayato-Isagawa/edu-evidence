@@ -156,12 +156,15 @@ gate("check-reader-literacy.ts", "reader-literacy", [
   /jargon\.md:11`/,
 ]);
 // 行番号は frontmatter を含む実ファイルの行で、文を含む段落の開始行(9 行目)。
-// after-fences.md はフェンスの後の本文を読むこと、clean の fences.md / unclosed-fence.md は
-// フェンスの各形・字下げのコードを読まないこと、structures.md は最上位の段落以外を読まないことを見る。
+// after-fences.md はフェンスの後の本文を読むこと、multiline.md は 2 行にわたる段落を開始行(5 行目)で
+// 報告することを見る。clean の fences.md / unclosed-fence.md はフェンスの各形・字下げのコードを読まない
+// こと(フェンスの中に空行を挟み、行単位で読むと各ケースが単独で長文になる形にしてある)、
+// structures.md は最上位の段落以外を読まないことを見る。
 gate("check-sentence-length.ts", "sentence-length", [
-  /critical:\s*2/,
+  /critical:\s*3/,
   /long-sentence\.md:9 /,
   /after-fences\.md:14 /,
+  /multiline\.md:5 /,
 ]);
 gate("check-tokens.ts", "tokens", [
   /no-palette-literal/,
