@@ -43,6 +43,10 @@ interface FrozenEntry {
   archivedAt: string;
 }
 
+interface EvidenceReviewEntry {
+  file: string;
+}
+
 interface SectionResult {
   section: Section;
   threshold: number;
@@ -50,6 +54,11 @@ interface SectionResult {
   stale: StaleEntry[];
   /** `evidence.eef.archivedAt` を持つ凍結出典。対象数に数えないが、黙って消さず列挙する */
   frozen: FrozenEntry[];
+  /**
+   * `evidence.eef.kind: evidence-review` の出典(Toolkit の strand ではなく EEF の委託レビュー)。
+   * §1 の月次の同期対象に数えないが、黙って消さず列挙する(§1 だけ)
+   */
+  evidenceReview: EvidenceReviewEntry[];
 }
 
 interface CliArgs {
@@ -108,6 +117,18 @@ function archivedAtOf(
   return typeof value === "string" && parseDate(value) ? value : null;
 }
 
+// §1 の判定ロジック(Toolkit の strand の値を引く)が当てはまらない委託レビュー。
+// 読むのは eef だけ(`kind` は schema で eef の下にしか無い)
+function isEvidenceReview(
+  section: Section,
+  data: Record<string, unknown>
+): boolean {
+  if (section !== "eef") return false;
+  const evidence = data.evidence as Record<string, unknown> | undefined;
+  const entry = evidence?.[section] as Record<string, unknown> | undefined;
+  return entry?.kind === "evidence-review";
+}
+
 function isTargetOf(section: Section, data: Record<string, unknown>): boolean {
   if (data.source === section) return true;
   const evidence = data.evidence as Record<string, unknown> | undefined;
@@ -125,6 +146,7 @@ function collect(today: Date): Record<Section, SectionResult> {
       totalTargets: 0,
       stale: [],
       frozen: [],
+      evidenceReview: [],
     },
     hattie: {
       section: "hattie",
@@ -132,6 +154,7 @@ function collect(today: Date): Record<Section, SectionResult> {
       totalTargets: 0,
       stale: [],
       frozen: [],
+      evidenceReview: [],
     },
     japan: {
       section: "japan",
@@ -139,6 +162,7 @@ function collect(today: Date): Record<Section, SectionResult> {
       totalTargets: 0,
       stale: [],
       frozen: [],
+      evidenceReview: [],
     },
   };
 
@@ -162,6 +186,10 @@ function collect(today: Date): Record<Section, SectionResult> {
       const archivedAt = archivedAtOf(section, data);
       if (archivedAt) {
         sections[section].frozen.push({ file, archivedAt });
+        continue;
+      }
+      if (isEvidenceReview(section, data)) {
+        sections[section].evidenceReview.push({ file });
         continue;
       }
       sections[section].totalTargets++;
@@ -220,6 +248,12 @@ function renderText(
     lines.push(`凍結(対象外): ${r.frozen.length} 件`);
     for (const e of r.frozen) {
       lines.push(`- \`strategies/${e.file}\` — archivedAt ${e.archivedAt}`);
+    }
+    if (s === "eef") {
+      lines.push(`委託レビュー(対象外): ${r.evidenceReview.length} 件`);
+      for (const e of r.evidenceReview) {
+        lines.push(`- \`strategies/${e.file}\` — kind evidence-review`);
+      }
     }
     lines.push("");
   }

@@ -34,11 +34,13 @@
 
 | セクション | 対象判定 | しきい値 | 頻度 |
 |---|---|---|---|
-| §1 EEF | `source === 'eef'` または `evidence.eef` 併記。ただし `evidence.eef.archivedAt` を持つものは除く(下記「凍結した出典」) | 30 日 | 月次 |
+| §1 EEF | `source === 'eef'` または `evidence.eef` 併記。ただし `evidence.eef.archivedAt` を持つもの(下記「凍結した出典」)と、`evidence.eef.kind: evidence-review` のもの(下記「判定ロジック」の委託レビューの段落)は除く | 30 日 | 月次 |
 | §2 Hattie | `source === 'hattie'` または `evidence.hattie` 併記 | 365 日 | 年次(1 月) |
 | §3 Japan | `source === 'japan'` または `evidence.japan` 併記 | 365 日 | 年次(4 月) |
 
 1 戦略が複数 § の対象になりうる(例: `source: mixed` で `evidence.eef` と `evidence.japan` 併記の戦略は §1 と §3 の両方に出る)。
+
+**`lastVerified` は戦略に 1 つで、出典ごとには持たない。** そのため §1 で EEF だけに当たり直しても日付が進み、§2・§3 の 365 日の判定もそこから数え直される。§2・§3 の確認の本体は日付のしきい値ではなく、各 § の「タイミング」に書いた毎年の全件レビューである(`docs/CONTENT_GUIDELINES.md`「lastVerified の運用」の「限界」)。
 
 ### 自動化の境界
 
@@ -51,7 +53,7 @@
 
 - `source: eef` 28 件
 - `evidence.eef` 併記分(`source: mixed` 等から 23 件)
-- 合計: 51 件、うち凍結 1 件(`early-years-intervention`)を除いた 50 件が対象(2026-09-17 の `check:source-sync` 実測)
+- 合計: 51 件。うち凍結 1 件(`early-years-intervention`)と委託レビュー 1 件(`digital-technology`)を除いた 49 件が対象(2026-09-27 の `check:source-sync` 実測)
 
 ### 凍結した出典(`evidence.eef.archivedAt`)
 
@@ -82,20 +84,24 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 「値更新可」に当たり、現在と違う値が確定したら「食い違いが見つかった」に当たる。値をその PR で直すなら `lastVerified` も更新する。直さないなら更新せず、issue に回す(`CONTENT_GUIDELINES.md`「lastVerified の運用」)。§2・§3 も同じ扱い。ここでいう「更新しない」は、この節の照合だけで `lastVerified` を進めないという意味で、同じ PR で他のページの出典に当たり直して一致した場合の更新までは打ち消さない(打ち消すのは、確定した食い違いを直さない場合だけ)。
 
-**Toolkit に strand が無い戦略は、この判定ロジックの対象外。** WebSearch は撤去済みの値を引用したままの二次サイトを拾うので、3/3 一致が成立してしまい、消えた値がそのまま戻る。現時点の該当は 1 件:
+**「照合結果が現在の値と一致した」とは**、表の 1〜3 行目で確定した値が現在の値と一致したこと、または表の最下行で、取れた結果がすべて現在の値と一致したことをいう。結果が割れて値が確定しなかった場合は当たらない(#166 の Phonics は 2/3 が +5・1/3 が +6 と割れ、PR 本文は二次情報源の裏付けを挙げていない)。本書の以下の「一致」は、下の委託レビューの段落を除き、この意味で使う。§2・§3 も同じ。
+
+**`evidence.eef.kind: evidence-review` の戦略(Toolkit の strand ではなく EEF の委託レビューを出典にしたもの)は、この判定ロジックと §1 の月次の対象外。** 上の表は Toolkit の strand のページの値を前提にしているので、委託レビューには当てはまらない(`digital-technology` では、WebSearch が撤去済みの Toolkit の値を引用したままの二次サイトを拾うので、3/3 一致が成立して消えた値が戻りうる。#561)。照合は、`sourceUrl` のページからリンクされている PDF(`d2tic4wvo1iusb.cloudfront.net`)を `curl` で取り、`pdftotext -layout` で読んで行う。CDN から取れなければ、PDF の URL を Wayback の `id_` で引く。PDF の記述がページの値と一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。`check:source-sync` は §1 の対象数から外して「委託レビュー(対象外)」に列挙する。`check:stale` の 365 日は対象のまま。該当は次の 1 件(2026-09-27 時点):
 
 | 戦略 | 照合先 |
 |---|---|
 | `digital-technology` | `education-evidence/evidence-reviews/digital-technology-2019`(EEF 委託レビュー)。Toolkit strand は 2026-09-08 時点の一覧に無い |
 
+`kind: trial` の戦略も Toolkit の strand を出典にしていないが、§1 の対象のままで、照合の手順はまだ決めていない。
+
 ### 出力
 
 - 値更新がある場合: PR ドラフト(コミット粒度: 1 戦略 1 PR、または同 strand 複数戦略を 1 PR にまとめる)
-- 値更新が無い場合: 照合結果がすべて現在の値と一致した戦略だけを `lastVerified` 単独の rolling PR にする(前例: PR #166 の reading-comprehension)。結果が割れた、または取れなかった戦略は PR に含めない(#166 の Phonics)
+- 値更新が無い場合: 照合結果が現在の値と一致した戦略だけを `lastVerified` 単独の rolling PR にする(前例: PR #166 の reading-comprehension)。値が確定せず現在と違う値を示す結果が出た(#166 の Phonics のように割れた場合を含む)、または取れなかった戦略は PR に含めない
 
 ### ローテーション
 
-50 件を月 2-3 件で 1 年 1 周。`scripts/check-source-sync.ts --section eef` がしきい値超過(30 日)を提示し、その中から優先度の高い strand(EEF が新フェーズ公開した順)を選ぶ。
+49 件を月 4〜5 件で 1 年 1 周。`scripts/check-source-sync.ts --section eef` がしきい値超過(30 日)を提示し、その中から優先度の高い strand(EEF が新フェーズ公開した順)を選ぶ。30 日は候補を出すためのしきい値で、1 年で 1 周する運用では超過が常に残る。超過があること自体は異常ではない。
 
 ## §2 Hattie Visible Learning 整合性チェック(年次運用)
 
@@ -165,13 +171,13 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
 
 ### 手順
 
-1. 照合結果がすべて現在の値と一致したか、食い違いをこの PR で直す場合に、対象戦略の `lastVerified` を当日日付に更新する(`YYYY-MM-DD` 形式)。それ以外は更新しない
+1. 照合結果が現在の値と一致したか(§1「判定ロジック」の定義)、食い違いをこの PR で直す場合に、対象戦略の `lastVerified` を当日日付に更新する(`YYYY-MM-DD` 形式)。それ以外は更新しない
 2. **値が変わった場合**:
    - frontmatter `monthsGained` / `evidenceStrength` / `evidence.<src>.monthsGained` 等を更新
    - 本文中の数値表記も追随(例: 「約 5 ヶ月」「+5 ヶ月」)
    - `culturalContext` に値変更の経緯を 1-2 行追記
 3. **値が変わらない場合**:
-   - 照合結果がすべて現在の値と一致したときだけ、`lastVerified` のみ rolling
+   - 照合結果が現在の値と一致したときだけ、`lastVerified` のみ rolling
 4. ローカル検証: `npm run check:all` を通す(`astro check` / `check:text` / `check:consistency` / `check:links:source` / `check:links:internal` ほか。**`check:stale` は `check:all` に入っていない**ので、要るときは単体で走らせる)
 5. 別途 `npm run check:source-sync` で次回チェック対象を確認(本 PR の対象から外れているか)
 6. PR 作成(タイトル英語、本文日本語 — `CONTRIBUTING.md`「コミットメッセージ / PR タイトル規約」)
@@ -193,8 +199,8 @@ chore(strategies): roll lastVerified for <strategy-slug> after EEF Phase X cross
 
 PR 本文には:
 
-- 照合結果がすべて現在の値と一致した根拠
-- 「スコープに含めなかったもの」: 結果が割れた、または取れなかった戦略とその結果(#166 では、2/3 が +5・1/3 が +6 と割れた Phonics を含めず、`lastVerified` も動かしていない)
+- 照合結果が現在の値と一致した根拠
+- 「スコープに含めなかったもの」: 値が確定せず現在と違う値を示す結果が出た、または取れなかった戦略とその結果(#166 では、2/3 が +5・1/3 が +6 と割れた Phonics を含めず、`lastVerified` も動かしていない)
 - 次回再検証の予定時期
 
 を明記する。

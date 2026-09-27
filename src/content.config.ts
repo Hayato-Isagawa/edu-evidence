@@ -38,7 +38,8 @@ const strategies = defineCollection({
           eef: z
             .object({
               // 値の出所。省略時は Teaching and Learning Toolkit の strand。
-              // 戦略ページの EEF カードの見出しを切り替える
+              // 戦略ページの EEF カードの見出しを切り替える。evidence-review は
+              // check:source-sync の §1 の同期対象から外れる
               kind: z
                 .enum([
                   "toolkit",
