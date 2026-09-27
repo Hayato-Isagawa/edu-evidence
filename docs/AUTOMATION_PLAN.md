@@ -51,7 +51,7 @@ Git 運用を含む自動化は GitHub Actions 側で実装する。
 ### 3.1 完全自動でよいもの(人レビュー不要)
 
 - リンク切れ検知 → Issue 自動作成(週次)
-- `lastVerified` が 365 日以上古いエントリのリストアップ → Issue 化(月次)
+- `lastVerified` が 365 日を超えて古いエントリのリストアップ → Issue 化(月次)
 - Dependabot による依存更新(設定済み)
 - PR 時の textlint / 整合性チェック / E2E 自動実行
 
@@ -89,7 +89,7 @@ Git 運用を含む自動化は GitHub Actions 側で実装する。
 
 ### 4.2 `lastVerified` 期限切れ検知(実装済み)
 
-- `scripts/check-stale.ts` が 365 日以上経過したエントリを出力
+- `scripts/check-stale.ts` が 365 日を超えて経過したエントリを出力
 - 月次の `.github/workflows/stale-check.yml` で実行し、結果を Issue 化
 - 関連: `npm run check:stale`
 
