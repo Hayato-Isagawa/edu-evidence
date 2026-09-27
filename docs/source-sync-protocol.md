@@ -84,7 +84,7 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 「値更新可」に当たり、現在と違う値が確定したら「食い違いが見つかった」に当たる。値をその PR で直すなら `lastVerified` も更新する。直さないなら更新せず、issue に回す(`CONTENT_GUIDELINES.md`「lastVerified の運用」)。§2・§3 も同じ扱い。ここでいう「更新しない」は、この節の照合だけで `lastVerified` を進めないという意味で、同じ PR で他のページの出典に当たり直して一致した場合の更新までは打ち消さない(打ち消すのは、確定した食い違いを直さない場合だけ)。
 
-**「照合結果が現在の値と一致した」とは**、表の 1〜3 行目で確定した値が現在の値と一致したこと、または表の最下行で、取れた結果がすべて現在の値と一致したことをいう。結果が割れて値が確定しなかった場合は当たらない(#166 の Phonics は 2/3 が +5・1/3 が +6 と割れ、PR 本文は二次情報源の裏付けを挙げていない)。本書の以下の「一致」は、下の委託レビューの段落を除き、この意味で使う。§2・§3 も同じ。
+**「照合結果が現在の値と一致した」とは**、表の 1〜3 行目で確定した値が現在の値と一致したこと、または表の最下行で、取れた結果がすべて現在の値と一致したことをいう。結果が割れて値が確定しなかった場合は当たらない(#166 の Phonics は 2/3 が +5・1/3 が +6 と割れ、PR 本文は二次情報源の裏付けを挙げていない)。本書の以下の「一致」は、下の委託レビューと試験報告(`kind: trial`)の段落を除き、この意味で使う。§2・§3 も同じ。
 
 **`evidence.eef.kind: evidence-review` の戦略(Toolkit の strand ではなく EEF の委託レビューを出典にしたもの)は、この判定ロジックと §1 の月次の対象外。** 上の表は Toolkit の strand のページの値を前提にしているので、委託レビューには当てはまらない(`digital-technology` では、WebSearch が撤去済みの Toolkit の値を引用したままの二次サイトを拾うので、3/3 一致が成立して消えた値が戻りうる。#561)。照合は、`sourceUrl` のページからリンクされている PDF(`d2tic4wvo1iusb.cloudfront.net`)を `curl` で取り、`pdftotext -layout` で読んで行う。CDN から取れなければ、PDF の URL を Wayback の `id_` で引く。PDF の記述がページの値と一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。`check:source-sync` は §1 の対象数から外して「委託レビュー(対象外)」に列挙する。`check:stale` の 365 日は対象のまま。該当は次の 1 件(2026-09-27 時点):
 
@@ -92,7 +92,20 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 |---|---|
 | `digital-technology` | `education-evidence/evidence-reviews/digital-technology-2019`(EEF 委託レビュー)。Toolkit strand は 2026-09-08 時点の一覧に無い |
 
-`kind: trial` の戦略も Toolkit の strand を出典にしていないが、§1 の対象のままで、照合の手順はまだ決めていない。
+**`evidence.eef.kind: trial` の戦略(EEF の試験報告を出典にしたもの)は §1 の月次の対象で、判定表の代わりに次の手順で照合する。WebSearch の 3/3 の判定は、どの手順でも使わない**(最初の試験の値を引用したままの二次サイトが 3/3 を作りうる。委託レビューと同じ理由)。EEF は同じ取り組みの追試を公表することがある(`reciprocal-teaching` は 2 本、`philosophy-for-children` は 2021 年に再試験)ので、月次の対象に残す。
+
+1. 下の表の試験ページを、優先度 0 と同じく Wayback の CDX でスナップショットを探し、`id_` の生 HTML で読む。月数は、タグを外したテキストで `Impact (months)` の説明文の直後に出る値(例: `0 months`。生 HTML では数値と `months` が別の要素に分かれるので、生のまま grep しても当たらない)で、`evidence.eef.monthsGained`(無ければ `evidence.eef.note` に書いた値)と照合する。確実性は、優先度 0 と同じく南京錠の数を読み、`note` に書いた値と照合する
+2. 同じ取り組みの新しい試験のページが無いかを、CDX の前方一致(`url=educationendowmentfoundation.org.uk/projects-and-evaluation/projects/&matchType=prefix`)を取り組みの名前で絞って確かめる
+3. 最新のスナップショットが試験の公表より前で値が無いとき、または Wayback が答えないときは、ブラウザで実見する(`CONTENT_GUIDELINES.md` §7 と同じ扱い)
+
+月数と確実性が一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。該当は次の 4 件(スナップショットの値は 2026-09-28 に確認)。いずれも `projects-and-evaluation/projects/` の下のページ:
+
+| 戦略 | 照合先 | 最新のスナップショットの値 |
+|---|---|---|
+| `lesson-study` | `lesson-study` | 0 months(2026-09-07) |
+| `philosophy-for-children` | `philosophy-for-children-effectiveness-trial`(再試験。本サイトの値)。最初の試験は `philosophy-for-children`(+2 months) | 0 months(2026-08-11) |
+| `inquiry-based-learning` | `project-based-learning` | -2 months(2026-08-02) |
+| `reciprocal-teaching` | `fft-reciprocal-reading-2023-24-trial`(2 本目。本サイトの値)。1 本目は `reciprocal-reading`(+2 months) | 値なし。最新は公表前の 2025-10-09 なので、手順 3 で照合する |
 
 ### 出力
 
@@ -213,7 +226,7 @@ PR 本文には:
 
 ### CI 化(将来案)
 
-GitHub Actions schedule で月次に `npm run check:source-sync` を回し、検出があれば issue を立てる仕組みは別 PR で扱う(本 PR の対象外)。
+GitHub Actions schedule で月次に `npm run check:source-sync` を回す仕組みはまだ無い。§1 は 30 日を超えた戦略が常に残る運用なので(§1「ローテーション」)、「検出があれば issue を立てる」形にすると毎月 issue が立つ。立てるなら、その月に照合する候補の一覧として立てる。
 
 ## 関連ドキュメント
 

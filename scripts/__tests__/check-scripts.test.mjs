@@ -514,7 +514,11 @@ test("check-source-sync.ts は凍結と委託レビューの出典を対象数�
   );
   assert.deepEqual(
     eef.evidenceReview.map((e) => e.file),
-    ["evidence-review.md"]
+    [
+      "evidence-review-hattie.md",
+      "evidence-review-japan.md",
+      "evidence-review.md",
+    ]
   );
   assert.deepEqual(
     eef.stale.map((e) => e.file),
@@ -539,13 +543,20 @@ test("check-source-sync.ts は凍結と委託レビューの出典を text 出�
     r.output,
     /^- `strategies\/frozen\.md` — archivedAt 2020-01-01$/m
   );
-  assert.match(r.output, /^委託レビュー\(対象外\): 1 件$/m);
+  assert.match(r.output, /^委託レビュー\(対象外\): 3 件$/m);
   assert.match(
     r.output,
     /^- `strategies\/evidence-review\.md` — kind evidence-review$/m
   );
   // stale 側の見出しは凍結を数えない(計 1 件 = stale.md だけ)
   assert.match(r.output, /^## §1 EEF \(30 日超過: 1 件 \/ 計 1 件\)$/m);
+
+  // --section なし: 委託レビューの行は §1 にだけ出て、exit code は 3 § の stale の合計
+  // (§1 の stale.md + §2 の hattie-archived.md と evidence-review-hattie.md
+  //  + §3 の japan-archived.md と evidence-review-japan.md)
+  const all = runWithArgs("check-source-sync.ts", "source-sync-frozen", []);
+  assert.equal(all.output.match(/^委託レビュー\(対象外\)/gm)?.length, 1);
+  assert.equal(all.status, 5, all.output);
 });
 
 // 凍結を読むのは eef だけ(#620。理由は `check-source-sync.ts` の `archivedAtOf` 直前)。
@@ -562,11 +573,13 @@ test("check-source-sync.ts は evidence.hattie.archivedAt を凍結として読�
   ]);
   const hattie = JSON.parse(r.output).sections.hattie;
   assert.deepEqual(hattie.frozen, []);
-  assert.deepEqual(
-    hattie.stale.map((e) => e.file),
-    ["hattie-archived.md"]
-  );
-  assert.equal(hattie.totalTargets, 1);
+  // 委託レビューの判定も eef だけ。evidence-review-hattie.md は §2 の対象のまま stale になる
+  assert.deepEqual(hattie.evidenceReview, []);
+  assert.deepEqual(hattie.stale.map((e) => e.file).sort(), [
+    "evidence-review-hattie.md",
+    "hattie-archived.md",
+  ]);
+  assert.equal(hattie.totalTargets, 2);
 });
 
 // hattie 側だけ固定すると「hattie だけ読まない(japan は読む)」への書き換えが緑のまま通る(#626)
@@ -582,11 +595,13 @@ test("check-source-sync.ts は evidence.japan.archivedAt を凍結として読�
   ]);
   const japan = JSON.parse(r.output).sections.japan;
   assert.deepEqual(japan.frozen, []);
-  assert.deepEqual(
-    japan.stale.map((e) => e.file),
-    ["japan-archived.md"]
-  );
-  assert.equal(japan.totalTargets, 1);
+  // 委託レビューの判定も eef だけ。evidence-review-japan.md は §3 の対象のまま stale になる
+  assert.deepEqual(japan.evidenceReview, []);
+  assert.deepEqual(japan.stale.map((e) => e.file).sort(), [
+    "evidence-review-japan.md",
+    "japan-archived.md",
+  ]);
+  assert.equal(japan.totalTargets, 2);
 });
 
 // 内部リンク切れを per-PR で見る口はこれだけ。
