@@ -4,9 +4,8 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 const columns = await getCollection("columns");
-// 実効更新日(lastVerified があればそれ、無ければ公開日)の降順でソート
-const freshnessDate = (c: typeof columns[number]) => c.data.lastVerified ?? c.data.date;
-columns.sort((a, b) => freshnessDate(b).localeCompare(freshnessDate(a)));
+// 公開日の降順。lastVerified は照合日で、本文の更新日ではないので使わない(ADR 0041)
+columns.sort((a, b) => b.data.date.localeCompare(a.data.date));
 
 // 全タグを出現頻度順で抽出(チップ表示用)
 const tagCounts = new Map<string, number>();
@@ -101,12 +100,9 @@ function formatListDay(iso: string): string {
                 <div class="col-span-12 md:col-span-3 md:text-right">
                   <time
                     class="font-mono text-xs text-sub"
-                    datetime={c.data.lastVerified ?? c.data.date}
+                    datetime={c.data.date}
                   >
-                    {formatListDay(c.data.lastVerified ?? c.data.date)}
-                    {c.data.lastVerified && c.data.lastVerified !== c.data.date && (
-                      <span class="ml-1 text-accent">(更新)</span>
-                    )}
+                    {formatListDay(c.data.date)}
                   </time>
                   <span class="inline-block ml-3 motion-safe:transition group-hover:translate-x-1 text-sub">
                     →

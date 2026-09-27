@@ -1,31 +1,17 @@
 import type { APIRoute, GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-import { generateOgImage } from "../../lib/og-image";
+import { generateOgImage, ogParamsOf, type OgParams } from "../../lib/og-image";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const strategies = await getCollection("strategies");
   return strategies.map((s) => ({
     params: { slug: s.id },
-    props: {
-      title: s.data.title,
-      monthsGained: s.data.monthsGained,
-      monthsUnmeasured: s.data.monthsUnmeasured,
-      evidenceStrength: s.data.evidenceStrength,
-      subjects: s.data.subjects,
-    },
+    props: ogParamsOf(s.data),
   }));
 };
 
 export const GET: APIRoute = async ({ props }) => {
-  const png = await generateOgImage(
-    props as {
-      title: string;
-      monthsGained: number;
-      monthsUnmeasured?: boolean;
-      evidenceStrength: number;
-      subjects: string[];
-    }
-  );
+  const png = await generateOgImage(props as OgParams);
 
   return new Response(new Uint8Array(png), {
     headers: {

@@ -84,3 +84,4 @@
 - [0038. 印刷スタイルを global.css の 1 ブロックで提供する(edu-law ADR 0029 ミラー)](0038-print-stylesheet.md)
 - [0039. Organization JSON-LD に姉妹サイトの関係を書かない(edu-watch ADR 0071 ミラー)](0039-organization-jsonld-no-sister-relation.md)
 - [0040. `lastVerified` の表示ラベルを「出典の最終確認」「主な出典の最終確認」にする](0040-source-check-label.md)
+- [0041. 照合日(`lastVerified`)を公開日・更新日として使わない](0041-verification-date-not-publish-or-update-date.md)
