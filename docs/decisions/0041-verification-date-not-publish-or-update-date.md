@@ -41,12 +41,14 @@ OG の `?v=` については、ADR 0019 が撤回の条件に挙げた「専用�
 
 ADR は不変とする運用なので、旧 ADR は書き換えずに本 ADR で訂正する(ADR 0040 と同じ形)。
 
-| 箇所 | 訂正 |
+| ADR 0019 の箇所 | 訂正 |
 |---|---|
-| ADR 0019「戦略個別 OG: frontmatter `lastVerified` を `?v=YYYYMMDD` として流用」(決定)と、同じ趣旨の実装の記述(コード例・実装手順) | 本 ADR 以降は、要素ツリーのハッシュ |
-| ADR 0019「内容変更で `lastVerified` が更新される運用と整合」(決定の理由)と、トリガーの表の「`lastVerified` を更新する運用ルールに従えば `?v=` が自動更新」 | その運用は ADR 0033 と #678 で無くなった。本 ADR 以降は、値を変えれば `?v=` が自動で変わる。表の `cost` の行は、OG 画像に `cost` を描いていないので該当しない |
-| ADR 0019「`lastVerified` は zod スキーマで required」 | スキーマでは optional(`src/content.config.ts`)。必須にしているのは `check:stale` |
-| ADR 0019「レイアウト変更時は全戦略の `lastVerified` を一括更新」(トリガーの表・手順・将来の課題) | 照合していない日付を打つことになり、ADR 0033 と `docs/CONTENT_GUIDELINES.md`「lastVerified の運用」に反する。本 ADR 以降は、レイアウトや色を変えれば `?v=` が自動で変わるので、一括更新は要らない |
+| 「検討した選択肢」A と「決定」1(見出し「戦略個別 OG の `?v=` — frontmatter `lastVerified` 流用」)、同じ節のコード例、「3. 本 ADR 採択時点での実装範囲」 | 本 ADR 以降、`?v=` は要素ツリーのハッシュ |
+| A の利点「内容変更(タイトル / monthsGained / 出典 / 効果サマリー変更)で `lastVerified` が更新される運用と整合し」、「判断フレーム」の戦略個別 OG の表「`lastVerified` を更新する運用ルールに従えば `?v=` が自動更新」 | その運用は ADR 0033 と #678 で無くなった。本 ADR 以降は、OG に描く値を変えれば `?v=` が自動で変わる。表の `cost` の行は、OG 画像に `cost` を描いていないので該当しない |
+| 決定 1「`lastVerified` は `src/content.config.ts` の zod スキーマで required」 | スキーマでは optional。未設定を落としているのは `check:stale` |
+| 運用ワークフロー「戦略を更新するとき」手順 1「frontmatter の `lastVerified` を更新コミット日に書き換える(現行運用と同じ)」と、それを前提にした手順 4 | 出典に当たっていない変更では `lastVerified` を書き換えない(`docs/CONTENT_GUIDELINES.md`「lastVerified の運用」)。`?v=` は OG に描く値が変わったときに自動で変わる |
+| 判断フレームの表の「`scripts/og-image.ts` のレイアウト変更」、運用ワークフロー「動的 OG レイアウト全体改修」手順 2、「スコープ外」の一括更新 | 照合していない日付を打つことになり、ADR 0033 と `docs/CONTENT_GUIDELINES.md` に反する。本 ADR 以降は、レイアウトや色を変えれば `?v=` が自動で変わるので、一括更新は要らない |
+| 「同梱フォントの変更」の表の戦略個別 OG「全戦略の `lastVerified` 一括更新」 | 一括更新はしない(理由は上の行と同じ)。フォントだけを変えても `?v=` は変わらず、古い画像が残る(本 ADR の帰結) |
 
 ## 撤回 / 再検討の条件
 

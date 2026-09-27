@@ -50,8 +50,8 @@ async function loadNotoSansJpFont(): Promise<ArrayBuffer> {
 }
 
 /**
- * OG 画像に描く値。画像(og/[...slug].png.ts)と `?v=`(strategies/[...slug].astro)の
- * 両方がこれを通すので、描く値と版の元になる値の集合がずれない
+ * OG 画像に描く値。画像と `?v=` の両方をこの関数の戻り値から作ると、
+ * 描く値と版の元になる値の集合がずれない(ADR 0041)
  */
 export function ogParamsOf(data: OgParams): OgParams {
   return {
