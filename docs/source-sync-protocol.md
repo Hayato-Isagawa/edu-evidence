@@ -102,8 +102,8 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 ### 対象数
 
 - `source: hattie` 1 件(teacher-credibility)
-- `evidence.hattie` 併記分: 約 39 件
-- 合計: 約 39 件
+- `evidence.hattie` 併記分(`source: hattie` 以外から 35 件)
+- 合計: 36 件(2026-09-27 の `check:source-sync` 実測)
 
 ### 主情報源の優先順位
 
@@ -123,7 +123,7 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 ### タイミング
 
-毎年 1 月に全 39 件レビュー。Hattie の改訂が公表された場合は中間で実施。
+毎年 1 月に対象の全件をレビュー。Hattie の改訂が公表された場合は中間で実施。
 
 ### Hattie 値の運用上の注意
 
@@ -134,8 +134,8 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
 ### 対象数
 
 - `source: japan` 13 件
-- `evidence.japan` 併記分: 約 22 件
-- 合計: 約 22 件
+- `evidence.japan` 併記分(`source: japan` 以外から 10 件)
+- 合計: 23 件(2026-09-27 の `check:source-sync` 実測)
 
 ### 主情報源の優先順位
 
@@ -152,7 +152,7 @@ CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(
 
 ### タイミング
 
-毎年 4 月(年度初め)に全 22 件レビュー。学習指導要領改訂や全国学力調査結果の公表があった場合は中間で実施。
+毎年 4 月(年度初め)に対象の全件をレビュー。学習指導要領改訂や全国学力調査結果の公表があった場合は中間で実施。
 
 ### sourceUrl 制約(CONTENT_GUIDELINES Rule 1.2b)
 

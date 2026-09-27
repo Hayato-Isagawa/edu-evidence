@@ -77,7 +77,7 @@ jobs:
           today=$(date -u +'%Y-%m-%d')
 
           {
-            echo "月次の自動チェックで、\`lastVerified\` から 365 日以上経過した戦略を検出しました。"
+            echo "月次の自動チェックで、\`lastVerified\` から 365 日を超えて経過した戦略を検出しました。"
             echo ""
             echo "- Workflow run: $RUN_URL"
             echo "- 検出日 (UTC): $today"
