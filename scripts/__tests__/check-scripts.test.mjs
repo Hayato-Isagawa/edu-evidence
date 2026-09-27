@@ -495,7 +495,7 @@ function runWithArgs(script, fixture, args) {
 // 出典側で値が固定された(strand 廃止で Wayback に固定した)ものは同期しようがなく、
 // 30 日ごとに stale として列挙され続けていた。外したものは黙って消さず「凍結」として
 // 列挙する — 対象から外す判定が広がっても、レポートを読めば気づけるようにするため。
-test("check-source-sync.ts は archivedAt を持つ出典を対象数から外し、frozen に載せる", () => {
+test("check-source-sync.ts は凍結と委託レビューの出典を対象数から外し、別に載せる", () => {
   assert.ok(
     fixtureFileCount("source-sync-frozen") > 0,
     "fixture が空 — 0 件で緑になっている"
@@ -506,9 +506,15 @@ test("check-source-sync.ts は archivedAt を持つ出典を対象数から外�
     "--json",
   ]);
   const eef = JSON.parse(r.output).sections.eef;
+  // frozen.md は kind も evidence-review だが、凍結を先に判定するので凍結にだけ載る。
+  // stale.md は kind が trial なので外れない(外すのは evidence-review だけ)
   assert.deepEqual(
     eef.frozen.map((e) => e.file),
     ["frozen.md"]
+  );
+  assert.deepEqual(
+    eef.evidenceReview.map((e) => e.file),
+    ["evidence-review.md"]
   );
   assert.deepEqual(
     eef.stale.map((e) => e.file),
@@ -519,7 +525,7 @@ test("check-source-sync.ts は archivedAt を持つ出典を対象数から外�
   assert.equal(r.status, 1);
 });
 
-test("check-source-sync.ts は凍結した出典を text 出力に列挙する(黙って消さない)", () => {
+test("check-source-sync.ts は凍結と委託レビューの出典を text 出力に列挙する(黙って消さない)", () => {
   assert.ok(
     fixtureFileCount("source-sync-frozen") > 0,
     "fixture が空 — 0 件で緑になっている"
@@ -532,6 +538,11 @@ test("check-source-sync.ts は凍結した出典を text 出力に列挙する(�
   assert.match(
     r.output,
     /^- `strategies\/frozen\.md` — archivedAt 2020-01-01$/m
+  );
+  assert.match(r.output, /^委託レビュー\(対象外\): 1 件$/m);
+  assert.match(
+    r.output,
+    /^- `strategies\/evidence-review\.md` — kind evidence-review$/m
   );
   // stale 側の見出しは凍結を数えない(計 1 件 = stale.md だけ)
   assert.match(r.output, /^## §1 EEF \(30 日超過: 1 件 \/ 計 1 件\)$/m);

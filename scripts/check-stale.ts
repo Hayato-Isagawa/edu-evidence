@@ -153,13 +153,13 @@ function main() {
       "1. 各戦略のページの出典(`sourceUrl`・`evidence` の各出典・`methodology.primaryEvidenceReview`)のどれかに当たり直す"
     );
     lines.push(
-      "2. 取れた結果がすべて現在の値と一致すれば、frontmatter の `lastVerified` を今日の日付に更新"
+      "2. 照合結果が現在の値と一致すれば(確定した値が一致するか、確定しなかったときは取れた結果がすべて一致すること。docs/source-sync-protocol.md §1「判定ロジック」)、frontmatter の `lastVerified` を今日の日付に更新"
     );
     lines.push(
       "3. 現在と違う値が確定したら、値(`monthsGained`・`evidenceStrength`・`evidence`・`methodology` など)と本文を直した上で `lastVerified` を更新。その場で直さない場合は `lastVerified` を更新せず、別の issue に起票"
     );
     lines.push(
-      "4. 現在と違う値を示す結果が出たが確定できない、または何も取れなかった場合は、値も `lastVerified` も変えない"
+      "4. 結果が割れて値が確定せず、現在と違う値を示す結果がある、または何も取れなかった場合は、値も `lastVerified` も変えない"
     );
     lines.push("");
     lines.push("(詳細は docs/CONTENT_GUIDELINES.md「lastVerified の運用」)");
