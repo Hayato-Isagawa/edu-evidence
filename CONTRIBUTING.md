@@ -142,7 +142,7 @@ npm run check:consistency  # monthsGained 整合性チェック
 npm run check:stale        # lastVerified 期限切れチェック
 npm run lint               # oxlint
 npm run format:check       # oxfmt の差分検査(整形は npm run format)
-npm run check:all          # 上記チェックを一括実行
+npm run check:all          # 手元用の一括実行(check:stale は含まない。中身は CLAUDE.md「ビルド・テスト」)
 ```
 
 ## エージェント活用早見表
