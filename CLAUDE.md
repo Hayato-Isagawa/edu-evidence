@@ -34,10 +34,17 @@ npm run check              # Astro型チェック
 npm run check:text         # textlint日本語校正
 npm run check:consistency  # monthsGained 整合性チェック
 npm run check:evidence-strength # エビデンス強度(★)整合性チェック
-npm run check:stale        # lastVerified 期限切れチェック
-npm run check:all          # 上記チェックを一括実行(手元用。CI の Content Checks は同じ script を個別 step で呼ぶ)
+npm run check:stale        # lastVerified 期限切れチェック(check:all には含まない。CI では走る)
+npm run check:reader-literacy # 読者リテラシー(英略語の glossary 未登録・英単語と漢字の混在)
+npm run check:sentence-length # 1 文の長さ(200 字超で落ちる。観点 12.4)
+npm run check:connectors   # 接続語の反復(観点 12.5。検出では落とさない。CI では走らない)
+npm run check:tokens       # デザイントークンの規約
+npm run check:links:source # md の外部 URL の到達性(ネットワークに出る。Content Checks では走らない。週次の link-check.yml〈lychee〉が dist を見る)
+npm run check:links:internal # dist の内部リンク切れ(ビルド後に実行。Content Checks では走らない。同上)
+npm run check:source-sync  # 出典別の照合期限(docs/source-sync-protocol.md。check:all にも CI にも含まない)
+npm run check:all          # package.json の連鎖で lint から test:hooks までを一括実行(手元用。format は含まない)。CI の Content Checks とは中身が違う(各行の注記。注記の無い行と test:* は Content Checks でも走る)
 npm run test:gate          # 下 3 つの口が通す判定器(assert-test-*.mjs)自身の検証(判定器を通さない・check:all に含む)
-npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:all に含む)
+npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:connectors は落ちない代わりに報告の中身を固定。check:all に含む)
 npm run test:workflows     # link-check.yml の通知分岐・VRT の配線・ci-summary.yml の通知判定の回帰テスト(下限つき・check:all に含む)
 npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・check:all に含む)
 ```
