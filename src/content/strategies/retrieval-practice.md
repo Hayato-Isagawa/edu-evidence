@@ -13,10 +13,10 @@ sourceUrl: https://doi.org/10.1016/j.tics.2010.09.003
 sourceTitle: "Roediger & Butler (2011) — The critical role of retrieval practice in long-term retention"
 evidence:
   eef:
-    note: "EEF Toolkit に検索練習の独立したエントリは無いが、Metacognition and self-regulation(+8)の中核的手法として位置づく。分散学習と並び、認知科学領域で最も頑健な知見の一つ。"
+    note: "EEF Toolkit に検索練習の独立したエントリは無い。EEF は 2021 年の認知科学レビュー(Cognitive science approaches in the classroom)で検索練習を取り上げ、「教師が検討すべき有望な手法」と評価している。ただし、同レビューが見た再読との比較研究 21 本のうち、普段の担任が実施したものは 1 本だけだった。"
   hattie:
     cohensD: 0.58
-    note: "Roediger & Butler(2011)のレビューで再読に対する優位性が一貫して報告されている。Adesope, Trevisan & Sundararajan(2017)の 118 研究メタ分析で g=0.51。Dunlosky et al.(2013)が『高い有用性』に分類。効果量は d=0.5-0.8 程度が一般的。"
+    note: "Roediger & Butler(2011)のレビューで再読に対する優位性が一貫して報告されている。Adesope, Trevisan & Sundararajan(2017)の 118 研究メタ分析で g=0.51。Dunlosky et al.(2013)が『高い有用性』に分類。"
 lastVerified: "2026-04-18"
 methodology:
   studies: 118
@@ -53,8 +53,8 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 検索練習は再読の2〜3倍の定着効果があることが繰り返し実証されています。
-- 効果は教科を問わず確認されており、事実的な知識だけでなく概念的理解にも有効です。
+- 検索練習は、再読よりも長期的な定着に優れることが多くの実験で繰り返し示されています。
+- 研究は言語・歴史・算数(数学)・理科など幅広い教科で行われています。ただし、事実を思い出す以外の、より複雑な学習にも同じように効くかは、まだはっきりしていません。
 - 「思い出せなかった」経験が、次の学習への動機づけにつながることも示されています。
 - 小テストの後にフィードバックを加えると、効果がさらに高まります。
 
@@ -66,10 +66,10 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Roediger, H. L., & Butler, A. C. (2011). [The critical role of retrieval practice in long-term retention](https://doi.org/10.1016/j.tics.2010.09.003). *Trends in Cognitive Sciences*, 15(1), 20–27. — 検索練習の効果を認知心理学の観点から体系的にレビューした論文。再読との比較で圧倒的な優位性を示した。
-- Agarwal, P. K., Nunes, L. D., & Blunt, J. R. (2021). *Retrieval Practice*. Jossey-Bass. — 検索練習の研究知見を教師向けに実践的にまとめた書籍。教室での具体的な活用方法が豊富。
+- Roediger, H. L., & Butler, A. C. (2011). [The critical role of retrieval practice in long-term retention](https://doi.org/10.1016/j.tics.2010.09.003). *Trends in Cognitive Sciences*, 15(1), 20–27. — 検索練習の効果を認知心理学の観点からまとめたレビュー。多くの場合、再読よりも長期保持で大きな効果が出ると報告している。
+- Agarwal, P. K., Nunes, L. D., & Blunt, J. R. (2021). [Retrieval practice consistently benefits student learning: A systematic review of applied research in schools and classrooms](https://doi.org/10.1007/s10648-021-09595-9). *Educational Psychology Review*, 33(4), 1409–1453. — 学校・教室で行われた検索練習の応用研究をまとめた系統的レビュー。
 - Dunlosky, J., et al. (2013). [Improving students' learning with effective learning techniques](https://doi.org/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. — 10の学習法を評価し、検索練習を「高い有用性」と評価。
 
 ## 関連する学習指導要領
 
-- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 「基礎的・基本的な知識および技能の確実な習得」が繰り返し強調されています。検索練習は知識の定着を科学的に支える手法として、この目標の実現に直結します。
+- [小学校学習指導要領解説 総則編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_001.pdf) — 基礎的・基本的な知識と技能を確実に習得させることが、繰り返し強調されています。検索練習は知識の定着を科学的に支える手法として、この目標の実現に直結します。
