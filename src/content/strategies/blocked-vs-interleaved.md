@@ -14,11 +14,11 @@ sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among si
 evidence:
   hattie:
     cohensD: -0.10
-    note: "ブロック練習は短期(練習直後)では正答率が高く『できている感覚』を生むが、遅延テストでは交互練習群に劣る(Rohrer & Taylor 2007)。Dunlosky et al.(2013)はブロック練習を『低い有用性』、交互練習を『中〜高い有用性』と評価。"
+    note: "ブロック練習は短期(練習直後)では正答率が高く『できている感覚』を生むが、遅延テストでは交互練習群に劣る(Rohrer & Taylor 2007)。Dunlosky et al.(2013)は交互練習を『中程度の有用性』と評価(ブロック練習は評価対象の 10 技法に含まれない)。"
 lastVerified: "2026-05-11"
 methodology:
   studies: 59
-  sampleSize: "k=238 効果量、158 サンプル(就学前〜成人、絵画・数学・単語など素材横断)"
+  sampleSize: "k=238 効果量、158 サンプル(主に大学生。平均年齢が報告された 62 サンプルでは、平均 77 歳の 1 研究を除くと 9.5〜37 歳。絵画・数学・単語など素材横断)"
   effectSize: "全体で交互練習 Hedges' g = 0.42。材料別: 絵画 +0.67 / 数学 +0.34 / 単語 -0.39(単語暗記のみブロック練習が有利)"
   primaryEvidenceReview:
     authors: "Brunmair & Richter"
@@ -34,7 +34,7 @@ culturalContext: |
 
 「かけ算の問題を20問やってから、わり算を20問」——この練習の仕方を**ブロック学習**と言います。日本のドリルや教科書のほとんどがこの形式です。
 
-ブロック学習は練習中の正答率が高く「できている」と感じやすいのですが、**1週間後・1ヶ月後のテストでは、問題を混ぜて練習した子の方が成績が良くなります**。
+ブロック学習は練習中の正答率が高く「できている」と感じやすいのですが、**1週間後や1ヶ月後のテストでは、問題を混ぜて練習した方が成績が良かったという実験が複数あります**。大学生では1週間後、中学1年生では30日後のテストで確かめられています。
 
 この「できている感覚」と「実際の定着」のズレが、ブロック学習の落とし穴です。
 
@@ -50,10 +50,10 @@ culturalContext: |
 
 | | ブロック学習 | 交互練習(問題を混ぜる) |
 |---|---|---|
-| **練習中の正答率** | 高い(89%) | 低い(64%) |
+| **練習中の正答率** | 高い(89%) | 低い(60%) |
 | **1週間後のテスト** | **低い(20%)** | **高い(63%)** |
 
-※ Rohrer & Taylor (2007) の算数のRCTより。交互練習群は1週間後に**3倍の正答率**。
+※ Rohrer & Taylor (2007) の実験より(大学生 18 名が立体の体積の求め方を学ぶ。練習の仕方はランダムに割り付け)。交互練習群は1週間後に**3倍の正答率**。中学1年生 126 名が約3ヶ月練習した学校での研究(Rohrer, Dedrick & Stershic 2015)でも、30日後のテストで交互練習の方が高い成績でした。
 
 練習中に「難しい」「混乱する」と感じるのは、脳が深く処理している証拠です。これを**「望ましい難しさ(desirable difficulty)」**と呼びます。
 
@@ -77,10 +77,11 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Rohrer, D., & Taylor, K. (2007). [The shuffling of mathematics problems improves learning](https://doi.org/10.1007/s11251-007-9015-8). *Instructional Science*, 35(6), 481–498. — 交互練習の効果を算数で実証したRCT。1週間後のテストで3倍の差。
+- Rohrer, D., & Taylor, K. (2007). [The shuffling of mathematics problems improves learning](https://doi.org/10.1007/s11251-007-9015-8). *Instructional Science*, 35(6), 481–498. — 大学生を対象に、数学の問題(立体の体積)で交互練習の効果を調べた実験。1週間後のテストで3倍の差。
+- Rohrer, D., Dedrick, R. F., & Stershic, S. (2015). [Interleaved practice improves mathematics learning](https://doi.org/10.1037/edu0000001). *Journal of Educational Psychology*, 107(3), 900–908. — 中学1年生 126 名を対象に、約3ヶ月の数学の練習を交互練習とブロック練習で比べた研究。30日後のテストで交互練習が上回った(効果の大きさを示す指標 d = 0.79)。
 - Rohrer, D. (2012). Interleaving helps students distinguish among similar concepts. *Educational Psychology Review*, 24, 355–367. — 交互練習が「概念の区別力」を育てることを理論的に説明。
 - Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings. In *Metacognition: Knowing about knowing*. — 「望ましい難しさ(desirable difficulty)」概念の原典。
-- Dunlosky, J., et al. (2013). [Improving students' learning with effective learning techniques](https://doi.org/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. — 10の学習法を評価。ブロック練習は「低い有用性」、交互練習は「中〜高い有用性」。
+- Dunlosky, J., et al. (2013). [Improving students' learning with effective learning techniques](https://doi.org/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. — 10の学習法を評価。交互練習は「中程度の有用性」(ブロック練習は評価対象外)。
 
 ## 関連する学習指導要領
 

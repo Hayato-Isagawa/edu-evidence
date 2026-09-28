@@ -21,7 +21,7 @@ evidence:
 lastVerified: "2026-06-11"
 methodology:
   studies: 59
-  sampleSize: "k=238 効果量、158 サンプル(就学前〜成人、絵画・数学・単語など素材横断)"
+  sampleSize: "k=238 効果量、158 サンプル(主に大学生。平均年齢が報告された 62 サンプルでは、平均 77 歳の 1 研究を除くと 9.5〜37 歳。絵画・数学・単語など素材横断)"
   effectSize: "全体で交互練習 Hedges' g = 0.42。材料別: 絵画 +0.67 / 数学 +0.34 / 単語 -0.39(単語暗記のみブロック練習が有利)"
   primaryEvidenceReview:
     authors: "Brunmair & Richter"
