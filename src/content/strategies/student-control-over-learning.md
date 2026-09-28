@@ -13,11 +13,11 @@ sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-l
 sourceTitle: "Visible Learning — Hattie Ranking: Student control over learning"
 evidence:
   eef:
-    note: "EEF Toolkit に独立したエントリは無いが、Metacognition and self-regulation(+8)の文脈で『**教師のガイドなしの完全自由学習ではなく、足場かけを伴う自律性**』が推奨される。"
+    note: "EEF Toolkit に独立したエントリは無い。関連する Metacognition and self-regulation(+8)のページは、教師がメタ認知と自己調整の方略を明示的に教え、手本を示し、足場をかけて、子どもが自分で学習を調整できるよう支えることを勧めている。学習内容や進め方を子どもが選ぶことの効果を評価したものではない。"
   hattie:
     cohensD: 0.02
     note: "Hattie の Visible Learning で d≒0.02(ほぼ効果無し)。Kirschner, Sweller & Clark(2006)『Why Minimal Guidance During Instruction Does Not Work』が認知負荷理論の観点から明確に論じたように、**教師のガイドなしの完全自由学習は効果が無いか負**。Direct Instruction と対比される典型例。"
-lastVerified: "2026-06-12"
+lastVerified: "2026-09-28"
 methodology:
   studies: 41
   sampleSize: "学習者への選択(チョイス)提供の効果を検証した実験研究 41 件のメタ分析(子ども・成人を含む)"

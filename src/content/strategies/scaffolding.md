@@ -13,7 +13,7 @@ sourceTitle: "Belland et al. (2017) — Synthesizing Results From Empirical Rese
 evidence:
   hattie:
     cohensD: 0.82
-    note: "d = 0.82 は Visible Learning の 2017 年版一覧(Corwin)の値。現行のデータベース(Visible Learning MetaX)の Scaffolding and situated learning は 0.57(重み付き平均 0.50)で、Belland らのメタ分析も集計に含まれる。個別のメタ分析では、Belland et al.(2017)のコンピューター上の足場かけ(STEM・認知面の成果)で g = 0.46、オンライン学習で 0.53(Zuo et al. 2023)、高等教育のオンライン学習の認知面の成果で g = 0.65(Doo et al. 2020。メタ認知・情意を含む学習成果全体では 0.87。この値は MetaX の集計にも入っている)。"
+    note: "d = 0.82 は Visible Learning の 2017 年版一覧(Visible Learningplus、2017 年 11 月版)の値。現行のデータベース(Visible Learning MetaX)の Scaffolding and situated learning は 0.57(重み付き平均 0.50)で、Belland らのメタ分析も集計に含まれる。個別のメタ分析では、Belland et al.(2017)のコンピューター上の足場かけ(STEM・認知面の成果)で g = 0.46、オンライン学習で 0.53(Zuo et al. 2023)、高等教育のオンライン学習の認知面の成果で g = 0.65(Doo et al. 2020。メタ認知・情意を含む学習成果全体では 0.87。この値は MetaX の集計にも入っている)。"
 lastVerified: "2026-09-28"
 methodology:
   studies: 144

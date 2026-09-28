@@ -52,8 +52,8 @@
 ### 対象数
 
 - `source: eef` 28 件
-- `evidence.eef` 併記分(`source: mixed` 等から 23 件)
-- 合計: 51 件。うち凍結 1 件(`early-years-intervention`)と委託レビュー 2 件(`digital-technology` / `retrieval-practice`)を除いた 48 件が対象(2026-09-28 の `check:source-sync` 実測)
+- `evidence.eef` 併記分(`source: mixed` 等から 22 件)
+- 合計: 50 件。うち凍結 1 件(`early-years-intervention`)と委託レビュー 5 件(`digital-technology` と、下の表の認知科学レビューを照合先にする 4 件)を除いた 44 件が対象(2026-09-28 の `check:source-sync` 実測)
 
 ### 凍結した出典(`evidence.eef.archivedAt`)
 
@@ -86,12 +86,13 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 **「照合結果が現在の値と一致した」とは**、表の 1〜3 行目で確定した値が現在の値と一致したこと、または表の最下行で、取れた結果がすべて現在の値と一致したことをいう。結果が割れて値が確定しなかった場合は当たらない(#166 の Phonics は 2/3 が +5・1/3 が +6 と割れ、PR 本文は二次情報源の裏付けを挙げていない)。本書の以下の「一致」は、下の委託レビューと試験報告(`kind: trial`)の段落を除き、この意味で使う。§2・§3 も同じ。
 
-**`evidence.eef.kind: evidence-review` の戦略(Toolkit の strand ではなく EEF の委託レビューを出典にしたもの)は、この判定ロジックと §1 の月次の対象外。** 上の表は Toolkit の strand のページの値を前提にしているので、委託レビューには当てはまらない(`digital-technology` では、WebSearch が撤去済みの Toolkit の値を引用したままの二次サイトを拾うので、3/3 一致が成立して消えた値が戻りうる。#561)。照合は、下の表の照合先(`sourceUrl` が委託レビューを指さない戦略もあるので、`sourceUrl` ではなく表を見る)からリンクされている PDF(`d2tic4wvo1iusb.cloudfront.net`)を `curl` で取り、`pdftotext -layout` で読んで行う。CDN から取れなければ、PDF の URL を Wayback の `id_` で引く。PDF の記述がページの値と一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。`check:source-sync` は §1 の対象数から外して「委託レビュー(対象外)」に列挙する。`check:stale` の 365 日は対象のまま。該当は次の 2 件(2026-09-28 時点):
+**`evidence.eef.kind: evidence-review` の戦略(Toolkit の strand ではなく EEF の委託レビューを出典にしたもの)は、この判定ロジックと §1 の月次の対象外。** 上の表は Toolkit の strand のページの値を前提にしているので、委託レビューには当てはまらない(`digital-technology` では、WebSearch が撤去済みの Toolkit の値を引用したままの二次サイトを拾うので、3/3 一致が成立して消えた値が戻りうる。#561)。照合は、下の表の照合先(`sourceUrl` が委託レビューを指さない戦略もあるので、`sourceUrl` ではなく表を見る)からリンクされている PDF(`d2tic4wvo1iusb.cloudfront.net`)を `curl` で取り、`pdftotext -layout` で読んで行う。CDN から取れなければ、PDF の URL を Wayback の `id_` で引く。PDF の記述がページの値と一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。`check:source-sync` は §1 の対象数から外して「委託レビュー(対象外)」に列挙する。`check:stale` の 365 日は対象のまま。該当は次の 5 件(2026-09-28 時点):
 
 | 戦略 | 照合先 |
 |---|---|
 | `digital-technology` | `education-evidence/evidence-reviews/digital-technology-2019`(EEF 委託レビュー)。Toolkit strand は 2026-09-08 時点の一覧に無い |
 | `retrieval-practice` | EEF「Cognitive science approaches in the classroom: a review of the evidence」(2021)の PDF(`d2tic4wvo1iusb.cloudfront.net/documents/guidance/Cognitive_science_approaches_in_the_classroom_-_A_review_of_the_evidence.pdf`)。`sourceUrl` は Roediger & Butler (2011) で、このレビューを指さない |
+| `interleaving` / `spaced-practice` / `dual-coding` | 同じ 2021 年の認知科学レビューの PDF。どれも `sourceUrl` はこのレビューを指さない |
 
 **`evidence.eef.kind: trial` の戦略(EEF の試験報告を出典にしたもの)は §1 の月次の対象で、判定表の代わりに次の手順で照合する。WebSearch の 3/3 の判定は、どの手順でも使わない**(最初の試験の値を引用したままの二次サイトが 3/3 を作りうる。委託レビューと同じ理由)。EEF は同じ取り組みの追試を公表することがある(`reciprocal-teaching` は 2 本、`philosophy-for-children` は 2021 年に再試験)ので、月次の対象に残す。
 
@@ -115,7 +116,7 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 ### ローテーション
 
-48 件を月 4 件で 1 年 1 周。`scripts/check-source-sync.ts --section eef` がしきい値超過(30 日)を提示し、その中から優先度の高い strand(EEF が新フェーズ公開した順)を選ぶ。30 日は候補を出すためのしきい値で、1 年で 1 周する運用では超過が常に残る。超過があること自体は異常ではない。
+44 件を月 3〜4 件で 1 年 1 周。`scripts/check-source-sync.ts --section eef` がしきい値超過(30 日)を提示し、その中から優先度の高い strand(EEF が新フェーズ公開した順)を選ぶ。30 日は候補を出すためのしきい値で、1 年で 1 周する運用では超過が常に残る。超過があること自体は異常ではない。
 
 ## §2 Hattie Visible Learning 整合性チェック(年次運用)
 
@@ -148,6 +149,8 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 ### Hattie 値の運用上の注意
 
 CLAUDE.md コンテンツ編集の鉄則に従い、Hattie は出典優先度 3(EEF・日本研究より下)で参考値扱い。`source: hattie` を新規付与せず、`evidence.hattie` 併記のみ拡張する。既存 `source: hattie`(teacher-credibility)は維持。
+
+**値の版**: 2026-09-28 時点で、`evidence.hattie.cohensD` の多くは Visible Learningplus の 2017 年 11 月版の一覧(Hattie 自身の書籍でもデータベースでもないので、上の表の優先度 3 に当たる)の値と一致する(`spaced-practice` 0.60・`scaffolding` 0.82 など)。出典の無い値を直すときは、ページ間で版を揃えるため当面この版の値に置き換え、現行値(MetaX)を note に併記する(#711 で直した検索練習・足場かけ・交互練習がこの形)。MetaX(優先度 1)への移行は、1 月の年次レビューで全件まとめて行う。その際、同名の項目が分かれている場合(Practice testing と Retrieval practice など)にどちらを採るかも決める。
 
 ## §3 日本研究(source: japan)整合性チェック(年次運用)
 

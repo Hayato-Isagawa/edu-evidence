@@ -80,8 +80,11 @@ culturalContext: |
 - Rohrer, D., Dedrick, R. F., & Stershic, S. (2015). [Interleaved practice improves mathematics learning](https://doi.org/10.1037/edu0000001). *Journal of Educational Psychology*, 107(3), 900–908. — 中学1年生 126 名を対象に、約3ヶ月の数学の練習を交互練習とブロック練習で比べた研究。30日後のテストで交互練習が上回った(効果の大きさを示す指標 d = 0.79)。
 - Brunmair, M., & Richter, T. (2019). [Similarity matters: A meta-analysis of interleaved learning and its moderators](https://doi.org/10.1037/bul0000209). *Psychological Bulletin*, 145(11), 1029–1052. — 59 研究・238 効果量のメタ分析。交互練習の効果は全体で g = 0.42、数学課題で 0.34。単語の学習ではブロック練習が有利(-0.39)。このページの効果の目安の根拠。
 - Rohrer, D. (2012). Interleaving helps students distinguish among similar concepts. *Educational Psychology Review*, 24, 355–367. — 交互練習が「概念の区別力」を育てることを理論的に説明。
-- Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings. In *Metacognition: Knowing about knowing*. — 「望ましい難しさ(desirable difficulty)」概念の原典。
 - Dunlosky, J., et al. (2013). [Improving students' learning with effective learning techniques](https://doi.org/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. — 10の学習法を評価。交互練習は「中程度の有用性」(ブロック練習は評価対象外)。
+
+### 関連読み物
+
+- Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings. In J. Metcalfe & A. Shimamura (Eds.), *Metacognition: Knowing about knowing* (pp. 185–205). — 「望ましい難しさ(desirable difficulty)」の考え方を論じた章。
 
 ## 関連する学習指導要領
 
