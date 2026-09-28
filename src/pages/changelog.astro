@@ -26,6 +26,17 @@ const entries: ChangelogEntry[] = [
     items: [
       {
         type: "fix",
+        text: "EEF の位置づけの説明を 5 ページで直しました。交互練習・分散学習・二重符号化・精緻化は「Toolkit のメタ認知の項目の構成要素」と書いていましたが、その項目にこれらの手法の記述はありません。交互練習・分散学習・二重符号化は、EEF が 2021 年の認知科学レビューで示した評価に置き換えました。精緻化は同じレビューでも評価されていないため、EEF の欄を外しています。学習の完全自由化は、メタ認知の項目が実際に勧めている内容に合わせました。交互練習の Hattie の値(0.45 → 0.21)と実験の正答率(43% → 63%)も原典に合わせました。ページ上部の効果の目安と★は変わりません",
+        links: [
+          { label: "交互練習(インターリービング)", href: "/strategies/interleaving" },
+          { label: "分散学習(スペーシング)", href: "/strategies/spaced-practice" },
+          { label: "二重符号化(言葉+図)", href: "/strategies/dual-coding" },
+          { label: "精緻化(なぜ?を問う)", href: "/strategies/elaboration" },
+          { label: "学習の完全自由化", href: "/strategies/student-control-over-learning" },
+        ],
+      },
+      {
+        type: "fix",
         text: "下の記述の修正に続けて、出典を確かめられなかった値を直しました。ブロック学習の落とし穴は、ページ上部の効果の目安を -1ヶ月から -3ヶ月にし(交互練習のメタ分析のうち数学課題の効果量を、ブロック練習の側から換算)、出典の無かった Hattie の値を外しました。検索練習と足場かけでは、Hattie の値の出典と、中心となるメタ分析の数値を原典に合わせています",
         links: [
           { label: "ブロック学習の落とし穴", href: "/strategies/blocked-vs-interleaved" },

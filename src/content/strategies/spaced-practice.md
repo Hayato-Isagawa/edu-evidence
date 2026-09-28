@@ -14,10 +14,11 @@ sourceUrl: https://doi.org/10.1037/0033-2909.132.3.354
 sourceTitle: "Cepeda et al. (2006) — Distributed practice in verbal recall tasks"
 evidence:
   eef:
-    note: "EEF Toolkit に分散学習の独立したエントリは無いが、Metacognition and self-regulation(+8)の構成要素として推奨される。認知科学領域の最も頑健な知見の一つ。"
+    kind: evidence-review
+    note: "EEF Toolkit に分散学習の独立したエントリは無い。EEF の 2021 年の認知科学レビュー(Cognitive science approaches in the classroom)は、日や授業をまたいで学習の間隔を空ける方法について、年齢や教科を問わず小さな正の効果があるとしている。1 回の授業の中で間隔を空ける方法を調べた研究は少ない。"
   hattie:
     cohensD: 0.60
-    note: "Cepeda et al.(2006)の 254 研究メタ分析で、分散学習は集中学習より有意に優れる(長期保持で大きな効果)。Dunlosky et al.(2013)が 10 の学習法を評価し、分散学習を『高い有用性』に分類。効果量は実験設計により幅があるが、d=0.4-0.8 程度が一般的で『月数換算 +5』に対応。"
+    note: "Cepeda et al.(2006)の 184 論文・317 実験のメタ分析で、分散学習は集中学習より有意に優れる(長期保持で大きな効果)。Dunlosky et al.(2013)が 10 の学習法を評価し、分散学習を『高い有用性』に分類。効果量は実験設計により幅があるが、d=0.4-0.8 程度が一般的で『月数換算 +5』に対応。"
 lastVerified: "2026-04-18"
 methodology:
   studies: 317
@@ -54,8 +55,8 @@ culturalContext: |
 
 ## 研究からわかっていること
 
-- 分散学習の効果は254研究のメタ分析で確認されており、約5ヶ月分の学習効果があります。
-- 効果は年齢・教科・内容の種類を問わず一貫して確認されています。
+- 分散学習の効果は、184 論文・317 実験をまとめたメタ分析(Cepeda et al. 2006)で確認されています。
+- 学校で行われた研究をまとめた EEF 2021 は、日や授業をまたいで間隔を空ける方法に小さな正の効果があるとしています。ただし研究ごとの結果のばらつきは大きく、効果が無い・マイナスだった研究も少なくありません。
 - 最適な間隔は内容や目標によって異なりますが、「少し忘れかけた頃」が目安です。
 - 集中学習は「できた気」になりやすいため、子どもも教師も効果を過大評価しがちです。
 
@@ -68,7 +69,7 @@ culturalContext: |
 
 ## 主な参考研究
 
-- Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). [Distributed practice in verbal recall tasks: A review and quantitative synthesis](https://doi.org/10.1037/0033-2909.132.3.354). *Psychological Bulletin*, 132(3), 354–380. — 254研究のメタ分析。分散学習が集中学習より優れていることを教科横断的に実証。
+- Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). [Distributed practice in verbal recall tasks: A review and quantitative synthesis](https://doi.org/10.1037/0033-2909.132.3.354). *Psychological Bulletin*, 132(3), 354–380. — 184 論文・317 実験・839 評価のメタ分析。言葉を覚えて思い出す課題を中心に、分散学習が集中学習より優れていることを示した。
 - Dunlosky, J., et al. (2013). [Improving students' learning with effective learning techniques](https://doi.org/10.1177/1529100612453266). *Psychological Science in the Public Interest*, 14(1), 4–58. — 10の学習法を評価し、分散学習を「高い有用性」と評価。
 
 ## 関連する学習指導要領

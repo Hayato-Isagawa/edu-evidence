@@ -13,10 +13,11 @@ sourceUrl: https://doi.org/10.1007/BF02461477
 sourceTitle: "Clark & Paivio (1991) — Dual coding theory and education"
 evidence:
   eef:
-    note: "EEF Toolkit に二重符号化の独立したエントリは無いが、Metacognition and self-regulation(+8)の認知基盤として位置づく。"
+    kind: evidence-review
+    note: "EEF Toolkit に二重符号化の独立したエントリは無い。EEF の 2021 年の認知科学レビュー(Cognitive science approaches in the classroom)は、二重符号化を含むマルチメディア学習について、正の結果の研究が多い一方で効果が小さい・無い研究もあり、エビデンスはまちまちだとしている。有望なのは、複雑な内容の学習を支える使い方で、対象は年長の子どもが多い。"
   hattie:
     note: "Mayer(2009)のマルチメディア学習研究では『言葉+関連図』vs『言葉のみ』で一貫して正の効果。ただし『装飾的な図(内容と無関係)』はむしろ注意を散らす。初学者で効果が大きく、既有知識のある学習者では効果が減衰(expertise reversal effect)。"
-lastVerified: "2026-06-15"
+lastVerified: "2026-09-28"
 methodology:
   studies: 181
   sampleSize: "Cromley & Chen (2025) が Mayer のマルチメディア学習研究 92 論文・181 研究・591 効果(1990〜2022 年)をメタ分析(Hedges の g・多層回帰モデル)。全体効果量は g=0.37"

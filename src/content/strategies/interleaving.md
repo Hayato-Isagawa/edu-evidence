@@ -14,11 +14,12 @@ sourceUrl: https://doi.org/10.1007/s10648-012-9201-3
 sourceTitle: "Rohrer (2012) — Interleaving helps students distinguish among similar concepts"
 evidence:
   eef:
-    note: "EEF Toolkit に交互練習の独立したエントリは無いが、Metacognition and self-regulation(+8)の構成要素として推奨される。"
+    kind: evidence-review
+    note: "EEF Toolkit に交互練習の独立したエントリは無い。EEF の 2021 年の認知科学レビュー(Cognitive science approaches in the classroom)は、8〜14 歳の算数・数学で、問題に合った解き方を選ぶ力を育てるのに有効な可能性があるとしている。一方で、数学以外の内容や、それより低い・高い年齢での応用研究はほとんど無いとしている。"
   hattie:
-    cohensD: 0.45
-    note: "Rohrer(2012)の算数領域の実験では交互練習群が遅延テストで約 43% vs ブロック練習群約 20% の正答率。Dunlosky et al.(2013)は交互練習を『中程度の有用性』と評価。分野・熟達度により効果量は幅がある(d=0.2-0.6 程度)。"
-lastVerified: "2026-06-11"
+    cohensD: 0.21
+    note: "d = 0.21 は Visible Learning の 2017 年版一覧(Visible Learningplus、2017 年 11 月版)の Interleaved practice の値。現行のデータベース(Visible Learning MetaX)では 0.49。Rohrer(2012)が紹介する、大学生 18 名を対象にした小規模な数学の実験(Rohrer & Taylor 2007)では、1 週間後のテストで交互練習群 63% vs ブロック練習群 20% の正答率。Dunlosky et al.(2013)は交互練習を『中程度の有用性』と評価。"
+lastVerified: "2026-09-28"
 methodology:
   studies: 59
   sampleSize: "k=238 効果量、158 サンプル(主に大学生。平均年齢が報告された 62 サンプルでは、平均 77 歳の 1 研究を除くと 9.5〜37 歳。絵画・数学・単語など素材横断)"
@@ -56,7 +57,7 @@ culturalContext: |
 
 - 交互練習は練習中の正答率を下げますが、後日のテストでの正答率を上げます。
 - 特に「似ているが異なる概念」を区別する力を育てる効果が大きいです。
-- 算数・数学での効果が最も多く研究されていますが、理科や美術でも効果が確認されています。
+- EEF 2021 が集めた学校での研究 12 本のうち、11 本が算数・数学でした。Brunmair & Richter(2019)が集めた研究(主に大学生)では絵画など視覚的な材料を使ったものが多く、効果も大きく出ています。
 - 分散学習や検索練習と組み合わせることで、さらに効果が高まります。
 
 ## 注意したいこと
@@ -67,6 +68,8 @@ culturalContext: |
 
 ## 主な参考研究
 
+- Brunmair, M., & Richter, T. (2019). [Similarity matters: A meta-analysis of interleaved learning and its moderators](https://doi.org/10.1037/bul0000209). *Psychological Bulletin*, 145(11), 1029–1052. — 59 研究・238 効果量のメタ分析。交互練習の効果は全体で g = 0.42、絵画 0.67、数学課題 0.34。単語の学習ではブロック練習が有利(-0.39)。
+- Education Endowment Foundation (2021). [Cognitive science approaches in the classroom: A review of the evidence](https://d2tic4wvo1iusb.cloudfront.net/documents/guidance/Cognitive_science_approaches_in_the_classroom_-_A_review_of_the_evidence.pdf). — 学校で行われた認知科学的な手法の研究のレビュー(教師向けの要約版。レビューは Perry ほか、バーミンガム大学のチーム)。交互練習は 12 研究(8〜14 歳、うち 11 本が算数・数学)を検討。
 - Rohrer, D. (2012). Interleaving helps students distinguish among similar concepts. *Educational Psychology Review*, 24(3), 355–367. — 交互練習の理論と実証をまとめたレビュー。「識別力」の向上が効果の鍵であることを指摘。
 - Pan, S. C., Tajran, J., Lovelett, J., Osuna, J., & Rickard, T. C. (2019). Does interleaved practice enhance foreign language learning?. *Educational Psychology Review*, 31, 988–994. — 交互練習の効果を外国語学習にも拡張し、領域を超えた有効性を示した。
 

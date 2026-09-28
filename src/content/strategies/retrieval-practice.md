@@ -17,7 +17,7 @@ evidence:
     note: "EEF Toolkit に検索練習の独立したエントリは無い。EEF は 2021 年の認知科学レビュー(Cognitive science approaches in the classroom)で検索練習を取り上げ、「教師が検討すべき有望な手法」と評価している。ただし、同レビューが見た再読との比較研究 21 本のうち、普段の担任が実施したものは 1 本だけだった。"
   hattie:
     cohensD: 0.54
-    note: "d = 0.54 は Visible Learning の 2017 年版一覧(Corwin)の Practice testing の値。現行のデータベース(Visible Learning MetaX)では、同名の Practice testing が 0.40、Retrieval practice が 0.53。Roediger & Butler(2011)のレビューで再読に対する優位性が一貫して報告されている。Adesope, Trevisan & Sundararajan(2017)のメタ分析では、再読との比較で g=0.51。Dunlosky et al.(2013)が『高い有用性』に分類。"
+    note: "d = 0.54 は Visible Learning の 2017 年版一覧(Visible Learningplus、2017 年 11 月版)の Practice testing の値。現行のデータベース(Visible Learning MetaX)では、同名の Practice testing が 0.40、Retrieval practice が 0.53。Roediger & Butler(2011)のレビューで再読に対する優位性が一貫して報告されている。Adesope, Trevisan & Sundararajan(2017)のメタ分析では、再読との比較で g=0.51。Dunlosky et al.(2013)が『高い有用性』に分類。"
 lastVerified: "2026-09-28"
 methodology:
   studies: 118
