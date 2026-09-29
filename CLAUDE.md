@@ -85,6 +85,10 @@ VRT 自身では捕まえられない — VRT は `paths` に載る PR でしか
 フィルタを素通りさせると退行を検出できない。YAML 側は `workflows:` の列挙が「`on:` に `pull_request` を
 持つ workflow の `name:`」と過不足なく一致することも見る(PR 起動の workflow を足したのに列挙し忘れると、
 その完了では再判定が走らない)。
+token の権限と if の式は、字面でなく `yaml` のパース結果で全 job・全 step を見る(`"permissions":` や
+`? permissions`・step の if・先頭に置いた別 job など、YAML として等価な書き方が字面の検査を素通りした。#641)。
+起動元の conclusion は if に限らず、パース結果の全体で禁じている。
+テストファイルが npm パッケージを直接 `import` するのは、このファイルが初めて。
 
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
 (`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
