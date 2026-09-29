@@ -20,7 +20,12 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 - 引用研究の **著者・発行年・ジャーナル名・巻号・ページ** が原典と一致するか
   (書誌は逐語なので、`WebSearch` で当たりを付けたうえで**原典の生テキストで照合する**)
 - **コラムの前提事実**(「SNS で〜が拡散している」「〜が話題になっている」等)が一次検証されているか。未検証なら critical
-- `evidence.eef.note` で「EEF Toolkit にエントリ無し」と自認しているのに `evidence.eef` を持っているような構造的矛盾(ただし `evidence.eef.archivedAt` を持つ凍結出典 — strand 廃止後に Wayback へ固定した値 — は正当な形で、矛盾ではない)
+- `evidence.eef` の置き方が Rule 1.1c に合っているか。EEF 自身がそのテーマを評価した資料(Toolkit / Early Years Toolkit の項目・試験報告・エビデンスレビューかガイダンスレポート)が無いのに `evidence.eef` を持つページは違反。`evidence.eef.note` で「EEF Toolkit に項目は無い」と書いていて、`kind` が省略か `toolkit` / `early-years-toolkit` のページは構造的矛盾(ただし `evidence.eef.archivedAt` を持つ凍結出典 — strand 廃止後に Wayback へ固定した値 — は正当な形で、矛盾ではない)
+- `kind: trial` / `kind: evidence-review` のページは、出典の試験・レビュー・ガイダンスが実在し、Rule 1.1c の判定に合うかを確かめる。Toolkit に項目が無いことを note に書くのは正しい形で、矛盾ではない
+  - 近い別の取り組みの試験は違反。テーマに含まれる一形態の試験(探究学習に対する Project Based Learning 試験)は正当
+  - テーマの一部を扱う試験(AI の教育利用に対する Maths-Whizz 試験)は正当。ただし、テーマ全体の効果ではないことと、ページ上部の効果の目安に使うかどうかが note に無ければ指摘する
+  - レビューが方法として触れているだけで「評価できるだけの研究が無い」としている場合(精緻化)は違反。研究が少ないと述べながらテーマを評価しているレビュー・ガイダンス(反転授業)は正当
+  - 試験とレビューの両方があるときは、テーマ全体を扱っている方が `kind` になっているか
 
 ### 2. Rule 1.2a — 未読文献の分離
 
