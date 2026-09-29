@@ -57,7 +57,8 @@ culturalContext: |
 
 ## 主な参考研究
 
-- [Making Best Use of Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/teaching-assistants). Education Endowment Foundation (2015, updated 2021), *Guidance Report*. — 補助スタッフの効果的な活用のための 7 つの推奨事項を提示した EEF 公式ガイダンス。DISS Project(Blatchford らによる英国の大規模研究)の知見を基礎に、支援員の役割の設計と訓練を重視している。
+- [Deployment of Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/teaching-assistants). Education Endowment Foundation (2025, Third Edition), *Guidance Report*. — 支援員の配置と活用について 5 つの推奨事項を示した EEF の公式ガイダンス(以前は同じページで『Making Best Use of Teaching Assistants』として公開)。DISS Project(Blatchford らによる英国の大規模研究)などの従来の知見と新たな系統的レビューをもとに、支援員の役割の設計と訓練を重視している。
+- Sharples, J., Webster, R., & Blatchford, P. (2015). [Making Best Use of Teaching Assistants: Guidance Report](https://web.archive.org/web/20150316055338/http://educationendowmentfoundation.org.uk/uploads/pdf/Making_best_use_of_TAs_printable.pdf). Education Endowment Foundation. — 上のガイダンスの初版(2015 年 3 月)。7 つの推奨事項を示し、訓練を受けた支援員による構造化された介入の効果を約 3〜4 ヶ月分(効果量 0.2〜0.3)としている。
 - [Teaching Assistant Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistant-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 平均 +4 ヶ月(65 研究)。配置の仕方で効果が大きく分かれ、構造化された個別・小集団の介入では 4〜6 ヶ月分としている。
 
 ### 関連読み物
