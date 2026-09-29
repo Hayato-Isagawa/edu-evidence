@@ -16,11 +16,17 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import YAML from "yaml";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const WORKFLOWS_DIR = path.join(HERE, "..", "..", "..", ".github", "workflows");
 const WORKFLOW = path.join(WORKFLOWS_DIR, "ci-summary.yml");
 const yaml = () => fs.readFileSync(WORKFLOW, "utf8");
+// 権限と if の検査はパース結果で見る。字面で見ると、`"permissions":` / `? permissions` /
+// フロー形 / step の if / 先頭に置いた別の job など、YAML として等価な書き方が素通りする(#641)
+const doc = () => YAML.parse(yaml());
+const jobs = () => Object.entries(doc().jobs ?? {});
+const steps = () => jobs().flatMap(([, job]) => job?.steps ?? []);
 
 const SHA = "0123456789abcdef0123456789abcdef01234567";
 const MARKER = `<!-- ci-summary: ${SHA} -->`;
@@ -351,62 +357,62 @@ test("run: が読む値は env で渡っている(SELF は job 名)", () => {
 });
 
 test("token の権限は check-run の参照とコメント投稿だけ", () => {
-  const block = yaml().match(/^permissions:\n((?: {2}\S.*\n)+)/m);
-  assert.ok(block, "permissions: が無い");
-  const keys = block[1]
-    .split("\n")
-    .filter(Boolean)
-    .map((l) => l.trim().replace(/\s*#.*$/, ""));
-  assert.deepEqual(keys.sort(), ["checks: read", "pull-requests: write"]);
+  assert.deepEqual(doc().permissions, {
+    checks: "read",
+    "pull-requests": "write",
+  });
 });
 
 test("PR 由来の run だけを、Dependabot を除いて扱う", () => {
-  const src = yaml();
-  assert.match(src, /github\.event\.workflow_run\.event == 'pull_request'/);
+  // 字面ではなく notify の if の値で見る(コメント行に移しただけの式を拾わない)
+  const cond = String(doc().jobs?.notify?.if ?? "");
+  assert.match(cond, /github\.event\.workflow_run\.event == 'pull_request'/);
   assert.match(
-    src,
+    cond,
     /github\.event\.workflow_run\.triggering_actor\.login != 'dependabot\[bot\]'/
-  );
-  assert.doesNotMatch(
-    src,
-    /workflow_run\.conclusion == 'success'\s*&&/,
-    "起動元の conclusion で絞ると、最後が skipped のとき再判定が走らない"
   );
 });
 
 test("permissions: は workflow 直下の 1 か所だけ(job / step には置かない)", () => {
   // job 直下の `permissions:` は workflow 直下の宣言より優先される。job に `contents: write`
   // を足すと token の権限が静かに広がるが、workflow 直下だけを読む検査では緑のまま通る。
-  // 字面の `permissions:` を全行拾い、列 0 の 1 行に固定する。
-  const lines = yaml()
-    .split("\n")
-    .filter((l) => /^\s*permissions:/.test(l));
-  assert.deepEqual(lines, ["permissions:"]);
+  assert.ok(doc().permissions, "workflow 直下に permissions: が無い");
+  for (const [name, job] of jobs()) {
+    assert.ok(
+      !Object.hasOwn(job ?? {}, "permissions"),
+      `job ${name} に permissions がある`
+    );
+  }
+  for (const step of steps()) {
+    assert.ok(
+      !Object.hasOwn(step ?? {}, "permissions"),
+      "step に permissions がある"
+    );
+  }
 });
 
-test("job の if: の式のどこにも起動元の conclusion を置かない(末尾形も含む)", () => {
-  // `conclusion == 'success' &&` の先頭形だけでなく、末尾に
-  // `&& github.event.workflow_run.conclusion == 'success'` と付ける形でも、最後に完了した
-  // workflow が skipped のとき再判定が走らず通知が消える。式を丸ごと取り出して見る。
-  const lines = yaml().split("\n");
-  const start = lines.findIndex((l) => /^ {4}if:/.test(l));
-  assert.notEqual(start, -1, "job 直下の if: が見つからない");
-  const expr = [lines[start].replace(/^ {4}if:\s*/, "")];
-  // 継続行は `if:` の列(4)より深い行すべて。`>-` の 6 スペース固定にすると、plain スカラーで
-  // 値の列(8 スペース)に揃えた末尾形が 1 行目で打ち切られて素通りする(YAML の値は同一文字列)。
-  // 空行は折り畳みの途中にも置けるので飛ばす。
-  for (const l of lines.slice(start + 1)) {
-    if (l.trim() === "") continue;
-    if (!/^ {5,}\S/.test(l)) break;
-    expr.push(l.trim());
-  }
-  const joined = expr.join("\n");
-  assert.match(
-    joined,
-    /workflow_run\.event == 'pull_request'/,
-    "if: の式が取れていない"
+test("起動元の conclusion をどこにも使わない(job と step の if を含む)", () => {
+  // conclusion を式のどこに置いても、最後に完了した workflow が skipped のとき再判定が
+  // 走らず通知が消える。if に限らず env などの式に置いても値が変わるので、パース結果の
+  // 全体(コメントは落ちる)で `workflow_run` に続く conclusion を禁じる。
+  assert.doesNotMatch(
+    JSON.stringify(doc()),
+    /workflow_run\W+conclusion/,
+    "起動元の conclusion を式で使っている"
   );
-  assert.doesNotMatch(joined, /conclusion/);
+  // if はどこに置かれたかがわかる形でも見る
+  const conds = [
+    ...jobs().map(([name, job]) => [`job ${name}`, job?.if]),
+    ...steps().map((step, i) => [`step ${i}`, step?.if]),
+  ].filter(([, cond]) => cond !== undefined);
+  assert.ok(conds.length > 0, "if: が 1 つも見つからない");
+  for (const [where, cond] of conds) {
+    assert.doesNotMatch(
+      String(cond),
+      /conclusion/,
+      `${where} の if: に conclusion がある`
+    );
+  }
 });
 
 test("同じ commit の判定は head_sha で直列化する", () => {
