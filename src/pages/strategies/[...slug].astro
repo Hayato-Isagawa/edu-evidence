@@ -304,15 +304,15 @@ const eefLabel = {
                 </div>
               )}
               {d.methodology.sampleSize && (
-                <div class="space-y-1">
+                <div class="space-y-1 sm:col-span-2">
                   <div class="text-xs text-sub">総サンプルサイズ</div>
-                  <div class="font-black text-lg tabular-nums">{d.methodology.sampleSize}</div>
+                  <div class="text-sm leading-relaxed tabular-nums">{d.methodology.sampleSize}</div>
                 </div>
               )}
               {d.methodology.effectSize && (
                 <div class="space-y-1 sm:col-span-2">
                   <div class="text-xs text-sub">効果量</div>
-                  <div class="font-mono text-sm">{d.methodology.effectSize}</div>
+                  <div class="text-sm leading-relaxed tabular-nums">{d.methodology.effectSize}</div>
                 </div>
               )}
             </div>
