@@ -14,7 +14,7 @@ evidence:
   eef:
     monthsGained: 6
     strength: 4
-    note: "EEF Toolkit の 2025 年 5 月レビュー(145 研究)で +6ヶ月。確実性評価は 5 段階中 4(high)で、独立評価を受けていない研究の割合が高いことを理由に南京錠を 1 つ失っている。2021 年 6 月時点は +5ヶ月・127 研究だった。段階別では小学校 +5ヶ月・中学校 +7ヶ月。教える側と教わる側の双方に利益があり、学力下位の子どもと特別な支援を要する子どもで伸びが最も大きいという報告がある。+6ヶ月は EEF が統合した推定値。個別のメタ分析では、Rohrbeck et al.(2003)の小学生対象メタ分析が加重 d=0.33、Bowman-Perrott et al.(2013)が単一被験体研究のメタ分析で Tau-U=0.75(d とは尺度が異なる)。構造化(役割・手順明確)されたプログラムほど効果が大きい。"
+    note: "EEF Toolkit の 2025 年 5 月レビュー(145 研究)で +6ヶ月。確実性評価は 5 段階中 4(high)で、独立評価を受けていない研究が多いため 1 段階下げられている。2021 年 6 月時点は +5ヶ月・127 研究だった。段階別では小学校 +5ヶ月・中学校 +7ヶ月。利益は教える側にも教わる側にも及び、なかでも学力の低い子や特別な支援を要する子で伸びが最も大きいことを示す研究がある。+6ヶ月は EEF が統合した推定値。個別のメタ分析では、Rohrbeck et al.(2003)の小学生対象メタ分析が加重 d=0.33、Bowman-Perrott et al.(2013)が単一被験体研究のメタ分析で Tau-U=0.75(d とは尺度が異なる)。構造化(役割・手順明確)されたプログラムほど効果が大きい。"
 lastVerified: "2026-09-03"
 methodology:
   studies: 26
@@ -52,7 +52,7 @@ culturalContext: |
 ## 研究からわかっていること
 
 - 平均的に、学習は約6ヶ月分前進します。段階別では小学校が+5ヶ月、中学校が+7ヶ月と報告されています。
-- 教える側にも教わる側にも効果があります。EEF は、学力下位の子どもが教わる側になる場面で特に効果的でありうるとしています。
+- 教える側にも教わる側にも効果があります。学力の低い子が教わる側に回ると、その子にとって特に効果的かもしれません。
 - 構造化された(役割・手順が明確な)ピア・チュータリングほど効果が大きくなります。
 
 ## 注意したいこと
@@ -65,7 +65,7 @@ culturalContext: |
 
 - Rohrbeck, C. A., Ginsburg-Block, M. D., Fantuzzo, J. W., & Miller, T. R. (2003). [Peer-assisted learning interventions with elementary school students](https://doi.org/10.1037/0022-0663.95.2.240). *Journal of Educational Psychology*, 95(2), 240–257. — 小学生を対象としたメタ分析。加重効果量d=0.33。低所得層・マイノリティの子どもで効果が大きい。
 - Bowman-Perrott, L., et al. (2013). [Academic benefits of peer tutoring](https://doi.org/10.1080/02796015.2013.12087490). *School Psychology Review*, 42(1), 39–55. — 単一被験体研究26件(938名・Grade 1〜12)のメタ分析。Tau-U=0.75(95%CI 0.71〜0.78)。教える側・教わる側の双方に効果を確認。
-- [Peer tutoring](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/peer-tutoring). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2025年5月のレビュー(145研究)で+6ヶ月、確実性評価は 5 段階中 4(high)。小学校段階は+5ヶ月、中学校段階は+7ヶ月。週 4〜5 回・10 週までの頻度の高いプログラムが、頻度の低いものや長期のものより効果的とみられるとしている。
+- [Peer tutoring](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/peer-tutoring). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2025年5月のレビュー(145研究)で+6ヶ月、確実性評価は 5 段階中 4(high)。小学校段階は+5ヶ月、中学校段階は+7ヶ月。短期集中型(週 4〜5 回で 10 週まで)の方が、頻度の低いものや長く続けるものより効果的にみえるとしている。
 
 ## 関連する学習指導要領
 
