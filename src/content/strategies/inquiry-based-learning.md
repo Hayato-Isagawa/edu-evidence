@@ -13,10 +13,10 @@ sourceTitle: "Alfieri, Brooks, Aldrich & Tenenbaum (2011) Does discovery-based i
 evidence:
   eef:
     kind: trial
-    note: "EEF が実施した Project Based Learning 試験(英国の Year 7〔11〜12 歳〕、24 校。教師が計画し、外部のコーチが支援する構造化された PBL)では、読み書きの力への明確な効果は確認されなかった(−2ヶ月、確実性は 5 段階中 1)。FSM〔就学援助相当〕の生徒には負の影響の可能性が示されたが、EEF はこの結果を慎重に解釈すべきとしている。EEF Toolkit に Inquiry-Based Learning の独立したエントリは無く、関連手法として Metacognition(+8) が推奨されている。"
+    note: "EEF が実施した Project Based Learning 試験(英国の Year 7〔11〜12 歳〕、24 校。教師が計画し、外部のコーチが支援する構造化された PBL)では、読み書きの力への明確な効果は確認されなかった(−2ヶ月、確実性は 5 段階中 1)。FSM〔就学援助相当〕の生徒には負の影響の可能性が示されたが、EEF はこの結果を慎重に解釈すべきとしている。EEF Toolkit に Inquiry-Based Learning の独立したエントリは無い。この試験は探究学習の一形態としての PBL を扱ったもので、探究学習全体の効果を示すものではないため、ページ上部の効果の目安には使っていない。"
   japan:
     note: "日本の『総合的な学習の時間』は探究学習の一形態。日本国内で探究学習の学力への効果を検証した RCT は無い。海外のメタ分析(Lazonder & Harmsen、72 研究)は、探究にガイダンスを加えると学習成果が高まる(d=0.50)ことを示しており、「放任」ではなく「足場かけ」が鍵。"
-lastVerified: "2026-09-24"
+lastVerified: "2026-09-28"
 methodology:
   studies: 72
   sampleSize: "探究学習中のガイダンス(足場かけ)の効果を検証した 72 研究のメタ分析(年齢層・ガイダンス種別を比較)"

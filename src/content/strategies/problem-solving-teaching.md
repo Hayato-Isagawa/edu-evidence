@@ -11,8 +11,6 @@ source: mixed
 sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
 sourceTitle: "Visible Learning — Problem solving teaching"
 evidence:
-  eef:
-    note: "EEF Toolkit に『Problem-solving teaching』の独立したエントリは無い。関連する Project-Based Learning の EEF 試験では正の効果が確認されなかった。関連する指導法として、ガイダンス付きの探究学習(+3)や直接教授(+5)がある。"
   hattie:
     cohensD: 0.68
     note: "Hattie の Visible Learning で d=0.68。ただし『問題解決型学習』の操作的定義は幅広く、純粋な放任型と構造化された指導型の両方が含まれる。後者の方が効果的。"
@@ -25,7 +23,7 @@ methodology:
     year: 1992
     title: "Experiments and Relational Studies in Problem Solving: A Meta-Analysis"
     url: "https://eric.ed.gov/?id=EJ447764"
-  limitations: "小学校段階(K-5)では優位な問題解決指導法が確認されていない。発見的指導の優位は中学(6-8 年)でやや見られ、高校で明確になる(出版社抄録より逐語確認)。1992 年のメタ分析で対象研究は古く、『問題解決型学習』の操作的定義も研究間で幅広い。"
+  limitations: "小学校段階(K-5)では優位な問題解決指導法が確認されていない。発見的指導の優位は中学(6-8 年)でやや見られ、高校で明確になる(出版社抄録より逐語確認)。1992 年のメタ分析で対象研究は古く、『問題解決型学習』の操作的定義も研究間で幅広い。EEF Toolkit に問題解決型学習の項目は無い。EEF の Project Based Learning 試験はプロジェクト学習を扱った別の取り組みで、探究学習のページで紹介している。"
 lastVerified: "2026-06-13"
 culturalContext: |
   日本の算数教育で広く実践される「問題提示 → 自力解決 → 練り上げ → まとめ」の授業構造は、**世界的に『Japanese Problem Solving』として評価** され、シンガポールや TIMSS でも参照されている。ただし日本国内では、この枠組みの効果を RCT で検証した研究は極めて限定的。『問題解決型学習』の効果は『構造化の質』に強く依存する(放任型は逆効果の可能性)。日本の算数の授業構造そのものが、この構造化を体現している面がある。

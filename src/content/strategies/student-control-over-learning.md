@@ -12,8 +12,6 @@ source: mixed
 sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
 sourceTitle: "Visible Learning — Hattie Ranking: Student control over learning"
 evidence:
-  eef:
-    note: "EEF Toolkit に独立したエントリは無い。関連する Metacognition and self-regulation(+8)のページは、教師がメタ認知と自己調整の方略を明示的に教え、手本を示し、足場をかけて、子どもが自分で学習を調整できるよう支えることを勧めている。学習内容や進め方を子どもが選ぶことの効果を評価したものではない。"
   hattie:
     cohensD: 0.02
     note: "Hattie の Visible Learning で d≒0.02(ほぼ効果無し)。Kirschner, Sweller & Clark(2006)『Why Minimal Guidance During Instruction Does Not Work』が認知負荷理論の観点から明確に論じたように、**教師のガイドなしの完全自由学習は効果が無いか負**。Direct Instruction と対比される典型例。"
@@ -27,7 +25,7 @@ methodology:
     year: 2008
     title: "The Effects of Choice on Intrinsic Motivation and Related Outcomes: A Meta-Analysis of Research Findings"
     url: "https://doi.org/10.1037/0033-2909.134.2.270"
-  limitations: "多くが実験室ベースの短期実験で、教室での長期的な学力効果のエビデンスではない。内発的動機づけへの効果は出版バイアス補正(trim-and-fill)で約 3 分の 1 縮小する。Hattie の『学習の主導権』は d ≒ 0.02 とほぼ無効果で、ガイドなしの完全な自由学習を支持するエビデンスはない(Kirschner et al. 2006)。効果が見込めるのは『枠組みの中の限定された選択』。"
+  limitations: "多くが実験室ベースの短期実験で、教室での長期的な学力効果のエビデンスではない。内発的動機づけへの効果は出版バイアス補正(trim-and-fill)で約 3 分の 1 縮小する。Hattie の『学習の主導権』は d ≒ 0.02 とほぼ無効果で、ガイドなしの完全な自由学習を支持するエビデンスはない(Kirschner et al. 2006)。効果が見込めるのは『枠組みの中の限定された選択』。EEF Toolkit に独立した項目は無い。関連する Metacognition and self-regulation(+8)のページは、教師がメタ認知と自己調整の方略を明示的に教え、手本を示し、足場をかけて、子どもが自分で学習を調整できるよう支えることを勧めているが、学習内容や進め方を子どもが選ぶことの効果を評価したものではない。"
 culturalContext: |
   **日本の『主体的な学び』が『完全自由放任』と誤解されるリスク**を指摘する項目。新学習指導要領の『主体的・対話的で深い学び』は『教師の関与を減らす』ことを意味しない。**足場かけ(scaffolding)** や **直接教授法(direct instruction)** と組み合わせた『ガイド付きの主体性』が本来の趣旨。『子どもに任せれば主体的になる』という素朴な信念は、Hattie のエビデンスに反する。
 ---

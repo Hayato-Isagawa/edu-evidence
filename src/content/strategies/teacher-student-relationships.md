@@ -11,8 +11,6 @@ source: mixed
 sourceUrl: https://doi.org/10.3102/0034654311421793
 sourceTitle: "Roorda et al. (2011) The Influence of Affective Teacher–Student Relationships on Students' School Engagement and Achievement"
 evidence:
-  eef:
-    note: "EEF Toolkit に教師-子ども関係性の独立したエントリは無い。Behaviour interventions(+3)や Metacognition(+8)の基盤として位置づく。"
   hattie:
     cohensD: 0.72
     note: "Hattie の Visible Learning では d=0.72(上限寄り)。独立メタ分析では Roorda et al.(2011, 99研究)が学業成績との関連 r≒0.16-0.19(d≒0.32-0.39)、Cornelius-White(2007, 119研究)が r=0.31(d≒0.65)と報告。Hattie 値は上端、実態は中程度で **+4 ヶ月程度** が妥当と判断。"
@@ -26,7 +24,7 @@ methodology:
     year: 2011
     title: "The Influence of Affective Teacher–Student Relationships on Students' School Engagement and Achievement: A Meta-Analytic Approach"
     url: "https://doi.org/10.3102/0034654311421793"
-  limitations: "Hattie(d=0.72)の値は上端寄りで、独立メタ分析(Roorda 2011, Cornelius-White 2007)の中心値は d=0.3〜0.65 程度。『関係性』の定義が広く(温かさ・信頼・期待・葛藤など)、測定方法で効果量が変動。ハイリスクな子ほど関係性の効果が大きい傾向。"
+  limitations: "Hattie(d=0.72)の値は上端寄りで、独立メタ分析(Roorda 2011, Cornelius-White 2007)の中心値は d=0.3〜0.65 程度。『関係性』の定義が広く(温かさ・信頼・期待・葛藤など)、測定方法で効果量が変動。ハイリスクな子ほど関係性の効果が大きい傾向。EEF Toolkit に教師と子どもの関係性の項目は無い。"
 culturalContext: |
   関係性の重要性は日本の学級経営でも広く認識されているが、効果量を厳密に推定した研究は多くない。日本の学級担任制は 1 人の教師が長時間子どもと関わる構造で、海外(教科担任制)より関係性の影響が大きい可能性があるが、検証は進んでいない。また、30 人以上の学級で全員と質の高い関係を築くには教師の余裕が必要で、業務負荷との関連を無視できない。
 ---
