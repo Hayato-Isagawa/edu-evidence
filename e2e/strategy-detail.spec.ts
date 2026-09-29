@@ -31,7 +31,7 @@ test.describe("戦略詳細ページ", () => {
     const copied = await page.evaluate(() => navigator.clipboard.readText());
     expect(copied).toMatch(
       new RegExp(
-        `^「メタ認知の指導」EduEvidence JP\\(CC BY-SA 4\\.0、英国 EEF Teaching and Learning Toolkit を翻案\\)。` +
+        `^「メタ認知の指導」EduEvidence JP\\(CC BY-SA 4\\.0\\)。` +
           `https://edu-evidence\\.org/strategies/metacognition/ \\(出典の最終確認 \\d{4}-\\d{2}-\\d{2}、参照 ${today}\\)$`
       )
     );
