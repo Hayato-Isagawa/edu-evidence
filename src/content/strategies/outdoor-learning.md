@@ -13,7 +13,7 @@ sourceUrl: https://educationendowmentfoundation.org.uk/education-evidence/teachi
 sourceTitle: "EEF Teaching and Learning Toolkit — Outdoor adventure learning"
 evidence:
   eef:
-    note: "EEF が対象としているのは冒険的な屋外学習で、正規の学習活動を伴わないものを想定しているため、森の学校や社会科見学は対象に含まれていない。その範囲で、学力への効果について月数を公表していない。確実性評価が 5 段階中 0(extremely low)で、対象となった研究が 6 件しかなく、いずれも独立評価を受けていないため。EEF はこれを「効果が無い証拠ではなく、学力への効果について確かなエビデンスが無いということ」と明記している。月数の取り下げは 2021 年 7 月のレビュー(9 研究)からで、2025 年 10 月の更新では研究数が 6 件に減った。EEF は、学力への効果とは別に、自己効力感・動機づけ・チームワークといった成果への正の効果が報告されていると述べている。ただし効果の大きさはプログラムや測る成果の種類によって大きくばらつく。"
+    note: "EEF の評価の対象は冒険的な屋外学習(ふつうは教科の学習を含まない活動)で、森の学校や社会科見学は入っていない。その範囲で、学力への効果について月数を公表していない。確実性評価が 5 段階中 0(extremely low)で、対象となった研究が 6 件しかなく、いずれも独立評価を受けていないため。EEF はこれを「効果が無い証拠ではなく、学力への効果について確かなエビデンスが無いということ」(EEF Teaching and Learning Toolkit「Outdoor adventure learning」)と明記している。月数の取り下げは 2021 年 7 月のレビュー(9 研究)からで、2025 年 10 月の更新では研究数が 6 件に減った。学力以外の成果については、Toolkit の対象外の研究も含めると、自己効力感・動機づけ・チームワークによい影響がありうるとされる。ただし効果の大きさはプログラムや測る成果の種類によって大きくばらつく。"
 lastVerified: "2026-09-06"
 methodology:
   studies: 96
@@ -24,7 +24,7 @@ methodology:
     year: 1997
     title: "Adventure Education and Outward Bound: Out-of-Class Experiences That Make a Lasting Difference"
     url: "https://doi.org/10.3102/00346543067001043"
-  limitations: "測定されたアウトカムは自己概念・統制の所在・リーダーシップなど非認知面が中心で、教科学力への直接効果のエビデンスではない。効果はプログラムとアウトカムにより大きくばらつき、著者ら自身が『なぜ機能するのか』の解明は不十分と明記している。対象には年長の参加者・長期プログラム(Outward Bound 型)が多く、小学校の短期の野外学習にそのまま当てはまるとは限らない。自己肯定感・協働性への効果が学力への効果より大きいことは EEF の整理とも一致する。"
+  limitations: "測定されたアウトカムは自己概念・統制の所在・リーダーシップなど非認知面が中心で、教科学力への直接効果のエビデンスではない。効果はプログラムとアウトカムにより大きくばらつき、著者ら自身が『なぜ機能するのか』の解明は不十分と明記している。対象には年長の参加者・長期プログラム(Outward Bound 型)が多く、小学校の短期の野外学習にそのまま当てはまるとは限らない。学力以外の成果への効果が報告されている点は、EEF の整理とも一致する。"
 culturalContext: |
   日本の小学校は『生活科』『総合的な学習の時間』『宿泊学習』『遠足・校外学習』で屋外学習を既に多く実施しており、EEF の屋外学習は日本のカリキュラムに既に深く組み込まれている。新規導入の効果量ではなく、**既存の体験学習の『質』を高める**観点で EEF 知見を参照するのが適切。コスト(+4)が高いのは日常的な導入を想定した場合の値。
 ---
@@ -65,7 +65,7 @@ EEF は確かなエビデンスが無いとして学力への効果の月数を�
 
 - Rickinson, M., et al. (2004). *A review of research on outdoor learning*. NFER & King's College London. — 屋外学習の効果を包括的にレビュー。認知・情意・社会性の各領域で正の効果を報告。
 - Becker, C., Lauterbach, G., Spengler, S., Dettweiler, U., & Mess, F. (2017). [Effects of regular classes in outdoor education settings: A systematic review on students' learning, social and health dimensions](https://doi.org/10.3390/ijerph14050485). *International Journal of Environmental Research and Public Health*, 14(5), 485. — 屋外での定期的な授業が学力と非認知能力に与える効果を系統的にレビュー。
-- [Outdoor adventure learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/outdoor-adventure-learning). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(9研究)以降、学力への効果について月数を公表していない。2025年10月の更新(6研究)でも確実性評価は 5 段階中 0(extremely low)のまま。学校生活の幅を広げる面での価値は、学力への効果とは別に述べられている。
+- [Outdoor adventure learning](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/outdoor-adventure-learning). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(9研究)以降、学力への効果について月数を公表していない。2025年10月の更新(6研究)でも確実性評価は 5 段階中 0(extremely low)のまま。学力への効果とは別に、学校での体験の幅を広げる大事な役割を果たしうるとしている。
 
 ## 関連する学習指導要領
 

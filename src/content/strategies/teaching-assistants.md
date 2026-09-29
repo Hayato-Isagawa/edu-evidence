@@ -15,7 +15,7 @@ evidence:
   eef:
     monthsGained: 4
     strength: 3
-    note: "EEF Toolkit の Teaching Assistant Interventions で +4ヶ月・エビデンス★3(65 研究)。ただしこの平均の内訳は大きく割れており、EEF は「通常の教室環境への配置では学力への正の効果が示されていない」「訓練を受けたスタッフが構造化された介入を個別・小集団で実施した場合は 4〜6ヶ月分」と整理している。単に配置するだけでは **負の効果すら報告される**(Blatchford et al. 2009 DISS プロジェクト)。2021 年以前の旧ストランド Teaching assistants(+1ヶ月)は撤退し、URL も 404 になっている。"
+    note: "EEF Toolkit の Teaching Assistant Interventions で +4ヶ月・エビデンス★3(65 研究)。ただしこの平均の内訳は大きく割れており、EEF は「通常の教室環境へのティーチング・アシスタントの配置は、学習者の成果への正の影響が示されていない」(EEF Teaching and Learning Toolkit「Teaching assistant interventions」)とする。一方、訓練を受けたスタッフが決まった手順の介入を 1 対 1 や小集団で行う形では、通常の配置より効果が大きく、平均 4〜6ヶ月分とされる。単に配置するだけでは **負の効果すら報告される**(Blatchford et al. 2009 DISS プロジェクト)。2021 年以前の旧ストランド Teaching assistants(+1ヶ月)は撤退し、URL も 404 になっている。"
 lastVerified: "2026-09-08"
 methodology:
   sampleSize: "EEF ガイダンス報告書『Making Best Use of Teaching Assistants』(Sharples, Webster & Blatchford 2015)が統合した DISS(支援スタッフの配置と影響)プロジェクトと介入研究レビュー。DISS は英国の学校で 2003〜2008 年、8,200 名の児童生徒の英語・算数・理科の学力進捗を、補助スタッフの支援量(教師評価と授業観察)と対応づけて 1 年間追跡した観察研究で、既習到達度や家庭背景などの要因を統制している"
@@ -45,8 +45,8 @@ culturalContext: |
 ## 研究からわかっていること
 
 - ストランド全体では、平均的に学習は約4ヶ月分前進します。ただしこの平均の内訳は大きく割れています。
-- 通常の教室にただ配置した場合、EEF は学力への正の効果が示されていないとしています。
-- 訓練を受けた補助スタッフが構造化された介入を個別・小集団で実施した場合は、4〜6ヶ月分の効果が報告されています。
+- 支援員を通常の教室に置くだけでは、学力への正の効果は確認されていません。
+- 効果が大きいのは、訓練を受けたスタッフが決まった手順の介入を個別・小集団で行う形で、平均 4〜6ヶ月分です。
 - 配置の有無より、活用の質が効果を大きく左右します。
 
 ## 注意したいこと
@@ -57,8 +57,8 @@ culturalContext: |
 
 ## 主な参考研究
 
-- [Making Best Use of Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/teaching-assistants). Education Endowment Foundation (2015, updated 2021), *Guidance Report*. — 補助スタッフの効果的な活用のための 7 つの推奨事項を提示した EEF 公式ガイダンス。DISS Project(Blatchford らによる英国の大規模研究)の知見を基礎に、「配置だけでは学力に負の効果が出る場合があり、役割設計が鍵」と整理。
-- [Teaching Assistant Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistant-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 平均 +4 ヶ月(65 研究)。通常の教室への配置では正の効果が示されず、訓練を受けたスタッフによる構造化された介入では 4〜6 ヶ月分と整理。
+- [Making Best Use of Teaching Assistants](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/teaching-assistants). Education Endowment Foundation (2015, updated 2021), *Guidance Report*. — 補助スタッフの効果的な活用のための 7 つの推奨事項を提示した EEF 公式ガイダンス。DISS Project(Blatchford らによる英国の大規模研究)の知見を基礎に、支援員の役割の設計と訓練を重視している。
+- [Teaching Assistant Interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/teaching-assistant-interventions). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 平均 +4 ヶ月(65 研究)。配置の仕方で効果が大きく分かれ、構造化された個別・小集団の介入では 4〜6 ヶ月分としている。
 
 ### 関連読み物
 

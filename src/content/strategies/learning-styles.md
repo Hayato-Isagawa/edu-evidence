@@ -13,7 +13,7 @@ sourceUrl: https://journals.sagepub.com/doi/full/10.1111/j.1539-6053.2009.01038.
 sourceTitle: "Pashler et al. (2008) Learning Styles: Concepts and Evidence"
 evidence:
   eef:
-    note: "EEF Toolkit に『Learning styles』の項目がある(Review last updated October 2025)。判定は『Unclear impact for very low cost based on insufficient evidence』で、確実性は 5 段階中 0、月数は公表していない。EEF は学習スタイル理論を『エビデンスで支持されない実践』として一貫して警告している。"
+    note: "EEF Toolkit に『Learning styles』の項目がある(Review last updated October 2025)。判定は『Unclear impact for very low cost based on insufficient evidence』で、確実性は 5 段階中 0、月数は公表していない。EEF は、想定された学習スタイルで子どもを分類・グループ分けすることは役に立たないことがエビデンスから示唆されるとし、特に小学生にラベルを貼らないよう注意を促している。"
   hattie:
     cohensD: 0.23
     note: "Pashler et al.(2008)の大規模レビューは、学習スタイル理論を支持する質の高いエビデンスは**ほぼ存在しない**と結論。VARK 等の学習スタイル分類は神経神話(neuromyth)の代表例。教師の 90% 以上が信じているが、科学的裏付けは無い(Dekker et al. 2012)。"

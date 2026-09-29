@@ -14,7 +14,7 @@ evidence:
   eef:
     monthsGained: 4
     strength: 2
-    note: "EEF Toolkit の 2021 年 7 月レビュー(198 研究)で +4ヶ月。確実性評価は 5 段階中 2(limited)にとどまり、最近の実践を反映した研究が少ないこと・独立評価を受けていない研究の割合が高いこと・結果のばらつきの大部分が説明できていないこと(異質性)を理由に南京錠を 3 つ失っている。EEF は平均の背後のばらつきが大きいことを強調し、教師の役割が『指導』から『個別課題の管理』に寄ると質の高いやりとりの時間が減るため、通常の一斉指導の置き換えではなく補完として使う方がよいと整理している。効果は中学校段階(+4ヶ月)の方が小学校段階(+3ヶ月)より大きい。Deunk et al.(2018)の小学校を対象としたメタ分析では全体の効果量は d = +0.146 と小さく、差別化の方法により正負が分かれる。"
+    note: "EEF Toolkit の 2021 年 7 月レビュー(198 研究)で +4ヶ月。確実性評価は 5 段階中 2(limited)にとどまり、最近の実践を反映した研究が少ないこと・独立評価を受けていない研究の割合が高いこと・結果のばらつきの大部分が説明できていないこと(異質性)から、3 段階下げられている。EEF は平均の背後のばらつきが大きいことを強調し、「個別化指導は、通常の学級での指導の置き換えではなく、補足として使う方がよいかもしれない」(EEF Teaching and Learning Toolkit「Individualised instruction」)としている。一人ひとり別の課題を回すと、教師の時間が課題の準備や進み具合の確認に取られ、質の高いやりとりが減りうることが理由とされる。効果は中学校段階(+4ヶ月)の方が小学校段階(+3ヶ月)より大きい。Deunk et al.(2018)の小学校を対象としたメタ分析では全体の効果量は d = +0.146 と小さく、差別化の方法により正負が分かれる。"
 lastVerified: "2026-09-05"
 methodology:
   studies: 21
@@ -25,9 +25,9 @@ methodology:
     year: 2018
     title: "Effective differentiation practices: A systematic review and meta-analysis of studies on the cognitive effects of differentiation practices in primary education"
     url: "https://doi.org/10.1016/j.edurev.2018.02.002"
-  limitations: "組み入れは 21 研究と少なく、能力グループ別のサブグループ分析は 6 研究に限られる。効果は差別化の方法で正負が分かれるため『個別化すれば効果がある』という一般化はできない。特に等質の能力別グループ化は低学力層に負の効果を持つ。EEF が効果を確かにするために挙げる 3 点(学習の到達点とつまずきの正確な把握・到達度に合った課題・教師や仲間からの個別のフィードバック)とも整合する。"
+  limitations: "組み入れは 21 研究と少なく、能力グループ別のサブグループ分析は 6 研究に限られる。効果は差別化の方法で正負が分かれるため『個別化すれば効果がある』という一般化はできない。特に等質の能力別グループ化は低学力層に負の効果を持つ。EEF が効果を上げるために整えるものとして挙げる、到達点とつまずきの正確な把握・到達度に合った課題・教師や仲間からの個別のフィードバックとも整合する。"
 culturalContext: |
-  **日本の文脈で最も誤解されている EEF 項目の一つ**。文部科学省が掲げる『**個別最適な学び**』は EEF の Individualised instruction(+4)と AI ドリル(digital-technology +3)の両方を含む概念で、しばしば『GIGA 端末を配れば個別最適が実現する』と誤認される。EEF が効果を確かにするために挙げるのは『到達点とつまずきの正確な把握』『到達度に合った課題』『個別のフィードバック』の 3 点で、端末の配備そのものではない。ドリル学習の自動化だけでは +4 は達成できない可能性が高い。
+  **日本の文脈で最も誤解されている EEF 項目の一つ**。文部科学省が掲げる『**個別最適な学び**』は EEF の Individualised instruction(+4)と AI ドリル(digital-technology +3)の両方を含む概念で、しばしば『GIGA 端末を配れば個別最適が実現する』と誤認される。EEF が効果を上げるために整えるものとして挙げるのは、子どもの到達点とつまずきをつかむこと、それに合った課題を用意すること、一人ひとりへのフィードバックであって、端末の配備そのものではない。ドリル学習の自動化だけでは +4 は達成できない可能性が高い。
 ---
 
 ## 一言でいうと
@@ -49,9 +49,9 @@ culturalContext: |
 ## 研究からわかっていること
 
 - EEF が報告する効果量は+4ヶ月です。ただし平均の背後のばらつきが大きく、この値をそのまま期待できるとは限りません
-- 小学校段階に限ると+3ヶ月で、中学校段階(+4ヶ月)より小さくなります。自分の学びを管理する力が育っているほど効果が出やすいためだと EEF は説明しています
-- 教師の役割が「指導」から「個別課題の管理」に寄ると、質の高いやりとりの時間が減ります。EEF は一斉指導の置き換えではなく補完として使うことを勧めています
-- デジタル技術を使った個別化は、使わない個別化と同程度の効果と報告されています
+- 小学校段階に限ると+3ヶ月で、中学校段階(+4ヶ月)より小さくなります。自分で学習を進める力がついているほど効果が出やすいのかもしれない、というのが EEF の見立てです
+- 一人ひとり別の課題を回す形では、教師が準備や確認に追われ、じっくり教える時間が減りやすいとみられます。EEF が通常の学級での指導の補足としての活用を示唆するのはそのためです
+- 端末を使っても使わなくても、個別化の効果に大きな差は見られません
 
 ## 注意したいこと
 
@@ -64,7 +64,7 @@ culturalContext: |
 
 - Connor, C. M., Morrison, F. J., & Katch, L. E. (2004). Beyond the reading wars. *Journal of Educational Psychology*, 96(2), 305–317. — 個別化された読みの指導が学力向上に効果的であることを示した研究。
 - Pane, J. F., Steiner, E. D., Baird, M. D., & Hamilton, L. S. (2015). *Continued progress: Promising evidence on personalized learning*. RAND Corporation. — 個別化学習を実施している学校の生徒は、そうでない学校より学力が高い傾向を報告。ただし対照群は無作為化されていないマッチング比較で、因果の推定としては弱い。
-- [Individualised instruction](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/individualised-instruction). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(198研究)で+4ヶ月、小学校段階は+3ヶ月。確実性評価は 5 段階中 2(limited)。一斉指導の置き換えではなく補完として使うことを勧めている。
+- [Individualised instruction](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/individualised-instruction). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 2021年7月のレビュー(198研究)で+4ヶ月、小学校段階は+3ヶ月。確実性評価は 5 段階中 2(limited)。通常の指導の補足としての活用を示唆している。
 
 ## 関連する政策動向
 
