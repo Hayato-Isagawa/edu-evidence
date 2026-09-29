@@ -18,8 +18,8 @@ evidence:
     note: "EEF Toolkit に分散学習の独立したエントリは無い。EEF の 2021 年の認知科学レビュー(Cognitive science approaches in the classroom)は、日や授業をまたいで学習の間隔を空ける方法について、年齢や教科を問わず小さな正の効果があるとしている。1 回の授業の中で間隔を空ける方法を調べた研究は少ない。"
   hattie:
     cohensD: 0.60
-    note: "Cepeda et al.(2006)の 184 論文・317 実験のメタ分析で、分散学習は集中学習より有意に優れる(長期保持で大きな効果)。Dunlosky et al.(2013)が 10 の学習法を評価し、分散学習を『高い有用性』に分類。効果量は実験設計により幅があるが、d=0.4-0.8 程度が一般的で『月数換算 +5』に対応。"
-lastVerified: "2026-04-18"
+    note: "d = 0.60 は Visible Learning の 2017 年版一覧(Visible Learningplus、2017 年 11 月版)の Spaced vs. mass practice の値。現行のデータベース(Visible Learning MetaX)では 0.69(重み付き平均 0.62)。Cepeda et al.(2006)の 184 論文・317 実験のメタ分析で、分散学習は集中学習より有意に優れる(長期保持で大きな効果)。Dunlosky et al.(2013)が 10 の学習法を評価し、分散学習を『高い有用性』に分類。効果の目安 +5ヶ月は、この 0.60 を換算した +6ヶ月より 1 段控えめにした値。Hattie の値は楽観的な傾向があり、EEF の 2021 年のレビューも学校での効果を『小さな正の効果、ただし研究間のばらつきが大きい』としているため。"
+lastVerified: "2026-09-28"
 methodology:
   studies: 317
   sampleSize: "317 実験 / 184 論文 / 839 評価(幼児〜成人、言語記憶課題中心)"

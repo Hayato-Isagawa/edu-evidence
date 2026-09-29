@@ -11,8 +11,6 @@ source: hattie
 sourceUrl: https://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/
 sourceTitle: "Visible Learning — Hattie Ranking: Teacher credibility"
 evidence:
-  eef:
-    note: "EEF Toolkit に『教師の信頼性』の独立したエントリは無い。関連する概念として behaviour interventions(+3)や teacher-student-relationships(+4)がある。teacher self-efficacy に関する 2025 年のメタ分析では r=0.06-0.19 とかなり控えめな値が報告されている。"
   hattie:
     cohensD: 0.90
     note: "Hattie の Visible Learning で d=0.90 と報告。Hattie の順位表でも上位だが、独立した大規模メタ分析での再現は限定的。教師の自己効力感(teacher self-efficacy)に関する 2025年の大規模メタ分析(71研究・25万人)では r=0.06-0.19 とかなり控えめな値が報告されている。"
@@ -24,7 +22,7 @@ methodology:
     year: 2009
     title: "A Meta-Analytical Review of Teacher Credibility and its Associations with Teacher Behaviors and Student Outcomes"
     url: "https://doi.org/10.1080/03634520903131154"
-  limitations: "報告される効果量(d=0.90〜1.20)は Hattie の二次集計値で版によって幅があり、いずれも Finn ら(2009)という単一のメタ分析に由来する。独立した再現は限定的で、近縁概念である教師の自己効力感(teacher self-efficacy)の2025年のメタ分析(71研究・25万人)では r=0.06〜0.19 とかなり控えめな関連にとどまる。『信頼性』の操作的定義(専門性・温かさ・公正さ・情熱)も研究間でばらつき、測定方法に左右される。教師の信頼性は『学力を直接押し上げる指導法』というより、『他の指導法が機能するための前提条件』として捉える方が研究的に整合する"
+  limitations: "報告される効果量(d=0.90〜1.20)は Hattie の二次集計値で版によって幅があり、いずれも Finn ら(2009)という単一のメタ分析に由来する。独立した再現は限定的で、近縁概念である教師の自己効力感(teacher self-efficacy)の2025年のメタ分析(71研究・25万人)では r=0.06〜0.19 とかなり控えめな関連にとどまる。『信頼性』の操作的定義(専門性・温かさ・公正さ・情熱)も研究間でばらつき、測定方法に左右される。教師の信頼性は『学力を直接押し上げる指導法』というより、『他の指導法が機能するための前提条件』として捉える方が研究的に整合する。EEF Toolkit に教師の信頼性の項目は無い"
 culturalContext: |
   「教師の信頼性」という概念自体は日本の教室でも重要で、子どもが教師を信頼することで指導が届くという直感は正しい。ただし、**Hattie の d=0.90 をそのまま月数換算した「+9ヶ月」は過大評価の可能性** が高い。独立した大規模メタ分析での再現が限定的であり、概念の操作的定義も曖昧。本サイトでは控えめな「+4ヶ月」を代表値とし、Hattie の値を参考として併記している。教師の信頼性は『学力を直接上げる指導法』というより、『他の指導法が機能するための前提』として捉える方が研究的に整合する。
 ---

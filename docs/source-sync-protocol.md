@@ -52,8 +52,8 @@
 ### 対象数
 
 - `source: eef` 28 件
-- `evidence.eef` 併記分(`source: mixed` 等から 22 件)
-- 合計: 50 件。うち凍結 1 件(`early-years-intervention`)と委託レビュー 5 件(`digital-technology` と、下の表の認知科学レビューを照合先にする 4 件)を除いた 44 件が対象(2026-09-28 の `check:source-sync` 実測)
+- `evidence.eef` 併記分(`source: mixed` 等から 17 件)
+- 合計: 45 件。うち凍結 1 件(`early-years-intervention`)と委託レビュー 8 件(下の表)を除いた 36 件が対象(2026-09-29 の `check:source-sync` 実測)
 
 ### 凍結した出典(`evidence.eef.archivedAt`)
 
@@ -86,13 +86,15 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 **「照合結果が現在の値と一致した」とは**、表の 1〜3 行目で確定した値が現在の値と一致したこと、または表の最下行で、取れた結果がすべて現在の値と一致したことをいう。結果が割れて値が確定しなかった場合は当たらない(#166 の Phonics は 2/3 が +5・1/3 が +6 と割れ、PR 本文は二次情報源の裏付けを挙げていない)。本書の以下の「一致」は、下の委託レビューと試験報告(`kind: trial`)の段落を除き、この意味で使う。§2・§3 も同じ。
 
-**`evidence.eef.kind: evidence-review` の戦略(Toolkit の strand ではなく EEF の委託レビューを出典にしたもの)は、この判定ロジックと §1 の月次の対象外。** 上の表は Toolkit の strand のページの値を前提にしているので、委託レビューには当てはまらない(`digital-technology` では、WebSearch が撤去済みの Toolkit の値を引用したままの二次サイトを拾うので、3/3 一致が成立して消えた値が戻りうる。#561)。照合は、下の表の照合先(`sourceUrl` が委託レビューを指さない戦略もあるので、`sourceUrl` ではなく表を見る)からリンクされている PDF(`d2tic4wvo1iusb.cloudfront.net`)を `curl` で取り、`pdftotext -layout` で読んで行う。CDN から取れなければ、PDF の URL を Wayback の `id_` で引く。PDF の記述がページの値と一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。`check:source-sync` は §1 の対象数から外して「委託レビュー(対象外)」に列挙する。`check:stale` の 365 日は対象のまま。該当は次の 5 件(2026-09-28 時点):
+**`evidence.eef.kind: evidence-review` の戦略(Toolkit の strand ではなく EEF の委託レビューを出典にしたもの)は、この判定ロジックと §1 の月次の対象外。** 上の表は Toolkit の strand のページの値を前提にしているので、委託レビューには当てはまらない(`digital-technology` では、WebSearch が撤去済みの Toolkit の値を引用したままの二次サイトを拾うので、3/3 一致が成立して消えた値が戻りうる。#561)。照合は、下の表の照合先(`sourceUrl` が委託レビューを指さない戦略もあるので、`sourceUrl` ではなく表を見る)からリンクされている PDF(`d2tic4wvo1iusb.cloudfront.net`)を `curl` で取り、`pdftotext -layout` で読んで行う。CDN から取れなければ、PDF の URL を Wayback の `id_` で引く。PDF の記述がページの値と一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。`check:source-sync` は §1 の対象数から外して「委託レビュー(対象外)」に列挙する。`check:stale` の 365 日は対象のまま。該当は次の 8 件(2026-09-29 時点):
 
 | 戦略 | 照合先 |
 |---|---|
 | `digital-technology` | `education-evidence/evidence-reviews/digital-technology-2019`(EEF 委託レビュー)。Toolkit strand は 2026-09-08 時点の一覧に無い |
 | `retrieval-practice` | EEF「Cognitive science approaches in the classroom: a review of the evidence」(2021)の PDF(`d2tic4wvo1iusb.cloudfront.net/documents/guidance/Cognitive_science_approaches_in_the_classroom_-_A_review_of_the_evidence.pdf`)。`sourceUrl` は Roediger & Butler (2011) で、このレビューを指さない |
-| `interleaving` / `spaced-practice` / `dual-coding` | 同じ 2021 年の認知科学レビューの PDF。どれも `sourceUrl` はこのレビューを指さない |
+| `interleaving` / `spaced-practice` / `dual-coding` / `concept-mapping` | 同じ 2021 年の認知科学レビューの PDF。どれも `sourceUrl` はこのレビューを指さない(`concept-mapping` は「Working with schemas」の節) |
+| `direct-instruction` | EEF の SEND(特別な教育的ニーズ)に関するエビデンスレビューの PDF(`d2tic4wvo1iusb.cloudfront.net/documents/guidance/EEF_SEND_Evidence_Review.pdf`、Cullen ほか 2020 年 3 月。4 本の系統的レビュー)。「計 116 研究」は EEF ブログ『What exactly is explicit instruction?』(2023-04-17。本体が 403 のときは Wayback の `id_` 版)にしか無い |
+| `flipped-classroom` | EEF の 2019 年ガイダンスレポート『Using Digital Technology to Improve Learning』の Box 3「Flipped learning」(ERIC `ED612112` の PDF でも読める) |
 
 **`evidence.eef.kind: trial` の戦略(EEF の試験報告を出典にしたもの)は §1 の月次の対象で、判定表の代わりに次の手順で照合する。WebSearch の 3/3 の判定は、どの手順でも使わない**(最初の試験の値を引用したままの二次サイトが 3/3 を作りうる。委託レビューと同じ理由)。EEF は同じ取り組みの追試を公表することがある(`reciprocal-teaching` は 2 本、`philosophy-for-children` は 2021 年に再試験)ので、月次の対象に残す。
 
@@ -100,13 +102,15 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 2. 同じ取り組みの新しい試験のページが無いかを、CDX の前方一致(`url=educationendowmentfoundation.org.uk/projects-and-evaluation/projects/&matchType=prefix`)を取り組みの名前で絞って確かめる
 3. 最新のスナップショットが試験の公表より前で値が無いとき、または Wayback が答えないときは、ブラウザで実見する(`CONTENT_GUIDELINES.md` §7 と同じ扱い)
 
-月数と確実性が一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。該当は次の 4 件(スナップショットの値は 2026-09-28 に確認)。いずれも `projects-and-evaluation/projects/` の下のページ:
+月数と確実性が一致したら `lastVerified` を進める。取れなかったら進めない。食い違いが見つかったら、その PR で直す場合を除いて進めず、issue に回す。該当は次の 6 件(スナップショットの値は 2026-09-28〜29 に確認)。いずれも `projects-and-evaluation/projects/` の下のページ:
 
 | 戦略 | 照合先 | 最新のスナップショットの値 |
 |---|---|---|
 | `lesson-study` | `lesson-study` | 0 months(2026-09-07) |
 | `philosophy-for-children` | `philosophy-for-children-effectiveness-trial`(再試験。本サイトの値)。最初の試験は `philosophy-for-children`(+2 months) | 0 months(2026-08-11) |
 | `inquiry-based-learning` | `project-based-learning` | -2 months(2026-08-02) |
+| `growth-mindset` | `changing-mindset-2015`(2 回目の試験。本サイトの値。スラッグは 2015 だが報告は 2019 年 7 月)。1 回目の試験は `changing-mindsets` | 0 months(2026-07-18) |
+| `ai-in-education` | `maths-whizz-23-24-trial`(テーマの一部を扱う試験。ページ上部の目安には使っていない) | +1 months(2026-09-29、Claude in Chrome で実見。Wayback の最新は公表前) |
 | `reciprocal-teaching` | `fft-reciprocal-reading-2023-24-trial`(2 本目。本サイトの値)。1 本目は `reciprocal-reading`(+2 months) | 値なし。最新は公表前の 2025-10-09 なので、手順 3 で照合する |
 
 ### 出力
@@ -116,7 +120,7 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 
 ### ローテーション
 
-44 件を月 3〜4 件で 1 年 1 周。`scripts/check-source-sync.ts --section eef` がしきい値超過(30 日)を提示し、その中から優先度の高い strand(EEF が新フェーズ公開した順)を選ぶ。30 日は候補を出すためのしきい値で、1 年で 1 周する運用では超過が常に残る。超過があること自体は異常ではない。
+36 件を月 3 件で 1 年 1 周。`scripts/check-source-sync.ts --section eef` がしきい値超過(30 日)を提示し、その中から優先度の高い strand(EEF が新フェーズ公開した順)を選ぶ。30 日は候補を出すためのしきい値で、1 年で 1 周する運用では超過が常に残る。超過があること自体は異常ではない。
 
 ## §2 Hattie Visible Learning 整合性チェック(年次運用)
 

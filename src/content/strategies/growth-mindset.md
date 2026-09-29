@@ -13,11 +13,13 @@ sourceUrl: https://doi.org/10.1177/0956797617739704
 sourceTitle: "Sisk, Burgoyne, Sun, Butler & Macnamara (2018) To What Extent and Under Which Circumstances Are Growth Mind-Sets Important to Academic Achievement?"
 evidence:
   eef:
-    note: "EEF Toolkit に独立エントリは無いが、EEF はオンライン介入の大規模 RCT(Changing Mindsets 2015-19)で効果を確認できず、慎重な評価を示している。"
+    kind: trial
+    monthsGained: 0
+    note: "EEF Toolkit に独立した項目は無い。EEF の Changing Mindsets 試験(2 回目・イングランドの 101 校・5,018 人)は、教師を研修して Year 6〔10〜11 歳〕に週 1 回のワークショップを行い、デジタル教材も使う取り組みを検証した。全国テスト(KS2)の算数・読解・文法と綴りのいずれも 0ヶ月で、確実性は 5 段階中 4。EEF は、比較校の教師の多くも成長マインドセットの考え方を知っており、3 分の 1 以上が研修も受けていたことを、効果が測れなかった理由の一つに挙げている。そのうえで、成長マインドセットだけで学力を上げようとすることには慎重であるべきだとしている。ページ上部の効果の目安は、Sisk et al.(2018)のメタ分析に拠る。"
   hattie:
     cohensD: 0.10
     note: "**Sisk et al.(2018)の 129 研究メタ分析で、成長マインドセットと学力の関連は r=0.10(d≒0.19)と非常に小さい**。Burnette et al.(2023)の追試メタでも類似。Yeager et al.(2019)の米国全国 RCT では全体効果は d=0.03 と微小で、**低学力層にのみ** d=0.1 程度の効果。さらに **Macnamara & Burgoyne(2023)の 63 研究メタ分析(*Psychological Bulletin*)では全体効果が d̄=0.05、出版バイアス補正後は非有意** と報告され、94% の研究に交絡があり、財務的インセンティブのある著者は 2.5 倍の確率で正の効果を報告していた。『信念を変えれば学力が上がる』という素朴な解釈は支持されない。"
-lastVerified: "2026-06-11"
+lastVerified: "2026-09-28"
 methodology:
   studies: 129
   sampleSize: "メタ分析 1(マインドセットと学力の関連): 129 研究・273 効果量・N=365,915 / メタ分析 2(介入効果): 29 研究・43 効果量・N=57,155"

@@ -37,7 +37,7 @@
 
 ### Rule 1.1b — 併記と文化的注記
 
-可能な限り、`evidence.eef` / `evidence.japan` / `evidence.hattie` を併記し、読者が比較できるようにする。両者で値が大きく異なる場合は `culturalContext` フィールドに **なぜ差があるか(文化的・制度的要因)** を説明する。
+可能な限り、`evidence.eef` / `evidence.japan` / `evidence.hattie` を併記し(`evidence.eef` は Rule 1.1c の条件を満たすときだけ)、読者が比較できるようにする。両者で値が大きく異なる場合は `culturalContext` フィールドに **なぜ差があるか(文化的・制度的要因)** を説明する。
 
 frontmatter 例:
 ```yaml
@@ -57,6 +57,21 @@ evidence:
 culturalContext: |
   日本の家庭学習時間は既に国際的に長い水準にあるため、EEF の +5 ヶ月をそのまま期待できない可能性がある。量を増やすより質(授業との連動・フィードバック)に投資する方が効果的。
 ```
+
+### Rule 1.1c — `evidence.eef` は EEF 自身がそのテーマを評価したときだけ置く
+
+`evidence.eef` のキーがあるだけで、一覧と詳細に「EEF」のバッジと欄が出る(`src/components/ui/SourceBadge.astro`)。EEF が評価していないテーマでも、読者には EEF が根拠のように見える。
+
+| EEF の資料 | `evidence.eef` |
+|---|---|
+| Toolkit か Early Years Toolkit の項目がある | 置く(`kind` は省略か `toolkit` / `early-years-toolkit`) |
+| EEF の試験報告がある | 置く(`kind: trial`。月数があれば `monthsGained`。照合先を `source-sync-protocol.md` §1 の試験報告の表に足す) |
+| EEF のエビデンスレビュー・ガイダンスレポートがそのテーマを評価している | 置く(`kind: evidence-review`。照合先を `source-sync-protocol.md` §1 の委託レビューの表に足す) |
+| どれも無い(Toolkit に項目が無く、評価もしていない) | **置かない**。「EEF Toolkit に項目は無い」という事実は `methodology.limitations` などに書く |
+
+近い別の取り組みの試験は、そのテーマの評価に数えない。同じ試験でも、ページのテーマに含まれるかどうかで扱いが分かれる(Project Based Learning 試験は、探究学習にとってはその一形態なので置き、日本の算数の問題解決型学習にとっては別の取り組みなので置かない)。レビューが方法として触れているだけで「評価できるだけの研究が無い」としている場合(精緻化)も置かない。テーマの一部を扱う試験(AI の教育利用に対する Maths-Whizz 試験など)は置いてよいが、テーマ全体の効果ではないことを note に書き、ページ上部の効果の目安に使うかどうかも書く。試験とレビューの両方があるときは、テーマ全体を扱っている方を `kind` に選び、もう一方は note に書く(反転授業は 2019 年のガイダンスを選び、その中の MathsFlip 試験を note に書いている)。
+
+`evidence.eef` を外すと、ほかに出典キー(`japan` / `hattie`)の無いページでは SourceBadge の既定で「EEF」が出る。外す前に、ほかのキーがあるかを確かめる。
 
 ### Rule 1.2 — 引用論文の citation は必ず一次情報で確認する
 

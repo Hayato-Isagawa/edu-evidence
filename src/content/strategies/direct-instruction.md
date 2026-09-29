@@ -12,11 +12,12 @@ sourceUrl: https://doi.org/10.3102/0034654317751919
 sourceTitle: "Stockard et al. (2018) The Effectiveness of Direct Instruction Curricula: A Meta-Analysis of a Half Century of Research"
 evidence:
   eef:
-    note: "EEF Toolkit に独立した項目は無い。EEF ブログ『What exactly is explicit instruction?』(2023 年 4 月)は、4 つの系統的レビュー・116 研究に基づき explicit instruction を SEND のある子どもにも有効な手法として位置づけている。挙げている要素は、小さなステップで教える・具体例と反例を用いる・明確な言葉で説明する・よくある誤概念を想定する・重要な内容を強調して不要な情報を除く、の 5 つ。月数と確実性は公表していないため、2026-09-13 に効果の目安の出典を Stockard et al.(2018)のメタ分析に改めた(月数は変えていない)。"
+    kind: evidence-review
+    note: "EEF Toolkit に独立した項目は無い。EEF の SEND(特別な教育的ニーズ)に関するエビデンスレビューは、explicit instruction を支持する系統的レビューを 4 本挙げている。EEF ブログ『What exactly is explicit instruction?』(2023 年 4 月)によると、含まれる研究は計 116 本で、さまざまな SEND のある子どもが対象。挙げている要素は、小さなステップで教える・具体例と反例を用いる・明確な言葉で説明する・よくある誤概念を想定する・重要な内容を強調して不要な情報を除く、の 5 つ。月数と確実性は公表していないため、2026-09-13 に効果の目安の出典を Stockard et al.(2018)のメタ分析に改めた(月数は変えていない)。"
   hattie:
     cohensD: 0.59
     note: "Hattie の Visible Learning では d=0.59 を報告。本ページの +5ヶ月は Stockard et al.(2018)の総合推定値 d=0.54(95% CI 0.49〜0.59)の換算(d=0.1≈1ヶ月)で、調整後の 0.60 や Hattie の 0.59 より低い側を採っている。"
-lastVerified: "2026-09-13"
+lastVerified: "2026-09-28"
 methodology:
   studies: 328
   sampleSize: "413 研究設計 / 約 4,000 効果(1966〜2016 の半世紀、就学前〜大学生)"
