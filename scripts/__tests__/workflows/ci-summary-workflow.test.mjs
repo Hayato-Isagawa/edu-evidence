@@ -24,7 +24,9 @@ const WORKFLOW = path.join(WORKFLOWS_DIR, "ci-summary.yml");
 const yaml = () => fs.readFileSync(WORKFLOW, "utf8");
 // 権限と if の検査はパース結果で見る。字面で見ると、`"permissions":` / `? permissions` /
 // フロー形 / step の if / 先頭に置いた別の job など、YAML として等価な書き方が素通りする(#641)
-const doc = () => YAML.parse(yaml());
+// merge: true はマージキー(`<<:`)を展開する。既定では `<<` が 1 つのキーとして残り、
+// `<<: {permissions: …}` と書いた権限が job の permissions に見えない(#735)
+const doc = () => YAML.parse(yaml(), { merge: true });
 const jobs = () => Object.entries(doc().jobs ?? {});
 const steps = () => jobs().flatMap(([, job]) => job?.steps ?? []);
 
@@ -364,12 +366,16 @@ test("token の権限は check-run の参照とコメント投稿だけ", () => 
 });
 
 test("PR 由来の run だけを、Dependabot を除いて扱う", () => {
-  // 字面ではなく notify の if の値で見る(コメント行に移しただけの式を拾わない)
-  const cond = String(doc().jobs?.notify?.if ?? "");
-  assert.match(cond, /github\.event\.workflow_run\.event == 'pull_request'/);
-  assert.match(
+  // 字面ではなく notify の if の値で見る(コメント行に移しただけの式を拾わない)。
+  // 部分一致だと `(… != 'dependabot[bot]' || true)` のように字面を残して無効にできるので、
+  // 空白を詰めた式全体を固定する(#735)。式を変えるときはこの期待値も直す
+  const cond = String(doc().jobs?.notify?.if ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+  assert.equal(
     cond,
-    /github\.event\.workflow_run\.triggering_actor\.login != 'dependabot\[bot\]'/
+    "github.event.workflow_run.event == 'pull_request' && " +
+      "github.event.workflow_run.triggering_actor.login != 'dependabot[bot]'"
   );
 });
 

@@ -88,6 +88,7 @@ VRT 自身では捕まえられない — VRT は `paths` に載る PR でしか
 token の権限と if の式は、字面でなく `yaml` のパース結果で全 job・全 step を見る(`"permissions":` や
 `? permissions`・step の if・先頭に置いた別 job など、YAML として等価な書き方が字面の検査を素通りした。#641)。
 起動元の conclusion は if に限らず、パース結果の全体で禁じている。
+パースはマージキー(`<<:`)を展開して読み、notify の if は空白を詰めた式全体を固定する(`|| true` で絞り込みを無効にする形を拾う。#735)。
 テストファイルが npm パッケージを直接 `import` するのは、このファイルが初めて。
 
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
