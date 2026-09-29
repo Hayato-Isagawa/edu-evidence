@@ -2,7 +2,7 @@
 
 日本の小学校教員のための教育エビデンス・ポータルサイト。
 
-英国 [EEF Teaching and Learning Toolkit](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit) を起点に、国内外の教育研究から得られた知見を「効果」「信頼性」「コスト」の 3 指標で整理し、日本の小学校現場に合わせて翻案・公開しています。
+英国 [EEF Teaching and Learning Toolkit](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit) を起点に、国内外の教育研究から得られた知見を「効果」「信頼性」「コスト」の 3 指標で整理し、日本の小学校現場向けに解説・公開しています。
 
 **https://edu-evidence.org**
 

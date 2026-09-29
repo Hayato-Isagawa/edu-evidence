@@ -6,11 +6,10 @@ interface Props {
   url: string;
   published?: string | null;
   lastVerified?: string | null;
-  adaptedFromEef?: boolean;
 }
 
-const { title, url, published, lastVerified, adaptedFromEef } = Astro.props;
-const citation = formatCitation({ title, url, published, lastVerified, adaptedFromEef });
+const { title, url, published, lastVerified } = Astro.props;
+const citation = formatCitation({ title, url, published, lastVerified });
 ---
 
 <section class="pt-10 mt-10 border-t border-line max-w-2xl space-y-2" data-citation>

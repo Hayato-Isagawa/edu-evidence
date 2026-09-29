@@ -389,13 +389,10 @@ const eefLabel = {
     )
   }
 
-  {/* EEF の帰属は source: eef のページだけ。evidence.eef の有無で決めると、
-      「Toolkit に独立したエントリは無い」と note に書いたページにも帰属が付く */}
   <CitationCopy
     title={d.title}
     url={`${pageUrl}/`}
     lastVerified={d.lastVerified}
-    adaptedFromEef={d.source === "eef"}
   />
 
   {

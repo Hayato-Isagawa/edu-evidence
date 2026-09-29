@@ -25,7 +25,6 @@ test.describe("コラム", () => {
       timeZone: "Asia/Tokyo",
     }).format(new Date());
     const copied = await page.evaluate(() => navigator.clipboard.readText());
-    // コラムは EEF の翻案ではないので帰属は CC BY-SA 4.0 だけ
     expect(copied).toMatch(
       new RegExp(
         `^「少人数学級にどれだけの効果があるか\\? — 費用対効果で見る「人数」と「指導」」EduEvidence JP\\(CC BY-SA 4\\.0\\)。` +
