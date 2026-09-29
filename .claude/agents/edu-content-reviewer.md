@@ -20,7 +20,9 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 - 引用研究の **著者・発行年・ジャーナル名・巻号・ページ** が原典と一致するか
   (書誌は逐語なので、`WebSearch` で当たりを付けたうえで**原典の生テキストで照合する**)
 - **コラムの前提事実**(「SNS で〜が拡散している」「〜が話題になっている」等)が一次検証されているか。未検証なら critical
-- `evidence.eef.note` で「EEF Toolkit にエントリ無し」と自認しているのに `evidence.eef` を持っているような構造的矛盾(ただし `evidence.eef.archivedAt` を持つ凍結出典 — strand 廃止後に Wayback へ固定した値 — は正当な形で、矛盾ではない)
+- `evidence.eef` の置き方が Rule 1.1c に合っているか。EEF 自身がそのテーマを評価した資料(Toolkit / Early Years Toolkit の項目・試験報告・エビデンスレビューかガイダンスレポート)が無いのに `evidence.eef` を持つページは違反。`evidence.eef.note` で「EEF Toolkit に項目は無い」と書いていて、`kind` が省略か `toolkit` / `early-years-toolkit` のページは構造的矛盾。次の 2 つは正当な形で、矛盾ではない:
+  - `kind: trial` / `kind: evidence-review` で EEF の試験・レビューを出典にし、note で Toolkit に独立した項目が無いと書くもの。このときは、その試験・レビューが実在してページのテーマを評価しているかを確かめる(近い別の取り組みの試験や、「評価できるだけの研究が無い」としたレビューは評価に数えない)
+  - `evidence.eef.archivedAt` を持つ凍結出典(strand 廃止後に Wayback へ固定した値)
 
 ### 2. Rule 1.2a — 未読文献の分離
 
