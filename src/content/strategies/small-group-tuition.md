@@ -52,6 +52,7 @@ culturalContext: |
 ## 研究からわかっていること
 
 - 平均的に、学習は約4ヶ月分前進します。ただしこれは効力試験を中心とした平均です。イングランドの大規模実装(National Tutoring Programme)を独立評価した NFER の報告では、学校主導のチューターによる算数の改善は 1 か月程度にとどまり、学習メンターや個別指導事業者の経路では英語・算数とも改善の証拠が得られませんでした。
+- 授業の前に少人数で短く先取りして教える指導(プリティーチング)を、EEF が試験で検証しました(One Step Ahead、2026)。対象はイングランドの Year 1〜2〔5〜7 歳〕で、先取り指導が役立ちそうだと教員が考えて学級ごとに選んだ 12 人を、先取り指導を受ける 6 人と受けない 6 人に無作為に分けています(75 校・2,609 人)。算数の推論力への効果は確認されませんでした(効果量 0.01)。1 回 10〜15 分・週 2 回以上を 1 学期続ける計画でしたが、終了時の教員調査に回答した教員の 72% が、1 日の中で時間を確保するのが難しかったと答え、推奨より短い回や取りやめになった回もありました。1 学級 12 人という人数の決まりのため、教員が本来は対象にしない子も先取りの群に入り、学力の混ざった集団になったことも報告されています。教員は子どもの自信や授業への参加が高まったと感じていましたが、算数の推論力にも算数への不安にも、測定上の改善は表れませんでした。報告書は、この結果が方法そのものの効果よりも、時間の確保や対象の絞り込みといった実施の難しさを反映している可能性を挙げています。1 回の試験で、試したのは少ない量の特定のやり方です。
 - EEF は、グループサイズが2〜5人のときに効果が大きく、6〜7人を超えると効果が落ちるとしています。
 - EEF Toolkit では、少人数指導が +4 ヶ月・コスト評価「低」、[個別指導](/strategies/one-to-one-tuition) が +5 ヶ月・コスト評価「中」とされています。EEF は個別指導の項目で、次のように述べています。「1 対 1 ではなく小集団で、あるいはティーチング・アシスタントを通じて指導する方法は、平均すると正の効果は小さいが、的を絞った支援を届ける費用対効果の高い方法になりうる」(EEF Teaching and Learning Toolkit「One to one tuition」)。1 対 1 と小集団を直接比べた研究の結果はまちまちで、少人数指導の項目では、読みでは小集団の方がよい場合もあるとしています。
 
@@ -66,6 +67,7 @@ culturalContext: |
 - Nickow, A., Oreopoulos, P., & Quan, V. (2020). [The impressive effects of tutoring on preK-12 learning: A systematic review and meta-analysis of the experimental evidence](https://doi.org/10.3386/w27476). *NBER Working Paper* 27476. — 少人数指導を含む 96 件の RCT のメタ分析。小グループ(2〜5 人)でも 1 対 1 に近い効果が得られることを示した。
 - [Small group tuition](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition). Education Endowment Foundation, *Teaching and Learning Toolkit*. — 少人数指導の Toolkit ストランド。効果量 +4 ヶ月、グループサイズ 6 人以下で効果が大きい。
 - [Independent evaluation of the National Tutoring Programme: Year 2 impact evaluation](https://www.nfer.ac.uk/publications/independent-evaluation-of-the-national-tutoring-programme-year-2-impact-evaluation/). National Foundation for Educational Research (2023). — 英国政府委託の独立評価。学校主導のチューターによる算数の改善は 1 か月程度にとどまり、学習メンター・個別指導事業者の経路では英語・算数とも改善の証拠が得られなかった。
+- Forsyth, E., Harjani, T., Daly, N., & Taylor, P. (2026). [One Step Ahead: Evaluation report](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/one-step-ahead-2022-23-ks1-maths-teacher-choices). Education Endowment Foundation. — イングランドの Year 1〜2〔5〜7 歳〕の算数で、先取り指導が役立ちそうだと教員が選んだ児童を対象に、授業前の少人数の先取り指導を児童単位で無作為に割り付けた試験(評価は Behavioural Insights Team)。算数の推論力の効果量は 0.01(95% 信頼区間 −0.07〜0.09)、給食無償の対象児童は −0.09(同 −0.25〜0.07)で、一部の児童に限った分析のため全体より確かさが低いと報告書は述べている。結果の確かさは、報告書では「中〜高」、EEF の試験ページでは「低〜中」と表記が分かれている。1 回の試験で、試したのは 1 回 10〜15 分・週 2 回以上・1 学期という少ない量の、特定のやり方に限られる。
 - Slavin, R. E., Lake, C., Davis, S., & Madden, N. A. (2011). [Effective programs for struggling readers: A best-evidence synthesis](https://doi.org/10.1016/j.edurev.2010.07.002). *Educational Research Review*, 6(1), 1–26. — 読みに困難を持つ児童向けの指導プログラムを系統的に集約。構造化された少人数指導プログラム(1 対 1 または 2〜5 人)が効果的と報告。
 
 ## 関連する学習指導要領
