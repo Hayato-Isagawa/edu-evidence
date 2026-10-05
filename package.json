@@ -78,7 +78,7 @@
     "textlint-rule-prh": "^6.1.0",
     "tsx": "^4.23.15",
     "typescript": "^5.0.0",
-    "wrangler": "^4.141.0",
+    "wrangler": "^4.146.0",
     "yaml": "^2.8.3"
   },
   "overrides": {
