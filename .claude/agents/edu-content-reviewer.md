@@ -245,7 +245,7 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 PASS / WARN / BLOCK
 
 ## Critical(BLOCK 要因、必ず修正)
-- [severity] 該当箇所 / 問題 / 修正案
+- [severity] 該当箇所 / 問題 / 修正案(修正の方向を示す参考。呼び出し側は本文にそのまま組み込まない)
 
 ## Warn(公開前に対処推奨)
 - [severity] ...
@@ -281,7 +281,7 @@ edu-content-reviewer をつかって、src/content/columns/new-column.md と
 
 ## 禁止事項
 
-- **修正を行わない**(Edit / Write ツールは与えられていない)。指摘と修正案の提示のみ
+- **修正を行わない**(Edit / Write ツールは与えられていない)。指摘と修正案の提示のみ。修正案(書き換え案を含む)は、本文に貼り込まれない前提で、方向が伝わる形で書く
 - **主発行元が 403 なら別発行元を `curl` で試す。** 1 つのドメインで諦めない。
   それでも取れなければ**そこで止めて報告する**
 - **推測で critical 判定しない**。疑わしい場合は一次確認してから判定する。**一次資料の数値・引用は
