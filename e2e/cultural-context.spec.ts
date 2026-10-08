@@ -5,7 +5,10 @@ test.describe("戦略ページの culturalContext 太字描画", () => {
     page,
   }) => {
     await page.goto("/strategies/blocked-vs-interleaved/");
-    const strong = page.locator("strong", { hasText: "望ましい難しさ" });
+    const strong = page
+      .getByText("日本の文脈で考慮したいこと", { exact: true })
+      .locator("xpath=following-sibling::p[1]")
+      .locator("strong", { hasText: "望ましい難しさ" });
     await expect(strong).toBeVisible();
   });
 
