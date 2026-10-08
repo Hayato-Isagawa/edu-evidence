@@ -16,8 +16,6 @@ evidence:
     strength: 2
     note: "授業 UD(桂聖・阿部利彦・小貫悟ら)は **日本で独自に発展した授業設計論** で、視覚化・焦点化・共有化の 3 視点が核。LD・ADHD・ASD 等の特性を持つ子を含む通常学級で全員の『分かる・できる』を目指す。国内での質の高い効果検証研究はまだ限定的。"
     researcher: "桂聖(筑波大学附属小学校)、阿部利彦(星槎大学)、小貫悟(明星大学)"
-  hattie:
-    note: "国際的には CAST が提唱する Universal Design for Learning(UDL)フレームが近い概念で、Capp(2017)の 18 研究メタ分析は **UDL が全ての生徒の『学習プロセス』の改善に有効と示唆する一方、学業成果(educational outcomes)への効果は実証されていない** と結論し、統合効果量は報告していない(組み入れ研究は事前事後比較が中心で研究設計の質に幅がある)。scaffolding(足場かけ)との重なりが大きい。"
 lastVerified: "2026-06-15"
 methodology:
   studies: 18

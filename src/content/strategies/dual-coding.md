@@ -15,8 +15,6 @@ evidence:
   eef:
     kind: evidence-review
     note: "EEF Toolkit に二重符号化の独立したエントリは無い。EEF の 2021 年の認知科学レビュー(Cognitive science approaches in the classroom)は、二重符号化を含むマルチメディア学習について、正の結果の研究が多い一方で効果が小さい・無い研究もあり、エビデンスはまちまちだとしている。有望なのは、複雑な内容の学習を支える使い方で、対象は年長の子どもが多い。"
-  hattie:
-    note: "Mayer(2009)のマルチメディア学習研究では『言葉+関連図』vs『言葉のみ』で一貫して正の効果。ただし『装飾的な図(内容と無関係)』はむしろ注意を散らす。初学者で効果が大きく、既有知識のある学習者では効果が減衰(expertise reversal effect)。"
 lastVerified: "2026-09-28"
 methodology:
   studies: 181
