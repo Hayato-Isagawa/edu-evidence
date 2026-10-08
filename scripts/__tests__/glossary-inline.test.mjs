@@ -333,7 +333,7 @@ test("set:html に渡す関数を描画箇所ごとに固定する", () => {
 
 test("FAQ の回答文は許可したタグだけを含み、差し込む値はエスケープされる", () => {
   // FAQ の回答文は HTML 断片のまま set:html へ渡る(#763)。手書きの <a> と <strong> だけを
-  // 許し、href は内部パス・https・mailto に限る(`//` で始まる外部への相対 URL は不可)。
+  // 許し、href は内部パス・https・mailto に限る(内部パスは英小文字・数字・`/`・`-` だけ。`//` や `/\` で始まる形、文字参照や空白を含む形は、ブラウザが外部 URL として扱いうるので不可)。
   // months() の値は断片へ差し込まれるので、エスケープされて入ることも見る。
   const { faq } = render({
     text: [],
@@ -344,7 +344,7 @@ test("FAQ の回答文は許可したタグだけを含み、差し込む値は�
   assert.ok(faq.length > 0, "FAQ の回答が 0 件。検査対象 0 件でも緑になる");
 
   const allowed = [
-    /^<a href="\/(?!\/)[^"]*" class="[^"]*">/,
+    /^<a href="\/(?![/\\])[a-z0-9/-]*" class="[^"]*">/,
     /^<a href="https:\/\/[^"]+" target="_blank" rel="noopener noreferrer" class="[^"]*">/,
     /^<a href="mailto:[^"]+" class="[^"]*">/,
     /^<\/a>/,

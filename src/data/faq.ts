@@ -14,7 +14,7 @@ export interface FaqSection {
  * FAQ の本文。`.astro` ではなくここに置くのは、VRT のベースラインへ運ばれる
  * `src/data` に載せて、本文の編集を中立化するため(ADR 0034)。
  *
- * `months` は戦略 slug → 「+◯ヶ月」/「測定なし」のラベル。解決(getCollection →
+ * `label` は戦略 slug → 「+◯ヶ月」/「測定なし」のラベル。解決(getCollection →
  * effectLabel)は faq.astro 側で行い、ここは回答文への補間だけ。回答文は HTML 断片なので、
  * 補間する値はエスケープしてから入れる。import を足さずにここで閉じているのは、VRT が
  * main のコードに PR の `src/data` を載せてビルドするため(ADR 0034)。
