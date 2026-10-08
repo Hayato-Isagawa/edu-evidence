@@ -12,6 +12,9 @@
 // 経路は 3 つ(frontmatter のテキスト・FAQ の HTML 断片・markdown 本文)あるので、すべて通す。markdown 本文側(`remark-glossary.mjs`)は探索対象を
 // 元テキストの未処理の尾部に狭めており、同じ欠陥は持っていない。ここではその前提を
 // 固定するために一緒に測る(欠陥が無いことも回帰の対象)。
+//
+// 後半は set:html に渡す HTML の安全性を見る(#760 / #763)。描画箇所ごとの関数・FAQ の
+// タグの許可リストと差し込む値のエスケープ・HTML を差し込む API の禁止・用語集の記号。
 import test from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
@@ -326,4 +329,111 @@ test("set:html に渡す関数を描画箇所ごとに固定する", () => {
     "src/pages/faq.astro|annotateGlossaryTerms": 1,
     "src/pages/strategies/[...slug].astro|annotateGlossaryText": 5,
   });
+});
+
+test("FAQ の回答文は許可したタグだけを含み、差し込む値はエスケープされる", () => {
+  // FAQ の回答文は HTML 断片のまま set:html へ渡る(#763)。手書きの <a> と <strong> だけを
+  // 許し、href は内部パス・https・mailto に限る(`//` で始まる外部への相対 URL は不可)。
+  // months() の値は断片へ差し込まれるので、エスケープされて入ることも見る。
+  const { faq } = render({
+    text: [],
+    inline: [],
+    markdown: [],
+    faqLabel: '<script>&"',
+  });
+  assert.ok(faq.length > 0, "FAQ の回答が 0 件。検査対象 0 件でも緑になる");
+
+  const allowed = [
+    /^<a href="\/(?!\/)[^"]*" class="[^"]*">/,
+    /^<a href="https:\/\/[^"]+" target="_blank" rel="noopener noreferrer" class="[^"]*">/,
+    /^<a href="mailto:[^"]+" class="[^"]*">/,
+    /^<\/a>/,
+    /^<strong>/,
+    /^<\/strong>/,
+  ];
+  const bad = [];
+  for (const answer of faq) {
+    for (
+      let i = answer.indexOf("<");
+      i !== -1;
+      i = answer.indexOf("<", i + 1)
+    ) {
+      const rest = answer.slice(i);
+      if (!allowed.some((re) => rest.match(re))) bad.push(rest.slice(0, 60));
+    }
+  }
+  assert.deepEqual(bad, [], `許可していないタグ:\n${bad.join("\n")}`);
+
+  const withLabel = faq.filter((a) => a.includes("&lt;script&gt;"));
+  assert.ok(withLabel.length > 0, "months() の値を差し込む回答が見つからない");
+  for (const a of withLabel) assert.match(a, /&lt;script&gt;&amp;&quot;/);
+});
+
+test("frontmatter 経路でも用語集の全用語がリンクされる", () => {
+  // frontmatter 経路は先に & < > をエスケープするので、これらを含む用語は
+  // 元の字面のままでは一致せず、黙ってリンクされなくなる。用語ごとに通して確かめる。
+  const { terms } = base;
+  assert.ok(terms.length > 0, "用語集が空。検査対象 0 件でも緑になる");
+  const { text } = render({ text: terms, inline: [], markdown: [] });
+  const esc = (s) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const missing = terms.filter(
+    (term, i) => !text[i].includes(`>${esc(term)}</a>`)
+  );
+  assert.deepEqual(missing, [], `リンクされない用語:\n${missing.join("\n")}`);
+});
+
+test("HTML を文字列のまま差し込む API を使わない", () => {
+  // set:html は上のテストで描画箇所ごとに固定している。同じ穴はクライアントの
+  // innerHTML などからも開くので、src と public の全ファイルで 0 件を求める。
+  const exts = [
+    ".astro",
+    ".ts",
+    ".tsx",
+    ".js",
+    ".jsx",
+    ".mjs",
+    ".cjs",
+    ".mts",
+    ".html",
+    ".md",
+  ];
+  const banned =
+    /innerHTML|outerHTML|insertAdjacentHTML|dangerouslySetInnerHTML|document\.write|createContextualFragment|setHTMLUnsafe|srcdoc/;
+  const files = ["src", "public"].flatMap((dir) =>
+    readdirSync(path.join(REPO, dir), { recursive: true })
+      .map(String)
+      .filter((f) => exts.some((e) => f.endsWith(e)))
+      .map((f) => path.join(REPO, dir, f))
+  );
+  assert.ok(files.length > 0, "走査対象が 0 件。検査が空回りしている");
+  const hits = files.flatMap((file) =>
+    readFileSync(file, "utf8")
+      .split("\n")
+      .flatMap((line, i) =>
+        line.match(banned) ? [`${path.relative(REPO, file)}:${i + 1}`] : []
+      )
+  );
+  assert.deepEqual(hits, [], `HTML を差し込む API:\n${hits.join("\n")}`);
+});
+
+test("用語集の文字列に Markdown の記号を書かない", () => {
+  // 用語集の term・short・en・def はテキストとして描画される(用語集ページは {t.def}、
+  // ツールチップは data-tip)。* やバッククォートは Markdown として解釈されず、
+  // そのまま画面に出る。
+  const { glossary: entries } = render({
+    text: [],
+    inline: [],
+    markdown: [],
+    glossary: true,
+  });
+  assert.ok(entries.length > 0, "用語集が空。検査対象 0 件でも緑になる");
+  const bad = entries.flatMap((entry) =>
+    ["term", "short", "en", "def"].flatMap((key) =>
+      typeof entry[key] === "string" && entry[key].match(/[*`]/)
+        ? [`${entry.term}.${key}`]
+        : []
+    )
+  );
+  assert.deepEqual(bad, [], `記号が残っている:\n${bad.join("\n")}`);
 });

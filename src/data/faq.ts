@@ -15,11 +15,19 @@ export interface FaqSection {
  * `src/data` に載せて、本文の編集を中立化するため(ADR 0034)。
  *
  * `months` は戦略 slug → 「+◯ヶ月」/「測定なし」のラベル。解決(getCollection →
- * effectLabel)は faq.astro 側で行い、ここは回答文への補間だけ。
+ * effectLabel)は faq.astro 側で行い、ここは回答文への補間だけ。回答文は HTML 断片なので、
+ * 補間する値はエスケープしてから入れる。import を足さずにここで閉じているのは、VRT が
+ * main のコードに PR の `src/data` を載せてビルドするため(ADR 0034)。
  */
 export function buildFaqSections(
-  months: (slug: string) => string
+  label: (slug: string) => string
 ): FaqSection[] {
+  const months = (slug: string) =>
+    label(slug)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   return [
     {
       heading: "数値の読み方",
