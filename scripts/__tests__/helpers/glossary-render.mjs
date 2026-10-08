@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // 用語リンクの 2 経路にテキストを通して、結果をそのまま返すだけの薄いラッパー。
 //
-//   - frontmatter 経路 … src/lib/glossary-inline.ts の annotateGlossaryTerms
+//   - frontmatter 経路 … src/lib/glossary-inline.ts の annotateGlossaryText(テキストをエスケープしてから変換)
+//   - HTML 断片経路 … 同じファイルの annotateGlossaryTerms(FAQ の回答文)
 //   - markdown 本文経路 … src/plugins/remark-glossary.mjs の remarkGlossary
 //
 // **なぜ子プロセスを挟むのか。** `node --test` が拾うのは `.mjs` だけで
@@ -14,9 +15,12 @@
 // 何が正しいかの判断はすべて呼び出し側のテストが持つ。ここに期待値を書くと、
 // テストと実装の間にもう 1 つ古くなる場所が増える。
 //
-// 入力: { "inline": string[], "markdown": string[] }
-// 出力: { "inline": string[], "markdown": string[], "terms": string[] }
-import { annotateGlossaryTerms } from "../../../src/lib/glossary-inline.ts";
+// 入力: { "text": string[], "inline": string[], "markdown": string[] }
+// 出力: { "text": string[], "inline": string[], "markdown": string[], "terms": string[] }
+import {
+  annotateGlossaryTerms,
+  annotateGlossaryText,
+} from "../../../src/lib/glossary-inline.ts";
 import { remarkGlossary } from "../../../src/plugins/remark-glossary.mjs";
 import { glossary } from "../../../src/data/glossary.ts";
 
@@ -42,6 +46,7 @@ const input = JSON.parse(Buffer.concat(chunks).toString("utf8"));
 
 process.stdout.write(
   JSON.stringify({
+    text: (input.text ?? []).map(annotateGlossaryText),
     inline: (input.inline ?? []).map(annotateGlossaryTerms),
     markdown: (input.markdown ?? []).map(renderMarkdown),
     terms: glossary.map((entry) => entry.term),

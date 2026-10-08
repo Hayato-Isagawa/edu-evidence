@@ -3,7 +3,7 @@ import Kicker from "../../components/ui/Kicker.astro";
 import SourceBadge from "../../components/ui/SourceBadge.astro";
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { annotateGlossaryTerms } from "../../lib/glossary-inline";
+import { annotateGlossaryText } from "../../lib/glossary-inline";
 import {
   stars as toStars,
   effectSign as toEffectSign,
@@ -238,7 +238,7 @@ const eefLabel = {
                 )}
               </div>
               {d.evidence.eef.note && (
-                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryTerms(d.evidence.eef.note)} />
+                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryText(d.evidence.eef.note)} />
               )}
             </div>
           )}
@@ -265,7 +265,7 @@ const eefLabel = {
                 )}
               </div>
               {d.evidence.japan.note && (
-                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryTerms(d.evidence.japan.note)} />
+                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryText(d.evidence.japan.note)} />
               )}
             </div>
           )}
@@ -284,7 +284,7 @@ const eefLabel = {
                 Hattie の効果量は他のメタ分析と比べて楽観的な傾向があり、再現性に疑問が示されている場合があります。参考値としてお読みください。詳しくは <a href="/guide/cultural-context" class="link-underline text-accent">エビデンスの文脈</a> を参照。
               </p>
               {d.evidence.hattie.note && (
-                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryTerms(d.evidence.hattie.note)} />
+                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryText(d.evidence.hattie.note)} />
               )}
             </div>
           )}
@@ -334,7 +334,7 @@ const eefLabel = {
             {d.methodology.limitations && (
               <div class="space-y-1 border-t border-line pt-3">
                 <div class="text-xs text-sub">エビデンスの限界</div>
-                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryTerms(d.methodology.limitations)} />
+                <p class="text-sm text-sub leading-relaxed" set:html={annotateGlossaryText(d.methodology.limitations)} />
               </div>
             )}
           </div>
@@ -345,7 +345,7 @@ const eefLabel = {
             <Kicker as="div">
               日本の文脈で考慮したいこと
             </Kicker>
-            <p class="text-sm leading-loose" set:html={annotateGlossaryTerms(d.culturalContext)} />
+            <p class="text-sm leading-loose" set:html={annotateGlossaryText(d.culturalContext)} />
             <p class="text-xs text-sub leading-loose">
               なぜこの注記があるか:<a href="/guide/cultural-context" class="link-underline text-accent ml-1">エビデンスと文化的文脈</a>
             </p>
