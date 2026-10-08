@@ -9,7 +9,7 @@
 // しか見ず、E2E も a11y 監査も属性値の中身までは届かない。この経路にはテストが 1 本も
 // 無く、壊れたことを観測できる口がどこにも無かった。
 //
-// 経路は 2 つあるので両方を通す。markdown 本文側(`remark-glossary.mjs`)は探索対象を
+// 経路は 3 つ(frontmatter のテキスト・FAQ の HTML 断片・markdown 本文)あるので、すべて通す。markdown 本文側(`remark-glossary.mjs`)は探索対象を
 // 元テキストの未処理の尾部に狭めており、同じ欠陥は持っていない。ここではその前提を
 // 固定するために一緒に測る(欠陥が無いことも回帰の対象)。
 import test from "node:test";
@@ -17,6 +17,7 @@ import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { readdirSync, readFileSync } from "node:fs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, "../..");
@@ -231,9 +232,10 @@ test("入力に元からある a タグの中にはリンクを挿し込まな�
 });
 
 test("生の不等号があってもリンクが止まらない", () => {
-  // 分割の区切りを汎用の `<[^>]*>` にすると、frontmatter に実在する生の `>`
-  // (「紙>デジタル」「教師 > 訓練を受けた補助員」)や `p < .001` を
-  // タグと読み違えて、以降の用語が黙ってリンクされなくなる。
+  // 分割の区切りを汎用の `<[^>]*>` にすると、HTML 断片の経路に入った生の `>`
+  // (「紙>デジタル」のような表記)や `p < .001` をタグと読み違えて、以降の用語が
+  // 黙ってリンクされなくなる。frontmatter 経路は先にエスケープするので、この形は
+  // annotateGlossaryTerms を直接通す経路でだけ起きる。
   const [html] = render({
     inline: ["p < .001。紙>デジタルの比較。効果量も見る。"],
     markdown: [],
@@ -262,4 +264,66 @@ test("同じ用語は強調をまたいでも 1 回しかリンクされない",
     1,
     `同じ用語が ${links.length} 回リンクされた:\n${html}`
   );
+});
+
+test("frontmatter 経路は入力をテキストとしてエスケープする", () => {
+  // strategies の frontmatter は set:html で描画される。入力をそのまま HTML として
+  // 扱うと、タグや文字参照を書いた時点でページに入る(#760)。& を後に回すと、
+  // < から作った &lt; まで &amp;lt; に二重にエスケープしてしまう。
+  const [html] = render({
+    text: ["<img src=x onerror=alert(1)>&lt;"],
+    inline: [],
+    markdown: [],
+  }).text;
+
+  assert.equal(html, "&lt;img src=x onerror=alert(1)&gt;&amp;lt;");
+});
+
+test("frontmatter 経路はエスケープしても強調と用語リンクを保つ", () => {
+  // frontmatter には生の `>` と `&` が実在する(「**紙>デジタル**」「Wang & Fan」)。
+  // エスケープしても `**` の変換と用語リンクは止まらず、表示される文字は変わらない。
+  const [html] = render({
+    text: ["**紙>デジタル**の差。Wang & Fan の効果量を見る。"],
+    inline: [],
+    markdown: [],
+  }).text;
+
+  assert.match(html, /<strong>紙&gt;デジタル<\/strong>/, html);
+  assert.match(html, /Wang &amp; Fan/, html);
+  assert.match(html, /class="glossary-tip"[^>]*>効果量<\/a>/, html);
+  assert.equal(corruptAttributes(html).length, 0, html);
+});
+
+test("set:html に渡す関数を描画箇所ごとに固定する", () => {
+  // 関数の単体テストだけでは、strategies の呼び出しを annotateGlossaryTerms に戻しても
+  // 緑のまま通る(2026-10-08 時点で frontmatter にタグは 0 件で、E2E も見た目も変わらなかった)。
+  // set:html の全箇所を「ファイル|関数」で数え、期待と完全一致させる。新しい経路を
+  // 足したときも、ここを書き換えるまで赤になる。`set:html = {` のような空白・改行入りも
+  // Astro は同じく描画するので数える。限界: 別名 import(`as annotateGlossaryText`)・
+  // 戻り値の連結・三項演算子の中の呼び出しは、字面では見分けられない。
+  const SRC = path.join(REPO, "src");
+  const files = readdirSync(SRC, { recursive: true })
+    .filter((f) => String(f).endsWith(".astro"))
+    .map((f) => path.join(SRC, String(f)));
+  const counts = {};
+  for (const file of files) {
+    const text = readFileSync(file, "utf8");
+    for (const m of text.matchAll(
+      /set:html\s*=\s*\{\s*([A-Za-z_$][\w$]*)\s*\(/g
+    )) {
+      const key = `${path.relative(REPO, file)}|${m[1]}`;
+      counts[key] = (counts[key] ?? 0) + 1;
+    }
+    const all = text.match(/set:html\s*=/g)?.length ?? 0;
+    const named = [
+      ...text.matchAll(/set:html\s*=\s*\{\s*[A-Za-z_$][\w$]*\s*\(/g),
+    ].length;
+    assert.equal(all, named, `関数を通さない set:html がある: ${file}`);
+  }
+
+  assert.deepEqual(counts, {
+    "src/layouts/Layout.astro|escapeLd": 5,
+    "src/pages/faq.astro|annotateGlossaryTerms": 1,
+    "src/pages/strategies/[...slug].astro|annotateGlossaryText": 5,
+  });
 });

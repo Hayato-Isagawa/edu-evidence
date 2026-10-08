@@ -7,9 +7,10 @@ const STRONG_PATTERN = /\*\*([^*]+?)\*\*/g;
 /**
  * 自分で作った `<strong>` と、入力に元からある `<a>` だけを区切りにするための組。
  *
- * 汎用の `<[^>]*>` では分割しない。frontmatter には生の `>` が実在し
- * (「紙>デジタル」「教師 > 訓練を受けた補助員」)、`p < .001` のような表記が
- * 1 つ入った時点で、本文をタグと読み違えて用語リンクが静かに止まる。
+ * 汎用の `<[^>]*>` では分割しない。HTML 断片の経路(annotateGlossaryTerms を直接通す
+ * FAQ の回答文)に生の `>` や `p < .001` のような表記が 1 つ入った時点で、本文を
+ * タグと読み違えて用語リンクが静かに止まる。frontmatter 経路(annotateGlossaryText)は
+ * 先にエスケープするので、ここに生の `<` `>` は来ない。
  * `<a\b` は単語境界を要求するので `p < .001` の `< ` には当たらない。
  */
 const STRONG_SPLIT = /(<\/?strong>|<a\b[^>]*>|<\/a>)/;
@@ -83,7 +84,8 @@ function linkTerms(segment: string, seen: Set<string>): string {
 /**
  * Markdown 強調 `**...**` を `<strong>` に変換した上で、
  * テキスト中の用語集用語の初出をツールチップリンクに変換する。
- * Astro テンプレートの set:html で使用。
+ * 入力を **HTML 断片** として扱い、そのまま set:html へ渡す(FAQ の回答文用)。
+ * テキストを渡すときは annotateGlossaryText を使う。
  */
 export function annotateGlossaryTerms(text: string): string {
   const seen = new Set<string>();
@@ -114,4 +116,16 @@ export function annotateGlossaryTerms(text: string): string {
       return insideLink ? part : linkTerms(part, seen);
     })
     .join("");
+}
+
+/**
+ * 入力を **テキスト** として扱う版(strategies の frontmatter 用)。`& < >` を
+ * エスケープしてから annotateGlossaryTerms に渡す。`&` は最初に置換する。後に回すと、
+ * `<` から作った `&lt;` まで `&amp;lt;` に二重にエスケープしてしまう。エスケープ後の文字列に `<` は
+ * 無いので、分割で区切りになるのは自分で作った `<strong>` だけになる。
+ */
+export function annotateGlossaryText(text: string): string {
+  return annotateGlossaryTerms(
+    text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  );
 }
