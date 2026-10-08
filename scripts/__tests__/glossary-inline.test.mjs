@@ -9,7 +9,7 @@
 // しか見ず、E2E も a11y 監査も属性値の中身までは届かない。この経路にはテストが 1 本も
 // 無く、壊れたことを観測できる口がどこにも無かった。
 //
-// 経路は 2 つあるので両方を通す。markdown 本文側(`remark-glossary.mjs`)は探索対象を
+// 経路は 3 つ(frontmatter のテキスト・FAQ の HTML 断片・markdown 本文)あるので、すべて通す。markdown 本文側(`remark-glossary.mjs`)は探索対象を
 // 元テキストの未処理の尾部に狭めており、同じ欠陥は持っていない。ここではその前提を
 // 固定するために一緒に測る(欠陥が無いことも回帰の対象)。
 import test from "node:test";
@@ -268,8 +268,8 @@ test("同じ用語は強調をまたいでも 1 回しかリンクされない",
 
 test("frontmatter 経路は入力をテキストとしてエスケープする", () => {
   // strategies の frontmatter は set:html で描画される。入力をそのまま HTML として
-  // 扱うと、タグや文字参照を書いた時点でページに入る(#760)。& を最初に置換しないと
-  // 既にある &lt; が &amp;lt; にならず、文字参照として解釈されてしまう。
+  // 扱うと、タグや文字参照を書いた時点でページに入る(#760)。& を後に回すと、
+  // < から作った &lt; まで &amp;lt; に二重にエスケープしてしまう。
   const [html] = render({
     text: ["<img src=x onerror=alert(1)>&lt;"],
     inline: [],
@@ -296,9 +296,11 @@ test("frontmatter 経路はエスケープしても強調と用語リンクを�
 
 test("set:html に渡す関数を描画箇所ごとに固定する", () => {
   // 関数の単体テストだけでは、strategies の呼び出しを annotateGlossaryTerms に戻しても
-  // 緑のまま通る(いまの frontmatter にはタグが 0 件なので、E2E も見た目も変わらない)。
+  // 緑のまま通る(2026-10-08 時点で frontmatter にタグは 0 件で、E2E も見た目も変わらなかった)。
   // set:html の全箇所を「ファイル|関数」で数え、期待と完全一致させる。新しい経路を
-  // 足したときも、ここを書き換えるまで赤になる。
+  // 足したときも、ここを書き換えるまで赤になる。`set:html = {` のような空白・改行入りも
+  // Astro は同じく描画するので数える。限界: 別名 import(`as annotateGlossaryText`)・
+  // 戻り値の連結・三項演算子の中の呼び出しは、字面では見分けられない。
   const SRC = path.join(REPO, "src");
   const files = readdirSync(SRC, { recursive: true })
     .filter((f) => String(f).endsWith(".astro"))
@@ -306,13 +308,16 @@ test("set:html に渡す関数を描画箇所ごとに固定する", () => {
   const counts = {};
   for (const file of files) {
     const text = readFileSync(file, "utf8");
-    for (const m of text.matchAll(/set:html=\{\s*([A-Za-z_$][\w$]*)\s*\(/g)) {
+    for (const m of text.matchAll(
+      /set:html\s*=\s*\{\s*([A-Za-z_$][\w$]*)\s*\(/g
+    )) {
       const key = `${path.relative(REPO, file)}|${m[1]}`;
       counts[key] = (counts[key] ?? 0) + 1;
     }
-    const all = text.match(/set:html=/g)?.length ?? 0;
-    const named = [...text.matchAll(/set:html=\{\s*[A-Za-z_$][\w$]*\s*\(/g)]
-      .length;
+    const all = text.match(/set:html\s*=/g)?.length ?? 0;
+    const named = [
+      ...text.matchAll(/set:html\s*=\s*\{\s*[A-Za-z_$][\w$]*\s*\(/g),
+    ].length;
     assert.equal(all, named, `関数を通さない set:html がある: ${file}`);
   }
 

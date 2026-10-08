@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 用語リンクの 2 経路にテキストを通して、結果をそのまま返すだけの薄いラッパー。
+// 用語リンクの 3 経路にテキストを通して、結果をそのまま返すだけの薄いラッパー。
 //
 //   - frontmatter 経路 … src/lib/glossary-inline.ts の annotateGlossaryText(テキストをエスケープしてから変換)
 //   - HTML 断片経路 … 同じファイルの annotateGlossaryTerms(FAQ の回答文)

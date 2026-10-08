@@ -120,8 +120,8 @@ export function annotateGlossaryTerms(text: string): string {
 
 /**
  * 入力を **テキスト** として扱う版(strategies の frontmatter 用)。`& < >` を
- * エスケープしてから annotateGlossaryTerms に渡す。`&` を最初に置換しないと、
- * 入力に書かれた `&lt;` が文字参照のまま残る。エスケープ後の文字列に `<` は
+ * エスケープしてから annotateGlossaryTerms に渡す。`&` は最初に置換する。後に回すと、
+ * `<` から作った `&lt;` まで `&amp;lt;` に二重にエスケープしてしまう。エスケープ後の文字列に `<` は
  * 無いので、分割で区切りになるのは自分で作った `<strong>` だけになる。
  */
 export function annotateGlossaryText(text: string): string {
