@@ -601,7 +601,7 @@ export const glossary: GlossaryTerm[] = [
     term: "EEG",
     en: "Electroencephalography",
     short: "頭皮上の電極から脳の電気活動をミリ秒単位で記録する脳波計測技術",
-    def: "脳波計測(Electroencephalography)。頭皮上の電極から脳の電気活動をミリ秒単位で記録する非侵襲的な技術。教育・学習科学の文脈では、書字・読字・暗算などの認知課題における脳ネットワーク活動の比較研究に使われる。例えば手書きとタイピングを高密度 EEG(256 チャネル)で比較した研究(van der Weel & van der Meer, *Frontiers in Psychology*, 2024)では、手書きの方が theta(3.5〜7.5 Hz)・alpha(8〜12.5 Hz)帯域で広範な脳結合が観察され、記憶形成や情報符号化に関連すると報告されている。",
+    def: "脳波計測(Electroencephalography)。頭皮上の電極から脳の電気活動をミリ秒単位で記録する非侵襲的な技術。教育・学習科学の文脈では、書字・読字・暗算などの認知課題における脳ネットワーク活動の比較研究に使われる。例えば手書きとタイピングを高密度 EEG(256 チャネル)で比較した研究(van der Weel & van der Meer, Frontiers in Psychology, 2024)では、手書きの方が theta(3.5〜7.5 Hz)・alpha(8〜12.5 Hz)帯域で広範な脳結合が観察され、記憶形成や情報符号化に関連すると報告されている。",
     category: "cognitive_science",
   },
   {
@@ -609,7 +609,7 @@ export const glossary: GlossaryTerm[] = [
     en: "Self-fulfilling prophecy",
     short:
       "誤った定義が新たな行動を引き起こし当初の認識を現実化させる現象(Merton 1948)",
-    def: "Robert K. Merton が 1948 年に *The Antioch Review* 8(2): 193-210「The Self-Fulfilling Prophecy」で定式化した概念。原典定義は「a false definition of the situation evoking a new behavior which makes the originally false conception come true.」(状況についての誤った定義が新たな行動を引き起こし、当初は誤っていた認識を現実のものにする)。教育心理学のピグマリオン効果と社会学のラベリング理論の共通祖先で、両者は他者の定義が自己を形作るという同じ枠組みの心理学的側面・社会学的側面を切り取ったもの。",
+    def: "Robert K. Merton が 1948 年に The Antioch Review 8(2): 193-210「The Self-Fulfilling Prophecy」で定式化した概念。原典定義は「a false definition of the situation evoking a new behavior which makes the originally false conception come true.」(状況についての誤った定義が新たな行動を引き起こし、当初は誤っていた認識を現実のものにする)。教育心理学のピグマリオン効果と社会学のラベリング理論の共通祖先で、両者は他者の定義が自己を形作るという同じ枠組みの心理学的側面・社会学的側面を切り取ったもの。",
     category: "foundations",
   },
   {
@@ -617,7 +617,7 @@ export const glossary: GlossaryTerm[] = [
     en: "Labeling theory",
     short:
       "逸脱は行為の性質ではなく社会が貼ったラベルとする社会学理論(Becker 1963)",
-    def: "Howard S. Becker が 1963 年の *Outsiders* で定式化した社会学理論。核心命題は「逸脱は行為それ自体の性質ではなく、社会が貼ったラベル」。誰かを逸脱者にするのは行為そのものではなく、その行為を逸脱と定義して反応する周囲の側、という構図。Becker の原典自体はマリファナ常用者とダンスミュージシャンが研究対象で、教育現場は直接扱われていない。教育場面への橋渡しは Rist (1970) *Harvard Educational Review* 40(3): 411-451 が代表で、入園 8 日目の社会階級ベース座席分けを自己成就的予言として観察した。",
+    def: "Howard S. Becker が 1963 年の Outsiders で定式化した社会学理論。核心命題は「逸脱は行為それ自体の性質ではなく、社会が貼ったラベル」。誰かを逸脱者にするのは行為そのものではなく、その行為を逸脱と定義して反応する周囲の側、という構図。Becker の原典自体はマリファナ常用者とダンスミュージシャンが研究対象で、教育現場は直接扱われていない。教育場面への橋渡しは Rist (1970) Harvard Educational Review 40(3): 411-451 が代表で、入園 8 日目の社会階級ベース座席分けを自己成就的予言として観察した。",
     category: "cognitive_science",
   },
   {
@@ -625,7 +625,7 @@ export const glossary: GlossaryTerm[] = [
     en: "Golem effect",
     short:
       "教師の負の期待が低期待児童をネガティブに扱う方向に作用する現象(Babad 1982)",
-    def: "教師の負の期待(low expectation)が、低期待児童に対する声かけ・課題提示・フィードバックをネガティブな方向に作用させる現象。ピグマリオン効果の対概念。Babad, Inbar, & Rosenthal (1982) *Journal of Educational Psychology* 74(4): 459-474 が、教師のバイアス傾向(高 vs 低)で分けた実験で「高バイアス教師は低期待児童をネガティブに扱う傾向が顕著」と観察し、dogmatism(独断性)との関連がもっとも強く確認された。ピグマリオン効果(正の期待)の方が再現性が乏しいのに対し、ゴーレム効果(負の期待)の方が頑健に検出されてきた歴史がある。",
+    def: "教師の負の期待(low expectation)が、低期待児童に対する声かけ・課題提示・フィードバックをネガティブな方向に作用させる現象。ピグマリオン効果の対概念。Babad, Inbar, & Rosenthal (1982) Journal of Educational Psychology 74(4): 459-474 が、教師のバイアス傾向(高 vs 低)で分けた実験で「高バイアス教師は低期待児童をネガティブに扱う傾向が顕著」と観察し、dogmatism(独断性)との関連がもっとも強く確認された。ピグマリオン効果(正の期待)の方が再現性が乏しいのに対し、ゴーレム効果(負の期待)の方が頑健に検出されてきた歴史がある。",
     category: "cognitive_science",
   },
 ];
