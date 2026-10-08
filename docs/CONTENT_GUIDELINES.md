@@ -434,7 +434,7 @@ Rule 1.2 が **引用内容の事実性** を扱うのに対し、本ルール�
 
 **章立て** — 見出しの並びが「書き手の思考フロー」ではなく「読者が読む順序」になっているか。
 
-**§9 / deslop-checklist との違い:** §9 は語彙と register を、[deslop-checklist.md](./deslop-checklist.md) は構造・修辞の定型を扱う。本 Rule はそのどちらでもなく、**書き手の内部が読者から見えているか**という軸で見る。§9 本体に自己言及の項は無く、重なるのは `style-dictionary.yaml` に載る 2 語だけ。
+**§9 / deslop-checklist との違い:** §9 は語彙と register を、[deslop-checklist.md](./deslop-checklist.md) は構造・修辞の定型と、Markdown の表示崩れの確認を扱う。本 Rule はそのどちらでもなく、**書き手の内部が読者から見えているか**という軸で見る。§9 本体に自己言及の項は無く、重なるのは `style-dictionary.yaml` に載る 2 語だけ。
 
 関連: Rule 1.8 / Rule 1.9 / §9 / [deslop-checklist.md](./deslop-checklist.md)
 
@@ -791,7 +791,7 @@ GitHub Actions で稼働中の自動化:
 
 本サイトの主読者は **日本の小学校教員** です。母語で読んで違和感なく理解でき、職員室での会話でそのまま話題にできる文章を目指す。翻訳調・過度な抽象名詞・ビジネス用語は、エビデンスサイトとしての真摯さを損なう。
 
-> 本節は語彙・register（直訳調・硬さ・ビジネス用語）を扱う。**構造・修辞レベルの定型的・機械的な言い回し**（擬人化主語・二項対比の連打・中身のない分詞締め・まとめの定型・太字始まりの箇条書き 等）は [deslop-checklist.md](./deslop-checklist.md) を参照。
+> 本節は語彙・register（直訳調・硬さ・ビジネス用語）を扱う。**構造・修辞レベルの定型的・機械的な言い回し**（擬人化主語・二項対比の連打・中身のない分詞締め・まとめの定型・太字始まりの箇条書き 等）と、太字が閉じないなどの Markdown の表示崩れは [deslop-checklist.md](./deslop-checklist.md) を参照。
 
 ### 避けるべきパターン
 
