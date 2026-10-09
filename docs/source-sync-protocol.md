@@ -127,8 +127,8 @@ EEF 側で値が固定され、更新される経路が無い出典(strand が�
 ### 対象数
 
 - `source: hattie` 1 件(teacher-credibility)
-- `evidence.hattie` 併記分(`source: hattie` 以外から 35 件)
-- 合計: 36 件(2026-09-27 の `check:source-sync` 実測)
+- `evidence.hattie` 併記分(`source: hattie` 以外から 30 件)
+- 合計: 31 件(2026-10-08 の `check:source-sync` 実測。2026-09-27 の 36 件から、Hattie 以外の研究や出典の無い推定を載せていた 5 ページの欄を外して減った)
 
 ### 主情報源の優先順位
 
