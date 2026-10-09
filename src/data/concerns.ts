@@ -145,7 +145,7 @@ export const concernCategories: ConcernCategory[] = [
         slug: "special-needs",
         title: "通常学級の特別支援を要する子(8.8%)",
         diagnosis:
-          "『特別な指導』より、質の高い通常授業(足場かけ・フィードバック・UDL・メタ認知)が基盤。そのうえで個別の計画を重ねる。",
+          "『特別な指導』より、質の高い通常授業(足場かけ・フィードバック・メタ認知)が基盤。そのうえで個別の計画を重ねる。",
         strategies: [
           "scaffolding",
           "feedback",
