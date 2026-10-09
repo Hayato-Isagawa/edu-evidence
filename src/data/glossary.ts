@@ -419,7 +419,7 @@ export const glossary: GlossaryTerm[] = [
     term: "UDL",
     en: "Universal Design for Learning",
     short: "学び方の多様さを前提に授業を設計する枠組み(米国の CAST が提唱)",
-    def: "Universal Design for Learning。米国の教育研究組織 CAST(旧 Center for Applied Special Technology)が提唱する、学び方の多様さを前提に授業を設計する枠組みで、多様な表現・行動・動機づけの手段を用意することを原則とする。日本で広がる「授業のユニバーサルデザイン(授業UD)」は視覚化・焦点化・共有化を柱とする授業設計の手法で、本サイトでは別のものとして扱う。",
+    def: "Universal Design for Learning。米国の教育研究組織 CAST(旧 Center for Applied Special Technology)が提唱する、学び方の多様さを前提に授業を設計する枠組みで、取り組み・表現・行動と表出のそれぞれに多様な手段を用意することを原則とする。日本で広がる「授業のユニバーサルデザイン(授業UD)」は視覚化・焦点化・共有化を柱とする授業設計の手法で、本サイトでは別のものとして扱う。",
     category: "pedagogy",
   },
   {

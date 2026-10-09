@@ -83,7 +83,7 @@ export function buildFaqSections(
         },
         {
           q: "特別支援教育にも当てはまりますか?",
-          a: `通常学級での指導を主に想定していますが、特別支援教育でも多くが参照できます。例えば <a href="/strategies/scaffolding" class="link-underline text-accent">足場かけ(${months("scaffolding")})</a>、<a href="/strategies/feedback" class="link-underline text-accent">フィードバック(${months("feedback")})</a>、<a href="/strategies/one-to-one-tuition" class="link-underline text-accent">個別指導(${months("one-to-one-tuition")})</a> は、通常学級の 8.8% とされる特別なニーズを持つ子どもにも有効と EEF の SEND ガイダンスで位置づけられています。`,
+          a: `通常学級での指導を主に想定していますが、特別支援教育でも多くが参照できます。英国 EEF の特別支援のガイダンス(Special Educational Needs in Mainstream Schools)は、特別なニーズのある子どもにとっても質の高い通常授業が出発点だとしています。重視したい指導法には <a href="/strategies/scaffolding" class="link-underline text-accent">足場かけ(${months("scaffolding")})</a> や <a href="/strategies/metacognition" class="link-underline text-accent">メタ認知の方略(${months("metacognition")})</a> を挙げています。そのうえで、必要な子どもには、慎重に選んだ <a href="/strategies/one-to-one-tuition" class="link-underline text-accent">個別指導(${months("one-to-one-tuition")})</a> などの少人数・一対一の介入で補うよう勧めています。日本では、小・中学校の通常学級で学習面や行動面で著しい困難を示すとされる子どもが 8.8% と推計されています(文部科学省 2022、<a href="/columns/special-needs-8-8-percent" class="link-underline text-accent">解説コラム</a>)。`,
         },
         {
           q: "カテゴリ(指導法 / 認知科学 / 制度・環境 等)はどう違うのですか?",
