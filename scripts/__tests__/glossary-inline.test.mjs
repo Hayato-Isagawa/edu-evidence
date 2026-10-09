@@ -372,15 +372,36 @@ test("FAQ の回答文は許可したタグだけを含み、差し込む値は�
 test("frontmatter 経路でも用語集の全用語がリンクされる", () => {
   // frontmatter 経路は先に & < > をエスケープするので、これらを含む用語は
   // 元の字面のままでは一致せず、黙ってリンクされなくなる。用語ごとに通して確かめる。
+  // リンクの文字列だけでなく、ツールチップ(data-tip)とリンク先(href のアンカー)が
+  // その用語自身のものであることも見る(別の用語のリンクに化けていないこと)。
   const { terms } = base;
   assert.ok(terms.length > 0, "用語集が空。検査対象 0 件でも緑になる");
-  const { text } = render({ text: terms, inline: [], markdown: [] });
+  const { text, glossary: entries } = render({
+    text: terms,
+    inline: [],
+    markdown: [],
+    glossary: true,
+  });
   const esc = (s) =>
     s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const escAttr = (s) =>
+    s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  const shortOf = new Map(entries.map((entry) => [entry.term, entry.short]));
+  const hrefOf = (term) =>
+    `href="/guide/glossary#${encodeURIComponent(
+      term.replace(/[()（）]/g, "").replace(/\s+/g, "-")
+    )}"`;
   const missing = terms.filter(
-    (term, i) => !text[i].includes(`>${esc(term)}</a>`)
+    (term, i) =>
+      !text[i].includes(`>${esc(term)}</a>`) ||
+      !text[i].includes(`data-tip="${escAttr(shortOf.get(term))}"`) ||
+      !text[i].includes(hrefOf(term))
   );
-  assert.deepEqual(missing, [], `リンクされない用語:\n${missing.join("\n")}`);
+  assert.deepEqual(
+    missing,
+    [],
+    `自分自身へのリンクにならない用語(リンク文字列・data-tip・href のどれかが違う):\n${missing.join("\n")}`
+  );
 });
 
 test("HTML を文字列のまま差し込む API を使わない", () => {
@@ -397,9 +418,10 @@ test("HTML を文字列のまま差し込む API を使わない", () => {
     ".mts",
     ".html",
     ".md",
+    ".svg",
   ];
   const banned =
-    /innerHTML|outerHTML|insertAdjacentHTML|dangerouslySetInnerHTML|document\.write|createContextualFragment|setHTMLUnsafe|srcdoc/;
+    /innerHTML|outerHTML|insertAdjacentHTML|dangerouslySetInnerHTML|document\.write|createContextualFragment|setHTMLUnsafe|parseHTMLUnsafe|srcdoc|DOMParser/;
   const files = ["src", "public"].flatMap((dir) =>
     readdirSync(path.join(REPO, dir), { recursive: true })
       .map(String)
