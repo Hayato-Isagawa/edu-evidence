@@ -15,14 +15,17 @@
 // 何が正しいかの判断はすべて呼び出し側のテストが持つ。ここに期待値を書くと、
 // テストと実装の間にもう 1 つ古くなる場所が増える。
 //
-// 入力: { "text": string[], "inline": string[], "markdown": string[] }
-// 出力: { "text": string[], "inline": string[], "markdown": string[], "terms": string[] }
+// 入力: { "text": string[], "inline": string[], "markdown": string[], "faqLabel"?: string, "glossary"?: boolean }
+// 出力: { "text": string[], "inline": string[], "markdown": string[], "terms": string[], "faq": string[], "glossary": object[] }
+// glossary: true を渡すと、用語集のエントリをそのまま返す。
+// faqLabel を渡すと、FAQ の回答文(src/data/faq.ts)を months がその値を返す形で組み立てて返す。
 import {
   annotateGlossaryTerms,
   annotateGlossaryText,
 } from "../../../src/lib/glossary-inline.ts";
 import { remarkGlossary } from "../../../src/plugins/remark-glossary.mjs";
 import { glossary } from "../../../src/data/glossary.ts";
+import { buildFaqSections } from "../../../src/data/faq.ts";
 
 /**
  * markdown 本文経路。段落 1 つだけの mdast に通し、描画される順に連結して返す。
@@ -50,5 +53,12 @@ process.stdout.write(
     inline: (input.inline ?? []).map(annotateGlossaryTerms),
     markdown: (input.markdown ?? []).map(renderMarkdown),
     terms: glossary.map((entry) => entry.term),
+    glossary: input.glossary ? glossary : [],
+    faq:
+      input.faqLabel === undefined
+        ? []
+        : buildFaqSections(() => input.faqLabel).flatMap((section) =>
+            section.items.map((item) => item.a)
+          ),
   })
 );

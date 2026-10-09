@@ -547,7 +547,7 @@ export const glossary: GlossaryTerm[] = [
     en: "CAST (originally Center for Applied Special Technology)",
     short:
       "UDLフレームを開発した米国の教育研究NPO。1984年設立、現在はCASTのみで運営",
-    def: "米国マサチューセッツ州 Wakefield 拠点の教育研究 NPO。1984 年設立で、設立時正式名は `Center for Applied Special Technology`(現在は CAST のみで運営)。UDL(Universal Design for Learning)フレームワークの開発元として知られ、すべての学習者がアクセス可能な教育環境の設計を研究・推進している。本サイトの UDL def もこの組織の枠組みを参照している。",
+    def: "米国マサチューセッツ州 Wakefield 拠点の教育研究 NPO。1984 年設立で、設立時正式名は Center for Applied Special Technology(現在は CAST のみで運営)。UDL(Universal Design for Learning)フレームワークの開発元として知られ、すべての学習者がアクセス可能な教育環境の設計を研究・推進している。本サイトの UDL def もこの組織の枠組みを参照している。",
     category: "foundations",
   },
   {
@@ -594,7 +594,7 @@ export const glossary: GlossaryTerm[] = [
     term: "COCOLOプラン",
     en: "Comfortable, Customized and Optimized Locations of learning",
     short: "文科省2023年3月公表の不登校対策。3つの柱で学びの場を保障",
-    def: "文部科学省が 2023 年 3 月に公表した不登校対策プラン「誰一人取り残されない学びの保障に向けた不登校対策」の通称。COCOLO は `Comfortable, Customized and Optimized Locations of learning` の頭文字。3 つの柱:(1)すべての不登校児童生徒に学びの場を保障し本人が望むときに学べるようにする、(2)チーム学校体制で児童生徒の小さな SOS を早期に察知する、(3)全ての児童生徒が安心して学べる「みんなにとって安心して学べる学校」づくり。2022 年度に小中の不登校が約 30 万人に達した状況を背景とする。",
+    def: "文部科学省が 2023 年 3 月に公表した不登校対策プラン「誰一人取り残されない学びの保障に向けた不登校対策」の通称。COCOLO は Comfortable, Customized and Optimized Locations of learning の頭文字。3 つの柱:(1)すべての不登校児童生徒に学びの場を保障し本人が望むときに学べるようにする、(2)チーム学校体制で児童生徒の小さな SOS を早期に察知する、(3)全ての児童生徒が安心して学べる「みんなにとって安心して学べる学校」づくり。2022 年度に小中の不登校が約 30 万人に達した状況を背景とする。",
     category: "japan_context",
   },
   {
