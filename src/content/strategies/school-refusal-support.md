@@ -69,8 +69,8 @@ culturalContext: |
 ### 海外の研究
 
 - Maynard, B. R., Heyne, D., Brendel, K. E., Bulanda, J. J., Thompson, A. M., & Pigott, T. D. (2018). [Treatment for School Refusal Among Children and Adolescents: A Systematic Review and Meta-Analysis](https://doi.org/10.1177/1049731515598619). *Research on Social Work Practice*, 28(1), 56–67. — 心理社会的治療(大半が認知行動療法)の RCT・準実験 8 件(435 名)を統合したメタ分析。出席は有意に改善(g = 0.54)するが、不安には短期的な有意効果が見られなかった。
-- King, N. J., Heyne, D., & Ollendick, T. H. (2005). Cognitive-behavioral treatments for anxiety and phobic disorders in children and adolescents: A review. *Behavioral Disorders*, 30(3), 241–257. — 不登校を含む不安・恐怖症への認知行動療法の効果をレビュー。
-- Lyon, A. R., & Cotler, S. (2007). Toward reduced bias and increased utility in the assessment of school refusal behavior. *Psychology in the Schools*, 44(6), 551–565. — 不登校評価の方法論的バイアスに関するレビュー。
+- King, N. J., Heyne, D., & Ollendick, T. H. (2005). [Cognitive-behavioral treatments for anxiety and phobic disorders in children and adolescents: A review](https://doi.org/10.1177/019874290503000304). *Behavioral Disorders*, 30(3), 241–257. — 不登校を含む不安・恐怖症への認知行動療法の効果をレビュー。
+- Lyon, A. R., & Cotler, S. (2007). [Toward reduced bias and increased utility in the assessment of school refusal behavior: The case for diverse samples and evaluations of context](https://doi.org/10.1002/pits.20247). *Psychology in the Schools*, 44(6), 551–565. — 不登校評価の方法論的バイアスに関するレビュー。
 - Education Endowment Foundation & Youth Endowment Fund (2026). [Four new evaluations of programmes and approaches designed to improve attendance and prevent persistent absence](https://educationendowmentfoundation.org.uk/news/evaluations-improve-attendance-and-prevent-persistent-absence). — 出席・家庭連絡を担う職員の配置(独立評価機関 ICF が実施、中等学校・約 50 万人/621 校)を含む 4 つの評価。専門職の配置だけでは持続的な欠席にほぼ効果がなく(各期間で約 0.1 パーセントポイント、確実性は中〜高)、役割や仕組みより関係性・文化・個別支援の質が鍵と結論。
 
 ### 日本の研究・公式資料

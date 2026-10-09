@@ -83,7 +83,7 @@ export function buildFaqSections(
         },
         {
           q: "特別支援教育にも当てはまりますか?",
-          a: `通常学級での指導を主に想定していますが、特別支援教育でも多くが参照できます。例えば <a href="/strategies/scaffolding" class="link-underline text-accent">足場かけ(${months("scaffolding")})</a>、<a href="/strategies/feedback" class="link-underline text-accent">フィードバック(${months("feedback")})</a>、<a href="/strategies/one-to-one-tuition" class="link-underline text-accent">個別指導(${months("one-to-one-tuition")})</a>、<a href="/strategies/universal-design-learning" class="link-underline text-accent">授業のユニバーサルデザイン(${months("universal-design-learning")})</a> は、通常学級の 8.8% とされる特別なニーズを持つ子どもにも有効と EEF の SEND ガイダンスで位置づけられています。`,
+          a: `通常学級での指導を主に想定していますが、特別支援教育でも多くが参照できます。例えば <a href="/strategies/scaffolding" class="link-underline text-accent">足場かけ(${months("scaffolding")})</a>、<a href="/strategies/feedback" class="link-underline text-accent">フィードバック(${months("feedback")})</a>、<a href="/strategies/one-to-one-tuition" class="link-underline text-accent">個別指導(${months("one-to-one-tuition")})</a> は、通常学級の 8.8% とされる特別なニーズを持つ子どもにも有効と EEF の SEND ガイダンスで位置づけられています。`,
         },
         {
           q: "カテゴリ(指導法 / 認知科学 / 制度・環境 等)はどう違うのですか?",
