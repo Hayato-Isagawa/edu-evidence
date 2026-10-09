@@ -56,6 +56,7 @@ culturalContext: |
 - 授業UDそのものを対象にしたメタ分析は確認できていません
 - CAST の UDL については、通常の指導と比べた学力を就学前から成人まで統合したメタ分析(King-Sears et al. 2023、20 研究)が、中程度の正の効果(g = 0.43)を報告しています。ただし、小学校・中等教育の通常の児童生徒を対象に、12 週以上・対面で実施した研究に絞ると 2 研究しか残らないとする批判的な検討(Bissonnette 2026、査読なし)もあります。それより前のメタ分析(Capp 2017)は、学習プロセスの改善を示唆しつつ、学業成果への効果は実証されていないとしていました。2 つのメタ分析はどちらも授業UDそのものの検証ではなく、UDL は授業UDとは起源が異なるため、本サイトでは授業UDの月数には換算していません
 - 日本国内では実践報告が中心で、学力への効果を統制群と比べて検証した研究は確認できていません
+- 本サイトはこのページの効果量を「測定なし」(授業UDそのものの学力効果を月数で示せる研究が確認できていない)、エビデンスの強さを★2 として独自に評価しています。効果が無いと確かめられたのではなく、確かなエビデンスが無いという意味です
 
 ## 注意したいこと
 
@@ -70,16 +71,16 @@ culturalContext: |
 - Capp, M. J. (2017). [The effectiveness of universal design for learning: A meta-analysis of literature between 2013 and 2016](https://doi.org/10.1080/13603116.2017.1325074). *International Journal of Inclusive Education*, 21(8), 791–807. — CAST の UDL の実証研究 18 件のメタ分析。学業成果への効果は実証されていないと結論。
 - King-Sears, M. E., et al. (2023). [Achievement of learners receiving UDL instruction: A meta-analysis](https://doi.org/10.1016/j.tate.2022.103956). *Teaching and Teacher Education*, 122, 103956. — UDL に基づく指導と通常の指導を比べた学力のメタ分析(20 研究・就学前〜成人)。中程度の正の効果(g = 0.43)を報告。
 - Bissonnette, S. (2026). [UDL et réussite scolaire : Analyse critique de la méta-analyse de King-Sears et ses collègues (2023)](https://web.archive.org/web/20260614201656/https://r-libre.teluq.ca/3987/1/UDL.pdf). カナダの大学の機関リポジトリで公開. — 上のメタ分析を、小学校・中等教育の通常の児童生徒・12 週以上・対面の研究に絞って検討した批判的な分析(査読なし)。条件を満たすのは 20 研究のうち 2 研究だとしている。
-- CAST (2018). [*Universal Design for Learning Guidelines version 2.2*](https://udlguidelines.cast.org/). — UDL(学びのユニバーサルデザイン)の国際的な枠組み。多様な表現手段・行動手段・動機づけ手段の提供を推奨。
-
-### 日本の研究・公式資料
-
-- 桂聖 (2011). 『授業のユニバーサルデザイン入門：どの子も楽しく「わかる・できる」授業のつくり方』東洋館出版社. — 日本における授業UD運動の出発点となった書籍。視覚化・焦点化・共有化の3原則を提唱。
-- 日本授業UD学会 (編) (2020). 『授業のユニバーサルデザイン Vol.12』東洋館出版社. — 授業UDの最新の実践事例と研究を集約した論集。
+- CAST (2024). [*CAST Universal Design for Learning Guidelines version 3.0*](https://udlguidelines.cast.org/). — UDL(学びのユニバーサルデザイン)の国際的な枠組み。取り組み(engagement)・表現(representation)・行動と表出(action & expression)のそれぞれに多様な手段を用意することを原則とする。
 
 ### 注記
 
 授業UDに特化した正式なメタ分析は確認できていません。CAST の UDL については、学力に中程度の正の効果を報告したメタ分析(King-Sears et al. 2023)と、学業成果への効果は実証されていないとした以前のメタ分析(Capp 2017)があります。ただし、どちらも授業UDそのものの検証ではなく、授業UDとは起源が異なるため、月数には換算していません。授業UDそのものの学力への効果を月数で示せる研究は確認できていないため、効果量は「測定なし」としています。日本国内では実践報告が中心であり、授業UDの効果を検証したRCTは確認できていません。
+
+### 関連読み物
+
+- 『[授業のユニバーサルデザイン入門 — どの子も楽しく「わかる・できる」授業のつくり方](https://ndlsearch.ndl.go.jp/books/R100000002-I025381817)』 小貫悟・桂聖 (2014), 東洋館出版社. — 授業UDの考え方と授業づくりの入門書。
+- 『[多様な学び方が生きる授業 — 学びのエキスパートを育てるUDL](https://ci.nii.ac.jp/ncid/BC04620195)』 桂聖ほか編著 (2020), 東洋館出版社(授業のユニバーサルデザイン Vol.12). — UDL を特集の一つに取り上げた巻。
 
 ## 関連する学習指導要領
 
