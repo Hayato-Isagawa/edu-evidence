@@ -52,6 +52,7 @@ culturalContext: |
 
 - 教員の燃え尽きは、子どもとの関係性・学級経営の質に負の影響を持つことが報告されている
 - 教員の総労働時間そのものが学力を動かすことを示した研究は見当たらない。英国教育省が公表した業務削減研究の統合(Churches 2020、112 の効果量)は、業務を減らした期間に学力が下がらず、小さな正の効果(d = 0.22)があったと報告している。ただし教員自身が設計した小規模研究の集まりで独立評価を経ておらず、研究間のばらつきも大きい(I² = 92.7%)
+- 生成 AI を授業準備に使うと準備の時間が減るかを、英国の EEF が 2 つの無作為化比較試験で調べている。Year 7〜8〔11〜13 歳〕の理科では、ChatGPT を使った教員の準備時間は使わなかった教員の 69% だった(週 81.5 分に対して 56.2 分)。Year 3〜6〔7〜11 歳〕の担任がイングランドのカリキュラムに沿った AI の授業準備ツール(Aila)を使った試験では 76% だった(週 3.3 時間に対して 2.5 時間)。どちらも、作り方を伏せた審査員の評価で教材の質が下がった様子は見られなかった。ただし時間は教員自身が毎週記録した自己申告で、子どもの学力は測っていない。Aila を使ったのは平均で授業の 7% にとどまり、この試験では比べた側の教員もほかの生成 AI を使えた
 - OECD が TALIS 2018 と PISA 2018 を結合した分析では、学校平均で採点・添削に充てる時間が長いほど生徒の成績が高い傾向が、参加国平均といくつかの国で見られた(総労働時間・授業時間・授業準備の時間を統制した上での関連)。OECD 自身は、競争的な学校ほどテストと採点が多いという逆方向の因果もありうると注記している。対象は 15 歳で、小学校の知見ではない
 
 ## 注意したいこと
@@ -66,6 +67,8 @@ culturalContext: |
 ### 海外の研究
 
 - [Supporting teachers through the school workload reduction toolkit](https://assets.publishing.service.gov.uk/media/5f08d616d3bf7f0416418520/Supporting_teachers_through_the_school_workload_reduction_toolkit_March_2020.pdf). Churches, R., Education Development Trust・英国教育省 (2020). — 業務削減の取り組みと児童生徒の学力・進捗の関係を 112 の効果量で統合。学力は下がらず、小さな正の効果(d = 0.22)。教員自身が設計した研究の集まりで独立評価は経ていない。
+- [ChatGPT in Lesson Preparation: A Teacher Choices Trial](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/choices-in-edtech-using-generative-ai-chatgpt-for-ks3-science-lesson-preparation-2024-teacher-choices-trial). Roy, P., Poet, H., Staunton, R., Aston, K., & Thomas, D., Education Endowment Foundation (2024). — Year 7〜8 の理科教員を、学校単位で ChatGPT を使う群と生成 AI を使わない群に無作為に割り付けた試験(68 校 259 人、評価は NFER)。試験の後半 5 週の授業準備時間は使わない群の 69%(95% 信頼区間 53〜90%)で、教材の質に差は見られなかった。時間は教員の自己申告。
+- [Lesson planning using AI lesson assistant, Aila: A Teacher Choices Trial](https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/aila-teacher-choices-trial). Roy, P., Poet, H., Staunton, R., Aston, K., Thomas, D., & Styles, B., Education Endowment Foundation (2026). — Year 3〜6 の担任を、学校単位で Aila を使う群と使わない群に無作為に割り付けた 10 週間の試験(108 校 464 人、評価は NFER)。授業準備時間は使わない群の 76%(95% 信頼区間 64〜89%)で、教材の質は劣らなかった。両群ともほかの生成 AI は使えた。時間は教員の自己申告。
 - [Positive, High-achieving Students? What Schools and Teachers Can Do](https://www.oecd.org/content/dam/oecd/en/publications/reports/2021/02/positive-high-achieving-students_6e6b7c03/3b9551db-en.pdf). OECD (2021), *TALIS*. — TALIS 2018 と PISA 2018 を結合した分析。学校平均の採点・添削時間と生徒の成績の関連を報告する一方、逆方向の因果もありうると注記。
 - Madigan, D. J., & Kim, L. E. (2021). Does teacher burnout affect students? A systematic review of its association with academic achievement and student-reported outcomes. *International Journal of Educational Research*, 105, 101714. — 教員のバーンアウトと児童生徒の学業成果・学習動機の関連を調べた 14 研究の系統的レビュー(教員 5,311 名・児童生徒 50,616 名)。関連は『予備的』で、より頑健な研究設計が必要とされる。
 - OECD TALIS 2018 Results. — 加盟国の教員の労働時間・職務満足度を比較。日本の教員労働時間は最長レベル。
