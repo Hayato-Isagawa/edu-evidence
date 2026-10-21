@@ -45,6 +45,9 @@ mise install
 # 依存関係のインストール(ロックから厳密に復元)
 npm ci
 
+# Git フックを有効化(clone ごとに 1 回。.npmrc の ignore-scripts=true により npm ci では有効にならない)
+npm run prepare
+
 # 開発サーバー起動
 npm run dev
 

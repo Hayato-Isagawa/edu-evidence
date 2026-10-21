@@ -116,12 +116,12 @@ git switch -c <type>/<short-description> --no-track origin/main
 # 例: docs/jigsaw-update, fix/og-image-bug, chore/deps-bump
 ```
 
-この規約は二段のフックで自動的に強制されます。
+この規約は二段のフックで強制されます。
 
 - **Claude Code 経由の編集**: `.claude/hooks/branch-guard.sh` が `Edit` / `Write` / `MultiEdit` の前に発動し、現ブランチが `main` / `master` のときに編集を拒否。このリポの `.claude/settings.json` には配線していないため、発火するのはメンテナの環境だけ(グローバルなディスパッチャから呼ぶ)
 - **任意のツール経由のコミット**: `.githooks/pre-commit` が `main` / `master` への直接コミットを拒否
 
-`.githooks/` は `npm install` 時に `package.json` の `prepare` スクリプトで自動的に有効化されるため、特別なセットアップは不要です。手動で確認したい場合:
+`.githooks/` は clone ごとに 1 回、`npm run prepare` で有効にしてください(`package.json` の `prepare` スクリプトが `core.hooksPath` を設定します)。`.npmrc` の `ignore-scripts=true` により `npm install` / `npm ci` は `prepare` を走らせないため、インストールだけでは有効になりません。確認:
 
 ```bash
 git config core.hooksPath        # .githooks と表示されれば有効
@@ -133,6 +133,7 @@ git config core.hooksPath        # .githooks と表示されれば有効
 
 ```bash
 npm install
+npm run prepare            # Git フックを有効化(clone ごとに 1 回。上記「ブランチ運用」)
 npm run dev                # 開発サーバー
 npm run build              # ビルド
 npm run test:e2e           # E2E テスト

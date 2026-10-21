@@ -15,6 +15,7 @@ Node.js のバージョンは `.tool-versions` で固定している(`nodejs 24.
 ```bash
 mise install               # .tool-versions に従って Node 24 を導入
 npm ci                     # 依存をロックから復元
+npm run prepare            # Git フックを有効化(clone ごとに 1 回。.npmrc の ignore-scripts=true で npm ci は prepare を走らせない)
 ```
 
 `package.json` の `engines.node` は `>=24.0.0`。CI やエディタ側もこれに合わせる。
