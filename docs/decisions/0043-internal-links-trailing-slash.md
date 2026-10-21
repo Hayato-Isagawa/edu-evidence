@@ -8,7 +8,7 @@
 
 ページは `/strategies/x/` で配信され、canonical・sitemap・RSS もスラッシュ付きで出ている。一方、サイト内リンクはほぼすべてスラッシュ無しで書かれていた(ヘッダー・フッター・カード、本文 md の 230 件 / 51 ファイル、`remark-strategy-ref` の `/strategies/${slug}`、用語リンクの `/guide/glossary#…`)。スラッシュ無しの URL は、Cloudflare の静的アセット配信が 307 で転送する。
 
-JSON-LD も同じだった。戦略・コラムの `url` / `mainEntityOfPage` / パンくずの `item`、著者の `url`、FAQPage の回答文の中のリンクがスラッシュ無しだった(ADR 0039 の帰結に観察として残っている)。
+JSON-LD も同じだった。戦略・コラムの `url` / `mainEntityOfPage` / パンくずの `item`、著者の `url`、FAQPage の回答文の中のリンクがスラッシュ無しだった(このうち `url` / `mainEntityOfPage` は、ADR 0039 の帰結に観察として残っている)。
 
 2026-10-21 に Search Console を読んだところ、「クロール済み - インデックス未登録」にスラッシュ無しの URL が 11 件あった。URL 検査でも、参照元ページにスラッシュ無しの URL が出ていた。ただし、登録済みのページの参照元もスラッシュ無しだったので、この違いが登録されるかどうかを分けているとは言えない。
 
@@ -29,6 +29,6 @@ JSON-LD も同じだった。戦略・コラムの `url` / `mainEntityOfPage` / 
 
 - 本番の HTML の内部リンクと JSON-LD の URL が canonical と一致する。インデックス登録に効くかは確かめていない
 - dev サーバーの HTML はスラッシュ無しのまま出る(`astro:build:done` は dev では走らない)。E2E と VRT はビルド済みの dist を見るので、検査は本番と同じ HTML に当たる
-- 回帰の観測点は 3 つ。純関数の規則は `scripts/__tests__/trailing-slash-links.test.mjs`、登録が外れた場合は `e2e/navigation.spec.ts` の dist 全体の走査、JSON-LD は `e2e/jsonld.spec.ts`
+- 回帰の観測点は 3 つ。純関数の規則は `scripts/__tests__/trailing-slash-links.test.mjs`、登録が外れた場合と JSON-LD の中の URL は `e2e/navigation.spec.ts` の dist 全体の走査、戦略・コラムの `Article.url` は `e2e/jsonld.spec.ts` でも見る
 - 扱わないもの: 検索フォームの `action="/search"`、外から入るスラッシュ無しのリンクに対する 307(301 にするかは別に決める)
 - ADR 0039 の帰結にある「`Article.url` / `mainEntityOfPage` は末尾スラッシュ無し」は、本 ADR の時点で当てはまらなくなる。ADR は不変とする運用なので、0039 は書き換えない
