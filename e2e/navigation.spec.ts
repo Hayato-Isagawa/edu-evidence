@@ -61,6 +61,10 @@ test.describe("ナビゲーション", () => {
     await page.waitForURL(/\/search\/\?q=/);
     expect(page.url()).toContain("/search/");
     expect(page.url()).toContain("q=%E3%83%A1%E3%82%BF%E8%AA%8D%E7%9F%A5");
+    // 検索ページ(src/pages/search.astro)が ?q= を読んで検索欄に入れたことまで見る
+    await expect(page.locator(".pagefind-ui__search-input")).toHaveValue(
+      "メタ認知"
+    );
   });
 
   test("ヘッダーが sticky で表示される", async ({ page }) => {
@@ -117,7 +121,8 @@ test.describe("ナビゲーション", () => {
 // ページは `/x/` で配信され、スラッシュ無しは 307 で転送される。ビルド後の書き換え
 // (`src/plugins/trailing-slash-links.mjs`。ADR 0043)が登録から外れても描画は変わらないので、
 // dist の全 HTML を fs で走査し、実在するページをスラッシュ無しで指す内部リンクが無いことを見る。
-// フォームの action はプラグインの対象外でソース側で直しているので、href と併せて見る。
+// 属性は名前で絞らず、値が `/` で始まるものを全部見る(フォームの action のように、プラグインの
+// 対象外でソース側で直しているものもあるため)。
 // JSON-LD の中の URL(自サイトの絶対 URL と、FAQ の回答文に入る href)はプラグインの対象外で
 // ソース側で直しているので、ここで併せて見る。判定はプラグインの関数を使わずにここで書く
 test("内部リンクがページをスラッシュ付きで指す", () => {
@@ -147,7 +152,7 @@ test("内部リンクがページをスラッシュ付きで指す", () => {
     }
     if (pages.has(decoded)) offenders.push(`${where}: ${p}`);
   };
-  const hrefRe = /\s(?:href|action)="(\/(?!\/)[^"?#]*)/g;
+  const attrRe = /\s[a-zA-Z][\w:-]*="(\/(?!\/)[^"?#]*)/g;
   const strings = (v: unknown): string[] =>
     typeof v === "string"
       ? [v]
@@ -157,14 +162,14 @@ test("内部リンクがページをスラッシュ付きで指す", () => {
   for (const file of files) {
     const where = path.relative(distRoot, file);
     const html = fs.readFileSync(file, "utf8");
-    for (const m of html.matchAll(hrefRe)) check(where, m[1]);
+    for (const m of html.matchAll(attrRe)) check(where, m[1]);
     for (const block of html.matchAll(
       /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g
     )) {
       for (const v of strings(JSON.parse(block[1]))) {
         if (v.startsWith("https://edu-evidence.org/"))
           check(`${where} JSON-LD`, new URL(v).pathname);
-        for (const m of v.matchAll(hrefRe)) check(`${where} JSON-LD`, m[1]);
+        for (const m of v.matchAll(attrRe)) check(`${where} JSON-LD`, m[1]);
       }
     }
   }
