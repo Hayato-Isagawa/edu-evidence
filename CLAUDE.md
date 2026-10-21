@@ -25,7 +25,7 @@ npm run prepare            # Git フックを有効化(clone ごとに 1 回。.
 ```bash
 npm run dev                # 開発サーバー(localhost:4322。ファミリー各リポで固定・4321 は未設定プロジェクト用に空けている)
 npm run build              # 本番ビルド(OG画像74枚 + Pagefindインデックス生成、約2分)
-npm run test:e2e           # Playwright E2Eテスト(65テスト・12ファイル=`playwright test --list` の数、ビルド後に実行)
+npm run test:e2e           # Playwright E2Eテスト(66テスト・12ファイル=`playwright test --list` の数、ビルド後に実行)
 npm run vrt                # ビジュアルリグレッションテスト(現 dist を撮影・比較。権威ある比較は CI、後述)
 npm run a11y:baseline      # axe-core で a11y 違反一覧を再生成(dev 起動後 `node scripts/a11y-baseline.mjs http://localhost:<port>`)
 npm run lint               # oxlint(correctness ルール。warning でも止める。.astro は frontmatter と <script> を見る)
@@ -116,7 +116,7 @@ fixture を一時ディレクトリに作って判定器を spawn し、fail 1 �
 **残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 102 と `test:scripts` の 66 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 102 と `test:scripts` の 77 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 82 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 90 と離れていてよい。
 
@@ -148,7 +148,7 @@ npm script と、もう一方の口にある定数の両方を直す**(ずれる
 
 `test:scripts` を余裕ゼロにしているのは、`check-consistency.ts` の検査が層ごとに 4 本の
 `gate()` に分かれており、1 行消すとその層が丸ごと無防備になるため。`gate()` は 1 本で
-2 テストなので、消えれば 66 を割る。
+2 テストなので、消えれば 77 を割る。
 
 `glossary-inline.test.mjs` の 18 本と `remark-glossary.test.mjs` の 4 本も同じ下限に載っている。
 用語ツールチップの変換、set:html に渡す HTML の安全性(FAQ のタグの許可リスト・差し込む値の
@@ -166,6 +166,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 - `src/data/glossary.ts` — 用語集データ(用語集ページ + ツールチップで共用)
 - `src/data/faq.ts` / `src/data/policy-evidence.ts` — FAQ と政策対照表の本文。`.astro` から移したのは、VRT のベースラインへ運ばれる `src/data` に載せて本文の編集を中立化するため(ADR 0034)。同型で未移設: `seasonal/july.astro` の `scenes` / `guide/index.astro` の `guides`(データ定数)、`about.astro` / `guide/indicators.astro`(散文がマークアップ直書き)
 - `src/plugins/remark-glossary.mjs` — remarkプラグイン(markdown本文の用語自動リンク)
+- `src/plugins/trailing-slash-links.mjs` — ビルド後の HTML で内部リンクをスラッシュ付きにそろえる Astro インテグレーション(ADR 0043)
 - `src/lib/og-image.ts` — Satori + Sharp による動的OG画像生成
 - `src/lib/glossary-inline.ts` — frontmatter テキスト内の用語ツールチップ変換
 - `src/content.config.ts` — コンテンツコレクションのZodスキーマ

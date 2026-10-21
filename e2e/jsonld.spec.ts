@@ -274,11 +274,8 @@ function checkArticle(
   expect(String(article.description).length).toBeGreaterThan(0);
   expect((article.author as Record<string, unknown>)["@type"]).toBe("Person");
   expect((article.publisher as Record<string, unknown>).name).toBe(siteName);
-  // Article.url は末尾スラッシュ無しで出ている(canonical は有り)。この spec は形だけ見るので
-  // 現状の値に合わせる
-  expect(new URL(String(article.url)).pathname).toBe(
-    pathname.replace(/\/$/, "")
-  );
+  // canonical と同じスラッシュ付き。無いと 307 を挟む URL を Google に渡す(ADR 0043)
+  expect(new URL(String(article.url)).pathname).toBe(pathname);
   expect(article.mainEntityOfPage).toBe(article.url);
 }
 

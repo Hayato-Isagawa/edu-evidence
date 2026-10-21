@@ -40,7 +40,7 @@ const relatedStrategyEntries = [...new Set([...forwardIds, ...backwardIds])]
   .filter((s): s is (typeof allStrategies)[number] => s !== undefined);
 
 const siteUrl = "https://edu-evidence.org";
-const pageUrl = `${siteUrl}/strategies/${entry.id}`;
+const pageUrl = `${siteUrl}/strategies/${entry.id}/`;
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -49,7 +49,7 @@ const articleJsonLd = {
   author: {
     "@type": "Person",
     name: "Isagawa Hayato",
-    url: `${siteUrl}/about`,
+    url: `${siteUrl}/about/`,
     sameAs: ["https://github.com/Hayato-Isagawa"],
   },
   publisher: {
@@ -391,7 +391,7 @@ const eefLabel = {
 
   <CitationCopy
     title={d.title}
-    url={`${pageUrl}/`}
+    url={pageUrl}
     lastVerified={d.lastVerified}
   />
 

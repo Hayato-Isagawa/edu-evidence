@@ -48,7 +48,7 @@ const seriesTitle = seriesItems.find((c) => c.data.series?.title)?.data.series?.
 const currentIndex = seriesItems.findIndex((c) => c.id === entry.id);
 
 const siteUrl = "https://edu-evidence.org";
-const pageUrl = `${siteUrl}/columns/${entry.id}`;
+const pageUrl = `${siteUrl}/columns/${entry.id}/`;
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -58,7 +58,7 @@ const articleJsonLd = {
   author: {
     "@type": "Person",
     name: "Isagawa Hayato",
-    url: `${siteUrl}/about`,
+    url: `${siteUrl}/about/`,
     sameAs: ["https://github.com/Hayato-Isagawa"],
   },
   publisher: {
@@ -78,7 +78,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "ホーム", item: `${siteUrl}/` },
-    { "@type": "ListItem", position: 2, name: "コラム", item: `${siteUrl}/columns` },
+    { "@type": "ListItem", position: 2, name: "コラム", item: `${siteUrl}/columns/` },
     { "@type": "ListItem", position: 3, name: d.title, item: pageUrl },
   ],
 };
@@ -242,7 +242,7 @@ const breadcrumbJsonLd = {
 
   <CitationCopy
     title={d.title}
-    url={`${pageUrl}/`}
+    url={pageUrl}
     published={d.date}
     lastVerified={lastVerified}
   />

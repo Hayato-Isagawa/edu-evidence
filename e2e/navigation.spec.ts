@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { test, expect } from "@playwright/test";
 
 test.describe("ナビゲーション", () => {
@@ -110,4 +112,60 @@ test.describe("ナビゲーション", () => {
     await page.goto("/");
     await expect(page.locator("#reading-progress")).toHaveCount(0);
   });
+});
+
+// ページは `/x/` で配信され、スラッシュ無しは 307 で転送される。ビルド後の書き換え
+// (`src/plugins/trailing-slash-links.mjs`。ADR 0043)が登録から外れても描画は変わらないので、
+// dist の全 HTML を fs で走査し、実在するページをスラッシュ無しで指す内部リンクが無いことを見る。
+// JSON-LD の中の URL(自サイトの絶対 URL と、FAQ の回答文に入る href)はプラグインの対象外で
+// ソース側で直しているので、ここで併せて見る。判定はプラグインの関数を使わずにここで書く
+test("内部リンクがページをスラッシュ付きで指す", () => {
+  const distRoot = path.resolve(process.cwd(), "dist");
+  const files = fs
+    .readdirSync(distRoot, { recursive: true, withFileTypes: true })
+    .filter((e) => e.isFile() && e.name.endsWith(".html"))
+    .map((e) => path.join(e.parentPath, e.name));
+  expect(files.length, "dist に HTML が無い").toBeGreaterThan(200);
+  const pages = new Set(
+    files
+      .filter((f) => path.basename(f) === "index.html")
+      .map(
+        (f) =>
+          "/" +
+          path.relative(distRoot, path.dirname(f)).split(path.sep).join("/")
+      )
+  );
+  const offenders: string[] = [];
+  const check = (where: string, p: string) => {
+    if (p.endsWith("/")) return;
+    let decoded = p;
+    try {
+      decoded = decodeURIComponent(p);
+    } catch {
+      // decode できない href はページを指さないので数えない
+    }
+    if (pages.has(decoded)) offenders.push(`${where}: ${p}`);
+  };
+  const hrefRe = /\shref="(\/(?!\/)[^"?#]*)/g;
+  const strings = (v: unknown): string[] =>
+    typeof v === "string"
+      ? [v]
+      : v !== null && typeof v === "object"
+        ? Object.values(v).flatMap(strings)
+        : [];
+  for (const file of files) {
+    const where = path.relative(distRoot, file);
+    const html = fs.readFileSync(file, "utf8");
+    for (const m of html.matchAll(hrefRe)) check(where, m[1]);
+    for (const block of html.matchAll(
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g
+    )) {
+      for (const v of strings(JSON.parse(block[1]))) {
+        if (v.startsWith("https://edu-evidence.org/"))
+          check(`${where} JSON-LD`, new URL(v).pathname);
+        for (const m of v.matchAll(hrefRe)) check(`${where} JSON-LD`, m[1]);
+      }
+    }
+  }
+  expect(offenders.slice(0, 20), `${offenders.length} 件`).toEqual([]);
 });
