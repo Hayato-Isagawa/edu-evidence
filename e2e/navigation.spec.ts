@@ -152,7 +152,7 @@ test("内部リンクがページをスラッシュ付きで指す", () => {
     }
     if (pages.has(decoded)) offenders.push(`${where}: ${p}`);
   };
-  const attrRe = /\s[a-zA-Z][\w:-]*="(\/(?!\/)[^"?#]*)/g;
+  const attrRe = /\s[^\s"'<>/=]+="(\/(?!\/)[^"?#]*)/g;
   const strings = (v: unknown): string[] =>
     typeof v === "string"
       ? [v]
