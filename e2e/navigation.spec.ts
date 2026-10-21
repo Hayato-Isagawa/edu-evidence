@@ -61,10 +61,12 @@ test.describe("ナビゲーション", () => {
     await page.waitForURL(/\/search\/\?q=/);
     expect(page.url()).toContain("/search/");
     expect(page.url()).toContain("q=%E3%83%A1%E3%82%BF%E8%AA%8D%E7%9F%A5");
-    // 検索ページ(src/pages/search.astro)が ?q= を読んで検索欄に入れたことまで見る
+    // 検索ページ(src/pages/search.astro)が ?q= を読んで検索欄に入れ、検索を実行したことまで見る。
+    // 欄に値が入っても、検索を走らせる input イベントが届かなければ結果は 0 件のまま
     await expect(page.locator(".pagefind-ui__search-input")).toHaveValue(
       "メタ認知"
     );
+    await expect(page.locator(".pagefind-ui__result").first()).toBeVisible();
   });
 
   test("ヘッダーが sticky で表示される", async ({ page }) => {
