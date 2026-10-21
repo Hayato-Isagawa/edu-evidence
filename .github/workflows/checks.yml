@@ -10,6 +10,9 @@ concurrency:
   group: checks-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   checks:
     name: Content and consistency checks
