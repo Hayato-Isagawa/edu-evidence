@@ -8,6 +8,7 @@ import rehypeExternalLinks from "rehype-external-links";
 import { remarkGlossary } from "./src/plugins/remark-glossary.mjs";
 import { remarkStrategyRef } from "./src/plugins/remark-strategy-ref.mjs";
 import { remarkChart } from "./src/plugins/remark-chart.mjs";
+import { trailingSlashLinks } from "./src/plugins/trailing-slash-links.mjs";
 
 export default defineConfig({
   site: "https://edu-evidence.org",
@@ -19,7 +20,7 @@ export default defineConfig({
   // Astro 7 は空白を JSX ルールで除去する('jsx' 既定)。v6 の挙動を維持し
   // ツールチップ等の字間差を防ぐため true に固定する。
   compressHTML: true,
-  integrations: [react(), sitemap()],
+  integrations: [react(), sitemap(), trailingSlashLinks()],
   markdown: {
     // Astro 7 の既定 Markdown プロセッサは Sätteri で remark/rehype を無視する。
     // 従来の unified パイプライン(自作 remark プラグイン + rehype)を維持するため

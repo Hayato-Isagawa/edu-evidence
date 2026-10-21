@@ -734,9 +734,9 @@ function nonTopLevelTestCalls(text) {
 }
 
 /** `test:scripts` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const SCRIPT_TESTS = 66;
+const SCRIPT_TESTS = 77;
 
-test("test:scripts の口にあるテストファイルが 3 本である", () => {
+test("test:scripts の口にあるテストファイルが 4 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
   // 下限つきの口は緑のまま通った)。囮を 1 本足してから本体を薄める経路も、ここで赤になる。
   // `fixtures/` `gate/` `helpers/` `workflows/` はディレクトリなので一覧に入らない。
@@ -744,6 +744,7 @@ test("test:scripts の口にあるテストファイルが 3 本である", () =
     "check-scripts.test.mjs",
     "glossary-inline.test.mjs",
     "remark-glossary.test.mjs",
+    "trailing-slash-links.test.mjs",
   ]);
 });
 
@@ -764,7 +765,8 @@ test("npm script test:scripts が、実測ちょうどの下限で 2 段を通�
     countTopLevelTests(own) +
     (own.match(/^gate\(/gm) ?? []).length * 2 +
     countTopLevelTests(read("scripts/__tests__/glossary-inline.test.mjs")) +
-    countTopLevelTests(read("scripts/__tests__/remark-glossary.test.mjs"));
+    countTopLevelTests(read("scripts/__tests__/remark-glossary.test.mjs")) +
+    countTopLevelTests(read("scripts/__tests__/trailing-slash-links.test.mjs"));
   assert.equal(measured, SCRIPT_TESTS, "実測と定数がずれている");
   assert.equal(
     PKG.scripts["test:scripts"],

@@ -86,3 +86,4 @@
 - [0040. `lastVerified` の表示ラベルを「出典の最終確認」「主な出典の最終確認」にする](0040-source-check-label.md)
 - [0041. 照合日(`lastVerified`)を公開日・更新日として使わない](0041-verification-date-not-publish-or-update-date.md)
 - [0042. 照合日の説明を、日付を付けたときの規則に合わせる](0042-verification-date-explanation-matches-past-rules.md)
+- [0043. 内部リンクをビルド後の HTML でスラッシュ付きにそろえる](0043-internal-links-trailing-slash.md)
