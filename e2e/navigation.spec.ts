@@ -49,7 +49,7 @@ test.describe("ナビゲーション", () => {
     expect(focusedId).toBe("mobile-menu-search-input");
   });
 
-  test("検索 input から submit すると /search?q= に遷移する", async ({
+  test("検索 input から submit すると /search/?q= に遷移する", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
@@ -58,8 +58,8 @@ test.describe("ナビゲーション", () => {
     const input = page.locator("#mobile-menu-search-input");
     await input.fill("メタ認知");
     await input.press("Enter");
-    await page.waitForURL(/\/search\?q=/);
-    expect(page.url()).toContain("/search");
+    await page.waitForURL(/\/search\/\?q=/);
+    expect(page.url()).toContain("/search/");
     expect(page.url()).toContain("q=%E3%83%A1%E3%82%BF%E8%AA%8D%E7%9F%A5");
   });
 
@@ -117,6 +117,7 @@ test.describe("ナビゲーション", () => {
 // ページは `/x/` で配信され、スラッシュ無しは 307 で転送される。ビルド後の書き換え
 // (`src/plugins/trailing-slash-links.mjs`。ADR 0043)が登録から外れても描画は変わらないので、
 // dist の全 HTML を fs で走査し、実在するページをスラッシュ無しで指す内部リンクが無いことを見る。
+// フォームの action はプラグインの対象外でソース側で直しているので、href と併せて見る。
 // JSON-LD の中の URL(自サイトの絶対 URL と、FAQ の回答文に入る href)はプラグインの対象外で
 // ソース側で直しているので、ここで併せて見る。判定はプラグインの関数を使わずにここで書く
 test("内部リンクがページをスラッシュ付きで指す", () => {
@@ -146,7 +147,7 @@ test("内部リンクがページをスラッシュ付きで指す", () => {
     }
     if (pages.has(decoded)) offenders.push(`${where}: ${p}`);
   };
-  const hrefRe = /\shref="(\/(?!\/)[^"?#]*)/g;
+  const hrefRe = /\s(?:href|action)="(\/(?!\/)[^"?#]*)/g;
   const strings = (v: unknown): string[] =>
     typeof v === "string"
       ? [v]
