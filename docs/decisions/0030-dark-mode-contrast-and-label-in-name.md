@@ -1,6 +1,6 @@
 # 0030. a11y 監査を light/dark 両テーマで行い、label-content-name-mismatch は修正しない
 
-- 状態: 採用
+- 状態: 一部撤回(決定 2 を 0044 で上書き)
 - 日付: 2026-08-01
 - 関連: [`ADR 0024`](0024-visual-regression-testing.md)(視覚変更 PR での VRT)
 
