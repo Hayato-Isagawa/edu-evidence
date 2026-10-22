@@ -106,7 +106,8 @@ test.describe("トップページ", () => {
         card.getByRole("link", { name: title, exact: true })
       ).toHaveCount(1);
       await card.scrollIntoViewIfNeeded();
-      // カテゴリ・説明文・件数の中心と、padding 内の左上・右下で、最前面がこのカードのリンクか
+      // カテゴリ・説明文・件数の中心と、外周の枠線の上(左辺・下辺の中央。角は角丸の外になる)で、
+      // 最前面がこのカードのリンクか
       const hits = await card.evaluate((el) => {
         const link = el.querySelector("a");
         const r = el.getBoundingClientRect();
@@ -118,8 +119,8 @@ test.describe("トップページ", () => {
           center(el.firstElementChild!),
           center(el.querySelector("p")!),
           center(el.lastElementChild!),
-          [r.left + 8, r.top + 8],
-          [r.right - 8, r.bottom - 8],
+          [r.left + 0.5, r.top + r.height / 2],
+          [r.left + r.width / 2, r.bottom - 0.5],
         ];
         return points.map(
           ([x, y]) => document.elementFromPoint(x, y)?.closest("a") === link
