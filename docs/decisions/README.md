@@ -73,7 +73,7 @@
 - [0027. Astro 7 へ移行し、Markdown は `processor: unified()` で従来パイプラインを維持する](0027-astro-7-migration.md)
 - [0028. Content Checks を main の required check に昇格する](0028-content-checks-required.md)
 - [0029. required check を classic ブランチ保護に一本化し、ruleset の重複を解消する](0029-required-checks-single-source.md)
-- [0030. a11y 監査を light/dark 両テーマで行い、label-content-name-mismatch は修正しない](0030-dark-mode-contrast-and-label-in-name.md)
+- [0030. a11y 監査を light/dark 両テーマで行い、label-content-name-mismatch は修正しない](0030-dark-mode-contrast-and-label-in-name.md)(一部撤回)
 - [0031. 色トークンを `@theme` に移し、出典系統の色をトークン化する](0031-design-token-layer.md)
 - [0032. ホスティングを Cloudflare Pages から Workers static assets へ移す](0032-hosting-on-workers-static-assets.md)
 - [0033. `lastVerified` は「一次ソースとの最終照合日」である](0033-last-verified-is-a-source-check-date.md)
@@ -87,3 +87,4 @@
 - [0041. 照合日(`lastVerified`)を公開日・更新日として使わない](0041-verification-date-not-publish-or-update-date.md)
 - [0042. 照合日の説明を、日付を付けたときの規則に合わせる](0042-verification-date-explanation-matches-past-rules.md)
 - [0043. 内部リンクをビルド後の HTML でスラッシュ付きにそろえる](0043-internal-links-trailing-slash.md)
+- [0044. トップの悩みカードを stretched link にする(ADR 0030 の決定 2 を上書き)](0044-concern-card-stretched-link.md)
