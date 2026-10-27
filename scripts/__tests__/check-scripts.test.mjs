@@ -935,6 +935,7 @@ test("check-source-links.ts は Wayback が連続して答えないと残りの�
 // ---------------------------------------------------------------------------
 
 const WORKFLOW_TEST_FILES = [
+  "cf-purge-workflow.test.mjs",
   "ci-summary-workflow.test.mjs",
   "dependabot-auto-merge-workflow.test.mjs",
   "link-check-workflow.test.mjs",
@@ -943,9 +944,9 @@ const WORKFLOW_TEST_FILES = [
 ];
 
 /** `test:workflows` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const WORKFLOW_TESTS = 106;
+const WORKFLOW_TESTS = 169;
 
-test("test:workflows の口にあるテストファイルが 5 本である", () => {
+test("test:workflows の口にあるテストファイルが 6 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
   // 下限つきの口は緑のまま通った)。消したときは下の完全一致も ENOENT で落ちるが、
   // **足したときに落ちるのはここだけ**。

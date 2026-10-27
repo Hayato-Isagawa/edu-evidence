@@ -46,7 +46,7 @@ npm run check:source-sync  # 出典別の照合期限(docs/source-sync-protocol.
 npm run check:all          # package.json の連鎖で lint から test:hooks までを一括実行(手元用。format は含まない)。CI の Content Checks とは中身が違う(各行の注記。注記の無い行と test:* は Content Checks でも走る)
 npm run test:gate          # 下 3 つの口が通す判定器(assert-test-*.mjs)自身の検証(判定器を通さない・check:all に含む)
 npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:connectors は落ちない代わりに報告の中身を固定。check:all に含む)
-npm run test:workflows     # link-check.yml の通知分岐・VRT の配線・ci-summary.yml の通知判定・dependabot-auto-merge.yml の job の if: の回帰テスト(下限つき・check:all に含む)
+npm run test:workflows     # link-check.yml の通知分岐・VRT の配線・ci-summary.yml の通知判定・dependabot-auto-merge.yml の job の if:・cf-purge のビルドの扱いの回帰テスト(下限つき・check:all に含む)
 npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・check:all に含む)
 ```
 
@@ -97,6 +97,12 @@ YAML 側の `workflows:` の列挙と、それと突き合わせる各 workflow 
 zizmor の `bot-conditions` を理由つきで抑止するコメント)を行ごと固定する。抑止は条件を書き換えても残るので、
 actor だけの判定に戻しても zizmor は何も出さない(1.31.1 で実測)。
 
+`cf-purge-workflow.test.mjs` も同じ口。`cf-purge.yml` は Workers Builds の `build_outcome` を見て purge するかを決める
+(ADR 0045。edu-watch の cf-purge とテストの移植)。終端値を知らない・期限で緑に落ちる・確かめられないのに緑で終わる、
+のどれでも job は緑のまま purge だけが消えるので、`run:` を取り出して bash で走らせ、`curl`・`sleep`・`date` をスタブに、
+jq は実物に通して、終端値ごとの exit と purge の有無、追う先の選び方、API のエラーの分け方、経過時間での期限、
+`timeout-minutes` が期限を越えうる最大の時間より長いことを固定している。期限・間隔・回数はステップの `env` から読む。
+
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
 (`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
 
@@ -121,7 +127,7 @@ fixture を一時ディレクトリに作って判定器を spawn し、fail 1 �
 **残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 106 と `test:scripts` の 77 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 169 と `test:scripts` の 77 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 82 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 90 と離れていてよい。
 
