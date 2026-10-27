@@ -75,7 +75,7 @@
 - [0029. required check を classic ブランチ保護に一本化し、ruleset の重複を解消する](0029-required-checks-single-source.md)
 - [0030. a11y 監査を light/dark 両テーマで行い、label-content-name-mismatch は修正しない](0030-dark-mode-contrast-and-label-in-name.md)(一部撤回)
 - [0031. 色トークンを `@theme` に移し、出典系統の色をトークン化する](0031-design-token-layer.md)
-- [0032. ホスティングを Cloudflare Pages から Workers static assets へ移す](0032-hosting-on-workers-static-assets.md)
+- [0032. ホスティングを Cloudflare Pages から Workers static assets へ移す](0032-hosting-on-workers-static-assets.md)(一部撤回)
 - [0033. `lastVerified` は「一次ソースとの最終照合日」である](0033-last-verified-is-a-source-check-date.md)
 - [0034. VRT のベースラインを「main のコード × PR のコンテンツ」で撮る](0034-content-neutral-vrt-baseline.md)
 - [0035. 依存の更新でも VRT を走らせる](0035-vrt-runs-on-dependency-bumps.md)
@@ -88,3 +88,4 @@
 - [0042. 照合日の説明を、日付を付けたときの規則に合わせる](0042-verification-date-explanation-matches-past-rules.md)
 - [0043. 内部リンクをビルド後の HTML でスラッシュ付きにそろえる](0043-internal-links-trailing-slash.md)
 - [0044. トップの悩みカードを stretched link にする(ADR 0030 の決定 2 を上書き)](0044-concern-card-stretched-link.md)
+- [0045. cf-purge は本番に出なかったビルドで赤になり、置き換えたビルドを追い、確かめられないときは purge して赤で終わる(edu-watch ADR 0080〜0082 ミラー)](0045-cf-purge-follow-builds-and-fail-visibly.md)
