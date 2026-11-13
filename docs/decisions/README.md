@@ -45,7 +45,7 @@
 ## 索引
 
 - [0001. 植物モチーフによる 4 サイトブランド体系](0001-plant-motif-brand-system.md)
-- [0002. Node.js 24 LTS を mise で統一管理](0002-node-24-lts-via-mise.md)
+- [0002. Node.js 24 LTS を mise で統一管理](0002-node-24-lts-via-mise.md)(一部撤回)
 - [0003. 執筆前 verifier + PR 前 reviewer による 2 段階コンテンツレビュー](0003-two-stage-content-review.md)
 - [0004. 公開氏名表記を Isagawa Hayato に統一](0004-public-byline-isagawa-hayato.md)
 - [0005. 本体は非営利維持、収益化は別ブランド SaaS に分離](0005-non-commercial-with-saas-separation.md)
@@ -89,3 +89,4 @@
 - [0043. 内部リンクをビルド後の HTML でスラッシュ付きにそろえる](0043-internal-links-trailing-slash.md)
 - [0044. トップの悩みカードを stretched link にする(ADR 0030 の決定 2 を上書き)](0044-concern-card-stretched-link.md)
 - [0045. cf-purge は本番に出なかったビルドで赤になり、置き換えたビルドを追い、確かめられないときは purge して赤で終わる(edu-watch ADR 0080〜0082 ミラー)](0045-cf-purge-follow-builds-and-fail-visibly.md)
+- [0046. Node.js を 26 LTS に上げる(ADR 0002 の版の決定を上書き)](0046-node-26-lts.md)
