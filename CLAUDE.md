@@ -20,6 +20,8 @@ npm run prepare            # Git フックを有効化(clone ごとに 1 回。.
 
 `package.json` の `engines.node` は `>=24.0.0`。CI やエディタ側もこれに合わせる。
 
+**Node の版を上げるときは、Cloudflare 側のビルド変数 `NODE_VERSION` も同じ値に上げる。** Workers Builds は `.tool-versions` を読むが、その版ではビルドしない(2026-11-12 実測: 24.22.2 を指定しても既定の 24.22.1 で走った)。ビルドの版を決めるのは Worker `edu-evidence` の `NODE_VERSION` で、本番(`main`)とプレビュー(それ以外のブランチ)の 2 つのトリガーそれぞれに設定する。また `.tool-versions` が出たばかりの版を指していると、Workers Builds のツールのインストール段階でビルドが落ちる(2026-11 の 24.22.3 は通るまで 1 日以上かかった)。`.tool-versions` を上げる PR は、プレビュービルドが通ってからマージする。
+
 ## ビルド・テスト
 
 ```bash
