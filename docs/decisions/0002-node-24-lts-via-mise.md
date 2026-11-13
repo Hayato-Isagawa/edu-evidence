@@ -18,7 +18,7 @@
 
 ## 決定
 
-**A)** を採用。全プロジェクトの Node を 24.15.0 LTS("Jod")に統一し、各リポジトリの `.tool-versions` に書き込む。
+**A)** を採用。全プロジェクトの Node を 24.15.0 LTS("Jod")に統一し(注 2026-11-14: 24 の codename は Krypton。Jod は 22)、各リポジトリの `.tool-versions` に書き込む。
 
 - `package.json` の `engines.node` は `>=24.0.0`
 - Cloudflare Pages の Node バージョンも 24 系に合わせる(Pages の UI で指定)
