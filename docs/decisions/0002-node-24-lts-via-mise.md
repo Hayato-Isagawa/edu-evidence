@@ -1,6 +1,6 @@
 # 0002. Node.js 24 LTS を mise で統一管理
 
-- 状態: 一部撤回(版の決定を 0046 で上書き)
+- 状態: 一部撤回(版の決定を 0046、engines の決定を 0047 で上書き)
 - 日付: 2026-04-23
 
 ## 背景
@@ -18,7 +18,7 @@
 
 ## 決定
 
-**A)** を採用。全プロジェクトの Node を 24.15.0 LTS("Jod")に統一し、各リポジトリの `.tool-versions` に書き込む。
+**A)** を採用。全プロジェクトの Node を 24.15.0 LTS("Jod")に統一し(注 2026-11-14: 24 の codename は Krypton。Jod は 22)、各リポジトリの `.tool-versions` に書き込む。
 
 - `package.json` の `engines.node` は `>=24.0.0`
 - Cloudflare Pages の Node バージョンも 24 系に合わせる(Pages の UI で指定)

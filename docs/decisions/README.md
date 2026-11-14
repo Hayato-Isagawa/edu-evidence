@@ -89,4 +89,5 @@
 - [0043. 内部リンクをビルド後の HTML でスラッシュ付きにそろえる](0043-internal-links-trailing-slash.md)
 - [0044. トップの悩みカードを stretched link にする(ADR 0030 の決定 2 を上書き)](0044-concern-card-stretched-link.md)
 - [0045. cf-purge は本番に出なかったビルドで赤になり、置き換えたビルドを追い、確かめられないときは purge して赤で終わる(edu-watch ADR 0080〜0082 ミラー)](0045-cf-purge-follow-builds-and-fail-visibly.md)
-- [0046. Node.js を 26 LTS に上げる(ADR 0002 の版の決定を上書き)](0046-node-26-lts.md)
+- [0046. Node.js を 26 LTS に上げる(ADR 0002 の版の決定を上書き)](0046-node-26-lts.md)(一部撤回)
+- [0047. engines を Node 26 に上げ、Workers Builds の npm を固定する(ADR 0002 と 0046 の engines の決定を上書き)](0047-node-26-engines-and-npm.md)
