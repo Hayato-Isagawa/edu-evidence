@@ -109,6 +109,10 @@ test.describe("トップページ", () => {
       ).hash.slice(1);
       const title = concernIndex.get(slug)?.concern.title;
       expect(title, `カード ${i + 1} の slug「${slug}」`).toBeDefined();
+      expect(
+        (await card.locator("h3").innerText()).trim(),
+        `カード ${i + 1} の見出し`
+      ).toBe(title);
       await expect(
         card.getByRole("link", { name: title, exact: true })
       ).toHaveCount(1);
