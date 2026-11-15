@@ -14,13 +14,13 @@ ADR 0046 は Node を 26.13.1 に上げ、`engines.node` は `>=24.0.0` のま�
 
 - `package.json` の `engines.node` を `>=26.0.0` にする。
 - `package.json` に `"packageManager": "npm@11.20.0"` を置く。Workers Builds の npm を変えられるのはこれだけで(Cloudflare の build image の文書。`engines.npm` は効かない)、値は `.tool-versions` の Node に同梱の版にそろえる。Node を上げるときの手順は `CLAUDE.md` の「環境」に書く。
-- setup-node は `packageManager` が npm を指すと、`cache` の指定が無い step でもキャッシュを有効にする。`cache` の指定が無いのは `audit.yml` だけで、そこに `package-manager-cache: false` を置く(`npm ci` をしないのでキャッシュは要らない。`issues: write` を持つジョブに、汚染されたキャッシュを読む経路を残さない)。
+- setup-node は `packageManager` が npm を指すと、`cache` の指定が無い step でもキャッシュを有効にする。`cache` の指定が無いのは `audit.yml` だけで、そこに `package-manager-cache: false` を置く(`npm ci` をしないのでキャッシュは要らない。`issues: write` を持つジョブに、汚染されたキャッシュを読む経路を残さない)。(注 2026-11-15: #847 で、`issues: write` を持つ `link-check.yml` と `stale-check.yml` も `cache` の指定を外し、`package-manager-cache: false` にした)
 
 ## 帰結
 
-- Node を上げるときにそろえる値が 3 つになる(`.tool-versions`・Workers Builds の `NODE_VERSION`・`packageManager`)。`packageManager` が同梱の版と一致しているかを照合する検査は無く、手順の文書に頼る。
+- Node を上げるときにそろえる値が 3 つになる(`.tool-versions`・Workers Builds の `NODE_VERSION`・`packageManager`)。`packageManager` が同梱の版と一致しているかを照合する検査は無く、手順の文書に頼る。(注 2026-11-15: #847 で `npm run check:package-manager` を足し、Content Checks で照合するようにした)
 - 24 の Node で `npm ci` すると、`EBADENGINE` の警告が出る(`engine-strict` は使っていないので失敗はしない)。
-- Dependabot が使う npm も変わる見込み。dependabot-core のソースでは、`packageManager` が無く lockfile が v3 のときは npm 12 を使い、あるときは 11 系を使う。本番の Dependabot が同じ動きをするかは確かめていない。
+- Dependabot が使う npm も変わる見込み。dependabot-core のソースでは、`packageManager` が無く lockfile が v3 のときは npm 12 を使い、あるときは 11 系を使う。本番の Dependabot が同じ動きをするかは確かめていない。(注 2026-11-15: Dependabot が `packageManager` の npm を Corepack で入れて lockfile を作り、`packageManager` 自体は書き換えないことを、#847 のコメントのとおり確かめた)
 
 ## 撤回 / 再検討の条件
 

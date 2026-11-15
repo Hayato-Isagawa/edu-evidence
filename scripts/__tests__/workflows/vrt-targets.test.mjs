@@ -735,7 +735,7 @@ function nonTopLevelTestCalls(text) {
 }
 
 /** `test:scripts` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const SCRIPT_TESTS = 77;
+const SCRIPT_TESTS = 82;
 
 test("test:scripts の口にあるテストファイルが 4 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても

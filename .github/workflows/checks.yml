@@ -72,6 +72,10 @@ jobs:
         if: ${{ !cancelled() }}
         run: npm run check:tokens
 
+      - name: packageManager matches the bundled npm
+        if: ${{ !cancelled() }}
+        run: npm run check:package-manager
+
       - name: Evidence strength consistency
         if: ${{ !cancelled() }}
         run: npm run check:evidence-strength
