@@ -15,6 +15,8 @@ export default defineConfig({
   webServer: {
     command: "npx serve dist -l 4173",
     port: 4173,
-    reuseExistingServer: !process.env.CI,
+    // 同じポートに別の作業ツリーや別セッションのサーバーが残っていると、それを使って
+    // 別のビルドを検査してしまう。使わずに、起動の時点で止める。
+    reuseExistingServer: false,
   },
 });
