@@ -927,6 +927,100 @@ test("check-source-links.ts は Wayback が連続して答えないと残りの�
 });
 
 // ---------------------------------------------------------------------------
+// check-package-manager.ts は package.json と .tool-versions に加えて、いま動いている Node の版と
+// PATH 上の `npm -v` を読む。静的 fixture では後の 2 つを差し替えられないので、一時ディレクトリに
+// 入力と npm のスタブを置いて走らせる。各ケースは狙う 1 条件だけを崩し、残りは全部満たす —
+// 終了コードだけを見ると、別の検査が落ちているだけで緑になるので、検査ごとの文言も見る。
+// ---------------------------------------------------------------------------
+
+/** packageManager / .tool-versions の nodejs / `npm -v` の値と終了コードを与えて check-package-manager.ts を走らせる。 */
+function runPackageManagerCheck({
+  packageManager,
+  toolNode = process.versions.node,
+  npm,
+  npmExit = 0,
+}) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "package-manager-"));
+  try {
+    fs.writeFileSync(
+      path.join(dir, "package.json"),
+      JSON.stringify({ name: "fixture", packageManager })
+    );
+    fs.writeFileSync(path.join(dir, ".tool-versions"), `nodejs ${toolNode}\n`);
+    const bin = path.join(dir, "bin");
+    fs.mkdirSync(bin);
+    fs.writeFileSync(
+      path.join(bin, "npm"),
+      `#!/bin/sh\necho "${npm}"\nexit ${npmExit}\n`,
+      { mode: 0o755 }
+    );
+    return runInWithEnv("check-package-manager.ts", dir, {
+      PATH: `${bin}${path.delimiter}${process.env.PATH}`,
+    });
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+test("check-package-manager.ts は packageManager と Node の版と npm -v がそろえば通る", () => {
+  const r = runPackageManagerCheck({
+    packageManager: "npm@9.8.7",
+    npm: "9.8.7",
+  });
+  assert.equal(r.status, 0, r.output);
+  assert.match(r.output, /✓ packageManager \(npm@9\.8\.7\)/);
+});
+
+test("check-package-manager.ts は packageManager と npm -v の版が違えば落ちる", () => {
+  const r = runPackageManagerCheck({
+    packageManager: "npm@9.8.7",
+    npm: "9.8.6",
+  });
+  assert.notEqual(r.status, 0, `版の食い違いを通してしまった:\n${r.output}`);
+  assert.match(
+    r.output,
+    /packageManager \(npm@9\.8\.7\) が、Node .+ の npm \(9\.8\.6\) と違う/
+  );
+});
+
+test("check-package-manager.ts はいま動いている Node が .tool-versions と違えば落ちる", () => {
+  const r = runPackageManagerCheck({
+    packageManager: "npm@9.8.7",
+    toolNode: "0.0.1",
+    npm: "9.8.7",
+  });
+  assert.notEqual(
+    r.status,
+    0,
+    `Node の版の食い違いを通してしまった:\n${r.output}`
+  );
+  assert.match(r.output, /\.tool-versions の nodejs 0\.0\.1 と違う/);
+});
+
+test("check-package-manager.ts は packageManager が npm@<x.y.z> の形でなければ落ちる", () => {
+  for (const packageManager of ["pnpm@9.8.7", "npm@^9.8.7"]) {
+    const r = runPackageManagerCheck({ packageManager, npm: "9.8.7" });
+    assert.notEqual(
+      r.status,
+      0,
+      `${packageManager} を通してしまった:\n${r.output}`
+    );
+    assert.match(r.output, /npm@<x\.y\.z> の形ではない/, packageManager);
+  }
+});
+
+test("check-package-manager.ts は npm -v が失敗すれば、同じ版を出していても落ちる", () => {
+  // 版を見るだけだと、npm が非 0 で終わっても stdout が一致すれば通ってしまう
+  const r = runPackageManagerCheck({
+    packageManager: "npm@9.8.7",
+    npm: "9.8.7",
+    npmExit: 1,
+  });
+  assert.notEqual(r.status, 0, `npm -v の失敗を通してしまった:\n${r.output}`);
+  assert.match(r.output, /npm -v を実行できない/);
+});
+
+// ---------------------------------------------------------------------------
 // もう一方の口(`test:workflows`)の npm script と下限を固定する。自分自身を縛ると、
 // ファイルごと消えたときに縛りも一緒に消える。逆向き(`test:scripts` / `test:hooks` / `test:gate`)は
 // `scripts/__tests__/workflows/vrt-targets.test.mjs` にある。edu-law の同型を移植。

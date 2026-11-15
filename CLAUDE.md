@@ -23,7 +23,7 @@ npm run prepare            # Git フックを有効化(clone ごとに 1 回。.
 **Node の版を上げるときは、Cloudflare 側のビルド変数 `NODE_VERSION` も同じ値に上げる。** Workers Builds は `.tool-versions` を読むが、その版ではビルドしない(2026-11-12 実測: 24.22.2 を指定しても既定の 24.22.1 で走った)。ビルドの版を決めるのは Worker `edu-evidence` の `NODE_VERSION` で、`.node-version` より優先される(2026-11-13 実測: `.node-version` に 26.13.1 を置いても `NODE_VERSION` の 24.22.3 で走った)。ダッシュボードのビルド変数は、本番(`main`)とプレビュー(それ以外のブランチ)の 2 つのトリガーに同じ値をまとめて保存する。出たばかりの版は、Workers Builds のツールのインストール段階でビルドが落ちる(2026-11 の 24.22.3 は通るまで 1 日以上かかった)。Workers Builds の npm は `package.json` の `packageManager` でしか変わらず、無ければ既定の 10.9.2 になる。新しい Node に同梱の npm の版(nodejs.org の `dist/index.json` の `npm` 欄)に合わせる。このため次の順で上げる。
 
 1. ダッシュボードで `NODE_VERSION` を新しい版にする(本番とプレビューの両方に入る)
-2. `.tool-versions` と、`package.json` の `packageManager` を上げる PR を出し、プレビュービルドのログの `Detected the following tools from environment:` に `nodejs@<新しい版>` と `npm@<同梱の版>` が出て、成功するのを確かめる。ツールのインストール段階で落ちたら、`NODE_VERSION` を元の版に戻し、時間を置いてやり直す
+2. `.tool-versions` と、`package.json` の `packageManager` を上げる PR を出し、プレビュービルドのログの `Detected the following tools from environment:` に `nodejs@<新しい版>` と `npm@<同梱の版>` が出て、成功するのを確かめる。`packageManager` を上げ忘れると、Content Checks の `check:package-manager` が赤になる。ツールのインストール段階で落ちたら、`NODE_VERSION` を元の版に戻し、時間を置いてやり直す
 3. CI も通ったら PR をマージする
 
 手順 1 から手順 2 の確認までの間に `main` へ入った変更(Dependabot の自動マージを含む)は、そのビルドも新しい版で走り、入らない版なら落ちる(デプロイのコマンドまで進まないので、配信は前のビルドのまま残る)。この間は手で `main` に入れない。
@@ -48,6 +48,7 @@ npm run check:reader-literacy # 読者リテラシー(英略語の glossary 未�
 npm run check:sentence-length # 1 文の長さ(200 字超で落ちる。観点 12.4)
 npm run check:connectors   # 接続語の反復(観点 12.5。検出では落とさない。CI では走らない)
 npm run check:tokens       # デザイントークンの規約
+npm run check:package-manager # package.json の packageManager と、.tool-versions の Node に同梱の npm(`npm -v`)の一致
 npm run check:links:source # md の外部 URL の到達性(ネットワークに出る。Content Checks では走らない。週次の link-check.yml〈lychee〉が dist を見る)
 npm run check:links:internal # dist の内部リンク切れ(ビルド後に実行。Content Checks では走らない。同上)
 npm run check:source-sync  # 出典別の照合期限(docs/source-sync-protocol.md。check:all にも CI にも含まない)
@@ -142,7 +143,7 @@ fixture を一時ディレクトリに作って判定器を spawn し、fail 1 �
 **残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 174 と `test:scripts` の 77 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 174 と `test:scripts` の 82 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 82 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 90 と離れていてよい。
 
@@ -174,7 +175,7 @@ npm script と、もう一方の口にある定数の両方を直す**(ずれる
 
 `test:scripts` を余裕ゼロにしているのは、`check-consistency.ts` の検査が層ごとに 4 本の
 `gate()` に分かれており、1 行消すとその層が丸ごと無防備になるため。`gate()` は 1 本で
-2 テストなので、消えれば 77 を割る。
+2 テストなので、消えれば 82 を割る。
 
 `glossary-inline.test.mjs` の 18 本と `remark-glossary.test.mjs` の 4 本も同じ下限に載っている。
 用語ツールチップの変換、set:html に渡す HTML の安全性(FAQ のタグの許可リスト・差し込む値の
