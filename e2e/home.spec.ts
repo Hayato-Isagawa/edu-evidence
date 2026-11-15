@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { concernCategories, getConcernIndex } from "../src/data/concerns";
 
 test.describe("トップページ", () => {
   test("タイトルが正しい", async ({ page }) => {
@@ -98,10 +99,20 @@ test.describe("トップページ", () => {
     const cards = page.locator("[data-concern-card]");
     const count = await cards.count();
     expect(count).toBeGreaterThan(0);
+    const concernIndex = getConcernIndex(concernCategories);
     for (let i = 0; i < count; i++) {
       const card = cards.nth(i);
-      const title = (await card.locator("h3").innerText()).trim();
       await expect(card.getByRole("link")).toHaveCount(1);
+      const slug = new URL(
+        (await card.getByRole("link").getAttribute("href"))!,
+        page.url()
+      ).hash.slice(1);
+      const title = concernIndex.get(slug)?.concern.title;
+      expect(title, `カード ${i + 1} の slug「${slug}」`).toBeDefined();
+      expect(
+        (await card.locator("h3").innerText()).trim(),
+        `カード ${i + 1} の見出し`
+      ).toBe(title);
       await expect(
         card.getByRole("link", { name: title, exact: true })
       ).toHaveCount(1);
