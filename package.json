@@ -44,8 +44,8 @@
     "og:default": "npx tsx scripts/generate-default-og.ts"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.3.5",
-    "@astrojs/react": "^7.1.2",
+    "@astrojs/markdown-remark": "^7.3.6",
+    "@astrojs/react": "^7.1.4",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
