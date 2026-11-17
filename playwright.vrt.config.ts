@@ -85,6 +85,7 @@ export default defineConfig({
     // 実行のたびに npm から最新版を取ってきて走らせることになる。
     command: `npx serve ${dist} -l 4173`,
     port: 4173,
-    reuseExistingServer: !process.env.CI,
+    // 残っている別のサーバーを使わない(理由は playwright.config.ts)。
+    reuseExistingServer: false,
   },
 });
