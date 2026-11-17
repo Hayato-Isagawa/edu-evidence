@@ -357,16 +357,35 @@ test("印を探す取得と照合は完全一致で固定する(字面と、gh �
   ]);
 
   // 字面を残したまま別の変数で 2 回目の照合を足す形や、gh を関数で包んで --jq を差し替える形は、
-  // 上では止まらない。スタブが記録した呼び出しで、コメント一覧の取得が 1 回だけで、その --jq が
-  // 上の式であることを見る。gh を通らない取得(curl など)はここでも見えない
-  const r = runStep();
-  assert.equal(r.code, 0, r.out);
-  const reads = r.ghArgs.filter(
-    (a) => a.includes("/issues/42/comments") && !a.includes("-f body=")
-  );
-  assert.deepEqual(reads, [
-    `api --paginate repos/example/repo/issues/42/comments --jq ${jq}`,
-  ]);
+  // 上では止まらない。スタブが記録した gh の呼び出しから check-runs の取得と投稿を除くと、
+  // コメント一覧の取得 1 回(--jq は上の式)だけが残ることを見る。PR 番号を pulls から引く取得は、
+  // その経路でだけ式ごと除く。パスで絞らないので、別のパス(issues/comments・pulls/{n}/comments
+  // など)から取る形もここで赤になる。投稿まで進む経路(PR 番号をイベントから取るか pulls から
+  // 引くか、bot のコメントが無いか有るか)を 3 通り回し、分岐の中に足した照合も拾う。スタブを
+  // 通らない呼び出し(curl・`command -p gh`・絶対パスの gh など)はここでも見えない
+  const checkRuns = `api --paginate repos/example/repo/commits/${SHA}/check-runs --jq `;
+  const pullsRead = `api repos/example/repo/commits/${SHA}/pulls --jq .[0].number // empty`;
+  for (const [label, opts] of [
+    ["PR 番号はイベントから・bot のコメントなし", {}],
+    ["PR 番号は pulls から", { prFromEvent: "", pulls: [{ number: 42 }] }],
+    ["bot の別のコメントあり", { comments: ["bot の別のコメント"] }],
+  ]) {
+    const r = runStep(opts);
+    assert.equal(r.code, 0, `${label}: ${r.out}`);
+    assert.ok(r.commentedBody, `${label}: 投稿まで進んでいない`);
+    const others = r.ghArgs.filter(
+      (a) =>
+        !a.startsWith(checkRuns) &&
+        !a.includes("-f body=") &&
+        a !== MARKER &&
+        !(opts.prFromEvent === "" && a === pullsRead)
+    );
+    assert.deepEqual(
+      others,
+      [`api --paginate repos/example/repo/issues/42/comments --jq ${jq}`],
+      label
+    );
+  }
 });
 
 test("別の sha のマーカーしか無ければ投稿する(再 push は別扱い)", () => {
