@@ -4,7 +4,8 @@
 // 崩れて通知が消えても workflow は exit 0 のまま、PR の check 一覧にも出ない
 // (run は既定ブランチの sha に紐づく)。気づく手段は「通知が来なかった」しかない。
 //
-// 写しを置かず、**ワークフローに埋まっている本体**を取り出して走らせる。gh はスタブに
+// 走らせるのは**ワークフローに埋まっている本体**(写しではない)。run の写し(fixture)は、
+// workflow 全体を固定するテストで本体と比べるためだけに置いている。gh はスタブに
 // 差し替え、`--jq` のフィルタは実 jq に通す — `.app.slug == "github-actions"` の絞り込みが
 // 無いと、Cloudflare Workers Builds の check-run(workflow_run を起こさない)を待ち続けて
 // 再判定の機会が無いまま通知が消える。フィルタを素通りさせると、その退行を検出できない。
@@ -21,6 +22,13 @@ import YAML from "yaml";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const WORKFLOWS_DIR = path.join(HERE, "..", "..", "..", ".github", "workflows");
 const WORKFLOW = path.join(WORKFLOWS_DIR, "ci-summary.yml");
+const NOTIFY_RUN_FIXTURE = path.join(
+  HERE,
+  "..",
+  "fixtures",
+  "ci-summary",
+  "notify-run.sh"
+);
 const yaml = () => fs.readFileSync(WORKFLOW, "utf8");
 // 権限と if の検査はパース結果で見る。字面で見ると、`"permissions":` / `? permissions` /
 // フロー形 / step の if / 先頭に置いた別の job など、YAML として等価な書き方が素通りする(#641)
@@ -401,6 +409,76 @@ test("印を探す取得と照合は完全一致で固定する(字面と、gh �
         label
       );
     }
+});
+
+test("workflow 全体が決まった形(run は fixture の写しと完全一致)", () => {
+  // 上の検査は、回していない条件(コメントの長さ・環境変数など)の分岐に足した照合や、固定した 3 行を
+  // 死んだコードにして別の変数で照合し直す形を塞げない(Hayato-Isagawa/edu-law#401)。ステップの外
+  // (workflow や job の env・defaults・concurrency、トリガーの types・branches、needs で飛ばす job)
+  // を書き換えても、通知は黙って止まる。写しを置かない原則の例外として、zizmor-workflow のテストと
+  // 同じく workflow 全体をパース結果で固定し、run は fixture の写しと 1 文字ずつ比べる。テストが
+  // 走らせる本文も同じ写しと比べる。マージキーは使わせない(GitHub は展開しないが、yaml は
+  // `merge: false` でも `!!merge <<:` を展開して読むので、パース結果だけでは見えない)。workflows: の
+  // 列挙だけは、PR で起動する workflow の name と過不足なく一致することを別のテストが見ているので、
+  // 写さずにその値を受ける。ただしそのテストは名前を trim して比べるので、前後の空白はここで禁じる。
+  // ci-summary.yml を変えるときは、期待値と fixture もコピーで直す
+  const src = yaml();
+  assert.doesNotMatch(
+    src.replace(/\r\n/g, "\n"),
+    /[\r\u0085\u2028\u2029]/,
+    "行区切りに使われうる文字がある"
+  );
+  assert.deepEqual(mergeKeyPaths(src), [], "マージキーを使っている");
+  const expected = fs.readFileSync(NOTIFY_RUN_FIXTURE, "utf8");
+  const wf = YAML.parse(src, { merge: false });
+  assert.deepEqual(wf, {
+    name: "CI summary",
+    on: {
+      workflow_run: {
+        workflows: wf?.on?.workflow_run?.workflows,
+        types: ["completed"],
+      },
+    },
+    permissions: { checks: "read", "pull-requests": "write" },
+    concurrency: {
+      group: "ci-summary-${{ github.event.workflow_run.head_sha }}",
+      "cancel-in-progress": false,
+    },
+    jobs: {
+      notify: {
+        if:
+          "github.event.workflow_run.event == 'pull_request' && " +
+          "github.event.workflow_run.triggering_actor.login != 'dependabot[bot]'",
+        "runs-on": "ubuntu-latest",
+        "timeout-minutes": 5,
+        steps: [
+          {
+            name: "Comment on the PR when every Actions check on the commit has succeeded",
+            env: {
+              GH_TOKEN: "${{ github.token }}",
+              GH_REPO: "${{ github.repository }}",
+              SHA: "${{ github.event.workflow_run.head_sha }}",
+              PR_FROM_EVENT:
+                "${{ github.event.workflow_run.pull_requests[0].number }}",
+              SELF: "${{ github.job }}",
+            },
+            run: expected,
+          },
+        ],
+      },
+    },
+  });
+  const listed = wf.on.workflow_run.workflows;
+  assert.ok(
+    Array.isArray(listed) && listed.length > 0,
+    "workflows: が空か配列でない"
+  );
+  for (const n of listed)
+    assert.ok(
+      typeof n === "string" && n !== "" && n === n.trim(),
+      `workflows: の名前に前後の空白がある、または文字列でない: ${JSON.stringify(n)}`
+    );
+  assert.equal(extractRunBlock(WORKFLOW), expected, "テストが走らせる本文");
 });
 
 test("別の sha のマーカーしか無ければ投稿する(再 push は別扱い)", () => {
