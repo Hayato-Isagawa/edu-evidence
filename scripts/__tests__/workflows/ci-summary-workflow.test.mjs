@@ -361,31 +361,46 @@ test("印を探す取得と照合は完全一致で固定する(字面と、gh �
   // コメント一覧の取得 1 回(--jq は上の式)だけが残ることを見る。PR 番号を pulls から引く取得は、
   // その経路でだけ式ごと除く。パスで絞らないので、別のパス(issues/comments・pulls/{n}/comments
   // など)から取る形もここで赤になる。投稿まで進む経路(PR 番号をイベントから取るか pulls から
-  // 引くか、bot のコメントが無いか有るか)を 3 通り回し、分岐の中に足した照合も拾う。スタブを
-  // 通らない呼び出し(curl・`command -p gh`・絶対パスの gh など)はここでも見えない
+  // 引くか、bot のコメントが無いか有るか)は 2 × 2 の組み合わせを全部回し、この 2 つの分岐(と
+  // その組み合わせ)の中に足した照合も拾う(3 通りだけでは、pulls から引きかつ bot のコメントが
+  // あるときの照合が素通りした)。4 つの組み合わせが通らない条件(コメントの長さ・環境変数など)の
+  // 分岐に足した照合と、スタブを通らない呼び出し(curl・`command -p gh`・絶対パスの gh など)は
+  // ここでも見えない
   const checkRuns = `api --paginate repos/example/repo/commits/${SHA}/check-runs --jq `;
   const pullsRead = `api repos/example/repo/commits/${SHA}/pulls --jq .[0].number // empty`;
-  for (const [label, opts] of [
-    ["PR 番号はイベントから・bot のコメントなし", {}],
+  const postCall = "api repos/example/repo/issues/42/comments -f body=";
+  const prSources = [
+    ["PR 番号はイベントから", {}],
     ["PR 番号は pulls から", { prFromEvent: "", pulls: [{ number: 42 }] }],
+  ];
+  const botComments = [
+    ["bot のコメントなし", {}],
     ["bot の別のコメントあり", { comments: ["bot の別のコメント"] }],
-  ]) {
-    const r = runStep(opts);
-    assert.equal(r.code, 0, `${label}: ${r.out}`);
-    assert.ok(r.commentedBody, `${label}: 投稿まで進んでいない`);
-    const others = r.ghArgs.filter(
-      (a) =>
-        !a.startsWith(checkRuns) &&
-        !a.includes("-f body=") &&
-        a !== MARKER &&
-        !(opts.prFromEvent === "" && a === pullsRead)
-    );
-    assert.deepEqual(
-      others,
-      [`api --paginate repos/example/repo/issues/42/comments --jq ${jq}`],
-      label
-    );
-  }
+  ];
+  for (const [prLabel, prOpts] of prSources)
+    for (const [commentLabel, commentOpts] of botComments) {
+      const label = `${prLabel}・${commentLabel}`;
+      const opts = { ...prOpts, ...commentOpts };
+      const r = runStep(opts);
+      assert.equal(r.code, 0, `${label}: ${r.out}`);
+      assert.ok(r.commentedBody, `${label}: 投稿まで進んでいない`);
+      // 投稿は部分一致ではなく先頭の形で見分け、どの経路でもちょうど 1 本であることを求める
+      // (`-f body=` の字面を含むだけの照合を、投稿として除いてしまわないため)
+      const posts = r.ghArgs.filter((a) => a.startsWith(postCall));
+      assert.equal(posts.length, 1, `${label}: 投稿 ${posts.length} 本`);
+      const others = r.ghArgs.filter(
+        (a) =>
+          !a.startsWith(checkRuns) &&
+          !a.startsWith(postCall) &&
+          a !== MARKER &&
+          !(opts.prFromEvent === "" && a === pullsRead)
+      );
+      assert.deepEqual(
+        others,
+        [`api --paginate repos/example/repo/issues/42/comments --jq ${jq}`],
+        label
+      );
+    }
 });
 
 test("別の sha のマーカーしか無ければ投稿する(再 push は別扱い)", () => {
