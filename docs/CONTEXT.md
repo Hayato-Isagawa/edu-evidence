@@ -54,12 +54,14 @@
 - `[feedback]` フィードバック / 形成的評価 / formative assessment
 - `[motivation]` 動機付け / モチベーション / やる気 / 内発的動機
 
-## ソースタクソノミー優先順位
+## 出典の優先順位
 
-1. **日本研究(★3 以上)** → `source: japan`
-2. **EEF Teaching and Learning Toolkit** → `source: eef`
-3. **Hattie Visible Learning**(上限寄りのため参考値扱い) → `source: hattie`
-4. **複数ソース併記** → `source: mixed`
+`monthsGained` の代表値をどの出典から取るか(`docs/CONTENT_GUIDELINES.md` Rule 1.1a)。
+
+1. **日本研究(★3 以上)**
+2. **EEF Teaching and Learning Toolkit**
+3. **Hattie Visible Learning**(上限寄りのため参考値扱い)
+4. **いずれも無ければ** `monthsGained: 0` + `monthsUnmeasured: true`
 
 ## 重要ルール・ADR への即引きポインタ
 
