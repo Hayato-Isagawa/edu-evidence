@@ -116,7 +116,13 @@ test.describe("トップページ", () => {
       await expect(
         card.getByRole("link", { name: title, exact: true })
       ).toHaveCount(1);
-      await card.scrollIntoViewIfNeeded();
+      // viewport の中ほどへスクロールする。scrollIntoViewIfNeeded だと、カードの下辺が viewport の下端に
+      // 掛かることがある(375×667 で下辺 667.47 / innerHeight 667)。下辺から 0.5px 内側の判定点(666.97)は
+      // viewport の内側だが、elementFromPoint は座標を四捨五入して下端の外とみなし、null を返す(#811)。
+      // global.css の scroll-behavior: smooth で途中の位置を測らないよう、instant にする
+      await card.evaluate((el) =>
+        el.scrollIntoView({ block: "center", behavior: "instant" })
+      );
       // カテゴリ・説明文・件数の中心と、外周の枠線の上(左辺・下辺の中央。角は角丸の外になる)で、
       // 最前面がこのカードのリンクか
       const hits = await card.evaluate((el) => {
