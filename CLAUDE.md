@@ -55,7 +55,7 @@ npm run check:source-sync  # 出典別の照合期限(docs/source-sync-protocol.
 npm run check:all          # package.json の連鎖で lint から test:hooks までを一括実行(手元用。format は含まない)。CI の Content Checks とは中身が違う(各行の注記。注記の無い行と test:* は Content Checks でも走る)
 npm run test:gate          # 下 3 つの口が通す判定器(assert-test-*.mjs)自身の検証(判定器を通さない・check:all に含む)
 npm run test:scripts       # 上の各ゲートが壊れた入力で確実に落ちることの回帰テスト(check:connectors は落ちない代わりに報告の中身を固定。check:all に含む)
-npm run test:workflows     # link-check.yml の通知分岐・VRT の配線・ci-summary.yml の通知判定・dependabot-auto-merge.yml の job の if:・cf-purge のビルドの扱い・zizmor の設定の回帰テスト(下限つき・check:all に含む)
+npm run test:workflows     # link-check.yml の通知分岐・VRT の配線・ci-summary.yml の通知判定・dependabot-auto-merge.yml の job の if:・cf-purge のビルドの扱い・zizmor の設定の回帰テストと、全部の workflow に当てる曖昧な YAML の判定(下限つき・check:all に含む)
 npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・check:all に含む)
 ```
 
@@ -119,6 +119,21 @@ jq は実物に通して、終端値ごとの exit と purge の有無、追う�
 job は緑のまま検査だけが効かなくなる。`uses:` は Dependabot が上げるので形だけを見る(同じ action の古い SHA への
 差し替えは通る)。
 
+workflow のテストが YAML をパース結果で見るときの共通部分は `scripts/__tests__/helpers/workflow-yaml.mjs` に置く
+(`*.test.mjs` ではないので node --test の対象外。姉妹リポと同じ中身で、このリポで使わない関数は外している)。
+マージキーの判定(`mergeKeyPaths`)・トリガーの読み方(`triggerNames`)と、手元の yaml と GitHub の runner で読みが
+食い違いうる書き方を拾う `ambiguousYaml` がある。`ambiguousYaml` が拾うのは、行区切りに使われうる単独の CR・U+0085・
+U+2028・U+2029、タブ・LF・CR 以外の制御文字(C0・DEL・C1。行区切りとして読まれる U+0085 を除くと、読みが食い違うのは NUL で、ほかは workflow で使わないので一緒に落とす)、
+yaml のエラーと警告(未知のタグ・未知のディレクティブなど)、明示したタグ、`%YAML`・`%TAG` のディレクティブ、マップや列を
+キーにした形(`[x]: 1`)、文字列でないキー(null・数値・真偽値。runner はキーを .NET の書式で文字列にしてから重複を
+判定するので、`null:` と `"":` のような組が食い違う)、エイリアスをキーにした形(yaml はエイリアスのキーの重複を検出せず、runner はアンカーを拒むか、読み直したうえで重複として拒む)、キーの重複(runner は大文字小文字を区別せずに重複を判定するので、
+大文字小文字をそろえて比べる)。どれも yaml が同じ値に読むと、パース結果で比べる全体の固定(ci-summary・zizmor)を素通りする
+(#868。`runs-on: !foo ubuntu-latest` が素通りした)。GitHub 側で読みが変わって挙動が変わるかは、
+actions/runner と YamlDotNet 5.3.0 のソースを読んで確かめただけで、実行はしていない。判定は `.github/workflows/` の全部の workflow に当て(テストが読む workflow だけに
+当てると漏れる)、判定自体が no-op に落ちていないことは書き方ごとの fixture で確かめる。マージキーの判定も、
+実ファイルでは条件を 1 つ外しても緑のまま通るので、書き方ごとの fixture で確かめる(`!!merge` のタグの条件だけは、
+yaml 2.9.1 では Symbol の条件と重なって単独では固定できない)。3 本とも `zizmor-workflow.test.mjs` の末尾にある。
+
 置き場所を `scripts/__tests__/workflows/` に分けているのは、`test:scripts` の glob
 (`scripts/__tests__/*.test.mjs`)がサブディレクトリを拾わないため＝**二重実行しない**。
 
@@ -143,7 +158,7 @@ fixture を一時ディレクトリに作って判定器を spawn し、fail 1 �
 **残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 177 と `test:scripts` の 82 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 180 と `test:scripts` の 82 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 82 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 90 と離れていてよい。
 
