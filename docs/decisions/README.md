@@ -93,3 +93,4 @@
 - [0045. cf-purge は本番に出なかったビルドで赤になり、置き換えたビルドを追い、確かめられないときは purge して赤で終わる(edu-watch ADR 0080〜0082 ミラー)](0045-cf-purge-follow-builds-and-fail-visibly.md)
 - [0046. Node.js を 26 LTS に上げる(ADR 0002 の版の決定を上書き)](0046-node-26-lts.md)(一部撤回)
 - [0047. engines を Node 26 に上げ、Workers Builds の npm を固定する(ADR 0002 と 0046 の engines の決定を上書き)](0047-node-26-engines-and-npm.md)
+- [0048. PR の Actions が全部成功したときだけ、PR に 1 回だけ通知する(ci-summary・edu-law ADR 0036 ミラー)](0048-ci-summary-notify-once-on-success.md)
