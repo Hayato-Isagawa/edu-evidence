@@ -10,7 +10,7 @@
 
 ## 環境
 
-Node.js のバージョンは `.tool-versions` で固定している(`nodejs 26.13.1`)。[mise](https://mise.jdx.dev/) を使う前提。
+Node.js のバージョンは `.tool-versions` で固定している(`nodejs 26.13.1`。版の決定は ADR 0046、`engines` と `packageManager` は ADR 0047)。[mise](https://mise.jdx.dev/) を使う前提。
 
 ```bash
 mise install               # .tool-versions に従って Node 26 を導入
@@ -49,8 +49,8 @@ npm run check:sentence-length # 1 文の長さ(200 字超で落ちる。観点 1
 npm run check:connectors   # 接続語の反復(観点 12.5。検出では落とさない。CI では走らない)
 npm run check:tokens       # デザイントークンの規約
 npm run check:package-manager # package.json の packageManager と、.tool-versions の Node に同梱の npm(`npm -v`)の一致
-npm run check:links:source # md の外部 URL の到達性(ネットワークに出る。Content Checks では走らない。週次の link-check.yml〈lychee〉が dist を見る)
-npm run check:links:internal # dist の内部リンク切れ(ビルド後に実行。Content Checks では走らない。同上)
+npm run check:links:source # md の外部 URL の到達性(ネットワークに出る。Content Checks では走らない。理由は ADR 0028。週次の link-check.yml〈lychee〉が dist を見る)
+npm run check:links:internal # dist の内部リンク切れ(ビルド後に実行。Content Checks では走らない。週次の link-check.yml〈lychee〉が dist を見る)
 npm run check:source-sync  # 出典別の照合期限(docs/source-sync-protocol.md。check:all にも CI にも含まない)
 npm run check:all          # package.json の連鎖で lint から test:hooks までを一括実行(手元用。format は含まない)。CI の Content Checks とは中身が違う(各行の注記。注記の無い行と test:* は Content Checks でも走る)
 npm run test:gate          # 下 3 つの口が通す判定器(assert-test-*.mjs)自身の検証(判定器を通さない・check:all に含む)
@@ -63,7 +63,7 @@ npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・ch
 **壊れても静かに壊れる** — lychee は走り、レポートもアーティファクトに残り、job も緑のまま
 **通知だけ**が消える。姉妹リポ okinawa-in-data では、open な link-check Issue があると後続の
 検出を捨てており、2026-08-17 に見つかった 404 が 2 日間どこにも出なかった(okinawa-in-data
-#107 / #110。このリポも同じコードを共有していた)。テストはワークフローから `run:` ブロックを
+で塞いだ。塞いだ後の形は同リポの `.github/workflows/link-check.yml`。このリポも同じコードを共有していた)。テストはワークフローから `run:` ブロックを
 取り出して bash で走らせ、`gh` をスタブして渡された引数を全部記録する。**ワークフロー本体を取り出して走らせるので、
 ワークフロー側を変えるとテスト対象も変わる。** 上限バイト数とレポートのファイル名は
 ワークフローから読み取っていて、テストには写していない(写すとここだけ古くなる)。
@@ -217,11 +217,11 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
 
 **効果量(monthsGained)を推測で設定してはならない。** 必ず一次研究(メタ分析・RCT)をWebSearchで確認してから設定する。
 
-出典の優先順位:
-1. 日本の研究(★3以上) → `source: japan`
-2. EEF Teaching and Learning Toolkit → `source: eef`
-3. Hattie Visible Learning(上限寄りのため参考値扱い) → `source: hattie`
-4. 複数ソース → `source: mixed`
+出典の優先順位(`monthsGained` の代表値をどの出典から取るか。`docs/CONTENT_GUIDELINES.md` の Rule 1.1a。理由と各段の条件も同所):
+1. 日本の研究(★3以上)
+2. EEF Teaching and Learning Toolkit
+3. Hattie Visible Learning(上限寄りのため参考値扱い)
+4. いずれも無ければ `monthsGained: 0` + `monthsUnmeasured: true`
 
 ## frontmatter スキーマ
 
@@ -273,7 +273,7 @@ Markdown ソースしか見ず、E2E も a11y 監査も属性値の中身まで�
   差分が出ない。そのときは Actions から VRT を `workflow_dispatch` で `neutral: false` にして
   手動実行し、素の main ベースラインと撮り比べる
 - **ローカル**: `npm run vrt` で現在の `dist` を撮影・比較できる。権威ある 2 ビルド差分は CI 側
-- **required check 非対象**: `paths` で限定起動するため main 保護(ADR 0022)の required には含めない(required にすると起動しなかった PR が塞がる)。マージ可否は編集者判断
+- **required check 非対象**: `paths` で限定起動するため main 保護の required には含めない(required にすると起動しなかった PR が塞がる。決定は ADR 0024、いまの required の置き場は ADR 0029)。マージ可否は編集者判断
 
 ## ホスティング
 

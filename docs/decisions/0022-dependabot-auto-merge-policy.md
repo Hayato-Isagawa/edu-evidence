@@ -18,7 +18,7 @@ Dependabot の patch / minor を CI green 後に自動マージし、major の�
 
 ### 自動マージ機構
 
-`.github/workflows/dependabot-auto-merge.yml` が `pull_request` で起動し、`github.actor == 'dependabot[bot]'` の場合のみ `dependabot/fetch-metadata@v2` で update-type を取得、`semver-major` 以外で `gh pr merge --auto --squash --delete-branch` を発火する。
+`.github/workflows/dependabot-auto-merge.yml` が `pull_request` で起動し、`github.actor == 'dependabot[bot]'` の場合のみ `dependabot/fetch-metadata@v2` で update-type を取得、`semver-major` 以外で `gh pr merge --auto --squash --delete-branch` を発火する。(注 2026-11-19: #819(2026-10-26)で、作成者(`github.event.pull_request.user.login`)が Dependabot であることと、head が本リポであることの 2 条件を足した。`github.actor` は最後に動いた者で、作成者ではないため(zizmor の `bot-conditions`)。actor の条件は、人が push した後の run を外すために残した。いまの条件は workflow の job の `if:` を見る)
 
 ### main ブランチ保護
 
@@ -68,4 +68,4 @@ Dependabot の patch / minor を CI green 後に自動マージし、major の�
 - `.github/dependabot.yml`(既存。`typescript` major ignore あり)
 - `~/.claude/templates/dependabot/`(本運用の標準形を雛形化、新規リポジトリ展開用)
 - 姉妹サイト: edu-watch ADR 0041、edu-law ADR 0004(同じ運用方針を 3 リポジトリ横断で採用)
-- isagawa-hayato-portfolio は private/Free のためブランチ保護不可 → 本 ADR の運用対象外、手動マージ継続
+- isagawa-hayato-portfolio は private/Free のためブランチ保護不可 → 本 ADR の運用対象外、手動マージ継続(注 2026-11-19: isagawa-hayato-portfolio は 2026-08-08 から、非 major の Dependabot 更新を自動マージしている。ブランチ保護が使えない点は変わらない)
