@@ -99,7 +99,7 @@ src/
 ## コンテンツの編集方針
 
 - 効果量(+◯ヶ月)は一次研究(メタ分析・RCT)に基づく。推測で数値を設定しない
-- 出典の優先順位: 日本研究(★3+) > EEF Toolkit > Hattie Visible Learning
+- 出典の優先順位: 日本研究(★3+) > EEF Toolkit > Hattie Visible Learning。いずれも無ければ `monthsGained: 0` + `monthsUnmeasured: true`
 - 詳細は [docs/CONTENT_GUIDELINES.md](docs/CONTENT_GUIDELINES.md) を参照
 
 ## ライセンス

@@ -35,6 +35,8 @@
 3. **Hattie の Visible Learning** しか無ければ参考値として使うが、**必ず `evidence.hattie` フィールドに記録し、注記で「楽観値の傾向」を明示**
 4. いずれも無ければ **0 + `monthsUnmeasured: true`**(未証明。「測って 0」と区別する)
 
+frontmatter の `source` の値は描画に使わない(出典のバッジと欄は `evidence` のキーで決まる。Rule 1.1c)。2026-11 時点で、値によって挙動が変わる処理は `check:source-sync` の照合対象の判定だけで、`source` か `evidence` のキーがその出典を指すページを対象にする(`docs/source-sync-protocol.md`)。スキーマは 4 値のどれかであることを検証し、省略時は `eef` を入れる。4 値のどれを付けるかの規則は `source: hattie` を新規に付けないこと(同文書の「Hattie 値の運用上の注意」)だけで、既存のページでも一定していない(`evidence` のキーが 1 つでも `mixed` のページがある)。出典を足すときは `evidence` のキーを足す。
+
 ### Rule 1.1b — 併記と文化的注記
 
 可能な限り、`evidence.eef` / `evidence.japan` / `evidence.hattie` を併記し(`evidence.eef` は Rule 1.1c の条件を満たすときだけ)、読者が比較できるようにする。両者で値が大きく異なる場合は `culturalContext` フィールドに **なぜ差があるか(文化的・制度的要因)** を説明する。
@@ -108,7 +110,7 @@ WebSearch / WebFetch で **論文の存在・著者・年・タイトル・ジ�
 執筆時の判定フロー:
 1. sourceUrl 候補を決めたらドメインを確認
 2. 上記 NG ドメインなら、論文 DOI・公式 abstract・政府公式 URL を WebSearch で探し直す
-3. 一次資料が見つからない場合、`source: mixed` または `hattie` に切り替え、最も近い海外メタ分析の DOI を sourceUrl に置く + sourceTitle で「日本独自の概念に関連する海外メタ分析」と明示する
+3. 一次資料が見つからない場合、最も近い海外メタ分析の DOI を sourceUrl に置く + sourceTitle で「日本独自の概念に関連する海外メタ分析」と明示する
 4. それでも一次資料がなく置きどころが無い概念は、戦略・コラムとして公開しない方針を検討
 
 ### Rule 1.2a — 書籍は執筆者が読んでいるものだけを主参考資料に置く

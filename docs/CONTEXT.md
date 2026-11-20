@@ -23,7 +23,7 @@
 - `grades` — 学年配列。default `["全学年"]`
 - `tags` — 自由タグ配列
 - `category` — `指導法` / `制度・環境` / `知っておくべき知見` / `認知科学` / `家庭・外部` の 5 値
-- `source` — `eef` / `japan` / `hattie` / `mixed` の 4 値。**バッジ描画は `evidence.*` の有無で決まる(`source` 値はバッジに使わない)**
+- `source` — `eef` / `japan` / `hattie` / `mixed` の 4 値。**バッジ描画は `evidence.*` の有無で決まる(`source` 値はバッジに使わない)**。2026-11 時点で、値によって挙動が変わるのは `check:source-sync` の照合対象の判定だけ(`docs/CONTENT_GUIDELINES.md` Rule 1.1a)
 - `sourceUrl` — 一次研究ドメインのみ(`docs/CONTENT_GUIDELINES.md` Rule 1.2b)。news / まとめページ / 書籍紹介ページは置かない
 - `sourceTitle` — 一次研究のタイトル
 - `evidence.eef` / `evidence.japan` / `evidence.hattie` — 出典別詳細(併記用、optional)。バッジ表示は本オブジェクトの **キー有無** で動的描画
