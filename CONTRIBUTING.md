@@ -82,7 +82,7 @@ ci: auto-create issue when lychee detects broken links
 ### 効果量(monthsGained)のルール
 
 - **推測で数値を設定しない** — 必ず一次研究(メタ分析・RCT)を確認する
-- 出典の優先順位: 日本研究(★3+) > EEF Toolkit > Hattie Visible Learning
+- 出典の優先順位: 日本研究(★3+) > EEF Toolkit > Hattie Visible Learning。いずれも無ければ `monthsGained: 0` + `monthsUnmeasured: true`
 - 詳細は [docs/CONTENT_GUIDELINES.md](docs/CONTENT_GUIDELINES.md) を参照
 
 ### frontmatter の必須フィールド
