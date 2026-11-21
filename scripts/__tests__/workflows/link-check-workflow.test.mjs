@@ -35,6 +35,40 @@ const WORKFLOW = path.join(
 );
 
 /**
+ * 名前で指定した 1 ステップの範囲を返す。6 スペース以下の(コメントでない)行の手前まで。
+ * **コメント行では止めない。** YAML ではコメントはマッピングを閉じないので、6 スペース以下の
+ * コメントを挟んだ後ろのキーも同じステップのキーとして効く。
+ * 見つからないと空の範囲を検査して素通りするので、ここで落とす(改名すると起きる)。
+ */
+function stepBlock(name) {
+  const lines = fs.readFileSync(WORKFLOW, "utf8").split("\n");
+  const start = lines.indexOf(`      - name: ${name}`);
+  assert.notEqual(start, -1, `${name} のステップが見つからない`);
+  const out = [lines[start]];
+  for (const line of lines.slice(start + 1)) {
+    if (/^ {0,6}[^\s#]/.test(line)) break;
+    out.push(line);
+  }
+  return out.join("\n");
+}
+
+/**
+ * ステップ直下のキー(`env:` / `with:`)の子だけを返す。**ステップ全体では足りない。**
+ * 通知ステップの `run: |` の本文も 10 スペースなので、値と同じ行を本文に書いても一致してしまう。
+ */
+function stepMapping(name, key) {
+  const lines = stepBlock(name).split("\n");
+  const start = lines.indexOf(`        ${key}:`);
+  assert.notEqual(start, -1, `${name} に ${key}: が無い`);
+  const out = [];
+  for (const line of lines.slice(start + 1)) {
+    if (/^ {0,8}[^\s#]/.test(line)) break;
+    out.push(line);
+  }
+  return out.join("\n");
+}
+
+/**
  * レポートのファイル名は、ワークフローの `output:` から取る。**テストに書き写さない。**
  * 写すと、正当な一斉リネーム(YAML と参照 5 箇所を揃えて変える)でテストだけが取り残され、
  * 8 件が失敗する（実測）。名前が変わったこと自体は下の「出力先とシェルが読むファイル名が
@@ -791,6 +825,88 @@ test("lychee の出力形式は markdown で固定されている", () => {
   // 判定に `# Summary` を使っているので、形式が変わると毎回「レポートを出せなかった」に
   // 化ける。通知は出続けるが中身が永久に失われるので、空振りより気づきにくい。
   assert.match(yaml(), /^ {10}format: markdown$/m);
+});
+
+test("0 件を検出できる設定が固定されている", () => {
+  // 「1 本も見なかった回も通知する」は、`failIfEmpty` が true のときに action が
+  // 非ゼロ終了することに全面的に依存している。false にすると lychee も action も
+  // 0 終了 = 通知ステップが skip され、**週次チェックが恒久的に no-op になる**。
+  // しかもその設定方法は、0 件の回の Issue 本文に lychee 自身が書き込む。
+  // lychee ステップの with: の中で見る。別のステップへ移すと lychee には既定値が効くが、
+  // 明示している意味(読み手が false にしない)が消える。
+  assert.match(
+    stepMapping("Run lychee", "with"),
+    /^ {10}failIfEmpty: true$/m,
+    "0 件の回を検出できなくなる"
+  );
+});
+
+test("lychee-action は読解した版に pin されている", () => {
+  // 3 分岐の設計は、この pin の entrypoint.sh の挙動そのもの(exit_code を残して
+  // action だけが exit 1 する / mktemp で出力先を先に作る)に依っている。
+  // **上げるときは entrypoint.sh を読み直すこと。**
+  assert.match(
+    yaml(),
+    /uses: lycheeverse\/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8/
+  );
+});
+
+// 時間切れについて。job の timeout-minutes に当たると GitHub は job を**取り消す**ので、
+// 通知ステップの暗黙の success() が偽になり、Issue は立たない(run の結果に残るだけ)。
+// lychee ステップに job より短い制限を置くと、runner はそのステップを Failed として扱い、
+// continue-on-error が outcome=failure に変えて job を続ける(lychee-action は
+// composite なので actions/runner の CompositeActionHandler.cs が Failed を立て、
+// StepsRunner.cs の ApplyContinueOnError が outcome に残す)。exit_code の output は
+// 書かれないので空文字で届く。
+
+test("lychee の時間制限は job より十分に短い", () => {
+  // 外すか job 以上にすると、固まった回は job ごと取り消されて通知が消える。
+  // **「短い」だけでは足りない。** lychee の前後のステップと、時間切れの kill が job の
+  // 制限の内側に収まらないと、やはり job が先に取り消される(29 / 30 でも `<` は通る)。
+  // 差の下限 5 分は、姉妹リポ okinawa-in-data の実測(前後のステップは 1 分未満、kill は
+  // 15 秒ほど)に余裕を足した判断で、このリポの run では測っていない。
+  // 制限の値そのものは両方ワークフローから読む(テストに写さない)。
+  const MIN_MARGIN_MINUTES = 5;
+  const step = stepBlock("Run lychee").match(/^ {8}timeout-minutes: (\d+)$/m);
+  // job の制限は lychee の job の中だけで探す。ファイル全体だと、手前に足した別の job の
+  // 値で判定してしまう。
+  const lines = yaml().split("\n");
+  const jobStart = lines.indexOf("  lychee:");
+  assert.notEqual(jobStart, -1, "lychee の job が見つからない");
+  const jobEnd = lines.findIndex(
+    (l, i) => i > jobStart && /^ {0,2}[^\s#]/.test(l)
+  );
+  const job = lines
+    .slice(jobStart, jobEnd === -1 ? undefined : jobEnd)
+    .join("\n")
+    .match(/^ {4}timeout-minutes: (\d+)$/m);
+  assert.ok(step, "lychee ステップに timeout-minutes が無い");
+  assert.ok(job, "job の timeout-minutes が読み取れない");
+  // 0 は runner では「制限なし」(StepsRunner.cs の `timeoutMinutes > 0`)なのに、
+  // 差の計算では 30 分の余裕に見える。
+  assert.ok(Number(step[1]) >= 1, "lychee の制限が 0 分(制限なし)になっている");
+  assert.ok(
+    Number(job[1]) - Number(step[1]) >= MIN_MARGIN_MINUTES,
+    `lychee の制限 ${step[1]} 分と job の ${job[1]} 分の差が ${MIN_MARGIN_MINUTES} 分に届かない`
+  );
+});
+
+test("lychee が時間切れになった回は、0 件ではなく未完走として届く", () => {
+  // exit_code は空、outcome は failure。0 件の判定を `${LYCHEE_EXIT_CODE:-0}` のように
+  // 緩めると、この回が「1 本もリンクを見なかった」に化けて設定を疑わせる。
+  const footerOnly =
+    "[Full Github Actions output](https://example.invalid/runs/1)\n";
+  const r = runStep({
+    existing: "",
+    report: footerOnly,
+    exitCode: "",
+    outcome: "failure",
+  });
+  assert.equal(r.code, 0, r.out);
+  const call = calls(r, "issue create")[0];
+  assert.match(call, /could not produce a report/, `分岐が違う: ${call}`);
+  assert.match(r.createdBody, /終了コード: unknown/);
+  assert.match(r.createdBody, /has timed out/, "時間切れを疑う手がかりが無い");
 });
 
 test("この検査自身が PR の CI に配線されている", () => {
