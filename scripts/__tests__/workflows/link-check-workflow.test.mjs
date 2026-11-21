@@ -863,8 +863,10 @@ test("lychee の時間制限は job より十分に短い", () => {
   // 外すか job 以上にすると、固まった回は job ごと取り消されて通知が消える。
   // **「短い」だけでは足りない。** lychee の前後のステップと、時間切れの kill が job の
   // 制限の内側に収まらないと、やはり job が先に取り消される(29 / 30 でも `<` は通る)。
-  // 差の下限 5 分は、姉妹リポ okinawa-in-data の実測(前後のステップは 1 分未満、kill は
-  // 15 秒ほど)に余裕を足した判断で、このリポの run では測っていない。
+  // 2026-10-12〜11-16 に schedule で走った 6 回の実測で、前(job 開始 → lychee 開始)は最大
+  // 34 秒、後(lychee 終了 → job 終了)は最大 13 秒。kill は runner が SIGINT と SIGTERM を
+  // 送って待つので、合わせて 15 秒ほど(ProcessInvoker.cs。姉妹リポ okinawa-in-data の読解)。
+  // 差の下限 5 分は実測からの導出ではなく余裕の判断。
   // 制限の値そのものは両方ワークフローから読む(テストに写さない)。
   const MIN_MARGIN_MINUTES = 5;
   const step = stepBlock("Run lychee").match(/^ {8}timeout-minutes: (\d+)$/m);
