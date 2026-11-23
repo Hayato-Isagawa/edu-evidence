@@ -22,6 +22,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { mergeKeyPaths, parseWorkflow } from "../helpers/workflow-yaml.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const WORKFLOW = path.join(
@@ -34,38 +35,47 @@ const WORKFLOW = path.join(
   "link-check.yml"
 );
 
-/**
- * 名前で指定した 1 ステップの範囲を返す。6 スペース以下の(コメントでない)行の手前まで。
- * **コメント行では止めない。** YAML ではコメントはマッピングを閉じないので、6 スペース以下の
- * コメントを挟んだ後ろのキーも同じステップのキーとして効く。
- * 見つからないと空の範囲を検査して素通りするので、ここで落とす(改名すると起きる)。
- */
-function stepBlock(name) {
-  const lines = fs.readFileSync(WORKFLOW, "utf8").split("\n");
-  const start = lines.indexOf(`      - name: ${name}`);
-  assert.notEqual(start, -1, `${name} のステップが見つからない`);
-  const out = [lines[start]];
-  for (const line of lines.slice(start + 1)) {
-    if (/^ {0,6}[^\s#]/.test(line)) break;
-    out.push(line);
-  }
-  return out.join("\n");
-}
+const yaml = () => fs.readFileSync(WORKFLOW, "utf8");
 
 /**
- * ステップ直下のキー(`env:` / `with:`)の子だけを返す。**ステップ全体では足りない。**
- * 通知ステップの `run: |` の本文も 10 スペースなので、値と同じ行を本文に書いても一致してしまう。
+ * lychee を走らせるステップと、それを含む job を、パース結果から `id: lychee` で取る。
+ * **名前でも字面でも探さない。** 通知ステップが読むのは `steps.lychee`(= この id のステップ)の
+ * outputs と outcome なので、守る設定はこのステップに付いていないと効かない。名前の字面で
+ * 最初の一致を取っていたころは、同じ名前の囮を手前に置けば本物の設定を壊しても緑になり、
+ * ファイル全体の照合はコメント行に残した字面でも通った(#879)。
+ * **id は大文字小文字をそろえて比べ、全部の job から数える。** runner は `steps` を大文字小文字を
+ * 区別せずに引く(actions/runner の DictionaryContextData.cs が OrdinalIgnoreCase。ソースを読んだ
+ * だけで実行はしていない)。厳密に比べると、本物を `id: LYCHEE` にして別の job に `id: lychee` の
+ * 囮を置く形で、本物を壊しても緑になった。
+ * **`steps.lychee` を読むステップと同じ job にあることも見る。** `steps` は同じ job の中でしか
+ * 引けないので、本物の id を別名にして別の job に `id: lychee` の囮を置くと、通知ステップが読む
+ * ものと検査が読むものが分かれる(本物から時間制限を外しても緑になった)。
+ * マージキーは GitHub が展開しないのに yaml が展開しうるので、使っていること自体で落とす
+ * (workflow-yaml.mjs の parseWorkflow のコメント)。
  */
-function stepMapping(name, key) {
-  const lines = stepBlock(name).split("\n");
-  const start = lines.indexOf(`        ${key}:`);
-  assert.notEqual(start, -1, `${name} に ${key}: が無い`);
-  const out = [];
-  for (const line of lines.slice(start + 1)) {
-    if (/^ {0,8}[^\s#]/.test(line)) break;
-    out.push(line);
-  }
-  return out.join("\n");
+function lycheeStep(src = yaml()) {
+  assert.deepEqual(mergeKeyPaths(src), [], "マージキーを使っている");
+  const jobs = Object.entries(parseWorkflow(src)?.jobs ?? {});
+  const found = jobs.flatMap(([jobName, job]) =>
+    (job?.steps ?? [])
+      .filter((step) => String(step?.id ?? "").toLowerCase() === "lychee")
+      .map((step) => ({ jobName, job, step }))
+  );
+  assert.equal(found.length, 1, `id: lychee のステップが ${found.length} 個`);
+  const readers = jobs
+    .filter(([, job]) =>
+      (job?.steps ?? []).some((step) =>
+        // id には `-` も使えるので、`steps.lychee-src` は別のステップとして読む
+        /steps\.lychee(?![\w-])/i.test(JSON.stringify(step ?? {}))
+      )
+    )
+    .map(([jobName]) => jobName);
+  assert.deepEqual(
+    readers,
+    [found[0].jobName],
+    `steps.lychee を読む job(${readers.join(", ")})と id: lychee のステップの job(${found[0].jobName})が違う`
+  );
+  return found[0];
 }
 
 /**
@@ -75,9 +85,12 @@ function stepMapping(name, key) {
  * 一致している」が見るので、ここは追随するだけでよい。
  */
 const REPORT_FILE = (() => {
-  const m = fs.readFileSync(WORKFLOW, "utf8").match(/^ {10}output: (\S+)$/m);
-  assert.ok(m, "lychee の output: を読み取れない");
-  return m[1];
+  const output = lycheeStep().step.with?.output;
+  assert.ok(
+    typeof output === "string" && /^\S+$/.test(output),
+    "lychee の output: を読み取れない"
+  );
+  return output;
 })();
 const RE_REPORT = REPORT_FILE.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -538,7 +551,6 @@ test("gh issue create が失敗したら、ステップごと落ちる", () => {
 // job 側を read に落としてワークフロー全体に write を足すと素通りした
 // (実効権限は job 側＝read なので、本番では通知だけが 403 で消える)。
 // 姉妹リポ(portfolio / okinawa-in-data)の同名テストも同じ深さで締めている。
-const yaml = () => fs.readFileSync(WORKFLOW, "utf8");
 
 test("通知ステップは lychee が異常終了した回に走る", () => {
   // `!= '0'` を `== '0'` にすると、検出があった回にだけ走らなくなる。
@@ -803,28 +815,24 @@ test("lychee の出力先と、シェルが読むファイル名が一致して�
   // **部分一致で見ない。** `includes()` にすると `output: report.md` へ変えても、シェル側の
   // `lychee-report.md` が `report.md` を部分文字列として含むため素通りする(変異試験で実測)。
   // シェルが実際に読んでいる名前を取り出して、完全一致で突き合わせる。
-  const out = yaml().match(/^ {10}output: (\S+)$/m);
-  assert.ok(out, "lychee の output: を読み取れない");
+  const out = lycheeStep().step.with?.output;
+  assert.ok(typeof out === "string", "lychee の output: を読み取れない");
   const block = extractRunBlock(WORKFLOW);
   const guard = block.match(/\[ +-s +(\S+) +\]/);
   const cut = block.match(/^ *head -c \d+ (\S+)$/m);
   assert.ok(guard && cut, "シェルが読むファイル名を取り出せない");
   assert.equal(
     guard[1],
-    out[1],
-    `有無の判定が ${guard[1]} を見ている(output: は ${out[1]})`
+    out,
+    `有無の判定が ${guard[1]} を見ている(output: は ${out})`
   );
-  assert.equal(
-    cut[1],
-    out[1],
-    `本文へ載せるのが ${cut[1]}(output: は ${out[1]})`
-  );
+  assert.equal(cut[1], out, `本文へ載せるのが ${cut[1]}(output: は ${out})`);
 });
 
 test("lychee の出力形式は markdown で固定されている", () => {
   // 判定に `# Summary` を使っているので、形式が変わると毎回「レポートを出せなかった」に
   // 化ける。通知は出続けるが中身が永久に失われるので、空振りより気づきにくい。
-  assert.match(yaml(), /^ {10}format: markdown$/m);
+  assert.equal(lycheeStep().step.with?.format, "markdown");
 });
 
 test("0 件を検出できる設定が固定されている", () => {
@@ -834,9 +842,9 @@ test("0 件を検出できる設定が固定されている", () => {
   // しかもその設定方法は、0 件の回の Issue 本文に lychee 自身が書き込む。
   // lychee ステップの with: の中で見る。別のステップへ移すと lychee には既定値が効くが、
   // 明示している意味(読み手が false にしない)が消える。
-  assert.match(
-    stepMapping("Run lychee", "with"),
-    /^ {10}failIfEmpty: true$/m,
+  assert.equal(
+    lycheeStep().step.with?.failIfEmpty,
+    true,
     "0 件の回を検出できなくなる"
   );
 });
@@ -845,9 +853,10 @@ test("lychee-action は読解した版に pin されている", () => {
   // 3 分岐の設計は、この pin の entrypoint.sh の挙動そのもの(exit_code を残して
   // action だけが exit 1 する / mktemp で出力先を先に作る)に依っている。
   // **上げるときは entrypoint.sh を読み直すこと。**
-  assert.match(
-    yaml(),
-    /uses: lycheeverse\/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8/
+  // uses: の値全体と比べる。部分一致だと、別の版を指したうえで SHA をコメントに残す形が通る。
+  assert.equal(
+    lycheeStep().step.uses,
+    "lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8"
   );
 });
 
@@ -869,27 +878,25 @@ test("lychee の時間制限は job より十分に短い", () => {
   // 差の下限 5 分は実測からの導出ではなく余裕の判断。
   // 制限の値そのものは両方ワークフローから読む(テストに写さない)。
   const MIN_MARGIN_MINUTES = 5;
-  const step = stepBlock("Run lychee").match(/^ {8}timeout-minutes: (\d+)$/m);
-  // job の制限は lychee の job の中だけで探す。ファイル全体だと、手前に足した別の job の
-  // 値で判定してしまう。
-  const lines = yaml().split("\n");
-  const jobStart = lines.indexOf("  lychee:");
-  assert.notEqual(jobStart, -1, "lychee の job が見つからない");
-  const jobEnd = lines.findIndex(
-    (l, i) => i > jobStart && /^ {0,2}[^\s#]/.test(l)
+  // job の制限は lychee のステップを含む job の値で見る。ファイル全体だと、手前に足した
+  // 別の job の値で判定してしまう。
+  const { job, step } = lycheeStep();
+  const stepLimit = step["timeout-minutes"];
+  const jobLimit = job["timeout-minutes"];
+  assert.ok(
+    Number.isInteger(stepLimit),
+    "lychee ステップに timeout-minutes が無い"
   );
-  const job = lines
-    .slice(jobStart, jobEnd === -1 ? undefined : jobEnd)
-    .join("\n")
-    .match(/^ {4}timeout-minutes: (\d+)$/m);
-  assert.ok(step, "lychee ステップに timeout-minutes が無い");
-  assert.ok(job, "job の timeout-minutes が読み取れない");
+  assert.ok(
+    Number.isInteger(jobLimit),
+    "job の timeout-minutes が読み取れない"
+  );
   // 0 は runner では「制限なし」(StepsRunner.cs の `timeoutMinutes > 0`)なのに、
   // 差の計算では 30 分の余裕に見える。
-  assert.ok(Number(step[1]) >= 1, "lychee の制限が 0 分(制限なし)になっている");
+  assert.ok(stepLimit >= 1, "lychee の制限が 0 分(制限なし)になっている");
   assert.ok(
-    Number(job[1]) - Number(step[1]) >= MIN_MARGIN_MINUTES,
-    `lychee の制限 ${step[1]} 分と job の ${job[1]} 分の差が ${MIN_MARGIN_MINUTES} 分に届かない`
+    jobLimit - stepLimit >= MIN_MARGIN_MINUTES,
+    `lychee の制限 ${stepLimit} 分と job の ${jobLimit} 分の差が ${MIN_MARGIN_MINUTES} 分に届かない`
   );
 });
 
@@ -944,4 +951,38 @@ test("run: | ブロックは 1 つだけ(テストが別のステップを走ら
     1,
     `run: | が ${count} 個ある。extractRunBlock の前提が崩れている`
   );
+});
+
+test("lychee のステップは、名前ではなく id: lychee で取る", () => {
+  // 名前で取る形に戻すと、手前に置いた同じ名前の囮の値を読んで緑になる(#879)。
+  // 実ファイルの lychee ステップの format を json にし、markdown を持つ囮を手前に置く
+  const head = "      - name: Run lychee\n        id: lychee\n";
+  const decoy =
+    "      - name: Run lychee\n        if: false\n        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8\n        with:\n          format: markdown\n";
+  const src = yaml();
+  assert.equal(src.split(head).length, 2, "lychee ステップの先頭が 1 つでない");
+  assert.equal(
+    src.split("          format: markdown\n").length,
+    2,
+    "format: markdown が 1 つでない"
+  );
+  const broken = src
+    .replace("          format: markdown\n", "          format: json\n")
+    .replace(head, decoy + head);
+  assert.equal(lycheeStep(broken).step.with?.format, "json");
+  // id が重なると、どちらを取るか決まらない。runner は大文字小文字を区別せずに引くので、
+  // 大文字の id も同じ id として数える
+  const upper = head
+    .replace("Run", "Rerun")
+    .replace("id: lychee", "id: LYCHEE");
+  assert.throws(
+    () => lycheeStep(src.replace(head, `${upper}${head}`)),
+    /id: lychee のステップが 2 個/
+  );
+  // 本物の id を別名にして別の job に囮を置くと、通知ステップの steps.lychee は囮を指さない
+  const otherJob = `${src.replace(head, head.replace("id: lychee", "id: scan")).trimEnd()}\n\n  decoy:\n    runs-on: ubuntu-latest\n    steps:\n${decoy.replace("        if: false\n", "        id: lychee\n")}`;
+  assert.throws(() => lycheeStep(otherJob), /steps\.lychee を読む job/);
+  // 別の job が `steps.lychee-src` を読むだけなら、steps.lychee の読み手に数えない
+  const hyphenJob = `${src.trimEnd()}\n\n  other:\n    runs-on: ubuntu-latest\n    steps:\n      - id: lychee-src\n        run: "true"\n      - if: steps.lychee-src.outcome == 'failure'\n        run: "true"\n`;
+  assert.doesNotThrow(() => lycheeStep(hyphenJob));
 });

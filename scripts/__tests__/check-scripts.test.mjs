@@ -1039,7 +1039,7 @@ const WORKFLOW_TEST_FILES = [
 ];
 
 /** `test:workflows` の口で走るべきテストの総数。**守る対象から導出しない**(下記) */
-const WORKFLOW_TESTS = 184;
+const WORKFLOW_TESTS = 185;
 
 test("test:workflows の口にあるテストファイルが 7 本である", () => {
   // ファイルを足すと下限に静かな余裕が生まれる(edu-law の実測: ダミーを 3 本足しても
