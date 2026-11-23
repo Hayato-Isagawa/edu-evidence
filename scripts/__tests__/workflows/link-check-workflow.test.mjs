@@ -196,6 +196,44 @@ function runOverrides(src = yaml()) {
   ];
 }
 
+/** 通知ステップの env に置くキー。シェルが読む 3 つと、gh が読むトークン */
+const REPORT_ENV = [
+  "GH_TOKEN",
+  "LYCHEE_EXIT_CODE",
+  "LYCHEE_OUTCOME",
+  "RUN_URL",
+];
+
+/**
+ * テストが緑のまま、本番でだけ通知を消しうる配置を返す(空なら、どれも無い)。
+ * - 通知ステップの env に決まったキー以外がある / job かワークフロー直下に `env:` がある: テストは
+ *   環境変数を自分で注入するので見えない。手元の bash 3.2 では `SHELLOPTS=noexec` で本体を実行せずに
+ *   終了コード 0 で終わった(runner の bash では測っていない)。`BASH_ENV` も同じ類
+ * - 通知ステップが lychee のステップより前にある: `steps.lychee` が空のまま判定され、毎週
+ *   「could not produce a report」が立って本当の検出が届かなくなるとみられる
+ * - lychee の job に `continue-on-error` がある: gh が失敗しても、ワークフロー実行の結論が
+ *   success になるとみられる
+ * 「とみられる」の 2 つは GitHub 上では実行していない。
+ */
+function deliveryBreaks(src = yaml()) {
+  const workflow = parseWorkflow(src);
+  const { jobName, job, step } = reportStep(src);
+  const lychee = job.steps.findIndex(
+    (s) => String(s?.id ?? "").toLowerCase() === "lychee"
+  );
+  return [
+    ...Object.keys(step.env ?? {})
+      .filter((k) => !REPORT_ENV.includes(k))
+      .map((k) => `通知ステップの env.${k}`),
+    ...keysOf(job, "env").map((k) => `jobs.${jobName}.${k}`),
+    ...keysOf(workflow, "env"),
+    ...(job.steps.indexOf(step) < lychee
+      ? ["通知ステップが lychee より前"]
+      : []),
+    ...keysOf(job, "continue-on-error").map((k) => `jobs.${jobName}.${k}`),
+  ];
+}
+
 /**
  * 実ファイルをパースして書き換え、YAML に戻す。**fixture を字面に結び付けない** — 行を差し込む形だと、
  * lychee の時間制限の値を変える・別の job を足すといった正当な編集で、差し込む先が見つからないか 1 つに決まらずに赤になる。
@@ -975,6 +1013,48 @@ test("作業ディレクトリとシェルの検査は、3 か所と大文字の
   }
   for (const [where, change] of cases)
     assert.equal(runOverrides(edited(change)).length, 1, `${where}を拾えない`);
+});
+
+test("通知を本番でだけ消す配置になっていない", () => {
+  // env・ステップの順序・job の continue-on-error は、どれもテストが走らせる文字列を変えない。
+  // ハーネスは環境変数を自分で注入するので、env に足したものもシェルからは見えない(#888)
+  assert.deepEqual(deliveryBreaks(), [], "通知が本番でだけ消えうる");
+});
+
+test("通知を消す配置の検査は、壊した fixture を拾う", () => {
+  // 実ファイルには 1 つも無いので、上のテストだけでは検査が no-op に落ちても緑のまま
+  assert.deepEqual(
+    deliveryBreaks(edited(() => {})),
+    [],
+    "書き戻しだけで拾っている"
+  );
+  const cases = [
+    ["通知ステップの env", ({ report }) => (report.env.SHELLOPTS = "noexec")],
+    ["job の env", ({ job }) => (job.env = { BASH_ENV: "/tmp/x" })],
+    ["job の Env", ({ job }) => (job.Env = { BASH_ENV: "/tmp/x" })],
+    ["ワークフロー直下の env", ({ wf }) => (wf.env = { SHELLOPTS: "noexec" })],
+    [
+      "lychee より前の通知ステップ",
+      ({ job, lychee, report }) => {
+        job.steps.splice(job.steps.indexOf(report), 1);
+        job.steps.splice(job.steps.indexOf(lychee), 0, report);
+      },
+    ],
+    [
+      "job の continue-on-error",
+      ({ job }) => (job["continue-on-error"] = true),
+    ],
+    [
+      "job の Continue-On-Error",
+      ({ job }) => (job["Continue-On-Error"] = true),
+    ],
+  ];
+  for (const [where, change] of cases)
+    assert.equal(
+      deliveryBreaks(edited(change)).length,
+      1,
+      `${where}を拾えない`
+    );
 });
 
 test("lychee の出力形式は markdown で固定されている", () => {

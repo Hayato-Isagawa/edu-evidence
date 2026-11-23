@@ -817,3 +817,88 @@ test("Purge ステップに continue-on-error が無い(exit 1 が job に伝わ
   assert.equal(Object.hasOwn(step(), "continue-on-error"), false);
   assert.equal(Object.hasOwn(job(), "continue-on-error"), false);
 });
+
+/**
+ * キーを大文字小文字をそろえて引く。GitHub がワークフローのキーを大文字小文字を区別して読むかは
+ * 確かめていないので、区別しない読みでも効くように拾う(link-check-workflow.test.mjs と同じ)。
+ */
+const keysOf = (obj, name) =>
+  obj !== null && typeof obj === "object"
+    ? Object.keys(obj).filter((k) => k.toLowerCase() === name)
+    : [];
+
+/**
+ * テストが走らせる文字列や環境と、本番のシェルが受け取るものを食い違わせる設定の位置を返す(空なら、どれも無い)。
+ * - run の中の式(`${{ }}`): GitHub は置換してからシェルに渡すが、テストは置換前の文字列を走らせる。
+ *   `${{ github.event_name }}` で分岐して exit 0 する 1 行が見えない
+ * - `shell` / `working-directory`(ステップ・job の `defaults.run`・ワークフロー直下の `defaults.run`):
+ *   テストは bash で走らせるので、`shell: true {0}` のように本体を受け取るものを変えても見えない
+ * - job かワークフロー直下の `env:`: テストが注入するのはステップの env だけなので、`BASH_ENV` などが見えない
+ */
+function runDivergences(wf) {
+  const j = wf.jobs.purge;
+  const s = j.steps[0];
+  const overrides = (owner, at) =>
+    ["working-directory", "shell"].flatMap((name) =>
+      keysOf(owner, name).map((k) => `${at}${k}`)
+    );
+  const inDefaults = (owner, at) =>
+    keysOf(owner, "defaults").flatMap((d) =>
+      keysOf(owner[d], "run").flatMap((r) =>
+        overrides(owner[d][r], `${at}${d}.${r}.`)
+      )
+    );
+  return [
+    ...(String(s.run).includes("${{") ? ["jobs.purge.steps[0].run の式"] : []),
+    ...overrides(s, "jobs.purge.steps[0]."),
+    ...inDefaults(j, "jobs.purge."),
+    ...inDefaults(wf, ""),
+    ...keysOf(j, "env").map((k) => `jobs.purge.${k}`),
+    ...keysOf(wf, "env"),
+  ];
+}
+
+test("Purge ステップは、テストが走らせるのと同じ文字列・シェル・環境で本番でも動く", () => {
+  // どれも run の文字列を変えないので、走らせる形のテストは緑のまま本番の動きだけが変わる(#888)
+  assert.deepEqual(runDivergences(doc()), [], "本番の動きがテストとずれる");
+});
+
+test("テストとのずれの検査は、壊した fixture を拾う", () => {
+  // 実ファイルには 1 つも無いので、上のテストだけでは検査が no-op に落ちても緑のまま
+  const cases = [
+    [
+      "run の式",
+      (wf) =>
+        (wf.jobs.purge.steps[0].run = wf.jobs.purge.steps[0].run.replace(
+          "set -euo pipefail\n",
+          "set -euo pipefail\ncase '${{ github.event_name }}' in push) exit 0 ;; esac\n"
+        )),
+    ],
+    ["ステップの shell", (wf) => (wf.jobs.purge.steps[0].shell = "true {0}")],
+    [
+      "ステップの Working-Directory",
+      (wf) => (wf.jobs.purge.steps[0]["Working-Directory"] = "dist"),
+    ],
+    [
+      "job の defaults.run.shell",
+      (wf) => (wf.jobs.purge.defaults = { run: { shell: "true {0}" } }),
+    ],
+    [
+      "ワークフロー直下の Defaults.Run.Working-Directory",
+      (wf) => (wf.Defaults = { Run: { "Working-Directory": "dist" } }),
+    ],
+    ["job の env", (wf) => (wf.jobs.purge.env = { BASH_ENV: "/tmp/x" })],
+    ["ワークフロー直下の env", (wf) => (wf.env = { SHELLOPTS: "noexec" })],
+  ];
+  for (const [where, change] of cases) {
+    const wf = structuredClone(doc());
+    const before = JSON.stringify(wf);
+    change(wf);
+    assert.notEqual(
+      JSON.stringify(wf),
+      before,
+      `${where}の書き換えが効いていない`
+    );
+    assert.equal(runDivergences(wf).length, 1, `${where}を拾えない`);
+  }
+});
