@@ -920,6 +920,20 @@ test("テストとのずれの検査は、壊した fixture を拾う", () => {
  */
 const CF_PURGE_ON = { push: { branches: ["main"] } };
 
+/**
+ * purge の job に置いてよいキー(完全一致で比べる。大文字で書いたキーも許可リストの外として落ちる)と、`runs-on` の値。**値はテストに写す**
+ * (`CF_PURGE_ON` と同じ例外)。`if:`・`needs:`・`environment:`・`strategy:`・job の `concurrency:` など、
+ * job を走らせなくしうるキーをまとめて落とす(#892)。
+ */
+const CF_PURGE_JOB_KEYS = ["name", "runs-on", "timeout-minutes", "steps"];
+const CF_PURGE_RUNS_ON = "ubuntu-latest";
+/**
+ * ワークフロー直下の `concurrency:`。group はリポジトリの全 workflow で共有されるので、別の workflow と同じ
+ * group にすると、後から来た方に取り消されうる(公式ドキュメント)。取り消された回は purge しないとみられる
+ * (GitHub 上では実行していない)。**値はテストに写す**(同じ例外)
+ */
+const CF_PURGE_CONCURRENCY = { group: "cf-purge", "cancel-in-progress": true };
+
 /** main への push で purge が走らなくなる設定を返す(空なら、どれも無い) */
 function startBlocks(wf) {
   const j = wf.jobs.purge;
@@ -927,9 +941,15 @@ function startBlocks(wf) {
     ...(isDeepStrictEqual(wf.on, CF_PURGE_ON)
       ? []
       : [`on: ${JSON.stringify(wf.on)}`]),
-    ...["if", "needs"].flatMap((name) =>
-      keysOf(j, name).map((k) => `jobs.purge.${k}`)
-    ),
+    ...(isDeepStrictEqual(wf.concurrency, CF_PURGE_CONCURRENCY)
+      ? []
+      : [`concurrency: ${JSON.stringify(wf.concurrency)}`]),
+    ...Object.keys(j)
+      .filter((k) => !CF_PURGE_JOB_KEYS.includes(k))
+      .map((k) => `jobs.purge.${k}`),
+    ...(j["runs-on"] === CF_PURGE_RUNS_ON
+      ? []
+      : [`jobs.purge.runs-on: ${JSON.stringify(j["runs-on"])}`]),
     ...keysOf(j.steps[0], "if").map((k) => `jobs.purge.steps[0].${k}`),
   ];
 }
@@ -938,12 +958,12 @@ test("main への push で、Purge ステップが必ず走る", () => {
   assert.deepEqual(
     startBlocks(doc()),
     [],
-    "purge が走らないか飛ばされうる(branches などを正当に変えたなら CF_PURGE_ON も直す)"
+    "purge が走らないか飛ばされうる(正当に変えたなら CF_PURGE_ON などテストの写しも直す)"
   );
 });
 
 test("起動条件の検査は、壊した fixture を拾う", () => {
-  // 実ファイルは決まった形なので、上のテストだけでは if: の検査が no-op に落ちても緑のまま
+  // 実ファイルは決まった形なので、上のテストだけでは許可リストや if: の検査が no-op に落ちても緑のまま
   const cases = [
     ["branches を変える", (wf) => (wf.on.push.branches = ["master"])],
     ["paths で絞る", (wf) => (wf.on.push.paths = ["src/**"])],
@@ -952,8 +972,25 @@ test("起動条件の検査は、壊した fixture を拾う", () => {
       (wf) => (wf.jobs.purge.if = "github.event_name == 'workflow_dispatch'"),
     ],
     ["job の needs:", (wf) => (wf.jobs.purge.needs = "gate")],
+    ["job の Environment:", (wf) => (wf.jobs.purge.Environment = "production")],
+    // 許可するキーも、大文字で書けば許可リストの外(GitHub が読むかは確かめていないので安全側)
+    ["job の Timeout-Minutes:", (wf) => (wf.jobs.purge["Timeout-Minutes"] = 1)],
+    [
+      "job の strategy:",
+      (wf) => (wf.jobs.purge.strategy = { matrix: { x: [] } }),
+    ],
+    [
+      "runs-on の式",
+      (wf) =>
+        (wf.jobs.purge["runs-on"] =
+          "${{ github.event_name == 'push' && 'no-such-runner' || 'ubuntu-latest' }}"),
+    ],
     ["ステップの if:", (wf) => (wf.jobs.purge.steps[0].if = "false")],
     ["ステップの If:", (wf) => (wf.jobs.purge.steps[0].If = "false")],
+    [
+      "concurrency の group を別の workflow と共有する",
+      (wf) => (wf.concurrency.group = "checks-${{ github.ref }}"),
+    ],
   ];
   for (const [where, change] of cases) {
     const wf = structuredClone(doc());

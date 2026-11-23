@@ -254,8 +254,33 @@ const LINK_CHECK_ON = {
 };
 
 /**
+ * lychee の job に置いてよいキー(完全一致で比べる。大文字で書いたキーも許可リストの外として落ちる)と、`runs-on` の値。**値はテストに写す**
+ * (`LINK_CHECK_ON` と同じ例外)。`if:`・`needs:`・`environment:`(保護ルールがあれば承認待ちで止まるとみられる)・
+ * `strategy:`・job の `concurrency:` など、job を走らせなくしうるキーをまとめて落とす(#892)。
+ */
+const LINK_CHECK_JOB_KEYS = [
+  "name",
+  "runs-on",
+  "permissions",
+  "timeout-minutes",
+  "steps",
+];
+const LINK_CHECK_RUNS_ON = "ubuntu-latest";
+/**
+ * ワークフロー直下の `concurrency:`。group はリポジトリの全 workflow で共有されるので、別の workflow と同じ
+ * group にすると、`cancel-in-progress: true` の側に取り消される(公式ドキュメント)。取り消された回は job が
+ * 完走せず、Issue も立たないとみられる(GitHub 上では実行していない)。**値はテストに写す**(同じ例外)
+ */
+const LINK_CHECK_CONCURRENCY = {
+  group: "link-check-${{ github.ref }}",
+  "cancel-in-progress": true,
+};
+
+/**
  * 週次のチェックを、テストが緑のまま起動させなくする設定を返す(空なら、どれも無い)。
- * `on:` が `LINK_CHECK_ON` と違う / lychee の job に `if:` か `needs:` がある / lychee のステップに `if:` がある。
+ * `on:` が `LINK_CHECK_ON` と違う / `concurrency:` が `LINK_CHECK_CONCURRENCY` と違う / lychee の job に
+ * `LINK_CHECK_JOB_KEYS` 以外のキーがある / `runs-on` が
+ * `LINK_CHECK_RUNS_ON` と違う(式で、週次の回だけ存在しないランナーを指す形など)/ lychee のステップに `if:` がある。
  * lychee のステップを飛ばすと、outcome は `'skipped'`、`steps.lychee.outputs.exit_code` は null になり、
  * null と `'0'` は数値にそろえて比べる(`0 != 0` で偽)ので、通知ステップも黙って skip されるとみられる。
  * ほかのステップの `if:` は見ない — ビルドを飛ばすと lychee が 0 件か非 0 で終わって通知が立ち、Checkout や
@@ -272,9 +297,15 @@ function startBlocks(src = yaml()) {
     ...(isDeepStrictEqual(workflow?.on, LINK_CHECK_ON)
       ? []
       : [`on: ${JSON.stringify(workflow?.on)}`]),
-    ...["if", "needs"].flatMap((name) =>
-      keysOf(job, name).map((k) => `jobs.${jobName}.${k}`)
-    ),
+    ...(isDeepStrictEqual(workflow?.concurrency, LINK_CHECK_CONCURRENCY)
+      ? []
+      : [`concurrency: ${JSON.stringify(workflow?.concurrency)}`]),
+    ...Object.keys(job)
+      .filter((k) => !LINK_CHECK_JOB_KEYS.includes(k))
+      .map((k) => `jobs.${jobName}.${k}`),
+    ...(job["runs-on"] === LINK_CHECK_RUNS_ON
+      ? []
+      : [`jobs.${jobName}.runs-on: ${JSON.stringify(job["runs-on"])}`]),
     ...keysOf(lychee, "if").map((k) => `lychee のステップの ${k}`),
   ];
 }
@@ -1113,12 +1144,12 @@ test("週次のチェックが、決まった起動条件で必ず起動する",
   assert.deepEqual(
     startBlocks(),
     [],
-    "週次のチェックが起動しないか飛ばされうる(cron などを正当に変えたなら LINK_CHECK_ON も直す)"
+    "週次のチェックが起動しないか飛ばされうる(正当に変えたなら LINK_CHECK_ON などテストの写しも直す)"
   );
 });
 
 test("起動条件の検査は、壊した fixture を拾う", () => {
-  // 実ファイルは決まった形なので、上のテストだけでは job の if: の検査が no-op に落ちても緑のまま
+  // 実ファイルは決まった形なので、上のテストだけでは許可リストや if: の検査が no-op に落ちても緑のまま
   assert.deepEqual(
     startBlocks(edited(() => {})),
     [],
@@ -1136,7 +1167,25 @@ test("起動条件の検査は、壊した fixture を拾う", () => {
     ],
     ["job の If:", ({ job }) => (job.If = "false")],
     ["job の needs:", ({ job }) => (job.needs = "gate")],
+    ["job の environment:", ({ job }) => (job.environment = "link-check")],
+    ["job の Strategy:", ({ job }) => (job.Strategy = { matrix: { x: [] } })],
+    // 許可するキーも、大文字で書けば許可リストの外(GitHub が読むかは確かめていないので安全側)
+    ["job の Timeout-Minutes:", ({ job }) => (job["Timeout-Minutes"] = 1)],
+    [
+      "job の concurrency:",
+      ({ job }) => (job.concurrency = { group: "shared" }),
+    ],
+    [
+      "runs-on の式",
+      ({ job }) =>
+        (job["runs-on"] =
+          "${{ github.event_name == 'schedule' && 'no-such-runner' || 'ubuntu-latest' }}"),
+    ],
     ["lychee のステップの if:", ({ lychee }) => (lychee.if = "false")],
+    [
+      "concurrency の group を別の workflow と共有する",
+      ({ wf }) => (wf.concurrency.group = "checks-${{ github.ref }}"),
+    ],
   ];
   for (const [where, change] of cases)
     assert.equal(startBlocks(edited(change)).length, 1, `${where}を拾えない`);
