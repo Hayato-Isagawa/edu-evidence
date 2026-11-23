@@ -65,7 +65,8 @@ function lycheeStep(src = yaml()) {
   const readers = jobs
     .filter(([, job]) =>
       (job?.steps ?? []).some((step) =>
-        /steps\.lychee\b/i.test(JSON.stringify(step ?? {}))
+        // id には `-` も使えるので、`steps.lychee-src` は別のステップとして読む
+        /steps\.lychee(?![\w-])/i.test(JSON.stringify(step ?? {}))
       )
     )
     .map(([jobName]) => jobName);
@@ -981,4 +982,7 @@ test("lychee のステップは、名前ではなく id: lychee で取る", () =
   // 本物の id を別名にして別の job に囮を置くと、通知ステップの steps.lychee は囮を指さない
   const otherJob = `${src.replace(head, head.replace("id: lychee", "id: scan")).trimEnd()}\n\n  decoy:\n    runs-on: ubuntu-latest\n    steps:\n${decoy.replace("        if: false\n", "        id: lychee\n")}`;
   assert.throws(() => lycheeStep(otherJob), /steps\.lychee を読む job/);
+  // 別の job が `steps.lychee-src` を読むだけなら、steps.lychee の読み手に数えない
+  const hyphenJob = `${src.trimEnd()}\n\n  other:\n    runs-on: ubuntu-latest\n    steps:\n      - id: lychee-src\n        run: "true"\n      - if: steps.lychee-src.outcome == 'failure'\n        run: "true"\n`;
+  assert.doesNotThrow(() => lycheeStep(hyphenJob));
 });
