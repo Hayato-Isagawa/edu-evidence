@@ -22,6 +22,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import YAML from "yaml";
 import { mergeKeyPaths, parseWorkflow } from "../helpers/workflow-yaml.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -95,24 +96,124 @@ const REPORT_FILE = (() => {
 const RE_REPORT = REPORT_FILE.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /**
- * ワークフローの `run: |` ブロックを取り出す。
- * link-check.yml の `run: |` は Report broken links ステップの 1 つだけ。
- * 2 つ目が増えたらこの前提が崩れるので、そのことも下でテストしている。
+ * 通知ステップ(テストが走らせる `run:` を持つステップ)と、それを含む job を、パース結果から取る。
+ * **名前でも字面でも探さない。** 複数行の `run:` を持つステップを全部の job から数え、1 つであることを
+ * 求める。名前の字面と最初の `run: |` で探していたころは、本物の lychee の id を別名にして時間制限を外し、
+ * 本物の通知ステップを `steps.<別名>` に付け替え、同じ job に `id: lychee` の囮と同じ名前の通知ステップの
+ * 囮を置くと、本物を壊しても緑になった(#886)。
+ * **`if:` と `env:` が読む `steps` は、すべて `lycheeStep()` のステップを指すことを求める。** `steps` は
+ * 同じ job の中でしか引けないので、job も同じであることを見る。`steps['x']` の形や、`steps` を語として
+ * 含む別の参照(`toJSON(steps)` など)も `steps.lychee` と数えないので赤になる(安全側に倒している)。
+ * **`run:` には式(`${{ }}`)を置かせない。** GitHub は `run:` の中の式を置換してからシェルに渡すが、
+ * テストは置換前の文字列を走らせる。`case '${{ github.event_name }}' in schedule) exit 0 ;; esac` の
+ * 1 行で、本番の週次の回だけ何もせずに終わる形も、`${{ steps.scan.outcome }}` で別のステップを読む形も、
+ * テストからは見えない。
  */
-function extractRunBlock(yamlPath) {
-  const lines = fs.readFileSync(yamlPath, "utf8").split("\n");
-  const start = lines.findIndex((l) => /^\s+run: \|\s*$/.test(l));
-  assert.notEqual(start, -1, "run: | ブロックが見つからない");
+function reportStep(src = yaml()) {
+  const lychee = lycheeStep(src);
+  const found = Object.entries(parseWorkflow(src)?.jobs ?? {}).flatMap(
+    ([jobName, job]) =>
+      (job?.steps ?? [])
+        .filter(
+          (step) => typeof step?.run === "string" && step.run.includes("\n")
+        )
+        .map((step) => ({ jobName, job, step }))
+  );
+  assert.equal(
+    found.length,
+    1,
+    `複数行の run: を持つステップが ${found.length} 個`
+  );
+  const [report] = found;
+  assert.equal(
+    report.jobName,
+    lychee.jobName,
+    `通知ステップの job(${report.jobName})と id: lychee のステップの job(${lychee.jobName})が違う`
+  );
+  const read = JSON.stringify([
+    report.step.if ?? null,
+    report.step.env ?? null,
+  ]);
+  const all = read.match(/\bsteps\b/gi) ?? [];
+  const toLychee = read.match(/\bsteps\.lychee(?![\w-])/gi) ?? [];
+  assert.ok(toLychee.length > 0, "通知ステップが steps.lychee を読んでいない");
+  assert.equal(
+    toLychee.length,
+    all.length,
+    `通知ステップの if: と env: が lychee 以外の steps を読んでいる: ${read}`
+  );
+  assert.ok(
+    !report.step.run.includes("${{"),
+    "通知ステップの run: に式(${{ }})がある。テストは置換前の文字列を走らせる"
+  );
+  return report;
+}
 
-  const body = lines.slice(start + 1);
-  const indent = body[0].length - body[0].trimStart().length;
-  const out = [];
-  for (const line of body) {
-    const isBlank = line.trim() === "";
-    if (!isBlank && line.length - line.trimStart().length < indent) break;
-    out.push(line.slice(indent));
-  }
-  return out.join("\n");
+/**
+ * 通知ステップの `run:` を、パース結果のまま取り出す(行単位で切り出していたころの字面の取り出しはやめた)。
+ */
+function extractRunBlock(src = yaml()) {
+  return reportStep(src).step.run;
+}
+
+/**
+ * キーを大文字小文字をそろえて引く。GitHub がワークフローのキーを大文字小文字を区別して読むかは
+ * 確かめていないので、区別しない読みでも効くように拾う。
+ */
+const keysOf = (obj, name) =>
+  obj !== null && typeof obj === "object"
+    ? Object.keys(obj).filter((k) => k.toLowerCase() === name)
+    : [];
+
+/** `defaults.run` に置けるキー。どちらも、テストが走らせる文字列を変えずにシェルの動きだけを変える */
+const RUN_OVERRIDES = ["working-directory", "shell"];
+
+/**
+ * 通知ステップの作業ディレクトリかシェルを変える設定の位置を返す(空なら、どこにも無い)。
+ * 見るのは、通知ステップ・それを含む job の `defaults.run`・ワークフロー直下の `defaults.run` の 3 か所。
+ * `defaults.run` は `run:` のステップにだけ効く(GitHub の公式ドキュメント)ので、作業ディレクトリを変えると、
+ * lychee(`uses:`)は workspace の直下にレポートを書いたまま、シェルだけが別の場所を読む。シェルを変えると、
+ * テストが bash で走らせる本体を、本番では別のものが受け取る(`shell: true {0}` なら本体を走らせずに
+ * exit 0 で終わるとみられる。GitHub 上では実行していない)。`shell: bash` のような無害な指定も落とす。
+ */
+function runOverrides(src = yaml()) {
+  const workflow = parseWorkflow(src);
+  const { jobName, job, step } = reportStep(src);
+  const found = (owner, at) =>
+    RUN_OVERRIDES.flatMap((name) =>
+      keysOf(owner, name).map((k) => `${at}${k}`)
+    );
+  const inDefaults = (owner, at) =>
+    keysOf(owner, "defaults").flatMap((d) =>
+      keysOf(owner[d], "run").flatMap((r) =>
+        found(owner[d][r], `${at}${d}.${r}.`)
+      )
+    );
+  return [
+    ...found(step, `jobs.${jobName}.steps(通知).`),
+    ...inDefaults(job, `jobs.${jobName}.`),
+    ...inDefaults(workflow, ""),
+  ];
+}
+
+/**
+ * 実ファイルをパースして書き換え、YAML に戻す。**fixture を字面に結び付けない** — 行を差し込む形だと、
+ * lychee の時間制限の値を変える・別の job を足すといった正当な編集で、差し込む先が見つからないか 1 つに決まらずに赤になる。
+ * `change` には、パースした workflow と、lychee の job・lychee のステップ・通知ステップを渡す。
+ */
+function edited(change) {
+  const src = yaml();
+  const { jobName } = reportStep(src);
+  const wf = parseWorkflow(src);
+  const job = wf.jobs[jobName];
+  const lychee = job.steps.find(
+    (s) => String(s?.id ?? "").toLowerCase() === "lychee"
+  );
+  const report = job.steps.find(
+    (s) => typeof s?.run === "string" && s.run.includes("\n")
+  );
+  change({ wf, job, lychee, report });
+  return YAML.stringify(wf);
 }
 
 /**
@@ -120,7 +221,7 @@ function extractRunBlock(yamlPath) {
  * **テスト側に数値を写さない。** 写すとワークフローを変えたときにここだけ古くなる。
  */
 function truncationLimit() {
-  const m = extractRunBlock(WORKFLOW).match(
+  const m = extractRunBlock().match(
     new RegExp(`^ *head -c (\\d+) ${RE_REPORT}$`, "m")
   );
   assert.ok(m, "head -c の上限が読み取れない");
@@ -206,7 +307,7 @@ esac
   fs.writeFileSync(path.join(dir, "existing"), existing ? `${existing}\n` : "");
 
   const script = path.join(dir, "step.sh");
-  fs.writeFileSync(script, extractRunBlock(WORKFLOW));
+  fs.writeFileSync(script, extractRunBlock());
 
   const res = spawnSync("bash", [script], {
     cwd: dir,
@@ -556,12 +657,13 @@ test("通知ステップは lychee が異常終了した回に走る", () => {
   // `!= '0'` を `== '0'` にすると、検出があった回にだけ走らなくなる。
   // 挙動は「毎回 Issue が立たない」で、CI は緑のまま。今回直した穴と同型。
   //
-  // **ステップ名とペアで見る。** 条件だけを探すと、同じ行を別のステップへ移しても
-  // 通ってしまう(通知ステップは起動条件を失って毎回走るようになる)。行末まで縛るのは、
+  // **テストが走らせる run: のステップで見る。** 条件だけを探すと、同じ行を別のステップへ移しても
+  // 通ってしまう(通知ステップは起動条件を失って毎回走るようになる)。名前の字面とペアで見ていた
+  // ころは、同じ名前の囮に字面どおりの if: を持たせると通った(#886)。式全体と比べるのは、
   // 後ろに `&& github.event_name == 'schedule'` のような絞り込みを足す変更を止めるため。
-  assert.match(
-    yaml(),
-    /^ {6}- name: Report broken links\n {8}if: steps\.lychee\.outputs\.exit_code != '0' \|\| steps\.lychee\.outcome == 'failure'$/m
+  assert.equal(
+    reportStep().step.if,
+    "steps.lychee.outputs.exit_code != '0' || steps.lychee.outcome == 'failure'"
   );
 });
 
@@ -589,9 +691,9 @@ test("lychee の終了コードが env で渡っている", () => {
   // レポートを出せなかった回の唯一の手がかり。テストハーネスは環境変数を
   // 直接注入するので、**YAML の env: が消えてもシェル側のテストは緑になる**。
   // 配線そのものをここで見る(RUN_URL と同じ扱い)。
-  assert.match(
-    yaml(),
-    /^ {10}LYCHEE_EXIT_CODE: \$\{\{ steps\.lychee\.outputs\.exit_code \}\}$/m
+  assert.equal(
+    reportStep().step.env?.LYCHEE_EXIT_CODE,
+    "${{ steps.lychee.outputs.exit_code }}"
   );
 });
 
@@ -599,7 +701,7 @@ test("レポートの有無は 1 回だけ判定する", () => {
   // タイトル・案内文・本文が別々に `[ -s <レポート> ]` を見ていると、
   // 片方だけずれても動いてしまう(「リンク切れを見つけた」というタイトルの Issue に
   // 「レポートは出ませんでした」が入る)。判定は 1 箇所に集約する。
-  const block = extractRunBlock(WORKFLOW);
+  const block = extractRunBlock();
   const checks =
     block.match(new RegExp(`\\[ +-s +${RE_REPORT} +\\]`, "g")) ?? [];
   assert.equal(
@@ -613,9 +715,9 @@ test("レポートの有無は 1 回だけ判定する", () => {
 test("通知本文に入れる run URL が env で渡っている", () => {
   // キーの存在だけ見ると、値を潰しても通る。run URL は上限で切られた続き
   // (アーティファクト)へ辿る唯一の導線なので、式ごと固定する。
-  assert.match(
-    yaml(),
-    /^ {10}RUN_URL: \$\{\{ github\.server_url \}\}\/\$\{\{ github\.repository \}\}\/actions\/runs\/\$\{\{ github\.run_id \}\}$/m
+  assert.equal(
+    reportStep().step.env?.RUN_URL,
+    "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
   );
 });
 
@@ -669,7 +771,7 @@ test("切り詰める長さと、注記を出す閾値が同じ値である", ()
   // 切れているのに「省略しました」が出ない — このテスト群が防ごうとしている
   // 読み違い(出ていない = 検出されていない)そのものが起きる。
   // 両方ワークフローから読むので、数値はテストに写らない。
-  const block = extractRunBlock(WORKFLOW);
+  const block = extractRunBlock();
   const cut = block.match(new RegExp(`^ *head -c (\\d+) ${RE_REPORT}$`, "m"));
   const note = block.match(
     new RegExp(
@@ -761,9 +863,9 @@ test("lychee が正常終了した回は、0 件扱いにしない", () => {
 test("lychee の outcome が env で渡っている", () => {
   // ハーネスは環境変数を直接注入するので、**YAML の env: が消えてもシェル側のテストは
   // 緑になる**。0 件の回を見分ける唯一の手がかりなので、配線そのものをここで見る。
-  assert.match(
-    yaml(),
-    /^ {10}LYCHEE_OUTCOME: \$\{\{ steps\.lychee\.outcome \}\}$/m
+  assert.equal(
+    reportStep().step.env?.LYCHEE_OUTCOME,
+    "${{ steps.lychee.outcome }}"
   );
 });
 
@@ -772,12 +874,9 @@ test("通知ステップは continue-on-error で黙らない", () => {
   // **無いこと**を誰も見ていなかった。1 行足すだけで gh の 403 が job に伝わらなくなり、
   // 「gh が失敗したら赤くなる」を固定した 3 本が丸ごと無意味になる(シェルの exit code は
   // 非ゼロのままなので、走らせる形のテストでは原理的に捕まらない)。
-  const src = yaml();
-  const step = src.slice(src.indexOf("      - name: Report broken links"));
-  const head = step.slice(0, step.indexOf("        run: |"));
-  assert.doesNotMatch(
-    head,
-    /continue-on-error/,
+  assert.deepEqual(
+    keysOf(reportStep().step, "continue-on-error"),
+    [],
     "通知ステップの失敗が握り潰される"
   );
 });
@@ -817,7 +916,7 @@ test("lychee の出力先と、シェルが読むファイル名が一致して�
   // シェルが実際に読んでいる名前を取り出して、完全一致で突き合わせる。
   const out = lycheeStep().step.with?.output;
   assert.ok(typeof out === "string", "lychee の output: を読み取れない");
-  const block = extractRunBlock(WORKFLOW);
+  const block = extractRunBlock();
   const guard = block.match(/\[ +-s +(\S+) +\]/);
   const cut = block.match(/^ *head -c \d+ (\S+)$/m);
   assert.ok(guard && cut, "シェルが読むファイル名を取り出せない");
@@ -827,6 +926,55 @@ test("lychee の出力先と、シェルが読むファイル名が一致して�
     `有無の判定が ${guard[1]} を見ている(output: は ${out})`
   );
   assert.equal(cut[1], out, `本文へ載せるのが ${cut[1]}(output: は ${out})`);
+});
+
+test("通知ステップは作業ディレクトリもシェルも変えない", () => {
+  // 上の検査は名前の文字列しか比べない。通知ステップか job の defaults.run に
+  // `working-directory: dist` を置くと、名前は一致したまま、lychee は workspace の直下に書き、
+  // シェルは dist の下を読む。`[ -s <レポート> ]` が常に偽になり、検出のある回もすべて
+  // 「could not produce a report」で届いてレポート本文が Issue に載らない(#886)。
+  // `shell:` も同じ置き場所に置けて、テストが走らせる文字列を変えずに本番の動きだけを変える。
+  assert.deepEqual(runOverrides(), [], "シェルの動きが本番とずれる");
+});
+
+test("作業ディレクトリとシェルの検査は、3 か所と大文字の書き方を拾う", () => {
+  // 実ファイルには 1 つも無いので、上のテストだけでは検査が no-op に落ちても緑のまま。
+  // 置き場所ごとに足した fixture で、拾えることを確かめる
+  assert.deepEqual(
+    runOverrides(edited(() => {})),
+    [],
+    "書き戻しだけで拾っている"
+  );
+  const withRun = (owner, key, run) => ({
+    ...owner?.[key],
+    run: { ...owner?.[key]?.run, ...run },
+  });
+  const cases = [];
+  for (const [name, value] of [
+    ["working-directory", "dist"],
+    ["shell", "true {0}"],
+  ]) {
+    const upper = name.replace(/(^|-)\w/g, (c) => c.toUpperCase());
+    cases.push(
+      [`通知ステップの ${name}`, ({ report }) => (report[name] = value)],
+      [`通知ステップの ${upper}`, ({ report }) => (report[upper] = value)],
+      [
+        `job の defaults.run.${name}`,
+        ({ job }) =>
+          (job.defaults = withRun(job, "defaults", { [name]: value })),
+      ],
+      [
+        `job の Defaults.Run.${upper}`,
+        ({ job }) => (job.Defaults = { Run: { [upper]: value } }),
+      ],
+      [
+        `ワークフロー直下の defaults.run.${name}`,
+        ({ wf }) => (wf.defaults = withRun(wf, "defaults", { [name]: value })),
+      ]
+    );
+  }
+  for (const [where, change] of cases)
+    assert.equal(runOverrides(edited(change)).length, 1, `${where}を拾えない`);
 });
 
 test("lychee の出力形式は markdown で固定されている", () => {
@@ -944,8 +1092,8 @@ test("この検査自身が PR の CI に配線されている", () => {
 test("run: | ブロックは 1 つだけ(テストが別のステップを走らせていない)", () => {
   const src = fs.readFileSync(WORKFLOW, "utf8");
   const count = src.split("\n").filter((l) => /^\s+run: \|\s*$/.test(l)).length;
-  // extractRunBlock は最初の 1 つを取る。2 つ目が増えたら、このテストは
-  // 意図しないステップを検証していることになる。
+  // extractRunBlock はパース結果で複数行の run: を 1 つに限っている(reportStep)。
+  // こちらは字面の `run: |` を数えるだけで、`run: |-` や `run: >` の形は数えない。
   assert.equal(
     count,
     1,
@@ -985,4 +1133,66 @@ test("lychee のステップは、名前ではなく id: lychee で取る", () =
   // 別の job が `steps.lychee-src` を読むだけなら、steps.lychee の読み手に数えない
   const hyphenJob = `${src.trimEnd()}\n\n  other:\n    runs-on: ubuntu-latest\n    steps:\n      - id: lychee-src\n        run: "true"\n      - if: steps.lychee-src.outcome == 'failure'\n        run: "true"\n`;
   assert.doesNotThrow(() => lycheeStep(hyphenJob));
+});
+
+test("通知ステップは、走らせる run: のステップをパース結果で取る", () => {
+  // #886 の形: 本物の lychee の id を scan にして時間制限を外し、本物の通知ステップを
+  // steps.scan に付け替え、同じ job の手前に id: lychee の囮と同じ名前の通知ステップの囮を置く。
+  // 名前の字面と最初の `run: |` で探していたころは、この形(細部を整えたもの)が緑のまま通った。
+  // 囮は本物の写しから作る(囮の参照は steps.lychee のまま)
+  const toScan = (v) => v.replaceAll("steps.lychee.", "steps.scan.");
+  const broken = (run, repoint) =>
+    edited(({ job, lychee, report }) => {
+      const decoys = [
+        { ...structuredClone(lychee), if: false },
+        { ...structuredClone(report), run },
+      ];
+      lychee.id = "scan";
+      delete lychee["timeout-minutes"];
+      const before = JSON.stringify(report);
+      repoint(report);
+      assert.notEqual(JSON.stringify(report), before, "付け替える参照が無い");
+      job.steps.splice(job.steps.indexOf(lychee), 0, ...decoys);
+    });
+  const all = (report) => {
+    report.if = toScan(report.if);
+    report.env = Object.fromEntries(
+      Object.entries(report.env).map(([k, v]) => [k, toScan(v)])
+    );
+  };
+  // lychee の側の検査は囮で通る。止めるのは通知ステップの側であることを確かめる
+  assert.doesNotThrow(() => lycheeStep(broken("true", all)));
+  // 囮の run: が 1 行なら、走らせるのは本物の通知ステップで、それが steps.scan を読む
+  assert.throws(
+    () => reportStep(broken("true", all)),
+    /通知ステップが steps\.lychee を読んでいない/
+  );
+  // 一部だけを付け替えても止まる(env の outcome だけが steps.scan を読む)
+  assert.throws(
+    () =>
+      reportStep(
+        broken("true", (report) => {
+          report.env.LYCHEE_OUTCOME = toScan(report.env.LYCHEE_OUTCOME);
+        })
+      ),
+    /lychee 以外の steps を読んでいる/
+  );
+  // 囮にも複数行の run: を持たせると、どちらを走らせるか決まらない
+  assert.throws(
+    () => reportStep(broken("true\ntrue\n", all)),
+    /複数行の run: を持つステップが 2 個/
+  );
+  // run: の中の式で別のステップを読む形も止まる(if: と env: は手を付けない)
+  assert.throws(
+    () =>
+      reportStep(
+        edited(({ report }) => {
+          report.run = report.run.replace(
+            "set -euo pipefail\n",
+            "set -euo pipefail\ncase '${{ steps.scan.outcome }}' in success) exit 0 ;; esac\n"
+          );
+        })
+      ),
+    /run: に式/
+  );
 });
