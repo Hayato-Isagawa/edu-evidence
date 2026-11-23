@@ -18,6 +18,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isDeepStrictEqual } from "node:util";
 import YAML from "yaml";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -910,5 +911,59 @@ test("テストとのずれの検査は、壊した fixture を拾う", () => {
       `${where}の書き換えが効いていない`
     );
     assert.equal(runDivergences(wf).length, 1, `${where}を拾えない`);
+  }
+});
+
+/**
+ * 起動条件。**値はテストに写す**(写しを置かない原則の例外)。テストは run: を直接走らせるので、workflow が
+ * 起動しなくなっても、job やステップが飛ばされても緑のまま、purge だけが止まる(#890)。
+ */
+const CF_PURGE_ON = { push: { branches: ["main"] } };
+
+/** main への push で purge が走らなくなる設定を返す(空なら、どれも無い) */
+function startBlocks(wf) {
+  const j = wf.jobs.purge;
+  return [
+    ...(isDeepStrictEqual(wf.on, CF_PURGE_ON)
+      ? []
+      : [`on: ${JSON.stringify(wf.on)}`]),
+    ...["if", "needs"].flatMap((name) =>
+      keysOf(j, name).map((k) => `jobs.purge.${k}`)
+    ),
+    ...keysOf(j.steps[0], "if").map((k) => `jobs.purge.steps[0].${k}`),
+  ];
+}
+
+test("main への push で、Purge ステップが必ず走る", () => {
+  assert.deepEqual(
+    startBlocks(doc()),
+    [],
+    "purge が走らないか飛ばされうる(branches などを正当に変えたなら CF_PURGE_ON も直す)"
+  );
+});
+
+test("起動条件の検査は、壊した fixture を拾う", () => {
+  // 実ファイルは決まった形なので、上のテストだけでは if: の検査が no-op に落ちても緑のまま
+  const cases = [
+    ["branches を変える", (wf) => (wf.on.push.branches = ["master"])],
+    ["paths で絞る", (wf) => (wf.on.push.paths = ["src/**"])],
+    [
+      "job の if:",
+      (wf) => (wf.jobs.purge.if = "github.event_name == 'workflow_dispatch'"),
+    ],
+    ["job の needs:", (wf) => (wf.jobs.purge.needs = "gate")],
+    ["ステップの if:", (wf) => (wf.jobs.purge.steps[0].if = "false")],
+    ["ステップの If:", (wf) => (wf.jobs.purge.steps[0].If = "false")],
+  ];
+  for (const [where, change] of cases) {
+    const wf = structuredClone(doc());
+    const before = JSON.stringify(wf);
+    change(wf);
+    assert.notEqual(
+      JSON.stringify(wf),
+      before,
+      `${where}の書き換えが効いていない`
+    );
+    assert.equal(startBlocks(wf).length, 1, `${where}を拾えない`);
   }
 });

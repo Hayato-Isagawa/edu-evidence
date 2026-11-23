@@ -69,6 +69,7 @@ npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・ch
 ワークフローから読み取っていて、テストには写していない(写すとここだけ古くなる)。
 シェルからは見えない YAML の配線(通知ステップに `continue-on-error` が無いこと・`output:` と
 シェルが読むファイル名の一致など)も併せて固定している。
+起動条件も固定している — `on:` の値はテストに写している(写しを置かない原則の例外。cron を変えるときはテストの `LINK_CHECK_ON` も直す)。lychee の job の `if:` / `needs:` と、lychee のステップの `if:` も禁じている(lychee のステップを飛ばすと、通知ステップも黙って skip されるとみられる。#890)。
 
 同じ口に `vrt-baseline.test.mjs` が同居している。VRT のベースラインを「main のコード ×
 PR のコンテンツ」で撮る配線(ADR 0034)も、**壊れても CI は緑のまま**だから — 運ぶ素材を 1 つ
@@ -111,6 +112,7 @@ actor だけの判定に戻しても zizmor は何も出さない(1.31.1 で実�
 のどれでも job は緑のまま purge だけが消えるので、`run:` を取り出して bash で走らせ、`curl`・`sleep`・`date` をスタブに、
 jq は実物に通して、終端値ごとの exit と purge の有無、追う先の選び方、API のエラーの分け方、経過時間での期限、
 `timeout-minutes` が期限を越えうる最大の時間より長いことを固定している。期限・間隔・回数はステップの `env` から読む。
+起動条件も固定している — `on:` の値はテストに写している(写しを置かない原則の例外。テストの `CF_PURGE_ON`)。job の `if:` / `needs:` とステップの `if:` も禁じている(#890)。
 
 `zizmor-workflow.test.mjs` も同じ口。`run:` を走らせず、`yaml` でパースした `zizmor.yml` を見る。zizmor-action に
 渡すのが `advanced-security: false`・CI 用の空の設定(`rules: {}`)を指す `config:`・`collect: all` の 3 つだけである
@@ -158,7 +160,7 @@ fixture を一時ディレクトリに作って判定器を spawn し、fail 1 �
 **残る限界**: 判定器の故障と `test:gate` の無力化は、どの組でも 2 ファイルへの明示的な編集で通る /
 実運用の引数だけに反応する早期 return(`if (minPass > 20) return 0;`)は小さな fixture では検出できない。
 
-**下限の決め方は口ごとに違う。** `test:workflows` の 192 と `test:scripts` の 82 は実測ちょうど
+**下限の決め方は口ごとに違う。** `test:workflows` の 196 と `test:scripts` の 82 は実測ちょうど
 (余裕ゼロ)なので、**テストを足したら下限も上げること**。`test:hooks` の 82 は実数追随ではなく
 「1 ファイルを空にしても割る」境界値(`05f5b9e`。空ファイルも `node --test` は 1 pass と数えるので、総数 − 最小ファイルの本数 + 2)なので、実測 90 と離れていてよい。
 
