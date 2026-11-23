@@ -43,18 +43,37 @@ const yaml = () => fs.readFileSync(WORKFLOW, "utf8");
  * outputs と outcome なので、守る設定はこのステップに付いていないと効かない。名前の字面で
  * 最初の一致を取っていたころは、同じ名前の囮を手前に置けば本物の設定を壊しても緑になり、
  * ファイル全体の照合はコメント行に残した字面でも通った(#879)。
+ * **id は大文字小文字をそろえて比べ、全部の job から数える。** runner は `steps` を大文字小文字を
+ * 区別せずに引く(actions/runner の DictionaryContextData.cs が OrdinalIgnoreCase。ソースを読んだ
+ * だけで実行はしていない)。厳密に比べると、本物を `id: LYCHEE` にして別の job に `id: lychee` の
+ * 囮を置く形で、本物を壊しても緑になった。
+ * **`steps.lychee` を読むステップと同じ job にあることも見る。** `steps` は同じ job の中でしか
+ * 引けないので、本物の id を別名にして別の job に `id: lychee` の囮を置くと、通知ステップが読む
+ * ものと検査が読むものが分かれる(本物から時間制限を外しても緑になった)。
  * マージキーは GitHub が展開しないのに yaml が展開しうるので、使っていること自体で落とす
  * (workflow-yaml.mjs の parseWorkflow のコメント)。
  */
 function lycheeStep(src = yaml()) {
   assert.deepEqual(mergeKeyPaths(src), [], "マージキーを使っている");
-  const found = Object.entries(parseWorkflow(src)?.jobs ?? {}).flatMap(
-    ([jobName, job]) =>
-      (job?.steps ?? [])
-        .filter((step) => step?.id === "lychee")
-        .map((step) => ({ jobName, job, step }))
+  const jobs = Object.entries(parseWorkflow(src)?.jobs ?? {});
+  const found = jobs.flatMap(([jobName, job]) =>
+    (job?.steps ?? [])
+      .filter((step) => String(step?.id ?? "").toLowerCase() === "lychee")
+      .map((step) => ({ jobName, job, step }))
   );
   assert.equal(found.length, 1, `id: lychee のステップが ${found.length} 個`);
+  const readers = jobs
+    .filter(([, job]) =>
+      (job?.steps ?? []).some((step) =>
+        /steps\.lychee\b/i.test(JSON.stringify(step ?? {}))
+      )
+    )
+    .map(([jobName]) => jobName);
+  assert.deepEqual(
+    readers,
+    [found[0].jobName],
+    `steps.lychee を読む job(${readers.join(", ")})と id: lychee のステップの job(${found[0].jobName})が違う`
+  );
   return found[0];
 }
 
@@ -950,10 +969,16 @@ test("lychee のステップは、名前ではなく id: lychee で取る", () =
     .replace("          format: markdown\n", "          format: json\n")
     .replace(head, decoy + head);
   assert.equal(lycheeStep(broken).step.with?.format, "json");
-  // id が重なると、どちらを取るか決まらない
+  // id が重なると、どちらを取るか決まらない。runner は大文字小文字を区別せずに引くので、
+  // 大文字の id も同じ id として数える
+  const upper = head
+    .replace("Run", "Rerun")
+    .replace("id: lychee", "id: LYCHEE");
   assert.throws(
-    () =>
-      lycheeStep(src.replace(head, `${head.replace("Run", "Rerun")}${head}`)),
+    () => lycheeStep(src.replace(head, `${upper}${head}`)),
     /id: lychee のステップが 2 個/
   );
+  // 本物の id を別名にして別の job に囮を置くと、通知ステップの steps.lychee は囮を指さない
+  const otherJob = `${src.replace(head, head.replace("id: lychee", "id: scan")).trimEnd()}\n\n  decoy:\n    runs-on: ubuntu-latest\n    steps:\n${decoy.replace("        if: false\n", "        id: lychee\n")}`;
+  assert.throws(() => lycheeStep(otherJob), /steps\.lychee を読む job/);
 });
