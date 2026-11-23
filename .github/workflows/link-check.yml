@@ -1,6 +1,7 @@
 name: Link Check
 
-# on: の値は scripts/__tests__/workflows/link-check-workflow.test.mjs が固定している(LINK_CHECK_ON)。
+# on: と concurrency: の値・job の runs-on は scripts/__tests__/workflows/link-check-workflow.test.mjs が固定し、
+# job に置けるキーも許可リストで絞っている(LINK_CHECK_ON・LINK_CHECK_CONCURRENCY・LINK_CHECK_RUNS_ON・LINK_CHECK_JOB_KEYS)。
 # 変えるときは同じ PR でテストも直す。
 on:
   schedule:

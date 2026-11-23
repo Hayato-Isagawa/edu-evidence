@@ -69,7 +69,7 @@ npm run test:hooks         # .claude/hooks/ の回帰テスト(下限つき・ch
 ワークフローから読み取っていて、テストには写していない(写すとここだけ古くなる)。
 シェルからは見えない YAML の配線(通知ステップに `continue-on-error` が無いこと・`output:` と
 シェルが読むファイル名の一致など)も併せて固定している。
-起動条件も固定している — `on:` の値はテストに写している(写しを置かない原則の例外。cron を変えるときはテストの `LINK_CHECK_ON` も直す)。lychee の job の `if:` / `needs:` と、lychee のステップの `if:` も禁じている(lychee のステップを飛ばすと、通知ステップも黙って skip されるとみられる。#890)。
+起動条件も固定している — `on:` の値はテストに写している(写しを置かない原則の例外。cron を変えるときはテストの `LINK_CHECK_ON` も直す)。`concurrency:` の値と job の `runs-on` も写して固定し、job のキーは許可リストで絞っている(`if:` / `needs:` / `environment:` などを落とす。どれも写しの例外で、テストの `LINK_CHECK_CONCURRENCY`・`LINK_CHECK_RUNS_ON`・`LINK_CHECK_JOB_KEYS`。#892)。lychee のステップの `if:` も禁じている(lychee のステップを飛ばすと、通知ステップも黙って skip されるとみられる。#890)。
 
 同じ口に `vrt-baseline.test.mjs` が同居している。VRT のベースラインを「main のコード ×
 PR のコンテンツ」で撮る配線(ADR 0034)も、**壊れても CI は緑のまま**だから — 運ぶ素材を 1 つ
@@ -112,7 +112,7 @@ actor だけの判定に戻しても zizmor は何も出さない(1.31.1 で実�
 のどれでも job は緑のまま purge だけが消えるので、`run:` を取り出して bash で走らせ、`curl`・`sleep`・`date` をスタブに、
 jq は実物に通して、終端値ごとの exit と purge の有無、追う先の選び方、API のエラーの分け方、経過時間での期限、
 `timeout-minutes` が期限を越えうる最大の時間より長いことを固定している。期限・間隔・回数はステップの `env` から読む。
-起動条件も固定している — `on:` の値はテストに写している(写しを置かない原則の例外。テストの `CF_PURGE_ON`)。job の `if:` / `needs:` とステップの `if:` も禁じている(#890)。
+起動条件も固定している — `on:` の値はテストに写している(写しを置かない原則の例外。テストの `CF_PURGE_ON`)。`concurrency:` の値と job の `runs-on` も写して固定し、job のキーは許可リストで絞っている(`if:` / `needs:` / `environment:` などを落とす。どれも写しの例外で、テストの `CF_PURGE_CONCURRENCY`・`CF_PURGE_RUNS_ON`・`CF_PURGE_JOB_KEYS`。#892)。ステップの `if:` も禁じている(#890)。
 
 `zizmor-workflow.test.mjs` も同じ口。`run:` を走らせず、`yaml` でパースした `zizmor.yml` を見る。zizmor-action に
 渡すのが `advanced-security: false`・CI 用の空の設定(`rules: {}`)を指す `config:`・`collect: all` の 3 つだけである
