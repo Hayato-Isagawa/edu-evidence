@@ -1,5 +1,7 @@
 name: Link Check
 
+# on: の値は scripts/__tests__/workflows/link-check-workflow.test.mjs が固定している(LINK_CHECK_ON)。
+# 変えるときは同じ PR でテストも直す。
 on:
   schedule:
     # Every Monday at 09:00 JST (00:00 UTC Monday)

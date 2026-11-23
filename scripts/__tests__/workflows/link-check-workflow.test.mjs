@@ -22,6 +22,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isDeepStrictEqual } from "node:util";
 import YAML from "yaml";
 import { mergeKeyPaths, parseWorkflow } from "../helpers/workflow-yaml.mjs";
 
@@ -211,8 +212,10 @@ const REPORT_ENV = [
  *   `container:` がある(`container.env` や `container.options` の `--env` で環境変数を入れられる): テストは
  *   環境変数を自分で注入するので見えない。手元の bash 3.2 では `SHELLOPTS=noexec` で本体を実行せずに
  *   終了コード 0 で終わった(runner の bash では測っていない)。`BASH_ENV` も同じ類
- * - 通知ステップが lychee のステップより前にある: `steps.lychee` が空のまま判定され、毎週
- *   「could not produce a report」が立って本当の検出が届かなくなるとみられる
+ * - 通知ステップが lychee のステップより前にある: `steps.lychee` はまだ無いので
+ *   `steps.lychee.outputs.exit_code` は null になる。GitHub の式は型が違うと数値にそろえて比べる
+ *   (null も `'0'` も 0)ので `!= '0'` は偽、outcome も `'failure'` ではなく、通知ステップは黙って
+ *   skip されるとみられる
  * - lychee の job に `continue-on-error` がある: gh が失敗しても、ワークフロー実行の結論が
  *   success になるとみられる
  * 「とみられる」の 2 つは GitHub 上では実行していない。
@@ -237,6 +240,42 @@ function deliveryBreaks(src = yaml()) {
       ? ["通知ステップが lychee より前"]
       : []),
     ...keysOf(job, "continue-on-error").map((k) => `jobs.${jobName}.${k}`),
+  ];
+}
+
+/**
+ * 起動条件。**値はテストに写す**(写しを置かない原則の例外)。テストは run: を直接走らせるので、workflow が
+ * 起動しなくなっても、job が飛ばされても緑のまま、週次のチェックだけが止まる(#890)。cron を変えるときは、
+ * ここも同じ PR で直す。
+ */
+const LINK_CHECK_ON = {
+  schedule: [{ cron: "0 0 * * 1" }],
+  workflow_dispatch: null,
+};
+
+/**
+ * 週次のチェックを、テストが緑のまま起動させなくする設定を返す(空なら、どれも無い)。
+ * `on:` が `LINK_CHECK_ON` と違う / lychee の job に `if:` か `needs:` がある / lychee のステップに `if:` がある。
+ * lychee のステップを飛ばすと、outcome は `'skipped'`、`steps.lychee.outputs.exit_code` は null になり、
+ * null と `'0'` は数値にそろえて比べる(`0 != 0` で偽)ので、通知ステップも黙って skip されるとみられる。
+ * ほかのステップの `if:` は見ない — ビルドを飛ばすと lychee が 0 件か非 0 で終わって通知が立ち、Checkout や
+ * Install を飛ばすと後続が失敗して run が赤になるとみられる。どれも GitHub 上では実行しておらず、actions/runner
+ * のソースと、公式ドキュメントにある比較の規則(型が違えば数値に変換する)から読んだ。
+ */
+function startBlocks(src = yaml()) {
+  const workflow = parseWorkflow(src);
+  const { jobName, job } = reportStep(src);
+  const lychee = job.steps.find(
+    (s) => String(s?.id ?? "").toLowerCase() === "lychee"
+  );
+  return [
+    ...(isDeepStrictEqual(workflow?.on, LINK_CHECK_ON)
+      ? []
+      : [`on: ${JSON.stringify(workflow?.on)}`]),
+    ...["if", "needs"].flatMap((name) =>
+      keysOf(job, name).map((k) => `jobs.${jobName}.${k}`)
+    ),
+    ...keysOf(lychee, "if").map((k) => `lychee のステップの ${k}`),
   ];
 }
 
@@ -723,8 +762,9 @@ test("lychee ステップは continue-on-error で、通知ステップを skip 
   // success() が偽 → **通知ステップごと skip** される。
   // つまり「lychee 自体が壊れた回に通知する」というこの PR の目的が、
   // ワークフローの別の行 1 つで無効化される。
-  // `id:` も一緒に縛る。消えると `steps.lychee.outputs.exit_code` が空文字になり、
-  // `'' != '0'` が真＝**リンクが全部生きていても毎週 Issue が立つ**。
+  // `id:` も一緒に縛る。消えると `steps.lychee` が無くなり、`steps.lychee.outputs.exit_code` は null。
+  // null と `'0'` は数値にそろえて比べるので `!= '0'` は偽、outcome も null で、**lychee が転んだ回も
+  // 通知ステップが黙って skip される**とみられる(GitHub 上では実行していない)。
   assert.match(
     yaml(),
     /^ {6}- name: Run lychee\n {8}id: lychee\n(?: {8}.*\n)*? {8}continue-on-error: true$/m
@@ -1067,6 +1107,39 @@ test("通知を消す配置の検査は、壊した fixture を拾う", () => {
       1,
       `${where}を拾えない`
     );
+});
+
+test("週次のチェックが、決まった起動条件で必ず起動する", () => {
+  assert.deepEqual(
+    startBlocks(),
+    [],
+    "週次のチェックが起動しないか飛ばされうる(cron などを正当に変えたなら LINK_CHECK_ON も直す)"
+  );
+});
+
+test("起動条件の検査は、壊した fixture を拾う", () => {
+  // 実ファイルは決まった形なので、上のテストだけでは job の if: の検査が no-op に落ちても緑のまま
+  assert.deepEqual(
+    startBlocks(edited(() => {})),
+    [],
+    "書き戻しだけで拾っている"
+  );
+  const cases = [
+    ["schedule を削る", ({ wf }) => delete wf.on.schedule],
+    [
+      "cron を起動しない日付にする",
+      ({ wf }) => (wf.on.schedule[0].cron = "0 0 31 2 *"),
+    ],
+    [
+      "job の if:",
+      ({ job }) => (job.if = "github.event_name == 'workflow_dispatch'"),
+    ],
+    ["job の If:", ({ job }) => (job.If = "false")],
+    ["job の needs:", ({ job }) => (job.needs = "gate")],
+    ["lychee のステップの if:", ({ lychee }) => (lychee.if = "false")],
+  ];
+  for (const [where, change] of cases)
+    assert.equal(startBlocks(edited(change)).length, 1, `${where}を拾えない`);
 });
 
 test("lychee の出力形式は markdown で固定されている", () => {

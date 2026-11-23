@@ -30,6 +30,8 @@
 # fixed wait, then fails so the cause gets fixed (ADR 0045).
 name: Purge Cloudflare cache on deploy
 
+# on: の値は scripts/__tests__/workflows/cf-purge-workflow.test.mjs が固定している(CF_PURGE_ON)。
+# 変えるときは同じ PR でテストも直す。
 on:
   push:
     branches: [main]
