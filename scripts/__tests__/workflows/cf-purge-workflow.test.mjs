@@ -833,7 +833,8 @@ const keysOf = (obj, name) =>
  *   `${{ github.event_name }}` で分岐して exit 0 する 1 行が見えない
  * - `shell` / `working-directory`(ステップ・job の `defaults.run`・ワークフロー直下の `defaults.run`):
  *   テストは bash で走らせるので、`shell: true {0}` のように本体を受け取るものを変えても見えない
- * - job かワークフロー直下の `env:`: テストが注入するのはステップの env だけなので、`BASH_ENV` などが見えない
+ * - job かワークフロー直下の `env:` / job の `container:`(`container.env` や `container.options` の `--env`):
+ *   テストが注入するのはステップの env だけなので、`BASH_ENV` などが見えない
  */
 function runDivergences(wf) {
   const j = wf.jobs.purge;
@@ -854,6 +855,7 @@ function runDivergences(wf) {
     ...inDefaults(j, "jobs.purge."),
     ...inDefaults(wf, ""),
     ...keysOf(j, "env").map((k) => `jobs.purge.${k}`),
+    ...keysOf(j, "container").map((k) => `jobs.purge.${k}`),
     ...keysOf(wf, "env"),
   ];
 }
@@ -888,6 +890,14 @@ test("テストとのずれの検査は、壊した fixture を拾う", () => {
       (wf) => (wf.Defaults = { Run: { "Working-Directory": "dist" } }),
     ],
     ["job の env", (wf) => (wf.jobs.purge.env = { BASH_ENV: "/tmp/x" })],
+    [
+      "job の container",
+      (wf) =>
+        (wf.jobs.purge.container = {
+          image: "node:26",
+          options: "--env SHELLOPTS=noexec",
+        }),
+    ],
     ["ワークフロー直下の env", (wf) => (wf.env = { SHELLOPTS: "noexec" })],
   ];
   for (const [where, change] of cases) {
