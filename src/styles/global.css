@@ -531,26 +531,29 @@ body[data-menu="open"] {
 }
 
 /* 本文のリンクは、色だけに頼らず平常時も下線で示す(ADR 0049)。
-   ナビ・見出し・記事のヘッダー・フッターと、等幅の「一覧へ戻る」は対象外 */
-main
-  :is(
-    :is(p, dd, figcaption, blockquote) .link-underline,
-    li > .link-underline,
-    .link-underline.text-accent
-  ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *) {
-  color: var(--color-accent);
-  background-image: none;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-main
-  :is(
-    :is(p, dd, figcaption, blockquote) .link-underline,
-    li > .link-underline,
-    .link-underline.text-accent
-  ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *):is(:hover, :focus-visible) {
-  text-decoration-thickness: 2px;
+   ナビ・見出し・記事のヘッダー・フッターと、等幅の「一覧へ戻る」は対象外。
+   印刷は @media print の .link-underline(黒の下線)に任せる */
+@media screen {
+  main
+    :is(
+      :is(p, dd, figcaption, blockquote) .link-underline,
+      li > .link-underline,
+      .link-underline.text-accent
+    ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *) {
+    color: var(--color-accent);
+    background-image: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  main
+    :is(
+      :is(p, dd, figcaption, blockquote) .link-underline,
+      li > .link-underline,
+      .link-underline.text-accent
+    ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *):is(:hover, :focus-visible) {
+    text-decoration-thickness: 2px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
