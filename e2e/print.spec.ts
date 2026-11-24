@@ -132,6 +132,7 @@ test.describe("印刷スタイル", () => {
       .first();
     await expect(link).toHaveCSS("color", "rgb(0, 0, 0)");
     await expect(link).toHaveCSS("text-decoration-line", "underline");
+    await expect(link).toHaveCSS("border-bottom-width", "0px");
   });
 
   test("本文の .link-underline も黒の下線になる", async ({ page }) => {
@@ -143,5 +144,6 @@ test.describe("印刷スタイル", () => {
     const link = page.locator("main .link-underline.text-accent").first();
     await expect(link).toHaveCSS("color", "rgb(0, 0, 0)");
     await expect(link).toHaveCSS("text-decoration-line", "underline");
+    await expect(link).toHaveCSS("border-bottom-width", "0px");
   });
 });

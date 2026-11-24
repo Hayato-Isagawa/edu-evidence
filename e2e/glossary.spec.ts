@@ -49,6 +49,10 @@ test.describe("用語ツールチップ(タッチ)", () => {
   });
 
   test("ほかの場所をタップすると消える", async ({ page }) => {
+    // Safari はタップしたリンクに焦点が移らず、focusout では消えない。同じ状態にして見る
+    await page.addInitScript(() =>
+      document.addEventListener("mousedown", (e) => e.preventDefault(), true)
+    );
     await page.goto("/strategies/metacognition/");
     const tip = page.locator(".glossary-tip").first();
     const bubble = page.locator(".glossary-bubble");

@@ -531,34 +531,47 @@ body[data-menu="open"] {
 }
 
 /* 本文のリンクは、色だけに頼らず平常時も下線で示す(ADR 0049)。
-   ナビ・見出し・記事のヘッダー・フッターと、等幅の「一覧へ戻る」は対象外。
-   印刷は @media print の .link-underline(黒の下線)に任せる */
+   ナビ・見出し・記事のヘッダー・フッター・カードの題名と、等幅の「一覧へ戻る」は対象外。
+   印刷は @media print の .link-underline(黒の下線)に任せる。
+   ホバーとフォーカスでは、平常時の薄い線(border)を消してから、濃い線を左端から引く。
+   どちらも border の箱の下端に置くので、フォントが変わっても位置がずれない。
+   薄さは背景と 3:1 を割らない範囲で決めている */
 @media screen {
   main
     :is(
       :is(p, dd, figcaption, blockquote) .link-underline,
       li > .link-underline,
       .link-underline.text-accent
-    ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *) {
+    ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *, .font-bold > *) {
     color: var(--color-accent);
-    background-image: none;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 70%, transparent);
+    background-origin: border-box;
+    background-size: 0% 2px;
+    background-position: left bottom;
+    transition:
+      color 0.2s ease,
+      border-color 0.15s ease 0.2s,
+      background-size 0.3s ease;
   }
   main
     :is(
       :is(p, dd, figcaption, blockquote) .link-underline,
       li > .link-underline,
       .link-underline.text-accent
-    ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *):is(:hover, :focus-visible) {
-    text-decoration-thickness: 2px;
+    ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *, .font-bold > *):is(:hover, :focus-visible) {
+    border-color: transparent;
+    background-size: 100% 2px;
+    transition:
+      color 0.2s ease,
+      border-color 0.1s ease,
+      background-size 0.3s ease 0.1s;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .link-underline {
-    transition: none;
+  .link-underline,
+  main .link-underline {
+    transition: none !important;
   }
 }
 
@@ -650,13 +663,30 @@ body[data-menu="open"] {
 }
 .prose-article a:not(.glossary-tip, .toc-link) {
   color: var(--color-accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-decoration-line: none;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 70%, transparent);
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-origin: border-box;
+  background-size: 0% 2px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition:
+    border-color 0.15s ease 0.2s,
+    background-size 0.3s ease;
 }
 .prose-article a:not(.glossary-tip, .toc-link):hover,
 .prose-article a:not(.glossary-tip, .toc-link):focus-visible {
-  text-decoration-thickness: 2px;
+  border-color: transparent;
+  background-size: 100% 2px;
+  transition:
+    border-color 0.1s ease,
+    background-size 0.3s ease 0.1s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .prose-article a:not(.glossary-tip, .toc-link) {
+    transition: none !important;
+  }
 }
 .prose-article em {
   font-style: italic;
@@ -839,6 +869,7 @@ body[data-menu="open"] {
   .prose-article a:not(.glossary-tip, .toc-link) {
     color: inherit;
     text-decoration: underline;
+    border-bottom: 0;
   }
   /* 外部リンクは紙から辿れるよう URL を併記する */
   main a[target="_blank"]::after {
