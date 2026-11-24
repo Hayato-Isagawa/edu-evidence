@@ -47,9 +47,16 @@
   --leading-hero: 1.15;
 }
 
+/* スクロールバーや入力欄などブラウザの部品を、OS ではなくサイトのテーマに合わせる(ADR 0011)。
+   詳細度を上げない(上げると、印刷の :root の light に勝ってしまう) */
+:root {
+  color-scheme: light;
+}
+
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --color-bg: #16181d;
   --color-ink: #d0d3dc;
   --color-sub: #9ba1a8;
@@ -243,11 +250,6 @@ body[data-menu="open"] {
   #back-to-top[data-state="visible"]:hover {
     transform: none;
   }
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 .sr-only {
@@ -506,7 +508,7 @@ a {
 
 ::selection {
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-bg);
 }
 
 .link-underline {
@@ -526,6 +528,29 @@ a {
 .link-underline:focus-visible {
   color: var(--color-accent);
   background-size: 100% 1px;
+}
+
+/* 本文のリンクは、色だけに頼らず平常時も下線で示す(ADR 0049)。
+   ナビ・見出し・記事のヘッダー・フッターと、等幅の「一覧へ戻る」は対象外 */
+main
+  :is(
+    :is(p, dd, figcaption, blockquote) .link-underline,
+    li > .link-underline,
+    .link-underline.text-accent
+  ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *) {
+  color: var(--color-accent);
+  background-image: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+main
+  :is(
+    :is(p, dd, figcaption, blockquote) .link-underline,
+    li > .link-underline,
+    .link-underline.text-accent
+  ):not(.font-mono, :is(h1, h2, h3, h4, nav, header) *):is(:hover, :focus-visible) {
+  text-decoration-thickness: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -620,24 +645,15 @@ a {
   color: var(--color-sub);
   margin: 1.5rem 0;
 }
-.prose-article a:not(.glossary-tip) {
+.prose-article a:not(.glossary-tip, .toc-link) {
   color: var(--color-accent);
-  text-decoration: none;
-  background-image: linear-gradient(var(--color-accent), var(--color-accent));
-  background-size: 0% 1px;
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  transition: background-size 0.3s ease;
-  padding-bottom: 2px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
-.prose-article a:not(.glossary-tip):hover,
-.prose-article a:not(.glossary-tip):focus-visible {
-  background-size: 100% 1px;
-}
-@media (prefers-reduced-motion: reduce) {
-  .prose-article a:not(.glossary-tip) {
-    transition: none;
-  }
+.prose-article a:not(.glossary-tip, .toc-link):hover,
+.prose-article a:not(.glossary-tip, .toc-link):focus-visible {
+  text-decoration-thickness: 2px;
 }
 .prose-article em {
   font-style: italic;
@@ -815,9 +831,9 @@ a {
     display: none;
   }
 
-  /* 本文リンク。既存の .prose-article a:not(.glossary-tip) と同じ詳細度で後置して勝たせる */
+  /* 本文リンク。既存の .prose-article a:not(.glossary-tip, .toc-link) と同じ詳細度で後置して勝たせる */
   .link-underline,
-  .prose-article a:not(.glossary-tip) {
+  .prose-article a:not(.glossary-tip, .toc-link) {
     color: inherit;
     text-decoration: underline;
   }

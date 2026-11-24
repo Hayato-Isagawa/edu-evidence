@@ -28,6 +28,64 @@ test.describe("用語ツールチップ", () => {
   });
 });
 
+test.describe("用語ツールチップ(タッチ)", () => {
+  test.use({
+    hasTouch: true,
+    isMobile: true,
+    viewport: { width: 390, height: 844 },
+  });
+
+  test("1 回目のタップで説明が出て、2 回目で用語集へ移る", async ({ page }) => {
+    await page.goto("/strategies/metacognition/");
+    const tip = page.locator(".glossary-tip").first();
+    const bubble = page.locator(".glossary-bubble");
+    await tip.scrollIntoViewIfNeeded();
+    await tip.tap();
+    await expect(bubble).toHaveAttribute("data-state", "visible");
+    await page.waitForTimeout(500);
+    expect(page.url()).toContain("/strategies/metacognition/");
+    await tip.tap();
+    await page.waitForURL(/\/guide\/glossary\//);
+  });
+
+  test("ほかの場所をタップすると消える", async ({ page }) => {
+    await page.goto("/strategies/metacognition/");
+    const tip = page.locator(".glossary-tip").first();
+    const bubble = page.locator(".glossary-bubble");
+    await tip.scrollIntoViewIfNeeded();
+    await tip.tap();
+    await expect(bubble).toHaveAttribute("data-state", "visible");
+    // 左の余白(リンクの無い場所)
+    await page.touchscreen.tap(4, 400);
+    await expect(bubble).toHaveAttribute("data-state", "hidden");
+    expect(page.url()).toContain("/strategies/metacognition/");
+  });
+});
+
+test.describe("用語ツールチップ(キーボード)", () => {
+  test("フォーカスで説明が出て、Esc で消え、Enter で用語集へ移る", async ({
+    page,
+  }) => {
+    await page.goto("/strategies/metacognition/");
+    const tip = page.locator(".glossary-tip").first();
+    const bubble = page.locator(".glossary-bubble");
+    await tip.scrollIntoViewIfNeeded();
+    // :focus-visible になるよう、キーボードで直前から移る
+    await page.keyboard.press("Tab");
+    await tip.focus();
+    await expect(bubble).toHaveAttribute("data-state", "visible");
+    await expect(tip).toHaveAttribute(
+      "aria-describedby",
+      (await bubble.getAttribute("id")) ?? "no-id"
+    );
+    await page.keyboard.press("Escape");
+    await expect(bubble).toHaveAttribute("data-state", "hidden");
+    await expect(tip).not.toHaveAttribute("aria-describedby");
+    await page.keyboard.press("Enter");
+    await page.waitForURL(/\/guide\/glossary\//);
+  });
+});
+
 test.describe("用語集", () => {
   test("アンカーリンクが機能する", async ({ page }) => {
     await page.goto("/guide/glossary#RCT");

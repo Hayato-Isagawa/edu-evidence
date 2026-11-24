@@ -182,9 +182,6 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
         id="mobile-menu"
         data-state="closed"
         class="mobile-menu lg:hidden"
-        role="dialog"
-        aria-modal="true"
-        aria-label="モバイルナビゲーション"
         inert
       >
         <div class="mobile-menu-inner">
@@ -378,6 +375,10 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           document.body.dataset.menu = open ? "open" : "closed";
           if (open) menu.removeAttribute("inert");
           else menu.setAttribute("inert", "");
+          // 全面を覆うので、裏の本文には触れさせない(開閉ボタンのあるヘッダーは残す)
+          for (const el of document.querySelectorAll("main, body > footer, #back-to-top, .skip-link")) {
+            el.toggleAttribute("inert", open);
+          }
           toggle.setAttribute("aria-expanded", String(open));
           toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
           if (bars.length === 3) {
@@ -392,6 +393,10 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           }
         };
         toggle.addEventListener("click", () => setOpen(!isOpen));
+        // 同じページ内へのリンクでは遷移が起きないので、押したら閉じる
+        menu.addEventListener("click", (e) => {
+          if (isOpen && e.target.closest("a")) setOpen(false);
+        });
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape" && isOpen) setOpen(false);
         });
@@ -454,6 +459,7 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
       (function () {
         var bubble = document.createElement("div");
         bubble.className = "glossary-bubble";
+        bubble.id = "glossary-bubble";
         bubble.setAttribute("aria-hidden", "true");
         bubble.dataset.state = "hidden";
         document.body.appendChild(bubble);
@@ -485,23 +491,55 @@ const escapeLd = (obj: object): string => JSON.stringify(obj).replace(/</g, "\\u
           }, 100);
         }
 
-        document.addEventListener("mouseover", function (e) {
-          var el = e.target.closest(".glossary-tip");
-          if (el) show(el);
-        });
-        document.addEventListener("mouseout", function (e) {
-          var el = e.target.closest(".glossary-tip");
-          if (el) hide();
-        });
-        // タッチ対応: タップで表示、もう一度タップで用語集へ
-        document.addEventListener("click", function (e) {
-          var el = e.target.closest(".glossary-tip");
-          if (!el) return;
-          if (bubble.dataset.state === "visible" && bubble.textContent === el.getAttribute("data-tip")) {
-            return; // 2回目のタップ: リンク先へ遷移を許可
-          }
-          e.preventDefault();
+        var current = null;
+        function open(el) {
+          if (current && current !== el) current.removeAttribute("aria-describedby");
+          current = el;
           show(el);
+          el.setAttribute("aria-describedby", bubble.id);
+        }
+        function close() {
+          if (!current) return;
+          current.removeAttribute("aria-describedby");
+          current = null;
+          hide();
+        }
+        function tipOf(e) {
+          return e.target instanceof Element ? e.target.closest(".glossary-tip") : null;
+        }
+
+        // マウス: 重ねている間だけ出す
+        document.addEventListener("pointerover", function (e) {
+          var el = tipOf(e);
+          if (el && e.pointerType === "mouse") open(el);
+        });
+        document.addEventListener("pointerout", function (e) {
+          if (tipOf(e) && e.pointerType === "mouse") close();
+        });
+
+        // キーボード: フォーカスで出し、Esc で消す。Enter はそのまま用語集へ移る
+        document.addEventListener("focusin", function (e) {
+          var el = tipOf(e);
+          if (el && el.matches(":focus-visible")) open(el);
+        });
+        document.addEventListener("focusout", function (e) {
+          if (tipOf(e)) close();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") close();
+        });
+
+        // タッチ: 1 回目のタップで出し、2 回目で用語集へ移る。ほかの場所のタップで消す
+        var touched = false;
+        document.addEventListener("pointerdown", function (e) {
+          touched = e.pointerType !== "mouse";
+          if (touched && current && tipOf(e) !== current) close();
+        });
+        document.addEventListener("click", function (e) {
+          var el = tipOf(e);
+          if (!el || !touched || e.detail === 0 || current === el) return;
+          e.preventDefault();
+          open(el);
         });
       })();
     </script>
