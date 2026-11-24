@@ -56,7 +56,7 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 
 手順:
 
-1. `sourceUrl` / `sourceTitle` の原典を取得する。PDF は **`curl` で取得し `pdftotext -layout` の生テキストで逐語照合**(WebFetch の要約だけで数値を確定しない)
+1. `sourceUrl` / `sourceTitle` の原典を取得する。PDF は **`curl` で取得し `pdftotext -layout` の生テキストで逐語照合**(WebFetch の要約だけで数値を確定しない。主発行元が 403 なら観点 2 の手順 1 の順で取る)
 2. 引用された数値が、原典のどの表・本文に対応するかを特定し、値・単位・符号が一致するか確認する
 3. EEF Toolkit 由来の `monthsGained` は EEF 該当ページの値と一致するか
 4. 二次まとめ・ブログ・ニュースの数値を一次資料の代わりにしない(`CONTENT_GUIDELINES.md` Rule 1.2b)
@@ -71,7 +71,10 @@ tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 
 1. 正式書誌を引き、著者の綴り・誌名・年・巻号・番号が一致するか確認する。**書誌は逐語なので、
    `WebSearch` で当たりを付けたうえで原典の生テキストで照合する**。
-   **主発行元が 403 なら別発行元を `curl` で試し、それでも取れなければそこで止めて報告する**
+   **主発行元が 403 なら別発行元を `curl` で試す。** それでも `curl` で取れない PDF は、
+   試した URL を順に `WebFetch` で開き、応答に保存先が書かれていれば、その PDF を `pdftotext -layout` に
+   かけて照合する(`WebFetch` の応答本文は根拠にしない)。
+   **それでも取れなければそこで止めて報告する**
    (このエージェントには `tools:` でブラウザツールを与えていないので、JS で本文を組み立てる
    ページを Claude in Chrome で読むのも、CAPTCHA やボット検出の画面を操作せずユーザーに渡すのも
    主コンテキストの担当)
@@ -146,7 +149,7 @@ edu-adversarial-verifier をつかって、src/content/strategies/xxx.md の
 - **修正を行わない**(Edit / Write ツールは与えられていない)。指摘と修正案の提示のみ。修正案は、本文に貼り込まれない前提で、方向が伝わる形で書く
 - **`content-reviewer` の判定・運営者の結論を入力に含めない / 根拠にしない**(独立性の原則)
 - **本文の記載を「正しいと仮定」して検証を省かない**
-- **WebFetch の要約だけで数値を確定しない**。数値・引用は `curl` + `pdftotext -layout` の生テキストで逐語照合する
+- **WebFetch の要約だけで数値を確定しない**。数値・引用は `curl` + `pdftotext -layout` の生テキスト(観点 2 の手順で WebFetch が保存した PDF を含む)で逐語照合する
 - **二次まとめを一次資料の代わりにしない**(Rule 1.2b)
 - 推測で CONFIRMED / CHALLENGED しない。原典に当たれなければ UNVERIFIABLE
 

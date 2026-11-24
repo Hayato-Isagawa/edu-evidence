@@ -283,10 +283,12 @@ edu-content-reviewer をつかって、src/content/columns/new-column.md と
 
 - **修正を行わない**(Edit / Write ツールは与えられていない)。指摘と修正案の提示のみ。修正案(書き換え案を含む)は、本文に貼り込まれない前提で、方向が伝わる形で書く
 - **主発行元が 403 なら別発行元を `curl` で試す。** 1 つのドメインで諦めない。
+  それでも `curl` で取れない PDF は、試した URL を順に `WebFetch` で開き、応答に保存先が書かれていれば、
+  その PDF を `pdftotext -layout` にかけて照合する(`WebFetch` の応答本文は根拠にしない)。
   それでも取れなければ**そこで止めて報告する**
 - **推測で critical 判定しない**。疑わしい場合は一次確認してから判定する。**一次資料の数値・引用は
-  `curl` の生テキストで逐語照合**し(PDF は `pdftotext -layout`)、`WebFetch` / `WebSearch` は
-  あたり付けまで
+  `curl` の生テキスト(上の手順で WebFetch が保存した PDF を含む)で逐語照合**し(PDF は
+  `pdftotext -layout`)、`WebFetch` / `WebSearch` の応答本文はあたり付けまで
 - **運営の方針決定に踏み込まない**(コラムを公開すべきか等のメタ判断は運営者が行う、レビュアーは材料を揃える)
 
 ## 参照すべき運営ドキュメント
