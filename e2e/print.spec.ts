@@ -127,8 +127,23 @@ test.describe("印刷スタイル", () => {
     await page.addStyleTag({
       content: "*{transition:none!important;animation:none!important}",
     });
-    const link = page.locator(".prose-article a:not(.glossary-tip)").first();
+    const link = page
+      .locator(".prose-article a:not(.glossary-tip, .toc-link)")
+      .first();
     await expect(link).toHaveCSS("color", "rgb(0, 0, 0)");
     await expect(link).toHaveCSS("text-decoration-line", "underline");
+    await expect(link).toHaveCSS("border-bottom-width", "0px");
+  });
+
+  test("本文の .link-underline も黒の下線になる", async ({ page }) => {
+    await page.goto("/about/");
+    await page.emulateMedia({ media: "print" });
+    await page.addStyleTag({
+      content: "*{transition:none!important;animation:none!important}",
+    });
+    const link = page.locator("main .link-underline.text-accent").first();
+    await expect(link).toHaveCSS("color", "rgb(0, 0, 0)");
+    await expect(link).toHaveCSS("text-decoration-line", "underline");
+    await expect(link).toHaveCSS("border-bottom-width", "0px");
   });
 });

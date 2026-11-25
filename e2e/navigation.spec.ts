@@ -12,15 +12,71 @@ test.describe("ナビゲーション", () => {
     const menu = page.locator("#mobile-menu");
     await expect(menu).not.toHaveAttribute("inert");
     await expect(menu).toHaveAttribute("data-state", "open");
-    await expect(menu).toHaveAttribute("role", "dialog");
-    await expect(menu).toHaveAttribute("aria-modal", "true");
     await expect(toggle).toHaveAttribute("aria-expanded", "true");
     await expect(page.locator("body")).toHaveAttribute("data-menu", "open");
+    for (const behind of [
+      "main",
+      "body > footer",
+      "#back-to-top",
+      ".skip-link",
+    ]) {
+      await expect(page.locator(behind)).toHaveAttribute("inert", "");
+    }
     await toggle.click();
     await expect(menu).toHaveAttribute("inert", "");
     await expect(menu).toHaveAttribute("data-state", "closed");
     await expect(toggle).toHaveAttribute("aria-expanded", "false");
     await expect(page.locator("body")).toHaveAttribute("data-menu", "closed");
+    for (const behind of [
+      "main",
+      "body > footer",
+      "#back-to-top",
+      ".skip-link",
+    ]) {
+      await expect(page.locator(behind)).not.toHaveAttribute("inert");
+    }
+  });
+
+  test("モバイルメニューを開いている間、Tab が裏の本文に入らない", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/");
+    await page.locator("#menu-toggle").click();
+    // 開いて 50ms 後に検索欄へ移るのを待つ(待たないと、下で動かした位置が上書きされる)
+    await expect(page.locator("#mobile-menu-search-input")).toBeFocused();
+    await page.locator("#mobile-menu :is(a, button)").last().focus();
+    const seen = new Set<string>();
+    for (let i = 0; i < 12; i++) {
+      await page.keyboard.press("Tab");
+      seen.add(
+        await page.evaluate(() => {
+          const el = document.activeElement;
+          if (!el || el === document.body) return "body";
+          if (el.closest("#mobile-menu")) return "menu";
+          if (el.closest("header")) return "header";
+          return el.closest("main") ? "main" : "other";
+        })
+      );
+    }
+    expect(seen).not.toContain("main");
+    expect(seen).not.toContain("other");
+    // 閉じるボタン(ヘッダー)へは届く
+    expect(seen).toContain("header");
+  });
+
+  test("同じページ内のリンクを押すとメニューが閉じる", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/");
+    const toggle = page.locator("#menu-toggle");
+    await toggle.click();
+    await page.locator('#mobile-menu a[href="/#strategy-list"]').click();
+    await expect(page.locator("#mobile-menu")).toHaveAttribute(
+      "data-state",
+      "closed"
+    );
+    await expect(page.locator("body")).toHaveAttribute("data-menu", "closed");
+    await expect(page.locator("#strategy-list")).toBeInViewport();
   });
 
   test("モバイルメニューに 5 つのセクション(Explore / Learn / About / Sister Sites / Display)が表示される", async ({
