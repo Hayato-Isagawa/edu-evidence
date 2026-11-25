@@ -820,6 +820,7 @@ body[data-menu="open"] {
     line-height: 1.6;
   }
   /* 本文は 1.0625rem なので、そのままだと 11pt より少し大きい */
+  .prose-article,
   .prose-article p,
   .prose-article li {
     font-size: 11pt;

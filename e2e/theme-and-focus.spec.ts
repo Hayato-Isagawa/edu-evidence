@@ -244,3 +244,15 @@ test("本文の文字が、ブラウザの文字サイズの設定に従い、�
   await page.reload();
   expect(await size()).toBe(21.25);
 });
+
+test("よくある質問の本文も、印刷では 11pt になる", async ({ page }) => {
+  await page.emulateMedia({ media: "print" });
+  await page.goto("/faq/");
+  const sizes = await page
+    .locator(".prose-article")
+    .evaluateAll((els) =>
+      els.map((el) => parseFloat(getComputedStyle(el).fontSize))
+    );
+  expect(sizes.length).toBeGreaterThan(5);
+  for (const size of sizes) expect(size).toBeCloseTo((11 * 96) / 72, 1);
+});
