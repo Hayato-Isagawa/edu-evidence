@@ -32,6 +32,7 @@ const targets = [
   { name: "用語集", path: "/guide/glossary/" },
   { name: "About", path: "/about/" },
   { name: "Voices", path: "/voices/" },
+  { name: "更新履歴", path: "/changelog/" },
 ];
 
 const wcagTags = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];

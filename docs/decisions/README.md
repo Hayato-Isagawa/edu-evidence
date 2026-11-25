@@ -56,7 +56,7 @@
 - [0008. 直線 3px アクセントバーは角張ったリスト要素のみに適用する](0008-linear-accent-bar-scope.md)
 - [0009. ファーストビュー(Hero)は縦積み + 大型 H1 を共通スタイルとする](0009-stacked-hero-with-large-h1.md)
 - [0010. 本文フォントはシステムフォントスタックに統一し Web フォントを廃止する](0010-system-font-stack-no-webfont.md)
-- [0011. ダークモードはシステム追従デフォルト + 手動切替トグル(`data-theme` 属性)で提供する](0011-dark-mode-data-theme-with-system-default.md)
+- [0011. ダークモードはシステム追従デフォルト + 手動切替トグル(`data-theme` 属性)で提供する](0011-dark-mode-data-theme-with-system-default.md)(一部撤回)
 - [0012. 投稿系ページ(コラム / ダイジェスト)のメタ配置を姉妹サイトで統一する](0012-posts-meta-layout-unified.md)
 - [0013. ダークモードのトークン値を可読性重視に再調整する](0013-dark-mode-readability-tuning.md)
 - [0014. 本文タイポグラフィを可読性重視にチューニングする](0014-prose-typography-readability-tuning.md)
@@ -95,3 +95,4 @@
 - [0047. engines を Node 26 に上げ、Workers Builds の npm を固定する(ADR 0002 と 0046 の engines の決定を上書き)](0047-node-26-engines-and-npm.md)
 - [0048. PR の Actions が全部成功したときだけ、PR に 1 回だけ通知する(ci-summary・edu-law ADR 0036 ミラー)](0048-ci-summary-notify-once-on-success.md)
 - [0049. 本文のリンクは平常時も下線で示す](0049-underline-body-links.md)
+- [0050. テーマの切替で OS と同じ色へ戻したら、OS の設定に従う状態へ戻す](0050-theme-follows-os-again.md)

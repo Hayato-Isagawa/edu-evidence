@@ -39,6 +39,7 @@ edu-law ADR 0029 と同じ:
 - 本文リンクの色は `.prose-article a:not(.glossary-tip)` で書く。`.prose-article a` では既存の
   同名規則(用語リンクを除外している)に詳細度で負ける(実測)
 - `.prose-article` が `17px` 固定(`p` / `li` はそれを継承)なので `html { font-size: 11pt }` が効かず、`p` / `li` に別に 11pt を当てる
+  (注 2026-11-25: `.prose-article` は `1.0625rem` に変えた。そのままだと約 11.7pt になるので、`p` / `li` の 11pt は残す)
 - `<details>` はコラム 6 本のグラフのデータ表(`details.chart-data-table`)にもある。CSS では開けないので
   閉じたまま受け入れる(SVG のグラフ本体は印刷される)
 - `inline-flex` の外部リンクは無い(dist 全 HTML で実測 0)ので、law の `display: inline` は写さない
