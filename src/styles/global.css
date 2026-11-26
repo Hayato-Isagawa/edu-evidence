@@ -361,13 +361,14 @@ body[data-menu="open"] {
   border: 1px solid var(--color-line);
   border-radius: 0.5rem;
   color: var(--color-ink);
-  outline: none;
   transition:
     border-color 200ms ease-out,
     box-shadow 200ms ease-out;
 }
 .mobile-menu-search input:focus {
   border-color: var(--color-accent);
+  /* 強制カラーでは box-shadow が消えるので、見えない輪郭を残す(システムの色で描かれる) */
+  outline: 2px solid transparent;
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 20%, transparent);
 }
 .mobile-menu-search input::placeholder {
@@ -627,7 +628,7 @@ body[data-menu="open"] {
 
 /* Article body shared by /strategies and /columns */
 .prose-article {
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.8;
   text-wrap: pretty;
 }
@@ -818,7 +819,8 @@ body[data-menu="open"] {
   body {
     line-height: 1.6;
   }
-  /* 本文は px 固定なので html の pt では縮まない */
+  /* 本文は 1.0625rem なので、そのままだと 11pt より少し大きい */
+  .prose-article,
   .prose-article p,
   .prose-article li {
     font-size: 11pt;

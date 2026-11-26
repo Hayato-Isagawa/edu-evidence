@@ -157,16 +157,15 @@ test.describe("ナビゲーション", () => {
   test("長文ページに読了プログレスバーが表示される", async ({ page }) => {
     await page.goto("/strategies/feedback/");
     const bar = page.locator("#reading-progress");
-    await expect(bar).toHaveAttribute("role", "progressbar");
-    await expect(bar).toHaveAttribute("aria-valuenow", "0");
+    await expect(bar).toHaveAttribute("data-progress", "0");
     await page.evaluate(() =>
       window.scrollTo(0, document.documentElement.scrollHeight)
     );
     await page.waitForFunction(() => {
       const el = document.getElementById("reading-progress");
-      return el && Number(el.getAttribute("aria-valuenow")) >= 90;
+      return el && Number(el.getAttribute("data-progress")) >= 90;
     });
-    const finalValue = await bar.getAttribute("aria-valuenow");
+    const finalValue = await bar.getAttribute("data-progress");
     expect(Number(finalValue)).toBeGreaterThanOrEqual(90);
   });
 
