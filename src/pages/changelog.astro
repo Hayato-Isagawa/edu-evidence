@@ -25,6 +25,10 @@ const entries: ChangelogEntry[] = [
     date: "2026-11-25",
     items: [
       {
+        type: "fix",
+        text: "一度切り替えたライト / ダークの表示を、端末の設定に合わせる状態へ戻せるようにしました。ブラウザの文字サイズの設定が本文にも効くようにし、検索を読み込めなかったときの案内も直しました",
+      },
+      {
         type: "update",
         text: "GIGA 端末のコラムに、ネット依存が疑われる子どもの割合の、より新しい調査を加えました",
         links: [{ label: "GIGAスクール端末で何が変わったか？", href: "/columns/giga-school-evidence" }],
@@ -1759,7 +1763,7 @@ const typeLabel: Record<string, { label: string; color: string }> = {
                   <span>
                     {item.text}
                     {item.links && (
-                      <span class="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs">
+                      <span class="mt-1.5 flex flex-wrap gap-x-4 gap-y-2 text-xs">
                         {item.links.map((l) => (
                           <a href={l.href} class="link-underline">
                             {l.label} <span aria-hidden="true">→</span>
